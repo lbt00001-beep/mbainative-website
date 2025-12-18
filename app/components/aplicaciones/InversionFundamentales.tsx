@@ -60,6 +60,33 @@ export default function InversionFundamentales() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [tickerInput, setTickerInput] = useState('');
   const [analysisResult, setAnalysisResult] = useState<any>(null);
+  
+  // Tooltip State
+  const [tooltipData, setTooltipData] = useState<{visible: boolean, x: number, y: number, content: React.ReactNode | null}>({
+    visible: false, x: 0, y: 0, content: null
+  });
+
+  const handleTooltipEnter = (e: React.MouseEvent, content: React.ReactNode) => {
+    console.log('Tooltip Enter', e.clientX, e.clientY);
+    setTooltipData({
+      visible: true,
+      x: e.clientX,
+      y: e.clientY,
+      content
+    });
+  };
+
+  const handleTooltipMove = (e: React.MouseEvent) => {
+    console.log('Tooltip Move', e.clientX, e.clientY);
+    if (tooltipData.visible) {
+        setTooltipData(prev => ({ ...prev, x: e.clientX, y: e.clientY }));
+    }
+  };
+
+  const handleTooltipLeave = () => {
+    console.log('Tooltip Leave');
+    setTooltipData(prev => ({ ...prev, visible: false }));
+  };
 
   const fetchYahoo = async (ticker: string, modules: string[]) => {
     const res = await fetch(`/api/quoteSummary?t=${ticker}&modules=${modules.join(',')}`);
@@ -314,23 +341,28 @@ export default function InversionFundamentales() {
             <div className={styles.split}>
                 <div className={styles.gaugeBox}>
                     <div className={styles.verdict}>
-                        <Tooltip content={
-                            <div>
-                                <strong style={{color:'#fff', display:'block', marginBottom:4}}>Índice de Salud Fundamental (0-100)</strong>
-                                Evalúa rentabilidad, eficiencia, deuda y valoración.<br/><br/>
-                                <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'4px', alignItems:'center'}}>
-                                  <span style={{color:'#EF4444'}}>●</span> <span>0-49: Débil / Riesgo alto</span>
-                                  <span style={{color:'#F59E0B'}}>●</span> <span>50-64: Mixto / Precaución</span>
-                                  <span style={{color:'#10B981'}}>●</span> <span>65-79: Fuerte</span>
-                                  <span style={{color:'var(--accent)'}}>●</span> <span>80-100: Muy fuerte</span>
+                        <div 
+                            style={{cursor: 'help', width: 'fit-content'}}
+                            onMouseEnter={(e) => handleTooltipEnter(e, (
+                                <div>
+                                    <strong style={{color:'#fff', display:'block', marginBottom:4}}>Índice de Salud Fundamental (0-100)</strong>
+                                    Evalúa rentabilidad, eficiencia, deuda y valoración.<br/><br/>
+                                    <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'4px', alignItems:'center'}}>
+                                      <span style={{color:'#EF4444'}}>●</span> <span>0-49: Débil / Riesgo alto</span>
+                                      <span style={{color:'#F59E0B'}}>●</span> <span>50-64: Mixto / Precaución</span>
+                                      <span style={{color:'#10B981'}}>●</span> <span>65-79: Fuerte</span>
+                                      <span style={{color:'var(--accent)'}}>●</span> <span>80-100: Muy fuerte</span>
+                                    </div>
                                 </div>
-                            </div>
-                        }>
+                            ))}
+                            onMouseMove={handleTooltipMove}
+                            onMouseLeave={handleTooltipLeave}
+                        >
                             <div className={styles.label}>Puntuación fundamental ⓘ</div>
                             <div className={styles.big} style={{color: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}>
                                {fmt0.format(analysisResult.score?.score || 0)}/100
                             </div>
-                        </Tooltip>
+                        </div>
                         <div className={styles.barwrap}>
                             <div className={styles.bar}>
                                 <i style={{width: `${analysisResult.score?.score || 0}%`, backgroundColor: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}></i>
@@ -426,6 +458,28 @@ export default function InversionFundamentales() {
             <div className={styles.footer}>
                 <p><strong>Nota:</strong> Estos datos provienen de Yahoo Finance y pueden diferir de reportes oficiales. El "Score" es un modelo simplificado con fines educativos, no una recomendación de inversión. Haz tu propia diligencia (DYOR).</p>
             </div>
+        </div>
+      )}
+      
+      {/* Global Tooltip Renderer */}
+      {tooltipData.visible && (
+        <div style={{
+            position: 'fixed',
+            top: tooltipData.y + 15,
+            left: tooltipData.x + 15,
+            zIndex: 999999,
+            backgroundColor: '#1F2937',
+            color: '#F9FAFB',
+            padding: '12px',
+            borderRadius: '8px',
+            width: '280px',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.8)',
+            border: '1px solid #4B5563',
+            fontSize: '12px',
+            lineHeight: '1.5',
+            pointerEvents: 'none' // Crucial to prevent flickering
+        }}>
+            {tooltipData.content}
         </div>
       )}
     </div>

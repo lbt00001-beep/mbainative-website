@@ -322,3 +322,29 @@ DEBUG: Attempting to get crumb with cookie: A3=d=AQABBIl4RGkCEBbBlxdIEWCFlNzoH-N
 DEBUG: Successfully got crumb: jlk9lDwQuFF
  GET /api/quoteSummary?t=AES&modules=price,summaryDetail,defaultKeyStatistics,financialData,assetProfile 200 in 1023ms
  ✓ Compiled in 616ms (796 modules)
+ GET /aplicaciones/inversion-fundamentales 200 in 96ms
+DEBUG: Attempting to get cookie from fc.yahoo.com
+DEBUG: Response status from fc.yahoo.com: 404
+DEBUG: Response headers from fc.yahoo.com: Headers {
+  date: 'Thu, 18 Dec 2025 21:58:37 GMT',
+  connection: 'keep-alive',
+  server: 'ATS',
+  'cache-control': 'no-store',
+  'content-type': 'text/html',
+  'content-language': 'en',
+  'x-content-type-options': 'nosniff',
+  'referrer-policy': 'no-referrer-when-downgrade',
+  'set-cookie': 'A3=d=AQABBA15RGkCEIOE2BeVS-2SF_y5BGdG5a0FEgEBAQHKRWlOaeTo7L8A_eMDAA&S=AQAAAkpCw0zdnuKMgtCZCBcnYYo; Expires=Sat, 19 Dec 2026 03:58:37 GMT; Max-Age=31557600; Domain=.yahoo.com; Path=/; SameSite=None; Secure; HttpOnly',
+  'content-length': '4742'
+}
+DEBUG: Raw Set-Cookie header: [
+  'A3=d=AQABBA15RGkCEIOE2BeVS-2SF_y5BGdG5a0FEgEBAQHKRWlOaeTo7L8A_eMDAA&S=AQAAAkpCw0zdnuKMgtCZCBcnYYo; Expires=Sat, 19 Dec 2026 03:58:37 GMT; Max-Age=31557600; Domain=.yahoo.com; Path=/; SameSite=None; Secure; HttpOnly'
+]
+DEBUG: Extracted cookie: A3=d=AQABBA15RGkCEIOE2BeVS-2SF_y5BGdG5a0FEgEBAQHKRWlOaeTo7L8A_eMDAA&S=AQAAAkpCw0zdnuKMgtCZCBcnYYo
+DEBUG: Attempting to get crumb with cookie: A3=d=AQABBA15RGkCEIOE2BeVS-2SF_y5BGdG5a0FEgEBAQHKRWlOaeTo7L8A_eMDAA&S=AQAAAkpCw0zdnuKMgtCZCBcnYYo
+DEBUG: Successfully got crumb: Q375f0JJgr0
+ GET /api/quoteSummary?t=ADBE&modules=price,summaryDetail,defaultKeyStatistics,financialData,assetProfile 200 in 525ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 655ms (799 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 752ms
+ ✓ Compiled in 529ms (801 modules)

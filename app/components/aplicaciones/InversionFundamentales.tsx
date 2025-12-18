@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './InversionFundamentales.module.css';
 import { sp500Tickers } from './sp500_tickers';
+import Tooltip from '@/components/Tooltip';
 
 // Type definitions
 interface Metric {
@@ -313,14 +314,8 @@ export default function InversionFundamentales() {
             <div className={styles.split}>
                 <div className={styles.gaugeBox}>
                     <div className={styles.verdict}>
-                        <div className={styles.tooltip}>
-                            <div className={styles.label}>Puntuación fundamental ⓘ</div>
-                            
-                            <div className={styles.big} style={{color: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}>
-                               {fmt0.format(analysisResult.score?.score || 0)}/100
-                            </div>
-                            
-                            <div className={styles.tooltiptext}>
+                        <Tooltip content={
+                            <div>
                                 <strong style={{color:'#fff', display:'block', marginBottom:4}}>Índice de Salud Fundamental (0-100)</strong>
                                 Evalúa rentabilidad, eficiencia, deuda y valoración.<br/><br/>
                                 <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'4px', alignItems:'center'}}>
@@ -330,8 +325,12 @@ export default function InversionFundamentales() {
                                   <span style={{color:'var(--accent)'}}>●</span> <span>80-100: Muy fuerte</span>
                                 </div>
                             </div>
-                        </div>
-
+                        }>
+                            <div className={styles.label}>Puntuación fundamental ⓘ</div>
+                            <div className={styles.big} style={{color: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}>
+                               {fmt0.format(analysisResult.score?.score || 0)}/100
+                            </div>
+                        </Tooltip>
                         <div className={styles.barwrap}>
                             <div className={styles.bar}>
                                 <i style={{width: `${analysisResult.score?.score || 0}%`, backgroundColor: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}></i>

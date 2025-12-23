@@ -339,25 +339,25 @@ export default function InversionFundamentales() {
             
             {/* Score & Verdict Section */}
             <div className={styles.split}>
-                <div className={styles.gaugeBox}>
+                <div 
+                    className={styles.gaugeBox}
+                    onMouseEnter={(e) => handleTooltipEnter(e, (
+                        <div>
+                            <strong style={{color:'#fff', display:'block', marginBottom:4}}>Índice de Salud Fundamental (0-100)</strong>
+                            Evalúa rentabilidad, eficiencia, deuda y valoración.<br/><br/>
+                            <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'4px', alignItems:'center'}}>
+                              <span style={{color:'#EF4444'}}>●</span> <span>0-49: Débil / Riesgo alto</span>
+                              <span style={{color:'#F59E0B'}}>●</span> <span>50-64: Mixto / Precaución</span>
+                              <span style={{color:'#10B981'}}>●</span> <span>65-79: Fuerte</span>
+                              <span style={{color:'var(--accent)'}}>●</span> <span>80-100: Muy fuerte</span>
+                            </div>
+                        </div>
+                    ))}
+                    onMouseMove={handleTooltipMove}
+                    onMouseLeave={handleTooltipLeave}
+                >
                     <div className={styles.verdict}>
-                        <div 
-                            style={{cursor: 'help', width: 'fit-content'}}
-                            onMouseEnter={(e) => handleTooltipEnter(e, (
-                                <div>
-                                    <strong style={{color:'#fff', display:'block', marginBottom:4}}>Índice de Salud Fundamental (0-100)</strong>
-                                    Evalúa rentabilidad, eficiencia, deuda y valoración.<br/><br/>
-                                    <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'4px', alignItems:'center'}}>
-                                      <span style={{color:'#EF4444'}}>●</span> <span>0-49: Débil / Riesgo alto</span>
-                                      <span style={{color:'#F59E0B'}}>●</span> <span>50-64: Mixto / Precaución</span>
-                                      <span style={{color:'#10B981'}}>●</span> <span>65-79: Fuerte</span>
-                                      <span style={{color:'var(--accent)'}}>●</span> <span>80-100: Muy fuerte</span>
-                                    </div>
-                                </div>
-                            ))}
-                            onMouseMove={handleTooltipMove}
-                            onMouseLeave={handleTooltipLeave}
-                        >
+                        <div style={{width: 'fit-content'}}>
                             <div className={styles.label}>Puntuación fundamental ⓘ</div>
                             <div className={styles.big} style={{color: analysisResult.score?.score >= 65 ? 'var(--accent)' : (analysisResult.score?.score >= 50 ? '#F59E0B' : '#EF4444')}}>
                                {fmt0.format(analysisResult.score?.score || 0)}/100
@@ -404,7 +404,18 @@ export default function InversionFundamentales() {
                                     </td>
                                     <td style={{textAlign:'right', fontWeight:600, fontFamily:'monospace'}}>{m.fmt(m.val)}</td>
                                     <td style={{textAlign:'center'}}>
-                                         <div className={styles.tag} style={{
+                                         <div 
+                                            className={styles.tag} 
+                                            onMouseEnter={(e) => handleTooltipEnter(e, (
+                                                <div>
+                                                    <strong style={{color:'#fff', display:'block', marginBottom:4}}>{m.name}</strong>
+                                                    {m.why}
+                                                </div>
+                                            ))}
+                                            onMouseMove={handleTooltipMove}
+                                            onMouseLeave={handleTooltipLeave}
+                                            style={{
+                                             cursor: 'help',
                                              borderColor: m.score(m.val)! >= 65 ? 'rgba(34,197,94,.3)' : (m.score(m.val)! >= 50 ? 'rgba(251,191,36,.3)' : 'rgba(239,68,68,.3)'),
                                              background: m.score(m.val)! >= 65 ? 'rgba(34,197,94,.1)' : (m.score(m.val)! >= 50 ? 'rgba(251,191,36,.1)' : 'rgba(239,68,68,.1)'),
                                              color: m.score(m.val)! >= 65 ? '#15803d' : (m.score(m.val)! >= 50 ? '#b45309' : '#b91c1c')
@@ -440,7 +451,18 @@ export default function InversionFundamentales() {
                                     </td>
                                     <td style={{textAlign:'right', fontWeight:600, fontFamily:'monospace'}}>{m.fmt(m.val)}</td>
                                      <td style={{textAlign:'center'}}>
-                                         <div className={styles.tag} style={{
+                                         <div 
+                                            className={styles.tag} 
+                                            onMouseEnter={(e) => handleTooltipEnter(e, (
+                                                <div>
+                                                    <strong style={{color:'#fff', display:'block', marginBottom:4}}>{m.name}</strong>
+                                                    {m.why}
+                                                </div>
+                                            ))}
+                                            onMouseMove={handleTooltipMove}
+                                            onMouseLeave={handleTooltipLeave}
+                                            style={{
+                                             cursor: 'help',
                                              borderColor: m.score(m.val)! >= 65 ? 'rgba(34,197,94,.3)' : (m.score(m.val)! >= 50 ? 'rgba(251,191,36,.3)' : 'rgba(239,68,68,.3)'),
                                              background: m.score(m.val)! >= 65 ? 'rgba(34,197,94,.1)' : (m.score(m.val)! >= 50 ? 'rgba(251,191,36,.1)' : 'rgba(239,68,68,.1)'),
                                              color: m.score(m.val)! >= 65 ? '#15803d' : (m.score(m.val)! >= 50 ? '#b45309' : '#b91c1c')

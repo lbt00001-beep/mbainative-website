@@ -450,3 +450,16 @@ DEBUG: Successfully got crumb: YodnFYQjEUj
  GET /api/quoteSummary?t=AES&modules=price,summaryDetail,defaultKeyStatistics,financialData,assetProfile 200 in 855ms
  GET /aplicaciones/inversion-fundamentales 200 in 615ms
  GET /aplicaciones/inversion-fundamentales 200 in 56ms
+ ✓ Compiled in 3.2s (792 modules)
+ ✓ Compiled in 181ms (467 modules)
+ ✓ Compiled in 2.6s (792 modules)
+ ✓ Compiled in 187ms (467 modules)
+ ✓ Compiled in 488ms (792 modules)
+ ✓ Compiled in 2s (467 modules)
+ ✓ Compiled in 468ms (467 modules)
+ ✓ Compiled in 3.7s (467 modules)
+ ✓ Compiled in 458ms (467 modules)
+ ✓ Compiled in 1415ms (792 modules)
+ ✓ Compiled in 271ms (467 modules)
+ ✓ Compiled in 1788ms (792 modules)
+ ✓ Compiled in 705ms (467 modules)

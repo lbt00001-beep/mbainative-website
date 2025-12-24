@@ -10,14 +10,27 @@ export default function Aplicaciones() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          <div className="bg-[--dark-gray] p-8 rounded-lg shadow-lg">
+          <div className="bg-[--dark-gray] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
             <h3 className="text-2xl font-bold text-[--accent] mb-4">Estimación de Inversión con Fundamentales</h3>
             <p className="text-[--secondary] mb-4">
               Una herramienta para analizar los fundamentales de un ticker y estimar su potencial de inversión.
             </p>
             <Link
               href="/aplicaciones/inversion-fundamentales"
-              className="bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-2 px-4 rounded-md transition-colors"
+              className="bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-2 px-4 rounded-md transition-colors inline-block"
+            >
+              Abrir Aplicación
+            </Link>
+          </div>
+
+          <div className="bg-[--dark-gray] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 className="text-2xl font-bold text-[--accent] mb-4">Corrector Ortotipográfico RAE</h3>
+            <p className="text-[--secondary] mb-4">
+              Corrige tu texto siguiendo las normas de la Real Academia Española: comillas, mayúsculas, puntuación y más.
+            </p>
+            <Link
+              href="/aplicaciones/corrector-rae"
+              className="bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-2 px-4 rounded-md transition-colors inline-block"
             >
               Abrir Aplicación
             </Link>

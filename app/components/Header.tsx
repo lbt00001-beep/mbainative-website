@@ -24,9 +24,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[--primary]/80 shadow-md backdrop-blur-sm" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[--primary]/80 shadow-md backdrop-blur-sm" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto flex justify-between items-center p-4 text-[--foreground]">
         <Link href="/" className="text-2xl font-bold">
@@ -41,6 +40,9 @@ export default function Header() {
           </Link>
           <Link href="/services" className="hover:text-[--accent] transition-colors">
             Services
+          </Link>
+          <Link href="/mejores-practicas" className="hover:text-[--accent] transition-colors">
+            Mejores Prácticas
           </Link>
           <Link href="/contact" className="hover:text-[--accent] transition-colors">
             Contact
@@ -74,6 +76,7 @@ export default function Header() {
             <Link href="/" className="hover:text-[--accent] transition-colors">Home</Link>
             <Link href="/about" className="hover:text-[--accent] transition-colors">About</Link>
             <Link href="/services" className="hover:text-[--accent] transition-colors">Services</Link>
+            <Link href="/mejores-practicas" className="hover:text-[--accent] transition-colors">Mejores Prácticas</Link>
             <Link href="/contact" className="hover:text-[--accent] transition-colors">Contact</Link>
             <Link href="/aplicaciones" className="hover:text-[--accent] transition-colors">Aplicaciones</Link>
             <Link

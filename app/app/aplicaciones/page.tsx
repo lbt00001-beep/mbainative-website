@@ -26,14 +26,16 @@ export default function Aplicaciones() {
           <div className="bg-[--dark-gray] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
             <h3 className="text-2xl font-bold text-[--accent] mb-4">Corrector Ortotipográfico RAE</h3>
             <p className="text-[--secondary] mb-4">
-              Corrige tu texto siguiendo las normas de la Real Academia Española: comillas, mayúsculas, puntuación y más.
+              Corrige documentos Word (.docx) siguiendo las normas de la Real Academia Española. Análisis completo con Track Changes.
             </p>
-            <Link
-              href="/aplicaciones/corrector-rae"
+            <a
+              href="https://mbainative.pythonanywhere.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-2 px-4 rounded-md transition-colors inline-block"
             >
-              Abrir Aplicación
-            </Link>
+              Abrir Corrector RAE
+            </a>
           </div>
         </div>
       </div>

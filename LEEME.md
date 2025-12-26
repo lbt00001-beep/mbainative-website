@@ -153,19 +153,37 @@ GitHub → Actions → "Update AI News" → Run workflow
 - `/mejores-practicas/gurus` → 14 perfiles con vídeos YouTube
 - `/mejores-practicas/doctrinas` → 10 doctrinas IA con pros/contras
 
+### Fotos de Gurús
+- **Ubicación:** `public/images/gurus/`
+- **Formato:** JPG (excepto Andrej Karpathy que es PNG)
+- **Fuente:** Wikipedia Commons (licencia CC BY-SA)
+- Las fotos se alojan localmente para evitar problemas de CORS
+
 ### YouTube API Key
 1. Creada en Google Cloud Console → Proyecto: `MBAI-YouTube`
 2. **YouTube Data API v3** habilitada
 3. API Key guardada en: GitHub → Settings → Secrets → `YOUTUBE_API_KEY`
 
 ### Automatización de vídeos
-El GitHub Action también ejecuta `scripts/fetch-guru-videos.js`:
-- Busca vídeos recientes de cada gurú en YouTube
+El GitHub Action (`.github/workflows/update-news.yml`) también ejecuta:
+- `scripts/fetch-guru-videos.js` → Busca 5 vídeos recientes de cada gurú
 - Genera `public/data/gurus-videos.json`
-- Se actualiza diariamente junto con las noticias
+- Se actualiza diariamente a las 06:00 (Madrid) junto con las noticias
 
 ### 14 Gurús incluidos
 Demis Hassabis, Yann LeCun, Yoshua Bengio, Geoffrey Hinton, Gary Marcus, Sam Altman, Ilya Sutskever, Dario Amodei, Karen Hao, Mustafa Suleyman, Fei-Fei Li, Jensen Huang, Andrew Ng, Andrej Karpathy
+
+### 10 Doctrinas de la IA
+1. Scaling Laws (más escala = más capacidad)
+2. AI Factories (infraestructura industrial)
+3. World Models / JEPA
+4. Control Problem
+5. Constitutional AI
+6. Safety-First Labs
+7. Inside Warning (alerta desde dentro)
+8. Human-Centered AI
+9. AI for Science
+10. Extractive System (crítica estructural)
 
 ---
 

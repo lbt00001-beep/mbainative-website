@@ -159,7 +159,7 @@ export const GURUS: Guru[] = [
         name: "Andrej Karpathy",
         title: "AI Educator & Researcher",
         company: "Ex-Tesla, Ex-OpenAI",
-        photo: "/images/gurus/andrej-karpathy.jpg",
+        photo: "/images/gurus/andrej-karpathy.png",
         bio: "Lideró Tesla Autopilot y trabajó en OpenAI. Ahora crea contenido educativo de IA en YouTube. Altamente influyente.",
         twitter: "karpathy",
         searchQuery: "Andrej Karpathy AI tutorial",

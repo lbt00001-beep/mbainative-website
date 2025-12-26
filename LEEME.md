@@ -108,7 +108,7 @@ Analiza empresas del S&P 500 usando datos de Yahoo Finance:
 - Carga lista S&P 500 desde Wikipedia
 - Llama a `/api/quoteSummary` (proxy a Yahoo Finance)
 - Calcula índice fundamental 0-100
-- Genera PDF del informe (client-side con html2canvas + jsPDF)
+- Genera PDF del informe usando `window.print()` (guardar como PDF desde el navegador)
 
 **Archivos clave:**
 - `components/aplicaciones/InversionFundamentales.tsx`
@@ -118,19 +118,23 @@ Analiza empresas del S&P 500 usando datos de Yahoo Finance:
 **URL:** `/aplicaciones/corrector-rae` → redirige a PythonAnywhere
 
 Aplicación Flask separada hospedada en:
-- **URL:** https://mbainative.pythonanywhere.com
-- **Repo:** https://github.com/lbt00001-beep/correccion-ortotipografica
+- **URL pública:** https://mbainative.pythonanywhere.com
+- **Panel de administración:** https://www.pythonanywhere.com/user/MBAInative/
+- **Repo local:** `C:\Users\lbt00\OneDrive\Documentos\Proyectos\correccion_ortotipografica`
+- **Repo GitHub:** https://github.com/lbt00001-beep/correccion-ortotipografica
 
 ---
 
 ## 📰 AUTOMATIZACIÓN DE NOTICIAS IA
 
-Diariamente a las **06:00 AM hora Madrid**, un GitHub Action:
-1. Ejecuta `scripts/fetch-ai-news.js`
-2. Obtiene RSS de: Google Cloud, OpenAI, Microsoft, NVIDIA
+Diariamente a las **06:00 AM hora Madrid**, un GitHub Action ejecuta automáticamente:
+1. `scripts/fetch-ai-news.js`
+2. Obtiene RSS de: **Google Cloud, Google AI, Microsoft, NVIDIA**
 3. Filtra artículos por keywords de IA
 4. Genera `public/data/ai-news.json`
-5. Hace commit automático
+5. Hace commit y push automático → Hostinger reconstruye la web
+
+> **Nota:** OpenAI fue eliminado porque bloquea acceso a su RSS (Error 403)
 
 **Para ejecutar manualmente:**
 GitHub → Actions → "Update AI News" → Run workflow

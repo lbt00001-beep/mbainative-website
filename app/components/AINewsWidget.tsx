@@ -71,7 +71,13 @@ export default function AINewsWidget({ limit = 3, showViewAll = true }: Props) {
     }
 
     if (error || !news) {
-        return null; // Fail silently
+        return (
+            <div className={styles.widget}>
+                <p style={{ color: 'var(--secondary)', fontSize: '0.9rem' }}>
+                    ⚠️ Could not load AI news. <a href="/data/ai-news.json" target="_blank" style={{ color: 'var(--accent)' }}>Check JSON</a>
+                </p>
+            </div>
+        );
     }
 
     const displayNews = news.featured.slice(0, limit);

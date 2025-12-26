@@ -366,6 +366,10 @@ export default function InversionFundamentales() {
         useCORS: true,
         backgroundColor: '#0b1020',
         logging: false,
+        scrollX: 0,
+        scrollY: -window.scrollY, // Capture from correct position
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight,
       });
 
       const imgData = canvas.toDataURL('image/png');

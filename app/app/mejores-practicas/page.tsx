@@ -111,6 +111,17 @@ export default function MejoresPracticas() {
                                 <p className="text-gray-400">{sector.descripcion}</p>
                             </Link>
                         ))}
+                        {/* Noticias IA */}
+                        <Link
+                            href="/mejores-practicas/noticias"
+                            className="bg-gradient-to-br from-[--accent] to-[--accent-secondary] p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"
+                        >
+                            <div className="text-5xl mb-4">🔥</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                                Últimas Noticias IA
+                            </h3>
+                            <p className="text-white/80">Actualizado diariamente desde Google, Microsoft y NVIDIA.</p>
+                        </Link>
                     </div>
                 </div>
 

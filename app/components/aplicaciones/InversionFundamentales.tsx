@@ -351,66 +351,61 @@ export default function InversionFundamentales() {
     if (!reportRef.current || !analysisResult) return;
 
     setIsGeneratingPdf(true);
-    setStatus({ kind: '', html: '<b>Estado:</b> generando PDF…' });
+    setStatus({ kind: '', html: '<b>Estado:</b> preparando impresión…' });
 
     try {
-      // Dynamic imports to avoid SSR issues
-      const html2canvas = (await import('html2canvas')).default;
-      const jsPDF = (await import('jspdf')).default;
-
-      const element = reportRef.current;
-
-      // Create canvas from the report section
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#0b1020',
-        logging: false,
-        scrollX: 0,
-        scrollY: -window.scrollY, // Capture from correct position
-        windowWidth: element.scrollWidth,
-        windowHeight: element.scrollHeight,
-      });
-
-      const imgData = canvas.toDataURL('image/png');
-
-      // Create PDF
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-      });
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = pdfWidth - 20; // margins
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-      // If content is taller than one page, we need multiple pages
-      let heightLeft = imgHeight;
-      let position = 10; // top margin
-
-      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-      heightLeft -= (pdfHeight - 20);
-
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight + 10;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-        heightLeft -= (pdfHeight - 20);
+      // Use browser's print functionality for better quality
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        throw new Error('No se pudo abrir ventana de impresión');
       }
 
-      // Generate filename with ticker and date
-      const now = new Date();
-      const dateStr = now.toISOString().slice(0, 10);
-      const filename = `${analysisResult.ticker}_informe_${dateStr}.pdf`;
+      const content = reportRef.current.innerHTML;
+      const styles = `
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; background: white; color: #1a1a2e; }
+          h2, h3 { margin-top: 16px; }
+          table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background: #f5f5f5; }
+          .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+          .chip { background: #e8f4fc; padding: 4px 12px; border-radius: 16px; font-size: 12px; }
+          svg { max-width: 100%; height: auto; }
+          @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+        </style>
+      `;
 
-      pdf.save(filename);
-      setStatus({ kind: 'ok', html: `<b>Estado:</b> PDF descargado: <b>${filename}</b>` });
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${analysisResult.ticker} - Informe Fundamental</title>
+          ${styles}
+        </head>
+        <body>
+          <h1>Informe Fundamental: ${analysisResult.ticker}</h1>
+          <p><strong>Empresa:</strong> ${analysisResult.name} | <strong>Sector:</strong> ${analysisResult.sector}</p>
+          <p><strong>Fecha:</strong> ${new Date().toLocaleString("es-ES")}</p>
+          <hr>
+          ${content}
+        </body>
+        </html>
+      `);
+
+      printWindow.document.close();
+      printWindow.focus();
+
+      // Wait for content to load then print
+      setTimeout(() => {
+        printWindow.print();
+        // printWindow.close(); // Let user decide when to close
+        setStatus({ kind: 'ok', html: '<b>Estado:</b> ventana de impresión abierta. Guarda como PDF.' });
+        setIsGeneratingPdf(false);
+      }, 500);
+
     } catch (error) {
-      console.error('Error generating PDF:', error);
-      setStatus({ kind: 'bad', html: '<b>Error:</b> no se pudo generar el PDF.' });
-    } finally {
+      console.error('Error printing:', error);
+      setStatus({ kind: 'bad', html: '<b>Error:</b> no se pudo abrir la ventana de impresión.' });
       setIsGeneratingPdf(false);
     }
   };

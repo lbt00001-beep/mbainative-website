@@ -18,14 +18,14 @@ const parser = new Parser({
 const SOURCES = [
     {
         name: 'Google Cloud',
-        url: 'https://cloud.google.com/blog/rss/',
+        url: 'https://cloudblog.withgoogle.com/rss',
         logo: '🔵',
         category: 'cloud'
     },
     {
-        name: 'OpenAI',
-        url: 'https://openai.com/blog/rss/',
-        logo: '🟢',
+        name: 'Google AI',
+        url: 'https://blog.google/technology/ai/rss/',
+        logo: '🔵',
         category: 'ai'
     },
     {

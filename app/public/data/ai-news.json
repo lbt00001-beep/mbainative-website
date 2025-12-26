@@ -1,60 +1,140 @@
 {
-  "lastUpdated": "2025-12-26T14:47:43.525Z",
-  "totalArticles": 20,
+  "lastUpdated": "2025-12-26T16:31:41.259Z",
+  "totalArticles": 40,
   "featured": [
     {
-      "title": "Now Generally Available, NVIDIA RTX PRO 5000 72GB Blackwell GPU Expands Memory Options for Desktop Agentic AI",
-      "link": "https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/",
-      "summary": "The NVIDIA RTX PRO 5000 72GB Blackwell GPU is now generally available, bringing robust agentic and generative AI capabilities powered by the NVIDIA Blackwell architecture to more desktops and professionals across the world....",
-      "pubDate": "Thu, 18 Dec 2025 16:00:28 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 4
+      "title": "What’s new with Google Cloud",
+      "link": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "summary": "Want to know the latest from Google Cloud? Find it here in one handy location. Check back regularly for our newest updates, announcements, resources, events, learning opportunities, and more. \n\nTip: Not sure where to find what you’re looking for on the Google Cloud blog? Start here: Google Cloud blo...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 13
     },
     {
-      "title": "How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth",
-      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/",
-      "summary": "Modern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include tuning a chatbot to handle product-support questions or building a personal assistant for managing one’s schedule. A challenge remains, however, in getting a small language model t...",
-      "pubDate": "Mon, 15 Dec 2025 14:00:11 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 4
+      "title": "The Year in Google Cloud — 2025",
+      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
+      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 13
     },
     {
-      "title": "NVIDIA, US Government to Boost AI Infrastructure and R&D Investments Through Landmark Genesis Mission",
-      "link": "https://blogs.nvidia.com/blog/nvidia-us-government-to-boost-ai-infrastructure-and-rd-investments/",
-      "summary": "NVIDIA will join the U.S. Department of Energy’s (DOE) Genesis Mission as a private industry partner to keep U.S. AI both the leader and the standard in technology around the world. The Genesis Mission, which is part of an Executive Order recently signed by President Trump, aims to redefine American...",
-      "pubDate": "Thu, 18 Dec 2025 19:02:12 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 3
+      "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
+      "link": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
+      "summary": "AI and cloud technology are reshaping every corner of every industry around the world. Without our customers, there would be no Google Cloud, as they are the ones building the future on our platform. In this regular round-up, we dive into some of the exciting projects redefining businesses, shaping ...",
+      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 12
     },
     {
-      "title": "NVIDIA Acquires Open-Source Workload Management Provider SchedMD",
-      "link": "https://blogs.nvidia.com/blog/nvidia-acquires-schedmd/",
-      "summary": "NVIDIA today announced it has acquired SchedMD — the leading developer of Slurm, an open-source workload management system for high-performance computing (HPC) and AI — to help strengthen the open-source software ecosystem and drive AI innovation for researchers, developers and enterprises. NVIDIA w...",
-      "pubDate": "Mon, 15 Dec 2025 16:30:11 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 2
+      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
+      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
+      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 10
     },
     {
-      "title": "As AI Grows More Complex, Model Builders Rely on NVIDIA",
-      "link": "https://blogs.nvidia.com/blog/leading-models-nvidia/",
-      "summary": "Unveiling what it describes as the most capable model series yet for professional knowledge work, OpenAI launched GPT-5.2 today. The model was trained and deployed on NVIDIA infrastructure, including NVIDIA Hopper and GB200 NVL72 systems. GPT-5.2 achieves the top reported score for industry benchmar...",
-      "pubDate": "Thu, 11 Dec 2025 19:19:57 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 2
+      "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
+      "link": "https://cloud.google.com/blog/topics/public-sector/how-google-public-sector-and-google-deepmind-can-power-the-genesis-mission-and-a-new-era-of-scientific-discovery/",
+      "summary": "The White House's Genesis Mission has set a bold ambition for our nation: to double our scientific productivity within the decade and harness artificial intelligence (AI) to accelerate the pace of discovery. This requires a profound transformation in our national scientific enterprise, one that seam...",
+      "pubDate": "Thu, 18 Dec 2025 19:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 9
     }
   ],
   "all": [
     {
+      "title": "What’s new with Google Cloud",
+      "link": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "summary": "Want to know the latest from Google Cloud? Find it here in one handy location. Check back regularly for our newest updates, announcements, resources, events, learning opportunities, and more. \n\nTip: Not sure where to find what you’re looking for on the Google Cloud blog? Start here: Google Cloud blo...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 13
+    },
+    {
+      "title": "The Year in Google Cloud — 2025",
+      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
+      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 13
+    },
+    {
+      "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
+      "link": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
+      "summary": "AI and cloud technology are reshaping every corner of every industry around the world. Without our customers, there would be no Google Cloud, as they are the ones building the future on our platform. In this regular round-up, we dive into some of the exciting projects redefining businesses, shaping ...",
+      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 12
+    },
+    {
+      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
+      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
+      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 10
+    },
+    {
+      "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
+      "link": "https://cloud.google.com/blog/topics/public-sector/how-google-public-sector-and-google-deepmind-can-power-the-genesis-mission-and-a-new-era-of-scientific-discovery/",
+      "summary": "The White House's Genesis Mission has set a bold ambition for our nation: to double our scientific productivity within the decade and harness artificial intelligence (AI) to accelerate the pace of discovery. This requires a profound transformation in our national scientific enterprise, one that seam...",
+      "pubDate": "Thu, 18 Dec 2025 19:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 9
+    },
+    {
+      "title": "Achieve near-100% accurate text-to-SQL for your agentic apps",
+      "link": "https://cloud.google.com/blog/products/databases/optimizing-alloydb-ai-text-to-sql-accuracy/",
+      "summary": "Today’s AI capabilities provide a great opportunity to enable natural language (NL) interactions with your enterprise data through applications using text and voice. In fact, in the world of agentic applications, natural language is rapidly becoming the interaction standard. That means agents need t...",
+      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 7
+    },
+    {
+      "title": "5 ways AI agents will transform the way we work in 2026",
+      "link": "https://blog.google/products/google-cloud/ai-business-trends-report-2026/",
+      "summary": "Today, Google Cloud dropped its 2026 AI Agent Trends Report....",
+      "pubDate": "Fri, 19 Dec 2025 14:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 5
+    },
+    {
+      "title": "Agent Factory Recap: Supercharging Agents on GKE with Agent Sandbox and Pod Snapshots",
+      "link": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-supercharging-agents-on-gke-with-agent-sandbox-and-pod-snapshots/",
+      "summary": "In the latest episode of the Agent Factory, Mofi Rahman and I had the pleasure of hosting, Brandon Royal, the PM working on agentic workloads on GKE. We dove deep into the critical questions around the nuances of choosing the right agent runtime, the power of GKE for agents, and the essential securi...",
+      "pubDate": "Fri, 19 Dec 2025 10:02:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 5
+    },
+    {
       "title": "Now Generally Available, NVIDIA RTX PRO 5000 72GB Blackwell GPU Expands Memory Options for Desktop Agentic AI",
       "link": "https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/",
       "summary": "The NVIDIA RTX PRO 5000 72GB Blackwell GPU is now generally available, bringing robust agentic and generative AI capabilities powered by the NVIDIA Blackwell architecture to more desktops and professionals across the world....",
@@ -75,6 +155,36 @@
       "relevance": 4
     },
     {
+      "title": "Google's year in review: 8 areas with research breakthroughs in 2025",
+      "link": "https://blog.google/technology/ai/2025-research-breakthroughs/",
+      "summary": "This year saw new AI models, transformative products and new breakthroughs in science and robotics....",
+      "pubDate": "Tue, 23 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 3
+    },
+    {
+      "title": "Why Stochastic Rounding is Essential for Modern Generative AI",
+      "link": "https://cloud.google.com/blog/topics/developers-practitioners/why-stochastic-rounding-is-essential-for-modern-generative-ai/",
+      "summary": "In computing's early days of the 1940s, mathematicians discovered a flawed assumption about the behavior of round-off errors. Instead of canceling out, fixed-point arithmetic accumulated errors, compromising the accuracy of calculations. A few years later, \"random round-off\" was proposed, which woul...",
+      "pubDate": "Fri, 19 Dec 2025 07:46:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 3
+    },
+    {
+      "title": "From Code to Cloud: Three Labs for Deploying Your AI Agent",
+      "link": "https://cloud.google.com/blog/topics/developers-practitioners/from-code-to-cloud-three-labs-for-deploying-your-ai-agent/",
+      "summary": "You've built a powerful AI agent. It works on your local machine, it's intelligent, and it's ready to meet the world. Now, how do you take this agent from a script on your laptop to a secure, scalable, and reliable application in production? On Google Cloud, there are multiple paths to deployment, e...",
+      "pubDate": "Fri, 19 Dec 2025 07:15:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 3
+    },
+    {
       "title": "NVIDIA, US Government to Boost AI Infrastructure and R&D Investments Through Landmark Genesis Mission",
       "link": "https://blogs.nvidia.com/blog/nvidia-us-government-to-boost-ai-infrastructure-and-rd-investments/",
       "summary": "NVIDIA will join the U.S. Department of Energy’s (DOE) Genesis Mission as a private industry partner to keep U.S. AI both the leader and the standard in technology around the world. The Genesis Mission, which is part of an Executive Order recently signed by President Trump, aims to redefine American...",
@@ -83,6 +193,66 @@
       "sourceLogo": "🟩",
       "category": "hardware",
       "relevance": 3
+    },
+    {
+      "title": "Inside Kaggle's AI Agents intensive course with Google",
+      "link": "https://blog.google/technology/developers/ai-agents-intensive-recap/",
+      "summary": "Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI....",
+      "pubDate": "Thu, 18 Dec 2025 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 3
+    },
+    {
+      "title": "Watch a podcast discussion about Gemini 3 and the future of Search.",
+      "link": "https://blog.google/technology/ai/release-notes-podcast-search/",
+      "summary": "Learn how Gemini 3 powers Google Search with Generative UI, Nano Banana, and interactive graphics....",
+      "pubDate": "Thu, 18 Dec 2025 00:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 3
+    },
+    {
+      "title": "60 of our biggest AI announcements in 2025",
+      "link": "https://blog.google/technology/ai/google-ai-news-recap-2025/",
+      "summary": "Look back on Google AI news in 2025 across Gemini, Search, Pixel and more products....",
+      "pubDate": "Mon, 22 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 2
+    },
+    {
+      "title": "New in Looker: self-service Explores, tabbed dashboards, and custom themes",
+      "link": "https://cloud.google.com/blog/products/business-intelligence/looker-self-service-explores-tabbed-dashboards-custom-themes/",
+      "summary": "Data teams seem to be constantly balancing the need for governed, trusted metrics with business needs for agility and ad-hoc analysis. To help bridge the gap between managed reporting and rapid data exploration, we are introducing several new features in Looker, to expand users’ self-service capabil...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 2
+    },
+    {
+      "title": "You can now verify Google AI-generated videos in the Gemini app.",
+      "link": "https://blog.google/technology/ai/verify-google-ai-videos-gemini-app/",
+      "summary": "We’re expanding our content transparency tools to help you more easily identify AI-generated content. You can now check if a video was edited or created with Google AI d…...",
+      "pubDate": "Thu, 18 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 2
+    },
+    {
+      "title": "Gemini 3 Flash: frontier intelligence built for speed",
+      "link": "https://blog.google/products/gemini/gemini-3-flash/",
+      "summary": "Gemini 3 Flash offers frontier intelligence built for speed at a fraction of the cost....",
+      "pubDate": "Wed, 17 Dec 2025 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 2
     },
     {
       "title": "NVIDIA Acquires Open-Source Workload Management Provider SchedMD",
@@ -135,6 +305,16 @@
       "relevance": 1
     },
     {
+      "title": "40 of our most helpful AI tips from 2025",
+      "link": "https://blog.google/technology/ai/ai-tips-2025/",
+      "summary": "Learn more about the AI tips and tools Google shared in 2025....",
+      "pubDate": "Fri, 19 Dec 2025 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
+    },
+    {
       "title": "Deck the Vaults: ‘Fallout: New Vegas’ Joins the Cloud This Holiday Season",
       "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-fallout-new-vegas/",
       "summary": "Step out of the vault and into the future of gaming with Fallout: New Vegas streaming on GeForce NOW, just in time to celebrate the newest season of the hit Amazon TV show Fallout. To mark the occasion, GeForce NOW members can claim Fallout 3 and Fallout 4 as special rewards, completing a wasteland-...",
@@ -152,6 +332,26 @@
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
+      "relevance": 0
+    },
+    {
+      "title": "We’re publishing an AI playbook to help others with sustainability reporting.",
+      "link": "https://blog.google/outreach-initiatives/sustainability/ai-playbook-sustainability-reporting/",
+      "summary": "We’re sharing a practical playbook to help organizations streamline and enhance sustainability reporting with AI.Corporate transparency is essential, but navigating frag…...",
+      "pubDate": "Mon, 15 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
+    },
+    {
+      "title": "You can now have more fluid and expressive conversations when you go Live with Search.",
+      "link": "https://blog.google/products/search/live-audio-gemini-model-update/",
+      "summary": "When you go Live with Search, you can have a back-and-forth voice conversation in AI Mode to get real-time help and quickly find relevant sites across the web. And now, …...",
+      "pubDate": "Fri, 12 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
       "relevance": 0
     },
     {

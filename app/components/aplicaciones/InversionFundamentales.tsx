@@ -539,12 +539,22 @@ export default function InversionFundamentales() {
               </datalist>
 
               <div className={styles.tickerRow} style={{ marginTop: 10 }}>
-                <select className={styles.input} value={selectedSector} onChange={handleSectorChange}>
+                <select
+                  className={styles.input}
+                  value={selectedSector}
+                  onChange={handleSectorChange}
+                  style={{
+                    backgroundColor: '#f8f9fa',
+                    color: '#1a1a2e'
+                  }}
+                >
                   <option value="">— Selecciona por sector —</option>
                   {Object.keys(companiesBySector).sort().map(sector => (
-                    <optgroup key={sector} label={sector}>
+                    <optgroup key={sector} label={sector} style={{ backgroundColor: '#ffffff', color: '#333' }}>
                       {companiesBySector[sector].map(c => (
-                        <option key={c.symbol} value={c.symbol}>{c.symbol} — {c.security}</option>
+                        <option key={c.symbol} value={c.symbol} style={{ backgroundColor: '#ffffff', color: '#1a1a2e' }}>
+                          {c.symbol} — {c.security}
+                        </option>
                       ))}
                     </optgroup>
                   ))}

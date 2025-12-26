@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './InversionFundamentales.module.css';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 
 // Type definitions
 interface Metric {
@@ -356,6 +354,10 @@ export default function InversionFundamentales() {
     setStatus({ kind: '', html: '<b>Estado:</b> generando PDF…' });
 
     try {
+      // Dynamic imports to avoid SSR issues
+      const html2canvas = (await import('html2canvas')).default;
+      const jsPDF = (await import('jspdf')).default;
+
       const element = reportRef.current;
 
       // Create canvas from the report section

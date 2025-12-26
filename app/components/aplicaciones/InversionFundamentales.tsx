@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './InversionFundamentales.module.css';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 // Type definitions
 interface Metric {
@@ -76,6 +78,8 @@ export default function InversionFundamentales() {
   const [selectedSector, setSelectedSector] = useState('');
   const [sp500, setSp500] = useState<SP500Company[]>([]);
   const [analysisResult, setAnalysisResult] = useState<any>(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const reportRef = useRef<HTMLDivElement>(null);
 
   // Load S&P 500 list from Wikipedia
   useEffect(() => {
@@ -345,6 +349,66 @@ export default function InversionFundamentales() {
     }
   };
 
+  const downloadPDF = async () => {
+    if (!reportRef.current || !analysisResult) return;
+
+    setIsGeneratingPdf(true);
+    setStatus({ kind: '', html: '<b>Estado:</b> generando PDF…' });
+
+    try {
+      const element = reportRef.current;
+
+      // Create canvas from the report section
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#0b1020',
+        logging: false,
+      });
+
+      const imgData = canvas.toDataURL('image/png');
+
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      });
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pdfWidth - 20; // margins
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // If content is taller than one page, we need multiple pages
+      let heightLeft = imgHeight;
+      let position = 10; // top margin
+
+      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+      heightLeft -= (pdfHeight - 20);
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight + 10;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+        heightLeft -= (pdfHeight - 20);
+      }
+
+      // Generate filename with ticker and date
+      const now = new Date();
+      const dateStr = now.toISOString().slice(0, 10);
+      const filename = `${analysisResult.ticker}_informe_${dateStr}.pdf`;
+
+      pdf.save(filename);
+      setStatus({ kind: 'ok', html: `<b>Estado:</b> PDF descargado: <b>${filename}</b>` });
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      setStatus({ kind: 'bad', html: '<b>Error:</b> no se pudo generar el PDF.' });
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
   const handleClear = () => {
     setTickerInput('');
     setSelectedSector('');
@@ -596,67 +660,80 @@ export default function InversionFundamentales() {
                 Empresa: {analysisResult.ticker} · {analysisResult.name} · Sector: {analysisResult.sector} · Fecha: {new Date().toLocaleString("es-ES")}
               </div>
             </div>
+            <div>
+              <button
+                onClick={downloadPDF}
+                disabled={isGeneratingPdf}
+                className={styles.ghostBtn}
+                style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+              >
+                {isGeneratingPdf ? <span className={styles.spin}></span> : '📄'}
+                {isGeneratingPdf ? 'Generando…' : 'Descargar PDF'}
+              </button>
+            </div>
           </div>
+          <div ref={reportRef}>
 
-          <div className={styles.reportGrid} style={{ marginTop: 12 }}>
-            <div className={styles.reportBox}>
-              <h3>Resumen en lenguaje claro</h3>
-              <div className={styles.small} style={{ lineHeight: 1.5 }}>
-                Este informe resume la <b>salud fundamental</b> de la empresa con un índice de <b>0 a 100</b>.
-                <br /><br />
-                <b>Cómo leerlo:</b>
-                <br />• Alto: suele indicar <b>rentabilidad</b>, <b>solidez</b>, <b>crecimiento</b> y <b>caja</b>.
-                <br />• Bajo: suele indicar <b>debilidades</b> (márgenes pobres, mucha deuda, caída de ingresos…).
-                <br /><br />
-                <b>Ojo:</b> "fundamentales sanos" no equivale a "acción barata".
-              </div>
-              <div className={styles.chips} style={{ marginTop: 10 }}>
-                <span className={`${styles.badge} ${analysisResult.score >= 65 ? styles.bGood : analysisResult.score >= 50 ? styles.bWarn : styles.bBad}`}>
-                  Índice: <b>{analysisResult.score != null ? Math.round(analysisResult.score) : '—'}</b>/100 · {analysisResult.verdict.title}
-                </span>
-                <span className={styles.chip}>Calidad de datos: <b>{Math.round(analysisResult.dataQuality * 100)}%</b></span>
-                <span className={styles.chip}>Peso usado: <b>{fmt.format(analysisResult.weightUsed)}%</b></span>
-              </div>
-            </div>
-
-            <div className={styles.reportBox}>
-              <h3>Cómo se calcula (0–100)</h3>
-              <div className={styles.small} style={{ lineHeight: 1.5 }}>
-                Cada indicador se convierte en un <b>score</b> entre 0 y 100. Luego hacemos un <b>promedio ponderado</b>.
-                <br /><br />
-                <code style={{ fontFamily: 'monospace' }}>Índice = (Σ (pesoᵢ × scoreᵢ)) / (Σ pesoᵢ con dato)</code>
-                <br /><br />
-                En esta empresa hemos usado <b>{fmt.format(analysisResult.weightUsed)}%</b> del peso total.
-              </div>
-            </div>
-
-            <div className={styles.reportBox}>
-              <h3>Gráfico 1: Subíndices (0–100)</h3>
-              <BarChart items={analysisResult.subs.map((s: any) => ({ label: s.title, value: s.score }))} />
-            </div>
-
-            <div className={styles.reportBox}>
-              <h3>Gráfico 2: Métricas con más impacto</h3>
-              <BarChart items={analysisResult.contrib} leftWidth={220} />
-            </div>
-
-            <div className={styles.reportBox} style={{ gridColumn: '1 / -1' }}>
-              <h3>Fortalezas y puntos a vigilar</h3>
-              <div className={styles.reportGrid}>
-                <div>
-                  <div className={styles.small} style={{ marginBottom: 6 }}><b>Fortalezas</b></div>
-                  <div className={styles.small} style={{ lineHeight: 1.5 }}>
-                    {analysisResult.strengths.length > 0 ? analysisResult.strengths.map((s: any, i: number) => (
-                      <div key={i}>• <b>{s.name}</b> ({s.weight}%): score <b>{s.score}</b>, valor {s.value}</div>
-                    )) : '—'}
-                  </div>
+            <div className={styles.reportGrid} style={{ marginTop: 12 }}>
+              <div className={styles.reportBox}>
+                <h3>Resumen en lenguaje claro</h3>
+                <div className={styles.small} style={{ lineHeight: 1.5 }}>
+                  Este informe resume la <b>salud fundamental</b> de la empresa con un índice de <b>0 a 100</b>.
+                  <br /><br />
+                  <b>Cómo leerlo:</b>
+                  <br />• Alto: suele indicar <b>rentabilidad</b>, <b>solidez</b>, <b>crecimiento</b> y <b>caja</b>.
+                  <br />• Bajo: suele indicar <b>debilidades</b> (márgenes pobres, mucha deuda, caída de ingresos…).
+                  <br /><br />
+                  <b>Ojo:</b> "fundamentales sanos" no equivale a "acción barata".
                 </div>
-                <div>
-                  <div className={styles.small} style={{ marginBottom: 6 }}><b>Puntos a vigilar</b></div>
-                  <div className={styles.small} style={{ lineHeight: 1.5 }}>
-                    {analysisResult.risks.length > 0 ? analysisResult.risks.map((r: any, i: number) => (
-                      <div key={i}>• <b>{r.name}</b> ({r.weight}%): score <b>{r.score}</b>, valor {r.value}</div>
-                    )) : '—'}
+                <div className={styles.chips} style={{ marginTop: 10 }}>
+                  <span className={`${styles.badge} ${analysisResult.score >= 65 ? styles.bGood : analysisResult.score >= 50 ? styles.bWarn : styles.bBad}`}>
+                    Índice: <b>{analysisResult.score != null ? Math.round(analysisResult.score) : '—'}</b>/100 · {analysisResult.verdict.title}
+                  </span>
+                  <span className={styles.chip}>Calidad de datos: <b>{Math.round(analysisResult.dataQuality * 100)}%</b></span>
+                  <span className={styles.chip}>Peso usado: <b>{fmt.format(analysisResult.weightUsed)}%</b></span>
+                </div>
+              </div>
+
+              <div className={styles.reportBox}>
+                <h3>Cómo se calcula (0–100)</h3>
+                <div className={styles.small} style={{ lineHeight: 1.5 }}>
+                  Cada indicador se convierte en un <b>score</b> entre 0 y 100. Luego hacemos un <b>promedio ponderado</b>.
+                  <br /><br />
+                  <code style={{ fontFamily: 'monospace' }}>Índice = (Σ (pesoᵢ × scoreᵢ)) / (Σ pesoᵢ con dato)</code>
+                  <br /><br />
+                  En esta empresa hemos usado <b>{fmt.format(analysisResult.weightUsed)}%</b> del peso total.
+                </div>
+              </div>
+
+              <div className={styles.reportBox}>
+                <h3>Gráfico 1: Subíndices (0–100)</h3>
+                <BarChart items={analysisResult.subs.map((s: any) => ({ label: s.title, value: s.score }))} />
+              </div>
+
+              <div className={styles.reportBox}>
+                <h3>Gráfico 2: Métricas con más impacto</h3>
+                <BarChart items={analysisResult.contrib} leftWidth={220} />
+              </div>
+
+              <div className={styles.reportBox} style={{ gridColumn: '1 / -1' }}>
+                <h3>Fortalezas y puntos a vigilar</h3>
+                <div className={styles.reportGrid}>
+                  <div>
+                    <div className={styles.small} style={{ marginBottom: 6 }}><b>Fortalezas</b></div>
+                    <div className={styles.small} style={{ lineHeight: 1.5 }}>
+                      {analysisResult.strengths.length > 0 ? analysisResult.strengths.map((s: any, i: number) => (
+                        <div key={i}>• <b>{s.name}</b> ({s.weight}%): score <b>{s.score}</b>, valor {s.value}</div>
+                      )) : '—'}
+                    </div>
+                  </div>
+                  <div>
+                    <div className={styles.small} style={{ marginBottom: 6 }}><b>Puntos a vigilar</b></div>
+                    <div className={styles.small} style={{ lineHeight: 1.5 }}>
+                      {analysisResult.risks.length > 0 ? analysisResult.risks.map((r: any, i: number) => (
+                        <div key={i}>• <b>{r.name}</b> ({r.weight}%): score <b>{r.score}</b>, valor {r.value}</div>
+                      )) : '—'}
+                    </div>
                   </div>
                 </div>
               </div>

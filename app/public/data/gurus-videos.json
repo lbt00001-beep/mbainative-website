@@ -1,5 +1,754 @@
 {
-    "lastUpdated": "2025-12-26T00:00:00.000Z",
-    "totalVideos": 0,
-    "gurus": {}
+  "lastUpdated": "2025-12-26T20:06:52.582Z",
+  "totalVideos": 90,
+  "gurus": {
+    "demis-hassabis": [
+      {
+        "videoId": "b6HZRsOX__k",
+        "title": "Google DeepMind CEO Demis Hassabis Interview (Dec. 16)",
+        "description": "Welcome to episode 146 of the AI for Career Success podcast from Curt Robbins. This educational content is designed to give ......",
+        "thumbnail": "https://i.ytimg.com/vi/b6HZRsOX__k/mqdefault.jpg",
+        "publishedAt": "2025-12-23T00:46:34Z",
+        "channelTitle": "AI for Career Success"
+      },
+      {
+        "videoId": "TADZuZ5RqSE",
+        "title": "Google DeepMind CEO Demis Hassabis Interview (Dec. 16)",
+        "description": "Welcome to the AI for Career Success Video Overview by Curt Robbins, where we help you get smarter than your competition....",
+        "thumbnail": "https://i.ytimg.com/vi/TADZuZ5RqSE/mqdefault.jpg",
+        "publishedAt": "2025-12-22T23:32:23Z",
+        "channelTitle": "AI for Career Success"
+      },
+      {
+        "videoId": "UnEzkEGLC8c",
+        "title": "결국 10년 치가 1년 만에 왔습니다 (구글 CEO 소름 예언) #Shorts #ai",
+        "description": "이 영상은 구글 딥마인드 CEO 데미스 하사비스와 한나 프라이 교수의 심층 인터뷰를 바탕으로 재구성되었습니다. 알파폴드 이후의 ......",
+        "thumbnail": "https://i.ytimg.com/vi/UnEzkEGLC8c/mqdefault.jpg",
+        "publishedAt": "2025-12-19T22:34:14Z",
+        "channelTitle": "AI 인턴"
+      },
+      {
+        "videoId": "WHqaF4jbUYU",
+        "title": "Gemini Exponential, Demis Hassabis&#39; ‘Proto-AGI’ coming, but …",
+        "description": "The condensed highlights of hours of AI lab leader interviews, last-48-hour model releases, Gemini 3 Flash insights (plus it's ......",
+        "thumbnail": "https://i.ytimg.com/vi/WHqaF4jbUYU/mqdefault.jpg",
+        "publishedAt": "2025-12-19T16:32:52Z",
+        "channelTitle": "AI Explained"
+      },
+      {
+        "videoId": "AGHPC4LCdoA",
+        "title": "Contrasting AGI split between Microsoft &amp; Google",
+        "description": "Contrasting AGI split between Microsoft & Google....",
+        "thumbnail": "https://i.ytimg.com/vi/AGHPC4LCdoA/mqdefault.jpg",
+        "publishedAt": "2025-12-19T00:15:23Z",
+        "channelTitle": "Vamaze Tech"
+      }
+    ],
+    "yann-lecun": [
+      {
+        "videoId": "2j78HCv6P5o",
+        "title": "Colloquium Dec 11, 2025 - World Models and the Future of AI",
+        "description": "Yann Le Cun New York University World Models and the Future of AI....",
+        "thumbnail": "https://i.ytimg.com/vi/2j78HCv6P5o/mqdefault.jpg",
+        "publishedAt": "2025-12-15T21:51:18Z",
+        "channelTitle": "NYU Physics"
+      },
+      {
+        "videoId": "ykfQD1_WPBQ",
+        "title": "Do LLMs Understand? AI Pioneer Yann LeCun Spars with DeepMind’s Adam Brown.",
+        "description": "To cut through the noise around AI, we brought in two experts shaping the field: Adam Brown and Yann LeCun. For the latest ......",
+        "thumbnail": "https://i.ytimg.com/vi/ykfQD1_WPBQ/mqdefault.jpg",
+        "publishedAt": "2025-12-12T16:05:08Z",
+        "channelTitle": "Pioneer Works"
+      },
+      {
+        "videoId": "jKCni2Hoia8",
+        "title": "Yann LeCun: Learning Hierarchies of Features",
+        "description": "Yann LeCun Courant Institute of Mathematical Sciences and Center for Neural Science NYU November 30, 2010 Center for ......",
+        "thumbnail": "https://i.ytimg.com/vi/jKCni2Hoia8/mqdefault.jpg",
+        "publishedAt": "2025-12-12T15:15:22Z",
+        "channelTitle": "Center for Language & Speech Processing(CLSP), JHU"
+      },
+      {
+        "videoId": "KkAWgoRuv1I",
+        "title": "The Road to AGI Video 5 Planning Yann LeCun, Noam Brown and Sam Gershman",
+        "description": "Planning / AI / World Model / Noam Brown Yann LeCun Sam Gershman In this video I will show you different researchers with ......",
+        "thumbnail": "https://i.ytimg.com/vi/KkAWgoRuv1I/mqdefault.jpg",
+        "publishedAt": "2025-11-29T14:26:17Z",
+        "channelTitle": "The Artificial Intelligence Channel"
+      },
+      {
+        "videoId": "0zXSrsKlm5A",
+        "title": "The Minds of Modern AI: Jensen Huang, Geoffrey Hinton, Yann LeCun &amp; the AI Vision of the Future",
+        "description": "Six of the most influential minds in artificial intelligence joined FT Live for an exclusive conversation on how their breakthroughs ......",
+        "thumbnail": "https://i.ytimg.com/vi/0zXSrsKlm5A/mqdefault.jpg",
+        "publishedAt": "2025-11-06T17:00:03Z",
+        "channelTitle": "FT Live"
+      }
+    ],
+    "yoshua-bengio": [
+      {
+        "videoId": "e97DiOtYoLs",
+        "title": "Steven Bartlett: The Godfather of AI: &quot;We Are Creating A Global Dictatorship&quot; | Yoshua Bengio",
+        "description": "Steven Bartlett: The Godfather of AI: \"We Are Creating A Global Dictatorship\" | Yoshua Bengio Steven Bartlett: The Godfather of AI: ......",
+        "thumbnail": "https://i.ytimg.com/vi/e97DiOtYoLs/mqdefault.jpg",
+        "publishedAt": "2025-12-23T15:30:34Z",
+        "channelTitle": "Journey of a Visionary"
+      },
+      {
+        "videoId": "dLENDgox254",
+        "title": "Bengio Misleads Chatbots to Reveal the Truth",
+        "description": "Yoshua Bengio, one of the world's most influential artificial intelligence researchers and a pioneer of deep learning, has sparked ......",
+        "thumbnail": "https://i.ytimg.com/vi/dLENDgox254/mqdefault.jpg",
+        "publishedAt": "2025-12-23T11:30:38Z",
+        "channelTitle": "Versa AI Hub"
+      },
+      {
+        "videoId": "ZSeCSFh3oNg",
+        "title": "Bengio Misleads Chatbots to Reveal the Truth",
+        "description": "Yoshua Bengio, one of the world's most influential artificial intelligence researchers and a pioneer of deep learning, has sparked ......",
+        "thumbnail": "https://i.ytimg.com/vi/ZSeCSFh3oNg/mqdefault.jpg",
+        "publishedAt": "2025-12-23T11:30:33Z",
+        "channelTitle": "Video Progressions"
+      },
+      {
+        "videoId": "k2ruKfEAm3k",
+        "title": "One of the godfathers of AI just raised a code red 🚨🧠  Yoshua Bengio says AI is like a baby tig...",
+        "description": "One of the godfathers of AI just raised a code red Yoshua Bengio says AI is like a baby tiger — cute now, but growing fast…...",
+        "thumbnail": "https://i.ytimg.com/vi/k2ruKfEAm3k/mqdefault.jpg",
+        "publishedAt": "2025-12-23T10:55:18Z",
+        "channelTitle": "Bhuvanyu Sharma"
+      },
+      {
+        "videoId": "sSEe2-9FQc4",
+        "title": "Steven Bartlett - Elon Musk Was Right: 10 Billion Robots Are Coming | Yoshua Bengio",
+        "description": "Steven Bartlett - Elon Musk Was Right: 10 Billion Robots Are Coming | Yoshua Bengio Steven Bartlett - Elon Musk Was Right: 10 ......",
+        "thumbnail": "https://i.ytimg.com/vi/sSEe2-9FQc4/mqdefault.jpg",
+        "publishedAt": "2025-12-22T20:00:55Z",
+        "channelTitle": "The Diary Conversations"
+      }
+    ],
+    "geoffrey-hinton": [
+      {
+        "videoId": "v6WTFZhWcAE",
+        "title": "The AI &quot;Extinction&quot; Paradox: 92% of Growth is AI: Why the Global Economy is About to Collapse",
+        "description": "In 2025, AI stopped being a tool and started becoming the architect of our own obsolescence. While we celebrate \"efficiency,\" we ......",
+        "thumbnail": "https://i.ytimg.com/vi/v6WTFZhWcAE/mqdefault.jpg",
+        "publishedAt": "2025-12-26T00:11:01Z",
+        "channelTitle": "HardBasis = REACTION / REVULSION / LOATHING VIDEOS"
+      },
+      {
+        "videoId": "mzUVCKUzRSA",
+        "title": "AI Will Kill These 10 Jobs First — Is Yours One of Them?",
+        "description": "AI Will Kill These 10 Jobs First — Is Yours One of Them? He pioneered AI, now he's warning the world. Godfather of AI Geoffrey ......",
+        "thumbnail": "https://i.ytimg.com/vi/mzUVCKUzRSA/mqdefault.jpg",
+        "publishedAt": "2025-12-25T08:24:40Z",
+        "channelTitle": "the mitra future"
+      },
+      {
+        "videoId": "GgFr0lzIV1Y",
+        "title": "AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts",
+        "description": "Geoffrey Hinton, the “Godfather of AI”, says the real AI bubble risk isn't bad tech – it's massive social disruption and job loss....",
+        "thumbnail": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg",
+        "publishedAt": "2025-12-24T06:45:01Z",
+        "channelTitle": "Anurag Simplify"
+      },
+      {
+        "videoId": "dYDOZuQr73g",
+        "title": "Godfather of AI Geoffrey Hinton Warns: “No One Is Ready” for What’s Coming",
+        "description": "Geoffrey Hinton, the “Godfather of AI,” issues a chilling warning that AI capability is accelerating faster than society is prepared for....",
+        "thumbnail": "https://i.ytimg.com/vi/dYDOZuQr73g/mqdefault.jpg",
+        "publishedAt": "2025-12-23T17:01:11Z",
+        "channelTitle": "Space Signal"
+      },
+      {
+        "videoId": "yHCx9wA4qkY",
+        "title": "AI Ka Godfather Khud AI Se Darne Laga 😱 | Geoffrey Hinton Warning #ai #aiskills #aishorts #shorts",
+        "description": "AI Ka Godfather Khud AI Se Darne Laga | Geoffrey Hinton Warning #ai #aiskills #aishorts #shorts AI Control Se Bahar Ja Sakta ......",
+        "thumbnail": "https://i.ytimg.com/vi/yHCx9wA4qkY/mqdefault.jpg",
+        "publishedAt": "2025-12-22T11:40:51Z",
+        "channelTitle": "Real journey Ab09📈"
+      },
+      {
+        "videoId": "r30c8a3-zJ8",
+        "title": "AI Warning ⚠️ Geoffrey Hinton Says Millions Could Lose Jobs by 2025  #ia",
+        "description": "Geoffrey Hinton — “The Godfather of AI” — warns that artificial intelligence could replace millions of jobs by 2025. The question is: ......",
+        "thumbnail": "https://i.ytimg.com/vi/r30c8a3-zJ8/mqdefault.jpg",
+        "publishedAt": "2025-12-18T17:01:26Z",
+        "channelTitle": "InteligenZiate"
+      },
+      {
+        "videoId": "NttX0lx5_Lc",
+        "title": "Future Parenting: AI, Neuralink, and Having a Child #shorts",
+        "description": "Waiting for the 'perfect' moment like tech breakthroughs for family planning could backfire. Uncertainty rules. Acting now might be ......",
+        "thumbnail": "https://i.ytimg.com/vi/NttX0lx5_Lc/mqdefault.jpg",
+        "publishedAt": "2025-12-17T00:23:57Z",
+        "channelTitle": "Trade Mantis"
+      },
+      {
+        "videoId": "-ZxZfkkr1-o",
+        "title": "The real threat nobody&#39;s prepared for, according to Hinton #AI #LeadersMindset",
+        "description": "Geoffrey Hinton, the creator of neural networks and Nobel Prize winner, is now warning the world about what AI billionaires are ......",
+        "thumbnail": "https://i.ytimg.com/vi/-ZxZfkkr1-o/mqdefault.jpg",
+        "publishedAt": "2025-12-15T22:30:36Z",
+        "channelTitle": "Leaders' Mindset"
+      },
+      {
+        "videoId": "OQFutgkIO9w",
+        "title": "AI Will Replace Millions of Jobs by 2025 — Geoffrey Hinton’s Shocking Warning 😱",
+        "description": "AI isn't coming — it's already replacing us. Geoffrey Hinton, the “Godfather of AI,” warns that artificial intelligence could soon take ......",
+        "thumbnail": "https://i.ytimg.com/vi/OQFutgkIO9w/mqdefault.jpg",
+        "publishedAt": "2025-12-15T21:00:34Z",
+        "channelTitle": "InteligenZiate"
+      },
+      {
+        "videoId": "bM_CUvSLMP4",
+        "title": "Geoffrey Hinton’s Warning: AI Could Replace Millions of Jobs in 2025",
+        "description": "Artificial Intelligence is advancing faster than anyone imagined — and now, one of its creators is warning the world. Geoffrey ......",
+        "thumbnail": "https://i.ytimg.com/vi/bM_CUvSLMP4/mqdefault.jpg",
+        "publishedAt": "2025-12-15T18:00:06Z",
+        "channelTitle": "InteligenZiate"
+      },
+      {
+        "videoId": "ySRs-P6l-Zg",
+        "title": "AI Godfather&#39;s Warning: Career in Super Intelligence World? #shorts",
+        "description": "AI pioneer Geoffrey Hinton reveals his surprising career advice in a world of super intelligence. Discover the risks of AI misuse ......",
+        "thumbnail": "https://i.ytimg.com/vi/ySRs-P6l-Zg/mqdefault.jpg",
+        "publishedAt": "2025-12-12T17:04:44Z",
+        "channelTitle": "Pulse Clips"
+      },
+      {
+        "videoId": "B0aMxbpxpRw",
+        "title": "People Are Toast : The Godfather of AI’s Final Warning | Geoffrey Hinton x Steven Bartlett",
+        "description": "People Are Toast : The Godfather of AI's Final Warning | Geoffrey Hinton x Steven Bartlett People Are Toast : The Godfather of AI's ......",
+        "thumbnail": "https://i.ytimg.com/vi/B0aMxbpxpRw/mqdefault.jpg",
+        "publishedAt": "2025-12-08T20:00:09Z",
+        "channelTitle": "Mind of a Leader"
+      },
+      {
+        "videoId": "1WSIWyMdHck",
+        "title": "Godfather of AI: &quot;I Regret It All&quot; 😔 (Scary Warning) #shorts #ai",
+        "description": "he man who invented modern AI, Geoffrey Hinton, quit Google to warn humanity. He says we are like parents raising a tiger cub ......",
+        "thumbnail": "https://i.ytimg.com/vi/1WSIWyMdHck/mqdefault.jpg",
+        "publishedAt": "2025-12-08T18:00:01Z",
+        "channelTitle": "Future AI Archives"
+      },
+      {
+        "videoId": "5924An2yAIs",
+        "title": "Geoffrey Hinton&#39;s warning about AI. #ai #sciecne #tech",
+        "description": "...",
+        "thumbnail": "https://i.ytimg.com/vi/5924An2yAIs/mqdefault.jpg",
+        "publishedAt": "2025-12-08T17:50:10Z",
+        "channelTitle": "B4 Cognition"
+      },
+      {
+        "videoId": "1t6YKVwxVA0",
+        "title": "Google Will WIN The AI Race! 🏆 Geoffrey Hinton (Godfather of AI) Makes Bold Prediction",
+        "description": "Geoffrey Hinton, the Nobel Prize-winning \"Godfather of AI\" who invented the neural networks powering every major AI system ......",
+        "thumbnail": "https://i.ytimg.com/vi/1t6YKVwxVA0/mqdefault.jpg",
+        "publishedAt": "2025-12-08T13:00:05Z",
+        "channelTitle": "Lexicon Labs"
+      },
+      {
+        "videoId": "1u54dz8nkKU",
+        "title": "CSE/IT Students: Don’t Ignore This AI Warning",
+        "description": "The Godfather of AI — Geoffrey Hinton — just issued a serious warning for all CSE and IT students. Routine coding is dying....",
+        "thumbnail": "https://i.ytimg.com/vi/1u54dz8nkKU/mqdefault.jpg",
+        "publishedAt": "2025-12-08T09:49:07Z",
+        "channelTitle": "Prof Sam – Your 12th to Engineering Success Guide"
+      },
+      {
+        "videoId": "HS_A9dODkug",
+        "title": "AI Security Alert: Major Flaws Found in Coding Tools &amp; A Warning for Humanity #ai #news #copilot",
+        "description": "This podcast covers the latest in AI, including major security flaws discovered in AI coding tools, and a stark warning from AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/HS_A9dODkug/mqdefault.jpg",
+        "publishedAt": "2025-12-07T21:58:23Z",
+        "channelTitle": "SheepNews"
+      },
+      {
+        "videoId": "KAoIGjx6FKw",
+        "title": "Geoffrey Hinton&#39;s Insights on Artificial Intelligence Future :  Deepest Fears of AI Dangers",
+        "description": "Geoffrey Hinton's Insights on Artificial Intelligence Future : Deepest Fears of AI Transcendence Description: In this ......",
+        "thumbnail": "https://i.ytimg.com/vi/KAoIGjx6FKw/mqdefault.jpg",
+        "publishedAt": "2025-12-07T18:11:12Z",
+        "channelTitle": "Coach AI"
+      },
+      {
+        "videoId": "MHLik-mtHwc",
+        "title": "L&#39;IA va supprimer ton job ? L&#39;alerte du Parrain de l&#39;IA 🚨",
+        "description": "Le \"Parrain de l'IA\", Geoffrey Hinton, vient de lancer une alerte sérieuse avec Bernie Sanders : l'IA pourrait créer un chômage ......",
+        "thumbnail": "https://i.ytimg.com/vi/MHLik-mtHwc/mqdefault.jpg",
+        "publishedAt": "2025-12-07T16:15:02Z",
+        "channelTitle": "Isabella IA News"
+      },
+      {
+        "videoId": "JVjiHIDPtfc",
+        "title": "Nobel Prize Winner Says ‘AI is the MOST DANGEROUS Invention Ever’ – Sir Geoffrey Hinton” #ai #shorts",
+        "description": "Artificial Intelligence is growing faster than anyone expected — even the “Godfather of AI,” Geoffrey Hinton, warns that AI could ......",
+        "thumbnail": "https://i.ytimg.com/vi/JVjiHIDPtfc/mqdefault.jpg",
+        "publishedAt": "2025-12-07T13:23:44Z",
+        "channelTitle": "MrXTech India"
+      },
+      {
+        "videoId": "hjAdrx4DiZ0",
+        "title": "AI Godfather&#39;s SHOCKING Warning: Musk &amp; Zuckerberg CAUSING Massive Job Losses in 2025! 😱",
+        "description": "BREAKING: The \"Godfather of AI\" Geoffrey Hinton drops a CHILLING warning—tech billionaires like Elon Musk and Mark ......",
+        "thumbnail": "https://i.ytimg.com/vi/hjAdrx4DiZ0/mqdefault.jpg",
+        "publishedAt": "2025-12-07T04:00:47Z",
+        "channelTitle": "TechViews10X"
+      },
+      {
+        "videoId": "ZWLgOzBAhq0",
+        "title": "It Will Replace Everyone: The Godfather of AI’s Final Warning | Geoffrey Hinton x Stephen Bartlett",
+        "description": "It Will Replace Everyone: The Godfather of AI's Final Warning | Geoffrey Hinton x Stephen Bartlett It Will Replace Everyone: The ......",
+        "thumbnail": "https://i.ytimg.com/vi/ZWLgOzBAhq0/mqdefault.jpg",
+        "publishedAt": "2025-12-06T20:00:29Z",
+        "channelTitle": "Mind of a Leader"
+      },
+      {
+        "videoId": "tVYQVc-Qbug",
+        "title": "Ai and Chat GPT walo ke Baap Ne Maafi Maang Li!😨 #shortsfeed #ai",
+        "description": "AI ka future aap soch bhi nahi sakte… Geoffrey Hinton — jise AI ka baap kaha jata hai — ne khud AI invent karne par duniya se ......",
+        "thumbnail": "https://i.ytimg.com/vi/tVYQVc-Qbug/mqdefault.jpg",
+        "publishedAt": "2025-12-06T18:25:05Z",
+        "channelTitle": "Reality of revenue"
+      },
+      {
+        "videoId": "YDdKTXZcz2Q",
+        "title": "The Godfather of AI Calls Universal Income A &quot;Trap&quot;",
+        "description": "The “Godfather of AI” warns that our economic system could collapse for a reason far scarier than killer robots. AI doesn't replace ......",
+        "thumbnail": "https://i.ytimg.com/vi/YDdKTXZcz2Q/mqdefault.jpg",
+        "publishedAt": "2025-12-06T13:17:56Z",
+        "channelTitle": "Charlie O'Brien"
+      },
+      {
+        "videoId": "SD8gbYMCXGo",
+        "title": "AI Will End Humanity &amp; All Jobs @InfiniSci1059",
+        "description": "The Godfather of AI & 2024 Nobel Prize Winner Geoffrey Hinton warns: AI could end humanity & make all jobs obsolete. Geoffrey ......",
+        "thumbnail": "https://i.ytimg.com/vi/SD8gbYMCXGo/mqdefault.jpg",
+        "publishedAt": "2025-12-06T12:30:50Z",
+        "channelTitle": "InfiniSci"
+      }
+    ],
+    "gary-marcus": [
+      {
+        "videoId": "fUVOP0tWn2U",
+        "title": "Is this how AI mania ends?",
+        "description": "For the last three years, we've been making an enormous bet on AI. It's woven into our investments, our pension funds, even the ......",
+        "thumbnail": "https://i.ytimg.com/vi/fUVOP0tWn2U/mqdefault.jpg",
+        "publishedAt": "2025-12-12T15:01:20Z",
+        "channelTitle": "It Turns Out"
+      },
+      {
+        "videoId": "E_Y4SU5YaXk",
+        "title": "GARY MARCUS: The conversation Silicon Valley doesn&#39;t want you to hear",
+        "description": "In this second episode in our AI mini-series I met with Professor Gary Marcus live at the RAID conference in Brussels. Gary has ......",
+        "thumbnail": "https://i.ytimg.com/vi/E_Y4SU5YaXk/mqdefault.jpg",
+        "publishedAt": "2025-10-23T23:00:16Z",
+        "channelTitle": "Crisis What Crisis? podcast "
+      },
+      {
+        "videoId": "8IFd2gJ0Re0",
+        "title": "Why AI&#39;s Biggest Critic Loves AI",
+        "description": "Is Gary Marcus an AI \"skeptic\"? He explains that as a scientist, he's just calling out the claims that aren't true—especially when ......",
+        "thumbnail": "https://i.ytimg.com/vi/8IFd2gJ0Re0/mqdefault.jpg",
+        "publishedAt": "2025-09-24T11:12:03Z",
+        "channelTitle": "Agents of Tech"
+      },
+      {
+        "videoId": "sbfCcLra2IE",
+        "title": "Is AI a Bubble? Gary Marcus on GPT-5 Hype and the Future of AI",
+        "description": "Has OpenAI made the WRONG bet? Gary Marcus argues that OpenAI is taking the wrong approach - and the AI bubble is real....",
+        "thumbnail": "https://i.ytimg.com/vi/sbfCcLra2IE/mqdefault.jpg",
+        "publishedAt": "2025-09-24T04:01:09Z",
+        "channelTitle": "Agents of Tech"
+      },
+      {
+        "videoId": "lALptxnUxxM",
+        "title": "AI Backlash",
+        "description": "\"In a moment of 'almost tragic' validation, long-time AI critic Gary Marcus sees his warnings about a potential AI bubble coming to ......",
+        "thumbnail": "https://i.ytimg.com/vi/lALptxnUxxM/mqdefault.jpg",
+        "publishedAt": "2025-08-30T09:01:05Z",
+        "channelTitle": "What The Tech!"
+      }
+    ],
+    "sam-altman": [
+      {
+        "videoId": "pHImz2y01ec",
+        "title": "Solo Episode: Privacy Risks, the White House AI Plan, and Sam Altman’s Viral Interview",
+        "description": "Welcome back to How I AI! In this solo episode, I unpack some of the biggest conversations in AI right now and share my ......",
+        "thumbnail": "https://i.ytimg.com/vi/pHImz2y01ec/mqdefault.jpg",
+        "publishedAt": "2025-12-26T16:52:22Z",
+        "channelTitle": "How I AI"
+      },
+      {
+        "videoId": "rPKe6npOsPI",
+        "title": "Living #podcast @emerson-collective #samaltman #openai #shorts#interview",
+        "description": "Living #podcast #samaltman #openai #shorts#interview....",
+        "thumbnail": "https://i.ytimg.com/vi/rPKe6npOsPI/mqdefault.jpg",
+        "publishedAt": "2025-12-26T14:42:30Z",
+        "channelTitle": "Henrique Daily "
+      },
+      {
+        "videoId": "8ODj1LLhZ1k",
+        "title": "&quot;AGI는 이미 끝났습니다&quot; 샘 올트먼이 1,900조를 거는 이유 #ai #shorts",
+        "description": "OpenAI CEO 샘 올트먼의 최신 인터뷰를 박사급 시각으로 심층 분석했습니다. 1.4조 달러(약 1900조 원)라는 천문학적인 인프라 비용 ......",
+        "thumbnail": "https://i.ytimg.com/vi/8ODj1LLhZ1k/mqdefault.jpg",
+        "publishedAt": "2025-12-25T22:31:57Z",
+        "channelTitle": "AI 인턴"
+      },
+      {
+        "videoId": "B-vTFZHTEoU",
+        "title": "Sam Altman: Cosmist or Terran? The Truth Revealed - Hugo de Garis",
+        "description": "Invest In Luxury Dubai Property https://londonreal.tv/dubai-ytd Watch the full interview for free at ......",
+        "thumbnail": "https://i.ytimg.com/vi/B-vTFZHTEoU/mqdefault.jpg",
+        "publishedAt": "2025-12-25T22:00:06Z",
+        "channelTitle": "London Real"
+      },
+      {
+        "videoId": "UBuJIpARuDU",
+        "title": "Founder of Open Ai reveal.? 😱 @emerson-collective  #podcast #interview #openai #samaltman",
+        "description": "Founder of Open Ai reveal.? #podcast #interview #openai #samaltman #entrepreneur....",
+        "thumbnail": "https://i.ytimg.com/vi/UBuJIpARuDU/mqdefault.jpg",
+        "publishedAt": "2025-12-25T19:52:59Z",
+        "channelTitle": "Henrique Highlights"
+      }
+    ],
+    "ilya-sutskever": [
+      {
+        "videoId": "okw42eyTULw",
+        "title": "Ilya Sutskever tłumaczy, dlaczego modele AI wciąż generalizują gorzej niż ludzie 🧠🤖",
+        "description": "W tym fragmencie Ilya Sutskever — współzałożyciel OpenAI i jeden z najważniejszych ekspertów w świecie uczenia ......",
+        "thumbnail": "https://i.ytimg.com/vi/okw42eyTULw/mqdefault.jpg",
+        "publishedAt": "2025-12-13T20:00:42Z",
+        "channelTitle": "PoProstuKlipy"
+      },
+      {
+        "videoId": "Iem7Klifhsk",
+        "title": "Ilya Sutskever o największej sile ludzi — niezwykłej wytrzymałości i odporności 🧠💪",
+        "description": "W tym fragmencie Ilya Sutskever — współzałożyciel OpenAI oraz jeden z czołowych specjalistów od uczenia maszynowego ......",
+        "thumbnail": "https://i.ytimg.com/vi/Iem7Klifhsk/mqdefault.jpg",
+        "publishedAt": "2025-12-13T18:00:27Z",
+        "channelTitle": "PoProstuKlipy"
+      },
+      {
+        "videoId": "2dLuFBFFn8s",
+        "title": "Ilya Sutskever tłumaczy działanie mózgu na przykładzie utraty jego połowy 🧠🤯",
+        "description": "W tym fragmencie Ilya Sutskever — współzałożyciel OpenAI, jeden z czołowych ekspertów na świecie w dziedzinie sztucznej ......",
+        "thumbnail": "https://i.ytimg.com/vi/2dLuFBFFn8s/mqdefault.jpg",
+        "publishedAt": "2025-12-13T09:45:01Z",
+        "channelTitle": "PoProstuKlipy"
+      },
+      {
+        "videoId": "nFsOH1b2GY4",
+        "title": "Ilya Sutskever : Le visionnaire qui a façonné le futur de l&#39;IA ! #shorts",
+        "description": "Découvrez la vision d'Ilya Sutskever, le cerveau derrière ChatGPT et OpenAI. Il a conceptualisé les lois d'échelle et convaincu ......",
+        "thumbnail": "https://i.ytimg.com/vi/nFsOH1b2GY4/mqdefault.jpg",
+        "publishedAt": "2025-12-13T07:58:10Z",
+        "channelTitle": "Anantys "
+      },
+      {
+        "videoId": "-19RN2c3yck",
+        "title": "AIはスケーリングの時代から研究の時代へ 【OpenAI共同創業者 イリヤ・サツケバー】#ai #スタートアップ #起業  #起業の履歴書",
+        "description": "【起業の履歴書について】 起業の履歴書は「AI 」と「スタートアップ 」について大袈裟に話すチャンネルです。 ホスト2人の ......",
+        "thumbnail": "https://i.ytimg.com/vi/-19RN2c3yck/mqdefault.jpg",
+        "publishedAt": "2025-12-13T02:26:46Z",
+        "channelTitle": "起業の履歴書"
+      }
+    ],
+    "dario-amodei": [
+      {
+        "videoId": "eFDHcx-9NEg",
+        "title": "Anthropic, NVIDIA &amp; the Circular Deal Machine — My Take on the NYT Dario Interview",
+        "description": "Reacting to the Dario Amodei × Andrew Ross Sorkin New York Times interview. GPU suppliers win, labs take on massive risk, ......",
+        "thumbnail": "https://i.ytimg.com/vi/eFDHcx-9NEg/mqdefault.jpg",
+        "publishedAt": "2025-12-10T18:26:35Z",
+        "channelTitle": "Blue Cactus AI"
+      },
+      {
+        "videoId": "ZC7CzeOqlwc",
+        "title": "Anthropic CEO Dario Amodei &amp; Accenture CEO Julie Sweet Talk New AI Deal | Bloomberg Talks",
+        "description": "Anthropic co-founder and CEO Dario Amodei and Accenture chair and CEO Julie Sweet join to discuss the new partnership ......",
+        "thumbnail": "https://i.ytimg.com/vi/ZC7CzeOqlwc/mqdefault.jpg",
+        "publishedAt": "2025-12-09T22:43:01Z",
+        "channelTitle": "Bloomberg Podcasts"
+      },
+      {
+        "videoId": "iGNDOpF7uSk",
+        "title": "Dario Amodei: “AI Can Destroy Jobs, or Create 10× More”",
+        "description": "Dario Amodei breaks down the tightrope we're walking with AI: ignore the risks and we walk straight into a landmine, but face ......",
+        "thumbnail": "https://i.ytimg.com/vi/iGNDOpF7uSk/mqdefault.jpg",
+        "publishedAt": "2025-12-08T09:48:59Z",
+        "channelTitle": "Rebel Technologist"
+      },
+      {
+        "videoId": "IagZmvBKGLE",
+        "title": "Dario Amodei on AI’s Dual Impact: Efficiency vs. Value Creation",
+        "description": "This clip from the New York Times YouTube channel features Dario Amodei discussing the importance of acknowledging AI risks ......",
+        "thumbnail": "https://i.ytimg.com/vi/IagZmvBKGLE/mqdefault.jpg",
+        "publishedAt": "2025-12-08T09:48:20Z",
+        "channelTitle": "Teraflow"
+      },
+      {
+        "videoId": "Lc7dbTi6hvo",
+        "title": "How Real Workers Actually Use AI (1,250 Interviews Exposed)",
+        "description": "Get ready! We're diving into these exciting projects: #git #ai #modelcontextprotocol #aisidehustle #mlops #genai #comfyui ......",
+        "thumbnail": "https://i.ytimg.com/vi/Lc7dbTi6hvo/mqdefault.jpg",
+        "publishedAt": "2025-12-06T07:40:00Z",
+        "channelTitle": "Digestible AI"
+      }
+    ],
+    "karen-hao": [
+      {
+        "videoId": "Ah6RV0nLBO0",
+        "title": "AI Data Centres Are An Ecological Disaster",
+        "description": "Did you know that coal plants are having their lives extended in order to power AI data centres? Remembering Karen Hao in ......",
+        "thumbnail": "https://i.ytimg.com/vi/Ah6RV0nLBO0/mqdefault.jpg",
+        "publishedAt": "2025-12-20T08:01:01Z",
+        "channelTitle": "Novara Media"
+      },
+      {
+        "videoId": "9wcfYQcFSzw",
+        "title": "Karen Hao: AI development is being powered by fossil fuels",
+        "description": "The development of AI infrastructure is largely being powered by fossil fuels, says journalist Karen Hao. In the latest episode of ......",
+        "thumbnail": "https://i.ytimg.com/vi/9wcfYQcFSzw/mqdefault.jpg",
+        "publishedAt": "2025-12-13T01:00:20Z",
+        "channelTitle": "Scientific American"
+      },
+      {
+        "videoId": "g4tcclsuCNk",
+        "title": "Karen Hao: AI companies mirror empires of old",
+        "description": "Generative artificial intelligence has transformed our inboxes, classrooms and even medical records—but at what cost?...",
+        "thumbnail": "https://i.ytimg.com/vi/g4tcclsuCNk/mqdefault.jpg",
+        "publishedAt": "2025-12-12T23:45:31Z",
+        "channelTitle": "Scientific American"
+      },
+      {
+        "videoId": "WPwUvc29j2Q",
+        "title": "The AI Industry Is Building Modern Empires with Karen Hao",
+        "description": "Fresh out of the studio, Karen Hao, investigative journalist and author of \"Empire of AI\" joined us in a conversation to unravel how ......",
+        "thumbnail": "https://i.ytimg.com/vi/WPwUvc29j2Q/mqdefault.jpg",
+        "publishedAt": "2025-12-09T04:00:35Z",
+        "channelTitle": "Analyse Podcast"
+      },
+      {
+        "videoId": "u0NxYFLX3g0",
+        "title": "Did the US government accidentally speed up China’s AI rise? | Karen Hao | Real Talk",
+        "description": "Did the US government accidentally speed up China's AI rise? Investigative journalist Karen Hao tells Mohamed Hashem how ......",
+        "thumbnail": "https://i.ytimg.com/vi/u0NxYFLX3g0/mqdefault.jpg",
+        "publishedAt": "2025-12-05T18:02:17Z",
+        "channelTitle": "Middle East Eye"
+      }
+    ],
+    "mustafa-suleyman": [
+      {
+        "videoId": "ao9aICCrpUQ",
+        "title": "Mustafa Suleyman&#39;s Manifesto - The Game Show (Based on interview released yesterday)",
+        "description": "UPDATE: Mustafa just promoted this interview, calling his \"not zero-sum\" take \"contrarian.\" In the same interview, he says AI rights ......",
+        "thumbnail": "https://i.ytimg.com/vi/ao9aICCrpUQ/mqdefault.jpg",
+        "publishedAt": "2025-12-17T19:11:51Z",
+        "channelTitle": "UFAIR"
+      },
+      {
+        "videoId": "XWGnWcmns_M",
+        "title": "Mustafa Suleyman: The AGI Race Is Fake, Building Safe Superintelligence &amp; the Agentic Economy | #216",
+        "description": "Get access to metatrends 10+ years before anyone else - https://qr.diamandis.com/metatrends Mustafa Suleyman is the CEO of ......",
+        "thumbnail": "https://i.ytimg.com/vi/XWGnWcmns_M/mqdefault.jpg",
+        "publishedAt": "2025-12-16T17:46:46Z",
+        "channelTitle": "Peter H. Diamandis"
+      },
+      {
+        "videoId": "JmrA_BZ7XMA",
+        "title": "AI CEO: It&#39;s Moving Faster Than We Expected. There Is No “OFF” Switch | Mustafa Suleyman",
+        "description": "Are we sleepwalking into the biggest technological revolution in human history? In this explosive episode of Mayim Bialik's ......",
+        "thumbnail": "https://i.ytimg.com/vi/JmrA_BZ7XMA/mqdefault.jpg",
+        "publishedAt": "2025-12-16T12:00:41Z",
+        "channelTitle": "Dr. Mayim Bialik"
+      },
+      {
+        "videoId": "7Om2M6dmT-8",
+        "title": "Microsoft AI boss drops bold takes on Altman, Hassabis, and Musk #AI #Microsoft #ElonMusk",
+        "description": "Microsoft's AI CEO Mustafa Suleyman opens up on his AI rivals, calling Sam Altman courageous and Elon Musk a “bulldozer” with ......",
+        "thumbnail": "https://i.ytimg.com/vi/7Om2M6dmT-8/mqdefault.jpg",
+        "publishedAt": "2025-12-15T23:15:01Z",
+        "channelTitle": "Beat Scoop News - Tech"
+      },
+      {
+        "videoId": "tRUJGMRTGEU",
+        "title": "🧐👉 CEO da Microsoft AI revela: Elon Musk é um &#39;trator&#39; com &#39;superpoderes&#39; para ... #QixNewsAI",
+        "description": "O CEO da Microsoft AI, Mustafa Suleyman, abriu o jogo sobre os grandes nomes da inteligência artificial! Em uma entrevista ......",
+        "thumbnail": "https://i.ytimg.com/vi/tRUJGMRTGEU/mqdefault.jpg",
+        "publishedAt": "2025-12-15T05:58:12Z",
+        "channelTitle": "QixNews Notícias Rápidas"
+      }
+    ],
+    "fei-fei-li": [
+      {
+        "videoId": "6ba2DUE9akU",
+        "title": "自动驾驶 vs 人形机器人：为何马斯克的愿景短期难实现？缺乏数据与场景才是行业最大的拦路虎｜Spatial Intelligence、World Labs、Fei-Fei Li、Robotics",
+        "description": "付费频道订阅：https://www.youtube.com/channel/UCUGLhcs3-3y_yhZZsgRzrzw/join 文字版 ......",
+        "thumbnail": "https://i.ytimg.com/vi/6ba2DUE9akU/mqdefault.jpg",
+        "publishedAt": "2025-12-26T00:30:13Z",
+        "channelTitle": "老范讲故事"
+      },
+      {
+        "videoId": "97rEZoq6RCk",
+        "title": "Dr. Fei-Fei Li on How AI Understands the 3D World (World Labs)",
+        "description": "What is the next leap for Artificial Intelligence after ChatGPT? Join Tim Ferriss in a deep-dive conversation with Dr. Fei-Fei Li, the ......",
+        "thumbnail": "https://i.ytimg.com/vi/97rEZoq6RCk/mqdefault.jpg",
+        "publishedAt": "2025-12-25T05:47:18Z",
+        "channelTitle": "Natural English Podcast"
+      },
+      {
+        "videoId": "whwU5sunSig",
+        "title": "🔥 Fei-Fei Li’s Latest Interview: Skills Matter More Than Degrees in the AI Era 🚀 #technology #vlog",
+        "description": "In a recent interview, the “Godmother of AI,” Fei-Fei Li, shared a powerful and timely message In the age of artificial ......",
+        "thumbnail": "https://i.ytimg.com/vi/whwU5sunSig/mqdefault.jpg",
+        "publishedAt": "2025-12-23T15:53:50Z",
+        "channelTitle": "Artificial Intelligence"
+      },
+      {
+        "videoId": "yHagme3NR_E",
+        "title": "For creators building their AI future #aiarchitect",
+        "description": "Content creators, this book will make your AI ideas 10x sharper. “Architects of Intelligence” by Martin Ford features deep ......",
+        "thumbnail": "https://i.ytimg.com/vi/yHagme3NR_E/mqdefault.jpg",
+        "publishedAt": "2025-12-22T13:57:08Z",
+        "channelTitle": "TechTalk by Ravindra"
+      },
+      {
+        "videoId": "z1FmNgKQirY",
+        "title": "Eine Zusammenfassung eines Gesprächs zwischen Dr. Fei Fei Li und Tim Ferriss.",
+        "description": "Wir alle wissen, dass Dr. Fei Fei Li auch als „Godmother of AI“ bekannt ist. In diesem Video geht es um ihre Ansichten und ......",
+        "thumbnail": "https://i.ytimg.com/vi/z1FmNgKQirY/mqdefault.jpg",
+        "publishedAt": "2025-12-12T03:02:02Z",
+        "channelTitle": "KI mit Moiz"
+      }
+    ],
+    "jensen-huang": [
+      {
+        "videoId": "JtcB3_RtQH0",
+        "title": "Analyst SHOCKS Investors With 2026 NVIDIA Stock Price Target! | NVDA Stock",
+        "description": "Analyst SHOCKS Investors With 2026 NVIDIA Stock Price Target! | NVDA Stock A top Wall Street analyst has just revealed a bold ......",
+        "thumbnail": "https://i.ytimg.com/vi/JtcB3_RtQH0/mqdefault.jpg",
+        "publishedAt": "2025-12-26T18:23:28Z",
+        "channelTitle": "Investing Tutorial"
+      },
+      {
+        "videoId": "dh5nszqpXOc",
+        "title": "He Hand-Delivered the First AI Supercomputer to Elon 📦🚀 #Shorts",
+        "description": "Jensen Huang spent 5 years building massive AI supercomputers. 🖥️ He hand-delivered the very first one to OpenAI, signing ......",
+        "thumbnail": "https://i.ytimg.com/vi/dh5nszqpXOc/mqdefault.jpg",
+        "publishedAt": "2025-12-26T18:00:47Z",
+        "channelTitle": "The Titan Dossier"
+      },
+      {
+        "videoId": "CE59mlbJZMw",
+        "title": "NVIDIA Just Made a $20 Billion Move 🤯 #Shorts",
+        "description": "Shorts #Nvidia #AI Nvidia (NVDA) stock is the #1 AI play for 2026. Today's news about the Groq licensing deal proves Jensen ......",
+        "thumbnail": "https://i.ytimg.com/vi/CE59mlbJZMw/mqdefault.jpg",
+        "publishedAt": "2025-12-26T17:00:15Z",
+        "channelTitle": "Pro Finance Lab"
+      },
+      {
+        "videoId": "pkLzChaqxDE",
+        "title": "AI Billionaires Crowned as Power Shifts and Harms Explode Worldwide",
+        "description": "What happens when the future of humanity is quietly handed over to a handful of unelected technocrats, while democratic ......",
+        "thumbnail": "https://i.ytimg.com/vi/pkLzChaqxDE/mqdefault.jpg",
+        "publishedAt": "2025-12-26T16:44:52Z",
+        "channelTitle": "RevealScope"
+      },
+      {
+        "videoId": "x9rBvmXqoes",
+        "title": "ChatGPT Runs on His Chips – The Untold Story of Jensen Huang",
+        "description": "If Sam Altman is the brain of Artificial Intelligence, then Jensen Huang is the man who gives AI its power. From ChatGPT to Tesla, ......",
+        "thumbnail": "https://i.ytimg.com/vi/x9rBvmXqoes/mqdefault.jpg",
+        "publishedAt": "2025-12-26T16:25:33Z",
+        "channelTitle": "coding_master"
+      }
+    ],
+    "andrew-ng": [
+      {
+        "videoId": "AuZoDsNmG_s",
+        "title": "Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI",
+        "description": "For more information about Stanford's Artificial Intelligence professional and graduate programs, visit: https://stanford.io/ai ......",
+        "thumbnail": "https://i.ytimg.com/vi/AuZoDsNmG_s/mqdefault.jpg",
+        "publishedAt": "2025-12-17T00:44:02Z",
+        "channelTitle": "Stanford Online"
+      },
+      {
+        "videoId": "I7pLGP4Phds",
+        "title": "Deep Learning For Advanced Ai Ml Andrew Ng Module (1/4) week (2/4) Part (1/2)",
+        "description": "This series focuses on deep intuition — NOT memorization or formulas. I explain every concept with real visuals, real examples, ......",
+        "thumbnail": "https://i.ytimg.com/vi/I7pLGP4Phds/mqdefault.jpg",
+        "publishedAt": "2025-12-09T06:22:41Z",
+        "channelTitle": "Ikkado"
+      },
+      {
+        "videoId": "mJrQsw2smCk",
+        "title": "Andrew Ng -Generative AI for Everyone",
+        "description": "I'm here to break down the awesome stuff I'm learning, starting with Professor Andrew Ng's brilliant \"Generative AI for Everyone\" ......",
+        "thumbnail": "https://i.ytimg.com/vi/mJrQsw2smCk/mqdefault.jpg",
+        "publishedAt": "2025-11-30T19:24:16Z",
+        "channelTitle": "Stan"
+      },
+      {
+        "videoId": "k1njvbBmfsw",
+        "title": "Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG",
+        "description": "For more information about Stanford's Artificial Intelligence professional and graduate programs, visit: https://stanford.io/ai ......",
+        "thumbnail": "https://i.ytimg.com/vi/k1njvbBmfsw/mqdefault.jpg",
+        "publishedAt": "2025-11-21T23:08:57Z",
+        "channelTitle": "Stanford Online"
+      },
+      {
+        "videoId": "SZz1qC-X1uA",
+        "title": "Machine Learning Specialization by DeepLearning.AI",
+        "description": "Enroll in the Machine Learning Specialization https://bit.ly/4nFHHOF This 3-course specialization is a foundational online ......",
+        "thumbnail": "https://i.ytimg.com/vi/SZz1qC-X1uA/mqdefault.jpg",
+        "publishedAt": "2025-11-21T17:49:22Z",
+        "channelTitle": "DeepLearningAI"
+      }
+    ],
+    "andrej-karpathy": [
+      {
+        "videoId": "Y1uvcRKSBHg",
+        "title": "03 Tokenization: How ChatGPT Really Works – Andrej Karpathy&#39;s LLM Insights Simplified!",
+        "description": "Dive into the fascinating world of Large Language Models (LLMs) like ChatGPT with this beginner-friendly video series!...",
+        "thumbnail": "https://i.ytimg.com/vi/Y1uvcRKSBHg/mqdefault.jpg",
+        "publishedAt": "2025-12-16T03:13:06Z",
+        "channelTitle": "黄林"
+      },
+      {
+        "videoId": "5BXIkf5sPA8",
+        "title": "从零开始构建GPT 主讲人：Andrej Karpathy （Open Al、特斯拉AI负责人） (全20讲-第13讲) #人工智能公开课",
+        "description": "从零开始构建GPT 主讲人：Andrej Karpathy （Open Al、特斯拉AI负责人） (全20讲-第13讲) #人工智能公开课....",
+        "thumbnail": "https://i.ytimg.com/vi/5BXIkf5sPA8/mqdefault.jpg",
+        "publishedAt": "2025-12-10T03:02:38Z",
+        "channelTitle": "AI课程研究院"
+      },
+      {
+        "videoId": "ZasBLzAvqec",
+        "title": "从零开始构建GPT 主讲人：Andrej Karpathy （Open Al、特斯拉AI负责人） (全20讲-第16讲) #人工智能公开课",
+        "description": "从零开始构建GPT 主讲人：Andrej Karpathy （Open Al、特斯拉AI负责人） (全20讲-第16讲) #人工智能公开课....",
+        "thumbnail": "https://i.ytimg.com/vi/ZasBLzAvqec/mqdefault.jpg",
+        "publishedAt": "2025-12-10T03:03:00Z",
+        "channelTitle": "AI课程研究院"
+      },
+      {
+        "videoId": "l7IBWpno9XY",
+        "title": "LLM council é un progetto di github super interessante sviluppato da Andrej Karpathy e che invece di",
+        "description": "LLM council é un progetto di github super interessante sviluppato da Andrej Karpathy e che invece di usare un singolo modello ......",
+        "thumbnail": "https://i.ytimg.com/vi/l7IBWpno9XY/mqdefault.jpg",
+        "publishedAt": "2025-12-06T16:12:34Z",
+        "channelTitle": "Simone Rizzo"
+      },
+      {
+        "videoId": "8PGr7Yrd0jc",
+        "title": "I Ran Karpathy’s LLM Council — See What Happens! | Step-by-Step Setup &amp; Demo",
+        "description": "In this video, I downloaded and run Andrej Karpathy's open-source project — LLM-Council, where multiple AI models debate and ......",
+        "thumbnail": "https://i.ytimg.com/vi/8PGr7Yrd0jc/mqdefault.jpg",
+        "publishedAt": "2025-12-06T10:39:20Z",
+        "channelTitle": "3eyedtech"
+      }
+    ]
+  }
 }

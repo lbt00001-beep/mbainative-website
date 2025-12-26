@@ -122,6 +122,28 @@ export default function MejoresPracticas() {
                             </h3>
                             <p className="text-white/80">Actualizado diariamente desde Google, Microsoft y NVIDIA.</p>
                         </Link>
+                        {/* Gurús de la IA */}
+                        <Link
+                            href="/mejores-practicas/gurus"
+                            className="bg-gradient-to-br from-purple-600 to-pink-500 p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"
+                        >
+                            <div className="text-5xl mb-4">🧠</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                                ¿Qué dicen los Gurús?
+                            </h3>
+                            <p className="text-white/80">14 líderes de IA: Hinton, LeCun, Altman, Hassabis y más.</p>
+                        </Link>
+                        {/* 10 Doctrinas */}
+                        <Link
+                            href="/mejores-practicas/doctrinas"
+                            className="bg-gradient-to-br from-emerald-600 to-cyan-500 p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"
+                        >
+                            <div className="text-5xl mb-4">📜</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                                10 Doctrinas de la IA
+                            </h3>
+                            <p className="text-white/80">Tesis, impulsores y objeciones del debate actual.</p>
+                        </Link>
                     </div>
                 </div>
 

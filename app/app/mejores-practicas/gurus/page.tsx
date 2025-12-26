@@ -1,0 +1,170 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { GURUS, type Guru } from '@/data/gurus';
+import { DOCTRINES } from '@/data/doctrines';
+import styles from './gurus.module.css';
+
+interface VideoData {
+    videoId: string;
+    title: string;
+    description: string;
+    thumbnail: string;
+    publishedAt: string;
+    channelTitle: string;
+}
+
+interface GurusVideos {
+    lastUpdated: string;
+    totalVideos: number;
+    gurus: { [key: string]: VideoData[] };
+}
+
+export default function GurusPage() {
+    const [videos, setVideos] = useState<GurusVideos | null>(null);
+    const [selectedGuru, setSelectedGuru] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchVideos = async () => {
+            try {
+                const res = await fetch('/data/gurus-videos.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    setVideos(data);
+                }
+            } catch (err) {
+                console.error('Could not load videos:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchVideos();
+    }, []);
+
+    const formatDate = (dateStr: string) => {
+        return new Date(dateStr).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+    };
+
+    const getGuruDoctrines = (guru: Guru) => {
+        return guru.doctrines.map(id => DOCTRINES.find(d => d.id === id)).filter(Boolean);
+    };
+
+    return (
+        <section className={styles.container}>
+            {/* Header */}
+            <div className={styles.header}>
+                <Link href="/mejores-practicas" className={styles.backLink}>
+                    ← Mejores Prácticas
+                </Link>
+                <h1 className={styles.title}>
+                    ¿Qué dicen los <span className={styles.accent}>Gurús de la IA</span>?
+                </h1>
+                <p className={styles.subtitle}>
+                    14 líderes que definen el futuro de la Inteligencia Artificial.
+                    Sus visiones, sus debates y sus últimos vídeos.
+                </p>
+                {videos && (
+                    <p className={styles.updated}>
+                        Actualizado: {formatDate(videos.lastUpdated)} · {videos.totalVideos} vídeos
+                    </p>
+                )}
+            </div>
+
+            {/* Guru Grid */}
+            <div className={styles.grid}>
+                {GURUS.map((guru) => {
+                    const guruVideos = videos?.gurus[guru.id] || [];
+                    const isSelected = selectedGuru === guru.id;
+                    const doctrines = getGuruDoctrines(guru);
+
+                    return (
+                        <div key={guru.id} className={styles.card}>
+                            <div className={styles.cardHeader}>
+                                <img
+                                    src={guru.photo}
+                                    alt={guru.name}
+                                    className={styles.photo}
+                                />
+                                <div className={styles.info}>
+                                    <h2 className={styles.name}>{guru.name}</h2>
+                                    <p className={styles.role}>{guru.title}</p>
+                                    <p className={styles.company}>{guru.company}</p>
+                                </div>
+                            </div>
+
+                            <p className={styles.bio}>{guru.bio}</p>
+
+                            {/* Doctrines */}
+                            {doctrines.length > 0 && (
+                                <div className={styles.doctrines}>
+                                    {doctrines.map(d => d && (
+                                        <Link
+                                            key={d.id}
+                                            href={`/mejores-practicas/doctrinas#${d.id}`}
+                                            className={styles.doctrineTag}
+                                        >
+                                            {d.icon} {d.shortTitle}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Videos Toggle */}
+                            {guruVideos.length > 0 && (
+                                <>
+                                    <button
+                                        className={styles.videosToggle}
+                                        onClick={() => setSelectedGuru(isSelected ? null : guru.id)}
+                                    >
+                                        🎬 {guruVideos.length} vídeos recientes
+                                        <span className={isSelected ? styles.arrowUp : styles.arrowDown}>▼</span>
+                                    </button>
+
+                                    {isSelected && (
+                                        <div className={styles.videosList}>
+                                            {guruVideos.map((video, idx) => (
+                                                <a
+                                                    key={idx}
+                                                    href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.videoItem}
+                                                >
+                                                    <img
+                                                        src={video.thumbnail}
+                                                        alt={video.title}
+                                                        className={styles.videoThumb}
+                                                    />
+                                                    <div className={styles.videoInfo}>
+                                                        <h4 className={styles.videoTitle}>{video.title}</h4>
+                                                        <p className={styles.videoChannel}>{video.channelTitle}</p>
+                                                        <p className={styles.videoDate}>{formatDate(video.publishedAt)}</p>
+                                                    </div>
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </>
+                            )}
+
+                            {loading && <p className={styles.loading}>Cargando vídeos...</p>}
+                        </div>
+                    );
+                })}
+            </div>
+
+            {/* Link to Doctrines */}
+            <div className={styles.cta}>
+                <Link href="/mejores-practicas/doctrinas" className={styles.ctaButton}>
+                    Ver las 10 Doctrinas de la IA →
+                </Link>
+            </div>
+        </section>
+    );
+}

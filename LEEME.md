@@ -147,12 +147,22 @@ GitHub → Actions → "Update AI News" → Run workflow
 
 **Panel:** hpanel.hostinger.com
 
-### Conexión GitHub
-1. Hosting → Git
-2. Repositorio: `lbt00001-beep/mbainative-website`
-3. Branch: `master`
-4. Root directory: `app`
-5. Framework: Next.js
+### Conexión GitHub (Auto-deploy)
+**Ubicación:** Websites → [tu sitio] → **Deployment**
+
+En la parte superior aparece:
+```
+Node.js Web App
+From pushes to: mbainative-website
+```
+
+Haciendo clic en "mbainative-website" te lleva a: https://github.com/lbt00001-beep/mbainative-website
+
+**Configuración:**
+- **Repositorio:** `lbt00001-beep/mbainative-website`
+- **Branch:** `master`
+- **Root directory:** `app`
+- **Framework:** Next.js
 
 ### Cuando hay problemas de caché
 1. Panel Hostinger → Caché

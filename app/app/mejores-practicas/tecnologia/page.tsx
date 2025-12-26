@@ -104,15 +104,15 @@ export default function TecnologiaPage() {
                 <div className="mb-16 bg-[--dark-gray] rounded-xl p-8 text-center">
                     <h2 className="text-2xl font-bold text-[--accent] mb-4">📺 Fuente Principal</h2>
                     <p className="text-gray-300 mb-4">
-                        Jensen Huang - Visión sobre el futuro de las empresas AI-native
+                        Jensen Huang - Canal oficial con todas sus charlas sobre empresas AI-native
                     </p>
                     <a
-                        href="https://www.youtube.com/watch?v=dfnJFwcKiuI"
+                        href="https://www.youtube.com/@JensenNvidia"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg inline-flex items-center gap-2 transition-colors"
                     >
-                        🎥 Ver en YouTube
+                        🎥 Ver Canal de Jensen Huang
                     </a>
                 </div>
 

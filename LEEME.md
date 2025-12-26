@@ -123,7 +123,13 @@ Aplicación Flask separada hospedada en:
 - **Repo local:** `C:\Users\lbt00\OneDrive\Documentos\Proyectos\correccion_ortotipografica`
 - **Repo GitHub:** https://github.com/lbt00001-beep/correccion-ortotipografica
 
----
+### 3. Plataforma MBAI (Simulador IA Empresarial)
+**Acceso:** Botón "Acceso Plataforma" en la web
+
+Simulador de gestión empresarial AI-native desplegado en Google Cloud Run:
+- **URL:** https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/
+- **Hosting:** Google Cloud Run (europe-west1)
+- **Proyecto GCP:** juego-empresa-ia-mbai
 
 ## 📰 AUTOMATIZACIÓN DE NOTICIAS IA
 

@@ -475,3 +475,13 @@ DEBUG: Successfully got crumb: YodnFYQjEUj
  ✓ Compiled in 17.4s (792 modules)
  ✓ Compiled in 3.1s (467 modules)
  ✓ Compiled in 206ms (467 modules)
+ ✓ Compiled in 9.7s (790 modules)
+ ✓ Compiled in 530ms (799 modules)
+ ✓ Compiled in 2.1s (790 modules)
+ ✓ Compiled in 5.1s (1243 modules)
+ ✓ Compiled in 9.5s (1257 modules)
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 5.9s

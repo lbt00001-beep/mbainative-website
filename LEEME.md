@@ -147,6 +147,28 @@ GitHub → Actions → "Update AI News" → Run workflow
 
 ---
 
+## 🎬 GURÚS DE LA IA + VÍDEOS YOUTUBE
+
+**Nuevas secciones en Mejores Prácticas:**
+- `/mejores-practicas/gurus` → 14 perfiles con vídeos YouTube
+- `/mejores-practicas/doctrinas` → 10 doctrinas IA con pros/contras
+
+### YouTube API Key
+1. Creada en Google Cloud Console → Proyecto: `MBAI-YouTube`
+2. **YouTube Data API v3** habilitada
+3. API Key guardada en: GitHub → Settings → Secrets → `YOUTUBE_API_KEY`
+
+### Automatización de vídeos
+El GitHub Action también ejecuta `scripts/fetch-guru-videos.js`:
+- Busca vídeos recientes de cada gurú en YouTube
+- Genera `public/data/gurus-videos.json`
+- Se actualiza diariamente junto con las noticias
+
+### 14 Gurús incluidos
+Demis Hassabis, Yann LeCun, Yoshua Bengio, Geoffrey Hinton, Gary Marcus, Sam Altman, Ilya Sutskever, Dario Amodei, Karen Hao, Mustafa Suleyman, Fei-Fei Li, Jensen Huang, Andrew Ng, Andrej Karpathy
+
+---
+
 ## 🔧 CONFIGURACIÓN HOSTINGER
 
 **Panel:** hpanel.hostinger.com

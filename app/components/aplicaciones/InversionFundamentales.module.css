@@ -534,3 +534,21 @@
   background: rgba(255, 107, 107, .12);
   color: var(--foreground);
 }
+
+.copyright {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid var(--dark-gray);
+  color: var(--secondary);
+  font-size: 0.8rem;
+}
+
+.copyright p {
+  margin: 4px 0;
+}
+
+.copyright em {
+  font-style: italic;
+  color: var(--accent);
+}

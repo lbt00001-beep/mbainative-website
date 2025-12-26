@@ -752,6 +752,12 @@ export default function InversionFundamentales() {
           </div>
         </section>
       )}
+
+      {/* Copyright */}
+      <footer className={styles.copyright}>
+        <p>Copyright © 2025. Versión 0.0</p>
+        <p>Luis Benedicto Tuzón <em>vibe coding</em> con Claude Opus 4.5 Thinking</p>
+      </footer>
     </div>
   );
 }

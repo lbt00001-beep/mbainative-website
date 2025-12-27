@@ -6,8 +6,7 @@ export default function Hero() {
           Empresa <span className="text-[--accent]">AI-Nativa</span>
         </h1>
         <p className="text-xl md:text-2xl mb-4 max-w-4xl mx-auto animate-fade-in-up">
-          La doctrina para líderes empresariales que gestionan con inteligencia comprable,
-          empleados de silicio y organización por tareas.
+          La empresa nativa en IA no adapta procesos, los define de nuevo incluyendo el talento artificial.
         </p>
         <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-gray-400 animate-fade-in-up">
           20 principios que definen cómo organizar, dirigir y escalar empresas en la era de los agentes de IA.

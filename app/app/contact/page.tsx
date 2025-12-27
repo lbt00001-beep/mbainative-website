@@ -36,11 +36,10 @@ export default function Contact() {
             <p className="text-lg text-gray-300 mb-2">
               <strong className="text-[--accent-secondary]">Email:</strong> info@mbainative.com
             </p>
-            <p className="text-lg text-gray-300 mb-2">
-              <strong className="text-[--accent-secondary]">Teléfono:</strong> +34 123 456 789
-            </p>
             <p className="text-lg text-gray-300">
-              <strong className="text-[--accent-secondary]">Dirección:</strong> Calle Falsa 123, Madrid, España
+              <strong className="text-[--accent-secondary]">Dirección:</strong><br />
+              Calle Romero Robledo, 14<br />
+              28008-Madrid, España
             </p>
           </div>
 

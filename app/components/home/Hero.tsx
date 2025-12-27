@@ -9,9 +9,13 @@ export default function Hero() {
           La doctrina para líderes empresariales que gestionan con inteligencia comprable,
           empleados de silicio y organización por tareas.
         </p>
-        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-400 animate-fade-in-up">
+        <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-gray-400 animate-fade-in-up">
           20 principios que definen cómo organizar, dirigir y escalar empresas en la era de los agentes de IA.
         </p>
+        <div className="text-sm text-gray-500 mb-8 animate-fade-in-up">
+          <p>AI (Artificial Intelligence)</p>
+          <p>IA (Inteligencia Artificial)</p>
+        </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#doctrine"

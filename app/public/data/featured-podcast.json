@@ -1,40 +1,40 @@
 {
-    "lastUpdated": "2025-12-27T15:20:00.000Z",
+    "lastUpdated": "2025-12-27T15:40:00.000Z",
     "playlistId": "PL9WNEV0osabYA5YR5EBu3Lu_xYwAYPWoH",
     "playlistTitle": "Podcast IA | Jon Hernández",
     "latestVideo": {
         "videoId": "qgHLZuZ7mmM",
-        "title": "Podcast IA - Jon Hernández",
-        "description": "Podcast de Inteligencia Artificial con los mayores expertos en IA del mundo.",
+        "title": "Vicepresidente de Google: Tenemos un plan y NO mataremos a OpenAI",
+        "description": "Podcast con Xavi Amatriain, ex-directivo de Google, LinkedIn y Expedia, referente mundial en IA.",
         "thumbnail": "https://i.ytimg.com/vi/qgHLZuZ7mmM/mqdefault.jpg",
         "publishedAt": "2025-12-27T10:00:00.000Z",
-        "channelTitle": "Jon Hernández"
+        "channelTitle": "Podcast IA | Jon Hernández"
     },
-    "keyInsights": [
+    "keyPoints": [
         {
-            "icon": "🤖",
-            "title": "Agentes autónomos en la empresa",
-            "description": "Los agentes de IA están pasando de asistentes a trabajadores autónomos capaces de ejecutar tareas complejas sin supervisión constante."
-        },
-        {
-            "icon": "💼",
-            "title": "Transformación del mercado laboral",
-            "description": "El mercado laboral se redefine: de puestos de trabajo fijos a tareas dinámicas supervisadas por humanos y ejecutadas por IA."
-        },
-        {
-            "icon": "📊",
-            "title": "El dashboard como centro de mando",
-            "description": "Los líderes empresariales gestionarán sus equipos de agentes desde dashboards en tiempo real, no desde reuniones."
+            "icon": "🏢",
+            "title": "Producto sobre investigación",
+            "description": "OpenAI sorprendió a Google no por su tecnología, sino por convertir la investigación en un producto de consumo masivo."
         },
         {
             "icon": "🔄",
-            "title": "Escalabilidad instantánea",
-            "description": "Las empresas podrán escalar su capacidad operativa comprando más tokens y agentes, sin los límites de la contratación tradicional."
+            "title": "Reinvención del modelo de negocio",
+            "description": "La IA generativa obliga a repensar el núcleo del negocio y canibalizar el modelo actual para renacer como AI-Native."
         },
         {
-            "icon": "⚖️",
-            "title": "Supervisión y responsabilidad",
-            "description": "El rol humano evoluciona hacia la supervisión: configurar autonomías, verificar resultados y mantener la responsabilidad final."
+            "icon": "🎯",
+            "title": "Modelos especializados",
+            "description": "La ventaja competitiva vendrá del uso de modelos especializados, no solo APIs genéricas."
+        },
+        {
+            "icon": "⚡",
+            "title": "Agilidad cultural",
+            "description": "Para liderar en la era de la IA, las empresas necesitan una cultura de 'fallar rápido' y mentalidad ágil."
+        },
+        {
+            "icon": "🤝",
+            "title": "IA como aumentadora de capacidades",
+            "description": "El éxito no viene de sustituir personas, sino de crear flujos donde la IA absorba tareas de menor valor estratégico."
         }
     ]
 }

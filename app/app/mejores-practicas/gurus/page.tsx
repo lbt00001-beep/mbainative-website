@@ -181,7 +181,7 @@ function FeaturedPodcast() {
             description: string;
             publishedAt: string;
         };
-        keyInsights: Array<{
+        keyPoints: Array<{
             icon: string;
             title: string;
             description: string;
@@ -227,19 +227,21 @@ function FeaturedPodcast() {
                     />
                 </div>
 
-                {/* Key Insights */}
-                {podcast.keyInsights && podcast.keyInsights.length > 0 && (
+                {/* Key Points from Description */}
+                {podcast.keyPoints && podcast.keyPoints.length > 0 && (
                     <div className={styles.insightsContainer}>
                         <h3 className={styles.insightsTitle}>
-                            5 Ideas Clave sobre Trabajo y Empresa
+                            Puntos Clave del Podcast
                         </h3>
                         <div className={styles.insightsList}>
-                            {podcast.keyInsights.map((insight, idx) => (
+                            {podcast.keyPoints.map((point, idx) => (
                                 <div key={idx} className={styles.insightItem}>
-                                    <span className={styles.insightIcon}>{insight.icon}</span>
+                                    <span className={styles.insightIcon}>{point.icon}</span>
                                     <div>
-                                        <h4 className={styles.insightItemTitle}>{insight.title}</h4>
-                                        <p className={styles.insightDescription}>{insight.description}</p>
+                                        <h4 className={styles.insightItemTitle}>{point.title}</h4>
+                                        {point.description !== point.title && (
+                                            <p className={styles.insightDescription}>{point.description}</p>
+                                        )}
                                     </div>
                                 </div>
                             ))}

@@ -44,6 +44,10 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/fetch-featured-podcast.js
       
+      - name: Fetch Consultoras Articles
+        working-directory: ./app
+        run: node scripts/fetch-consultoras.js
+      
       - name: Check for changes
         id: check_changes
         working-directory: ./app

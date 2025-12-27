@@ -188,6 +188,17 @@ export default function MejoresPracticas() {
                             </h3>
                             <p className="text-white/80">Actualizado diariamente desde Google, Microsoft y NVIDIA.</p>
                         </Link>
+                        {/* Consultoras */}
+                        <Link
+                            href="/mejores-practicas/consultoras"
+                            className="bg-gradient-to-br from-amber-600 to-orange-500 p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"
+                        >
+                            <div className="text-5xl mb-4">📊</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                                Consultoras
+                            </h3>
+                            <p className="text-white/80">McKinsey, BCG, Deloitte: análisis sobre IA y trabajo.</p>
+                        </Link>
                     </div>
                 </div>
 

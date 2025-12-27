@@ -1,0 +1,74 @@
+{
+    "lastUpdated": "2025-12-27T22:30:00.000Z",
+    "totalArticles": 5,
+    "consultoras": [
+        {
+            "id": "mckinsey",
+            "name": "McKinsey & Company",
+            "logo": "/images/consultoras/mckinsey.png",
+            "website": "https://www.mckinsey.com/",
+            "articleCount": 3
+        },
+        {
+            "id": "bcg",
+            "name": "Boston Consulting Group",
+            "logo": "/images/consultoras/bcg.png",
+            "website": "https://www.bcg.com/",
+            "articleCount": 1
+        },
+        {
+            "id": "deloitte",
+            "name": "Deloitte",
+            "logo": "/images/consultoras/deloitte.png",
+            "website": "https://www2.deloitte.com/",
+            "articleCount": 1
+        }
+    ],
+    "articles": [
+        {
+            "title": "The economic potential of generative AI: The next productivity frontier",
+            "link": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+            "description": "Generative AI could add the equivalent of $2.6 trillion to $4.4 trillion annually across the 63 use cases we analyzed...",
+            "pubDate": "2025-12-20T10:00:00.000Z",
+            "source": "McKinsey & Company",
+            "sourceId": "mckinsey",
+            "score": 15
+        },
+        {
+            "title": "The future of work: How AI is reshaping jobs and skills",
+            "link": "https://www.mckinsey.com/featured-insights/future-of-work",
+            "description": "Our research explores how generative AI is changing the world of work, from new skills requirements to job displacement and creation...",
+            "pubDate": "2025-12-18T10:00:00.000Z",
+            "source": "McKinsey & Company",
+            "sourceId": "mckinsey",
+            "score": 14
+        },
+        {
+            "title": "AI agents: The next frontier in enterprise automation",
+            "link": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/ai-agents",
+            "description": "AI agents represent a significant leap in how enterprises can automate complex workflows and decision-making processes...",
+            "pubDate": "2025-12-15T10:00:00.000Z",
+            "source": "McKinsey & Company",
+            "sourceId": "mckinsey",
+            "score": 13
+        },
+        {
+            "title": "Generative AI and the future of work in Europe",
+            "link": "https://www.bcg.com/publications/2025/generative-ai-workforce-europe",
+            "description": "How generative AI will transform the European workforce and what companies need to do to prepare...",
+            "pubDate": "2025-12-12T10:00:00.000Z",
+            "source": "Boston Consulting Group",
+            "sourceId": "bcg",
+            "score": 12
+        },
+        {
+            "title": "The AI-powered organization: Strategies for the future",
+            "link": "https://www2.deloitte.com/us/en/insights/focus/tech-trends/ai-powered-organization.html",
+            "description": "How leading organizations are building AI capabilities to transform their operations and workforce...",
+            "pubDate": "2025-12-10T10:00:00.000Z",
+            "source": "Deloitte",
+            "sourceId": "deloitte",
+            "score": 11
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T07:35:54.770Z",
+  "lastUpdated": "2025-12-27T07:46:59.427Z",
   "totalArticles": 40,
   "featured": [
     {
@@ -135,6 +135,16 @@
       "relevance": 5
     },
     {
+      "title": "Magentic Marketplace: an open-source simulation environment for studying agentic markets",
+      "link": "https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/",
+      "summary": "AI agents are poised to transform digital marketplaces. To explore what can happen when AI agents interact and transact at scale, we built Magentic Marketplace, an open-source simulation environment for studying agentic market designs.\nThe post Magentic Marketplace: an open-source simulation environ...",
+      "pubDate": "Wed, 05 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 5
+    },
+    {
       "title": "Now Generally Available, NVIDIA RTX PRO 5000 72GB Blackwell GPU Expands Memory Options for Desktop Agentic AI",
       "link": "https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/",
       "summary": "The NVIDIA RTX PRO 5000 72GB Blackwell GPU is now generally available, bringing robust agentic and generative AI capabilities powered by the NVIDIA Blackwell architecture to more desktops and professionals across the world....",
@@ -202,6 +212,56 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
+      "relevance": 3
+    },
+    {
+      "title": "Agent Lightning: Adding reinforcement learning to AI agents without code rewrites",
+      "link": "https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/",
+      "summary": "By decoupling how agents work from how they’re trained, Agent Lightning turns each step an agent takes into data for reinforcement learning. This makes it easy for developers to improve agent performance with almost zero code changes.\nThe post Agent Lightning: Adding reinforcement learning to AI age...",
+      "pubDate": "Thu, 11 Dec 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 3
+    },
+    {
+      "title": "Reducing Privacy leaks in AI: Two approaches to contextual integrity ",
+      "link": "https://www.microsoft.com/en-us/research/blog/reducing-privacy-leaks-in-ai-two-approaches-to-contextual-integrity/",
+      "summary": "New research explores two ways to give AI agents stronger privacy safeguards grounded in contextual integrity. One adds lightweight, inference-time checks; the other builds contextual awareness directly into models through reasoning and RL.\nThe post Reducing Privacy leaks in AI: Two approaches to co...",
+      "pubDate": "Tue, 25 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 3
+    },
+    {
+      "title": "Fara-7B: An Efficient Agentic Model for Computer Use",
+      "link": "https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/",
+      "summary": "Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.\nThe post Fara-7B: An Efficient Agentic Model for...",
+      "pubDate": "Mon, 24 Nov 2025 18:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 3
+    },
+    {
+      "title": "MMCTAgent: Enabling multimodal reasoning over large video and image collections",
+      "link": "https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/",
+      "summary": "MMCTAgent enables dynamic multimodal reasoning with iterative planning and reflection. Built on Microsoft’s AutoGen framework, it integrates language, vision, and temporal understanding for complex tasks like long video and image analysis.\nThe post MMCTAgent: Enabling multimodal reasoning over large...",
+      "pubDate": "Wed, 12 Nov 2025 12:00:20 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 3
+    },
+    {
+      "title": "BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI",
+      "link": "https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/",
+      "summary": "BlueCodeAgent is an end-to-end blue-teaming framework built to boost code security using automated red-teaming processes, data, and safety rules to guide LLMs’ defensive decisions. Dynamic testing reduces false positives in vulnerability detection.\nThe post BlueCodeAgent: A blue teaming agent enable...",
+      "pubDate": "Tue, 11 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
       "relevance": 3
     },
     {
@@ -275,13 +335,13 @@
       "relevance": 2
     },
     {
-      "title": "How data and AI will transform contact centres for financial services",
-      "link": "https://cloudblogs.microsoft.com/industry-blog/en-gb/financial-services/2022/07/25/how-data-and-ai-will-transform-contact-centres-for-financial-services/",
-      "summary": "The post How data and AI will transform contact centres for financial services appeared first on The AI Blog....",
-      "pubDate": "Mon, 25 Jul 2022 14:49:33 +0000",
-      "source": "Microsoft AI",
+      "title": "When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost",
+      "link": "https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/",
+      "summary": "A collaboration between Signify and Microsoft Research shows how PIKE-RAG improves enterprise knowledge systems, delivering a 12% increase in accuracy and faster, more reliable answers.\nThe post When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost appeared f...",
+      "pubDate": "Thu, 06 Nov 2025 13:00:00 +0000",
+      "source": "Microsoft Research",
       "sourceLogo": "🔷",
-      "category": "enterprise",
+      "category": "research",
       "relevance": 2
     },
     {
@@ -302,6 +362,16 @@
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
+      "relevance": 1
+    },
+    {
+      "title": "Promptions helps make AI prompting more precise with dynamic UI controls",
+      "link": "https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/",
+      "summary": "Promptions helps developers add dynamic, context-aware controls to chat interfaces so users can guide generative AI responses. It lets users shape outputs quickly without writing long instructions.\nThe post Promptions helps make AI prompting more precise with dynamic UI controls appeared first on Mi...",
+      "pubDate": "Wed, 10 Dec 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
       "relevance": 1
     },
     {
@@ -365,93 +435,23 @@
       "relevance": 0
     },
     {
-      "title": "A conversation with Kevin Scott: What’s next in AI",
-      "link": "https://blogs.microsoft.com/ai/a-conversation-with-kevin-scott-whats-next-in-ai/",
-      "summary": "The post A conversation with Kevin Scott: What’s next in AI appeared first on The AI Blog....",
-      "pubDate": "Tue, 06 Dec 2022 17:29:09 +0000",
-      "source": "Microsoft AI",
+      "title": "GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI",
+      "link": "https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/",
+      "summary": "Using AI-generated virtual populations, Microsoft researchers uncovered hidden cellular patterns that could reshape how we understand and treat cancer. \nThe post GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI appeared first on Microsoft Research...",
+      "pubDate": "Tue, 09 Dec 2025 16:00:00 +0000",
+      "source": "Microsoft Research",
       "sourceLogo": "🔷",
-      "category": "enterprise",
+      "category": "research",
       "relevance": 0
     },
     {
-      "title": "From Hot Wheels to handling content: How brands are using Microsoft AI to be more productive and imaginative",
-      "link": "https://blogs.microsoft.com/ai/from-hot-wheels-to-handling-content-how-brands-are-using-microsoft-ai-to-be-more-productive-and-imaginative/",
-      "summary": "The post From Hot Wheels to handling content: How brands are using Microsoft AI to be more productive and imaginative appeared first on The AI Blog....",
-      "pubDate": "Wed, 12 Oct 2022 16:00:02 +0000",
-      "source": "Microsoft AI",
+      "title": "Ideas: Community building, machine learning, and the future of AI",
+      "link": "https://www.microsoft.com/en-us/research/podcast/ideas-community-building-machine-learning-and-the-future-of-ai/",
+      "summary": "As the Women in Machine Learning Workshop (WiML) marks its 20th annual gathering, cofounders, friends, and collaborators Jenn Wortman Vaughan and Hanna Wallach reflect on WiML’s evolution, navigating the field of ML, and their work in responsible AI.\nThe post Ideas: Community building, machine learn...",
+      "pubDate": "Mon, 01 Dec 2025 19:18:20 +0000",
+      "source": "Microsoft Research",
       "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "Microsoft open sources its ‘farm of the future’ toolkit",
-      "link": "https://blogs.microsoft.com/ai/microsoft-open-sources-its-farm-of-the-future-toolkit/",
-      "summary": "The post Microsoft open sources its ‘farm of the future’ toolkit appeared first on The AI Blog....",
-      "pubDate": "Thu, 06 Oct 2022 14:58:15 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "AI-equipped drones study dolphins on the edge of extinction",
-      "link": "https://news.microsoft.com/apac/features/ai-drones-dolphins-maui63/",
-      "summary": "The post AI-equipped drones study dolphins on the edge of extinction appeared first on The AI Blog....",
-      "pubDate": "Thu, 21 Jul 2022 14:50:33 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "Online math tutoring service uses AI to help boost students’ skills and confidence",
-      "link": "https://blogs.microsoft.com/ai/eedi-online-math-quiz/",
-      "summary": "The post Online math tutoring service uses AI to help boost students’ skills and confidence appeared first on The AI Blog....",
-      "pubDate": "Wed, 13 Jul 2022 12:59:50 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "AI-Mimi is building inclusive TV experiences for Deaf and Hard of Hearing user in Japan",
-      "link": "https://blogs.microsoft.com/accessibility/ai-mimi-is-building-inclusive-tv-experiences-for-deaf-and-hard-of-hearing-user-in-japan/",
-      "summary": "The post AI-Mimi is building inclusive TV experiences for Deaf and Hard of Hearing user in Japan appeared first on The AI Blog....",
-      "pubDate": "Wed, 06 Jul 2022 14:51:23 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "Microsoft’s framework for building AI systems responsibly",
-      "link": "https://blogs.microsoft.com/on-the-issues/2022/06/21/microsofts-framework-for-building-ai-systems-responsibly/",
-      "summary": "The post Microsoft’s framework for building AI systems responsibly appeared first on The AI Blog....",
-      "pubDate": "Tue, 21 Jun 2022 17:50:03 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "Singapore develops Asia’s first AI-based mobile app for shark and ray fin identification to combat illegal wildlife trade",
-      "link": "https://news.microsoft.com/en-sg/2022/06/08/singapore-develops-asias-first-ai-based-mobile-app-for-shark-and-ray-fin-identification-to-combat-illegal-wildlife-trade/",
-      "summary": "The post Singapore develops Asia’s first AI-based mobile app for shark and ray fin identification to combat illegal wildlife trade appeared first on The AI Blog....",
-      "pubDate": "Wed, 08 Jun 2022 21:04:42 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
-      "relevance": 0
-    },
-    {
-      "title": "The opportunity at home – can AI drive innovation in personal assistant devices and sign language?",
-      "link": "https://blogs.microsoft.com/accessibility/the-opportunity-at-home-can-ai-drive-innovation-in-personal-assistant-devices-and-sign-language/",
-      "summary": "The post The opportunity at home – can AI drive innovation in personal assistant devices and sign language? appeared first on The AI Blog....",
-      "pubDate": "Tue, 31 May 2022 21:06:06 +0000",
-      "source": "Microsoft AI",
-      "sourceLogo": "🔷",
-      "category": "enterprise",
+      "category": "research",
       "relevance": 0
     }
   ]

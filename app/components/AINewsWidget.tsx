@@ -89,7 +89,7 @@ export default function AINewsWidget({ limit = 3, showViewAll = true }: Props) {
                     🔥 Latest AI News
                 </h3>
                 <span className={styles.updated}>
-                    Updated: {formatDate(news.lastUpdated)}
+                    Updated: {new Date(news.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} at {new Date(news.lastUpdated).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}
                 </span>
             </div>
 

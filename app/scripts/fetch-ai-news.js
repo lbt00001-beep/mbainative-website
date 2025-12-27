@@ -29,10 +29,10 @@ const SOURCES = [
         category: 'ai'
     },
     {
-        name: 'Microsoft AI',
-        url: 'https://blogs.microsoft.com/ai/feed/',
+        name: 'Microsoft Research',
+        url: 'https://www.microsoft.com/en-us/research/feed/',
         logo: '🔷',
-        category: 'enterprise'
+        category: 'research'
     },
     {
         name: 'NVIDIA',

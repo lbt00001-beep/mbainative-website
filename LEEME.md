@@ -11,7 +11,12 @@ La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empres
 
 ### Despliegue
 - Los cambios se despliegan automáticamente a mbainative.com cuando se hace `git push` a master.
-- El workflow `update-news.yml` se ejecuta diariamente a las 06:00 (Madrid) para actualizar noticias y videos.
+- El workflow `update-news.yml` se ejecuta diariamente a las 06:00 (Madrid) para actualizar:
+  - Noticias de IA (Google, Microsoft, NVIDIA)
+  - Videos de Gurús (YouTube API)
+  - Podcast destacado (Jon Hernández)
+  - Artículos de Consultoras (McKinsey, BCG, Deloitte)
+- **IMPORTANTE**: El workflow tiene `permissions: contents: write` para poder hacer git push.
 
 ---
 
@@ -25,30 +30,35 @@ La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empres
 | ⚙️ Fundamentos Tecnológicos | 4 | `/mejores-practicas/doctrinas#tecnologia` |
 | ⚖️ Ética y Responsabilidad | 4 | `/mejores-practicas/doctrinas#etica` |
 
-### Los 8 Principios Fundamentales (del usuario)
+### Los 8 Principios Fundamentales
 
-1. **Inteligencia Comprable** - Tokens de IA para texto, audio, imagen, video
+1. **El talento artificial se compra** - Tokens de IA para texto, audio, imagen, video
 2. **Empleados de Silicio** - Agentes que ejecutan tareas
 3. **Organización por Tareas** - No puestos de trabajo
-4. **El Nuevo Organigrama** - Ciencia de la eficiencia
-5. **Información Horizontal** - Disponible para todos
+4. **El Nuevo Organigrama** - Ciencia de la eficiencia (incluye Director de IA)
+5. **Información Horizontal** - Disponible para personas y agentes
 6. **Autonomía Configurable** - Consulta previa vs supervisión posterior
 7. **Relaciones Externas Agénticas** - Agentes B2B
 8. **Compliance Automatizado** - Agentes de cumplimiento
 
-### 4 Principios Adicionales (propuestos)
+---
 
-9. Capital Humano se Transforma (ejecutores → supervisores)
-10. Memoria Institucional Digital
-11. Escalabilidad Instantánea
-12. Dashboard como Centro de Mando
+## Secciones de Mejores Prácticas
+
+| Sección | Ruta | Contenido |
+|---------|------|-----------|
+| 20 Doctrinas | `/mejores-practicas/doctrinas` | Principios organizados por categoría |
+| 14 Gurús de la IA | `/mejores-practicas/gurus` | Líderes + videos YouTube + podcast |
+| Noticias de IA | `/mejores-practicas/noticias` | RSS de Google, Microsoft, NVIDIA |
+| Consultoras | `/mejores-practicas/consultoras` | McKinsey, BCG, Deloitte |
+| Sectores | `/mejores-practicas/[sector]` | Tecnología, Finanzas, Salud, Retail, Manufactura |
 
 ---
 
 ## Archivos Clave
 
 ### Componentes Home
-- `components/home/Hero.tsx` - "Empresa AI-Nativa"
+- `components/home/Hero.tsx` - "Empresa AI-Nativa" + AI/IA clarification
 - `components/home/Doctrine.tsx` - 8 principios en grid
 - `components/home/MBAIProfile.tsx` - 8 competencias del líder
 - `components/home/TrainingPlatformCTA.tsx` - Link al simulador
@@ -58,10 +68,14 @@ La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empres
 - `data/gurus.ts` - 14 gurús de la IA
 - `public/data/ai-news.json` - Noticias (actualizado diariamente)
 - `public/data/gurus-videos.json` - Videos YouTube (actualizado diariamente)
+- `public/data/featured-podcast.json` - Podcast Jon Hernández
+- `public/data/consultoras.json` - Artículos de consultoras
 
 ### Scripts de Actualización
 - `scripts/fetch-ai-news.js` - RSS de Google, Microsoft Research, NVIDIA
-- `scripts/fetch-guru-videos.js` - YouTube API (requiere YOUTUBE_API_KEY en secrets)
+- `scripts/fetch-guru-videos.js` - YouTube API
+- `scripts/fetch-featured-podcast.js` - Playlist Jon Hernández
+- `scripts/fetch-consultoras.js` - RSS McKinsey, BCG, Deloitte
 
 ---
 
@@ -70,17 +84,15 @@ La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empres
 ### update-news.yml
 - **Horario**: 06:00 Madrid (05:00 UTC)
 - **Permisos**: `contents: write` (necesario para git push)
-- **Acciones**: Fetch noticias RSS, fetch videos YouTube, commit si hay cambios
+- **Acciones**: 
+  1. Fetch noticias RSS
+  2. Fetch videos YouTube gurús
+  3. Fetch podcast destacado
+  4. Fetch artículos consultoras
+  5. Commit si hay cambios
 
----
-
-## Próximos Pasos Posibles
-
-- [ ] Añadir más contenido a las páginas de sectores (tecnología, finanzas, salud, retail, manufactura)
-- [ ] Mejorar las páginas individuales de cada gurú
-- [ ] Añadir casos de estudio de empresas AI-nativas
-- [ ] Crear página "Sobre Nosotros" con la visión
-- [ ] Internacionalización (inglés)
+### Secrets requeridos
+- `YOUTUBE_API_KEY` - Para videos de gurús y podcast
 
 ---
 
@@ -94,12 +106,19 @@ npm run dev
 # Build
 npm run build
 
-# Actualizar noticias manualmente
+# Actualizar contenido manualmente
 node scripts/fetch-ai-news.js
-
-# Actualizar videos (requiere API key)
 YOUTUBE_API_KEY=xxx node scripts/fetch-guru-videos.js
+YOUTUBE_API_KEY=xxx node scripts/fetch-featured-podcast.js
+node scripts/fetch-consultoras.js
 
 # Deploy (automático al hacer push)
 git push
 ```
+
+---
+
+## Notas Importantes
+
+- **Caché de Hostinger**: Después de un deploy, puede ser necesario limpiar la caché desde el panel de Hostinger si los cambios no aparecen.
+- **YOUTUBE_API_KEY**: Debe estar configurado en GitHub Secrets para que funcionen los videos.

@@ -20,9 +20,9 @@ export const DOCTRINES: Doctrine[] = [
     // ═══════════════════════════════════════════════════════════════════
     {
         id: 1,
-        title: "La inteligencia se puede comprar",
-        shortTitle: "Inteligencia Comprable",
-        thesis: "La inteligencia ya no es un recurso escaso ni exclusivo del talento humano. Se compran tokens de modelos de IA para procesar texto, audio, imágenes y video. El coste marginal de la inteligencia tiende a cero.",
+        title: "El talento artificial se compra",
+        shortTitle: "Talento Artificial",
+        thesis: "El talento personal se contrata, el talento artificial se compra. Google, OpenAI, Anthropic venden la inteligencia de sus modelos en tokens. El coste marginal de la inteligencia tiende a cero.",
         implications: "Las empresas pueden escalar su capacidad cognitiva comprando más tokens. El presupuesto de IA se convierte en una línea estratégica similar a la nómina.",
         challenges: "Dependencia de proveedores de modelos, volatilidad de precios, y necesidad de evaluar qué tareas justifican el coste.",
         proponents: ["sam-altman", "satya-nadella", "jensen-huang"],

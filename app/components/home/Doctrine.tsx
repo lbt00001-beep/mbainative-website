@@ -23,7 +23,7 @@ const principiosFundamentales = [
   {
     number: 1,
     icon: "🪙",
-    title: "Inteligencia Comprable",
+    title: "El talento artificial se compra",
     description: "El talento personal se contrata, el talento artificial se compra. Google, OpenAI, Anthropic... venden la inteligencia de sus modelos en tokens."
   },
   {

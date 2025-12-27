@@ -1,0 +1,40 @@
+{
+    "lastUpdated": "2025-12-27T15:20:00.000Z",
+    "playlistId": "PL9WNEV0osabYA5YR5EBu3Lu_xYwAYPWoH",
+    "playlistTitle": "Podcast IA | Jon Hernández",
+    "latestVideo": {
+        "videoId": "xIPLR1wnDqU",
+        "title": "El podcast más reciente sobre IA",
+        "description": "Podcast de Inteligencia Artificial con los mayores expertos en IA del mundo.",
+        "thumbnail": "https://i.ytimg.com/vi/xIPLR1wnDqU/mqdefault.jpg",
+        "publishedAt": "2025-12-20T10:00:00.000Z",
+        "channelTitle": "Jon Hernández"
+    },
+    "keyInsights": [
+        {
+            "icon": "🤖",
+            "title": "Agentes autónomos en la empresa",
+            "description": "Los agentes de IA están pasando de asistentes a trabajadores autónomos capaces de ejecutar tareas complejas sin supervisión constante."
+        },
+        {
+            "icon": "💼",
+            "title": "Transformación del mercado laboral",
+            "description": "El mercado laboral se redefine: de puestos de trabajo fijos a tareas dinámicas supervisadas por humanos y ejecutadas por IA."
+        },
+        {
+            "icon": "📊",
+            "title": "El dashboard como centro de mando",
+            "description": "Los líderes empresariales gestionarán sus equipos de agentes desde dashboards en tiempo real, no desde reuniones."
+        },
+        {
+            "icon": "🔄",
+            "title": "Escalabilidad instantánea",
+            "description": "Las empresas podrán escalar su capacidad operativa comprando más tokens y agentes, sin los límites de la contratación tradicional."
+        },
+        {
+            "icon": "⚖️",
+            "title": "Supervisión y responsabilidad",
+            "description": "El rol humano evoluciona hacia la supervisión: configurar autonomías, verificar resultados y mantener la responsabilidad final."
+        }
+    ]
+}

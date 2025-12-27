@@ -38,6 +38,12 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/fetch-guru-videos.js
       
+      - name: Fetch Featured Podcast
+        working-directory: ./app
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/fetch-featured-podcast.js
+      
       - name: Check for changes
         id: check_changes
         working-directory: ./app

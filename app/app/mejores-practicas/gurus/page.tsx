@@ -162,9 +162,91 @@ export default function GurusPage() {
             {/* Link to Doctrines */}
             <div className={styles.cta}>
                 <Link href="/mejores-practicas/doctrinas" className={styles.ctaButton}>
-                    Ver las 10 Doctrinas de la IA →
+                    Ver las 20 Doctrinas de la Empresa AI-Nativa →
                 </Link>
             </div>
+
+            {/* Featured Podcast Section */}
+            <FeaturedPodcast />
         </section>
+    );
+}
+
+// Featured Podcast Component
+function FeaturedPodcast() {
+    const [podcast, setPodcast] = useState<{
+        latestVideo: {
+            videoId: string;
+            title: string;
+            description: string;
+            publishedAt: string;
+        };
+        keyInsights: Array<{
+            icon: string;
+            title: string;
+            description: string;
+        }>;
+    } | null>(null);
+
+    useEffect(() => {
+        const fetchPodcast = async () => {
+            try {
+                const res = await fetch('/data/featured-podcast.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    setPodcast(data);
+                }
+            } catch (err) {
+                console.error('Could not load podcast:', err);
+            }
+        };
+        fetchPodcast();
+    }, []);
+
+    if (!podcast) return null;
+
+    return (
+        <div className={styles.podcastSection}>
+            <h2 className={styles.podcastTitle}>
+                🎙️ No te lo pierdas
+            </h2>
+            <p className={styles.podcastSubtitle}>
+                El podcast más reciente sobre IA, trabajo y empresa
+            </p>
+
+            <div className={styles.podcastContent}>
+                {/* Video Embed */}
+                <div className={styles.videoEmbed}>
+                    <iframe
+                        src={`https://www.youtube.com/embed/${podcast.latestVideo.videoId}`}
+                        title={podcast.latestVideo.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className={styles.videoFrame}
+                    />
+                </div>
+
+                {/* Key Insights */}
+                {podcast.keyInsights && podcast.keyInsights.length > 0 && (
+                    <div className={styles.insightsContainer}>
+                        <h3 className={styles.insightsTitle}>
+                            5 Ideas Clave sobre Trabajo y Empresa
+                        </h3>
+                        <div className={styles.insightsList}>
+                            {podcast.keyInsights.map((insight, idx) => (
+                                <div key={idx} className={styles.insightItem}>
+                                    <span className={styles.insightIcon}>{insight.icon}</span>
+                                    <div>
+                                        <h4 className={styles.insightItemTitle}>{insight.title}</h4>
+                                        <p className={styles.insightDescription}>{insight.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
     );
 }

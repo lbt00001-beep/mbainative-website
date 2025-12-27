@@ -256,3 +256,107 @@
         text-align: center;
     }
 }
+
+/* Featured Podcast Section */
+.podcastSection {
+    margin-top: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+}
+
+.podcastTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 8px;
+    color: var(--foreground);
+}
+
+.podcastSubtitle {
+    font-size: 1rem;
+    color: var(--secondary);
+    text-align: center;
+    margin: 0 0 32px;
+}
+
+.podcastContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.videoEmbed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 aspect ratio */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.videoFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.insightsContainer {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.insightsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 20px;
+}
+
+.insightsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.insightItem {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.insightIcon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.insightItemTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0 0 4px;
+}
+
+.insightDescription {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .podcastContent {
+        grid-template-columns: 1fr;
+    }
+
+    .podcastSection {
+        padding: 24px;
+    }
+}

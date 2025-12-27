@@ -68,7 +68,7 @@ export const DOCTRINES: Doctrine[] = [
         title: "El nuevo organigrama es una ciencia",
         shortTitle: "Ciencia Organizativa",
         thesis: "La forma de generar el nuevo organigrama de la empresa, dividido en tareas y flujos de trabajo, pasa a ser una nueva ciencia directamente relacionada con la eficiencia empresarial.",
-        implications: "Emergen nuevos roles: Arquitectos de Tareas, Diseñadores de Flujos Agénticos, Optimizadores de Procesos AI.",
+        implications: "Emergen nuevos roles: Director de IA, Arquitectos de Tareas, Diseñadores de Flujos Agénticos, Optimizadores de Procesos AI.",
         challenges: "No existen metodologías maduras. Las empresas deben experimentar y desarrollar sus propios frameworks.",
         proponents: ["andrew-ng", "fei-fei-li"],
         sources: [
@@ -82,7 +82,7 @@ export const DOCTRINES: Doctrine[] = [
         title: "La información fluye horizontalmente",
         shortTitle: "Información Horizontal",
         thesis: "La información en la empresa ya no circula jerárquicamente, sino horizontalmente. Está disponible para todos en todos los niveles: para trabajadores-personas y para agentes de tareas.",
-        implications: "Desaparecen los silos de información. Los agentes acceden a bases de conocimiento unificadas. La transparencia es el default.",
+        implications: "Desaparecen los silos de información. Las personas y los agentes acceden a bases de conocimiento unificadas que proporcionan a cada uno la información que le interesa para sus tareas.",
         challenges: "Gestión de permisos y confidencialidad, sobrecarga informativa, y riesgo de filtraciones.",
         proponents: ["sundar-pichai", "satya-nadella"],
         sources: [
@@ -202,7 +202,7 @@ export const DOCTRINES: Doctrine[] = [
         title: "La IA como infraestructura crítica",
         shortTitle: "AI Factories",
         thesis: "La IA es infraestructura industrial. El cuello de botella es energía, centros de datos y GPUs. La ventaja competitiva es acceso a capacidad de cómputo, no solo algoritmos.",
-        implications: "Las empresas deben asegurar acceso a infraestructura AI como aseguran acceso a electricidad o internet. Emergen contratos a largo plazo con proveedores de cómputo.",
+        implications: "Las empresas deben asegurar acceso a infraestructura AI como aseguran acceso a electricidad o internet. Emergen contratos a largo plazo con fabricantes de inteligencia.",
         challenges: "Concentración de poder en pocos proveedores, dependencia de supply chain, y costes energéticos crecientes.",
         proponents: ["jensen-huang", "mustafa-suleyman"],
         sources: [
@@ -213,9 +213,9 @@ export const DOCTRINES: Doctrine[] = [
     },
     {
         id: 14,
-        title: "Escalar funciona... con límites",
-        shortTitle: "Scaling Laws",
-        thesis: "Más datos + más cómputo = modelos más capaces. Pero el escalado tiene rendimientos decrecientes y costes crecientes. Las empresas deben elegir el punto óptimo coste-capacidad.",
+        title: "Optimizar el token",
+        shortTitle: "Token Optimization",
+        thesis: "La elección de los modelos de IA apropiados para cada tarea será crucial para optimizar resultados y costes.",
         implications: "No siempre se necesita el modelo más grande. Los modelos especializados y fine-tuned pueden ser más eficientes para tareas específicas.",
         challenges: "Evaluar qué modelo usar para cada tarea, gestionar múltiples modelos, y anticipar la evolución del mercado de modelos.",
         proponents: ["sam-altman", "demis-hassabis", "andrej-karpathy"],

@@ -7,22 +7,22 @@
 const fs = require('fs');
 const path = require('path');
 
-// Guru search queries
+// Guru search queries - prioritizing agents, work, and enterprise content
 const GURUS = [
-    { id: "demis-hassabis", query: "Demis Hassabis AI interview" },
-    { id: "yann-lecun", query: "Yann LeCun AI lecture" },
-    { id: "yoshua-bengio", query: "Yoshua Bengio AI safety" },
-    { id: "geoffrey-hinton", query: "Geoffrey Hinton AI warning" },
-    { id: "gary-marcus", query: "Gary Marcus AI criticism" },
-    { id: "sam-altman", query: "Sam Altman AI interview" },
-    { id: "ilya-sutskever", query: "Ilya Sutskever AI interview" },
-    { id: "dario-amodei", query: "Dario Amodei Anthropic interview" },
-    { id: "karen-hao", query: "Karen Hao AI journalism" },
-    { id: "mustafa-suleyman", query: "Mustafa Suleyman AI interview" },
-    { id: "fei-fei-li", query: "Fei-Fei Li AI interview" },
-    { id: "jensen-huang", query: "Jensen Huang NVIDIA AI" },
-    { id: "andrew-ng", query: "Andrew Ng AI course lecture" },
-    { id: "andrej-karpathy", query: "Andrej Karpathy AI tutorial" }
+    { id: "demis-hassabis", query: "Demis Hassabis AI agents future work" },
+    { id: "yann-lecun", query: "Yann LeCun AI jobs automation future" },
+    { id: "yoshua-bengio", query: "Yoshua Bengio AI society work impact" },
+    { id: "geoffrey-hinton", query: "Geoffrey Hinton AI jobs automation warning" },
+    { id: "gary-marcus", query: "Gary Marcus AI workers jobs criticism" },
+    { id: "sam-altman", query: "Sam Altman AI agents jobs future work" },
+    { id: "ilya-sutskever", query: "Ilya Sutskever AI agents automation" },
+    { id: "dario-amodei", query: "Dario Amodei AI agents work enterprise" },
+    { id: "karen-hao", query: "Karen Hao AI workers labor impact" },
+    { id: "mustafa-suleyman", query: "Mustafa Suleyman AI agents copilot enterprise" },
+    { id: "fei-fei-li", query: "Fei-Fei Li AI jobs workforce future" },
+    { id: "jensen-huang", query: "Jensen Huang AI agents digital employees enterprise" },
+    { id: "andrew-ng", query: "Andrew Ng AI agents automation business" },
+    { id: "andrej-karpathy", query: "Andrej Karpathy AI agents coding automation" }
 ];
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;

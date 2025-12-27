@@ -1,52 +1,103 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const DoctrineItem = ({ icon, title, children }: { icon: string, title: string, children: React.ReactNode }) => (
-  <div className="p-8 bg-[--dark-gray] rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-    <div className="mb-4">
-      <Image src={icon} alt={title} width={48} height={48} />
+const DoctrineItem = ({ icon, title, description, number }: { icon: string, title: string, description: string, number: number }) => (
+  <div className="p-6 bg-[--dark-gray] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group">
+    <div className="flex items-start gap-4">
+      <span className="text-3xl">{icon}</span>
+      <div>
+        <span className="text-xs text-gray-500 font-mono">#{String(number).padStart(2, '0')}</span>
+        <h3 className="text-xl font-semibold mb-2 text-[--accent] group-hover:text-white transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-400 text-sm leading-relaxed">
+          {description}
+        </p>
+      </div>
     </div>
-    <h3 className="text-2xl font-semibold mb-4 text-[--accent]">
-      {title}
-    </h3>
-    <p className="text-gray-400">
-      {children}
-    </p>
   </div>
 );
+
+// Los 8 principios fundamentales del usuario (resumen para la home)
+const principiosFundamentales = [
+  {
+    number: 1,
+    icon: "🪙",
+    title: "Inteligencia Comprable",
+    description: "La inteligencia se compra en tokens. Texto, audio, imagen, video: todo tiene un precio por uso."
+  },
+  {
+    number: 2,
+    icon: "🤖",
+    title: "Empleados de Silicio",
+    description: "Los agentes de IA son trabajadores digitales que ejecutan tareas cada vez más versátiles."
+  },
+  {
+    number: 3,
+    icon: "📋",
+    title: "Organización por Tareas",
+    description: "No hay puestos de trabajo: hay tareas que ejecutan agentes y supervisan personas."
+  },
+  {
+    number: 4,
+    icon: "🏗️",
+    title: "El Nuevo Organigrama",
+    description: "Diseñar la estructura de tareas es una nueva ciencia de eficiencia empresarial."
+  },
+  {
+    number: 5,
+    icon: "↔️",
+    title: "Información Horizontal",
+    description: "La información fluye horizontalmente, disponible para todos: humanos y agentes."
+  },
+  {
+    number: 6,
+    icon: "🎚️",
+    title: "Autonomía Configurable",
+    description: "Los supervisores configuran cuánta autonomía dar a cada agente: consulta previa o revisión posterior."
+  },
+  {
+    number: 7,
+    icon: "🤝",
+    title: "Relaciones Externas Agénticas",
+    description: "Agentes que negocian con proveedores, bancos y administración. Primero con humanos, luego entre agentes."
+  },
+  {
+    number: 8,
+    icon: "⚖️",
+    title: "Compliance Automatizado",
+    description: "Agentes supervisados que gestionan el cumplimiento legal y regulatorio de forma continua."
+  }
+];
 
 export default function Doctrine() {
   return (
     <section id="doctrine" className="py-20 px-4 bg-[--primary] text-white">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-12">
-          Doctrina: Empresas <span className="text-[--accent]">Nativas en IA</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <DoctrineItem icon="/file.svg" title="01. Cultura de Datos">
-            Las decisiones se basan en datos, no en intuiciones. La
-            recopilación, el análisis y la interpretación de datos son
-            fundamentales en todos los niveles de la organización.
-          </DoctrineItem>
-          <DoctrineItem icon="/window.svg" title="02. Automatización Inteligente">
-            Los procesos se automatizan de forma inteligente, liberando a los
-            humanos para que se centren en tareas de mayor valor añadido.
-          </DoctrineItem>
-          <DoctrineItem icon="/globe.svg" title="03. Agilidad y Experimentación">
-            Se fomenta una cultura de experimentación y aprendizaje continuo.
-            Los fracasos se ven como oportunidades de aprendizaje.
-          </DoctrineItem>
-          <DoctrineItem icon="/file.svg" title="04. Anticipación y Visión de Futuro">
-            Las empresas nativas en IA no solo reaccionan al cambio, sino que lo anticipan, diseñando estrategias que les permiten moldear activamente el futuro del mercado.
-          </DoctrineItem>
-          <DoctrineItem icon="/window.svg" title="05. Transformación de la Incertidumbre">
-            Utilizan la inteligencia artificial para convertir la incertidumbre en una ventaja competitiva, identificando patrones y oportunidades donde otros solo ven riesgo.
-          </DoctrineItem>
-          <DoctrineItem icon="/globe.svg" title="06. Cultura LEAD (Learn, Explore, Apply, Drive)">
-            Promueven un ciclo constante de aprendizaje, exploración de nuevas tecnologías, aplicación de soluciones innovadoras y liderazgo impulsado por un propósito ético y sostenible.
-          </DoctrineItem>
-          <DoctrineItem icon="/file.svg" title="07. Impacto Ético y Sostenible">
-            Integran consideraciones éticas y de sostenibilidad en el diseño e implementación de cada solución de IA, buscando un impacto positivo en la sociedad y el medio ambiente.
-          </DoctrineItem>
+      <div className="container mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">
+            8 Principios de la Empresa <span className="text-[--accent]">AI-Nativa</span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Los fundamentos de la nueva doctrina empresarial. Cómo organizar, dirigir y escalar
+            una empresa donde la inteligencia se compra y los agentes ejecutan.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {principiosFundamentales.map((principio) => (
+            <DoctrineItem key={principio.number} {...principio} />
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Link
+            href="/mejores-practicas/doctrinas"
+            className="inline-flex items-center gap-2 bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300"
+          >
+            Ver las 20 Doctrinas Completas
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </section>

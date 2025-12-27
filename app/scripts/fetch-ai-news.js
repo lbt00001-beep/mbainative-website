@@ -49,7 +49,23 @@ const AI_KEYWORDS = [
     'generative', 'neural', 'deep learning',
     'agent', 'automation', 'enterprise ai',
     'ceo', 'leadership', 'business', 'strategy',
-    'transform', 'future', 'innovation'
+    'transform', 'future', 'innovation',
+    // New: trabajo, agentes, empresas
+    'job', 'worker', 'workforce', 'employment', 'labor', 'workplace',
+    'agentic', 'assistant', 'copilot', 'automate',
+    'enterprise', 'corporate', 'organization', 'productivity'
+];
+
+// Priority keywords for AI-native company doctrine
+const PRIORITY_KEYWORDS = [
+    // Agentes y automatización
+    'agent', 'agentic', 'autonomous', 'copilot', 'assistant',
+    // Mercado de trabajo
+    'job', 'worker', 'workforce', 'employment', 'labor', 'workplace', 'hiring', 'layoff',
+    // Empresas y productividad  
+    'enterprise', 'business', 'corporate', 'productivity', 'efficiency', 'workflow',
+    // Transformación
+    'transform', 'future of work', 'automation', 'replace', 'augment'
 ];
 
 /**
@@ -62,19 +78,38 @@ function isAIRelevant(item) {
 
 /**
  * Calculate relevance score for sorting
+ * Prioritizes: agents, work/jobs, enterprise, automation
  */
 function calculateRelevance(item) {
     const text = `${item.title || ''} ${item.contentSnippet || ''}`.toLowerCase();
     let score = 0;
 
-    // Boost for leadership/business focus
-    if (text.includes('ceo') || text.includes('leader')) score += 3;
-    if (text.includes('enterprise') || text.includes('business')) score += 2;
+    // HIGH PRIORITY: Agentes de IA (+5 each)
+    if (text.includes('agent')) score += 5;
+    if (text.includes('agentic')) score += 5;
+    if (text.includes('autonomous')) score += 4;
+    if (text.includes('copilot')) score += 4;
+
+    // HIGH PRIORITY: Mercado de trabajo (+4 each)
+    if (text.includes('job') || text.includes('jobs')) score += 4;
+    if (text.includes('worker') || text.includes('workforce')) score += 4;
+    if (text.includes('employment') || text.includes('labor')) score += 4;
+    if (text.includes('future of work')) score += 5;
+    if (text.includes('layoff') || text.includes('hiring')) score += 3;
+
+    // MEDIUM PRIORITY: Empresas y productividad (+3 each)
+    if (text.includes('enterprise')) score += 3;
+    if (text.includes('business')) score += 2;
+    if (text.includes('productivity')) score += 3;
+    if (text.includes('workflow')) score += 3;
+    if (text.includes('automation')) score += 3;
+
+    // MEDIUM PRIORITY: Liderazgo (+2 each)
+    if (text.includes('ceo') || text.includes('leader')) score += 2;
     if (text.includes('strategy') || text.includes('transform')) score += 2;
 
-    // Boost for cutting-edge AI
-    if (text.includes('agent')) score += 3;
-    if (text.includes('gemini') || text.includes('gpt')) score += 2;
+    // LOW PRIORITY: Tecnología general (+1 each)
+    if (text.includes('gemini') || text.includes('gpt')) score += 1;
     if (text.includes('generative')) score += 1;
 
     // Recency boost (articles from last 24h get extra points)

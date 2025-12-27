@@ -1,18 +1,61 @@
-const ProfileCard = ({ number, title, children }: { number: string, title: string, children: React.ReactNode }) => (
-  <div className="relative p-8 bg-[--dark-gray] rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-    <div className="absolute -top-4 -right-4 text-8xl font-extrabold text-gray-800 opacity-80 z-0">
-      {number}
-    </div>
+import Link from "next/link";
+
+const CompetenciaCard = ({ icon, title, description }: { icon: string, title: string, description: string }) => (
+  <div className="relative p-6 bg-[--dark-gray] rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
     <div className="relative z-10">
-      <h3 className="text-2xl font-semibold mb-2 text-[--accent-secondary]">
+      <span className="text-3xl mb-3 block">{icon}</span>
+      <h3 className="text-xl font-semibold mb-2 text-[--accent-secondary]">
         {title}
       </h3>
-      <p className="text-gray-400">
-        {children}
+      <p className="text-gray-400 text-sm">
+        {description}
       </p>
     </div>
   </div>
 );
+
+const competenciasLider = [
+  {
+    icon: "🎚️",
+    title: "Gestor de Autonomía",
+    description: "Sabe calibrar cuánta autonomía dar a cada agente: qué decisiones requieren consulta y cuáles se supervisan después."
+  },
+  {
+    icon: "🏗️",
+    title: "Arquitecto de Tareas",
+    description: "Diseña el nuevo organigrama por tareas, definiendo flujos de trabajo entre agentes y supervisores humanos."
+  },
+  {
+    icon: "📊",
+    title: "Supervisor de Dashboard",
+    description: "Gestiona equipos de agentes desde el centro de mando, interpretando métricas y tomando decisiones en tiempo real."
+  },
+  {
+    icon: "⚖️",
+    title: "Director de Compliance Agéntico",
+    description: "Supervisa agentes de cumplimiento normativo, asegurando que la empresa cumple con regulaciones de forma continua."
+  },
+  {
+    icon: "🤝",
+    title: "Gestor de Relaciones B2B Agénticas",
+    description: "Configura y supervisa agentes que interactúan con proveedores, clientes y administración."
+  },
+  {
+    icon: "🧠",
+    title: "Curador de Conocimiento",
+    description: "Mantiene la base de conocimiento institucional que alimenta a los agentes, asegurando calidad y actualización."
+  },
+  {
+    icon: "🔧",
+    title: "Entrenador de Agentes",
+    description: "Define prompts, fine-tunes y feedback loops para mejorar continuamente el rendimiento de los agentes."
+  },
+  {
+    icon: "🛡️",
+    title: "Auditor de Seguridad AI",
+    description: "Evalúa riesgos, revisa decisiones autónomas y asegura que los agentes operan dentro de parámetros seguros."
+  }
+];
 
 export default function MBAIProfile() {
   return (
@@ -20,61 +63,52 @@ export default function MBAIProfile() {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold">
-            El <span className="text-[--accent]">MBAI</span>: Liderando la Transformación AI-Native
+            El Líder de la Empresa <span className="text-[--accent]">AI-Nativa</span>
           </h2>
           <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            Nuestro MBAI (Master in Business and Artificial Intelligence) está diseñado para forjar la próxima generación de líderes empresariales. Equipamos a profesionales para que no solo anticipen el futuro en un mundo impulsado por la IA, sino que lo construyan, transformando la incertidumbre en una ventaja estratégica.
+            Las competencias que definen al directivo que gestiona empresas con agentes de IA.
+            No ejecuta: configura, supervisa y optimiza.
           </p>
         </div>
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">
-            Metodología <span className="text-[--accent]">LEAD</span>
-          </h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            El programa MBAI se estructura en torno a una metodología innovadora que asegura una inmersión completa y práctica en el ecosistema AI-Native.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <ProfileCard number="L" title="Learn (Aprender)">
-            Flexibilidad para adquirir conocimientos de vanguardia en IA y negocios, con contenido actualizado y accesible.
-          </ProfileCard>
-          <ProfileCard number="E" title="Explore (Explorar)">
-            Conectar la teoría con la práctica a través de simulaciones, proyectos y casos reales, incluyendo semanas de inmersión internacional.
-          </ProfileCard>
-          <ProfileCard number="A" title="Apply (Aplicar)">
-            Transformar el conocimiento en acción, integrando la IA en desafíos estratégicos empresariales y proyectos de consultoría.
-          </ProfileCard>
-          <ProfileCard number="D" title="Drive (Impulsar)">
-            Liderar la innovación con propósito, impulsando un impacto ético, sostenible y global en el ámbito de los negocios y la IA.
-          </ProfileCard>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {competenciasLider.map((competencia, index) => (
+            <CompetenciaCard key={index} {...competencia} />
+          ))}
         </div>
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">
-            Perfil del Egresado <span className="text-[--accent]">MBAI</span>
-          </h2>
-          <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            Formamos líderes capaces de construir y dirigir el futuro de los negocios con Inteligencia Artificial.
-          </p>
+        <div className="bg-gradient-to-r from-[--accent]/20 to-[--accent-secondary]/20 p-8 rounded-lg border border-[--accent]/30">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-4">
+              El Cambio de Paradigma
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <p className="text-gray-400 text-sm mb-2">Antes</p>
+                <p className="text-xl font-semibold text-red-400">Ejecutar tareas</p>
+              </div>
+              <div className="flex items-center justify-center">
+                <span className="text-3xl">→</span>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-2">Ahora</p>
+                <p className="text-xl font-semibold text-[--accent]">Supervisar agentes</p>
+              </div>
+            </div>
+            <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+              El valor del líder empresarial ya no está en hacer, sino en diseñar cómo hacen los agentes,
+              cuánta autonomía tienen, y cómo se mide su rendimiento.
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ProfileCard number="01" title="Líder Estratégico">
-            Capaz de diseñar y ejecutar estrategias de negocio que integren
-            la IA como un pilar fundamental.
-          </ProfileCard>
-          <ProfileCard number="02" title="Innovador Tecnológico">
-            Comprende las tecnologías de IA y sabe cómo aplicarlas para
-            crear nuevos productos, servicios y modelos de negocio.
-          </ProfileCard>
-          <ProfileCard number="03" title="Gestor del Cambio">
-            Lidera la transformación cultural de la organización hacia una
-            mentalidad "AI-first".
-          </ProfileCard>
-          <ProfileCard number="04" title="Ético y Responsable">
-            Aplica la IA de manera ética y responsable, considerando el
-            impacto social y humano de sus decisiones.
-          </ProfileCard>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/mejores-practicas/gurus"
+            className="inline-flex items-center gap-2 border-2 border-[--accent] text-[--accent] hover:bg-[--accent] hover:text-[--primary] font-bold py-3 px-8 rounded-full transition-all duration-300"
+          >
+            ¿Qué dicen los líderes tech? →
+          </Link>
         </div>
       </div>
     </section>

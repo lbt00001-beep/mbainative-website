@@ -1,264 +1,105 @@
-# LEEME - Proyecto MBAI Native Website
+# MBAI Native - Empresa AI-Nativa
 
-> **Última actualización:** 26/12/2024  
-> **URL producción:** https://mbainative.com  
-> **Repositorio:** https://github.com/lbt00001-beep/mbainative-website
+## Estado Actual (27 dic 2025)
 
----
+La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empresa AI-nativa**.
 
-## 📋 VISIÓN GENERAL
+### URL de Producción
+- **Web**: https://mbainative.com
+- **Simulador**: https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/
+- **Repositorio**: https://github.com/lbt00001-beep/mbainative-website
 
-Este proyecto es **la web corporativa de MBAI Native**, construida con:
-- **Framework:** Next.js 14 (React)
-- **Desarrollo local:** Windows, en `C:\Users\lbt00\OneDrive\Documentos\Proyectos\mbainative-website\app`
-- **Hosting:** Hostinger (Web Hosting)
-- **Deploy automático:** Conectado a GitHub, cualquier push a `master` actualiza la web
-
-```
-┌─────────────────┐      git push      ┌─────────────┐     auto-deploy    ┌─────────────────┐
-│   Local (VS)    │  ─────────────────▶│   GitHub    │ ──────────────────▶│   Hostinger     │
-│  npm run dev    │                    │   master    │                    │ mbainative.com  │
-└─────────────────┘                    └─────────────┘                    └─────────────────┘
-```
+### Despliegue
+- Los cambios se despliegan automáticamente a mbainative.com cuando se hace `git push` a master.
+- El workflow `update-news.yml` se ejecuta diariamente a las 06:00 (Madrid) para actualizar noticias y videos.
 
 ---
 
-## 🚀 COMANDOS RÁPIDOS
+## Estructura de la Doctrina
 
-### Desarrollo local
+### 20 Doctrinas en 3 Categorías
+
+| Categoría | # | Ubicación |
+|-----------|---|-----------|
+| 🏢 Organización Empresarial | 12 | `/mejores-practicas/doctrinas#organizacion` |
+| ⚙️ Fundamentos Tecnológicos | 4 | `/mejores-practicas/doctrinas#tecnologia` |
+| ⚖️ Ética y Responsabilidad | 4 | `/mejores-practicas/doctrinas#etica` |
+
+### Los 8 Principios Fundamentales (del usuario)
+
+1. **Inteligencia Comprable** - Tokens de IA para texto, audio, imagen, video
+2. **Empleados de Silicio** - Agentes que ejecutan tareas
+3. **Organización por Tareas** - No puestos de trabajo
+4. **El Nuevo Organigrama** - Ciencia de la eficiencia
+5. **Información Horizontal** - Disponible para todos
+6. **Autonomía Configurable** - Consulta previa vs supervisión posterior
+7. **Relaciones Externas Agénticas** - Agentes B2B
+8. **Compliance Automatizado** - Agentes de cumplimiento
+
+### 4 Principios Adicionales (propuestos)
+
+9. Capital Humano se Transforma (ejecutores → supervisores)
+10. Memoria Institucional Digital
+11. Escalabilidad Instantánea
+12. Dashboard como Centro de Mando
+
+---
+
+## Archivos Clave
+
+### Componentes Home
+- `components/home/Hero.tsx` - "Empresa AI-Nativa"
+- `components/home/Doctrine.tsx` - 8 principios en grid
+- `components/home/MBAIProfile.tsx` - 8 competencias del líder
+- `components/home/TrainingPlatformCTA.tsx` - Link al simulador
+
+### Datos
+- `data/doctrines.ts` - 20 doctrinas con tesis, implicaciones, retos
+- `data/gurus.ts` - 14 gurús de la IA
+- `public/data/ai-news.json` - Noticias (actualizado diariamente)
+- `public/data/gurus-videos.json` - Videos YouTube (actualizado diariamente)
+
+### Scripts de Actualización
+- `scripts/fetch-ai-news.js` - RSS de Google, Microsoft Research, NVIDIA
+- `scripts/fetch-guru-videos.js` - YouTube API (requiere YOUTUBE_API_KEY en secrets)
+
+---
+
+## Workflows de GitHub
+
+### update-news.yml
+- **Horario**: 06:00 Madrid (05:00 UTC)
+- **Permisos**: `contents: write` (necesario para git push)
+- **Acciones**: Fetch noticias RSS, fetch videos YouTube, commit si hay cambios
+
+---
+
+## Próximos Pasos Posibles
+
+- [ ] Añadir más contenido a las páginas de sectores (tecnología, finanzas, salud, retail, manufactura)
+- [ ] Mejorar las páginas individuales de cada gurú
+- [ ] Añadir casos de estudio de empresas AI-nativas
+- [ ] Crear página "Sobre Nosotros" con la visión
+- [ ] Internacionalización (inglés)
+
+---
+
+## Comandos
+
 ```bash
-cd C:\Users\lbt00\OneDrive\Documentos\Proyectos\mbainative-website\app
-npm run dev          # Servidor desarrollo → http://localhost:3000
-npm run build        # Compilar para producción
+# Desarrollo
+cd app
+npm run dev
+
+# Build
+npm run build
+
+# Actualizar noticias manualmente
+node scripts/fetch-ai-news.js
+
+# Actualizar videos (requiere API key)
+YOUTUBE_API_KEY=xxx node scripts/fetch-guru-videos.js
+
+# Deploy (automático al hacer push)
+git push
 ```
-
-### Subir cambios a producción
-```bash
-git add -A
-git commit -m "descripción del cambio"
-git push origin master
-# Hostinger detecta el push y recompila automáticamente (1-2 min)
-```
-
-### ⚠️ IMPORTANTE: Si la web no muestra cambios
-En el panel de Hostinger → **Purgar caché del servidor**
-
----
-
-## 📁 ESTRUCTURA DE CARPETAS
-
-```
-mbainative-website/
-├── app/                          # ← CARPETA PRINCIPAL NEXT.JS
-│   ├── app/                      # Páginas (File-based routing)
-│   │   ├── page.tsx              # Home (/)
-│   │   ├── about/page.tsx        # /about
-│   │   ├── services/page.tsx     # /services
-│   │   ├── contact/page.tsx      # /contact
-│   │   ├── aplicaciones/         # /aplicaciones
-│   │   │   ├── page.tsx          # Lista de apps
-│   │   │   ├── inversion-fundamentales/page.tsx
-│   │   │   └── corrector-rae/page.tsx
-│   │   ├── mejores-practicas/    # /mejores-practicas
-│   │   │   ├── page.tsx          # Página principal
-│   │   │   ├── tecnologia/       # Sector Tecnología (Jensen Huang)
-│   │   │   ├── finanzas/
-│   │   │   ├── salud/
-│   │   │   ├── retail/
-│   │   │   ├── manufactura/
-│   │   │   └── noticias/page.tsx # Noticias IA automáticas
-│   │   └── api/                  # API Routes
-│   │       └── quoteSummary/route.ts  # Proxy Yahoo Finance
-│   │
-│   ├── components/               # Componentes React
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── AINewsWidget.tsx      # Widget noticias IA
-│   │   ├── QuoteCard.tsx
-│   │   ├── home/                 # Componentes de Home
-│   │   └── aplicaciones/         # Apps embebidas
-│   │       ├── InversionFundamentales.tsx
-│   │       └── InversionFundamentales.module.css
-│   │
-│   ├── public/                   # Archivos estáticos
-│   │   ├── data/
-│   │   │   └── ai-news.json      # Noticias IA (generado automáticamente)
-│   │   └── images/
-│   │
-│   ├── scripts/
-│   │   └── fetch-ai-news.js      # Script que obtiene noticias de RSS
-│   │
-│   ├── next.config.mjs           # Configuración Next.js
-│   ├── package.json              # Dependencias
-│   └── tailwind.config.ts
-│
-└── .github/
-    └── workflows/
-        └── update-news.yml       # GitHub Action: actualiza noticias diariamente
-```
-
----
-
-## 🌐 APLICACIONES WEB INTEGRADAS
-
-### 1. Inversión Fundamentales
-**URL:** `/aplicaciones/inversion-fundamentales`
-
-Analiza empresas del S&P 500 usando datos de Yahoo Finance:
-- Carga lista S&P 500 desde Wikipedia
-- Llama a `/api/quoteSummary` (proxy a Yahoo Finance)
-- Calcula índice fundamental 0-100
-- Genera PDF del informe usando `window.print()` (guardar como PDF desde el navegador)
-
-**Archivos clave:**
-- `components/aplicaciones/InversionFundamentales.tsx`
-- `app/api/quoteSummary/route.ts`
-
-### 2. Corrector RAE
-**URL:** `/aplicaciones/corrector-rae` → redirige a PythonAnywhere
-
-Aplicación Flask separada hospedada en:
-- **URL pública:** https://mbainative.pythonanywhere.com
-- **Panel de administración:** https://www.pythonanywhere.com/user/MBAInative/
-- **Repo local:** `C:\Users\lbt00\OneDrive\Documentos\Proyectos\correccion_ortotipografica`
-- **Repo GitHub:** https://github.com/lbt00001-beep/correccion-ortotipografica
-
-### 3. Plataforma MBAI (Simulador IA Empresarial)
-**Acceso:** Botón "Acceso Plataforma" en la web
-
-Simulador de gestión empresarial AI-native desplegado en Google Cloud Run:
-- **URL:** https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/
-- **Hosting:** Google Cloud Run (europe-west1)
-- **Proyecto GCP:** juego-empresa-ia-mbai
-
-## 📰 AUTOMATIZACIÓN DE NOTICIAS IA
-
-Diariamente a las **06:00 AM hora Madrid**, un GitHub Action ejecuta automáticamente:
-1. `scripts/fetch-ai-news.js`
-2. Obtiene RSS de: **Google Cloud, Google AI, Microsoft, NVIDIA**
-3. Filtra artículos por keywords de IA
-4. Genera `public/data/ai-news.json`
-5. Hace commit y push automático → Hostinger reconstruye la web
-
-> **Nota:** OpenAI fue eliminado porque bloquea acceso a su RSS (Error 403)
-
-**Para ejecutar manualmente:**
-GitHub → Actions → "Update AI News" → Run workflow
-
-**Archivos:**
-- `.github/workflows/update-news.yml`
-- `scripts/fetch-ai-news.js`
-- `components/AINewsWidget.tsx`
-- `app/mejores-practicas/noticias/page.tsx`
-
----
-
-## 🎬 GURÚS DE LA IA + VÍDEOS YOUTUBE
-
-**Nuevas secciones en Mejores Prácticas:**
-- `/mejores-practicas/gurus` → 14 perfiles con vídeos YouTube
-- `/mejores-practicas/doctrinas` → 10 doctrinas IA con pros/contras
-
-### Fotos de Gurús
-- **Ubicación:** `public/images/gurus/`
-- **Formato:** JPG (excepto Andrej Karpathy que es PNG)
-- **Fuente:** Wikipedia Commons (licencia CC BY-SA)
-- Las fotos se alojan localmente para evitar problemas de CORS
-
-### YouTube API Key
-1. Creada en Google Cloud Console → Proyecto: `MBAI-YouTube`
-2. **YouTube Data API v3** habilitada
-3. API Key guardada en: GitHub → Settings → Secrets → `YOUTUBE_API_KEY`
-
-### Automatización de vídeos
-El GitHub Action (`.github/workflows/update-news.yml`) también ejecuta:
-- `scripts/fetch-guru-videos.js` → Busca 5 vídeos recientes de cada gurú
-- Genera `public/data/gurus-videos.json`
-- Se actualiza diariamente a las 06:00 (Madrid) junto con las noticias
-
-### 14 Gurús incluidos
-Demis Hassabis, Yann LeCun, Yoshua Bengio, Geoffrey Hinton, Gary Marcus, Sam Altman, Ilya Sutskever, Dario Amodei, Karen Hao, Mustafa Suleyman, Fei-Fei Li, Jensen Huang, Andrew Ng, Andrej Karpathy
-
-### 10 Doctrinas de la IA
-1. Scaling Laws (más escala = más capacidad)
-2. AI Factories (infraestructura industrial)
-3. World Models / JEPA
-4. Control Problem
-5. Constitutional AI
-6. Safety-First Labs
-7. Inside Warning (alerta desde dentro)
-8. Human-Centered AI
-9. AI for Science
-10. Extractive System (crítica estructural)
-
----
-
-## 🔧 CONFIGURACIÓN HOSTINGER
-
-**Panel:** hpanel.hostinger.com
-
-### Conexión GitHub (Auto-deploy)
-**Ubicación:** Websites → [tu sitio] → **Deployment**
-
-En la parte superior aparece:
-```
-Node.js Web App
-From pushes to: mbainative-website
-```
-
-Haciendo clic en "mbainative-website" te lleva a: https://github.com/lbt00001-beep/mbainative-website
-
-**Configuración:**
-- **Repositorio:** `lbt00001-beep/mbainative-website`
-- **Branch:** `master`
-- **Root directory:** `app`
-- **Framework:** Next.js
-
-### Cuando hay problemas de caché
-1. Panel Hostinger → Caché
-2. **Purgar caché** (botón rojo)
-3. Esperar 1-2 minutos
-
----
-
-## 🐛 PROBLEMAS CONOCIDOS
-
-| Problema | Solución |
-|----------|----------|
-| Web muestra versión vieja | Purgar caché en Hostinger |
-| CSS no carga (modo texto) | Verificar `next.config.mjs` tiene `output: "standalone"` |
-| Dropdown ilegible | Estilos inline en `<select>` y `<option>` |
-| API Yahoo falla | Puede ser rate limit, esperar 1h |
-| Chrome descarga sin extensión | Bug de Chrome, usar Edge/Firefox |
-
----
-
-## 📝 CONTACTO Y REDES
-
-- **Email:** info@mbainative.com
-- **Dirección:** Calle Romero Robledo, 14, 28008-Madrid
-- **Redes:** @MBAInative (X, Instagram, Facebook, YouTube)
-- **Plataforma formación:** https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/
-
----
-
-## 📚 DEPENDENCIAS CLAVE
-
-```json
-{
-  "next": "^14.2.3",
-  "react": "^18.3.1",
-  "html2canvas": "^1.4.1",    // Para exportar PDF
-  "jspdf": "^3.0.4",          // Para generar PDF
-  "rss-parser": "^3.x",       // Para noticias automáticas
-  "mammoth": "^1.11.0"        // Para Corrector RAE (Word)
-}
-```
-
----
-
-## 🔄 HISTORIAL DE CAMBIOS RECIENTES
-
-- **26/12/2024:** Automatización noticias IA, fix dropdown sectores
-- **25/12/2024:** Sección Mejores Prácticas (5 sectores), Corrector RAE en PythonAnywhere
-- **24/12/2024:** Actualización contacto, redes sociales, link plataforma formación

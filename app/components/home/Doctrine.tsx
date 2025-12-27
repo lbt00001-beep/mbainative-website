@@ -24,7 +24,7 @@ const principiosFundamentales = [
     number: 1,
     icon: "🪙",
     title: "Inteligencia Comprable",
-    description: "La inteligencia se compra en tokens. Texto, audio, imagen, video: todo tiene un precio por uso."
+    description: "El talento personal se contrata, el talento artificial se compra. Google, OpenAI, Anthropic... venden la inteligencia de sus modelos en tokens."
   },
   {
     number: 2,

@@ -1,40 +1,30 @@
 {
-    "lastUpdated": "2025-12-27T15:40:00.000Z",
-    "playlistId": "PL9WNEV0osabYA5YR5EBu3Lu_xYwAYPWoH",
-    "playlistTitle": "Podcast IA | Jon Hernández",
-    "latestVideo": {
-        "videoId": "qgHLZuZ7mmM",
-        "title": "Vicepresidente de Google: Tenemos un plan y NO mataremos a OpenAI",
-        "description": "Podcast con Xavi Amatriain, ex-directivo de Google, LinkedIn y Expedia, referente mundial en IA.",
-        "thumbnail": "https://i.ytimg.com/vi/qgHLZuZ7mmM/mqdefault.jpg",
-        "publishedAt": "2025-12-27T10:00:00.000Z",
-        "channelTitle": "Podcast IA | Jon Hernández"
+  "lastUpdated": "2025-12-28T05:22:15.869Z",
+  "playlistId": "PL9WNEV0osabYA5YR5EBu3Lu_xYwAYPWoH",
+  "playlistTitle": "Podcast IA | Jon Hernández",
+  "latestVideo": {
+    "videoId": "qgHLZuZ7mmM",
+    "title": "Vicepresidente de Google: Tenemos un plan y NO mataremos a OpenAI",
+    "description": "Apúntate al Desafio Pyme InfoJobs aquí: https://promos.infojobs.net/desafio-jon/\n\nConsigue tu Plaud AI con Código Descuento: JONHERNANDEZ10 aquí: https://bit.ly/plaud_ai_jon\n\n🎙️ Hoy en el podcast tenemos a Xavi Amatriain, investigador y directivo con experiencia en Google, LinkedIn y el ecosistema de Silicon Valley, y esta conversación ayuda a entender qué está pasando realmente con la inteligencia artificial. Hablamos del impacto que tuvo ChatGPT, de la carrera entre OpenAI y Google y de cómo se toman decisiones dentro de las grandes tecnológicas cuando todo avanza tan rápido. Xavi explica cómo se vive esta presión desde dentro, las diferencias entre investigación y producto, el papel de equipos como DeepMind y por qué comparar la IA con el cerebro humano puede ser engañoso. También abordamos el debate sobre la AGI, las capacidades emergentes, los límites del cómputo y la energía, la importancia del hardware y la necesidad de pensar en responsabilidad y gobernanza. Una charla clara y sin hype para entender cómo ven la IA quienes han estado dentro y qué retos tenemos por delante.\n\n► Concursos, Descuentos y Regalos\nPACK Cursos IA con 150€ de descuento! https://academia-ia.com/curso-ia-gene...\nDescarga la guía para usar ChatGPT como un PRO aquí: https://www.jonhernandez.education/gu...\nContesta tus emails con IA con Jace AI, Código Descuento JONIA: https://www.jace.ai/\nConsigue tu Plaud AI con Código Descuento: JONHERNANDEZ10 aquí: https://bit.ly/plaud_ai_jon\n\n► Comunidad y Noticias IA\n¡Apúntate al Club de la IA! Grupo de WhatsApp conmigo y otros cientos de locos por la IA: https://clubdelaia.com/\nNewsletter semanal con las mejores Noticias de IA: https://www.jonhernandez.education/ne...\nComunidad de Discord: https://discord.gg/mNEyUN2g8e\nCanal de WhatsApp sobre IA: https://www.whatsapp.com/channel/0029...\nWeb con las mejores IAs: https://iaperfecta.com\n\n► Sponsors y Colaboraciones\nConsultas sobre marca, patrocinios y negocios: iban@jonhernandez.education\n\n__________________________________________________________________________________________\n⏱ Timestamps:\n\n00:00:00 Trailer \n00:02:05 Introducción\n00:02:45 Trayectoria de Xavi Amatriain y Cómo Inició en Google\n00:04:54 El \"Momento ChatGPT\": Cómo OpenAI pilló a todos por sorpresa \n00:07:14 Visión de la IA: ¿Es la IA buena para la humanidad? \n00:09:34 La estrategia de Google: Dejar que OpenAI abra brecha \n00:11:58 Comparativa de modelos: ¿Posición de Google frente a OpenAI? \n00:18:15 El futuro de la IA: ¿Quién dominará el mercado? \n00:22:47 David contra Goliat: La percepción pública de Google vs Startups \n00:26:00 La sociedad ante el progreso exponencial\n00:30:30 Respondiendo a los escépticos (LeCun, Marcus, Mántaras) \n00:41:13 Médicos + IA: La medicina del futuro\n00:46:54 ¿Podemos confiar en una IA que no entendemos del todo? \n00:53:03 Guardarraíles: ¿Es posible controlar los modelos? \n00:58:15 Desmontando el mito: ¿La IA es Inteligente?\n01:07:12 El riesgo del \"Hard Takeoff\" y la Superinteligencia (ASI) \n01:13:20 ¿Cuál es el Objetivo de Google?\n01:26:19 La guerra del hardware: Google TPUs vs. Nvidia \n01:39:41 Project Sun Catcher: Enviando servidores al espacio \n01:42:54 Por qué Xavi dejó la cúpula de Google para irse a Expedia \n01:50:01 La situación de Microsoft y su compleja relación con OpenAI \n01:52:29 ¿Necesitan las grandes empresas tener sus propios modelos? \n01:58:38 Europa vs. EE.UU.: El problema cultural y la aversión al riesgo",
+    "thumbnail": "https://i.ytimg.com/vi/qgHLZuZ7mmM/maxresdefault.jpg",
+    "publishedAt": "2025-12-18T10:38:05Z",
+    "channelTitle": "Podcast IA | Jon Hernández"
+  },
+  "keyPoints": [
+    {
+      "icon": "💡",
+      "title": "Concursos, Descuentos y Regalos",
+      "description": "Concursos, Descuentos y Regalos"
     },
-    "keyPoints": [
-        {
-            "icon": "🏢",
-            "title": "Producto sobre investigación",
-            "description": "OpenAI sorprendió a Google no por su tecnología, sino por convertir la investigación en un producto de consumo masivo."
-        },
-        {
-            "icon": "🔄",
-            "title": "Reinvención del modelo de negocio",
-            "description": "La IA generativa obliga a repensar el núcleo del negocio y canibalizar el modelo actual para renacer como AI-Native."
-        },
-        {
-            "icon": "🎯",
-            "title": "Modelos especializados",
-            "description": "La ventaja competitiva vendrá del uso de modelos especializados, no solo APIs genéricas."
-        },
-        {
-            "icon": "⚡",
-            "title": "Agilidad cultural",
-            "description": "Para liderar en la era de la IA, las empresas necesitan una cultura de 'fallar rápido' y mentalidad ágil."
-        },
-        {
-            "icon": "🤝",
-            "title": "IA como aumentadora de capacidades",
-            "description": "El éxito no viene de sustituir personas, sino de crear flujos donde la IA absorba tareas de menor valor estratégico."
-        }
-    ]
+    {
+      "icon": "💡",
+      "title": "Comunidad y Noticias IA",
+      "description": "Comunidad y Noticias IA"
+    },
+    {
+      "icon": "💡",
+      "title": "Sponsors y Colaboraciones",
+      "description": "Sponsors y Colaboraciones"
+    }
+  ]
 }

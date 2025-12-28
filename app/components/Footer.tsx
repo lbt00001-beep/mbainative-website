@@ -53,8 +53,21 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto text-center text-gray-500 border-t border-gray-700 pt-8 mt-8">
-        <p>&copy; {new Date().getFullYear()} MBAI Native. Todos los derechos reservados.</p>
+      <div className="container mx-auto border-t border-gray-700 pt-8 mt-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500">&copy; {new Date().getFullYear()} MBAI Native. Todos los derechos reservados.</p>
+          <div className="flex gap-6 text-sm text-gray-400">
+            <Link href="/privacidad" className="hover:text-[--accent] transition-colors">
+              Política de Privacidad
+            </Link>
+            <Link href="/condiciones" className="hover:text-[--accent] transition-colors">
+              Condiciones de Uso
+            </Link>
+            <Link href="/cookies" className="hover:text-[--accent] transition-colors">
+              Política de Cookies
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

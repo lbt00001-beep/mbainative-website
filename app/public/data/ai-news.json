@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-27T07:46:59.427Z",
-  "totalArticles": 40,
+  "lastUpdated": "2025-12-28T05:16:39.387Z",
+  "totalArticles": 30,
   "featured": [
     {
       "title": "What’s new with Google Cloud",
@@ -10,17 +10,7 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 13
-    },
-    {
-      "title": "The Year in Google Cloud — 2025",
-      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
-      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 13
+      "relevance": 50
     },
     {
       "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
@@ -30,17 +20,17 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 12
+      "relevance": 36
     },
     {
-      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
-      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
-      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "title": "The Year in Google Cloud — 2025",
+      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
+      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
       "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 10
+      "relevance": 32
     },
     {
       "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
@@ -50,7 +40,17 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 9
+      "relevance": 30
+    },
+    {
+      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
+      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
+      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 27
     }
   ],
   "all": [
@@ -62,17 +62,7 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 13
-    },
-    {
-      "title": "The Year in Google Cloud — 2025",
-      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
-      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 13
+      "relevance": 50
     },
     {
       "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
@@ -82,17 +72,17 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 12
+      "relevance": 36
     },
     {
-      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
-      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
-      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "title": "The Year in Google Cloud — 2025",
+      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
+      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
       "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 10
+      "relevance": 32
     },
     {
       "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
@@ -102,27 +92,17 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 9
+      "relevance": 30
     },
     {
-      "title": "Achieve near-100% accurate text-to-SQL for your agentic apps",
-      "link": "https://cloud.google.com/blog/products/databases/optimizing-alloydb-ai-text-to-sql-accuracy/",
-      "summary": "Today’s AI capabilities provide a great opportunity to enable natural language (NL) interactions with your enterprise data through applications using text and voice. In fact, in the world of agentic applications, natural language is rapidly becoming the interaction standard. That means agents need t...",
-      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
+      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
+      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
+      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
+      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 7
-    },
-    {
-      "title": "5 ways AI agents will transform the way we work in 2026",
-      "link": "https://blog.google/products/google-cloud/ai-business-trends-report-2026/",
-      "summary": "Today, Google Cloud dropped its 2026 AI Agent Trends Report....",
-      "pubDate": "Fri, 19 Dec 2025 14:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 5
+      "relevance": 27
     },
     {
       "title": "Agent Factory Recap: Supercharging Agents on GKE with Agent Sandbox and Pod Snapshots",
@@ -132,7 +112,17 @@
       "source": "Google Cloud",
       "sourceLogo": "🔵",
       "category": "cloud",
-      "relevance": 5
+      "relevance": 19
+    },
+    {
+      "title": "Achieve near-100% accurate text-to-SQL for your agentic apps",
+      "link": "https://cloud.google.com/blog/products/databases/optimizing-alloydb-ai-text-to-sql-accuracy/",
+      "summary": "Today’s AI capabilities provide a great opportunity to enable natural language (NL) interactions with your enterprise data through applications using text and voice. In fact, in the world of agentic applications, natural language is rapidly becoming the interaction standard. That means agents need t...",
+      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
+      "relevance": 19
     },
     {
       "title": "Magentic Marketplace: an open-source simulation environment for studying agentic markets",
@@ -142,26 +132,106 @@
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",
+      "relevance": 12
+    },
+    {
+      "title": "Fara-7B: An Efficient Agentic Model for Computer Use",
+      "link": "https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/",
+      "summary": "Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.\nThe post Fara-7B: An Efficient Agentic Model for...",
+      "pubDate": "Mon, 24 Nov 2025 18:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 10
+    },
+    {
+      "title": "5 ways AI agents will transform the way we work in 2026",
+      "link": "https://blog.google/products/google-cloud/ai-business-trends-report-2026/",
+      "summary": "Today, Google Cloud dropped its 2026 AI Agent Trends Report....",
+      "pubDate": "Fri, 19 Dec 2025 14:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 7
+    },
+    {
+      "title": "When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost",
+      "link": "https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/",
+      "summary": "A collaboration between Signify and Microsoft Research shows how PIKE-RAG improves enterprise knowledge systems, delivering a 12% increase in accuracy and faster, more reliable answers.\nThe post When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost appeared f...",
+      "pubDate": "Thu, 06 Nov 2025 13:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 7
+    },
+    {
+      "title": "From Code to Cloud: Three Labs for Deploying Your AI Agent",
+      "link": "https://cloud.google.com/blog/topics/developers-practitioners/from-code-to-cloud-three-labs-for-deploying-your-ai-agent/",
+      "summary": "You've built a powerful AI agent. It works on your local machine, it's intelligent, and it's ready to meet the world. Now, how do you take this agent from a script on your laptop to a secure, scalable, and reliable application in production? On Google Cloud, there are multiple paths to deployment, e...",
+      "pubDate": "Fri, 19 Dec 2025 07:15:00 +0000",
+      "source": "Google Cloud",
+      "sourceLogo": "🔵",
+      "category": "cloud",
       "relevance": 5
     },
     {
-      "title": "Now Generally Available, NVIDIA RTX PRO 5000 72GB Blackwell GPU Expands Memory Options for Desktop Agentic AI",
-      "link": "https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/",
-      "summary": "The NVIDIA RTX PRO 5000 72GB Blackwell GPU is now generally available, bringing robust agentic and generative AI capabilities powered by the NVIDIA Blackwell architecture to more desktops and professionals across the world....",
-      "pubDate": "Thu, 18 Dec 2025 16:00:28 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 4
+      "title": "Inside Kaggle's AI Agents intensive course with Google",
+      "link": "https://blog.google/technology/developers/ai-agents-intensive-recap/",
+      "summary": "Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI....",
+      "pubDate": "Thu, 18 Dec 2025 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 5
     },
     {
-      "title": "How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth",
-      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/",
-      "summary": "Modern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include tuning a chatbot to handle product-support questions or building a personal assistant for managing one’s schedule. A challenge remains, however, in getting a small language model t...",
-      "pubDate": "Mon, 15 Dec 2025 14:00:11 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
+      "title": "Agent Lightning: Adding reinforcement learning to AI agents without code rewrites",
+      "link": "https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/",
+      "summary": "By decoupling how agents work from how they’re trained, Agent Lightning turns each step an agent takes into data for reinforcement learning. This makes it easy for developers to improve agent performance with almost zero code changes.\nThe post Agent Lightning: Adding reinforcement learning to AI age...",
+      "pubDate": "Thu, 11 Dec 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "Reducing Privacy leaks in AI: Two approaches to contextual integrity ",
+      "link": "https://www.microsoft.com/en-us/research/blog/reducing-privacy-leaks-in-ai-two-approaches-to-contextual-integrity/",
+      "summary": "New research explores two ways to give AI agents stronger privacy safeguards grounded in contextual integrity. One adds lightweight, inference-time checks; the other builds contextual awareness directly into models through reasoning and RL.\nThe post Reducing Privacy leaks in AI: Two approaches to co...",
+      "pubDate": "Tue, 25 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "MMCTAgent: Enabling multimodal reasoning over large video and image collections",
+      "link": "https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/",
+      "summary": "MMCTAgent enables dynamic multimodal reasoning with iterative planning and reflection. Built on Microsoft’s AutoGen framework, it integrates language, vision, and temporal understanding for complex tasks like long video and image analysis.\nThe post MMCTAgent: Enabling multimodal reasoning over large...",
+      "pubDate": "Wed, 12 Nov 2025 12:00:20 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI",
+      "link": "https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/",
+      "summary": "BlueCodeAgent is an end-to-end blue-teaming framework built to boost code security using automated red-teaming processes, data, and safety rules to guide LLMs’ defensive decisions. Dynamic testing reduces false positives in vulnerability detection.\nThe post BlueCodeAgent: A blue teaming agent enable...",
+      "pubDate": "Tue, 11 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "Ideas: Community building, machine learning, and the future of AI",
+      "link": "https://www.microsoft.com/en-us/research/podcast/ideas-community-building-machine-learning-and-the-future-of-ai/",
+      "summary": "As the Women in Machine Learning Workshop (WiML) marks its 20th annual gathering, cofounders, friends, and collaborators Jenn Wortman Vaughan and Hanna Wallach reflect on WiML’s evolution, navigating the field of ML, and their work in responsible AI.\nThe post Ideas: Community building, machine learn...",
+      "pubDate": "Mon, 01 Dec 2025 19:18:20 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
       "relevance": 4
     },
     {
@@ -175,110 +245,10 @@
       "relevance": 3
     },
     {
-      "title": "From Code to Cloud: Three Labs for Deploying Your AI Agent",
-      "link": "https://cloud.google.com/blog/topics/developers-practitioners/from-code-to-cloud-three-labs-for-deploying-your-ai-agent/",
-      "summary": "You've built a powerful AI agent. It works on your local machine, it's intelligent, and it's ready to meet the world. Now, how do you take this agent from a script on your laptop to a secure, scalable, and reliable application in production? On Google Cloud, there are multiple paths to deployment, e...",
-      "pubDate": "Fri, 19 Dec 2025 07:15:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 3
-    },
-    {
-      "title": "NVIDIA, US Government to Boost AI Infrastructure and R&D Investments Through Landmark Genesis Mission",
-      "link": "https://blogs.nvidia.com/blog/nvidia-us-government-to-boost-ai-infrastructure-and-rd-investments/",
-      "summary": "NVIDIA will join the U.S. Department of Energy’s (DOE) Genesis Mission as a private industry partner to keep U.S. AI both the leader and the standard in technology around the world. The Genesis Mission, which is part of an Executive Order recently signed by President Trump, aims to redefine American...",
-      "pubDate": "Thu, 18 Dec 2025 19:02:12 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 3
-    },
-    {
-      "title": "Inside Kaggle's AI Agents intensive course with Google",
-      "link": "https://blog.google/technology/developers/ai-agents-intensive-recap/",
-      "summary": "Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI....",
-      "pubDate": "Thu, 18 Dec 2025 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 3
-    },
-    {
-      "title": "Watch a podcast discussion about Gemini 3 and the future of Search.",
-      "link": "https://blog.google/technology/ai/release-notes-podcast-search/",
-      "summary": "Learn how Gemini 3 powers Google Search with Generative UI, Nano Banana, and interactive graphics....",
-      "pubDate": "Thu, 18 Dec 2025 00:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 3
-    },
-    {
-      "title": "Agent Lightning: Adding reinforcement learning to AI agents without code rewrites",
-      "link": "https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/",
-      "summary": "By decoupling how agents work from how they’re trained, Agent Lightning turns each step an agent takes into data for reinforcement learning. This makes it easy for developers to improve agent performance with almost zero code changes.\nThe post Agent Lightning: Adding reinforcement learning to AI age...",
-      "pubDate": "Thu, 11 Dec 2025 17:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 3
-    },
-    {
-      "title": "Reducing Privacy leaks in AI: Two approaches to contextual integrity ",
-      "link": "https://www.microsoft.com/en-us/research/blog/reducing-privacy-leaks-in-ai-two-approaches-to-contextual-integrity/",
-      "summary": "New research explores two ways to give AI agents stronger privacy safeguards grounded in contextual integrity. One adds lightweight, inference-time checks; the other builds contextual awareness directly into models through reasoning and RL.\nThe post Reducing Privacy leaks in AI: Two approaches to co...",
-      "pubDate": "Tue, 25 Nov 2025 17:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 3
-    },
-    {
-      "title": "Fara-7B: An Efficient Agentic Model for Computer Use",
-      "link": "https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/",
-      "summary": "Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.\nThe post Fara-7B: An Efficient Agentic Model for...",
-      "pubDate": "Mon, 24 Nov 2025 18:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 3
-    },
-    {
-      "title": "MMCTAgent: Enabling multimodal reasoning over large video and image collections",
-      "link": "https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/",
-      "summary": "MMCTAgent enables dynamic multimodal reasoning with iterative planning and reflection. Built on Microsoft’s AutoGen framework, it integrates language, vision, and temporal understanding for complex tasks like long video and image analysis.\nThe post MMCTAgent: Enabling multimodal reasoning over large...",
-      "pubDate": "Wed, 12 Nov 2025 12:00:20 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 3
-    },
-    {
-      "title": "BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI",
-      "link": "https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/",
-      "summary": "BlueCodeAgent is an end-to-end blue-teaming framework built to boost code security using automated red-teaming processes, data, and safety rules to guide LLMs’ defensive decisions. Dynamic testing reduces false positives in vulnerability detection.\nThe post BlueCodeAgent: A blue teaming agent enable...",
-      "pubDate": "Tue, 11 Nov 2025 17:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 3
-    },
-    {
       "title": "Google's year in review: 8 areas with research breakthroughs in 2025",
       "link": "https://blog.google/technology/ai/2025-research-breakthroughs/",
       "summary": "This year saw new AI models, transformative products and new breakthroughs in science and robotics....",
       "pubDate": "Tue, 23 Dec 2025 17:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 2
-    },
-    {
-      "title": "60 of our biggest AI announcements in 2025",
-      "link": "https://blog.google/technology/ai/google-ai-news-recap-2025/",
-      "summary": "Look back on Google AI news in 2025 across Gemini, Search, Pixel and more products....",
-      "pubDate": "Mon, 22 Dec 2025 17:00:00 +0000",
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
@@ -295,6 +265,26 @@
       "relevance": 2
     },
     {
+      "title": "Watch a podcast discussion about Gemini 3 and the future of Search.",
+      "link": "https://blog.google/technology/ai/release-notes-podcast-search/",
+      "summary": "Learn how Gemini 3 powers Google Search with Generative UI, Nano Banana, and interactive graphics....",
+      "pubDate": "Thu, 18 Dec 2025 00:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 2
+    },
+    {
+      "title": "60 of our biggest AI announcements in 2025",
+      "link": "https://blog.google/technology/ai/google-ai-news-recap-2025/",
+      "summary": "Look back on Google AI news in 2025 across Gemini, Search, Pixel and more products....",
+      "pubDate": "Mon, 22 Dec 2025 17:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 1
+    },
+    {
       "title": "You can now verify Google AI-generated videos in the Gemini app.",
       "link": "https://blog.google/technology/ai/verify-google-ai-videos-gemini-app/",
       "summary": "We’re expanding our content transparency tools to help you more easily identify AI-generated content. You can now check if a video was edited or created with Google AI d…...",
@@ -302,7 +292,7 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 2
+      "relevance": 1
     },
     {
       "title": "Gemini 3 Flash: frontier intelligence built for speed",
@@ -312,56 +302,6 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 2
-    },
-    {
-      "title": "NVIDIA Acquires Open-Source Workload Management Provider SchedMD",
-      "link": "https://blogs.nvidia.com/blog/nvidia-acquires-schedmd/",
-      "summary": "NVIDIA today announced it has acquired SchedMD — the leading developer of Slurm, an open-source workload management system for high-performance computing (HPC) and AI — to help strengthen the open-source software ecosystem and drive AI innovation for researchers, developers and enterprises. NVIDIA w...",
-      "pubDate": "Mon, 15 Dec 2025 16:30:11 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 2
-    },
-    {
-      "title": "As AI Grows More Complex, Model Builders Rely on NVIDIA",
-      "link": "https://blogs.nvidia.com/blog/leading-models-nvidia/",
-      "summary": "Unveiling what it describes as the most capable model series yet for professional knowledge work, OpenAI launched GPT-5.2 today. The model was trained and deployed on NVIDIA infrastructure, including NVIDIA Hopper and GB200 NVL72 systems. GPT-5.2 achieves the top reported score for industry benchmar...",
-      "pubDate": "Thu, 11 Dec 2025 19:19:57 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 2
-    },
-    {
-      "title": "When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost",
-      "link": "https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/",
-      "summary": "A collaboration between Signify and Microsoft Research shows how PIKE-RAG improves enterprise knowledge systems, delivering a 12% increase in accuracy and faster, more reliable answers.\nThe post When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost appeared f...",
-      "pubDate": "Thu, 06 Nov 2025 13:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 2
-    },
-    {
-      "title": "Marine Biological Laboratory Explores Human Memory With AI and Virtual Reality",
-      "link": "https://blogs.nvidia.com/blog/mbl-human-memory-ai-vr-rtx/",
-      "summary": "The works of Plato state that when humans have an experience, some level of change occurs in their brain, which is powered by memory — specifically long-term memory. This change is what Andre Fenton, professor of neural science at New York University, and Abhishek Kumar, assistant professor of cell ...",
-      "pubDate": "Mon, 22 Dec 2025 16:00:10 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 1
-    },
-    {
-      "title": "UC San Diego Lab Advances Generative AI Research With NVIDIA DGX B200 System",
-      "link": "https://blogs.nvidia.com/blog/ucsd-generative-ai-research-dgx-b200/",
-      "summary": "The Hao AI Lab research team at the University of California San Diego  — at the forefront of pioneering AI model innovation — recently received an NVIDIA DGX B200 system to elevate their critical work in large language model inference. Many LLM inference platforms in production today, such as NVIDI...",
-      "pubDate": "Wed, 17 Dec 2025 16:00:15 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
       "relevance": 1
     },
     {
@@ -385,26 +325,6 @@
       "relevance": 0
     },
     {
-      "title": "Deck the Vaults: ‘Fallout: New Vegas’ Joins the Cloud This Holiday Season",
-      "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-fallout-new-vegas/",
-      "summary": "Step out of the vault and into the future of gaming with Fallout: New Vegas streaming on GeForce NOW, just in time to celebrate the newest season of the hit Amazon TV show Fallout. To mark the occasion, GeForce NOW members can claim Fallout 3 and Fallout 4 as special rewards, completing a wasteland-...",
-      "pubDate": "Thu, 18 Dec 2025 14:00:12 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 0
-    },
-    {
-      "title": "Into the Omniverse: OpenUSD and NVIDIA Halos Accelerate Safety for Robotaxis, Physical AI Systems",
-      "link": "https://blogs.nvidia.com/blog/openusd-halos-safety-robotaxi-physical-ai/",
-      "summary": "Physical AI is moving from research labs into the real world, powering intelligent robots and autonomous vehicles (AVs) — such as robotaxis — that must reliably sense, reason and act amid unpredictable conditions....",
-      "pubDate": "Wed, 17 Dec 2025 17:00:49 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 0
-    },
-    {
       "title": "We’re publishing an AI playbook to help others with sustainability reporting.",
       "link": "https://blog.google/outreach-initiatives/sustainability/ai-playbook-sustainability-reporting/",
       "summary": "We’re sharing a practical playbook to help organizations streamline and enhance sustainability reporting with AI.Corporate transparency is essential, but navigating frag…...",
@@ -425,30 +345,10 @@
       "relevance": 0
     },
     {
-      "title": "Cheers to AI: ADAM Robot Bartender Makes Drinks at Vegas Golden Knights Game",
-      "link": "https://blogs.nvidia.com/blog/adam-robot-vegas-golden-knights-thor/",
-      "summary": "In Las Vegas’s T-Mobile Arena, fans of the Golden Knights are getting more than just hockey — they’re getting a taste of the future. ADAM, a robot developed with NVIDIA Isaac libraries, is pouring drinks and turning heads in one of the NHL’s most exciting venues. ADAM, short for Automated Dual Arm M...",
-      "pubDate": "Fri, 12 Dec 2025 16:00:04 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 0
-    },
-    {
       "title": "GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI",
       "link": "https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/",
       "summary": "Using AI-generated virtual populations, Microsoft researchers uncovered hidden cellular patterns that could reshape how we understand and treat cancer. \nThe post GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI appeared first on Microsoft Research...",
       "pubDate": "Tue, 09 Dec 2025 16:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Ideas: Community building, machine learning, and the future of AI",
-      "link": "https://www.microsoft.com/en-us/research/podcast/ideas-community-building-machine-learning-and-the-future-of-ai/",
-      "summary": "As the Women in Machine Learning Workshop (WiML) marks its 20th annual gathering, cofounders, friends, and collaborators Jenn Wortman Vaughan and Hanna Wallach reflect on WiML’s evolution, navigating the field of ML, and their work in responsible AI.\nThe post Ideas: Community building, machine learn...",
-      "pubDate": "Mon, 01 Dec 2025 19:18:20 +0000",
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",

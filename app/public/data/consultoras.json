@@ -1,74 +1,209 @@
 {
-    "lastUpdated": "2025-12-27T22:30:00.000Z",
-    "totalArticles": 5,
-    "consultoras": [
-        {
-            "id": "mckinsey",
-            "name": "McKinsey & Company",
-            "logo": "/images/consultoras/mckinsey.png",
-            "website": "https://www.mckinsey.com/",
-            "articleCount": 3
-        },
-        {
-            "id": "bcg",
-            "name": "Boston Consulting Group",
-            "logo": "/images/consultoras/bcg.png",
-            "website": "https://www.bcg.com/",
-            "articleCount": 1
-        },
-        {
-            "id": "deloitte",
-            "name": "Deloitte",
-            "logo": "/images/consultoras/deloitte.png",
-            "website": "https://www2.deloitte.com/",
-            "articleCount": 1
-        }
-    ],
-    "articles": [
-        {
-            "title": "The economic potential of generative AI: The next productivity frontier",
-            "link": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
-            "description": "Generative AI could add the equivalent of $2.6 trillion to $4.4 trillion annually across the 63 use cases we analyzed...",
-            "pubDate": "2025-12-20T10:00:00.000Z",
-            "source": "McKinsey & Company",
-            "sourceId": "mckinsey",
-            "score": 15
-        },
-        {
-            "title": "The future of work: How AI is reshaping jobs and skills",
-            "link": "https://www.mckinsey.com/featured-insights/future-of-work",
-            "description": "Our research explores how generative AI is changing the world of work, from new skills requirements to job displacement and creation...",
-            "pubDate": "2025-12-18T10:00:00.000Z",
-            "source": "McKinsey & Company",
-            "sourceId": "mckinsey",
-            "score": 14
-        },
-        {
-            "title": "AI agents: The next frontier in enterprise automation",
-            "link": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/ai-agents",
-            "description": "AI agents represent a significant leap in how enterprises can automate complex workflows and decision-making processes...",
-            "pubDate": "2025-12-15T10:00:00.000Z",
-            "source": "McKinsey & Company",
-            "sourceId": "mckinsey",
-            "score": 13
-        },
-        {
-            "title": "Generative AI and the future of work in Europe",
-            "link": "https://www.bcg.com/publications/2025/generative-ai-workforce-europe",
-            "description": "How generative AI will transform the European workforce and what companies need to do to prepare...",
-            "pubDate": "2025-12-12T10:00:00.000Z",
-            "source": "Boston Consulting Group",
-            "sourceId": "bcg",
-            "score": 12
-        },
-        {
-            "title": "The AI-powered organization: Strategies for the future",
-            "link": "https://www2.deloitte.com/us/en/insights/focus/tech-trends/ai-powered-organization.html",
-            "description": "How leading organizations are building AI capabilities to transform their operations and workforce...",
-            "pubDate": "2025-12-10T10:00:00.000Z",
-            "source": "Deloitte",
-            "sourceId": "deloitte",
-            "score": 11
-        }
-    ]
+  "lastUpdated": "2025-12-28T05:22:18.107Z",
+  "totalArticles": 20,
+  "consultoras": [
+    {
+      "id": "mckinsey",
+      "name": "McKinsey & Company",
+      "logo": "/images/consultoras/mckinsey.png",
+      "website": "https://www.mckinsey.com/",
+      "articleCount": 24
+    },
+    {
+      "id": "bcg",
+      "name": "Boston Consulting Group",
+      "logo": "/images/consultoras/bcg.png",
+      "website": "https://www.bcg.com/",
+      "articleCount": 0
+    },
+    {
+      "id": "deloitte",
+      "name": "Deloitte",
+      "logo": "/images/consultoras/deloitte.png",
+      "website": "https://www2.deloitte.com/",
+      "articleCount": 0
+    }
+  ],
+  "articles": [
+    {
+      "title": "Seizing the moment: Latin America’s productivity opportunity",
+      "link": "https://www.mckinsey.com/featured-insights/americas/seizing-the-moment-latin-americas-productivity-opportunity",
+      "description": "Amid a shifting global landscape, Latin America can capitalize on its competitive strengths and assets to jump-start productivity and unlock its full potential....",
+      "pubDate": "Wed, 17 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 6
+    },
+    {
+      "title": "The McKinsey Crossword: “Sprechen Sie Deutsch?” | No. 264",
+      "link": "https://www.mckinsey.com/featured-insights/the-mckinsey-crossword/december-23-2025",
+      "description": "Sharpen your problem-solving skills the McKinsey way, with our weekly crossword. Each puzzle is created with the McKinsey audience in mind, and includes a subtle (and sometimes not-so-subtle) business...",
+      "pubDate": "Tue, 23 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Elad Gil on the future of AI",
+      "link": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/elad-gil-on-the-future-of-ai",
+      "description": "Elad Gil of Gil Capital shares his view on the state of AI, where it’s going, and what’s unknown....",
+      "pubDate": "Fri, 19 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The athlete’s mindset for digital and AI transformation",
+      "link": "https://www.mckinsey.com/capabilities/implementation/our-insights/the-athletes-mindset-for-digital-and-ai-transformation",
+      "description": "AI, gen AI, and agentic AI have raised the stakes for digital transformation. Insights on how athletes train can help companies address the challenges....",
+      "pubDate": "Fri, 19 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Talking with Craig Saks, CEO of Bottomline",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/talking-with-craig-saks-ceo-of-bottomline",
+      "description": "The longtime business payments company seeks to transform B2B money movement and related activities, creating new revenue streams and better cashflow....",
+      "pubDate": "Fri, 19 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Accelerating Europe’s AI adoption: The role of sovereign AI",
+      "link": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/accelerating-europes-ai-adoption-the-role-of-sovereign-ai",
+      "description": "By playing to its strengths, the continent could create an AI ecosystem that accelerates adoption, improves global competitiveness, and reignites economic growth and prosperity....",
+      "pubDate": "Fri, 19 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "4 Questions Global CEOs Are Asking About China",
+      "link": "https://www.mckinsey.com/cn/our-insights/our-insights/4-questions-global-ceos-are-asking-about-china",
+      "description": "For global companies, success in China now depends less on broad market exposure and more on precision: choosing the right segments, channels, cities, and value propositions.  The market remains chall...",
+      "pubDate": "Thu, 18 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The next big shifts in AI workloads and hyperscaler strategies",
+      "link": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-next-big-shifts-in-ai-workloads-and-hyperscaler-strategies",
+      "description": "AI workloads are reshaping data center economics, power planning, and leasing decisions. Their influence is already evident across most new builds and will only intensify in the coming years....",
+      "pubDate": "Wed, 17 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The Committed Innovator: Enabling and harnessing the innovation process",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-committed-innovator-enabling-and-harnessing-the-innovation-process",
+      "description": "Miro founder and CEO Andrey Khusid discusses the inspiration behind what started as a digital whiteboard and has evolved to become an AI innovation workspace....",
+      "pubDate": "Wed, 17 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Reimagining the value proposition of tech services for agentic AI",
+      "link": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/reimagining-the-value-proposition-of-tech-services-for-agentic-ai",
+      "description": "As enterprise customers seek support with agentic AI, tech services providers have a chance to turn a potential threat into an even bigger opportunity....",
+      "pubDate": "Wed, 17 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The future of risk: How global trends are reshaping risk management",
+      "link": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/the-future-of-risk-how-global-trends-are-reshaping-risk-management",
+      "description": "A rapidly shifting and interconnected risk landscape, technology, and AI transform what good risk management looks like. Financial institutions must embrace new operating models and best practices....",
+      "pubDate": "Wed, 17 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "How retail banks build strategic distance",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/how-retail-banks-build-strategic-distance",
+      "description": "Our approach to aligning an organization’s strengths and priorities can drive long-term competitive differentiation and value creation....",
+      "pubDate": "Tue, 16 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The McKinsey Crossword: Slip Cover | No. 263",
+      "link": "https://www.mckinsey.com/featured-insights/the-mckinsey-crossword/december-16-2025",
+      "description": "Sharpen your problem-solving skills the McKinsey way, with our weekly crossword. Each puzzle is created with the McKinsey audience in mind, and includes a subtle (and sometimes not-so-subtle) business...",
+      "pubDate": "Tue, 16 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "High five: Scrolling through 2025",
+      "link": "https://www.mckinsey.com/quarterly/the-five-fifty/five-fifty-high-five-scrolling-through-2025",
+      "description": "From unleashing AI’s potential to addressing burnout in the workplace to leading in the face of geopolitical uncertainty, here are five themes that captured our readers’ attention this year....",
+      "pubDate": "Mon, 15 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "How Toshiba Tec and McKinsey are turning retail data into real-time decisions with NVIDIA",
+      "link": "https://www.mckinsey.com/industries/industrials/how-we-help-clients/how-toshiba-tec-and-mckinsey-are-turning-retail-data-into-real-time-decisions-with-nvidia",
+      "description": "Partnering with McKinsey, Toshiba Tec leveraged NVIDIA’s GPU-accelerated, end to end suite to transform how retailers harness transaction data. The result? Faster, smarter insights at scale....",
+      "pubDate": "Mon, 15 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "From pilots to performance: How COOs can scale AI in manufacturing",
+      "link": "https://www.mckinsey.com/capabilities/operations/our-insights/from-pilots-to-performance-how-coos-can-scale-ai-in-manufacturing",
+      "description": "A new survey of manufacturing COOs shows high hopes for scaling AI—and high budgets. But some companies may be underinvesting in the enablers needed for AI to generate lasting value....",
+      "pubDate": "Mon, 15 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "AI in Asia: Reimagining banking operations through agentic AI",
+      "link": "https://www.mckinsey.com/capabilities/operations/our-insights/ai-in-asia-reimagining-banking-operations-through-agentic-ai",
+      "description": "Multiagentic systems are transforming operations, combining the power of technology, processes, and people to deliver outsized impact for banks in Asia....",
+      "pubDate": "Fri, 12 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 1
+    },
+    {
+      "title": "Lorraine Mitchelmore on the transformative power of peer networks",
+      "link": "https://www.mckinsey.com/ca/overview/lorraine-mitchelmore-on-the-transformative-power-of-peer-networks",
+      "description": "The former President of Shell Canada and AWE board member reflects on her own leadership journey and the ways in which AWE is helping to grow the leaders that Canada needs and deserves....",
+      "pubDate": "Fri, 12 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 1
+    },
+    {
+      "title": "Mind the attention gap: Winning the battle for UK consumer attention",
+      "link": "https://www.mckinsey.com/uk/our-insights/mind-the-attention-gap-winning-the-battle-for-uk-consumer-attention",
+      "description": "UK consumers watch hours of content daily. But in an increasingly fragmented media market, companies that truly understand the value of attention are most likely to get ahead....",
+      "pubDate": "Fri, 12 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 1
+    },
+    {
+      "title": "The future is agentic: AI’s role in the end-to-end corporate credit process",
+      "link": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/the-future-is-agentic-ais-role-in-the-end-to-end-corporate-credit-process",
+      "description": "To integrate agentic AI into credit-related workflows and realize improvements, risk teams must identify critical, scalable use cases and convene cross-functional teams to develop solutions....",
+      "pubDate": "Fri, 12 Dec 2025",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 1
+    }
+  ]
 }

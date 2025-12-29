@@ -1,14 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import getConfig from 'next/config';
 
-// TEMPORAL: Credenciales hardcodeadas para prueba
-// TODO: Mover a variables de entorno cuando funcionen
+// Get runtime config or fallback to hardcoded values
+const { serverRuntimeConfig } = getConfig() || {};
+
 const EMAIL_CONFIG = {
-    host: 'smtp.hostinger.com',
-    port: 465,
-    user: 'info@mbainative.com',
-    pass: 'sUJxYH4LBTLC$',
-    to: 'info@mbainative.com'
+    host: serverRuntimeConfig?.EMAIL_HOST || process.env.EMAIL_HOST || 'smtp.hostinger.com',
+    port: parseInt(serverRuntimeConfig?.EMAIL_PORT || process.env.EMAIL_PORT || '465'),
+    user: serverRuntimeConfig?.EMAIL_USER || process.env.EMAIL_USER || 'info@mbainative.com',
+    pass: serverRuntimeConfig?.EMAIL_PASS || process.env.EMAIL_PASS || 'sUJxYH4LBTLC$',
+    to: serverRuntimeConfig?.EMAIL_TO || process.env.EMAIL_TO || 'info@mbainative.com'
 };
 
 export async function POST(request: NextRequest) {

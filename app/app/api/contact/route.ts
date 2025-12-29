@@ -2,15 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import getConfig from 'next/config';
 
-// Get runtime config or fallback to hardcoded values
+// Get runtime config for environment variables
 const { serverRuntimeConfig } = getConfig() || {};
 
 const EMAIL_CONFIG = {
-    host: serverRuntimeConfig?.EMAIL_HOST || process.env.EMAIL_HOST || 'smtp.hostinger.com',
+    host: serverRuntimeConfig?.EMAIL_HOST || process.env.EMAIL_HOST,
     port: parseInt(serverRuntimeConfig?.EMAIL_PORT || process.env.EMAIL_PORT || '465'),
-    user: serverRuntimeConfig?.EMAIL_USER || process.env.EMAIL_USER || 'info@mbainative.com',
-    pass: serverRuntimeConfig?.EMAIL_PASS || process.env.EMAIL_PASS || 'WRONG_PASSWORD_FOR_TEST',
-    to: serverRuntimeConfig?.EMAIL_TO || process.env.EMAIL_TO || 'info@mbainative.com'
+    user: serverRuntimeConfig?.EMAIL_USER || process.env.EMAIL_USER,
+    pass: serverRuntimeConfig?.EMAIL_PASS || process.env.EMAIL_PASS,
+    to: serverRuntimeConfig?.EMAIL_TO || process.env.EMAIL_TO
 };
 
 export async function POST(request: NextRequest) {
@@ -25,9 +25,18 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // Check email configuration
+        if (!EMAIL_CONFIG.user || !EMAIL_CONFIG.pass) {
+            console.error('Missing email configuration');
+            return NextResponse.json(
+                { error: 'Configuración de email incompleta. Contacta al administrador.' },
+                { status: 500 }
+            );
+        }
+
         // Create transporter with Hostinger SMTP (SSL)
         const transporter = nodemailer.createTransport({
-            host: EMAIL_CONFIG.host,
+            host: EMAIL_CONFIG.host || 'smtp.hostinger.com',
             port: EMAIL_CONFIG.port,
             secure: true, // SSL for port 465
             auth: {
@@ -53,7 +62,7 @@ export async function POST(request: NextRequest) {
         // Email to site owner
         await transporter.sendMail({
             from: `"MBAI Native Web" <${EMAIL_CONFIG.user}>`,
-            to: EMAIL_CONFIG.to,
+            to: EMAIL_CONFIG.to || EMAIL_CONFIG.user,
             replyTo: email,
             subject: `Nuevo mensaje de contacto: ${name}`,
             html: `

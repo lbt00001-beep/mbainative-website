@@ -16,6 +16,13 @@ const YOUTUBERS = [
         channelId: 'UCSHZKyawb77ixDdsGog4iWA',
         description: 'Investigador de MIT. Entrevistas profundas sobre IA, ciencia y filosofía.',
         photo: '/images/gurus/lex-fridman.jpg'
+    },
+    {
+        id: 'diary-of-a-ceo',
+        name: 'The Diary Of A CEO',
+        channelId: 'UCGq-a57w-aPwyi3pIPAFcsQ',
+        description: 'Steven Bartlett entrevista a líderes mundiales sobre negocios, tecnología y vida.',
+        photo: '/images/gurus/steven-bartlett.jpg'
     }
 ];
 

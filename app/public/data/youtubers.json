@@ -30,6 +30,21 @@
                     "publishedAt": "2024-03-18T18:00:00Z"
                 }
             ]
+        },
+        "diary-of-a-ceo": {
+            "name": "The Diary Of A CEO",
+            "description": "Steven Bartlett entrevista a líderes mundiales sobre negocios, tecnología y vida.",
+            "photo": "/images/gurus/steven-bartlett.jpg",
+            "channelUrl": "https://www.youtube.com/@TheDiaryOfACEO",
+            "videos": [
+                {
+                    "videoId": "placeholder",
+                    "title": "Próximamente...",
+                    "description": "Los videos se actualizarán automáticamente.",
+                    "thumbnail": "https://i.ytimg.com/vi/placeholder/maxresdefault.jpg",
+                    "publishedAt": "2024-01-01T00:00:00Z"
+                }
+            ]
         }
     }
 }

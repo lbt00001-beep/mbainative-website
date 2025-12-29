@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-28T05:22:18.107Z",
+  "lastUpdated": "2025-12-29T05:25:11.411Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -149,7 +149,7 @@
       "pubDate": "Mon, 15 Dec 2025",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 3
+      "score": 1
     },
     {
       "title": "How Toshiba Tec and McKinsey are turning retail data into real-time decisions with NVIDIA",
@@ -158,7 +158,7 @@
       "pubDate": "Mon, 15 Dec 2025",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 3
+      "score": 1
     },
     {
       "title": "From pilots to performance: How COOs can scale AI in manufacturing",
@@ -167,7 +167,7 @@
       "pubDate": "Mon, 15 Dec 2025",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 3
+      "score": 1
     },
     {
       "title": "AI in Asia: Reimagining banking operations through agentic AI",

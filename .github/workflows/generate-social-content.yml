@@ -1,0 +1,57 @@
+name: Generate Social Media Content
+
+on:
+  schedule:
+    # Run at 05:00 UTC (06:00 Madrid)
+    - cron: '0 5 * * *'
+    # Run at 11:00 UTC (12:00 Madrid)
+    - cron: '0 11 * * *'
+    # Run at 17:00 UTC (18:00 Madrid)
+    - cron: '0 17 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  generate-social-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: app/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: ./app
+        run: npm ci
+      
+      - name: Generate social content
+        working-directory: ./app
+        run: node scripts/generate-social-content.js
+      
+      - name: Check for changes
+        id: check_changes
+        working-directory: ./app
+        run: |
+          if git diff --quiet public/data/social-content.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        working-directory: ./app
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/social-content.json
+          git commit -m "chore: update social content $(date +'%Y-%m-%d %H:%M')"
+          git push

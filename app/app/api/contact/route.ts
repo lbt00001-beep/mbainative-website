@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// TEMPORAL: Credenciales hardcodeadas para prueba
+// TODO: Mover a variables de entorno cuando funcionen
+const EMAIL_CONFIG = {
+    host: 'smtp.hostinger.com',
+    port: 465,
+    user: 'info@mbainative.com',
+    pass: 'sUJxYH4LBTLC&',
+    to: 'info@mbainative.com'
+};
+
 export async function POST(request: NextRequest) {
     try {
         const { name, email, message } = await request.json();
@@ -13,37 +23,17 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Check environment variables
-        const emailUser = process.env.EMAIL_USER;
-        const emailPass = process.env.EMAIL_PASS;
-        const emailHost = process.env.EMAIL_HOST || 'smtp.hostinger.com';
-        const emailPort = parseInt(process.env.EMAIL_PORT || '465');
-        const emailTo = process.env.EMAIL_TO || 'info@mbainative.com';
-
-        if (!emailUser || !emailPass) {
-            console.error('Missing email configuration:', {
-                hasUser: !!emailUser,
-                hasPass: !!emailPass,
-                host: emailHost,
-                port: emailPort
-            });
-            return NextResponse.json(
-                { error: 'Configuración de email incompleta. Contacta al administrador.' },
-                { status: 500 }
-            );
-        }
-
         // Create transporter with Hostinger SMTP (SSL)
         const transporter = nodemailer.createTransport({
-            host: emailHost,
-            port: emailPort,
-            secure: emailPort === 465, // true for 465, false for 587
+            host: EMAIL_CONFIG.host,
+            port: EMAIL_CONFIG.port,
+            secure: true, // SSL for port 465
             auth: {
-                user: emailUser,
-                pass: emailPass,
+                user: EMAIL_CONFIG.user,
+                pass: EMAIL_CONFIG.pass,
             },
             tls: {
-                rejectUnauthorized: false // Allow self-signed certificates
+                rejectUnauthorized: false
             }
         });
 
@@ -60,8 +50,8 @@ export async function POST(request: NextRequest) {
 
         // Email to site owner
         await transporter.sendMail({
-            from: `"MBAI Native Web" <${emailUser}>`,
-            to: emailTo,
+            from: `"MBAI Native Web" <${EMAIL_CONFIG.user}>`,
+            to: EMAIL_CONFIG.to,
             replyTo: email,
             subject: `Nuevo mensaje de contacto: ${name}`,
             html: `
@@ -79,7 +69,7 @@ export async function POST(request: NextRequest) {
 
         // Auto-reply to user
         await transporter.sendMail({
-            from: `"MBAI Native" <${emailUser}>`,
+            from: `"MBAI Native" <${EMAIL_CONFIG.user}>`,
             to: email,
             subject: 'Hemos recibido tu mensaje - MBAI Native',
             html: `
@@ -102,7 +92,7 @@ export async function POST(request: NextRequest) {
         console.error('Email error:', error);
         const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
         return NextResponse.json(
-            { error: `Error al enviar el mensaje: ${errorMessage}` },
+            { error: `Error al enviar: ${errorMessage}` },
             { status: 500 }
         );
     }

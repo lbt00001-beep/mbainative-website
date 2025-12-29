@@ -7,7 +7,7 @@ const EMAIL_CONFIG = {
     host: 'smtp.hostinger.com',
     port: 465,
     user: 'info@mbainative.com',
-    pass: 'sUJxYH4LBTLC&',
+    pass: 'sUJxYH4LBTLC$',
     to: 'info@mbainative.com'
 };
 

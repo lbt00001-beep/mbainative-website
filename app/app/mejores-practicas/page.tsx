@@ -199,6 +199,17 @@ export default function MejoresPracticas() {
                             </h3>
                             <p className="text-white/80">McKinsey, BCG, Deloitte: análisis sobre IA y trabajo.</p>
                         </Link>
+                        {/* Youtubers de Referencia */}
+                        <Link
+                            href="/mejores-practicas/youtubers"
+                            className="bg-gradient-to-br from-red-600 to-rose-500 p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"
+                        >
+                            <div className="text-5xl mb-4">📺</div>
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                                Youtubers de Referencia
+                            </h3>
+                            <p className="text-white/80">Jon Hernández, Lex Fridman: los mejores canales sobre IA.</p>
+                        </Link>
                     </div>
                 </div>
 

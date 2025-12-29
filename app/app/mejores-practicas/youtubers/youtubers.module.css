@@ -1,0 +1,247 @@
+.container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--primary);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.backLink {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s;
+}
+
+.backLink:hover {
+    opacity: 0.8;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.updated {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Youtuber Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.tab:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--foreground);
+}
+
+.tabActive {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--foreground);
+}
+
+.tabPhoto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Youtuber Info */
+.youtuberInfo {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.youtuberDescription {
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+}
+
+.channelLink {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.channelLink:hover {
+    text-decoration: underline;
+}
+
+/* Videos Grid */
+.videosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.videoCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.videoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.thumbnailWrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.videoCard:hover .thumbnail {
+    transform: scale(1.05);
+}
+
+.playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.videoCard:hover .playButton {
+    opacity: 1;
+}
+
+.videoInfo {
+    padding: 1rem;
+}
+
+.videoTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.videoDate {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* No Videos */
+.noVideos {
+    text-align: center;
+    padding: 3rem;
+    color: #6b7280;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .videosGrid {
+        grid-template-columns: 1fr;
+    }
+}

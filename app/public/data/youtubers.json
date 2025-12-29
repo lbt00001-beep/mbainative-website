@@ -1,0 +1,35 @@
+{
+    "lastUpdated": "2025-12-29T17:00:00.000Z",
+    "youtubers": {
+        "jon-hernandez": {
+            "name": "Jon Hernández",
+            "description": "Podcast sobre IA, tecnología y emprendimiento desde España.",
+            "photo": "/images/gurus/jon-hernandez.jpg",
+            "channelUrl": "https://www.youtube.com/@JonHernandez",
+            "videos": [
+                {
+                    "videoId": "qgHLZuZ7mmM",
+                    "title": "Vicepresidente de Google: Tenemos un plan y NO mataremos a OpenAI",
+                    "description": "Entrevista a Xavi Amatriain sobre la estrategia de Google en IA...",
+                    "thumbnail": "https://i.ytimg.com/vi/qgHLZuZ7mmM/maxresdefault.jpg",
+                    "publishedAt": "2025-12-18T10:38:05Z"
+                }
+            ]
+        },
+        "lex-fridman": {
+            "name": "Lex Fridman",
+            "description": "Investigador de MIT. Entrevistas profundas sobre IA, ciencia y filosofía.",
+            "photo": "/images/gurus/lex-fridman.jpg",
+            "channelUrl": "https://www.youtube.com/@lexfridman",
+            "videos": [
+                {
+                    "videoId": "e-gwvmhyU7A",
+                    "title": "Sam Altman: OpenAI, GPT-5, Sora, Board Saga, Elon Musk, Ilya, Power & AGI",
+                    "description": "Sam Altman habla sobre el futuro de OpenAI, GPT-5 y la carrera hacia AGI...",
+                    "thumbnail": "https://i.ytimg.com/vi/e-gwvmhyU7A/maxresdefault.jpg",
+                    "publishedAt": "2024-03-18T18:00:00Z"
+                }
+            ]
+        }
+    }
+}

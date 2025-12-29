@@ -54,6 +54,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add public/data/social-content.json
           git commit -m "chore: update social content $(date +'%Y-%m-%d %H:%M')"
+          git pull --rebase origin master
           git push
       
       - name: Post to Twitter

@@ -28,8 +28,13 @@ export default function Header() {
         }`}
     >
       <div className="container mx-auto flex justify-between items-center p-4 text-[--foreground]">
-        <Link href="/" className="text-2xl font-bold">
-          MBAI Native
+        <Link href="/" className="flex items-center gap-3 text-2xl font-bold">
+          <img
+            src="/images/logo-mbainative.png"
+            alt="MBAI Native Logo"
+            className="h-10 w-auto"
+          />
+          <span className="hidden sm:inline">MBAI Native</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6">
           <Link href="/" className="hover:text-[--accent] transition-colors">

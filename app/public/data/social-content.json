@@ -1,20 +1,16 @@
 {
-  "generatedAt": "2025-12-29T23:07:43.537Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2025-12-29T23:27:39.484Z",
+  "scheduleSlot": "morning",
   "post": {
-    "type": "company_data",
-    "title": "📊 Meta (META)",
-    "content": "📊 Meta ($META)\n\nFoco en IA: Llama, Reality Labs",
-    "contentLong": "📊 Las 7 grandes tecnológicas en IA\n\nMeta ($META)\n\n🎯 Foco: Llama, Reality Labs\n\n🔗 Sigue las tendencias en mbainative.com",
+    "type": "news",
+    "content": "📰 The Year in Google Cloud — 2025\n\nIn the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in Ja...\n\n🔗 Google Cloud",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "EmpresaAINativa",
-      "META",
-      "BigTech"
+      "NoticiasIA",
+      "GoogleCloud"
     ],
-    "url": "https://mbainative.com",
-    "imageUrl": null
+    "url": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/"
   }
 }

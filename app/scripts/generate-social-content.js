@@ -49,22 +49,22 @@ const DOCTRINES = [
     { id: 8, title: "Compliance Automatizado", thesis: "Agentes de cumplimiento que verifican normativas 24/7." }
 ];
 
-// AI Companies
+// AI Companies con contexto rico
 const AI_COMPANIES = {
     bigTech: [
-        { name: "Microsoft", ticker: "MSFT", focus: "Copilot, Azure AI, OpenAI" },
-        { name: "Google", ticker: "GOOGL", focus: "Gemini, DeepMind, TPUs" },
-        { name: "Meta", ticker: "META", focus: "Llama, Reality Labs" },
-        { name: "NVIDIA", ticker: "NVDA", focus: "GPUs, CUDA, infraestructura IA" },
-        { name: "Amazon", ticker: "AMZN", focus: "AWS AI, Alexa, Anthropic" },
-        { name: "Apple", ticker: "AAPL", focus: "Apple Intelligence, on-device AI" },
-        { name: "Tesla", ticker: "TSLA", focus: "FSD, Optimus, Dojo" }
+        { name: "Microsoft", ticker: "MSFT", focus: "Copilot, Azure AI, OpenAI", insight: "Con $13B invertidos en OpenAI, Microsoft lidera la integración de IA en software empresarial. Copilot ya está en 150M+ licencias Office." },
+        { name: "Google", ticker: "GOOGL", focus: "Gemini, DeepMind, TPUs", insight: "DeepMind lidera la investigación fundamental. Gemini compite con GPT-4. Invierten $30B/año en infraestructura IA." },
+        { name: "Meta", ticker: "META", focus: "Llama, Reality Labs", insight: "Meta apuesta por open source con Llama. Democratizan el acceso a LLMs potentes. IA para ads y metaverso." },
+        { name: "NVIDIA", ticker: "NVDA", focus: "GPUs, CUDA, infraestructura IA", insight: "El 90% de la IA del mundo corre en hardware NVIDIA. x10 su valor en 2 años. El 'pico y pala' de la IA." },
+        { name: "Amazon", ticker: "AMZN", focus: "AWS AI, Alexa, Anthropic", insight: "AWS domina la infraestructura cloud para IA. $4B invertidos en Anthropic. Bedrock: múltiples modelos." },
+        { name: "Apple", ticker: "AAPL", focus: "Apple Intelligence, on-device AI", insight: "Apple apuesta por IA en dispositivo, priorizando privacidad. Llegará a 1.4B de dispositivos activos." },
+        { name: "Tesla", ticker: "TSLA", focus: "FSD, Optimus, Dojo", insight: "Elon Musk construye Dojo, su supercomputador. Millones de conductores enseñan a la IA. Optimus: robots 2025." }
     ],
     startups: [
-        { name: "OpenAI", valuation: "$150B", focus: "GPT, ChatGPT, Sora" },
-        { name: "Anthropic", valuation: "$18B", focus: "Claude" },
-        { name: "Mistral AI", valuation: "$6B", focus: "Modelos abiertos" },
-        { name: "Perplexity", valuation: "$9B", focus: "Búsqueda IA" }
+        { name: "OpenAI", valuation: "$150B", focus: "GPT, ChatGPT, Sora", insight: "De nonprofit a startup más valiosa. 200M usuarios en ChatGPT. Sora revoluciona el vídeo. o1 razona." },
+        { name: "Anthropic", valuation: "$18B", focus: "Claude", insight: "Fundada por ex-OpenAI preocupados por seguridad. Claude: documentos largos. Constitutional AI." },
+        { name: "Mistral AI", valuation: "$6B", focus: "Modelos abiertos", insight: "La esperanza europea. Fundada hace 1 año, ya $6B. Open source que rivaliza con GPT-4." },
+        { name: "Perplexity", valuation: "$9B", focus: "Búsqueda IA", insight: "El Google killer. Respuestas con fuentes citadas. Crece 10x más rápido. Jeff Bezos inversor." }
     ]
 };
 
@@ -169,9 +169,9 @@ function generateContent(type) {
                 const company = randomItem(AI_COMPANIES.bigTech);
                 return {
                     type: 'company_data',
-                    title: `📊 ${company.name} (${company.ticker})`,
-                    content: truncateForTwitter(`📊 ${company.name} ($${company.ticker})\n\nFoco en IA: ${company.focus}`),
-                    contentLong: `📊 Las 7 grandes tecnológicas en IA\n\n${company.name} ($${company.ticker})\n\n🎯 Foco: ${company.focus}\n\n🔗 Sigue las tendencias en mbainative.com`,
+                    title: `📊 ${company.name} en la carrera de IA`,
+                    content: truncateForTwitter(`📊 ${company.name} ($${company.ticker})\n\n${company.insight}\n\n🔗 mbainative.com`),
+                    contentLong: `📊 Las 7 grandes tecnológicas en IA\n\n${company.name} ($${company.ticker})\n\n🎯 Foco: ${company.focus}\n\n💡 ${company.insight}\n\n🔗 Sigue las tendencias en mbainative.com`,
                     hashtags: [...baseHashtags, company.ticker, 'BigTech'],
                     url: 'https://mbainative.com',
                     imageUrl: null
@@ -180,9 +180,9 @@ function generateContent(type) {
                 const startup = randomItem(AI_COMPANIES.startups);
                 return {
                     type: 'company_data',
-                    title: `🚀 ${startup.name}`,
-                    content: truncateForTwitter(`🚀 ${startup.name}\n\nValoración: ${startup.valuation}\nFoco: ${startup.focus}`),
-                    contentLong: `🚀 Startups de IA a seguir\n\n${startup.name}\n\n💰 Valoración: ${startup.valuation}\n🎯 Foco: ${startup.focus}\n\n🔗 mbainative.com`,
+                    title: `🚀 ${startup.name} - Startup que cambia la IA`,
+                    content: truncateForTwitter(`🚀 ${startup.name} (${startup.valuation})\n\n${startup.insight}\n\n🔗 mbainative.com`),
+                    contentLong: `🚀 Startups de IA a seguir\n\n${startup.name}\n\n💰 Valoración: ${startup.valuation}\n🎯 Foco: ${startup.focus}\n\n💡 ${startup.insight}\n\n🔗 mbainative.com`,
                     hashtags: [...baseHashtags, startup.name.replace(/\s/g, ''), 'Startups'],
                     url: 'https://mbainative.com',
                     imageUrl: null

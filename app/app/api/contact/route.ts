@@ -9,7 +9,7 @@ const EMAIL_CONFIG = {
     host: serverRuntimeConfig?.EMAIL_HOST || process.env.EMAIL_HOST || 'smtp.hostinger.com',
     port: parseInt(serverRuntimeConfig?.EMAIL_PORT || process.env.EMAIL_PORT || '465'),
     user: serverRuntimeConfig?.EMAIL_USER || process.env.EMAIL_USER || 'info@mbainative.com',
-    pass: serverRuntimeConfig?.EMAIL_PASS || process.env.EMAIL_PASS || 'sUJxYH4LBTLC$',
+    pass: serverRuntimeConfig?.EMAIL_PASS || process.env.EMAIL_PASS || 'WRONG_PASSWORD_FOR_TEST',
     to: serverRuntimeConfig?.EMAIL_TO || process.env.EMAIL_TO || 'info@mbainative.com'
 };
 

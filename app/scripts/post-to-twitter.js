@@ -143,6 +143,11 @@ class TwitterClient {
 
 // Get image URL from content if available
 function getImageUrl(content) {
+    // Check for imageUrl field first (highest priority)
+    if (content.imageUrl) {
+        return content.imageUrl;
+    }
+
     // Check for YouTube thumbnail (from guru videos or podcasts)
     if (content.url && content.url.includes('youtube.com/watch')) {
         const videoId = content.url.split('v=')[1]?.split('&')[0];
@@ -151,12 +156,9 @@ function getImageUrl(content) {
         }
     }
 
-    // Check for imageUrl field
-    if (content.imageUrl) {
-        return content.imageUrl;
-    }
-
-    return null;
+    // Fallback to brand logo (hosted on website)
+    // Note: This needs to be a publicly accessible URL
+    return 'https://mbainative.com/images/logo-mbainative.png';
 }
 
 async function main() {

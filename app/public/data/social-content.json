@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-30T10:13:08.546Z",
+  "generatedAt": "2025-12-30T11:14:19.049Z",
   "scheduleSlot": "noon",
   "principle": {
     "id": 5,
@@ -8,15 +8,15 @@
   },
   "post": {
     "type": "guru_quote",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Sam Altman (OpenAI)\n\n\"Sam Altman’s Timeline on AGI is SHOCKING!\"\n\n▶️ youtube.com/watch?v=dHRI8S0LvzY",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 gary-marcus\n\n\"AI2027: Is this how AI might destroy humanity? - BBC World Service\"\n\n▶️ youtube.com/watch?v=1UufaK3pQMg",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "GurusIA",
-      "samaltman"
+      "garymarcus"
     ],
-    "url": "https://youtube.com/watch?v=dHRI8S0LvzY",
-    "imageUrl": "https://i.ytimg.com/vi/dHRI8S0LvzY/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=1UufaK3pQMg",
+    "imageUrl": "https://i.ytimg.com/vi/1UufaK3pQMg/mqdefault.jpg"
   }
 }

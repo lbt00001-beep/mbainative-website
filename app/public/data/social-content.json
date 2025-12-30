@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "generatedAt": "2025-12-30T08:11:36.062Z",
+=======
+  "generatedAt": "2025-12-30T05:27:31.108Z",
+>>>>>>> 4e2b4eb54304b42e450ec146d15c8b1c334dd1ee
   "scheduleSlot": "morning",
   "post": {
     "type": "news",

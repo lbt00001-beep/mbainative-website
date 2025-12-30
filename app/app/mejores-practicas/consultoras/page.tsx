@@ -127,7 +127,7 @@ export default function ConsultorasPage() {
             {/* CTA */}
             <div className={styles.cta}>
                 <Link href="/mejores-practicas/doctrinas" className={styles.ctaButton}>
-                    Ver las 20 Doctrinas AI-Nativas →
+                    Ver los 20 Principios AI-Nativos →
                 </Link>
             </div>
         </section>

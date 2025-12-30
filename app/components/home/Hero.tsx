@@ -13,7 +13,7 @@ export default function Hero() {
             href="#doctrine"
             className="bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-4 px-10 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300"
           >
-            Explorar la Doctrina
+            Explorar Principios
           </a>
           <a
             href="https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/"

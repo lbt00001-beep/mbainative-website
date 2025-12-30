@@ -23,7 +23,7 @@ export default function TermsOfUse() {
                     <h2 className="text-2xl font-bold text-white mt-8">2. Descripción del Servicio</h2>
                     <p>
                         MBAI Native proporciona información y recursos sobre la gestión de empresas
-                        AI-nativas, incluyendo doctrinas, mejores prácticas y acceso a un simulador
+                        AI-nativas, incluyendo principios, mejores prácticas y acceso a un simulador
                         empresarial educativo.
                     </p>
 

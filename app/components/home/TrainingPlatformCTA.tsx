@@ -24,7 +24,7 @@ export default function TrainingPlatformCTA() {
             href="/mejores-practicas/doctrinas"
             className="border-2 border-white/30 hover:border-[--accent] text-white hover:text-[--accent] font-bold py-4 px-10 text-lg rounded-full transition-all duration-300"
           >
-            📜 Explorar Doctrina
+            📜 Explorar Principios
           </Link>
         </div>
       </div>

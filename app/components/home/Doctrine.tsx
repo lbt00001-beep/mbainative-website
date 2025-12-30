@@ -79,7 +79,7 @@ export default function Doctrine() {
             8 Principios de la Empresa <span className="text-[--accent]">AI-Nativa</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Los fundamentos de la nueva doctrina empresarial. Cómo organizar, dirigir y escalar
+            Los fundamentos de la empresa AI-nativa. Cómo organizar, dirigir y escalar
             una empresa donde la inteligencia se compra y los agentes ejecutan.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function Doctrine() {
             href="/mejores-practicas/doctrinas"
             className="inline-flex items-center gap-2 bg-[--accent] hover:bg-[--accent]/90 text-[--primary] font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300"
           >
-            Ver las 20 Doctrinas Completas
+            Ver los 20 Principios Completos
             <span>→</span>
           </Link>
         </div>

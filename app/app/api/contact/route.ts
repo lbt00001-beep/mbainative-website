@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
                 </blockquote>
                 <hr>
                 <p style="color: #888; font-size: 12px;">
-                    MBAI Native - La doctrina de la empresa AI-Nativa<br>
+                    MBAI Native - Los principios de la empresa AI-Nativa<br>
                     <a href="https://mbainative.com">mbainative.com</a>
                 </p>
             `,

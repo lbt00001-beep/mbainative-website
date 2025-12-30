@@ -155,7 +155,7 @@ export default function MejoresPracticas() {
                         Explora por Sección
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* 20 Doctrinas */}
+                        {/* 20 Principios */}
                         <Link
                             href="/mejores-practicas/doctrinas"
                             className="bg-gradient-to-br from-emerald-600 to-cyan-500 p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center group"

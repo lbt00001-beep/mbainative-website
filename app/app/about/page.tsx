@@ -17,7 +17,7 @@ export default function About() {
           <div className="p-8 bg-[--dark-gray] rounded-lg shadow-lg">
             <h3 className="text-3xl font-bold text-[--accent] mb-4">Nuestra Visión</h3>
             <p className="text-gray-300">
-              Ser el referente global en la creación de una doctrina sólida y un ecosistema de aprendizaje robusto para las empresas nativas en Inteligencia Artificial.
+              Ser el referente global en la creación de principios sólidos y un ecosistema de aprendizaje robusto para las empresas nativas en Inteligencia Artificial.
             </p>
           </div>
           <div className="p-8 bg-[--dark-gray] rounded-lg shadow-lg">

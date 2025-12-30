@@ -1,20 +1,17 @@
 {
-<<<<<<< HEAD
-  "generatedAt": "2025-12-30T08:11:36.062Z",
-=======
-  "generatedAt": "2025-12-30T05:27:31.108Z",
->>>>>>> 4e2b4eb54304b42e450ec146d15c8b1c334dd1ee
-  "scheduleSlot": "morning",
+  "generatedAt": "2025-12-30T09:27:35.513Z",
+  "scheduleSlot": "noon",
   "post": {
-    "type": "news",
-    "content": "📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ...\n\n🔗 Más en mbainative.com",
+    "type": "guru_quote",
+    "content": "🧠 Yann LeCun (Meta)\n\n\"AI Debate: LeCun vs. Altman on AGI&#39;s Future\"\n\n▶️ youtube.com/watch?v=8Vj6vecF8YM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "yannlecun"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=8Vj6vecF8YM",
+    "imageUrl": "https://i.ytimg.com/vi/8Vj6vecF8YM/mqdefault.jpg"
   }
 }

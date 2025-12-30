@@ -70,7 +70,8 @@ function generatePodcastContent() {
         type: 'podcast',
         content: truncateForTwitter(`🎙️ Nuevo de ${youtuber.name}\n\n"${video.title}"\n\n▶️ youtube.com/watch?v=${video.videoId}`),
         hashtags: ['IA', 'Podcast', 'MBAINative', youtuber.name.replace(/\s/g, '')],
-        url: `https://youtube.com/watch?v=${video.videoId}`
+        url: `https://youtube.com/watch?v=${video.videoId}`,
+        imageUrl: video.thumbnail || `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`
     };
 }
 
@@ -107,7 +108,8 @@ function generateGuruContent() {
         type: 'guru_quote',
         content: truncateForTwitter(`🧠 ${guruName}\n\n"${video.title}"\n\n▶️ youtube.com/watch?v=${video.videoId}`),
         hashtags: ['IA', 'GurusIA', 'MBAINative', key.replace(/-/g, '')],
-        url: `https://youtube.com/watch?v=${video.videoId}`
+        url: `https://youtube.com/watch?v=${video.videoId}`,
+        imageUrl: video.thumbnail || `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`
     };
 }
 
@@ -159,7 +161,8 @@ function generateRecentVideoContent() {
         type: 'recent_video',
         content: truncateForTwitter(`🔥 Recién publicado sobre ${video.guruName}\n\n"${video.title}"\n\n▶️ youtube.com/watch?v=${video.videoId}`),
         hashtags: ['IA', 'MBAINative', 'UltimaHora', video.guruId.replace(/-/g, '')],
-        url: `https://youtube.com/watch?v=${video.videoId}`
+        url: `https://youtube.com/watch?v=${video.videoId}`,
+        imageUrl: video.thumbnail || `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`
     };
 }
 

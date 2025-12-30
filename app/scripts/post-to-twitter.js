@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
-// Twitter OAuth 1.0a implementation
+// Twitter OAuth 1.0a implementation with image support
 class TwitterClient {
     constructor(apiKey, apiSecret, accessToken, accessTokenSecret) {
         this.apiKey = apiKey;
@@ -33,7 +33,7 @@ class TwitterClient {
     }
 
     // Generate OAuth header
-    getAuthHeader(method, url) {
+    getAuthHeader(method, url, additionalParams = {}) {
         const oauthParams = {
             oauth_consumer_key: this.apiKey,
             oauth_nonce: crypto.randomBytes(16).toString('hex'),
@@ -43,7 +43,9 @@ class TwitterClient {
             oauth_version: '1.0'
         };
 
-        oauthParams.oauth_signature = this.generateSignature(method, url, oauthParams);
+        // Include additional params in signature calculation
+        const allParams = { ...oauthParams, ...additionalParams };
+        oauthParams.oauth_signature = this.generateSignature(method, url, allParams);
 
         const authHeader = 'OAuth ' + Object.keys(oauthParams)
             .sort()
@@ -53,9 +55,72 @@ class TwitterClient {
         return authHeader;
     }
 
-    async postTweet(text) {
+    // Upload image to Twitter and return media_id
+    async uploadImage(imageUrl) {
+        try {
+            console.log(`📷 Downloading image from: ${imageUrl}`);
+
+            // Download image
+            const imageResponse = await fetch(imageUrl);
+            if (!imageResponse.ok) {
+                console.log(`⚠️ Failed to download image: ${imageResponse.status}`);
+                return null;
+            }
+
+            const imageBuffer = await imageResponse.arrayBuffer();
+            const base64Image = Buffer.from(imageBuffer).toString('base64');
+
+            console.log(`📷 Image size: ${Math.round(base64Image.length / 1024)}KB`);
+
+            // Check if image is too large (Twitter limit is 5MB for images)
+            if (base64Image.length > 5 * 1024 * 1024 * 1.37) { // base64 is ~37% larger
+                console.log('⚠️ Image too large, skipping...');
+                return null;
+            }
+
+            // Upload to Twitter media endpoint
+            const uploadUrl = 'https://upload.twitter.com/1.1/media/upload.json';
+            const formData = new URLSearchParams();
+            formData.append('media_data', base64Image);
+
+            const authHeader = this.getAuthHeader('POST', uploadUrl);
+
+            const response = await fetch(uploadUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': authHeader,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.log(`⚠️ Failed to upload image: ${JSON.stringify(data)}`);
+                return null;
+            }
+
+            console.log(`✅ Image uploaded, media_id: ${data.media_id_string}`);
+            return data.media_id_string;
+
+        } catch (error) {
+            console.log(`⚠️ Error uploading image: ${error.message}`);
+            return null;
+        }
+    }
+
+    // Post tweet with optional image
+    async postTweet(text, mediaId = null) {
         const url = 'https://api.twitter.com/2/tweets';
         const authHeader = this.getAuthHeader('POST', url);
+
+        const body = { text };
+
+        // Add media if we have it
+        if (mediaId) {
+            body.media = { media_ids: [mediaId] };
+        }
 
         const response = await fetch(url, {
             method: 'POST',
@@ -63,7 +128,7 @@ class TwitterClient {
                 'Authorization': authHeader,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ text })
+            body: JSON.stringify(body)
         });
 
         const data = await response.json();
@@ -74,6 +139,24 @@ class TwitterClient {
 
         return data;
     }
+}
+
+// Get image URL from content if available
+function getImageUrl(content) {
+    // Check for YouTube thumbnail (from guru videos or podcasts)
+    if (content.url && content.url.includes('youtube.com/watch')) {
+        const videoId = content.url.split('v=')[1]?.split('&')[0];
+        if (videoId) {
+            return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+        }
+    }
+
+    // Check for imageUrl field
+    if (content.imageUrl) {
+        return content.imageUrl;
+    }
+
+    return null;
 }
 
 async function main() {
@@ -119,14 +202,29 @@ async function main() {
     console.log('---');
     console.log(`Length: ${finalTweet.length}/280`);
 
-    // Post tweet
+    // Create client
     const client = new TwitterClient(apiKey, apiSecret, accessToken, accessTokenSecret);
 
+    // Try to upload image if available
+    const imageUrl = getImageUrl(content.post);
+    let mediaId = null;
+
+    if (imageUrl) {
+        console.log(`🖼️ Found image URL: ${imageUrl}`);
+        mediaId = await client.uploadImage(imageUrl);
+    } else {
+        console.log('ℹ️ No image available for this post');
+    }
+
+    // Post tweet
     try {
-        const result = await client.postTweet(finalTweet);
+        const result = await client.postTweet(finalTweet, mediaId);
         console.log('✅ Tweet posted successfully!');
         console.log(`   Tweet ID: ${result.data.id}`);
         console.log(`   URL: https://twitter.com/i/web/status/${result.data.id}`);
+        if (mediaId) {
+            console.log('   📷 Posted with image!');
+        }
     } catch (error) {
         console.error('❌ Failed to post tweet:', error.message);
         process.exit(1);

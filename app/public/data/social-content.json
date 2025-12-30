@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2025-12-30T09:32:25.056Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2025-12-30T09:43:22.137Z",
+  "scheduleSlot": "morning",
   "doctrine": {
     "id": 5,
     "title": "Información horizontal",
     "icon": "↔️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "↔️ Doctrina #5: Información horizontal\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Warning ⚠️ Geoffrey Hinton Says Millions Could Lose Jobs by 2025  #ia\"\n\n▶️ youtube.com/watch?v=r30c8a3-zJ8",
+    "type": "news",
+    "content": "↔️ Doctrina #5: Información horizontal\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ....",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "NoticiasIA",
+      "NVIDIA"
     ],
-    "url": "https://youtube.com/watch?v=r30c8a3-zJ8",
-    "imageUrl": "https://i.ytimg.com/vi/r30c8a3-zJ8/mqdefault.jpg"
+    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
   }
 }

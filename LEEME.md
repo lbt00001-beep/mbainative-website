@@ -1,98 +1,98 @@
 # MBAI Native - Empresa AI-Nativa
 
-## Estado Actual (27 dic 2025)
+## Estado Actual (30 dic 2025)
 
-La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empresa AI-nativa**.
+La web ha sido transformada a una **doctrina de empresa AI-nativa** con **20 Principios** (antes llamados Doctrinas).
 
-### URL de Producción
+### URLs de Producción
 - **Web**: https://mbainative.com
 - **Simulador**: https://juego-empresa-ia-mbai-797037398090.europe-west1.run.app/
 - **Repositorio**: https://github.com/lbt00001-beep/mbainative-website
-
-### Despliegue
-- Los cambios se despliegan automáticamente a mbainative.com cuando se hace `git push` a master.
-- El workflow `update-news.yml` se ejecuta diariamente a las 06:00 (Madrid) para actualizar:
-  - Noticias de IA (Google, Microsoft, NVIDIA)
-  - Videos de Gurús (YouTube API)
-  - Podcast destacado (Jon Hernández)
-  - Artículos de Consultoras (McKinsey, BCG, Deloitte)
-- **IMPORTANTE**: El workflow tiene `permissions: contents: write` para poder hacer git push.
+- **Twitter**: @MBAInative (automatizado)
 
 ---
 
-## Estructura de la Doctrina
+## 🚀 Sistema de Publicación Automática en Redes Sociales
 
-### 20 Doctrinas en 3 Categorías
+### Twitter ✅ FUNCIONANDO
+- **3 publicaciones diarias**: 06:00, 12:00, 18:00 (hora Madrid)
+- **Contenido dinámico**: Noticias, videos de gurús, podcasts, consultoras
+- **Principio del día**: Rota entre los 20 principios por día del año
+- **Imágenes**: Thumbnails de YouTube o logo como fallback
 
-| Categoría | # | Ubicación |
-|-----------|---|-----------|
-| 🏢 Organización Empresarial | 12 | `/mejores-practicas/doctrinas#organizacion` |
-| ⚙️ Fundamentos Tecnológicos | 4 | `/mejores-practicas/doctrinas#tecnologia` |
-| ⚖️ Ética y Responsabilidad | 4 | `/mejores-practicas/doctrinas#etica` |
+### LinkedIn ⏸️ PENDIENTE
+- Script creado: `scripts/post-to-linkedin.js`
+- **Bloqueado**: Necesita Company Page (requiere conexiones de LinkedIn)
+- Cuando tenga conexiones, añadir secrets:
+  - `LINKEDIN_ACCESS_TOKEN`
+  - `LINKEDIN_ORGANIZATION_ID`
 
-### Los 8 Principios Fundamentales
+### Instagram ⏸️ EN PROGRESO
+- **Requisitos completados**:
+  - ✅ Cuenta Instagram Creator
+  - ✅ Facebook Page creada
+- **Siguiente paso**: Conectar Instagram con Facebook Page en Meta Business Suite
+- Luego crear app en developers.facebook.com
 
-1. **El talento artificial se compra** - Tokens de IA para texto, audio, imagen, video
-2. **Empleados de Silicio** - Agentes que ejecutan tareas
-3. **Organización por Tareas** - No puestos de trabajo
-4. **El Nuevo Organigrama** - Ciencia de la eficiencia (incluye Director de IA)
-5. **Información Horizontal** - Disponible para personas y agentes
-6. **Autonomía Configurable** - Consulta previa vs supervisión posterior
-7. **Relaciones Externas Agénticas** - Agentes B2B
-8. **Compliance Automatizado** - Agentes de cumplimiento
-
----
-
-## Secciones de Mejores Prácticas
-
-| Sección | Ruta | Contenido |
-|---------|------|-----------|
-| 20 Doctrinas | `/mejores-practicas/doctrinas` | Principios organizados por categoría |
-| 14 Gurús de la IA | `/mejores-practicas/gurus` | Líderes + videos YouTube + podcast |
-| Noticias de IA | `/mejores-practicas/noticias` | RSS de Google, Microsoft, NVIDIA |
-| Consultoras | `/mejores-practicas/consultoras` | McKinsey, BCG, Deloitte |
-| Sectores | `/mejores-practicas/[sector]` | Tecnología, Finanzas, Salud, Retail, Manufactura |
+### Facebook ⏸️ PENDIENTE
+- Facebook Page creada
+- Necesita configurar Meta App y tokens
 
 ---
 
-## Archivos Clave
+## Workflows de GitHub Actions
 
-### Componentes Home
-- `components/home/Hero.tsx` - "Empresa AI-Nativa" + AI/IA clarification
-- `components/home/Doctrine.tsx` - 8 principios en grid
-- `components/home/MBAIProfile.tsx` - 8 competencias del líder
-- `components/home/TrainingPlatformCTA.tsx` - Link al simulador
-
-### Datos
-- `data/doctrines.ts` - 20 doctrinas con tesis, implicaciones, retos
-- `data/gurus.ts` - 14 gurús de la IA
-- `public/data/ai-news.json` - Noticias (actualizado diariamente)
-- `public/data/gurus-videos.json` - Videos YouTube (actualizado diariamente)
-- `public/data/featured-podcast.json` - Podcast Jon Hernández
-- `public/data/consultoras.json` - Artículos de consultoras
-
-### Scripts de Actualización
-- `scripts/fetch-ai-news.js` - RSS de Google, Microsoft Research, NVIDIA
-- `scripts/fetch-guru-videos.js` - YouTube API
-- `scripts/fetch-featured-podcast.js` - Playlist Jon Hernández
-- `scripts/fetch-consultoras.js` - RSS McKinsey, BCG, Deloitte
-
----
-
-## Workflows de GitHub
+### generate-social-content.yml
+- **Horario**: 05:00, 11:00, 17:00 UTC (06:00, 12:00, 18:00 Madrid)
+- **Acciones**:
+  1. Fetch noticias AI (9 fuentes: TechCrunch, OpenAI, Anthropic, etc.)
+  2. Generar contenido con Principio del día
+  3. Publicar en Twitter (con imagen)
+  4. Publicar en LinkedIn (cuando esté configurado)
 
 ### update-news.yml
-- **Horario**: 06:00 Madrid (05:00 UTC)
-- **Permisos**: `contents: write` (necesario para git push)
-- **Acciones**: 
-  1. Fetch noticias RSS
-  2. Fetch videos YouTube gurús
-  3. Fetch podcast destacado
-  4. Fetch artículos consultoras
-  5. Commit si hay cambios
+- **Horario**: 05:00 UTC (06:00 Madrid)
+- **Acciones**: Actualizar videos gurús, podcast, consultoras
 
-### Secrets requeridos
-- `YOUTUBE_API_KEY` - Para videos de gurús y podcast
+### Secrets Configurados
+| Secret | Uso |
+|--------|-----|
+| `YOUTUBE_API_KEY` | Videos de gurús y podcast |
+| `TWITTER_API_KEY` | Publicar en Twitter |
+| `TWITTER_API_SECRET` | Publicar en Twitter |
+| `TWITTER_ACCESS_TOKEN` | Publicar en Twitter |
+| `TWITTER_ACCESS_TOKEN_SECRET` | Publicar en Twitter |
+
+---
+
+## Archivos Clave de Redes Sociales
+
+| Archivo | Función |
+|---------|---------|
+| `scripts/generate-social-content.js` | Genera contenido dinámico |
+| `scripts/post-to-twitter.js` | Publica en Twitter con imagen |
+| `scripts/post-to-linkedin.js` | Publica en LinkedIn (preparado) |
+| `scripts/fetch-ai-news.js` | 9 fuentes RSS de noticias AI |
+| `public/data/social-content.json` | Contenido generado actual |
+| `public/data/doctrines-social.json` | 20 principios para posts |
+
+---
+
+## Estructura de 20 Principios
+
+Renombrados de "Doctrinas" a "Principios" (30 dic 2025):
+
+| # | Principio | Categoría |
+|---|-----------|-----------|
+| 1 | El talento artificial se compra | Organización |
+| 2 | Los empleados de silicio | Organización |
+| 3 | Organización por tareas, no por puestos | Organización |
+| 4 | El nuevo organigrama es una ciencia | Organización |
+| 5 | La información fluye horizontalmente | Organización |
+| 6 | Decisiones con autonomía configurable | Organización |
+| 7 | Relaciones externas agénticas | Organización |
+| 8 | Cumplimiento normativo automatizado | Organización |
+| 9-20 | (Ver doctrines-social.json) | Varios |
 
 ---
 
@@ -103,22 +103,29 @@ La web ha sido transformada de un enfoque "MBA en IA" a una **doctrina de empres
 cd app
 npm run dev
 
-# Build
-npm run build
+# Generar contenido social manualmente
+node scripts/generate-social-content.js
 
-# Actualizar contenido manualmente
+# Publicar manualmente
+TWITTER_API_KEY=xxx TWITTER_API_SECRET=xxx ... node scripts/post-to-twitter.js
+
+# Actualizar noticias
 node scripts/fetch-ai-news.js
-YOUTUBE_API_KEY=xxx node scripts/fetch-guru-videos.js
-YOUTUBE_API_KEY=xxx node scripts/fetch-featured-podcast.js
-node scripts/fetch-consultoras.js
-
-# Deploy (automático al hacer push)
-git push
 ```
+
+---
+
+## Próximos Pasos
+
+1. **Instagram**: Conectar cuenta con Facebook Page en Meta Business Suite
+2. **LinkedIn**: Esperar conexiones para crear Company Page
+3. **Facebook**: Configurar Meta App cuando Instagram esté listo
 
 ---
 
 ## Notas Importantes
 
-- **Caché de Hostinger**: Después de un deploy, puede ser necesario limpiar la caché desde el panel de Hostinger si los cambios no aparecen.
-- **YOUTUBE_API_KEY**: Debe estar configurado en GitHub Secrets para que funcionen los videos.
+- **Twitter funciona**: Los posts se publican 3x/día con Principio + contenido + imagen
+- **Principios rotan**: Cada día muestra un principio diferente (basado en día del año)
+- **Imágenes automáticas**: YouTube thumbnails o logo MBAI Native como fallback
+- **Caché Hostinger**: Limpiar desde panel si cambios web no aparecen

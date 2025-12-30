@@ -239,15 +239,43 @@ function generateContent() {
 
 // ========== MAIN ==========
 
+// Get today's doctrine (rotates based on day of year)
+function getDailyDoctrine() {
+    const doctrines = loadJsonFile('doctrines-social.json');
+    if (!doctrines || !doctrines.doctrines) return null;
+
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+    const doctrineIndex = dayOfYear % doctrines.doctrines.length;
+    return doctrines.doctrines[doctrineIndex];
+}
+
 async function main() {
     console.log('🚀 Generating social media content from DYNAMIC sources...');
 
     const content = generateContent();
+    const doctrine = getDailyDoctrine();
+
+    // Build doctrine header
+    let doctrineHeader = '';
+    if (doctrine) {
+        doctrineHeader = `${doctrine.icon} Doctrina #${doctrine.id}: ${doctrine.title}\n\n`;
+        console.log(`📜 Today's doctrine: #${doctrine.id} - ${doctrine.title}`);
+    }
+
+    // Combine doctrine + content (respecting Twitter char limit)
+    const fullContent = doctrineHeader + content.content;
+    const truncatedContent = fullContent.length > 220
+        ? fullContent.substring(0, 217) + '...'
+        : fullContent;
 
     const output = {
         generatedAt: new Date().toISOString(),
         scheduleSlot: new Date().getHours() < 10 ? 'morning' : (new Date().getHours() < 15 ? 'noon' : 'evening'),
-        post: content
+        doctrine: doctrine ? { id: doctrine.id, title: doctrine.title, icon: doctrine.icon } : null,
+        post: {
+            ...content,
+            content: truncatedContent
+        }
     };
 
     const outputPath = path.join(__dirname, '../public/data/social-content.json');
@@ -255,8 +283,9 @@ async function main() {
 
     console.log(`✅ Generated content from LIVE data`);
     console.log(`   Type: ${content.type}`);
-    console.log(`   Content: ${content.content.substring(0, 100)}...`);
+    console.log(`   Content: ${truncatedContent.substring(0, 100)}...`);
     console.log(`   Hashtags: ${content.hashtags.map(h => '#' + h).join(' ')}`);
 }
 
 main().catch(console.error);
+

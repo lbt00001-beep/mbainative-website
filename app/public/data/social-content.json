@@ -1,17 +1,22 @@
 {
-  "generatedAt": "2025-12-30T09:27:35.513Z",
+  "generatedAt": "2025-12-30T09:32:25.056Z",
   "scheduleSlot": "noon",
+  "doctrine": {
+    "id": 5,
+    "title": "Información horizontal",
+    "icon": "↔️"
+  },
   "post": {
     "type": "guru_quote",
-    "content": "🧠 Yann LeCun (Meta)\n\n\"AI Debate: LeCun vs. Altman on AGI&#39;s Future\"\n\n▶️ youtube.com/watch?v=8Vj6vecF8YM",
+    "content": "↔️ Doctrina #5: Información horizontal\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Warning ⚠️ Geoffrey Hinton Says Millions Could Lose Jobs by 2025  #ia\"\n\n▶️ youtube.com/watch?v=r30c8a3-zJ8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "GurusIA",
-      "yannlecun"
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=8Vj6vecF8YM",
-    "imageUrl": "https://i.ytimg.com/vi/8Vj6vecF8YM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=r30c8a3-zJ8",
+    "imageUrl": "https://i.ytimg.com/vi/r30c8a3-zJ8/mqdefault.jpg"
   }
 }

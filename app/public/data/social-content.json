@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2025-12-30T09:43:22.137Z",
-  "scheduleSlot": "morning",
-  "doctrine": {
+  "generatedAt": "2025-12-30T10:13:08.546Z",
+  "scheduleSlot": "noon",
+  "principle": {
     "id": 5,
-    "title": "Información horizontal",
+    "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "news",
-    "content": "↔️ Doctrina #5: Información horizontal\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ....",
+    "type": "guru_quote",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Sam Altman (OpenAI)\n\n\"Sam Altman’s Timeline on AGI is SHOCKING!\"\n\n▶️ youtube.com/watch?v=dHRI8S0LvzY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=dHRI8S0LvzY",
+    "imageUrl": "https://i.ytimg.com/vi/dHRI8S0LvzY/mqdefault.jpg"
   }
 }

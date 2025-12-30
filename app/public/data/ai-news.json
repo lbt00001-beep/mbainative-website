@@ -1,129 +1,7 @@
 {
-  "lastUpdated": "2025-12-29T05:21:03.859Z",
-  "totalArticles": 40,
+  "lastUpdated": "2025-12-30T08:10:42.526Z",
+  "totalArticles": 60,
   "featured": [
-    {
-      "title": "What’s new with Google Cloud",
-      "link": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "summary": "Want to know the latest from Google Cloud? Find it here in one handy location. Check back regularly for our newest updates, announcements, resources, events, learning opportunities, and more. \n\nTip: Not sure where to find what you’re looking for on the Google Cloud blog? Start here: Google Cloud blo...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 50
-    },
-    {
-      "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
-      "link": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
-      "summary": "AI and cloud technology are reshaping every corner of every industry around the world. Without our customers, there would be no Google Cloud, as they are the ones building the future on our platform. In this regular round-up, we dive into some of the exciting projects redefining businesses, shaping ...",
-      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 36
-    },
-    {
-      "title": "The Year in Google Cloud — 2025",
-      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
-      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 32
-    },
-    {
-      "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
-      "link": "https://cloud.google.com/blog/topics/public-sector/how-google-public-sector-and-google-deepmind-can-power-the-genesis-mission-and-a-new-era-of-scientific-discovery/",
-      "summary": "The White House's Genesis Mission has set a bold ambition for our nation: to double our scientific productivity within the decade and harness artificial intelligence (AI) to accelerate the pace of discovery. This requires a profound transformation in our national scientific enterprise, one that seam...",
-      "pubDate": "Thu, 18 Dec 2025 19:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 30
-    },
-    {
-      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
-      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
-      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 27
-    }
-  ],
-  "all": [
-    {
-      "title": "What’s new with Google Cloud",
-      "link": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "summary": "Want to know the latest from Google Cloud? Find it here in one handy location. Check back regularly for our newest updates, announcements, resources, events, learning opportunities, and more. \n\nTip: Not sure where to find what you’re looking for on the Google Cloud blog? Start here: Google Cloud blo...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 50
-    },
-    {
-      "title": "Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more",
-      "link": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
-      "summary": "AI and cloud technology are reshaping every corner of every industry around the world. Without our customers, there would be no Google Cloud, as they are the ones building the future on our platform. In this regular round-up, we dive into some of the exciting projects redefining businesses, shaping ...",
-      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 36
-    },
-    {
-      "title": "The Year in Google Cloud — 2025",
-      "link": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/",
-      "summary": "In the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in January. To jog your memory, we pulled the readership data for top product and company news of 2025. And because we publish a lot of great thought leade...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 32
-    },
-    {
-      "title": "How Google Public Sector and Google DeepMind can power the Genesis Mission and a new era of scientific discovery",
-      "link": "https://cloud.google.com/blog/topics/public-sector/how-google-public-sector-and-google-deepmind-can-power-the-genesis-mission-and-a-new-era-of-scientific-discovery/",
-      "summary": "The White House's Genesis Mission has set a bold ambition for our nation: to double our scientific productivity within the decade and harness artificial intelligence (AI) to accelerate the pace of discovery. This requires a profound transformation in our national scientific enterprise, one that seam...",
-      "pubDate": "Thu, 18 Dec 2025 19:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 30
-    },
-    {
-      "title": "Cloud CISO Perspectives: 2025 in review: Cloud security basics and evolving AI",
-      "link": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-2025-in-review-cloud-security-basics-and-evolving-ai/",
-      "summary": "Welcome to the second Cloud CISO Perspectives for December 2025. Today, Google Cloud’s Nick Godfrey, senior director, and Anton Chuvakin, security advisor, look back at the year that was.\nAs with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog. If you...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 27
-    },
-    {
-      "title": "Agent Factory Recap: Supercharging Agents on GKE with Agent Sandbox and Pod Snapshots",
-      "link": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-supercharging-agents-on-gke-with-agent-sandbox-and-pod-snapshots/",
-      "summary": "In the latest episode of the Agent Factory, Mofi Rahman and I had the pleasure of hosting, Brandon Royal, the PM working on agentic workloads on GKE. We dove deep into the critical questions around the nuances of choosing the right agent runtime, the power of GKE for agents, and the essential securi...",
-      "pubDate": "Fri, 19 Dec 2025 10:02:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 19
-    },
-    {
-      "title": "Achieve near-100% accurate text-to-SQL for your agentic apps",
-      "link": "https://cloud.google.com/blog/products/databases/optimizing-alloydb-ai-text-to-sql-accuracy/",
-      "summary": "Today’s AI capabilities provide a great opportunity to enable natural language (NL) interactions with your enterprise data through applications using text and voice. In fact, in the world of agentic applications, natural language is rapidly becoming the interaction standard. That means agents need t...",
-      "pubDate": "Thu, 18 Dec 2025 18:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 19
-    },
     {
       "title": "How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth",
       "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/",
@@ -133,6 +11,16 @@
       "sourceLogo": "🟩",
       "category": "hardware",
       "relevance": 14
+    },
+    {
+      "title": "VCs predict strong enterprise AI adoption next year — again",
+      "link": "https://techcrunch.com/2025/12/29/vcs-predict-strong-enterprise-ai-adoption-next-year-again/",
+      "summary": "More than 20 venture capitalists share their thoughts on AI agents, enterprise AI budgets, and more for 2026....",
+      "pubDate": "Mon, 29 Dec 2025 14:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 13
     },
     {
       "title": "Magentic Marketplace: an open-source simulation environment for studying agentic markets",
@@ -155,6 +43,78 @@
       "relevance": 11
     },
     {
+      "title": "Meta just bought Manus, an AI startup everyone has been talking about",
+      "link": "https://techcrunch.com/2025/12/29/meta-just-bought-manus-an-ai-startup-everyone-has-been-talking-about/",
+      "summary": "Meta says it'll keep Manus running independently while weaving its agents into Facebook, Instagram, and WhatsApp, where Meta's own chatbot, Meta AI, is already available to users....",
+      "pubDate": "Tue, 30 Dec 2025 05:39:08 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 10
+    }
+  ],
+  "all": [
+    {
+      "title": "How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth",
+      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/",
+      "summary": "Modern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include tuning a chatbot to handle product-support questions or building a personal assistant for managing one’s schedule. A challenge remains, however, in getting a small language model t...",
+      "pubDate": "Mon, 15 Dec 2025 14:00:11 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 14
+    },
+    {
+      "title": "VCs predict strong enterprise AI adoption next year — again",
+      "link": "https://techcrunch.com/2025/12/29/vcs-predict-strong-enterprise-ai-adoption-next-year-again/",
+      "summary": "More than 20 venture capitalists share their thoughts on AI agents, enterprise AI budgets, and more for 2026....",
+      "pubDate": "Mon, 29 Dec 2025 14:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 13
+    },
+    {
+      "title": "Magentic Marketplace: an open-source simulation environment for studying agentic markets",
+      "link": "https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/",
+      "summary": "AI agents are poised to transform digital marketplaces. To explore what can happen when AI agents interact and transact at scale, we built Magentic Marketplace, an open-source simulation environment for studying agentic market designs.\nThe post Magentic Marketplace: an open-source simulation environ...",
+      "pubDate": "Wed, 05 Nov 2025 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 12
+    },
+    {
+      "title": "Now Generally Available, NVIDIA RTX PRO 5000 72GB Blackwell GPU Expands Memory Options for Desktop Agentic AI",
+      "link": "https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/",
+      "summary": "The NVIDIA RTX PRO 5000 72GB Blackwell GPU is now generally available, bringing robust agentic and generative AI capabilities powered by the NVIDIA Blackwell architecture to more desktops and professionals across the world....",
+      "pubDate": "Thu, 18 Dec 2025 16:00:28 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 11
+    },
+    {
+      "title": "Meta just bought Manus, an AI startup everyone has been talking about",
+      "link": "https://techcrunch.com/2025/12/29/meta-just-bought-manus-an-ai-startup-everyone-has-been-talking-about/",
+      "summary": "Meta says it'll keep Manus running independently while weaving its agents into Facebook, Instagram, and WhatsApp, where Meta's own chatbot, Meta AI, is already available to users....",
+      "pubDate": "Tue, 30 Dec 2025 05:39:08 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 10
+    },
+    {
+      "title": "Sam Altman is hiring someone to worry about the dangers of AI",
+      "link": "https://www.theverge.com/news/850537/sam-altman-openai-head-of-preparedness",
+      "summary": "ISO corporate scapegoat.\t\n\nOpenAI is hiring a Head of Preparedness. Or, in other words, someone whose primary job is to think about all the ways AI could go horribly, horribly wrong. In a post on X, Sam Altman announced the position by acknowledging that the rapid improvement of AI models poses \"som...",
+      "pubDate": "2025-12-27T19:00:35.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 10
+    },
+    {
       "title": "Fara-7B: An Efficient Agentic Model for Computer Use",
       "link": "https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/",
       "summary": "Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.\nThe post Fara-7B: An Efficient Agentic Model for...",
@@ -163,6 +123,16 @@
       "sourceLogo": "🔷",
       "category": "research",
       "relevance": 10
+    },
+    {
+      "title": "2025 was the year AI got a vibe check",
+      "link": "https://techcrunch.com/2025/12/29/2025-was-the-year-ai-got-a-vibe-check/",
+      "summary": "AI’s early-2025 spending spree featured massive raises and trillion-dollar infrastructure promises. By year’s end, hype gave way to a vibe check, with growing scrutiny over sustainability, safety, and business models....",
+      "pubDate": "Mon, 29 Dec 2025 19:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 7
     },
     {
       "title": "5 ways AI agents will transform the way we work in 2026",
@@ -185,6 +155,56 @@
       "relevance": 7
     },
     {
+      "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others",
+      "link": "https://techcrunch.com/2025/12/29/how-to-use-the-new-chatgpt-app-integrations-including-doordash-spotify-uber-and-others/",
+      "summary": "Learn how to use Spotify, Canva, Figma, Expedia, and other apps directly in ChatGPT....",
+      "pubDate": "Mon, 29 Dec 2025 15:51:40 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 6
+    },
+    {
+      "title": "The latest AI news we announced in December",
+      "link": "https://blog.google/technology/ai/google-ai-updates-december-2025/",
+      "summary": "Here are Google’s latest AI updates from December 2025...",
+      "pubDate": "Mon, 29 Dec 2025 18:15:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 5
+    },
+    {
+      "title": "Plaud Note Pro is an excellent AI-powered recorder that I carry everywhere",
+      "link": "https://techcrunch.com/2025/12/29/plaud-note-pro-is-an-excellent-ai-powered-recorder-that-i-carry-everywhere/",
+      "summary": "Plaud Note Pro is a $179 notetaker, which is an excellent recording device first...",
+      "pubDate": "Mon, 29 Dec 2025 18:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Equity’s 2026 Predictions: AI Agents, Blockbuster IPOs, and the Future of VC",
+      "link": "https://techcrunch.com/podcast/equitys-2026-predictions-ai-agents-blockbuster-ipos-and-the-future-of-vc/",
+      "summary": "TechCrunch’s Equity crew is bringing 2025 to a close and getting ahead on the year to come with our annual predictions episode! Hosts Kirsten Korosec, Anthony Ha, and Rebecca Bellan were joined by Build Mode host Isabelle Johannessen to dissect the year’s biggest tech developments, from mega AI fund...",
+      "pubDate": "Fri, 26 Dec 2025 18:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Hollywood cozied up to AI in 2025 and had nothing good to show for it",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/848119/hollywood-film-tv-ai-2025",
+      "summary": "AI isn't new to Hollywood - but this was the year when it really made its presence felt. For years now, the entertainment industry has used different kinds of generative AI products for a variety of post-production processes ranging from de-aging actors to removing green screen backgrounds. In many ...",
+      "pubDate": "2025-12-25T13:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
       "title": "Marine Biological Laboratory Explores Human Memory With AI and Virtual Reality",
       "link": "https://blogs.nvidia.com/blog/mbl-human-memory-ai-vr-rtx/",
       "summary": "The works of Plato state that when humans have an experience, some level of change occurs in their brain, which is powered by memory — specifically long-term memory. This change is what Andre Fenton, professor of neural science at New York University, and Abhishek Kumar, assistant professor of cell ...",
@@ -195,16 +215,6 @@
       "relevance": 5
     },
     {
-      "title": "From Code to Cloud: Three Labs for Deploying Your AI Agent",
-      "link": "https://cloud.google.com/blog/topics/developers-practitioners/from-code-to-cloud-three-labs-for-deploying-your-ai-agent/",
-      "summary": "You've built a powerful AI agent. It works on your local machine, it's intelligent, and it's ready to meet the world. Now, how do you take this agent from a script on your laptop to a secure, scalable, and reliable application in production? On Google Cloud, there are multiple paths to deployment, e...",
-      "pubDate": "Fri, 19 Dec 2025 07:15:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
-      "relevance": 5
-    },
-    {
       "title": "Inside Kaggle's AI Agents intensive course with Google",
       "link": "https://blog.google/technology/developers/ai-agents-intensive-recap/",
       "summary": "Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI....",
@@ -212,6 +222,16 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
+      "relevance": 5
+    },
+    {
+      "title": "AI might not be coming for lawyers’ jobs anytime soon",
+      "link": "https://www.technologyreview.com/2025/12/15/1129181/ai-might-not-be-coming-for-lawyers-jobs-anytime-soon/",
+      "summary": "When the generative AI boom took off in 2022, Rudi Miller and her law school classmates were suddenly gripped with anxiety. “Before graduating, there was discussion about what the job market would look like for us if AI became adopted,” she recalls.  So when it came time to choose a speciality, Mill...",
+      "pubDate": "Mon, 15 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 5
     },
     {
@@ -275,13 +295,43 @@
       "relevance": 4
     },
     {
-      "title": "Why Stochastic Rounding is Essential for Modern Generative AI",
-      "link": "https://cloud.google.com/blog/topics/developers-practitioners/why-stochastic-rounding-is-essential-for-modern-generative-ai/",
-      "summary": "In computing's early days of the 1940s, mathematicians discovered a flawed assumption about the behavior of round-off errors. Instead of canceling out, fixed-point arithmetic accumulated errors, compromising the accuracy of calculations. A few years later, \"random round-off\" was proposed, which woul...",
-      "pubDate": "Fri, 19 Dec 2025 07:46:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
+      "title": "OpenAI is looking for a new Head of Preparedness",
+      "link": "https://techcrunch.com/2025/12/28/openai-is-looking-for-a-new-head-of-preparedness/",
+      "summary": "OpenAI is looking to hire a new executive responsible for studying emerging AI-related risks in areas ranging from computer security to mental health....",
+      "pubDate": "Sun, 28 Dec 2025 15:08:19 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 3
+    },
+    {
+      "title": "In 2025, AI became a lightning rod for gamers and developers",
+      "link": "https://www.theverge.com/entertainment/848368/gen-ai-video-games-2025",
+      "summary": "2025 was the year generative AI made its presence felt in the video game industry. Its use has been discovered in some of the most popular games of the year, and CEOs from some of the largest game studios claim it's being implemented everywhere in the industry including in their own development proc...",
+      "pubDate": "2025-12-24T13:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 3
+    },
+    {
+      "title": "How social media encourages the worst of AI boosterism",
+      "link": "https://www.technologyreview.com/2025/12/23/1130393/how-social-media-encourages-the-worst-of-ai-boosterism/",
+      "summary": "Demis Hassabis, CEO of Google DeepMind, summed it up in three words: “This is embarrassing.”   Hassabis was replying on X to an overexcited post by Sébastien Bubeck, a research scientist at the rival firm OpenAI, announcing that two mathematicians had used OpenAI’s latest large language model, GPT-5...",
+      "pubDate": "Tue, 23 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 3
+    },
+    {
+      "title": "Creating psychological safety in the AI era",
+      "link": "https://www.technologyreview.com/2025/12/16/1125899/creating-psychological-safety-in-the-ai-era/",
+      "summary": "Rolling out enterprise-grade AI means climbing two steep cliffs at once. First, understanding and implementing the tech itself. And second, creating the cultural conditions where employees can maximize its value. While the technical hurdles are signiﬁcant, the human element can be even more conseque...",
+      "pubDate": "Tue, 16 Dec 2025 15:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 3
     },
     {
@@ -295,6 +345,16 @@
       "relevance": 3
     },
     {
+      "title": "Nvidia to license AI chip challenger Groq’s tech and hire its CEO",
+      "link": "https://techcrunch.com/2025/12/24/nvidia-acquires-ai-chip-challenger-groq-for-20b-report-says/",
+      "summary": "With Groq on its side, Nvidia is poised to become even more dominant in chip manufacturing....",
+      "pubDate": "Wed, 24 Dec 2025 22:03:16 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 2
+    },
+    {
       "title": "Google's year in review: 8 areas with research breakthroughs in 2025",
       "link": "https://blog.google/technology/ai/2025-research-breakthroughs/",
       "summary": "This year saw new AI models, transformative products and new breakthroughs in science and robotics....",
@@ -302,16 +362,6 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 2
-    },
-    {
-      "title": "New in Looker: self-service Explores, tabbed dashboards, and custom themes",
-      "link": "https://cloud.google.com/blog/products/business-intelligence/looker-self-service-explores-tabbed-dashboards-custom-themes/",
-      "summary": "Data teams seem to be constantly balancing the need for governed, trusted metrics with business needs for agility and ad-hoc analysis. To help bridge the gap between managed reporting and rapid data exploration, we are introducing several new features in Looker, to expand users’ self-service capabil...",
-      "pubDate": "Fri, 19 Dec 2025 17:00:00 +0000",
-      "source": "Google Cloud",
-      "sourceLogo": "🔵",
-      "category": "cloud",
       "relevance": 2
     },
     {
@@ -333,6 +383,56 @@
       "sourceLogo": "🔵",
       "category": "ai",
       "relevance": 2
+    },
+    {
+      "title": "I re-created Google&#8217;s cute Gemini ad with my own kid&#8217;s stuffie, and I wish I hadn&#8217;t",
+      "link": "https://www.theverge.com/tech/849998/gemini-ai-stuffed-animal-commercial",
+      "summary": "Buddy’s in space.\t\n\nWhen your kid starts showing a preference for one of their stuffed animals, you're supposed to buy a backup in case it goes missing. \nI've heard this advice again and again, but never got around to buying a second plush deer once \"Buddy\" became my son's obvious favorite. Neither,...",
+      "pubDate": "2025-12-25T14:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 1
+    },
+    {
+      "title": "Waymo is testing Gemini as an in-car AI assistant in its robotaxis",
+      "link": "https://techcrunch.com/2025/12/24/waymo-is-testing-gemini-as-an-in-car-ai-assistant-in-its-robotaxis/",
+      "summary": "Waymo is testing a Gemini-powered in-car AI assistant, per findings from a 1,200-line system prompt. The assistant can answer general knowledge questions, control certain in-cabin features, and more....",
+      "pubDate": "Wed, 24 Dec 2025 16:27:55 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 1
+    },
+    {
+      "title": "How AI broke the smart home in 2025 ",
+      "link": "https://www.theverge.com/tech/845958/ai-smart-home-broken",
+      "summary": "This morning, I asked my Alexa-enabled Bosch coffee machine to make me a coffee. Instead of running my routine, it told me it couldn't do that. Ever since I upgraded to Alexa Plus, Amazon's generative-AI-powered voice assistant, it has failed to reliably run my coffee routine, coming up with a diffe...",
+      "pubDate": "2025-12-23T13:30:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 1
+    },
+    {
+      "title": "ChatGPT’s yearly recap sums up your conversations with the chatbot",
+      "link": "https://www.theverge.com/news/849348/openai-chatgpt-2025-year-in-review-wrapped",
+      "summary": "ChatGPT is joining the flood of apps offering yearly recaps for users. It's rolling out a \"Year in Review\" feature that will show you a bunch of stats - like how many messages you sent to the chatbot in 2025 - as well as give you an AI-generated pixel art-style image that encompasses some of the top...",
+      "pubDate": "2025-12-22T22:12:11.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 1
+    },
+    {
+      "title": "Indie Game Awards retracts Expedition 33 prizes due to generative AI",
+      "link": "https://www.theverge.com/news/849144/indie-game-awards-game-of-the-year-expedition-33-generative-ai-chantey-modretro",
+      "summary": "Clair Obscur: Expedition 33 had earned another Game of the Year award by the Indie Game Awards last week, but the organization has since announced that the award would be retracted because developer Sandfall Interactive used generative AI during development. The Indie Game Awards also rescinded the ...",
+      "pubDate": "2025-12-22T18:47:58.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 1
     },
     {
       "title": "60 of our biggest AI announcements in 2025",
@@ -375,6 +475,26 @@
       "relevance": 1
     },
     {
+      "title": "The great AI hype correction of 2025",
+      "link": "https://www.technologyreview.com/2025/12/15/1129174/the-great-ai-hype-correction-of-2025/",
+      "summary": "Some disillusionment was inevitable. When OpenAI released a free web app called ChatGPT in late 2022, it changed the course of an entire industry—and several world economies. Millions of people started talking to their computers, and their computers started talking back. We were enchanted, and we ex...",
+      "pubDate": "Mon, 15 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 1
+    },
+    {
+      "title": "Generative AI hype distracts us from AI’s more important breakthroughs",
+      "link": "https://www.technologyreview.com/2025/12/15/1129179/generative-ai-hype-distracts-us-from-ais-more-important-breakthroughs/",
+      "summary": "On April 28, 2022, at a highly anticipated concert in Spokane, Washington, the musician Paul McCartney astonished his audience with a groundbreaking application of AI: He began to perform with a lifelike depiction of his long-deceased musical partner, John Lennon.  Using recent advances in audio and...",
+      "pubDate": "Mon, 15 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 1
+    },
+    {
       "title": "As AI Grows More Complex, Model Builders Rely on NVIDIA",
       "link": "https://blogs.nvidia.com/blog/leading-models-nvidia/",
       "summary": "Unveiling what it describes as the most capable model series yet for professional knowledge work, OpenAI launched GPT-5.2 today. The model was trained and deployed on NVIDIA infrastructure, including NVIDIA Hopper and GB200 NVL72 systems. GPT-5.2 achieves the top reported score for industry benchmar...",
@@ -393,6 +513,56 @@
       "sourceLogo": "🔷",
       "category": "research",
       "relevance": 1
+    },
+    {
+      "title": "Trump’s war on offshore wind faces another lawsuit",
+      "link": "https://www.theverge.com/news/850461/offshore-wind-trump-lawsuit-dominion-energy-ai-data-center",
+      "summary": "Dominion Energy, an offshore wind developer and utility serving Virginia's \"data center alley,\" filed suit against the Trump administration this week over its decision to pause federal leases for large offshore wind projects. The move puts a sudden stop to five wind farms already under construction,...",
+      "pubDate": "2025-12-26T22:14:47.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 0
+    },
+    {
+      "title": "AI Wrapped: The 14 AI terms you couldn’t avoid in 2025",
+      "link": "https://www.technologyreview.com/2025/12/25/1130298/ai-wrapped-the-14-ai-terms-you-couldnt-avoid-in-2025/",
+      "summary": "If the past 12 months have taught us anything, it’s that the AI hype train is showing no signs of slowing. It’s hard to believe that at the beginning of the year, DeepSeek had yet to turn the entire industry on its head, Meta was better known for trying (and failing) to make the metaverse…...",
+      "pubDate": "Thu, 25 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "Why the operating room is ripe for AI, according to Akara",
+      "link": "https://techcrunch.com/podcast/why-the-operating-room-is-ripe-for-ai-according-to-akara/",
+      "summary": "There’s plenty of hype around AI and robots in healthcare, but the problem that’s actually costing hospitals money right now is operating room coordination. Two to four hours of OR time is lost every single day, not because of the surgeries themselves, but because of everything in between, from manu...",
+      "pubDate": "Wed, 24 Dec 2025 16:47:41 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 0
+    },
+    {
+      "title": "New York’s landmark AI safety bill was defanged — and universities were part of the push against it",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/849293/ai-alliance-universities-colleges-funding-ad-campaign-against-raise-act",
+      "summary": "A group of tech companies and academic institutions spent tens of thousands of dollars in the past month - likely between $17,000 and $25,000 - on an ad campaign against New York's landmark AI safety bill, which may have reached more than two million people, according to Meta's Ad Library. \nThe land...",
+      "pubDate": "2025-12-23T16:18:49.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 0
+    },
+    {
+      "title": "Chipwrecked",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/848988/nvidia-chip-loans-coreweave-gpu-debt-ai-neocloud",
+      "summary": "The AI data center build-out, as it currently stands, is dependent on two things: Nvidia chips and borrowed money. Perhaps it was inevitable that people would begin using Nvidia chips to borrow money. As the craze has gone on, I have begun to worry about the weaknesses of the AI data center boom; lo...",
+      "pubDate": "2025-12-22T16:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 0
     },
     {
       "title": "40 of our most helpful AI tips from 2025",
@@ -415,6 +585,16 @@
       "relevance": 0
     },
     {
+      "title": "Why it’s time to reset our expectations for AI",
+      "link": "https://www.technologyreview.com/2025/12/16/1129946/why-its-time-to-reset-our-expectations-for-ai/",
+      "summary": "Can I ask you a question: How do you feel about AI right now? Are you still excited? When you hear that OpenAI or Google just dropped a new model, do you still get that buzz? Or has the shine come off it, maybe just a teeny bit? Come on, you can be honest with…...",
+      "pubDate": "Tue, 16 Dec 2025 12:29:04 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
       "title": "We’re publishing an AI playbook to help others with sustainability reporting.",
       "link": "https://blog.google/outreach-initiatives/sustainability/ai-playbook-sustainability-reporting/",
       "summary": "We’re sharing a practical playbook to help organizations streamline and enhance sustainability reporting with AI.Corporate transparency is essential, but navigating frag…...",
@@ -425,13 +605,33 @@
       "relevance": 0
     },
     {
-      "title": "You can now have more fluid and expressive conversations when you go Live with Search.",
-      "link": "https://blog.google/products/search/live-audio-gemini-model-update/",
-      "summary": "When you go Live with Search, you can have a back-and-forth voice conversation in AI Mode to get real-time help and quickly find relevant sites across the web. And now, …...",
-      "pubDate": "Fri, 12 Dec 2025 17:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
+      "title": "The fast and the future-focused are revolutionizing motorsport",
+      "link": "https://www.technologyreview.com/2025/12/15/1127432/the-fast-and-the-future-focused-are-revolutionizing-motorsport/",
+      "summary": "When the ABB FIA Formula E World Championship launched its first race through Beijing’s Olympic Park in 2014, the idea of all-electric motorsport still bordered on experimental. Batteries couldn’t yet last a full race, and drivers had to switch cars mid-competition. Just over a decade later, Formula...",
+      "pubDate": "Mon, 15 Dec 2025 15:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "A brief history of Sam Altman’s hype",
+      "link": "https://www.technologyreview.com/2025/12/15/1129169/a-brief-history-of-sam-altmans-hype/",
+      "summary": "Each time you’ve heard a borderline outlandish idea of what AI will be capable of, it often turns out that Sam Altman was, if not the first to articulate it, at least the most persuasive and influential voice behind it.  For more than a decade he has been known in Silicon Valley as a world-class…...",
+      "pubDate": "Mon, 15 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "The AI doomers feel undeterred",
+      "link": "https://www.technologyreview.com/2025/12/15/1129171/the-ai-doomers-feel-undeterred/",
+      "summary": "It’s a weird time to be an AI doomer. This small but influential community of researchers, scientists, and policy experts believes, in the simplest terms, that AI could get so good it could be bad—very, very bad—for humanity. Though many of these people would be more likely to describe themselves as...",
+      "pubDate": "Mon, 15 Dec 2025 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 0
     },
     {

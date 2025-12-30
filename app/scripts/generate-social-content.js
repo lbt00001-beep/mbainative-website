@@ -35,17 +35,19 @@ function formatDate(dateStr) {
 
 // ========== CONTENT GENERATORS (ALL FROM DYNAMIC SOURCES) ==========
 
-// 1. NOTICIA IA - from ai-news.json
+// 1. NOTICIA IA - from ai-news.json (select TOP by relevance, not random)
 function generateNewsContent() {
     const news = loadJsonFile('ai-news.json');
     if (!news || !news.featured || news.featured.length === 0) return null;
 
-    const item = randomItem(news.featured);
-    const summary = item.summary ? item.summary.substring(0, 150) : '';
+    // Sort by relevance and pick the top one
+    const sortedNews = [...news.featured].sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
+    const item = sortedNews[0];
+    const summary = item.summary ? item.summary.substring(0, 120) : '';
 
     return {
         type: 'news',
-        content: truncateForTwitter(`📰 ${item.title}\n\n${summary}...\n\n🔗 ${item.source}`),
+        content: truncateForTwitter(`📰 ${item.title}\n\n${summary}...\n\n🔗 Más en mbainative.com`),
         hashtags: ['IA', 'NoticiasIA', 'MBAINative', item.source.replace(/\s/g, '')],
         url: item.link
     };

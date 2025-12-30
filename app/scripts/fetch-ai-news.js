@@ -14,18 +14,50 @@ const parser = new Parser({
     }
 });
 
-// RSS Feed sources
+// RSS Feed sources - Major AI news sources
 const SOURCES = [
+    // TOP TIER: AI-focused news
     {
-        name: 'Google Cloud',
-        url: 'https://cloudblog.withgoogle.com/rss',
-        logo: '🔵',
-        category: 'cloud'
+        name: 'TechCrunch AI',
+        url: 'https://techcrunch.com/category/artificial-intelligence/feed/',
+        logo: '🟢',
+        category: 'news'
     },
+    {
+        name: 'The Verge AI',
+        url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml',
+        logo: '🟣',
+        category: 'news'
+    },
+    {
+        name: 'MIT Technology Review AI',
+        url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed/',
+        logo: '🔴',
+        category: 'research'
+    },
+    {
+        name: 'VentureBeat AI',
+        url: 'https://venturebeat.com/category/ai/feed/',
+        logo: '🟠',
+        category: 'news'
+    },
+    // BIG TECH blogs
     {
         name: 'Google AI',
         url: 'https://blog.google/technology/ai/rss/',
         logo: '🔵',
+        category: 'ai'
+    },
+    {
+        name: 'OpenAI',
+        url: 'https://openai.com/blog/rss/',
+        logo: '⚪',
+        category: 'ai'
+    },
+    {
+        name: 'Anthropic',
+        url: 'https://www.anthropic.com/news/rss',
+        logo: '🟤',
         category: 'ai'
     },
     {

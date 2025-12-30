@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2025-12-29T23:27:39.484Z",
+  "generatedAt": "2025-12-30T08:11:36.062Z",
   "scheduleSlot": "morning",
   "post": {
     "type": "news",
-    "content": "📰 The Year in Google Cloud — 2025\n\nIn the AI era, when one year can feel like 10, you’re forgiven for forgetting what happened last month, much less what happened all the way back in Ja...\n\n🔗 Google Cloud",
+    "content": "📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ...\n\n🔗 Más en mbainative.com",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "NoticiasIA",
-      "GoogleCloud"
+      "NVIDIA"
     ],
-    "url": "https://cloud.google.com/blog/products/gcp/top-google-cloud-blogs-2025/"
+    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
   }
 }

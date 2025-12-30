@@ -99,11 +99,11 @@ export default function MejoresPracticas() {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h1 className="text-5xl font-extrabold mb-6">
-                        Doctrina de la Empresa <span className="text-[--accent]">AI-Nativa</span>
+                        Principios de la Empresa <span className="text-[--accent]">AI-Nativa</span>
                     </h1>
                     <p className="text-xl max-w-3xl mx-auto text-gray-300">
                         Los principios que definen cómo organizar, dirigir y escalar empresas
-                        en la era de los agentes de IA. 20 doctrinas, 14 gurús, 5 sectores.
+                        en la era de los agentes de IA. 20 principios, 14 gurús, 5 sectores.
                     </p>
                 </div>
 
@@ -132,7 +132,7 @@ export default function MejoresPracticas() {
                             href="/mejores-practicas/doctrinas"
                             className="inline-flex items-center gap-2 bg-[--accent] text-[--primary] font-bold py-3 px-6 rounded-lg hover:bg-[--accent]/90 transition-colors"
                         >
-                            Ver las 20 Doctrinas Completas →
+                            Ver los 20 Principios Completos →
                         </Link>
                     </div>
                 </div>
@@ -162,7 +162,7 @@ export default function MejoresPracticas() {
                         >
                             <div className="text-5xl mb-4">📜</div>
                             <h3 className="text-2xl font-bold text-white mb-2">
-                                20 Doctrinas AI-Nativas
+                                20 Principios AI-Nativos
                             </h3>
                             <p className="text-white/80">Organización, tecnología y ética de la empresa con agentes.</p>
                         </Link>

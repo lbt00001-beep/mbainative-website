@@ -162,7 +162,7 @@ export default function GurusPage() {
             {/* Link to Doctrines */}
             <div className={styles.cta}>
                 <Link href="/mejores-practicas/doctrinas" className={styles.ctaButton}>
-                    Ver las 20 Doctrinas de la Empresa AI-Nativa →
+                    Ver los 20 Principios de la Empresa AI-Nativa →
                 </Link>
             </div>
 

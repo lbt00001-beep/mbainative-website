@@ -239,31 +239,31 @@ function generateContent() {
 
 // ========== MAIN ==========
 
-// Get today's doctrine (rotates based on day of year)
-function getDailyDoctrine() {
-    const doctrines = loadJsonFile('doctrines-social.json');
-    if (!doctrines || !doctrines.doctrines) return null;
+// Get today's principle (rotates based on day of year)
+function getDailyPrinciple() {
+    const data = loadJsonFile('doctrines-social.json');
+    if (!data || !data.principles) return null;
 
     const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
-    const doctrineIndex = dayOfYear % doctrines.doctrines.length;
-    return doctrines.doctrines[doctrineIndex];
+    const principleIndex = dayOfYear % data.principles.length;
+    return data.principles[principleIndex];
 }
 
 async function main() {
     console.log('🚀 Generating social media content from DYNAMIC sources...');
 
     const content = generateContent();
-    const doctrine = getDailyDoctrine();
+    const principle = getDailyPrinciple();
 
-    // Build doctrine header
-    let doctrineHeader = '';
-    if (doctrine) {
-        doctrineHeader = `${doctrine.icon} Doctrina #${doctrine.id}: ${doctrine.title}\n\n`;
-        console.log(`📜 Today's doctrine: #${doctrine.id} - ${doctrine.title}`);
+    // Build principle header
+    let principleHeader = '';
+    if (principle) {
+        principleHeader = `${principle.icon} Principio #${principle.id}: ${principle.title}\n\n`;
+        console.log(`📜 Today's principle: #${principle.id} - ${principle.title}`);
     }
 
-    // Combine doctrine + content (respecting Twitter char limit)
-    const fullContent = doctrineHeader + content.content;
+    // Combine principle + content (respecting Twitter char limit)
+    const fullContent = principleHeader + content.content;
     const truncatedContent = fullContent.length > 220
         ? fullContent.substring(0, 217) + '...'
         : fullContent;
@@ -271,7 +271,7 @@ async function main() {
     const output = {
         generatedAt: new Date().toISOString(),
         scheduleSlot: new Date().getHours() < 10 ? 'morning' : (new Date().getHours() < 15 ? 'noon' : 'evening'),
-        doctrine: doctrine ? { id: doctrine.id, title: doctrine.title, icon: doctrine.icon } : null,
+        principle: principle ? { id: principle.id, title: principle.title, icon: principle.icon } : null,
         post: {
             ...content,
             content: truncatedContent

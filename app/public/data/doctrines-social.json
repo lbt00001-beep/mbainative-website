@@ -1,125 +1,105 @@
 {
     "lastUpdated": "2025-12-30",
-    "doctrines": [
+    "principles": [
         {
             "id": 1,
             "icon": "🪙",
-            "title": "El talento artificial se compra",
-            "short": "La inteligencia se compra en tokens. El coste marginal tiende a cero."
+            "title": "El talento artificial se compra"
         },
         {
             "id": 2,
             "icon": "🤖",
-            "title": "Los empleados de silicio",
-            "short": "Agentes de IA que ejecutan tareas con creciente autonomía."
+            "title": "Los empleados de silicio"
         },
         {
             "id": 3,
             "icon": "📋",
-            "title": "Organización por tareas",
-            "short": "No hay puestos de trabajo: hay tareas que ejecutan agentes."
+            "title": "Organización por tareas, no por puestos"
         },
         {
             "id": 4,
             "icon": "🏗️",
-            "title": "El organigrama es una ciencia",
-            "short": "Emergen nuevos roles: Director de IA, Arquitectos de Tareas."
+            "title": "El nuevo organigrama es una ciencia"
         },
         {
             "id": 5,
             "icon": "↔️",
-            "title": "Información horizontal",
-            "short": "Desaparecen los silos. Personas y agentes acceden a conocimiento unificado."
+            "title": "La información fluye horizontalmente"
         },
         {
             "id": 6,
             "icon": "🎚️",
-            "title": "Autonomía configurable",
-            "short": "¿Consulta previa o supervisión posterior? Tú decides."
+            "title": "Decisiones con autonomía configurable"
         },
         {
             "id": 7,
             "icon": "🤝",
-            "title": "Relaciones B2B agénticas",
-            "short": "Agentes que negocian con otros agentes. Comercio sin intervención humana."
+            "title": "Relaciones externas agénticas"
         },
         {
             "id": 8,
             "icon": "⚖️",
-            "title": "Compliance automatizado",
-            "short": "Agentes de cumplimiento que verifican normativas 24/7."
+            "title": "Cumplimiento normativo automatizado"
         },
         {
             "id": 9,
             "icon": "🧠",
-            "title": "El conocimiento se democratiza",
-            "short": "Cualquier empleado puede ser experto con el agente adecuado."
+            "title": "El conocimiento se democratiza"
         },
         {
             "id": 10,
             "icon": "⚡",
-            "title": "Velocidad como ventaja",
-            "short": "El ciclo de decisión se comprime de semanas a minutos."
+            "title": "Velocidad como ventaja competitiva"
         },
         {
             "id": 11,
             "icon": "📐",
-            "title": "Escalabilidad sin límites",
-            "short": "100 agentes cuestan igual que 1.000. Solo pagas tokens."
+            "title": "Escalabilidad sin límites"
         },
         {
             "id": 12,
             "icon": "🔒",
-            "title": "Seguridad por diseño",
-            "short": "Los agentes operan en sandboxes con permisos granulares."
+            "title": "Seguridad por diseño"
         },
         {
             "id": 13,
             "icon": "📊",
-            "title": "Datos como activo",
-            "short": "Tu data es tu ventaja competitiva. Fine-tuning para especializarse."
+            "title": "Datos como activo estratégico"
         },
         {
             "id": 14,
             "icon": "🌐",
-            "title": "Global desde el día uno",
-            "short": "Agentes multilingües que operan en cualquier mercado."
+            "title": "Global desde el día uno"
         },
         {
             "id": 15,
             "icon": "🔄",
-            "title": "Mejora continua",
-            "short": "Los agentes aprenden de cada interacción y se optimizan."
+            "title": "Mejora continua automatizada"
         },
         {
             "id": 16,
             "icon": "👤",
-            "title": "Human-in-the-loop",
-            "short": "Las decisiones críticas siempre pasan por supervisión humana."
+            "title": "Human-in-the-loop"
         },
         {
             "id": 17,
             "icon": "💡",
-            "title": "Innovación acelerada",
-            "short": "Prototipado en horas, no en meses. Los agentes generan y testean."
+            "title": "Innovación acelerada"
         },
         {
             "id": 18,
             "icon": "🎓",
-            "title": "Formación continua",
-            "short": "El reskilling es permanente. Supervisar agentes es la nueva competencia."
+            "title": "Formación continua obligatoria"
         },
         {
             "id": 19,
             "icon": "🏢",
-            "title": "La empresa como plataforma",
-            "short": "Orquestas agentes internos y externos en un ecosistema."
+            "title": "La empresa como plataforma"
         },
         {
             "id": 20,
             "icon": "🚀",
-            "title": "Transformación o extinción",
-            "short": "Las empresas AI-nativas desplazan a las tradicionales."
+            "title": "Transformación o extinción"
         }
     ]
 }

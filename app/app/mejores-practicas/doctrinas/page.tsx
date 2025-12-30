@@ -12,7 +12,7 @@ export default function DoctrinasPage() {
                     ← Mejores Prácticas
                 </Link>
                 <h1 className={styles.title}>
-                    20 <span className={styles.accent}>Doctrinas</span> de la Empresa AI-Nativa
+                    20 <span className={styles.accent}>Principios</span> de la Empresa AI-Nativa
                 </h1>
                 <p className={styles.subtitle}>
                     Los principios que definen cómo organizar, dirigir y escalar empresas

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2025-12-31T05:28:10.421Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2025-12-31T11:14:30.416Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some e...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Andrej Karpathy\n\n\"What is Vibe Coding? Guide for Business Owners\"\n\n▶️ youtube.com/watch?v=4mMo3KnERjk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "andrejkarpathy"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=4mMo3KnERjk",
+    "imageUrl": "https://i.ytimg.com/vi/4mMo3KnERjk/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-02T05:28:59.283Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-02T11:13:51.807Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "news",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some ...",
+    "type": "guru_quote",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 Andrew Ng (Landing AI)\n\n\"AWS re:Invent 2025 - The agent-enabled workplace: Transforming businesses with AI (INV203)\"\n\n▶️ youtube.com/watch?v=qHvm3oFmRls",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=qHvm3oFmRls",
+    "imageUrl": "https://i.ytimg.com/vi/qHvm3oFmRls/mqdefault.jpg"
   }
 }

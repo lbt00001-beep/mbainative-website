@@ -33,8 +33,8 @@ const categorias = [
       {
         nombre: "Corrector Ortotipográfico RAE",
         descripcion: "Corrige documentos Word (.docx) siguiendo las normas de la Real Academia Española.",
-        url: "https://mbainative.pythonanywhere.com",
-        tipo: "externo",
+        url: "/aplicaciones/corrector-rae",
+        tipo: "interno",
         estado: "disponible"
       }
     ]

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-08T11:16:19.831Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-08T17:30:51.270Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Warning: Elon Musk Will Get Richer While People Lose Jobs | Nobel Laureate Geoffrey Hinton\"\n\n▶️ youtube.com/watch?v=lz29JBincYA",
+    "type": "recent_video",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=lz29JBincYA",
-    "imageUrl": "https://i.ytimg.com/vi/lz29JBincYA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

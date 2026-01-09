@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-09T11:14:55.555Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-09T17:26:46.898Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Jensen Huang (NVIDIA)\n\n\"AI isn’t just a tool anymore—it’s the next workforce revolution! #JensenHuang #AI #DigitalEmployees\"\n\n▶️ youtube.com/watch?v=vcIM3FNreT0",
+    "type": "recent_video",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "jensenhuang"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=vcIM3FNreT0",
-    "imageUrl": "https://i.ytimg.com/vi/vcIM3FNreT0/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-12T05:32:54.023Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-12T11:15:33.888Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "news",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples ...",
+    "type": "guru_quote",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Yoshua Bengio\n\n\"Global AI News: Yoshua Bengio’s Impact &amp; the Future of Artificial Intelligence Worldwide\"\n\n▶️ youtube.com/watch?v=MKpd60uEBjk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=MKpd60uEBjk",
+    "imageUrl": "https://i.ytimg.com/vi/MKpd60uEBjk/mqdefault.jpg"
   }
 }

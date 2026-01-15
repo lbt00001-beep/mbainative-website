@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-15T05:29:18.765Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-15T11:15:12.319Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "news",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ...\n...",
+    "type": "guru_quote",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Andrew Ng (Landing AI)\n\n\"8 Hour AI Agents Course in 30 Minutes (Deep Learning AI)\"\n\n▶️ youtube.com/watch?v=ftBWgcwvEk4",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=ftBWgcwvEk4",
+    "imageUrl": "https://i.ytimg.com/vi/ftBWgcwvEk4/mqdefault.jpg"
   }
 }

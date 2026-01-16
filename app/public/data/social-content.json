@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-16T11:14:49.976Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-16T17:27:57.691Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 karen-hao\n\n\"OpenAI paid Kenyan workers low wages for scarring work\"\n\n▶️ youtube.com/watch?v=242LyHO0pNw",
+    "type": "recent_video",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "karenhao"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=242LyHO0pNw",
-    "imageUrl": "https://i.ytimg.com/vi/242LyHO0pNw/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

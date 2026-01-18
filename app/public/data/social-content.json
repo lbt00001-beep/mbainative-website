@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-18T05:27:08.274Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-18T11:12:20.522Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "news",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples inc...",
+    "type": "guru_quote",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Dario Amodei (Anthropic)\n\n\"Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei\"\n\n▶️ youtube.com/watch?v=Yiy0cU6ChSw",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=Yiy0cU6ChSw",
+    "imageUrl": "https://i.ytimg.com/vi/Yiy0cU6ChSw/mqdefault.jpg"
   }
 }

@@ -21,6 +21,13 @@ const categorias = [
         url: "https://aplicaciones-correlaciones-finanzas.streamlit.app/",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "Dashboard Economía España",
+        descripcion: "Cuadro de mando integral con IA para analizar la economía en tiempo real (PIB, Paro, ESIOS).",
+        url: "https://dashboard-economia-espana.streamlit.app/",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

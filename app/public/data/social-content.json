@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-01-22T17:34:08.164Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-01-23T05:31:18.078Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 3,
-    "title": "Organización por tareas, no por puestos",
-    "icon": "📋"
+    "id": 4,
+    "title": "El nuevo organigrama es una ciencia",
+    "icon": "🏗️"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
+    "type": "news",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some exa...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "geoffreyhinton"
+      "NoticiasIA",
+      "NVIDIA"
     ],
-    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
-    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
+    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
   }
 }

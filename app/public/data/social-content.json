@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-23T05:31:18.078Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-23T11:15:52.487Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "news",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some exa...",
+    "type": "guru_quote",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 karen-hao\n\n\"Karen Hao warns that AI’s impact is already harsh, not because the technology is perfect, but.. #fyp\"\n\n▶️ youtube.com/watch?v=QauOHuHflv4",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "karenhao"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=QauOHuHflv4",
+    "imageUrl": "https://i.ytimg.com/vi/QauOHuHflv4/mqdefault.jpg"
   }
 }

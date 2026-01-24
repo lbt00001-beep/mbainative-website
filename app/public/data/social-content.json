@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-24T11:13:06.500Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-24T17:22:20.188Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Ilya Sutskever (SSI)\n\n\"AI Showdown: Microsoft Agent 365, Genesis Mission &amp; Anthropic’s Cheating Models | Ranger Edition\"\n\n▶️ youtube.com/watch?v=qJemj5nYocA",
+    "type": "recent_video",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "ilyasutskever"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=qJemj5nYocA",
-    "imageUrl": "https://i.ytimg.com/vi/qJemj5nYocA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

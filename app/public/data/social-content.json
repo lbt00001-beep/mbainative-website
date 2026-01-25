@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-25T05:31:04.881Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-25T11:12:49.441Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some e...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Yoshua Bengio\n\n\"💼 Elon Musk: UBI &amp; AI—A Flourishing Future or Dystopia? 🚀\"\n\n▶️ youtube.com/watch?v=TPvt6J693VU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=TPvt6J693VU",
+    "imageUrl": "https://i.ytimg.com/vi/TPvt6J693VU/mqdefault.jpg"
   }
 }

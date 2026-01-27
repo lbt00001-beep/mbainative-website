@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-27T11:18:52.567Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-27T17:32:20.401Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 gary-marcus\n\n\"AI2027: Is this how AI might destroy humanity? - BBC World Service\"\n\n▶️ youtube.com/watch?v=1UufaK3pQMg",
+    "type": "recent_video",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "garymarcus"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=1UufaK3pQMg",
-    "imageUrl": "https://i.ytimg.com/vi/1UufaK3pQMg/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

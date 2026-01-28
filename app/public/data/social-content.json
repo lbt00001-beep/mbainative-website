@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-01-28T05:31:47.754Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-01-28T11:18:37.090Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "news",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples ...",
+    "type": "guru_quote",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Andrej Karpathy\n\n\"What is Vibe Coding? Guide for Business Owners\"\n\n▶️ youtube.com/watch?v=4mMo3KnERjk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "andrejkarpathy"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=4mMo3KnERjk",
+    "imageUrl": "https://i.ytimg.com/vi/4mMo3KnERjk/mqdefault.jpg"
   }
 }

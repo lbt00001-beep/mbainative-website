@@ -54,10 +54,10 @@ const categorias = [
     apps: [
       {
         nombre: "Estimador CIS",
-        descripcion: "Estimación de voto en elecciones generales usando datos del CIS sin sesgos.",
-        url: "#",
-        tipo: "interno",
-        estado: "proximamente"
+        descripcion: "Estimación de voto en elecciones generales y regionales usando el motor Aldabón-Gemini 2.6.",
+        url: "https://cis-benedicto-gemini.streamlit.app/",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

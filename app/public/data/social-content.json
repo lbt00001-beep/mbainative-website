@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-01-31T11:15:05.310Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-01-31T17:28:02.141Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Andrej Karpathy\n\n\"Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG\"\n\n▶️ youtube.com/watch?v=k1njvbBmfsw",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrejkarpathy"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=k1njvbBmfsw",
-    "imageUrl": "https://i.ytimg.com/vi/k1njvbBmfsw/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

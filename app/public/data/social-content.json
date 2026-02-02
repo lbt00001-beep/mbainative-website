@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-02T11:31:24.854Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-02T17:42:01.041Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 14,
     "title": "Global desde el día uno",
     "icon": "🌐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n🧠 Demis Hassabis (DeepMind)\n\n\"The Future of AI: 10 Innovations Coming Soon\"\n\n▶️ youtube.com/watch?v=jJImIS4Ukgg",
+    "type": "recent_video",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=jJImIS4Ukgg",
-    "imageUrl": "https://i.ytimg.com/vi/jJImIS4Ukgg/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

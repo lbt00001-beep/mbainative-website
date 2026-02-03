@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-03T05:53:49.118Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-03T11:29:40.695Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 15,
     "title": "Mejora continua automatizada",
     "icon": "🔄"
   },
   "post": {
-    "type": "news",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples i...",
+    "type": "guru_quote",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Musk&#39;s Warning: 40% of Americans Will Lose Their Jobs to AI\"\n\n▶️ youtube.com/watch?v=7lsE2VQcB44",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=7lsE2VQcB44",
+    "imageUrl": "https://i.ytimg.com/vi/7lsE2VQcB44/mqdefault.jpg"
   }
 }

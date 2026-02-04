@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-04T11:28:44.971Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-04T17:50:48.002Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Andrej Karpathy\n\n\"Gemini 3 Flash should NOT EXIST. TOP 2% Engineering. /PLAN 2026\"\n\n▶️ youtube.com/watch?v=u-SQ0Jsv4mI",
+    "type": "recent_video",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrejkarpathy"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=u-SQ0Jsv4mI",
-    "imageUrl": "https://i.ytimg.com/vi/u-SQ0Jsv4mI/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-05T11:30:45.653Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-05T17:52:14.687Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Demis Hassabis On The Future of Work in the Age of AI\"\n\n▶️ youtube.com/watch?v=tQz3mFMXel8",
+    "type": "recent_video",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=tQz3mFMXel8",
-    "imageUrl": "https://i.ytimg.com/vi/tQz3mFMXel8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

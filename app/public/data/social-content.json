@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-06T11:28:56.845Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-06T17:45:09.032Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 Yann LeCun (Meta)\n\n\"AI Debate: LeCun vs. Altman on AGI&#39;s Future\"\n\n▶️ youtube.com/watch?v=8Vj6vecF8YM",
+    "type": "recent_video",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yannlecun"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=8Vj6vecF8YM",
-    "imageUrl": "https://i.ytimg.com/vi/8Vj6vecF8YM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

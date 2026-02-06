@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-06T05:56:03.745Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-06T11:28:56.845Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "news",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples...",
+    "type": "guru_quote",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 Yann LeCun (Meta)\n\n\"AI Debate: LeCun vs. Altman on AGI&#39;s Future\"\n\n▶️ youtube.com/watch?v=8Vj6vecF8YM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "yannlecun"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=8Vj6vecF8YM",
+    "imageUrl": "https://i.ytimg.com/vi/8Vj6vecF8YM/mqdefault.jpg"
   }
 }

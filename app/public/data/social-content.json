@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-07T05:45:20.924Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-07T11:16:59.386Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "news",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples inc...",
+    "type": "guru_quote",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Ilya Sutskever (SSI)\n\n\"Ilya Sutskever - AI Will take over everything we do one day - Uni of Toronto Speech\"\n\n▶️ youtube.com/watch?v=Teo0I9upE58",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "ilyasutskever"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=Teo0I9upE58",
+    "imageUrl": "https://i.ytimg.com/vi/Teo0I9upE58/mqdefault.jpg"
   }
 }

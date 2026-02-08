@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-08T11:19:03.800Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-08T17:30:56.374Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Demis Hassabis (DeepMind)\n\n\"The future of intelligence | Demis Hassabis (Co-founder and CEO of DeepMind)\"\n\n▶️ youtube.com/watch?v=PqVbypvxDto",
+    "type": "recent_video",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=PqVbypvxDto",
-    "imageUrl": "https://i.ytimg.com/vi/PqVbypvxDto/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-08T06:00:51.054Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-08T11:19:03.800Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "news",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples inc...",
+    "type": "guru_quote",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Demis Hassabis (DeepMind)\n\n\"The future of intelligence | Demis Hassabis (Co-founder and CEO of DeepMind)\"\n\n▶️ youtube.com/watch?v=PqVbypvxDto",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=PqVbypvxDto",
+    "imageUrl": "https://i.ytimg.com/vi/PqVbypvxDto/mqdefault.jpg"
   }
 }

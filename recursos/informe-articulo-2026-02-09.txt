@@ -1,0 +1,60 @@
+RADAR DE CALIDAD PERIODISTICA - INFORME
+=====================================
+Fecha de analisis: 2026-02-09T19:57:24.132Z
+Titulo: (sin dato)
+Medio: (sin dato)
+Autor: (sin dato)
+Fecha del articulo: (sin dato)
+Seccion: (sin dato)
+Fuente usada: pdf
+Caracteres analizados: 3548
+
+Puntuacion global: 43/100 (Baja)
+
+DIAGNOSTICO POR CRITERIO
+------------------------
+Claridad: 3/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Verificabilidad: 2/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Fuentes: 1/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Contexto: 3/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Balance: 1/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Estructura: 3/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Uso de datos: 2/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+Transparencia: 2/5
+- Justificacion: Sin detalle
+- Evidencia: No reportada
+
+FORTALEZAS
+----------
+- El texto presenta una estructura clara y ordenada.
+- Se contextualiza el análisis con resultados electorales recientes.
+- Utiliza algunos datos electorales para apoyar sus argumentos.
+
+MEJORAS
+-------
+- Incluir fuentes verificables y referencias concretas para las afirmaciones.
+- Mejorar el balance evitando un tono claramente sesgado y opinativo.
+- Aumentar la transparencia explicando la metodología o base de las afirmaciones.
+- Incorporar más datos objetivos y contrastados para fortalecer la veracidad.
+
+RESUMEN
+-------
+El artículo es una columna de opinión con un enfoque claro y estructurado que analiza el contexto político tras las elecciones aragonesas, pero presenta un fuerte sesgo ideológico y carece de fuentes verificables y datos objetivos suficientes, lo que limita su credibilidad y balance informativo.
+
+VEREDICTO EDITORIAL
+-------------------
+Sin veredicto

@@ -1,0 +1,8 @@
+﻿node_modules/
+**/node_modules/
+.npm-cache/
+**/.npm-cache/
+.env
+.DS_Store
+Thumbs.db
+.codex/

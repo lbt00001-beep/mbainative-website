@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-12T11:35:09.608Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-12T17:57:54.694Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Musk&#39;s Warning: 40% of Americans Will Lose Their Jobs to AI\"\n\n▶️ youtube.com/watch?v=7lsE2VQcB44",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=7lsE2VQcB44",
-    "imageUrl": "https://i.ytimg.com/vi/7lsE2VQcB44/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

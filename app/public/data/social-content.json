@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-13T06:02:13.121Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-13T11:26:15.890Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "news",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some exa...",
+    "type": "guru_quote",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Bernie Sanders LIVE: AI Godfather Geoffrey Hinton Warns America On AI Replacing Humans | US News\"\n\n▶️ youtube.com/watch?v=3...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=3-SVNR0awIY",
+    "imageUrl": "https://i.ytimg.com/vi/3-SVNR0awIY/mqdefault.jpg"
   }
 }

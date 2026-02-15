@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-15T05:58:47.451Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-15T11:17:57.591Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "news",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples i...",
+    "type": "guru_quote",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 Yoshua Bengio\n\n\"Creator of AI: We Have 2 Years Before Everything Changes! These Jobs Won&#39;t Exist in 24 Months!\"\n\n▶️ youtube.com/watch?v=F825MKmH3pE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=F825MKmH3pE",
+    "imageUrl": "https://i.ytimg.com/vi/F825MKmH3pE/mqdefault.jpg"
   }
 }

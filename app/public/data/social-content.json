@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-16T06:07:35.523Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-16T11:36:00.587Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "news",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some exam...",
+    "type": "guru_quote",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 Sam Altman (OpenAI)\n\n\"AI Will Kill Millions of Jobs by 2027 — Sam Altman Urgent Alert\"\n\n▶️ youtube.com/watch?v=rx0fnLhzCKY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=rx0fnLhzCKY",
+    "imageUrl": "https://i.ytimg.com/vi/rx0fnLhzCKY/mqdefault.jpg"
   }
 }

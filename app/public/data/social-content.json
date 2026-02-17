@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-02-16T17:41:10.687Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-02-17T06:00:10.976Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 8,
-    "title": "Cumplimiento normativo automatizado",
-    "icon": "⚖️"
+    "id": 9,
+    "title": "El conocimiento se democratiza",
+    "icon": "🧠"
   },
   "post": {
-    "type": "recent_video",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
+    "type": "news",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples ...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "geoffreyhinton"
+      "NoticiasIA",
+      "NVIDIA"
     ],
-    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
-    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
+    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
   }
 }

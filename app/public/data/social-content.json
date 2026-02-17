@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-17T06:00:10.976Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-17T11:35:09.777Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "news",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples ...",
+    "type": "guru_quote",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Ilya Sutskever (SSI)\n\n\"Ilya Sutskever – We&#39;re moving from the age of scaling to the age of research\"\n\n▶️ youtube.com/watch?v=aR20FWCCjAs",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "ilyasutskever"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=aR20FWCCjAs",
+    "imageUrl": "https://i.ytimg.com/vi/aR20FWCCjAs/mqdefault.jpg"
   }
 }

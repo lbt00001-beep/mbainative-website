@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-18T06:04:03.237Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-18T11:34:22.573Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "news",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examp...",
+    "type": "guru_quote",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Demis Hassabis On The Future of Work in the Age of AI\"\n\n▶️ youtube.com/watch?v=tQz3mFMXel8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=tQz3mFMXel8",
+    "imageUrl": "https://i.ytimg.com/vi/tQz3mFMXel8/mqdefault.jpg"
   }
 }

@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-02-17T17:56:56.866Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-02-18T06:04:03.237Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 9,
-    "title": "El conocimiento se democratiza",
-    "icon": "🧠"
+    "id": 10,
+    "title": "Velocidad como ventaja competitiva",
+    "icon": "⚡"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
+    "type": "news",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examp...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "geoffreyhinton"
+      "NoticiasIA",
+      "NVIDIA"
     ],
-    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
-    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
+    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
   }
 }

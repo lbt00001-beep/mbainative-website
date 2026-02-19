@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-19T06:02:22.816Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-19T11:34:17.978Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "news",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples incl...",
+    "type": "guru_quote",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Sam Altman (OpenAI)\n\n\"Where is AI Taking Us? | Sam Altman &amp; Vinod Khosla\"\n\n▶️ youtube.com/watch?v=6NwK-uq16U8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=6NwK-uq16U8",
+    "imageUrl": "https://i.ytimg.com/vi/6NwK-uq16U8/mqdefault.jpg"
   }
 }

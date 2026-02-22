@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-02-22T05:54:27.899Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-02-22T11:16:24.526Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 14,
     "title": "Global desde el día uno",
     "icon": "🌐"
   },
   "post": {
-    "type": "news",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples includ...",
+    "type": "guru_quote",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n🧠 Jensen Huang (NVIDIA)\n\n\"🤖 Agentic AI Explained | NVIDIA GTC 2025 Keynote with Jensen Huang 🚀\"\n\n▶️ youtube.com/watch?v=AnaBQacfH50",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=AnaBQacfH50",
+    "imageUrl": "https://i.ytimg.com/vi/AnaBQacfH50/mqdefault.jpg"
   }
 }

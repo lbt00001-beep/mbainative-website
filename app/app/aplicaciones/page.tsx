@@ -65,8 +65,15 @@ const categorias = [
     id: "prensa",
     nombre: "Prensa",
     icono: "📰",
-    descripcion: "Herramientas de generación de contenido periodístico",
+    descripcion: "Herramientas de análisis y generación de contenido periodístico",
     apps: [
+      {
+        nombre: "Radar de Calidad Periodística",
+        descripcion: "Evalúa artículos periodísticos con IA: puntuación 0-100, radar de 8 criterios, procesamiento por lotes y exportación PDF.",
+        url: "https://github.com/MBAInative/radar-prensa",
+        tipo: "externo",
+        estado: "disponible"
+      },
       {
         nombre: "Generador de Artículos",
         descripcion: "Genera artículos periodísticos de calidad usando inteligencia artificial.",

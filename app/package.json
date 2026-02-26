@@ -5,6 +5,7 @@
     "type": "module",
     "main": "backend/server.js",
     "scripts": {
+        "build": "echo No build needed",
         "start": "node backend/server.js"
     },
     "dependencies": {

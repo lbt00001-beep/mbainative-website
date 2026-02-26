@@ -5,10 +5,11 @@
     "type": "module",
     "main": "backend/server.js",
     "scripts": {
-        "build": "cp -r frontend dist",
+        "build": "echo ok",
         "start": "node backend/server.js"
     },
     "dependencies": {
+        "express": "^4.21.0",
         "pdf-parse": "^1.1.1"
     },
     "engines": {

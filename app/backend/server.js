@@ -1,47 +1,13 @@
-﻿import http from "node:http";
+﻿import express from "express";
 import pdfParse from "pdf-parse";
 import { readFileSync, existsSync } from "node:fs";
-import { join, extname, resolve } from "node:path";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const FRONTEND_DIR = resolve(__dirname, "..", "frontend");
 
-const MIME_TYPES = {
-  ".html": "text/html; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".js": "application/javascript; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".woff2": "font/woff2",
-  ".woff": "font/woff",
-};
-
-function serveStatic(req, res) {
-  let urlPath = req.url.split("?")[0];
-  if (urlPath === "/" || urlPath === "") urlPath = "/index.html";
-  const fullPath = join(FRONTEND_DIR, urlPath);
-  // Security: prevent directory traversal
-  if (!fullPath.startsWith(FRONTEND_DIR)) {
-    res.writeHead(403); res.end("Forbidden"); return;
-  }
-  if (!existsSync(fullPath)) {
-    // SPA fallback — serve index.html
-    const indexPath = join(FRONTEND_DIR, "index.html");
-    if (existsSync(indexPath)) {
-      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-      res.end(readFileSync(indexPath));
-      return;
-    }
-    res.writeHead(404); res.end("Not found"); return;
-  }
-  const mime = MIME_TYPES[extname(fullPath).toLowerCase()] || "application/octet-stream";
-  res.writeHead(200, { "Content-Type": mime });
-  res.end(readFileSync(fullPath));
-}
+const app = express();
 
 /* ============ CONFIG ============ */
 // Support .env file for API key
@@ -129,13 +95,7 @@ function validateSchema(aiJson) {
 
 /* ============ HELPERS ============ */
 function sendJson(res, statusCode, data) {
-  res.writeHead(statusCode, {
-    "Content-Type": "application/json; charset=utf-8",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  });
-  res.end(JSON.stringify(data));
+  res.status(statusCode).json(data);
 }
 
 function extractJson(text) {
@@ -314,16 +274,6 @@ function buildNormalizedResult(aiJson, articleText, payload) {
 }
 
 /* ============ NETWORK ============ */
-async function readJsonBody(req, maxBytes = 8 * 1024 * 1024) {
-  const chunks = [];
-  let size = 0;
-  for await (const chunk of req) {
-    size += chunk.length;
-    if (size > maxBytes) throw new Error("Payload demasiado grande (máximo 8MB).");
-    chunks.push(chunk);
-  }
-  return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}");
-}
 
 async function extractArticleText({ pdfBase64, articleText, enableOcr }) {
   const manualText = String(articleText || "").trim();
@@ -442,49 +392,60 @@ async function evaluateWithRetry({ apiKey, model, prompt }) {
 }
 
 /* ============ SERVER ============ */
-const server = http.createServer(async (req, res) => {
+
+// CORS
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") return res.sendStatus(204);
+  next();
+});
+
+// JSON body parsing (8MB limit for PDFs)
+app.use(express.json({ limit: "8mb" }));
+
+// API routes
+app.get("/health", (req, res) => {
+  sendJson(res, 200, { status: "ok", envKeySet: !!envApiKey });
+});
+
+app.post("/api/evaluate", async (req, res) => {
   try {
-    if (req.method === "OPTIONS") { sendJson(res, 204, {}); return; }
+    const body = req.body;
+    const apiKey = String(body.apiKey || "").trim() || envApiKey;
+    const selectedModel = String(body.model || "").trim() || "openai/gpt-4.1-mini";
 
-    if (req.method === "GET" && req.url === "/health") {
-      sendJson(res, 200, { status: "ok", envKeySet: !!envApiKey });
-      return;
+    if (!apiKey) {
+      return sendJson(res, 400, { error: "Falta la API key de OpenRouter (ni en body ni en .env)." });
     }
 
-    if (req.method === "POST" && req.url === "/api/evaluate") {
-      const body = await readJsonBody(req);
-      // API key: prefer body, fallback to env
-      const apiKey = String(body.apiKey || "").trim() || envApiKey;
-      const selectedModel = String(body.model || "").trim() || "openai/gpt-4.1-mini";
+    const { articleText, source, ocrHint } = await extractArticleText(body);
+    const prompt = buildPrompt(body, articleText);
+    const aiJson = await evaluateWithRetry({ apiKey, model: selectedModel, prompt });
+    const result = buildNormalizedResult(aiJson, articleText, body);
 
-      if (!apiKey) {
-        sendJson(res, 400, { error: "Falta la API key de OpenRouter (ni en body ni en .env)." });
-        return;
-      }
-
-      const { articleText, source, ocrHint } = await extractArticleText(body);
-      const prompt = buildPrompt(body, articleText);
-      const aiJson = await evaluateWithRetry({ apiKey, model: selectedModel, prompt });
-      const result = buildNormalizedResult(aiJson, articleText, body);
-
-      sendJson(res, 200, {
-        source, modelUsed: selectedModel,
-        extractedTextLength: articleText.length,
-        ...(ocrHint ? { ocrHint: true } : {}),
-        ...result
-      });
-      return;
-    }
-
-    // Serve frontend static files for any other request
-    serveStatic(req, res);
+    sendJson(res, 200, {
+      source, modelUsed: selectedModel,
+      extractedTextLength: articleText.length,
+      ...(ocrHint ? { ocrHint: true } : {}),
+      ...result
+    });
   } catch (error) {
     console.error("[Error]", error.message);
     sendJson(res, 500, { error: error.message || "Error interno" });
   }
 });
 
-server.listen(port, () => {
+// Serve frontend static files
+app.use(express.static(FRONTEND_DIR));
+
+// SPA fallback
+app.get("*", (req, res) => {
+  res.sendFile(resolve(FRONTEND_DIR, "index.html"));
+});
+
+app.listen(port, () => {
   console.log(`✅ Backend escuchando en http://localhost:${port}`);
   if (envApiKey) console.log("🔑 API key cargada desde .env");
   else console.log("⚠️  Sin API key en .env — se requiere desde el frontend");

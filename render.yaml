@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: radar-calidad-periodistica
+    runtime: node
+    plan: free
+    buildCommand: cd backend && npm install --production
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true

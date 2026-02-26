@@ -1,0 +1,14 @@
+{
+  "name": "prensa-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "http-server -p 5173 -c-1",
+    "build": "node -e \"console.log('No build step')\"",
+    "preview": "http-server -p 5173 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

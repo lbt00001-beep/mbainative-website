@@ -1,0 +1,10 @@
+﻿# Write your LONG PROMPT here (multiple lines are OK).
+# When finished: Save (Ctrl+S) and CLOSE Notepad.
+#
+# Suggested structure:
+# - Goal:
+# - Screens (frontend):
+# - API (backend):
+# - Data/persistence:
+# - Business rules:
+# - Done criteria:

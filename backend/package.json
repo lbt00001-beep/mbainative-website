@@ -1,0 +1,12 @@
+﻿{
+  "name": "prensa-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  }
+}

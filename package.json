@@ -1,0 +1,13 @@
+{
+    "name": "radar-calidad-periodistica",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "node backend/server.js",
+        "install:backend": "cd backend && npm install --production"
+    },
+    "engines": {
+        "node": ">=20"
+    }
+}

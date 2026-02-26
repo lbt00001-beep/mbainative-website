@@ -3,9 +3,12 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
+    "main": "backend/server.js",
     "scripts": {
-        "postinstall": "cd backend && npm install --production",
         "start": "node backend/server.js"
+    },
+    "dependencies": {
+        "pdf-parse": "^1.1.1"
     },
     "engines": {
         "node": ">=20"

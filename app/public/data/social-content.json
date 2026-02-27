@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-02-27T11:28:00.052Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-02-27T17:40:18.503Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Andrew Ng (Landing AI)\n\n\"Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG\"\n\n▶️ youtube.com/watch?v=k1njvbBmfsw",
+    "type": "recent_video",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrewng"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=k1njvbBmfsw",
-    "imageUrl": "https://i.ytimg.com/vi/k1njvbBmfsw/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

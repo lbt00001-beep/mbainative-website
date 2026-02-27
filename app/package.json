@@ -3,10 +3,10 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
-    "main": "backend/server.js",
+    "main": "server.js",
     "scripts": {
         "build": "echo ok",
-        "start": "node backend/server.js"
+        "start": "node server.js"
     },
     "dependencies": {
         "express": "^4.21.0",

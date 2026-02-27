@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const FRONTEND_DIR = resolve(__dirname, "..", "frontend");
+const FRONTEND_DIR = resolve(__dirname, "public");
 
 const app = express();
 

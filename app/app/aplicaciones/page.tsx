@@ -70,7 +70,7 @@ const categorias = [
       {
         nombre: "Radar de Calidad Periodística",
         descripcion: "Sube un PDF, selecciona un modelo de IA y obtén un diagnóstico profesional con puntuación 0-100.",
-        url: "https://radar-prensa.mbainative.com/",
+        url: "https://radar-prensa.onrender.com/",
         tipo: "externo",
         estado: "disponible"
       }

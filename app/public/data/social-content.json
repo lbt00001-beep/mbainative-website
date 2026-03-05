@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-03-05T05:52:00.228Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-03-05T11:29:21.958Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "news",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some exa...",
+    "type": "guru_quote",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Jensen Huang (NVIDIA)\n\n\"Agentic AI Are Your New Digital Employees\"\n\n▶️ youtube.com/watch?v=F0wcOaxwwjE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=F0wcOaxwwjE",
+    "imageUrl": "https://i.ytimg.com/vi/F0wcOaxwwjE/mqdefault.jpg"
   }
 }

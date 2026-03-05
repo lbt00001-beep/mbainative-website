@@ -97,6 +97,21 @@ const categorias = [
         estado: "proximamente"
       }
     ]
+  },
+  {
+    id: "simulaciones",
+    nombre: "Simulaciones",
+    icono: "🌍",
+    descripcion: "Simuladores interactivos de historia, demografía y ciencia",
+    apps: [
+      {
+        nombre: "Evolución Demográfica Humana",
+        descripcion: "Visualiza 300.000 años de historia: de 2 humanos a 8.100 millones, con migraciones, genética y crecimiento poblacional.",
+        url: "https://mbainative.com/evolucion/",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
   }
 ];
 

@@ -107,7 +107,7 @@ const categorias = [
       {
         nombre: "Evolución Demográfica Humana",
         descripcion: "Visualiza 300.000 años de historia: de 2 humanos a 8.100 millones, con migraciones, genética y crecimiento poblacional.",
-        url: "https://mbainative.com/evolucion/",
+        url: "/evolucion/index.html",
         tipo: "externo",
         estado: "disponible"
       }

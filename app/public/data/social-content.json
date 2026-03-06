@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-03-06T05:49:20.703Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-03-06T11:23:40.955Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some e...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Dario Amodei (Anthropic)\n\n\"CEO Predicts AGI Arrival 2027\"\n\n▶️ youtube.com/watch?v=pCdeDvPuRtE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=pCdeDvPuRtE",
+    "imageUrl": "https://i.ytimg.com/vi/pCdeDvPuRtE/mqdefault.jpg"
   }
 }

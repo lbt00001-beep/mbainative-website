@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-09T11:31:07.130Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-09T17:50:12.824Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Ilya Sutskever (SSI)\n\n\"Ex-OpenAI Scientist WARNS: &quot;You Have No Idea What&#39;s Coming&quot;\"\n\n▶️ youtube.com/watch?v=79-bApI3GIU",
+    "type": "recent_video",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "ilyasutskever"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=79-bApI3GIU",
-    "imageUrl": "https://i.ytimg.com/vi/79-bApI3GIU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

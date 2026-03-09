@@ -110,6 +110,13 @@ const categorias = [
         url: "/evolucion/index.html",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "Análisis Político",
+        descripcion: "Simulador de inteligencia que modela situaciones políticas nacionales e internacionales como juegos estratégicos, calculando los escenarios más probables con Teoría de Nash e IA.",
+        url: "https://analisis-politico.vercel.app/",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   }

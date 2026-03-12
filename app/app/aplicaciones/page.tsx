@@ -119,6 +119,21 @@ const categorias = [
         estado: "disponible"
       }
     ]
+  },
+  {
+    id: "product-multi",
+    nombre: "Aplicaciones que multiplican tu productividad",
+    icono: "🚀",
+    descripcion: "Soluciones avanzadas de inteligencia artificial para optimizar tus procesos de revisión, análisis y trabajo diario.",
+    apps: [
+      {
+        nombre: "Detector de Textos IA (Doctrina MBAI)",
+        descripcion: "Analiza cualquier fragmento de texto para determinar mediante 10 vectores lingüísticos si ha sido escrito por un humano o generado por Inteligencia Artificial.",
+        url: "https://app-mu-dun.vercel.app",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
   }
 ];
 

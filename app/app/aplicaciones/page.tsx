@@ -129,7 +129,7 @@ const categorias = [
       {
         nombre: "Detector de Textos IA (Doctrina MBAI)",
         descripcion: "Analiza cualquier fragmento de texto para determinar mediante 10 vectores lingüísticos si ha sido escrito por un humano o generado por Inteligencia Artificial.",
-        url: "https://app-mu-dun.vercel.app",
+        url: "https://mbai-native-detector-2026.web.app",
         tipo: "externo",
         estado: "disponible"
       }

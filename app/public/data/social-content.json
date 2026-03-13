@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-12T11:28:21.249Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-13T17:39:37.945Z",
+  "scheduleSlot": "evening",
   "principle": {
-    "id": 12,
-    "title": "Seguridad por diseño",
-    "icon": "🔒"
+    "id": 13,
+    "title": "Datos como activo estratégico",
+    "icon": "📊"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 gary-marcus\n\n\"AI2027: Is this how AI might destroy humanity? - BBC World Service\"\n\n▶️ youtube.com/watch?v=1UufaK3pQMg",
+    "type": "recent_video",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "garymarcus"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=1UufaK3pQMg",
-    "imageUrl": "https://i.ytimg.com/vi/1UufaK3pQMg/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

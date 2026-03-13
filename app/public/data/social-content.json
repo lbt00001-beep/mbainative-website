@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-03-13T05:53:02.167Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-03-13T11:26:50.307Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "news",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples ...",
+    "type": "guru_quote",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Sam Altman (OpenAI)\n\n\"The REAL Reason ONLY 5 Jobs Will EXIST in 24 Months\"\n\n▶️ youtube.com/watch?v=FRUTFGtPeVc",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=FRUTFGtPeVc",
+    "imageUrl": "https://i.ytimg.com/vi/FRUTFGtPeVc/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-03-15T06:06:27.081Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-03-15T11:21:07.411Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 15,
     "title": "Mejora continua automatizada",
     "icon": "🔄"
   },
   "post": {
-    "type": "news",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples i...",
+    "type": "guru_quote",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🧠 Jensen Huang (NVIDIA)\n\n\"NVIDIA CEO Champions AI “Digital Employees” for a New Era of Innovation\"\n\n▶️ youtube.com/watch?v=CJoTwEqA-gI",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=CJoTwEqA-gI",
+    "imageUrl": "https://i.ytimg.com/vi/CJoTwEqA-gI/mqdefault.jpg"
   }
 }

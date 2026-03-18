@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T11:40:49.288Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-18T18:02:11.479Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 Fei-Fei Li (Stanford)\n\n\"AI&#39;s Impact: Human Agency &amp; the Future of Work #shorts\"\n\n▶️ youtube.com/watch?v=WcWSs6IhvbI",
+    "type": "recent_video",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "feifeili"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=WcWSs6IhvbI",
-    "imageUrl": "https://i.ytimg.com/vi/WcWSs6IhvbI/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

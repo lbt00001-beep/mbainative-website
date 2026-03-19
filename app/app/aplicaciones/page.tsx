@@ -73,6 +73,13 @@ const categorias = [
         url: "https://radar-prensa.onrender.com/",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "Prensa Resumen MBAI",
+        descripcion: "Unidad de inteligencia que escanea 50 medios internacionales en tiempo real, filtra noticias por tema y genera informes estratégicos con análisis de narrativa, sesgos y silencios.",
+        url: "https://prensa-resumen-mbai-2266.web.app/",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

@@ -1,0 +1,53 @@
+
+> app@0.1.0 build
+> next build
+
+  ??? Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ??? Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/27) ...
+   Generating static pages (6/27) 
+   Generating static pages (13/27) 
+   Generating static pages (20/27) 
+ ??? Generating static pages (27/27)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                Size     First Load JS
+??? ??? /                                      1.38 kB        97.4 kB
+??? ??? /_not-found                            873 B          88.2 kB
+??? ??? /about                                 142 B          87.5 kB
+??? ?? /api/contact                           0 B                0 B
+??? ?? /api/quoteSummary                      0 B                0 B
+??? ??? /aplicaciones                          186 B          96.2 kB
+??? ??? /aplicaciones/corrector-rae            802 B          88.1 kB
+??? ??? /aplicaciones/inversion-fundamentales  9.25 kB        96.6 kB
+??? ??? /condiciones                           186 B          96.2 kB
+??? ??? /contact                               1.58 kB        88.9 kB
+??? ??? /cookies                               186 B          96.2 kB
+??? ??? /mejores-practicas                     716 B          96.7 kB
+??? ??? /mejores-practicas/consultoras         1.51 kB        97.5 kB
+??? ??? /mejores-practicas/doctrinas           669 B          96.7 kB
+??? ??? /mejores-practicas/finanzas            716 B          96.7 kB
+??? ??? /mejores-practicas/gurus               8.9 kB          105 kB
+??? ??? /mejores-practicas/manufactura         716 B          96.7 kB
+??? ??? /mejores-practicas/noticias            1.42 kB        88.7 kB
+??? ??? /mejores-practicas/retail              716 B          96.7 kB
+??? ??? /mejores-practicas/salud               716 B          96.7 kB
+??? ??? /mejores-practicas/tecnologia          716 B          96.7 kB
+??? ??? /mejores-practicas/youtubers           1.77 kB        97.8 kB
+??? ??? /precisiones                           186 B          96.2 kB
+??? ??? /privacidad                            186 B          96.2 kB
+??? ??? /services                              142 B          87.5 kB
++ First Load JS shared by all              87.3 kB
+  ??? chunks/117-baab43fc83142998.js         31.7 kB
+  ??? chunks/fd9d1056-87da80e0c187477b.js    53.6 kB
+  ??? other shared chunks (total)            1.95 kB
+
+
+???  (Static)   prerendered as static content
+??  (Dynamic)  server-rendered on demand
+

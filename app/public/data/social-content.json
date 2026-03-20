@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-20T11:27:08.318Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-20T17:39:09.888Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Fei-Fei Li (Stanford)\n\n\"Will You Lose Your Job to Automation\"\n\n▶️ youtube.com/watch?v=RnSF3dHEw_U",
+    "type": "recent_video",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "feifeili"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=RnSF3dHEw_U",
-    "imageUrl": "https://i.ytimg.com/vi/RnSF3dHEw_U/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

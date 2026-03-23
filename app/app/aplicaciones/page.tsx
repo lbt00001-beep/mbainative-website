@@ -128,6 +128,21 @@ const categorias = [
     ]
   },
   {
+    id: "investigacion-ia",
+    nombre: "Investigación IA",
+    icono: "🔬",
+    descripcion: "Monitorización y análisis de las últimas investigaciones de los principales laboratorios de inteligencia artificial",
+    apps: [
+      {
+        nombre: "AI Research Radar",
+        descripcion: "Dashboards interactivos con las investigaciones más recientes de Anthropic, OpenAI, Google y Microsoft. Vista detallada de artículos en español con gráficos y análisis.",
+        url: "https://ai-research-radar-mbai.web.app/",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
+  },
+  {
     id: "product-multi",
     nombre: "Aplicaciones que multiplican tu productividad",
     icono: "🚀",

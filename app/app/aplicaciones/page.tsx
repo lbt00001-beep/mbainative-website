@@ -149,6 +149,13 @@ const categorias = [
     descripcion: "Soluciones avanzadas de inteligencia artificial para optimizar tus procesos de revisión, análisis y trabajo diario.",
     apps: [
       {
+        nombre: "Generador Autónoma de Masterclass (MBAI Presenter)",
+        descripcion: "Sube un tema o un documento PDF y el orquestador IA investigará, redactará el guion y las notas, preservará los gráficos matemáticos originales, ensamblará el PowerPoint y locutará al presentador en múltiples idiomas automáticamente.",
+        url: "https://presentador-masterclass-mbai.streamlit.app/",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "Detector de Textos IA (Doctrina MBAI)",
         descripcion: "Analiza cualquier fragmento de texto para determinar mediante 10 vectores lingüísticos si ha sido escrito por un humano o generado por Inteligencia Artificial.",
         url: "https://mbai-native-detector-2026.web.app",

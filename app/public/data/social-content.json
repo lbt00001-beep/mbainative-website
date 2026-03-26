@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-26T11:44:40.858Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-26T18:01:50.415Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Ilya Sutskever (SSI)\n\n\"Ilya Sutskever – We&#39;re moving from the age of scaling to the age of research\"\n\n▶️ youtube.com/watch?v=aR20FWCCjAs",
+    "type": "recent_video",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "ilyasutskever"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=aR20FWCCjAs",
-    "imageUrl": "https://i.ytimg.com/vi/aR20FWCCjAs/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

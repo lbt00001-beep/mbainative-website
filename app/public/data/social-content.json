@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-27T11:37:28.053Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-03-27T17:52:31.762Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 Dario Amodei (Anthropic)\n\n\"Job losses from AI are finally hitting the headlines.\"\n\n▶️ youtube.com/watch?v=LyDIp6WO2Ls",
+    "type": "recent_video",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=LyDIp6WO2Ls",
-    "imageUrl": "https://i.ytimg.com/vi/LyDIp6WO2Ls/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

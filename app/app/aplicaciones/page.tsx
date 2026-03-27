@@ -28,6 +28,13 @@ const categorias = [
         url: "https://dashboard-economia-espana.streamlit.app/",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "Monitor de Futuros Líquidos",
+        descripcion: "Observa futuros de índices, bonos, materias primas y divisas. Detecta anomalías, genera señales y simula operaciones en tiempo real.",
+        url: "/aplicaciones/futuros",
+        tipo: "interno",
+        estado: "disponible"
       }
     ]
   },

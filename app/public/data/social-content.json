@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-01T06:27:16.062Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-01T11:46:17.444Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "news",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples include ....",
+    "type": "guru_quote",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Hinton’s Warning  Profits Rise, Jobs Van 2025 11 29\"\n\n▶️ youtube.com/watch?v=XrXB4HsW6wU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=XrXB4HsW6wU",
+    "imageUrl": "https://i.ytimg.com/vi/XrXB4HsW6wU/mqdefault.jpg"
   }
 }

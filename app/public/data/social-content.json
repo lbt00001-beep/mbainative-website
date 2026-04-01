@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-01T11:46:17.444Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-01T17:53:51.970Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Hinton’s Warning  Profits Rise, Jobs Van 2025 11 29\"\n\n▶️ youtube.com/watch?v=XrXB4HsW6wU",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Geoffrey Hinton\n\n\"AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts\"\n\n▶️ youtube.com/watch?v=GgFr0lzIV1Y",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=XrXB4HsW6wU",
-    "imageUrl": "https://i.ytimg.com/vi/XrXB4HsW6wU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GgFr0lzIV1Y",
+    "imageUrl": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-07T06:20:49.755Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-07T11:48:51.593Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "news",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples...",
+    "type": "guru_quote",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 karen-hao\n\n\"OpenAI paid Kenyan workers low wages for scarring work\"\n\n▶️ youtube.com/watch?v=242LyHO0pNw",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "karenhao"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=242LyHO0pNw",
+    "imageUrl": "https://i.ytimg.com/vi/242LyHO0pNw/mqdefault.jpg"
   }
 }

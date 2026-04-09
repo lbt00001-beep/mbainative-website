@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-09T06:23:13.332Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-09T11:50:32.934Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "news",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n📰 How to Fine-Tune an LLM on NVIDIA GPUs With Unsloth\n\nModern workflows showcase the endless possibilities of generative and agentic AI on PCs. Of many, some examples inc...",
+    "type": "guru_quote",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Andrej Karpathy\n\n\"Is this the YEAR or DECADE of AI Agents &amp; Agentic AI?\"\n\n▶️ youtube.com/watch?v=ZeZozy3lsJg",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "NVIDIA"
+      "GurusIA",
+      "andrejkarpathy"
     ],
-    "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-fine-tuning-unsloth-dgx-spark/"
+    "url": "https://youtube.com/watch?v=ZeZozy3lsJg",
+    "imageUrl": "https://i.ytimg.com/vi/ZeZozy3lsJg/mqdefault.jpg"
   }
 }

@@ -1,15 +1,31 @@
 {
-  "lastUpdated": "2025-12-29T05:25:08.973Z",
-  "totalVideos": 92,
+  "lastUpdated": "2026-04-10T06:30:19.682Z",
+  "totalVideos": 55,
   "gurus": {
     "demis-hassabis": [
       {
-        "videoId": "jJImIS4Ukgg",
-        "title": "The Future of AI: 10 Innovations Coming Soon",
-        "description": "The future of artificial intelligence is rapidly evolving, with amazing innovations emerging every day. As a key driver of the tech ......",
-        "thumbnail": "https://i.ytimg.com/vi/jJImIS4Ukgg/mqdefault.jpg",
-        "publishedAt": "2025-12-23T07:01:11Z",
-        "channelTitle": "Crick Ai"
+        "videoId": "mQJh8UJaClI",
+        "title": "Entry-Level Job Extinction. AI Disrupt Workforce Topic | WEF Davos 2026 Demis Hassabis Jensen Huang",
+        "description": "A brutal reality check from Demis Hassabis (Google DeepMind): entry-level jobs are the first to be \"automated out.\" The 9-to-5 is ......",
+        "thumbnail": "https://i.ytimg.com/vi/mQJh8UJaClI/mqdefault.jpg",
+        "publishedAt": "2026-02-11T15:05:52Z",
+        "channelTitle": "AInspiringly"
+      },
+      {
+        "videoId": "bgBfobN2A7A",
+        "title": "Google DeepMind CEO Demis Hassabis: AI&#39;s Next Breakthroughs, AGI Timeline, Google&#39;s AI Glasses Bet",
+        "description": "Demis Hassabis is the CEO of Google DeepMind. Hassabis joins Big Technology Podcast to discuss where AI progress really ......",
+        "thumbnail": "https://i.ytimg.com/vi/bgBfobN2A7A/mqdefault.jpg",
+        "publishedAt": "2026-01-23T17:30:06Z",
+        "channelTitle": "Alex Kantrowitz"
+      },
+      {
+        "videoId": "YSNXh3bqb9o",
+        "title": "Demis Hassabis Reveals the 12 Industries AI Will Completely Take Over Next",
+        "description": "Artificial Intelligence is advancing faster than most people realize. In this video, Demis Hassabis — CEO of DeepMind and one of ......",
+        "thumbnail": "https://i.ytimg.com/vi/YSNXh3bqb9o/mqdefault.jpg",
+        "publishedAt": "2025-12-30T16:49:41Z",
+        "channelTitle": "AI Substructure"
       },
       {
         "videoId": "PqVbypvxDto",
@@ -22,47 +38,22 @@
       {
         "videoId": "d95J8yzvjbQ",
         "title": "The Thinking Game | Full documentary | Tribeca Film Festival official selection",
-        "description": "The Thinking Game takes you on a journey into the heart of DeepMind, capturing a team striving to unravel the mysteries of ......",
+        "description": "The inside story of the AI breakthrough that won a Nobel Prize. -- The Thinking Game takes you on a journey into the heart of ......",
         "thumbnail": "https://i.ytimg.com/vi/d95J8yzvjbQ/mqdefault.jpg",
         "publishedAt": "2025-11-25T15:44:20Z",
         "channelTitle": "Google DeepMind"
-      },
-      {
-        "videoId": "tQz3mFMXel8",
-        "title": "Demis Hassabis On The Future of Work in the Age of AI",
-        "description": "The future of work is changing faster than ever and DeepMind CEO Demis Hassabis has revealed what the next decade of AI will ......",
-        "thumbnail": "https://i.ytimg.com/vi/tQz3mFMXel8/mqdefault.jpg",
-        "publishedAt": "2025-11-21T18:57:20Z",
-        "channelTitle": "Digiprenueur"
-      },
-      {
-        "videoId": "Wb1_TmPG-7c",
-        "title": "16 AI Talks Compilation: From What’s New to AGI (Hindi/हिंदी में)",
-        "description": "00:00:00 What's New in Computers and AI 00:17:58 How AI Will Change Work 00:27:53 What AI Can Do, What It Can't Do, and Its ......",
-        "thumbnail": "https://i.ytimg.com/vi/Wb1_TmPG-7c/mqdefault.jpg",
-        "publishedAt": "2025-10-28T15:54:04Z",
-        "channelTitle": "SyllabuswithRohit "
       }
     ],
-    "yann-lecun": [
-      {
-        "videoId": "cCatRrXt7QI",
-        "title": "The AI Revolution A Survival Guide for the Future of Work",
-        "description": "The future of work is already here. Artificial Intelligence (AI) is silently transforming the global economy, automating jobs, and ......",
-        "thumbnail": "https://i.ytimg.com/vi/cCatRrXt7QI/mqdefault.jpg",
-        "publishedAt": "2025-07-17T10:15:35Z",
-        "channelTitle": "FlamingosAdvisoryTube"
-      },
-      {
-        "videoId": "8Vj6vecF8YM",
-        "title": "AI Debate: LeCun vs. Altman on AGI&#39;s Future",
-        "description": "We explore Yann LeCun's claim that AGI is impossible with current tech, contrasting Sam Altman's optimistic view. We discuss if ......",
-        "thumbnail": "https://i.ytimg.com/vi/8Vj6vecF8YM/mqdefault.jpg",
-        "publishedAt": "2025-06-12T15:02:48Z",
-        "channelTitle": "AI Inside"
-      }
-    ],
+    "yann-lecun": [],
     "yoshua-bengio": [
+      {
+        "videoId": "Tc0diMRdU6c",
+        "title": "Yoshua Bengio Warns AI Automation Could Trigger Economic Catastrophe on AI Futures",
+        "description": "On AI Futures with AnirudhSuri, Professor Yoshua Bengio, Turing Award winner and one of the world's most influential AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/Tc0diMRdU6c/mqdefault.jpg",
+        "publishedAt": "2026-02-24T10:54:16Z",
+        "channelTitle": "Hindustan Times"
+      },
       {
         "videoId": "F825MKmH3pE",
         "title": "Creator of AI: We Have 2 Years Before Everything Changes! These Jobs Won&#39;t Exist in 24 Months!",
@@ -94,428 +85,108 @@
         "thumbnail": "https://i.ytimg.com/vi/MKpd60uEBjk/mqdefault.jpg",
         "publishedAt": "2025-05-31T07:00:06Z",
         "channelTitle": "NochoDig"
-      },
-      {
-        "videoId": "S9fgkqu3g4A",
-        "title": "AI AND THE FUTURE OF EMPLOYMENT: Are we all going to become unemployed?  #AI #FutureOfWork #Jobs",
-        "description": "Watch more: https://youtu.be/-d2VRgej_cY?si=dZW72jUud-a4Y6yZ Will AI Take Our Jobs? The Unsettling Truth & Historical ......",
-        "thumbnail": "https://i.ytimg.com/vi/S9fgkqu3g4A/mqdefault.jpg",
-        "publishedAt": "2025-05-23T16:16:11Z",
-        "channelTitle": "Plastico Film"
       }
     ],
     "geoffrey-hinton": [
       {
-        "videoId": "GgFr0lzIV1Y",
-        "title": "AI Will Replace Your Job? Hinton’s Warning | job vacancy 2025 😨 #shorts",
-        "description": "Geoffrey Hinton, the “Godfather of AI”, says the real AI bubble risk isn't bad tech – it's massive social disruption and job loss....",
-        "thumbnail": "https://i.ytimg.com/vi/GgFr0lzIV1Y/mqdefault.jpg",
-        "publishedAt": "2025-12-24T06:45:01Z",
-        "channelTitle": "Anurag Simplify"
+        "videoId": "ELOJcYY4YvM",
+        "title": "AI Jobs Khatam Kar Raha Hai? Geoffrey Hinton Ki Warning!”“10 Saal Mein Kaun Si Jobs Khatam?",
+        "description": "AI duniya ko badal raha hai… lekin kya yeh aapki job bhi le lega? Is video mein hum baat karenge Geoffrey Hinton ki warning ......",
+        "thumbnail": "https://i.ytimg.com/vi/ELOJcYY4YvM/mqdefault.jpg",
+        "publishedAt": "2026-04-04T06:05:06Z",
+        "channelTitle": "Aahmed Irshad"
       },
       {
-        "videoId": "3HGCiFr17N8",
-        "title": "AI Could Replace Millions of Jobs in 3 Years | Hinton Warns",
-        "description": "GeoffreyHinton #ArtificialIntelligence #AIJobs #FutureOfWork AI Could Replace Millions of Jobs in 3 Years | Hinton Warns AI ......",
-        "thumbnail": "https://i.ytimg.com/vi/3HGCiFr17N8/mqdefault.jpg",
-        "publishedAt": "2025-12-21T19:00:04Z",
-        "channelTitle": "Hinton’s Vision"
+        "videoId": "RxD4FhYB7-0",
+        "title": "Will AI actually kill jobs? The Godfather of AI has a surprising take.",
+        "description": "Geoffrey Hinton, widely recognized as the pioneer behind modern artificial intelligence, offers a provocative perspective on the ......",
+        "thumbnail": "https://i.ytimg.com/vi/RxD4FhYB7-0/mqdefault.jpg",
+        "publishedAt": "2026-03-26T20:45:42Z",
+        "channelTitle": "Future Shock AI"
       },
       {
-        "videoId": "wUc3rgm7JSo",
-        "title": "AI Will Replace You Sooner Than You Think ⚠️ | Geoffrey Hinton’s 2025 Warning",
-        "description": "The Godfather of AI” Geoffrey Hinton warns that artificial intelligence could replace millions of jobs by 2025. In this clip, we break ......",
-        "thumbnail": "https://i.ytimg.com/vi/wUc3rgm7JSo/mqdefault.jpg",
-        "publishedAt": "2025-12-20T16:45:06Z",
-        "channelTitle": "InteligenZiate"
+        "videoId": "_N-QcRWdKZk",
+        "title": "Will AI really replace you? The Godfather of AI reveals the uncomfortable truth.",
+        "description": "Geoffrey Hinton, the pioneer behind the technology powering modern AI, offers a stark warning about the future of the workforce....",
+        "thumbnail": "https://i.ytimg.com/vi/_N-QcRWdKZk/mqdefault.jpg",
+        "publishedAt": "2026-03-25T16:44:40Z",
+        "channelTitle": "Future Shock AI"
       },
       {
-        "videoId": "r30c8a3-zJ8",
-        "title": "AI Warning ⚠️ Geoffrey Hinton Says Millions Could Lose Jobs by 2025  #ia",
-        "description": "Geoffrey Hinton — “The Godfather of AI” — warns that artificial intelligence could replace millions of jobs by 2025. The question is: ......",
-        "thumbnail": "https://i.ytimg.com/vi/r30c8a3-zJ8/mqdefault.jpg",
-        "publishedAt": "2025-12-18T17:01:26Z",
-        "channelTitle": "InteligenZiate"
+        "videoId": "dJkcQ1ncCC8",
+        "title": "The Warning From the Godfather of AI",
+        "description": "Train to be a plumber.” That was the unexpected advice from Geoffrey Hinton, often called the Godfather of AI. After nearly 50 ......",
+        "thumbnail": "https://i.ytimg.com/vi/dJkcQ1ncCC8/mqdefault.jpg",
+        "publishedAt": "2026-03-06T11:01:06Z",
+        "channelTitle": "TenpowerAI"
       },
       {
-        "videoId": "bM_CUvSLMP4",
-        "title": "Geoffrey Hinton’s Warning: AI Could Replace Millions of Jobs in 2025",
-        "description": "Artificial Intelligence is advancing faster than anyone imagined — and now, one of its creators is warning the world. Geoffrey ......",
-        "thumbnail": "https://i.ytimg.com/vi/bM_CUvSLMP4/mqdefault.jpg",
-        "publishedAt": "2025-12-15T18:00:06Z",
-        "channelTitle": "InteligenZiate"
-      },
-      {
-        "videoId": "7lsE2VQcB44",
-        "title": "Musk&#39;s Warning: 40% of Americans Will Lose Their Jobs to AI",
-        "description": "This video covers critical ai news as automation rapidly reshapes the job market. Experts are surprised by the speed of workplace ......",
-        "thumbnail": "https://i.ytimg.com/vi/7lsE2VQcB44/mqdefault.jpg",
-        "publishedAt": "2025-12-13T00:24:25Z",
-        "channelTitle": "Briefing of Musk"
-      },
-      {
-        "videoId": "O-ZO-Fg6KeA",
-        "title": "Google’s New AI Is Unreal — Are Jobs About to Change Forever? — Geoffrey Hinton’s Warning",
-        "description": "GeoffreyHinton #GoogleAI #ArtificialIntelligence #FutureOfWork Google's New AI Is Unreal — Are Jobs About to Change Forever?...",
-        "thumbnail": "https://i.ytimg.com/vi/O-ZO-Fg6KeA/mqdefault.jpg",
-        "publishedAt": "2025-12-11T19:00:34Z",
-        "channelTitle": "Hinton’s Vision"
-      },
-      {
-        "videoId": "YDdKTXZcz2Q",
-        "title": "The Godfather of AI Calls Universal Income A &quot;Trap&quot;",
-        "description": "The “Godfather of AI” warns that our economic system could collapse for a reason far scarier than killer robots. AI doesn't replace ......",
-        "thumbnail": "https://i.ytimg.com/vi/YDdKTXZcz2Q/mqdefault.jpg",
-        "publishedAt": "2025-12-06T13:17:56Z",
-        "channelTitle": "Charlie O'Brien"
-      },
-      {
-        "videoId": "KfG1BZNtfOY",
-        "title": "The AI Job Collapse: Why Hinton Says Gates &amp; Musk Were Right",
-        "description": "AI isn't just changing work — it may be rewriting the entire idea of a job. In this video, we break down Geoffrey Hinton's newest ......",
-        "thumbnail": "https://i.ytimg.com/vi/KfG1BZNtfOY/mqdefault.jpg",
-        "publishedAt": "2025-12-05T01:43:16Z",
-        "channelTitle": "The US Tech Brief"
-      },
-      {
-        "videoId": "XrXB4HsW6wU",
-        "title": "Hinton’s Warning  Profits Rise, Jobs Van 2025 11 29",
-        "description": "ABONNE-TOI EN CLIQUANT ICI https //www.youtube.com/@TheMoneyLogic-w2t sub_confirmation=1 Contact professional: ......",
-        "thumbnail": "https://i.ytimg.com/vi/XrXB4HsW6wU/mqdefault.jpg",
-        "publishedAt": "2025-11-29T19:00:37Z",
-        "channelTitle": "The Money Logic"
-      },
-      {
-        "videoId": "Jb2fEXQ6wMo",
-        "title": "How Exactly Will AI Take Over Humans? ‘Godfather Of AI’ Spooks Bernie Sanders With His Prediction",
-        "description": "Bernie Sanders | Geoffrey Hinton | AI Job Loss | AI Taking Human Jobs | Artificial Intelligence Risks | Future Of Work | Automation ......",
-        "thumbnail": "https://i.ytimg.com/vi/Jb2fEXQ6wMo/mqdefault.jpg",
-        "publishedAt": "2025-11-27T15:00:43Z",
-        "channelTitle": "Hook Global"
-      },
-      {
-        "videoId": "-HKU5R--MF0",
-        "title": "AI Godfather’s Warning About Our Future",
-        "description": "AI pioneer Geoffrey Hinton explains why this technological shift is unlike anything humanity has ever faced. Machines becoming ......",
-        "thumbnail": "https://i.ytimg.com/vi/-HKU5R--MF0/mqdefault.jpg",
-        "publishedAt": "2025-11-26T12:59:00Z",
-        "channelTitle": "MediaBlizz"
-      },
-      {
-        "videoId": "3-SVNR0awIY",
-        "title": "Bernie Sanders LIVE: AI Godfather Geoffrey Hinton Warns America On AI Replacing Humans | US News",
-        "description": "U.S. Senator Bernie Sanders raises urgent concerns about the dangers of unregulated artificial intelligence during a public ......",
-        "thumbnail": "https://i.ytimg.com/vi/3-SVNR0awIY/mqdefault.jpg",
-        "publishedAt": "2025-11-20T00:30:13Z",
-        "channelTitle": "Hook Global"
-      },
-      {
-        "videoId": "JGcnC6CAO7I",
-        "title": "“AI Will Destroy More Jobs Than It Creates” – Hinton’s Warning",
-        "description": "Nobel laureate Geoffrey Hinton, one of the “godfathers of AI,” breaks down the most immediate risk he sees in today's AI boom: the ......",
-        "thumbnail": "https://i.ytimg.com/vi/JGcnC6CAO7I/mqdefault.jpg",
-        "publishedAt": "2025-11-17T20:53:59Z",
-        "channelTitle": "UBI Works"
-      },
-      {
-        "videoId": "vhC57Kvgb5c",
-        "title": "AI Destroy Jobs or Create Future? Geoffrey Hinton Shocking Warning on AI",
-        "description": "AI #ArtificialIntelligence #AIWarning #GeoffreyHinton #ElonMusk #AIJobsArtificial #vrktalks Intelligence is changing the world ......",
-        "thumbnail": "https://i.ytimg.com/vi/vhC57Kvgb5c/mqdefault.jpg",
-        "publishedAt": "2025-11-09T00:30:06Z",
-        "channelTitle": "VRK Talks"
-      },
-      {
-        "videoId": "dI-BSqiVejE",
-        "title": "AI Destroy Jobs or Create Future? Geoffrey Hinton Shocking Warning on AI",
-        "description": "https://youtu.be/vhC57Kvgb5c AI Destroy Jobs or Create Future? Geoffrey Hinton Shocking Warning on AI #andhrapradesh ......",
-        "thumbnail": "https://i.ytimg.com/vi/dI-BSqiVejE/mqdefault.jpg",
-        "publishedAt": "2025-11-08T17:26:13Z",
-        "channelTitle": "VRK Talks"
-      },
-      {
-        "videoId": "-1OSBNEZNRg",
-        "title": "Geoffrey Hinton&#39;s Shocking AI Warning Why Millions Will Lose Jobs While Tech Billionaires Get Richer",
-        "description": "AI #GeoffreyHinton #ArtificialIntelligence #ChatGPT #AIJobs #AIDangers Geoffrey Hinton's Shocking AI Warning: Why Millions ......",
-        "thumbnail": "https://i.ytimg.com/vi/-1OSBNEZNRg/mqdefault.jpg",
-        "publishedAt": "2025-11-05T17:16:12Z",
-        "channelTitle": "AI Futivus"
-      },
-      {
-        "videoId": "F80Xd2CBZXc",
-        "title": "AI&#39;s Dark Warning!",
-        "description": "The future looks terrifyingly robotic!AI pioneer Geoffrey Hinton just warned: “Musk will get richer… and a lot of people will get ......",
-        "thumbnail": "https://i.ytimg.com/vi/F80Xd2CBZXc/mqdefault.jpg",
-        "publishedAt": "2025-11-05T05:03:20Z",
-        "channelTitle": "TheUncutIndia"
-      },
-      {
-        "videoId": "Kuhm81cSwHU",
-        "title": "Godfather of AI Issues CODE RED Warning About Jobs",
-        "description": "GODFATHER OF AI WARNS: MILLIONS JOBLESS ⚠️ Geoffrey Hinton (Nobel laureate 2024, Godfather of AI) just issued a DIRE ......",
-        "thumbnail": "https://i.ytimg.com/vi/Kuhm81cSwHU/mqdefault.jpg",
-        "publishedAt": "2025-11-04T17:12:27Z",
-        "channelTitle": "TechNova"
-      },
-      {
-        "videoId": "rhDrLIvwVE0",
-        "title": "Geoffrey Hinton Says AI Will Replace Jobs — 30% Fewer Openings Since ChatGPT",
-        "description": "Since the launch of ChatGPT job openings are down by ~30%. Nobel Laureate Geoffrey Hinton warns that big tech is betting ......",
-        "thumbnail": "https://i.ytimg.com/vi/rhDrLIvwVE0/mqdefault.jpg",
-        "publishedAt": "2025-11-04T12:15:14Z",
-        "channelTitle": "Evolving AI "
-      },
-      {
-        "videoId": "lz29JBincYA",
-        "title": "AI Warning: Elon Musk Will Get Richer While People Lose Jobs | Nobel Laureate Geoffrey Hinton",
-        "description": "Nobel Laureate Geoffrey Hinton, known as the “Godfather of AI,” warns about the dark side of artificial intelligence. He says Elon ......",
-        "thumbnail": "https://i.ytimg.com/vi/lz29JBincYA/mqdefault.jpg",
-        "publishedAt": "2025-11-03T01:51:06Z",
-        "channelTitle": "V TV 1 NEWS"
-      },
-      {
-        "videoId": "loPDDcNOBgc",
-        "title": "The Godfather of AI Just Warned Us — And No One’s Listening ⚠️",
-        "description": "ArtificialIntelligence #GeoffreyHinton #AIWarning #TechNews #FutureOfWork #Automation #AIRevolution #NextGenTech ......",
-        "thumbnail": "https://i.ytimg.com/vi/loPDDcNOBgc/mqdefault.jpg",
-        "publishedAt": "2025-11-02T07:05:28Z",
-        "channelTitle": "NextGenTech"
-      },
-      {
-        "videoId": "DHV3Y0kRQp4",
-        "title": "&quot;AI Will Take Over some Jobs Like Lightning&quot; - Elon Musk Warns on Joe Rogan Podcast",
-        "description": "Elon Musk, in his latest appearance on The Joe Rogan Experience, issues a powerful warning about the future of work in the age ......",
-        "thumbnail": "https://i.ytimg.com/vi/DHV3Y0kRQp4/mqdefault.jpg",
-        "publishedAt": "2025-11-01T02:58:11Z",
-        "channelTitle": "Nuevatech"
-      },
-      {
-        "videoId": "jPVi5DBHwZk",
-        "title": "We&#39;ve Solved Immortality — But Only for Digital Minds",
-        "description": "The Godfather of AI just admitted he can't emotionally accept what's coming. And he created it. Geoffrey Hinton—the pioneering ......",
-        "thumbnail": "https://i.ytimg.com/vi/jPVi5DBHwZk/mqdefault.jpg",
-        "publishedAt": "2025-10-25T15:01:20Z",
-        "channelTitle": "Investing Time Daily"
-      },
-      {
-        "videoId": "r5c9GV3Nqzs",
-        "title": "The Terrifying Future Where AI Might Make Humans Obsolete",
-        "description": "The Godfather of AI just admitted he can't emotionally accept what's coming. And he created it. Geoffrey Hinton—the pioneering ......",
-        "thumbnail": "https://i.ytimg.com/vi/r5c9GV3Nqzs/mqdefault.jpg",
-        "publishedAt": "2025-10-25T02:00:54Z",
-        "channelTitle": "Investing Time Daily"
+        "videoId": "2U9aDCKZzlA",
+        "title": "AI Godfather’s Warning: &quot;These Jobs Will Disappear in 2 Years!&quot; #theavinashblueprint",
+        "description": "Is AI the new Industrial Revolution? In this clip, Geoffrey Hinton (the \"Godfather of AI\") breaks down why the current wave of ......",
+        "thumbnail": "https://i.ytimg.com/vi/2U9aDCKZzlA/mqdefault.jpg",
+        "publishedAt": "2026-03-04T16:07:03Z",
+        "channelTitle": "Avinash Shaw"
       }
     ],
     "gary-marcus": [
       {
-        "videoId": "1UufaK3pQMg",
-        "title": "AI2027: Is this how AI might destroy humanity? - BBC World Service",
-        "description": "A research paper predicting that artificial intelligence will go rogue in 2027 and lead to humanity's extinction within a decade is ......",
-        "thumbnail": "https://i.ytimg.com/vi/1UufaK3pQMg/mqdefault.jpg",
-        "publishedAt": "2025-08-01T23:00:03Z",
-        "channelTitle": "BBC World Service"
+        "videoId": "ZMmuivGqiiM",
+        "title": "What 11 Jobs Can AI Not Replace in 2026?",
+        "description": "Updated: APRIL 6, 2026 What 11 Jobs Can AI Not Replace in 2026? As AI investments by companies like Oracle fuel layoffs, the ......",
+        "thumbnail": "https://i.ytimg.com/vi/ZMmuivGqiiM/mqdefault.jpg",
+        "publishedAt": "2026-04-06T07:41:36Z",
+        "channelTitle": "Daily Q&A"
+      },
+      {
+        "videoId": "BkpLDU7ibmM",
+        "title": "What 11 Jobs Can AI Not Replace in 2026?",
+        "description": "Updated: APRIL 6, 2026 What 11 Jobs Can AI Not Replace in 2026? As AI investments by companies like Oracle fuel layoffs, the ......",
+        "thumbnail": "https://i.ytimg.com/vi/BkpLDU7ibmM/mqdefault.jpg",
+        "publishedAt": "2026-04-06T01:01:08Z",
+        "channelTitle": "Daily Q&A"
       }
     ],
     "sam-altman": [
       {
-        "videoId": "2P27Ef-LLuQ",
-        "title": "Sam Altman: How OpenAI Wins, ChatGPT’s Future, AI Buildout Logic, IPO in 2026?",
-        "description": "Sam Altman is the CEO of OpenAI. Altman joins Big Technology Podcast to discuss OpenAI's plan to win in a tightening AI race....",
-        "thumbnail": "https://i.ytimg.com/vi/2P27Ef-LLuQ/mqdefault.jpg",
-        "publishedAt": "2025-12-18T20:20:06Z",
-        "channelTitle": "Alex Kantrowitz"
+        "videoId": "CNweNKnUUHE",
+        "title": "Perplexity’s AI Agent vs OpenClaw  | Who’s Winning the AI Race? | Intellipaat",
+        "description": "Perplexity AI just launched a powerful AI Agent after Sam Altman's OpenClaw move This AI works 24/7, automates tasks, and ......",
+        "thumbnail": "https://i.ytimg.com/vi/CNweNKnUUHE/mqdefault.jpg",
+        "publishedAt": "2026-03-30T15:20:21Z",
+        "channelTitle": "Intellipaat"
       },
       {
-        "videoId": "t8NTwMtuXNs",
-        "title": "Sam Altman’s Bold Prediction: AI Will Replace Most Jobs",
-        "description": "Sam Altman podcast, AI automation report, humanoid robots future, job replacement forecast, staying relevant with AI, future of ......",
-        "thumbnail": "https://i.ytimg.com/vi/t8NTwMtuXNs/mqdefault.jpg",
-        "publishedAt": "2025-12-10T15:49:29Z",
-        "channelTitle": "The Whistle Blower"
+        "videoId": "6UP75wKc92s",
+        "title": "85 Million Jobs Gone? The AI Layoff Lie Nobody Talks About.",
+        "description": "The World Economic Forum predicted AI would replace 85 million jobs by 2026. It's 2026. But even the CEO of OpenAI says ......",
+        "thumbnail": "https://i.ytimg.com/vi/6UP75wKc92s/mqdefault.jpg",
+        "publishedAt": "2026-03-18T11:35:59Z",
+        "channelTitle": "AgentStruct"
       },
       {
-        "videoId": "rx0fnLhzCKY",
-        "title": "AI Will Kill Millions of Jobs by 2027 — Sam Altman Urgent Alert",
-        "description": "AI replacing 80% of jobs by 2027? In this video, we break down Sam Altman's darkest prediction about the future of work, ......",
-        "thumbnail": "https://i.ytimg.com/vi/rx0fnLhzCKY/mqdefault.jpg",
-        "publishedAt": "2025-11-29T19:26:06Z",
-        "channelTitle": "Present to Future"
+        "videoId": "cROTCtJZjUM",
+        "title": "Sam Altman: Why the CEO&#39;s Job is Shifting to AI",
+        "description": "OpenAI CEO Sam Altman just dropped a massive reality check: the role of the human CEO is about to fundamentally change....",
+        "thumbnail": "https://i.ytimg.com/vi/cROTCtJZjUM/mqdefault.jpg",
+        "publishedAt": "2026-03-17T15:30:22Z",
+        "channelTitle": "The AI Entrepreneurs"
       },
       {
-        "videoId": "R6mTUK_yPKw",
-        "title": "Yes, AI Will Take Your Job. But What Happens NEXT Is Worse",
-        "description": "Detailed sources: https://docs.google.com/document/d/1h1o-DRCC4A_-roDS46ABO8gklMEDGMbC85oQ05-p30g/edit?tab=t.0 ......",
-        "thumbnail": "https://i.ytimg.com/vi/R6mTUK_yPKw/mqdefault.jpg",
-        "publishedAt": "2025-11-22T19:26:31Z",
-        "channelTitle": "Species | Documenting AGI"
+        "videoId": "6Bso6B0sqFI",
+        "title": "Sam Altman: AI Agents Will Soon Act Like Senior Employees",
+        "description": "OpenAI CEO Sam Altman just dropped a massive prediction about the future of work: AI agents are evolving much faster than ......",
+        "thumbnail": "https://i.ytimg.com/vi/6Bso6B0sqFI/mqdefault.jpg",
+        "publishedAt": "2026-03-16T12:00:09Z",
+        "channelTitle": "The AI Entrepreneurs"
       },
       {
-        "videoId": "sl1rI5y1FEQ",
-        "title": "Can AI Make Your Job Better or Take It Away? | The Truth About Future Jobs",
-        "description": "Will AI steal your job or make it better? Discover how artificial intelligence could replace boring tasks but also create hybrid ......",
-        "thumbnail": "https://i.ytimg.com/vi/sl1rI5y1FEQ/mqdefault.jpg",
-        "publishedAt": "2025-11-01T19:30:08Z",
-        "channelTitle": "Embracing Singularity"
-      },
-      {
-        "videoId": "wpZJS9zW5M8",
-        "title": "OpenAI&#39;s Sam Altman Addresses Concerns About AI &amp; Job Displacement",
-        "description": "Welcome to episode 106 of the AI for Technical Writers podcast from Curt Robbins. This educational content is designed to give IT ......",
-        "thumbnail": "https://i.ytimg.com/vi/wpZJS9zW5M8/mqdefault.jpg",
-        "publishedAt": "2025-10-18T17:27:52Z",
-        "channelTitle": "AI for Career Success"
-      },
-      {
-        "videoId": "Xqj96xahI0M",
-        "title": "OpenAI&#39;s Sam Altman Addresses Concerns About AI &amp; Job Displacement",
-        "description": "Welcome to episode 106 of the AI for Technical Writers podcast from Curt Robbins. This educational content is designed to give IT ......",
-        "thumbnail": "https://i.ytimg.com/vi/Xqj96xahI0M/mqdefault.jpg",
-        "publishedAt": "2025-10-18T17:28:22Z",
-        "channelTitle": "Ohio's Best Wildlife Videos"
-      },
-      {
-        "videoId": "9GeuRhG9jfI",
-        "title": "💥SHOCKING Truth About AI&#39;s Impact on Future Work #ai #shorts #podcast #chatgpt",
-        "description": "We live in an era that celebrates busyness — packed calendars, endless notifications, constant motion. But beneath the noise lies ......",
-        "thumbnail": "https://i.ytimg.com/vi/9GeuRhG9jfI/mqdefault.jpg",
-        "publishedAt": "2025-10-16T06:53:06Z",
-        "channelTitle": "ai elephant"
-      },
-      {
-        "videoId": "7MfH6fdxwKE",
-        "title": "Sam Altman on Dev Day, AGI, and the future of work #shorts #shortsfeed #explore #tech #ai",
-        "description": "Sam Altman on Dev Day, AGI, and the future of work Sam Altman, CEO of Open AI, emphasized the company's focus on ......",
-        "thumbnail": "https://i.ytimg.com/vi/7MfH6fdxwKE/mqdefault.jpg",
-        "publishedAt": "2025-10-15T00:00:15Z",
-        "channelTitle": "AI Trend Surge"
-      },
-      {
-        "videoId": "dBPBQ9339Mg",
-        "title": "🧐👉 GPT-6 is Coming: Sam Altman&#39;s &#39;Fake Jobs&#39; Bomb &amp; AI&#39;s Next Level. #QixNewsAI",
-        "description": "Get ready for a game-changer! OpenAI's GPT-6 is on the horizon, promising a massive leap in AI capabilities. Sam Altman, the ......",
-        "thumbnail": "https://i.ytimg.com/vi/dBPBQ9339Mg/mqdefault.jpg",
-        "publishedAt": "2025-10-14T03:17:11Z",
-        "channelTitle": "QixNews"
-      },
-      {
-        "videoId": "590mjKE3dR0",
-        "title": "Is WorldCoin the future of income in an AI-dominated world?",
-        "description": "Explore the duality of innovation as Sam Altman and his ventures challenge our understanding of work and income. While the rise ......",
-        "thumbnail": "https://i.ytimg.com/vi/590mjKE3dR0/mqdefault.jpg",
-        "publishedAt": "2025-10-13T19:31:57Z",
-        "channelTitle": "Grit to Gold"
-      },
-      {
-        "videoId": "W_uJB2Q0RK4",
-        "title": "Sam Altman on the future of work, and if he’s worried about AI’s impact on jobs🧑‍💻 #ai #tech",
-        "description": "...",
-        "thumbnail": "https://i.ytimg.com/vi/W_uJB2Q0RK4/mqdefault.jpg",
-        "publishedAt": "2025-10-09T19:20:48Z",
-        "channelTitle": "Rowan Cheung"
-      },
-      {
-        "videoId": "zwnVUiwObl8",
-        "title": "Sam Altman on Zero-Person AI Companies, Sora, AGI Breakthroughs, and more",
-        "description": "OpenAI just unveiled HUGE developer updates at DevDay 2025 - Apps in ChatGPT, Agent Builder, Sora API, and Codex updates ......",
-        "thumbnail": "https://i.ytimg.com/vi/zwnVUiwObl8/mqdefault.jpg",
-        "publishedAt": "2025-10-07T16:49:01Z",
-        "channelTitle": "Rowan Cheung"
-      },
-      {
-        "videoId": "hS1YqcewH0c",
-        "title": "OpenAI DevDay 2025: Opening Keynote with Sam Altman",
-        "description": "Sam Altman kicks off DevDay 2025 with a keynote to explore ideas that will challenge how you think about building. Join us for ......",
-        "thumbnail": "https://i.ytimg.com/vi/hS1YqcewH0c/mqdefault.jpg",
-        "publishedAt": "2025-10-06T18:27:04Z",
-        "channelTitle": "OpenAI"
-      },
-      {
-        "videoId": "8TVzbYiQmxY",
-        "title": "The Future of Jobs in the Age of AI",
-        "description": "OpenAI CEO Sam Altman predicts that while AI will displace many jobs in the short term, new human-centric jobs will emerge, just ......",
-        "thumbnail": "https://i.ytimg.com/vi/8TVzbYiQmxY/mqdefault.jpg",
-        "publishedAt": "2025-10-03T22:02:35Z",
-        "channelTitle": "Neo Niche"
-      },
-      {
-        "videoId": "5KmopXwjXik",
-        "title": "Godfather of AI WARNS: &quot;You Have No Idea What&#39;s Coming&quot;",
-        "description": "He pioneered the technology that powers modern AI, and now he is sounding the alarm. Geoffrey Hinton, often called the ......",
-        "thumbnail": "https://i.ytimg.com/vi/5KmopXwjXik/mqdefault.jpg",
-        "publishedAt": "2025-09-27T18:00:03Z",
-        "channelTitle": "The Diary Of A CEO Clips"
-      },
-      {
-        "videoId": "KkKeK0qWrxI",
-        "title": "The Latest in AI: Job Loss, Elon &amp; Sam Altman Chip Race &amp; the &quot;AI Bubble&quot; w/ Brian (Blitzy) &amp; Emad",
-        "description": "Download this week's deck: http://diamandis.com/wtf Get access to metatrends 10+ years before anyone else ......",
-        "thumbnail": "https://i.ytimg.com/vi/KkKeK0qWrxI/mqdefault.jpg",
-        "publishedAt": "2025-09-26T17:30:12Z",
-        "channelTitle": "Peter H. Diamandis"
-      },
-      {
-        "videoId": "qT--ywE4Jxk",
-        "title": "AI Will Steal Your Job? Sam Altman Reveals The Truth!",
-        "description": "No one can predict the future, but Sam Altman has some thoughts on which jobs are safe from AI and which are not. He says he's ......",
-        "thumbnail": "https://i.ytimg.com/vi/qT--ywE4Jxk/mqdefault.jpg",
-        "publishedAt": "2025-09-24T16:01:39Z",
-        "channelTitle": "Technomics"
-      },
-      {
-        "videoId": "5KmpT-BoVf4",
-        "title": "Sam Altman on God, Elon Musk and the Mysterious Death of His Former Employee",
-        "description": "Sam Altman on God, Elon and the mysterious death of his former employee. Our interview with Poornima Ramarao, the mother of ......",
-        "thumbnail": "https://i.ytimg.com/vi/5KmpT-BoVf4/mqdefault.jpg",
-        "publishedAt": "2025-09-10T17:11:51Z",
-        "channelTitle": "Tucker Carlson"
-      },
-      {
-        "videoId": "FRUTFGtPeVc",
-        "title": "The REAL Reason ONLY 5 Jobs Will EXIST in 24 Months",
-        "description": "Artificial Intelligence could end humanity and take away nearly every job. Dr Roman Yampolskiy, one of the world's leading ......",
-        "thumbnail": "https://i.ytimg.com/vi/FRUTFGtPeVc/mqdefault.jpg",
-        "publishedAt": "2025-09-09T18:00:14Z",
-        "channelTitle": "The Diary Of A CEO Clips"
-      },
-      {
-        "videoId": "6NwK-uq16U8",
-        "title": "Where is AI Taking Us? | Sam Altman &amp; Vinod Khosla",
-        "description": "Sam Altman sits down with Vinod Khosla to explore AI's transformative path from chatbots to AGI, the evolving interface between ......",
-        "thumbnail": "https://i.ytimg.com/vi/6NwK-uq16U8/mqdefault.jpg",
-        "publishedAt": "2025-09-08T22:40:00Z",
-        "channelTitle": "Khosla Ventures"
-      },
-      {
-        "videoId": "0AsoQd6BJOc",
-        "title": "GPT 5 Just Killed Millions of Jobs… And It’s FREE  #chatgpt5",
-        "description": "Welcome to AI Boost Lab Sam Altman just dropped GPT-5 — and it's insane. Here are the top 5 features you NEED to know: ......",
-        "thumbnail": "https://i.ytimg.com/vi/0AsoQd6BJOc/mqdefault.jpg",
-        "publishedAt": "2025-09-06T12:36:44Z",
-        "channelTitle": "AI Boost Lab"
-      },
-      {
-        "videoId": "UanSkV41zIA",
-        "title": "LinkedIn in Trouble | OpenAI’s New AI Hiring Platform",
-        "description": "LinkedIn may finally have a real competitor. OpenAI just announced its brand-new AI hiring platform, set to launch in 2026....",
-        "thumbnail": "https://i.ytimg.com/vi/UanSkV41zIA/mqdefault.jpg",
-        "publishedAt": "2025-09-05T01:39:46Z",
-        "channelTitle": "The Stimulus Report"
-      },
-      {
-        "videoId": "UclrVWafRAI",
-        "title": "The AI Safety Expert: These Are The Only 5 Jobs That Will Remain In 2030! - Dr. Roman Yampolskiy",
-        "description": "WARNING: AI could end humanity, and we're completely unprepared. Dr. Roman Yampolskiy reveals how AI will take 99% of jobs ......",
-        "thumbnail": "https://i.ytimg.com/vi/UclrVWafRAI/mqdefault.jpg",
-        "publishedAt": "2025-09-04T07:00:34Z",
-        "channelTitle": "The Diary Of A CEO"
-      },
-      {
-        "videoId": "dHRI8S0LvzY",
-        "title": "Sam Altman’s Timeline on AGI is SHOCKING!",
-        "description": "Sam Altman's Bold Predictions on AI, Jobs, and the Future Will AI replace jobs by 2026 — or even sooner? Is ChatGPT already ......",
-        "thumbnail": "https://i.ytimg.com/vi/dHRI8S0LvzY/mqdefault.jpg",
-        "publishedAt": "2025-09-01T12:25:09Z",
-        "channelTitle": "Tech FUN-damentals"
+        "videoId": "3VIdkv3Kx48",
+        "title": "FULL INTERVIEW: Alex Karp on AI, Job Loss, and the Future of Work",
+        "description": "This is our full interview with Alex Karp, recorded live on TBPN. We discuss why AI could eliminate large numbers of white-collar ......",
+        "thumbnail": "https://i.ytimg.com/vi/3VIdkv3Kx48/mqdefault.jpg",
+        "publishedAt": "2026-03-12T22:00:02Z",
+        "channelTitle": "TBPN"
       }
     ],
     "ilya-sutskever": [
@@ -544,23 +215,55 @@
         "channelTitle": "TedShark Labs"
       },
       {
+        "videoId": "OimfHna_v-A",
+        "title": "OpenAI Co-Founder&#39;s Warning: You Can Ignore AI, But AI Won&#39;t Ignore You",
+        "description": "Discover why Ilya Sutskever, OpenAI's co-founder, warns we're entering the most unusual time in human history. From AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/OimfHna_v-A/mqdefault.jpg",
+        "publishedAt": "2025-08-06T12:04:58Z",
+        "channelTitle": "Artificial Fluency Technology"
+      },
+      {
         "videoId": "79-bApI3GIU",
         "title": "Ex-OpenAI Scientist WARNS: &quot;You Have No Idea What&#39;s Coming&quot;",
         "description": "Ex-OpenAI pioneer Ilya Sutskever warns that as AI begins to self-improve, its trajectory may become \"extremely unpredictable and ......",
         "thumbnail": "https://i.ytimg.com/vi/79-bApI3GIU/mqdefault.jpg",
         "publishedAt": "2025-07-16T21:51:04Z",
         "channelTitle": "AI Upload"
-      },
-      {
-        "videoId": "Teo0I9upE58",
-        "title": "Ilya Sutskever - AI Will take over everything we do one day - Uni of Toronto Speech",
-        "description": "...",
-        "thumbnail": "https://i.ytimg.com/vi/Teo0I9upE58/mqdefault.jpg",
-        "publishedAt": "2025-06-09T06:30:37Z",
-        "channelTitle": "Automation with Wilt | Software & AI"
       }
     ],
     "dario-amodei": [
+      {
+        "videoId": "_3pSohxl5-Y",
+        "title": "GPT-5.4 Drops with Native Computer Use | Agentic AI Radar",
+        "description": "Your daily briefing on the biggest moves in agentic AI for March 6th, 2026. Today's headline: OpenAI just launched GPT-5.4, the ......",
+        "thumbnail": "https://i.ytimg.com/vi/_3pSohxl5-Y/mqdefault.jpg",
+        "publishedAt": "2026-03-06T13:25:42Z",
+        "channelTitle": "CloneForce Support"
+      },
+      {
+        "videoId": "h3vJfoVeq98",
+        "title": "AI vs JOBS : What no one is saying",
+        "description": "AI layoffs are accelerating — but are companies really replacing workers with artificial intelligence, or just using AI as an excuse?...",
+        "thumbnail": "https://i.ytimg.com/vi/h3vJfoVeq98/mqdefault.jpg",
+        "publishedAt": "2026-02-27T16:12:01Z",
+        "channelTitle": "Super Team"
+      },
+      {
+        "videoId": "qHV714ZxLA8",
+        "title": "Pentagon Threatens to End Anthropic Work in Feud Over AI Terms",
+        "description": "Gregory Allen, senior advisor with the Wadhwani AI Center at the Center for Strategic and International Studies and former ......",
+        "thumbnail": "https://i.ytimg.com/vi/qHV714ZxLA8/mqdefault.jpg",
+        "publishedAt": "2026-02-24T20:11:07Z",
+        "channelTitle": "Bloomberg Podcasts"
+      },
+      {
+        "videoId": "lIJelwO8yHQ",
+        "title": "How Fast Will A.I. Agents Rip Through the Economy? | The Ezra Klein Show",
+        "description": "A.I. agents are here. Have they changed your life yet? The release of agents like Claude Code marked a new pivot point in the ......",
+        "thumbnail": "https://i.ytimg.com/vi/lIJelwO8yHQ/mqdefault.jpg",
+        "publishedAt": "2026-02-24T16:01:06Z",
+        "channelTitle": "The Ezra Klein Show"
+      },
       {
         "videoId": "Yiy0cU6ChSw",
         "title": "Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei",
@@ -568,30 +271,6 @@
         "thumbnail": "https://i.ytimg.com/vi/Yiy0cU6ChSw/mqdefault.jpg",
         "publishedAt": "2025-10-20T16:10:08Z",
         "channelTitle": "Anthropic"
-      },
-      {
-        "videoId": "ebBCP93920o",
-        "title": "Will AI Take Half of Office Jobs by 2030?",
-        "description": "Will AI Take Half of Office Jobs by 2030? AI is advancing fast—and the future of your business depends on how you respond....",
-        "thumbnail": "https://i.ytimg.com/vi/ebBCP93920o/mqdefault.jpg",
-        "publishedAt": "2025-07-07T19:03:42Z",
-        "channelTitle": "Staffing Global"
-      },
-      {
-        "videoId": "LyDIp6WO2Ls",
-        "title": "Job losses from AI are finally hitting the headlines.",
-        "description": "The real question now isn't if — it's how we prepare. For more check out the latest episode of The AI Argument… #AIJobLosses ......",
-        "thumbnail": "https://i.ytimg.com/vi/LyDIp6WO2Ls/mqdefault.jpg",
-        "publishedAt": "2025-06-02T16:32:01Z",
-        "channelTitle": "The AI Argument"
-      },
-      {
-        "videoId": "pCdeDvPuRtE",
-        "title": "CEO Predicts AGI Arrival 2027",
-        "description": "At the recent Davos discussions, Anthropic CEO Dario Amodei explored thrilling possibilities for the near future of Artificial ......",
-        "thumbnail": "https://i.ytimg.com/vi/pCdeDvPuRtE/mqdefault.jpg",
-        "publishedAt": "2025-01-24T05:16:08Z",
-        "channelTitle": "Max aka Mosheh - AI with Apex"
       }
     ],
     "karen-hao": [
@@ -604,6 +283,14 @@
         "channelTitle": "Nash's Facts Clipz"
       },
       {
+        "videoId": "8pru0N0urOY",
+        "title": "Will AI take my job?",
+        "description": "...",
+        "thumbnail": "https://i.ytimg.com/vi/8pru0N0urOY/mqdefault.jpg",
+        "publishedAt": "2025-09-10T15:50:49Z",
+        "channelTitle": "Hasan Minhaj"
+      },
+      {
         "videoId": "242LyHO0pNw",
         "title": "OpenAI paid Kenyan workers low wages for scarring work",
         "description": "The new book “Empire of AI” by longtime technology reporter Karen Hao unveils OpenAI's impact on communities across the ......",
@@ -614,12 +301,36 @@
     ],
     "mustafa-suleyman": [
       {
-        "videoId": "NaEqyDU6d34",
-        "title": "Microsoft AI CEO on Agents - they are coming! Mustafa Suleyman #aiagents #futureplanning #ai",
-        "description": "...",
-        "thumbnail": "https://i.ytimg.com/vi/NaEqyDU6d34/mqdefault.jpg",
-        "publishedAt": "2024-08-18T01:48:33Z",
-        "channelTitle": "The AI Pivot"
+        "videoId": "8yLWmhxar0s",
+        "title": "The Day the Chatbot Died. 💀 (Microsoft AI Reorg)",
+        "description": "Sources: https://microsoft.ai/news/towards-humanist-superintelligence/ ......",
+        "thumbnail": "https://i.ytimg.com/vi/8yLWmhxar0s/mqdefault.jpg",
+        "publishedAt": "2026-03-21T17:53:59Z",
+        "channelTitle": "Jason Lowe on AI"
+      },
+      {
+        "videoId": "T9AdP8EgoBo",
+        "title": "[DAILY NEWS TEASER] The Enterprise Code Red: OpenAI’s Pivot, Microsoft’s Superintelligence...",
+        "description": "LISTEN TO ADS-FREE FULL RUNDOWN of this episode at https://djamgamind.com/daily This episode is made possible by our ......",
+        "thumbnail": "https://i.ytimg.com/vi/T9AdP8EgoBo/mqdefault.jpg",
+        "publishedAt": "2026-03-18T17:26:45Z",
+        "channelTitle": "Etienne Noumen and AI Unraveled"
+      },
+      {
+        "videoId": "dr8x0NSTcqQ",
+        "title": "[DAILY NEWS RUNDOWN] The Enterprise Code Red: OpenAI’s Pivot, Microsoft’s Superintelligence...",
+        "description": "LISTEN TO ADS-FREE Audio of this episode at https://djamgamind.com/daily This episode is made possible by our sponsors: ......",
+        "thumbnail": "https://i.ytimg.com/vi/dr8x0NSTcqQ/mqdefault.jpg",
+        "publishedAt": "2026-03-18T17:18:14Z",
+        "channelTitle": "Etienne Noumen and AI Unraveled"
+      },
+      {
+        "videoId": "v7tTh7yv3Vw",
+        "title": "Microsoft’s AI Retail Revolution + The $100K to $1M AGI Test | AI Business News",
+        "description": "Microsoft just transformed retail with agentic AI, their CEO redefined the Turing Test, and predictive maintenance is saving ......",
+        "thumbnail": "https://i.ytimg.com/vi/v7tTh7yv3Vw/mqdefault.jpg",
+        "publishedAt": "2026-01-08T23:38:06Z",
+        "channelTitle": "Understanding Your AI"
       }
     ],
     "fei-fei-li": [
@@ -630,140 +341,132 @@
         "thumbnail": "https://i.ytimg.com/vi/WcWSs6IhvbI/mqdefault.jpg",
         "publishedAt": "2025-09-20T10:58:49Z",
         "channelTitle": "Risely"
-      },
-      {
-        "videoId": "RnSF3dHEw_U",
-        "title": "Will You Lose Your Job to Automation",
-        "description": "As work becomes increasingly automated, conversations are swirling about whether machines are taking over. We talk to Google ......",
-        "thumbnail": "https://i.ytimg.com/vi/RnSF3dHEw_U/mqdefault.jpg",
-        "publishedAt": "2019-12-16T20:18:33Z",
-        "channelTitle": "AVB COMPILATION OF VIDEOS"
       }
     ],
     "jensen-huang": [
       {
-        "videoId": "F0wcOaxwwjE",
-        "title": "Agentic AI Are Your New Digital Employees",
-        "description": "This segment introduces and explains NVIDIA's new enterprise AI server platform. It covers the platform's ability to run both ......",
-        "thumbnail": "https://i.ytimg.com/vi/F0wcOaxwwjE/mqdefault.jpg",
-        "publishedAt": "2025-06-01T12:12:07Z",
-        "channelTitle": "Snippet Circus"
+        "videoId": "QwDxhvctEWk",
+        "title": "NVIDIA&#39;s Plan: 75,000 Humans + 7.5 MILLION Digital Employees",
+        "description": "Jensen Huang's GTC 2026 keynote revealed NVIDIA's vision: 75000 human employees working alongside 7.5 million AI agents ......",
+        "thumbnail": "https://i.ytimg.com/vi/QwDxhvctEWk/mqdefault.jpg",
+        "publishedAt": "2026-04-04T18:24:00Z",
+        "channelTitle": "Context Vault"
       },
       {
-        "videoId": "AnaBQacfH50",
-        "title": "🤖 Agentic AI Explained | NVIDIA GTC 2025 Keynote with Jensen Huang 🚀",
-        "description": "agenticai #ai #artificialintelligence #robotics #gtc2025 #nvidia #jensenhuang #machinelearning #deeplearning #blackwellgpu ......",
-        "thumbnail": "https://i.ytimg.com/vi/AnaBQacfH50/mqdefault.jpg",
-        "publishedAt": "2025-04-02T11:30:08Z",
-        "channelTitle": "AI Beyond Infinity"
+        "videoId": "NH1D1z2aOlk",
+        "title": "Jensen Huang: Every Software Company Will Become Agentic",
+        "description": "At the Morgan Stanley TMT Conference, Jensen Huang outlines a fundamental shift in enterprise software. In the near future, ......",
+        "thumbnail": "https://i.ytimg.com/vi/NH1D1z2aOlk/mqdefault.jpg",
+        "publishedAt": "2026-03-24T09:50:54Z",
+        "channelTitle": "Teraflow"
       },
       {
-        "videoId": "CJoTwEqA-gI",
-        "title": "NVIDIA CEO Champions AI “Digital Employees” for a New Era of Innovation",
-        "description": "Speaking at the AI Summit Japan, Jensen Huang outlined his vision of AI agents as “digital employees,” capable of collaborating ......",
-        "thumbnail": "https://i.ytimg.com/vi/CJoTwEqA-gI/mqdefault.jpg",
-        "publishedAt": "2025-01-21T14:30:08Z",
-        "channelTitle": "AI Stack"
+        "videoId": "Q5K9IxKyEo8",
+        "title": "How Autonomous AI Will Run Your Business in 2026 – Jensen Huang Nvidia AI CEO Just Revealed",
+        "description": "How Autonomous AI Will Run Your Business in 2026 is no longer a futuristic concept — it is becoming an operational reality....",
+        "thumbnail": "https://i.ytimg.com/vi/Q5K9IxKyEo8/mqdefault.jpg",
+        "publishedAt": "2026-03-23T14:00:42Z",
+        "channelTitle": "SekharOn AI"
       },
       {
-        "videoId": "uuUOjvJIyFU",
-        "title": "IT depts will evolve into HR for #ai #jensenhuang #nvidia",
-        "description": "NVIDIA founder and CEO, Jensen Huang, believes #tech or IT departments will end up being the HR of#ai agents, onboarding, ......",
-        "thumbnail": "https://i.ytimg.com/vi/uuUOjvJIyFU/mqdefault.jpg",
-        "publishedAt": "2025-01-17T09:47:44Z",
-        "channelTitle": "techkigai"
+        "videoId": "rn9QW5gPhaM",
+        "title": "NVIDIA&#39;s plan: 100 AI agents per employee",
+        "description": "We break down NVIDIA's stunning long-term vision for AI agents inside the enterprise, including the idea of deploying massive ......",
+        "thumbnail": "https://i.ytimg.com/vi/rn9QW5gPhaM/mqdefault.jpg",
+        "publishedAt": "2026-03-21T12:49:40Z",
+        "channelTitle": "The AI Files"
       },
       {
-        "videoId": "vcIM3FNreT0",
-        "title": "AI isn’t just a tool anymore—it’s the next workforce revolution! #JensenHuang #AI #DigitalEmployees",
-        "description": "At the AI Summit Japan, NVIDIA CEO Jensen Huang shared his vision for AI agents as “digital employees”—intelligent systems ......",
-        "thumbnail": "https://i.ytimg.com/vi/vcIM3FNreT0/mqdefault.jpg",
-        "publishedAt": "2025-01-16T14:45:04Z",
-        "channelTitle": "Sanjeev Jain - AI Business Automation Coach"
+        "videoId": "3QxtcfVOtsg",
+        "title": "Jensen Huang - The Era of Hiring AI Employees Is Coming",
+        "description": "Future-ready founders are no longer just using software. They are building hybrid teams: part human, part AI. By cultivating ......",
+        "thumbnail": "https://i.ytimg.com/vi/3QxtcfVOtsg/mqdefault.jpg",
+        "publishedAt": "2026-01-17T02:00:03Z",
+        "channelTitle": "Entrepreneursivity"
       }
     ],
     "andrew-ng": [
       {
-        "videoId": "qHvm3oFmRls",
-        "title": "AWS re:Invent 2025 - The agent-enabled workplace: Transforming businesses with AI (INV203)",
-        "description": "Discover how organizations are transforming their businesses by truly making AI part of the team. Learn three key ways ......",
-        "thumbnail": "https://i.ytimg.com/vi/qHvm3oFmRls/mqdefault.jpg",
-        "publishedAt": "2025-12-02T16:12:20Z",
-        "channelTitle": "AWS Events"
+        "videoId": "hXiDB_RoN2M",
+        "title": "Don&#39;t Code with AI Agents Without This",
+        "description": "If you're interested in getting updates about Data Driven Automation and Ai Related News, check out my newsletter: www....",
+        "thumbnail": "https://i.ytimg.com/vi/hXiDB_RoN2M/mqdefault.jpg",
+        "publishedAt": "2026-03-17T15:25:01Z",
+        "channelTitle": "Yaron Been"
       },
       {
-        "videoId": "k1njvbBmfsw",
-        "title": "Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG",
-        "description": "For more information about Stanford's Artificial Intelligence professional and graduate programs, visit: https://stanford.io/ai ......",
-        "thumbnail": "https://i.ytimg.com/vi/k1njvbBmfsw/mqdefault.jpg",
-        "publishedAt": "2025-11-21T23:08:57Z",
-        "channelTitle": "Stanford Online"
+        "videoId": "bF8N8cDvBBo",
+        "title": "How AI Agents Will Change Everything",
+        "description": "Think ChatGPT is impressive? Wait until you see what AI Agents can do. In this video, we break down the critical difference ......",
+        "thumbnail": "https://i.ytimg.com/vi/bF8N8cDvBBo/mqdefault.jpg",
+        "publishedAt": "2026-03-13T04:11:18Z",
+        "channelTitle": "ThinkDevOps Consulting Inc"
       },
       {
-        "videoId": "qmrlO_IbQK0",
-        "title": "AI-First Leadership: Why Collaboration Will Redefine the Future of Business | #abtalks",
-        "description": "The age of AI-first leadership is here — and it's transforming how organizations operate. Gone are the days of decisions made ......",
-        "thumbnail": "https://i.ytimg.com/vi/qmrlO_IbQK0/mqdefault.jpg",
-        "publishedAt": "2025-11-10T14:01:31Z",
-        "channelTitle": "education tatva"
+        "videoId": "Orl6uJKy1xA",
+        "title": "(Podcast) Andrew Ng and DeepLearning AI Launch Context Hub for Smarter Coding Agents",
+        "description": "Is your AI agent stuck in the past? 🕰️ Ever had a coding assistant hallucinate a parameter that was deprecated months ago or try ......",
+        "thumbnail": "https://i.ytimg.com/vi/Orl6uJKy1xA/mqdefault.jpg",
+        "publishedAt": "2026-03-10T04:53:04Z",
+        "channelTitle": "Eddy Says Hi #EddySaysHi"
       },
       {
-        "videoId": "ftBWgcwvEk4",
-        "title": "8 Hour AI Agents Course in 30 Minutes (Deep Learning AI)",
-        "description": "Check out HubSpot's AI Agents Unleashed: Playbook for 2025 Success - https://clickhubspot.com/23bc50 Want to get ahead in ......",
-        "thumbnail": "https://i.ytimg.com/vi/ftBWgcwvEk4/mqdefault.jpg",
-        "publishedAt": "2025-11-08T14:01:14Z",
-        "channelTitle": "Tina Huang"
+        "videoId": "EsTrWCV0Ph4",
+        "title": "AI Agents Full Course 2026: Master Agentic AI (2 Hours)",
+        "description": "Join Maker School & get customer #1 guaranteed: https://skool.com/makerschool/about All course files: ......",
+        "thumbnail": "https://i.ytimg.com/vi/EsTrWCV0Ph4/mqdefault.jpg",
+        "publishedAt": "2026-03-08T05:01:31Z",
+        "channelTitle": "Nick Saraev"
       },
       {
-        "videoId": "rYYuoRclm7U",
-        "title": "AI Is the New Electricity | How Artificial Intelligence Will Transform Business Forever | #abtalks",
-        "description": "Artificial Intelligence isn't just another technology trend — it's the new electricity. ⚡ Explains how AI is redefining the way ......",
-        "thumbnail": "https://i.ytimg.com/vi/rYYuoRclm7U/mqdefault.jpg",
-        "publishedAt": "2025-11-06T07:30:26Z",
-        "channelTitle": "AB Talks"
+        "videoId": "cAfS4pQz9u4",
+        "title": "AI Agents Replacing Human Jobs",
+        "description": "77999 jobs were wiped out in the first half of 2025 — directly because of AI. Not because of a recession. Not because businesses ......",
+        "thumbnail": "https://i.ytimg.com/vi/cAfS4pQz9u4/mqdefault.jpg",
+        "publishedAt": "2026-03-04T09:27:51Z",
+        "channelTitle": "Think with Ravi Chauhan"
       }
     ],
     "andrej-karpathy": [
       {
-        "videoId": "u-SQ0Jsv4mI",
-        "title": "Gemini 3 Flash should NOT EXIST. TOP 2% Engineering. /PLAN 2026",
-        "description": "Gemini 3 Flash PROVES IT: Models are no longer the limitation - YOU and I are. The question isn't IF you're using agents - it's ......",
-        "thumbnail": "https://i.ytimg.com/vi/u-SQ0Jsv4mI/mqdefault.jpg",
-        "publishedAt": "2025-12-22T14:01:37Z",
-        "channelTitle": "IndyDevDan"
+        "videoId": "L_r-bsymius",
+        "title": "I Rebuilt My Ai&#39;s Brain Using the Karpathy Method (LLM Wiki)",
+        "description": "Welcome to Day 8. If you are building autonomous AI agents for complex tasks like crypto trading, you have probably run into the ......",
+        "thumbnail": "https://i.ytimg.com/vi/L_r-bsymius/mqdefault.jpg",
+        "publishedAt": "2026-04-06T22:39:08Z",
+        "channelTitle": "The Prediction Engineer"
       },
       {
-        "videoId": "hy936gouj84",
-        "title": "🧠 The Rise of Vibe Coding – Why Everyone’s Now Building with AI (audio)",
-        "description": "Introduction Coding is no longer just for programmers. Welcome to the era of Vibe Coding, where natural language replaces ......",
-        "thumbnail": "https://i.ytimg.com/vi/hy936gouj84/mqdefault.jpg",
-        "publishedAt": "2025-12-13T13:01:32Z",
-        "channelTitle": "Agility AI"
+        "videoId": "9iWTRMjbBvo",
+        "title": "Claude Code + Karpathy&#39;s NEW Self-Evolving System = 10x Code Generation",
+        "description": "In this video, I show how Andrej Karpathy's LLM Wiki — a self-evolving knowledge system — can be hooked up to Claude Code to ......",
+        "thumbnail": "https://i.ytimg.com/vi/9iWTRMjbBvo/mqdefault.jpg",
+        "publishedAt": "2026-04-06T07:22:16Z",
+        "channelTitle": "WorldofAI"
       },
       {
-        "videoId": "ZeZozy3lsJg",
-        "title": "Is this the YEAR or DECADE of AI Agents &amp; Agentic AI?",
-        "description": "Ready to become a certified watsonx AI Assistant Engineer? Register now and use code IBMTechYT20 for 20% off of your exam ......",
-        "thumbnail": "https://i.ytimg.com/vi/ZeZozy3lsJg/mqdefault.jpg",
-        "publishedAt": "2025-11-24T12:01:18Z",
-        "channelTitle": "IBM Technology"
+        "videoId": "owy85ZE-B6Y",
+        "title": "NanoClaw vs OpenClaw - The AI Agent War Nobody&#39;s Talking About (The Way They Should Be)",
+        "description": "NanoClaw vs OpenClaw - The AI Agent War Nobody's Talking About (The Way They Should Be) AI is doing the heavy lifting ......",
+        "thumbnail": "https://i.ytimg.com/vi/owy85ZE-B6Y/mqdefault.jpg",
+        "publishedAt": "2026-04-06T02:59:52Z",
+        "channelTitle": "ArcKnight Tech - AI Force Multipliers"
       },
       {
-        "videoId": "k1njvbBmfsw",
-        "title": "Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG",
-        "description": "For more information about Stanford's Artificial Intelligence professional and graduate programs, visit: https://stanford.io/ai ......",
-        "thumbnail": "https://i.ytimg.com/vi/k1njvbBmfsw/mqdefault.jpg",
-        "publishedAt": "2025-11-21T23:08:57Z",
-        "channelTitle": "Stanford Online"
+        "videoId": "sboNwYmH3AY",
+        "title": "Andrej Karpathy Just 10x’d Everyone’s Claude Code",
+        "description": "Full courses + unlimited support: https://www.skool.com/ai-automation-society-plus/about?el=karpathy-obsidian All my FREE ......",
+        "thumbnail": "https://i.ytimg.com/vi/sboNwYmH3AY/mqdefault.jpg",
+        "publishedAt": "2026-04-05T17:03:18Z",
+        "channelTitle": "Nate Herk | AI Automation"
       },
       {
-        "videoId": "4mMo3KnERjk",
-        "title": "What is Vibe Coding? Guide for Business Owners",
-        "description": "Stop hiring expensive developers. In 2025 and beyond, the barrier to building custom software for your business has evaporated....",
-        "thumbnail": "https://i.ytimg.com/vi/4mMo3KnERjk/mqdefault.jpg",
-        "publishedAt": "2025-11-21T18:26:44Z",
-        "channelTitle": "Mike Hakopyan | Agentic AI"
+        "videoId": "cMJhc-HksTw",
+        "title": "I Built a Self-Improving AI Writing Agent (Score Went 72 → 92 in One Loop)",
+        "description": "I built an AI system that automatically rewrites its own writing rules and improves your marketing content — no manual editing ......",
+        "thumbnail": "https://i.ytimg.com/vi/cMJhc-HksTw/mqdefault.jpg",
+        "publishedAt": "2026-04-04T15:32:10Z",
+        "channelTitle": "Joon Ahn"
       }
     ]
   }

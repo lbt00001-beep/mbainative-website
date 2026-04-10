@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-10T06:54:19.171Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-10T11:42:47.464Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "news",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbo...",
+    "type": "guru_quote",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Will AI actually kill jobs? The Godfather of AI has a surprising take.\"\n\n▶️ youtube.com/watch?v=RxD4FhYB7-0",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=RxD4FhYB7-0",
+    "imageUrl": "https://i.ytimg.com/vi/RxD4FhYB7-0/mqdefault.jpg"
   }
 }

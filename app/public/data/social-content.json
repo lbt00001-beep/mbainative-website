@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-11T06:02:54.011Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-11T11:25:34.472Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "news",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the ...",
+    "type": "guru_quote",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Jensen Huang (NVIDIA)\n\n\"How Autonomous AI Will Run Your Business in 2026 – Jensen Huang Nvidia AI CEO Just Revealed\"\n\n▶️ youtube.com/watch?v=Q5K9IxKyEo8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Q5K9IxKyEo8",
+    "imageUrl": "https://i.ytimg.com/vi/Q5K9IxKyEo8/mqdefault.jpg"
   }
 }

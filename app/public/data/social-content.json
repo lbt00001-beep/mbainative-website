@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-12T11:29:17.818Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-12T17:39:17.152Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "analysis",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n📰 The creator of Claude Code just revealed his workflow, and developers are losing their minds\n\n💡 ¿Qué significa esto para las empresas AI-nativas?\n\n🔗 mbain...",
+    "type": "recent_video",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"I Rebuilt My Ai&#39;s Brain Using the Karpathy Method (LLM Wiki)\"\n\n▶️ youtube.com/watch?v=L_r-bsymius",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "Analisis",
-      "VentureBeatAI"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://mbainative.com/mejores-practicas/noticias"
+    "url": "https://youtube.com/watch?v=L_r-bsymius",
+    "imageUrl": "https://i.ytimg.com/vi/L_r-bsymius/mqdefault.jpg"
   }
 }

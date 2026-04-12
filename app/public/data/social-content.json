@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-04-12T06:24:33.639Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-12T11:29:17.818Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "news",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of...",
+    "type": "analysis",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n📰 The creator of Claude Code just revealed his workflow, and developers are losing their minds\n\n💡 ¿Qué significa esto para las empresas AI-nativas?\n\n🔗 mbain...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
+      "Analisis",
       "VentureBeatAI"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://mbainative.com/mejores-practicas/noticias"
   }
 }

@@ -104,6 +104,13 @@ const categorias = [
     descripcion: "Herramientas de creación de contenido audiovisual con IA",
     apps: [
       {
+        nombre: "FotoAI Slides — Presentaciones con IA",
+        descripcion: "Sube tus fotos, elige música y efectos cinematográficos, y genera presentaciones animadas con frases personalizadas. Exporta como vídeo MP4.",
+        url: "https://fotos.mbainative.com",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "Generador de Guiones",
         descripcion: "Crea guiones profesionales para vídeos usando IA.",
         url: "#",

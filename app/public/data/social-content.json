@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-04-13T07:15:12.084Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-13T11:59:37.020Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "news",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Sl...",
+    "type": "analysis",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n📰 Anthropic launches Cowork, a Claude Desktop agent that works in your files — no coding required\n\n💡 ¿Qué significa esto para las empresas AI-nativas?\n\n🔗 mbain...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
+      "Analisis",
       "VentureBeatAI"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://mbainative.com/mejores-practicas/noticias"
   }
 }

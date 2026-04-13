@@ -35,6 +35,13 @@ const categorias = [
         url: "/aplicaciones/futuros",
         tipo: "interno",
         estado: "disponible"
+      },
+      {
+        nombre: "CasaCalc — Comprar vs Alquilar",
+        descripcion: "Dashboard interactivo para analizar el coste real de comprar vivienda en España: hipoteca, impuestos, coste de oportunidad frente a inversiones alternativas, simulador de reventa y análisis de inversión para alquilar.",
+        url: "https://casacalc-mbai.web.app",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

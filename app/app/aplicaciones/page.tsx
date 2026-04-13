@@ -18,7 +18,7 @@ const categorias = [
       {
         nombre: "Correlaciones Financieras",
         descripcion: "Analiza correlaciones entre activos financieros para optimizar carteras.",
-        url: "https://aplicaciones-correlaciones-finanzas.streamlit.app/",
+        url: "https://correlaciones-finanzas-416251601036.europe-west1.run.app",
         tipo: "externo",
         estado: "disponible"
       },

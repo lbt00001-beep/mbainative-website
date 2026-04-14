@@ -25,7 +25,7 @@ const categorias = [
       {
         nombre: "Dashboard Economía España",
         descripcion: "Cuadro de mando integral con IA para analizar la economía en tiempo real (PIB, Paro, ESIOS).",
-        url: "https://dashboard-economia-espana.streamlit.app/",
+        url: "https://dashboard-economia-416251601036.europe-west1.run.app",
         tipo: "externo",
         estado: "disponible"
       },
@@ -69,7 +69,7 @@ const categorias = [
       {
         nombre: "Estimador CIS",
         descripcion: "Estimación de voto en elecciones generales y regionales usando el motor Aldabón-Gemini 2.6.",
-        url: "https://cis-benedicto-gemini-6pfmylndaznkq68wgwpis5.streamlit.app/",
+        url: "https://cis-estimador-416251601036.europe-west1.run.app",
         tipo: "externo",
         estado: "disponible"
       }

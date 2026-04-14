@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-13T18:06:19.932Z",
+  "generatedAt": "2026-04-14T18:07:52.016Z",
   "scheduleSlot": "evening",
   "principle": {
-    "id": 4,
-    "title": "El nuevo organigrama es una ciencia",
-    "icon": "🏗️"
+    "id": 5,
+    "title": "La información fluye horizontalmente",
+    "icon": "↔️"
   },
   "post": {
     "type": "recent_video",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"I Rebuilt My Ai&#39;s Brain Using the Karpathy Method (LLM Wiki)\"\n\n▶️ youtube.com/watch?v=L_r-bsymius",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"I Rebuilt My Ai&#39;s Brain Using the Karpathy Method (LLM Wiki)\"\n\n▶️ youtube.com/watch?v=L_r-bsymius",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",

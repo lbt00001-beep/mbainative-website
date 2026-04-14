@@ -172,7 +172,7 @@ const categorias = [
       {
         nombre: "Generador Autónoma de Masterclass (MBAI Presenter)",
         descripcion: "Sube un tema o un documento PDF y el orquestador IA investigará, redactará el guion y las notas, preservará los gráficos matemáticos originales, ensamblará el PowerPoint y locutará al presentador en múltiples idiomas automáticamente.",
-        url: "https://presentador-masterclass-mbai.streamlit.app/",
+        url: "https://presentador-masterclass-416251601036.europe-west1.run.app",
         tipo: "externo",
         estado: "disponible"
       },

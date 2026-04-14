@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-14T06:54:03.446Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-14T11:54:34.940Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "news",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Sl...",
+    "type": "guru_quote",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Sam Altman (OpenAI)\n\n\"85 Million Jobs Gone? The AI Layoff Lie Nobody Talks About.\"\n\n▶️ youtube.com/watch?v=6UP75wKc92s",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=6UP75wKc92s",
+    "imageUrl": "https://i.ytimg.com/vi/6UP75wKc92s/mqdefault.jpg"
   }
 }

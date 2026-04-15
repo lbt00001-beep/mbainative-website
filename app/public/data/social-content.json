@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-15T06:55:32.285Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-15T11:52:30.364Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of ...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Sam Altman (OpenAI)\n\n\"FULL INTERVIEW: Alex Karp on AI, Job Loss, and the Future of Work\"\n\n▶️ youtube.com/watch?v=3VIdkv3Kx48",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=3VIdkv3Kx48",
+    "imageUrl": "https://i.ytimg.com/vi/3VIdkv3Kx48/mqdefault.jpg"
   }
 }

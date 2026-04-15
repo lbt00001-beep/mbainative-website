@@ -18,14 +18,14 @@ const categorias = [
       {
         nombre: "Correlaciones Financieras",
         descripcion: "Analiza correlaciones entre activos financieros para optimizar carteras.",
-        url: "https://correlaciones-finanzas-416251601036.europe-west1.run.app",
+        url: "https://correlaciones-finanzas-mbai.web.app",
         tipo: "externo",
         estado: "disponible"
       },
       {
         nombre: "Dashboard Economía España",
         descripcion: "Cuadro de mando integral con IA para analizar la economía en tiempo real (PIB, Paro, ESIOS).",
-        url: "https://dashboard-economia-416251601036.europe-west1.run.app",
+        url: "https://dashboard-economia-mbai.web.app",
         tipo: "externo",
         estado: "disponible"
       },

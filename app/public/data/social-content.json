@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-16T06:58:07.471Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-16T11:56:02.874Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "news",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot,...",
+    "type": "guru_quote",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 Jensen Huang (NVIDIA)\n\n\"NVIDIA&#39;s Plan: 75,000 Humans + 7.5 MILLION Digital Employees\"\n\n▶️ youtube.com/watch?v=QwDxhvctEWk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=QwDxhvctEWk",
+    "imageUrl": "https://i.ytimg.com/vi/QwDxhvctEWk/mqdefault.jpg"
   }
 }

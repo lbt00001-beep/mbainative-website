@@ -68,8 +68,8 @@ const categorias = [
     apps: [
       {
         nombre: "Estimador CIS",
-        descripcion: "Estimación de voto en elecciones generales y regionales usando el motor Aldabón-Gemini 2.6.",
-        url: "https://cis-estimador-416251601036.europe-west1.run.app",
+        descripcion: "Monitor de cocina electoral del CIS. Compara Voto Directo, Estimación CIS y el modelo Aldabón-Gemini 3.0 para elecciones generales y autonómicas.",
+        url: "https://cis-estimador-mbai.web.app",
         tipo: "externo",
         estado: "disponible"
       }

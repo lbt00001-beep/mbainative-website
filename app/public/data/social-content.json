@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-17T11:45:02.426Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-17T17:53:24.424Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 Andrej Karpathy\n\n\"Claude Code + Karpathy Slides Just Changed Presentations Forever (MARP System)\"\n\n▶️ youtube.com/watch?v=RBcc_ezfh1s",
+    "type": "recent_video",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"AI Autoresearch: The Future of Performance Engineering?\"\n\n▶️ youtube.com/watch?v=4SZvgv9HGeU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=RBcc_ezfh1s",
-    "imageUrl": "https://i.ytimg.com/vi/RBcc_ezfh1s/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=4SZvgv9HGeU",
+    "imageUrl": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg"
   }
 }

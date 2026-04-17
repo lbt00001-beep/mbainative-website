@@ -164,6 +164,21 @@ const categorias = [
     ]
   },
   {
+    id: "ventas",
+    nombre: "Ventas",
+    icono: "🎯",
+    descripcion: "Herramientas de coaching, entrenamiento comercial y análisis de llamadas B2B",
+    apps: [
+      {
+        nombre: "Coach Comercial IA",
+        descripcion: "Entrena comerciales con simulaciones guiadas por IA, analiza llamadas reales con scorecard automático (discovery, valor, objeciones, cierre) y haz seguimiento individual por vendedor.",
+        url: "https://coach-comercial-ia-416251601036.europe-west1.run.app",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
+  },
+  {
     id: "product-multi",
     nombre: "Aplicaciones que multiplican tu productividad",
     icono: "🚀",

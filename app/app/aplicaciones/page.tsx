@@ -182,6 +182,13 @@ const categorias = [
         url: "https://mbai-native-detector-2026.web.app",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "QR Poster Studio",
+        descripcion: "Genera carteles profesionales con código QR listos para imprimir. 6 estilos prediseñados, colores personalizables, logo drag & drop y exportación en PNG y PDF de alta resolución.",
+        url: "https://qr-poster-mbai.web.app",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   }

@@ -1,8 +1,16 @@
 {
-  "lastUpdated": "2026-04-10T06:30:19.682Z",
+  "lastUpdated": "2026-04-17T06:33:17.842Z",
   "totalVideos": 55,
   "gurus": {
     "demis-hassabis": [
+      {
+        "videoId": "lIJelwO8yHQ",
+        "title": "How Fast Will A.I. Agents Rip Through the Economy? | The Ezra Klein Show",
+        "description": "A.I. agents are here. Have they changed your life yet? The release of agents like Claude Code marked a new pivot point in the ......",
+        "thumbnail": "https://i.ytimg.com/vi/lIJelwO8yHQ/mqdefault.jpg",
+        "publishedAt": "2026-02-24T16:01:06Z",
+        "channelTitle": "The Ezra Klein Show"
+      },
       {
         "videoId": "mQJh8UJaClI",
         "title": "Entry-Level Job Extinction. AI Disrupt Workforce Topic | WEF Davos 2026 Demis Hassabis Jensen Huang",
@@ -28,20 +36,12 @@
         "channelTitle": "AI Substructure"
       },
       {
-        "videoId": "PqVbypvxDto",
-        "title": "The future of intelligence | Demis Hassabis (Co-founder and CEO of DeepMind)",
-        "description": "In our final episode of the season, Professor Hannah Fry sits down with Google DeepMind Co-founder and CEO Demis Hassabis ......",
-        "thumbnail": "https://i.ytimg.com/vi/PqVbypvxDto/mqdefault.jpg",
-        "publishedAt": "2025-12-16T17:04:30Z",
-        "channelTitle": "Google DeepMind"
-      },
-      {
-        "videoId": "d95J8yzvjbQ",
-        "title": "The Thinking Game | Full documentary | Tribeca Film Festival official selection",
-        "description": "The inside story of the AI breakthrough that won a Nobel Prize. -- The Thinking Game takes you on a journey into the heart of ......",
-        "thumbnail": "https://i.ytimg.com/vi/d95J8yzvjbQ/mqdefault.jpg",
-        "publishedAt": "2025-11-25T15:44:20Z",
-        "channelTitle": "Google DeepMind"
+        "videoId": "wNMoEXr12rY",
+        "title": "AI inside a real robot girlfriend does exactly what experts warned.",
+        "description": "AI robot Girlfriend. Could AI become dangerous? Use code insideai at https://incogni.com/insideai to get an exclusive 60% off AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/wNMoEXr12rY/mqdefault.jpg",
+        "publishedAt": "2025-12-23T18:22:28Z",
+        "channelTitle": "InsideAI"
       }
     ],
     "yann-lecun": [],
@@ -149,6 +149,22 @@
     ],
     "sam-altman": [
       {
+        "videoId": "5ak26W2YNRY",
+        "title": "Elon Musk vs. Sam Altman, AI Job Loss, and OpenAI’s $852B Valuation | EP #247",
+        "description": "This episode is about AI agents, OpenAI and Anthropic competition, the future of work, energy breakthroughs, Bitcoin and ......",
+        "thumbnail": "https://i.ytimg.com/vi/5ak26W2YNRY/mqdefault.jpg",
+        "publishedAt": "2026-04-14T15:00:09Z",
+        "channelTitle": "Peter H. Diamandis"
+      },
+      {
+        "videoId": "_pRWkczUPks",
+        "title": "Coding is dead. Long live the &quot;Prompt Engineer&quot;? 💀💻  #openai #ai #future",
+        "description": "It's April 2026, and Sam's \"Punctuate Equilibrium\" isn't a theory anymore—it's our daily reality. ⚡️ Customer support is nearly ......",
+        "thumbnail": "https://i.ytimg.com/vi/_pRWkczUPks/mqdefault.jpg",
+        "publishedAt": "2026-04-04T14:30:26Z",
+        "channelTitle": "Money Vision"
+      },
+      {
         "videoId": "CNweNKnUUHE",
         "title": "Perplexity’s AI Agent vs OpenClaw  | Who’s Winning the AI Race? | Intellipaat",
         "description": "Perplexity AI just launched a powerful AI Agent after Sam Altman's OpenClaw move This AI works 24/7, automates tasks, and ......",
@@ -157,36 +173,20 @@
         "channelTitle": "Intellipaat"
       },
       {
+        "videoId": "vif8NQcjVf0",
+        "title": "Jensen Huang: NVIDIA - The $4 Trillion Company &amp; the AI Revolution | Lex Fridman Podcast #494",
+        "description": "Jensen Huang is the co-founder and CEO of NVIDIA, the world's most valuable company and the engine powering the AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/vif8NQcjVf0/mqdefault.jpg",
+        "publishedAt": "2026-03-23T16:24:14Z",
+        "channelTitle": "Lex Fridman"
+      },
+      {
         "videoId": "6UP75wKc92s",
         "title": "85 Million Jobs Gone? The AI Layoff Lie Nobody Talks About.",
         "description": "The World Economic Forum predicted AI would replace 85 million jobs by 2026. It's 2026. But even the CEO of OpenAI says ......",
         "thumbnail": "https://i.ytimg.com/vi/6UP75wKc92s/mqdefault.jpg",
         "publishedAt": "2026-03-18T11:35:59Z",
         "channelTitle": "AgentStruct"
-      },
-      {
-        "videoId": "cROTCtJZjUM",
-        "title": "Sam Altman: Why the CEO&#39;s Job is Shifting to AI",
-        "description": "OpenAI CEO Sam Altman just dropped a massive reality check: the role of the human CEO is about to fundamentally change....",
-        "thumbnail": "https://i.ytimg.com/vi/cROTCtJZjUM/mqdefault.jpg",
-        "publishedAt": "2026-03-17T15:30:22Z",
-        "channelTitle": "The AI Entrepreneurs"
-      },
-      {
-        "videoId": "6Bso6B0sqFI",
-        "title": "Sam Altman: AI Agents Will Soon Act Like Senior Employees",
-        "description": "OpenAI CEO Sam Altman just dropped a massive prediction about the future of work: AI agents are evolving much faster than ......",
-        "thumbnail": "https://i.ytimg.com/vi/6Bso6B0sqFI/mqdefault.jpg",
-        "publishedAt": "2026-03-16T12:00:09Z",
-        "channelTitle": "The AI Entrepreneurs"
-      },
-      {
-        "videoId": "3VIdkv3Kx48",
-        "title": "FULL INTERVIEW: Alex Karp on AI, Job Loss, and the Future of Work",
-        "description": "This is our full interview with Alex Karp, recorded live on TBPN. We discuss why AI could eliminate large numbers of white-collar ......",
-        "thumbnail": "https://i.ytimg.com/vi/3VIdkv3Kx48/mqdefault.jpg",
-        "publishedAt": "2026-03-12T22:00:02Z",
-        "channelTitle": "TBPN"
       }
     ],
     "ilya-sutskever": [
@@ -429,44 +429,44 @@
     ],
     "andrej-karpathy": [
       {
-        "videoId": "L_r-bsymius",
-        "title": "I Rebuilt My Ai&#39;s Brain Using the Karpathy Method (LLM Wiki)",
-        "description": "Welcome to Day 8. If you are building autonomous AI agents for complex tasks like crypto trading, you have probably run into the ......",
-        "thumbnail": "https://i.ytimg.com/vi/L_r-bsymius/mqdefault.jpg",
-        "publishedAt": "2026-04-06T22:39:08Z",
-        "channelTitle": "The Prediction Engineer"
+        "videoId": "4SZvgv9HGeU",
+        "title": "AI Autoresearch: The Future of Performance Engineering?",
+        "description": "The Secret to \"Auto-Research\" What is the most relevant skill in the age of AI agents? According to Andrej Karpathy, it's all ......",
+        "thumbnail": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg",
+        "publishedAt": "2026-04-15T13:00:09Z",
+        "channelTitle": "Coder Berojgar "
       },
       {
-        "videoId": "9iWTRMjbBvo",
-        "title": "Claude Code + Karpathy&#39;s NEW Self-Evolving System = 10x Code Generation",
-        "description": "In this video, I show how Andrej Karpathy's LLM Wiki — a self-evolving knowledge system — can be hooked up to Claude Code to ......",
-        "thumbnail": "https://i.ytimg.com/vi/9iWTRMjbBvo/mqdefault.jpg",
-        "publishedAt": "2026-04-06T07:22:16Z",
-        "channelTitle": "WorldofAI"
+        "videoId": "W9T6TkEfwDI",
+        "title": "AI Elf Hacks Smart Home: Lights, Music, Security!",
+        "description": "Meet \"Dobby\": Karpathy's AI House Elf ‍♂️ Andrej Karpathy reveals his period of \"Claw Psychosis,\" where he built a fully ......",
+        "thumbnail": "https://i.ytimg.com/vi/W9T6TkEfwDI/mqdefault.jpg",
+        "publishedAt": "2026-04-15T00:30:21Z",
+        "channelTitle": "Coder Berojgar "
       },
       {
-        "videoId": "owy85ZE-B6Y",
-        "title": "NanoClaw vs OpenClaw - The AI Agent War Nobody&#39;s Talking About (The Way They Should Be)",
-        "description": "NanoClaw vs OpenClaw - The AI Agent War Nobody's Talking About (The Way They Should Be) AI is doing the heavy lifting ......",
-        "thumbnail": "https://i.ytimg.com/vi/owy85ZE-B6Y/mqdefault.jpg",
-        "publishedAt": "2026-04-06T02:59:52Z",
-        "channelTitle": "ArcKnight Tech - AI Force Multipliers"
+        "videoId": "PzhTLHQfdRE",
+        "title": "Karpathy-Skill + Claude Code,OpenCode: This SIMPLE ONE-FILE SKILL Makes YOUR AI CODER WAY BETTER!",
+        "description": "In this video, I'll be talking about Andrej Karpathy Skills, a lightweight GitHub repo that helps AI coding agents behave more like ......",
+        "thumbnail": "https://i.ytimg.com/vi/PzhTLHQfdRE/mqdefault.jpg",
+        "publishedAt": "2026-04-12T09:15:04Z",
+        "channelTitle": "AICodeKing"
       },
       {
-        "videoId": "sboNwYmH3AY",
-        "title": "Andrej Karpathy Just 10x’d Everyone’s Claude Code",
-        "description": "Full courses + unlimited support: https://www.skool.com/ai-automation-society-plus/about?el=karpathy-obsidian All my FREE ......",
-        "thumbnail": "https://i.ytimg.com/vi/sboNwYmH3AY/mqdefault.jpg",
-        "publishedAt": "2026-04-05T17:03:18Z",
-        "channelTitle": "Nate Herk | AI Automation"
+        "videoId": "DOEDpoSfwww",
+        "title": "Как заставить ИИ помнить всё и экономить 95% токенов по методу Карпати",
+        "description": "Андрей Карпати, бывший директор по AI в Tesla и один из основателей OpenAI, предложил метод, кардинально меняющий ......",
+        "thumbnail": "https://i.ytimg.com/vi/DOEDpoSfwww/mqdefault.jpg",
+        "publishedAt": "2026-04-09T17:34:44Z",
+        "channelTitle": "Эдвард Гришин | AI  и автоматизация бизнеса"
       },
       {
-        "videoId": "cMJhc-HksTw",
-        "title": "I Built a Self-Improving AI Writing Agent (Score Went 72 → 92 in One Loop)",
-        "description": "I built an AI system that automatically rewrites its own writing rules and improves your marketing content — no manual editing ......",
-        "thumbnail": "https://i.ytimg.com/vi/cMJhc-HksTw/mqdefault.jpg",
-        "publishedAt": "2026-04-04T15:32:10Z",
-        "channelTitle": "Joon Ahn"
+        "videoId": "RBcc_ezfh1s",
+        "title": "Claude Code + Karpathy Slides Just Changed Presentations Forever (MARP System)",
+        "description": "Want the full Agentic AI Masterclass? https://www.skool.com/robonuggets/about?ref=c1365a0fede2445292bc2bbd2b9e9359 ......",
+        "thumbnail": "https://i.ytimg.com/vi/RBcc_ezfh1s/mqdefault.jpg",
+        "publishedAt": "2026-04-08T21:40:22Z",
+        "channelTitle": "Jay E | RoboNuggets"
       }
     ]
   }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-18T11:29:43.443Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-18T17:40:14.436Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Andrew Ng (Landing AI)\n\n\"(Podcast) Andrew Ng and DeepLearning AI Launch Context Hub for Smarter Coding Agents\"\n\n▶️ youtube.com/watch?v=Orl6uJKy1xA",
+    "type": "recent_video",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"AI Autoresearch: The Future of Performance Engineering?\"\n\n▶️ youtube.com/watch?v=4SZvgv9HGeU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrewng"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=Orl6uJKy1xA",
-    "imageUrl": "https://i.ytimg.com/vi/Orl6uJKy1xA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=4SZvgv9HGeU",
+    "imageUrl": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg"
   }
 }

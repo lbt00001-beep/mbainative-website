@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-18T06:14:41.833Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-18T11:29:43.443Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "news",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot...",
+    "type": "guru_quote",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Andrew Ng (Landing AI)\n\n\"(Podcast) Andrew Ng and DeepLearning AI Launch Context Hub for Smarter Coding Agents\"\n\n▶️ youtube.com/watch?v=Orl6uJKy1xA",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Orl6uJKy1xA",
+    "imageUrl": "https://i.ytimg.com/vi/Orl6uJKy1xA/mqdefault.jpg"
   }
 }

@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-04-18T17:40:14.436Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-04-19T06:48:24.580Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 9,
-    "title": "El conocimiento se democratiza",
-    "icon": "🧠"
+    "id": 10,
+    "title": "Velocidad como ventaja competitiva",
+    "icon": "⚡"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"AI Autoresearch: The Future of Performance Engineering?\"\n\n▶️ youtube.com/watch?v=4SZvgv9HGeU",
+    "type": "news",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slac...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrejkarpathy"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=4SZvgv9HGeU",
-    "imageUrl": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

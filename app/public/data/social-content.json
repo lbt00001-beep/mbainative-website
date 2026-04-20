@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-20T12:00:21.558Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-20T18:01:15.353Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Demis Hassabis Reveals the 12 Industries AI Will Completely Take Over Next\"\n\n▶️ youtube.com/watch?v=YSNXh3bqb9o",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"AI Autoresearch: The Future of Performance Engineering?\"\n\n▶️ youtube.com/watch?v=4SZvgv9HGeU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=YSNXh3bqb9o",
-    "imageUrl": "https://i.ytimg.com/vi/YSNXh3bqb9o/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=4SZvgv9HGeU",
+    "imageUrl": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg"
   }
 }

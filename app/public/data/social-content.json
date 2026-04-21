@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-04-20T18:01:15.353Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-04-21T06:59:16.994Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 11,
-    "title": "Escalabilidad sin límites",
-    "icon": "📐"
+    "id": 12,
+    "title": "Seguridad por diseño",
+    "icon": "🔒"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"AI Autoresearch: The Future of Performance Engineering?\"\n\n▶️ youtube.com/watch?v=4SZvgv9HGeU",
+    "type": "news",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the com...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrejkarpathy"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=4SZvgv9HGeU",
-    "imageUrl": "https://i.ytimg.com/vi/4SZvgv9HGeU/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

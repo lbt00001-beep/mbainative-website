@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-17T06:33:20.243Z",
+  "lastUpdated": "2026-04-21T06:33:12.457Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 35
+      "articleCount": 38
     },
     {
       "id": "bcg",
@@ -35,6 +35,15 @@
       "score": 9
     },
     {
+      "title": "A talent playbook for the AI era",
+      "link": "https://www.mckinsey.com/quarterly/the-five-fifty/five-fifty-a-talent-playbook-for-the-ai-era",
+      "description": "AI success hinges on more than just tech—companies need the right talent behind it. Here’s how leaders can empower their people and rewire their organizations to win....",
+      "pubDate": "Mon, 20 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 8
+    },
+    {
       "title": "Australia’s AI moment: Building Asia–Pacific’s compute hub",
       "link": "https://www.mckinsey.com/au/our-insights/australias-ai-moment-building-asia-pacifics-compute-hub",
       "description": "Australia has an opportunity to become an Asia–Pacific AI hub, unlocking economic growth and productivity—though a number of constraints need to be addressed....",
@@ -53,15 +62,6 @@
       "score": 7
     },
     {
-      "title": "Designing an end-to-end technology workforce for the AI-first era",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/designing-an-end-to-end-technology-workforce-for-the-ai-first-era",
-      "description": "CIOs are re-building their teams for the agentic AI age. This requires rethinking how to hire, build internal capabilities, and negotiate vendor strategies to speed innovation....",
-      "pubDate": "Mon, 06 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 7
-    },
-    {
       "title": "Can the US sustain its competitive edge?",
       "link": "https://www.mckinsey.com/mgi/our-research/can-the-us-sustain-its-competitive-edge",
       "description": "New research examines how AI, talent, infrastructure, and debt are converging to reshape US competitiveness—and what CEOs, boards, and other leaders can do about it....",
@@ -71,13 +71,49 @@
       "score": 6
     },
     {
-      "title": "How European organizations can treat skills as a strategic priority",
-      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-european-organizations-can-treat-skills-as-a-strategic-priority",
-      "description": "Skills readiness is crucial for innovation and competitiveness, but many European companies are falling behind. Leaders can take three actions to bridge the skills gap and deploy talent more effective...",
-      "pubDate": "Mon, 06 Apr 2026",
+      "title": "Incentive pricing for batteries: Scaling the Western supply chain",
+      "link": "https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/incentive-pricing-for-batteries-scaling-the-western-supply-chain",
+      "description": "A set of incentive pricing mechanisms can help guide investments, without prescribing specific technologies or companies, and make Western battery projects more competitive across the value chain....",
+      "pubDate": "Mon, 20 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 6
+      "score": 5
+    },
+    {
+      "title": "",
+      "link": "https://www.mckinsey.com/cn/our-insights/our-insights/mckinsey-china-week-2026",
+      "description": "On April 9 we convened McKinsey China Week 2026 in Shanghai under the theme: \"The Next China is Still China.\"...",
+      "pubDate": "Mon, 20 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The next age of fintech: AI, digital assets, and new paths to success",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/the-next-age-of-fintech-ai-digital-assets-and-new-paths-to-success",
+      "description": "Fintechs are now generating $650 billion in revenue, and the most successful ones are balancing scale, profitability, and new-found regulatory maturity....",
+      "pubDate": "Mon, 20 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The dairy industry’s 2026 playbook: Protect margins, pursue growth",
+      "link": "https://www.mckinsey.com/industries/agriculture/our-insights/the-dairy-industrys-2026-playbook-protect-margins-pursue-growth",
+      "description": "Our eighth annual dairy executive survey—expanded to include Europe—shows an industry facing intense cost and margin pressure, even as demand grows. Here’s the leadership agenda for the year ahead....",
+      "pubDate": "Mon, 20 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Turning humanoid supply chain constraints into billion-dollar wins",
+      "link": "https://www.mckinsey.com/industries/industrials/our-insights/turning-humanoid-supply-chain-constraints-into-billion-dollar-wins",
+      "description": "The robotics supply chain is the most underappreciated constraint on humanoid scale. But for companies that move now, it is the most significant opportunity in a generation....",
+      "pubDate": "Fri, 17 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
     },
     {
       "title": "Goldman Sachs’ David Solomon on adapting to disruption",
@@ -98,10 +134,10 @@
       "score": 5
     },
     {
-      "title": "Shaping the future of Japan’s pharmaceutical operations",
-      "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/shaping-the-future-of-japans-pharmaceutical-operations",
-      "description": "Japan’s pharma industry, a global innovation leader, faces strain from shifting demand, supply vulnerabilities, and digital disruption. Eight priorities can position it to lead in operations....",
-      "pubDate": "Tue, 14 Apr 2026",
+      "title": "Designing an end-to-end technology workforce for the AI-first era",
+      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/designing-an-end-to-end-technology-workforce-for-the-ai-first-era",
+      "description": "CIOs are re-building their teams for the agentic AI age. This requires rethinking how to hire, build internal capabilities, and negotiate vendor strategies to speed innovation....",
+      "pubDate": "Mon, 06 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
@@ -116,13 +152,22 @@
       "score": 5
     },
     {
-      "title": "How radical simplification can transform corporate and investment banking",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/how-radical-simplification-can-transform-corporate-and-investment-banking",
-      "description": "A rapidly evolving industry means CIBs must ramp up productivity, embrace AI, and sharpen their competitive edge to better position themselves for long-term success....",
-      "pubDate": "Thu, 26 Mar 2026",
+      "title": "How European organizations can treat skills as a strategic priority",
+      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-european-organizations-can-treat-skills-as-a-strategic-priority",
+      "description": "Skills readiness is crucial for innovation and competitiveness, but many European companies are falling behind. Leaders can take three actions to bridge the skills gap and deploy talent more effective...",
+      "pubDate": "Mon, 06 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 4
+    },
+    {
+      "title": "Shaping the future of Japan’s pharmaceutical operations",
+      "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/shaping-the-future-of-japans-pharmaceutical-operations",
+      "description": "Japan’s pharma industry, a global innovation leader, faces strain from shifting demand, supply vulnerabilities, and digital disruption. Eight priorities can position it to lead in operations....",
+      "pubDate": "Tue, 14 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
     },
     {
       "title": "A commercial breakthrough for commercial aerospace suppliers",
@@ -156,51 +201,6 @@
       "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-pricing-navigating-the-next-phase-of-the-ai-revolution",
       "description": "Agentic AI promises a fundamental shift in how B2B pricing is set, managed, and optimized to drive a step change in both efficiency and effectiveness....",
       "pubDate": "Tue, 07 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "The AI transformation manifesto",
-      "link": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-ai-transformation-manifesto",
-      "description": "Twelve themes separate companies that are truly rewired for AI from their peers....",
-      "pubDate": "Tue, 07 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Author Talks: Rewiring to outcompete with AI",
-      "link": "https://www.mckinsey.com/featured-insights/mckinsey-on-books/author-talks-rewiring-to-outcompete-with-ai",
-      "description": "In the second edition of Rewired, McKinsey authors explore how leading companies move faster and what changes they make to turn AI into value....",
-      "pubDate": "Mon, 06 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "CFOs have been concerned about geopolitical impacts for months",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/cfos-have-been-concerned-about-geopolitical-impacts-for-months",
-      "description": "To cope with uncertainty, surveyed CFOs have been doubling down on performance and building cash and liquidity buffers....",
-      "pubDate": "Fri, 03 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
-    },
-    {
-      "title": "From dashboards to decisions: Empowering merchants with agentic AI",
-      "link": "https://www.mckinsey.com/industries/retail/our-insights/from-dashboards-to-decisions-empowering-merchants-with-agentic-ai",
-      "description": "Agentic AI can automate routine work and improve merchandising decisions at scale. Two McKinsey experts discuss what it takes to translate potential into performance....",
-      "pubDate": "Thu, 02 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
-    },
-    {
-      "title": "AI is everywhere. The agentic organization isn’t—yet",
-      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-is-everywhere-the-agentic-organization-isnt-yet",
-      "description": "Most companies are experimenting with AI, but few have realized its value. The real challenge isn’t the technology—it’s redesigning workflows, leadership, and culture for an agentic world....",
-      "pubDate": "Thu, 02 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 1

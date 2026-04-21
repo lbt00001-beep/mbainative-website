@@ -1,8 +1,16 @@
 {
-  "lastUpdated": "2026-04-17T06:33:17.842Z",
+  "lastUpdated": "2026-04-21T06:33:10.475Z",
   "totalVideos": 55,
   "gurus": {
     "demis-hassabis": [
+      {
+        "videoId": "KdL55PK35ZM",
+        "title": "Demis Hassabis &amp; Emad Mostaque: The Uncomfortable Truth About What&#39;s Coming",
+        "description": "AGI is coming at 10 times the scale of the industrial revolution — at 10 times the speed. That's not a futurist prediction....",
+        "thumbnail": "https://i.ytimg.com/vi/KdL55PK35ZM/mqdefault.jpg",
+        "publishedAt": "2026-04-13T09:45:58Z",
+        "channelTitle": "Michael Coppola"
+      },
       {
         "videoId": "lIJelwO8yHQ",
         "title": "How Fast Will A.I. Agents Rip Through the Economy? | The Ezra Klein Show",
@@ -10,14 +18,6 @@
         "thumbnail": "https://i.ytimg.com/vi/lIJelwO8yHQ/mqdefault.jpg",
         "publishedAt": "2026-02-24T16:01:06Z",
         "channelTitle": "The Ezra Klein Show"
-      },
-      {
-        "videoId": "mQJh8UJaClI",
-        "title": "Entry-Level Job Extinction. AI Disrupt Workforce Topic | WEF Davos 2026 Demis Hassabis Jensen Huang",
-        "description": "A brutal reality check from Demis Hassabis (Google DeepMind): entry-level jobs are the first to be \"automated out.\" The 9-to-5 is ......",
-        "thumbnail": "https://i.ytimg.com/vi/mQJh8UJaClI/mqdefault.jpg",
-        "publishedAt": "2026-02-11T15:05:52Z",
-        "channelTitle": "AInspiringly"
       },
       {
         "videoId": "bgBfobN2A7A",
@@ -36,12 +36,12 @@
         "channelTitle": "AI Substructure"
       },
       {
-        "videoId": "wNMoEXr12rY",
-        "title": "AI inside a real robot girlfriend does exactly what experts warned.",
-        "description": "AI robot Girlfriend. Could AI become dangerous? Use code insideai at https://incogni.com/insideai to get an exclusive 60% off AI ......",
-        "thumbnail": "https://i.ytimg.com/vi/wNMoEXr12rY/mqdefault.jpg",
-        "publishedAt": "2025-12-23T18:22:28Z",
-        "channelTitle": "InsideAI"
+        "videoId": "PqVbypvxDto",
+        "title": "The future of intelligence | Demis Hassabis (Co-founder and CEO of DeepMind)",
+        "description": "In our final episode of the season, Professor Hannah Fry sits down with Google DeepMind Co-founder and CEO Demis Hassabis ......",
+        "thumbnail": "https://i.ytimg.com/vi/PqVbypvxDto/mqdefault.jpg",
+        "publishedAt": "2025-12-16T17:04:30Z",
+        "channelTitle": "Google DeepMind"
       }
     ],
     "yann-lecun": [],
@@ -149,6 +149,14 @@
     ],
     "sam-altman": [
       {
+        "videoId": "nVwJ6ii4Jsg",
+        "title": "Sam Altman Just Dropped an AI EMPLOYEE 🤯 Codex Update Will Shock You 😳",
+        "description": "The future of work has officially changed. OpenAI's latest Codex update has turned AI into a full AI employee — not just a ......",
+        "thumbnail": "https://i.ytimg.com/vi/nVwJ6ii4Jsg/mqdefault.jpg",
+        "publishedAt": "2026-04-19T05:20:17Z",
+        "channelTitle": "Sach Ya Ittefaq"
+      },
+      {
         "videoId": "5ak26W2YNRY",
         "title": "Elon Musk vs. Sam Altman, AI Job Loss, and OpenAI’s $852B Valuation | EP #247",
         "description": "This episode is about AI agents, OpenAI and Anthropic competition, the future of work, energy breakthroughs, Bitcoin and ......",
@@ -157,36 +165,28 @@
         "channelTitle": "Peter H. Diamandis"
       },
       {
-        "videoId": "_pRWkczUPks",
-        "title": "Coding is dead. Long live the &quot;Prompt Engineer&quot;? 💀💻  #openai #ai #future",
-        "description": "It's April 2026, and Sam's \"Punctuate Equilibrium\" isn't a theory anymore—it's our daily reality. ⚡️ Customer support is nearly ......",
-        "thumbnail": "https://i.ytimg.com/vi/_pRWkczUPks/mqdefault.jpg",
-        "publishedAt": "2026-04-04T14:30:26Z",
-        "channelTitle": "Money Vision"
+        "videoId": "qjfiyX4cn9A",
+        "title": "AI series: The Three Levels of AI",
+        "description": "Follow me on IG @careerhannah! I'm sending the resources over there and i'll send you what i use at each level (follow first or IG ......",
+        "thumbnail": "https://i.ytimg.com/vi/qjfiyX4cn9A/mqdefault.jpg",
+        "publishedAt": "2026-04-11T13:31:48Z",
+        "channelTitle": "Hannah Zhang"
       },
       {
-        "videoId": "CNweNKnUUHE",
-        "title": "Perplexity’s AI Agent vs OpenClaw  | Who’s Winning the AI Race? | Intellipaat",
-        "description": "Perplexity AI just launched a powerful AI Agent after Sam Altman's OpenClaw move This AI works 24/7, automates tasks, and ......",
-        "thumbnail": "https://i.ytimg.com/vi/CNweNKnUUHE/mqdefault.jpg",
-        "publishedAt": "2026-03-30T15:20:21Z",
-        "channelTitle": "Intellipaat"
+        "videoId": "1Mw_mffYq3A",
+        "title": "Will AI Actually Steal Your Job? The Truth About the Future of Work",
+        "description": "ArtificialIntelligence #FutureOfWork #Productivity #CareerGrowth #TechTrends #WorkplaceEvolution....",
+        "thumbnail": "https://i.ytimg.com/vi/1Mw_mffYq3A/mqdefault.jpg",
+        "publishedAt": "2026-04-10T11:24:11Z",
+        "channelTitle": "A Global Tech Podcast"
       },
       {
-        "videoId": "vif8NQcjVf0",
-        "title": "Jensen Huang: NVIDIA - The $4 Trillion Company &amp; the AI Revolution | Lex Fridman Podcast #494",
-        "description": "Jensen Huang is the co-founder and CEO of NVIDIA, the world's most valuable company and the engine powering the AI ......",
-        "thumbnail": "https://i.ytimg.com/vi/vif8NQcjVf0/mqdefault.jpg",
-        "publishedAt": "2026-03-23T16:24:14Z",
-        "channelTitle": "Lex Fridman"
-      },
-      {
-        "videoId": "6UP75wKc92s",
-        "title": "85 Million Jobs Gone? The AI Layoff Lie Nobody Talks About.",
-        "description": "The World Economic Forum predicted AI would replace 85 million jobs by 2026. It's 2026. But even the CEO of OpenAI says ......",
-        "thumbnail": "https://i.ytimg.com/vi/6UP75wKc92s/mqdefault.jpg",
-        "publishedAt": "2026-03-18T11:35:59Z",
-        "channelTitle": "AgentStruct"
+        "videoId": "9ir-fDlc1os",
+        "title": "AI tumhari job le lega? 😱 #shorts #Ai",
+        "description": "AI tumhari job le lega? #shorts #Ai #AI #ArtificialIntelligence #AITools #FutureTech #Technology will ai your job, ai will take ......",
+        "thumbnail": "https://i.ytimg.com/vi/9ir-fDlc1os/mqdefault.jpg",
+        "publishedAt": "2026-04-08T12:30:16Z",
+        "channelTitle": "Hanni Sharma"
       }
     ],
     "ilya-sutskever": [
@@ -345,6 +345,14 @@
     ],
     "jensen-huang": [
       {
+        "videoId": "uMUnXvy6rdo",
+        "title": "Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts",
+        "description": "Jensen Huang unveils agentic AI as digital workers to combat labor shortages. He explores how IT will adapt to manage these AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg",
+        "publishedAt": "2026-04-20T05:00:39Z",
+        "channelTitle": "DPN Creative"
+      },
+      {
         "videoId": "QwDxhvctEWk",
         "title": "NVIDIA&#39;s Plan: 75,000 Humans + 7.5 MILLION Digital Employees",
         "description": "Jensen Huang's GTC 2026 keynote revealed NVIDIA's vision: 75000 human employees working alongside 7.5 million AI agents ......",
@@ -375,17 +383,17 @@
         "thumbnail": "https://i.ytimg.com/vi/rn9QW5gPhaM/mqdefault.jpg",
         "publishedAt": "2026-03-21T12:49:40Z",
         "channelTitle": "The AI Files"
-      },
-      {
-        "videoId": "3QxtcfVOtsg",
-        "title": "Jensen Huang - The Era of Hiring AI Employees Is Coming",
-        "description": "Future-ready founders are no longer just using software. They are building hybrid teams: part human, part AI. By cultivating ......",
-        "thumbnail": "https://i.ytimg.com/vi/3QxtcfVOtsg/mqdefault.jpg",
-        "publishedAt": "2026-01-17T02:00:03Z",
-        "channelTitle": "Entrepreneursivity"
       }
     ],
     "andrew-ng": [
+      {
+        "videoId": "WoaQvOSBtVs",
+        "title": "The Only AI Certification Guide You Need in 2026",
+        "description": "If you want to break into AI or level up your AI career in 2026, and you're trying to figure out which certifications are actually worth ......",
+        "thumbnail": "https://i.ytimg.com/vi/WoaQvOSBtVs/mqdefault.jpg",
+        "publishedAt": "2026-03-29T17:00:23Z",
+        "channelTitle": "Aishwarya Srinivasan"
+      },
       {
         "videoId": "hXiDB_RoN2M",
         "title": "Don&#39;t Code with AI Agents Without This",
@@ -417,17 +425,17 @@
         "thumbnail": "https://i.ytimg.com/vi/EsTrWCV0Ph4/mqdefault.jpg",
         "publishedAt": "2026-03-08T05:01:31Z",
         "channelTitle": "Nick Saraev"
-      },
-      {
-        "videoId": "cAfS4pQz9u4",
-        "title": "AI Agents Replacing Human Jobs",
-        "description": "77999 jobs were wiped out in the first half of 2025 — directly because of AI. Not because of a recession. Not because businesses ......",
-        "thumbnail": "https://i.ytimg.com/vi/cAfS4pQz9u4/mqdefault.jpg",
-        "publishedAt": "2026-03-04T09:27:51Z",
-        "channelTitle": "Think with Ravi Chauhan"
       }
     ],
     "andrej-karpathy": [
+      {
+        "videoId": "xnCH7V57Pxo",
+        "title": "Andrej Karpathy: How AI Agents Will Change Programming Forever",
+        "description": "In this episode of the No Priors Podcast, we catch up with Andrej Karpathy (@karpathy) to discuss the massive phase shift in ......",
+        "thumbnail": "https://i.ytimg.com/vi/xnCH7V57Pxo/mqdefault.jpg",
+        "publishedAt": "2026-04-16T15:52:28Z",
+        "channelTitle": "GetBetter"
+      },
       {
         "videoId": "4SZvgv9HGeU",
         "title": "AI Autoresearch: The Future of Performance Engineering?",
@@ -445,28 +453,20 @@
         "channelTitle": "Coder Berojgar "
       },
       {
-        "videoId": "PzhTLHQfdRE",
-        "title": "Karpathy-Skill + Claude Code,OpenCode: This SIMPLE ONE-FILE SKILL Makes YOUR AI CODER WAY BETTER!",
-        "description": "In this video, I'll be talking about Andrej Karpathy Skills, a lightweight GitHub repo that helps AI coding agents behave more like ......",
-        "thumbnail": "https://i.ytimg.com/vi/PzhTLHQfdRE/mqdefault.jpg",
-        "publishedAt": "2026-04-12T09:15:04Z",
-        "channelTitle": "AICodeKing"
+        "videoId": "a8qN-sR8Cjs",
+        "title": "andrej-karpathy-skills github: AI Coding Mistakes That Lead to System Failure",
+        "description": "andrej-karpathy-skills: https://github.com/forrestchang/andrej-karpathy-skills AI coding is evolving fast, but unconstrained “vibe ......",
+        "thumbnail": "https://i.ytimg.com/vi/a8qN-sR8Cjs/mqdefault.jpg",
+        "publishedAt": "2026-04-13T12:26:23Z",
+        "channelTitle": "Alex Hitt, The Great Discovery Pro"
       },
       {
-        "videoId": "DOEDpoSfwww",
-        "title": "Как заставить ИИ помнить всё и экономить 95% токенов по методу Карпати",
-        "description": "Андрей Карпати, бывший директор по AI в Tesla и один из основателей OpenAI, предложил метод, кардинально меняющий ......",
-        "thumbnail": "https://i.ytimg.com/vi/DOEDpoSfwww/mqdefault.jpg",
-        "publishedAt": "2026-04-09T17:34:44Z",
-        "channelTitle": "Эдвард Гришин | AI  и автоматизация бизнеса"
-      },
-      {
-        "videoId": "RBcc_ezfh1s",
-        "title": "Claude Code + Karpathy Slides Just Changed Presentations Forever (MARP System)",
-        "description": "Want the full Agentic AI Masterclass? https://www.skool.com/robonuggets/about?ref=c1365a0fede2445292bc2bbd2b9e9359 ......",
-        "thumbnail": "https://i.ytimg.com/vi/RBcc_ezfh1s/mqdefault.jpg",
-        "publishedAt": "2026-04-08T21:40:22Z",
-        "channelTitle": "Jay E | RoboNuggets"
+        "videoId": "xj2nn-RcOcY",
+        "title": "Karpathy&#39;s Auto Research and its application beyond ML #AutoResearch #andrejkarpathy",
+        "description": "Andrej Karpathy open-sourced a project called Auto Research — a system where an AI agent runs experiments in a loop, keeps ......",
+        "thumbnail": "https://i.ytimg.com/vi/xj2nn-RcOcY/mqdefault.jpg",
+        "publishedAt": "2026-04-13T04:30:39Z",
+        "channelTitle": "FluxStack"
       }
     ]
   }

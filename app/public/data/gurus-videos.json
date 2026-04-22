@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-21T06:33:10.475Z",
+  "lastUpdated": "2026-04-22T06:33:44.047Z",
   "totalVideos": 55,
   "gurus": {
     "demis-hassabis": [
@@ -453,20 +453,20 @@
         "channelTitle": "Coder Berojgar "
       },
       {
-        "videoId": "a8qN-sR8Cjs",
-        "title": "andrej-karpathy-skills github: AI Coding Mistakes That Lead to System Failure",
-        "description": "andrej-karpathy-skills: https://github.com/forrestchang/andrej-karpathy-skills AI coding is evolving fast, but unconstrained “vibe ......",
-        "thumbnail": "https://i.ytimg.com/vi/a8qN-sR8Cjs/mqdefault.jpg",
-        "publishedAt": "2026-04-13T12:26:23Z",
-        "channelTitle": "Alex Hitt, The Great Discovery Pro"
+        "videoId": "sKx8g4ilCKQ",
+        "title": "Karparthy Skill + Claude Code is INSANE!  🤯",
+        "description": "Want to make money and save time with AI? Get AI Coaching, Support & Courses ......",
+        "thumbnail": "https://i.ytimg.com/vi/sKx8g4ilCKQ/mqdefault.jpg",
+        "publishedAt": "2026-04-15T00:01:03Z",
+        "channelTitle": "Julian Goldie SEO"
       },
       {
-        "videoId": "xj2nn-RcOcY",
-        "title": "Karpathy&#39;s Auto Research and its application beyond ML #AutoResearch #andrejkarpathy",
-        "description": "Andrej Karpathy open-sourced a project called Auto Research — a system where an AI agent runs experiments in a loop, keeps ......",
-        "thumbnail": "https://i.ytimg.com/vi/xj2nn-RcOcY/mqdefault.jpg",
-        "publishedAt": "2026-04-13T04:30:39Z",
-        "channelTitle": "FluxStack"
+        "videoId": "CFU8DWdaMLc",
+        "title": "Karpathy Found 3 Problems With AI Coding — This File Fixes Them (30K Stars)",
+        "description": "Andrej Karpathy (Tesla Autopilot AI, OpenAI co-founder) identified 3 fundamental problems with LLM coding. A single ......",
+        "thumbnail": "https://i.ytimg.com/vi/CFU8DWdaMLc/mqdefault.jpg",
+        "publishedAt": "2026-04-14T15:02:48Z",
+        "channelTitle": "Hyperautomation Labs"
       }
     ]
   }

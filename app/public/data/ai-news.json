@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-21T06:28:43.434Z",
-  "totalArticles": 66,
+  "lastUpdated": "2026-04-22T06:29:14.751Z",
+  "totalArticles": 64,
   "featured": [
     {
       "title": "Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI",
@@ -33,16 +33,6 @@
       "relevance": 34
     },
     {
-      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
-      "link": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
-      "summary": "AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe and WPP are bringing agentic AI to the center of enterprise marketing operations across creative production and...",
-      "pubDate": "Mon, 20 Apr 2026 13:00:50 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 28
-    },
-    {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
       "link": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
       "summary": "The artificial intelligence coding revolution comes with a catch: it's expensive.\nClaude Code, Anthropic's terminal-based AI agent that can write, debug, and deploy code autonomously, has captured the imagination of software developers worldwide. But its pricing — ranging from $20 to $200 per month ...",
@@ -51,6 +41,16 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 27
+    },
+    {
+      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
+      "link": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
+      "summary": "AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe and WPP are bringing agentic AI to the center of enterprise marketing operations across creative production and...",
+      "pubDate": "Mon, 20 Apr 2026 13:00:50 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 26
     }
   ],
   "all": [
@@ -85,16 +85,6 @@
       "relevance": 34
     },
     {
-      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
-      "link": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
-      "summary": "AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe and WPP are bringing agentic AI to the center of enterprise marketing operations across creative production and...",
-      "pubDate": "Mon, 20 Apr 2026 13:00:50 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 28
-    },
-    {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
       "link": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
       "summary": "The artificial intelligence coding revolution comes with a catch: it's expensive.\nClaude Code, Anthropic's terminal-based AI agent that can write, debug, and deploy code autonomously, has captured the imagination of software developers worldwide. But its pricing — ranging from $20 to $200 per month ...",
@@ -103,6 +93,16 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 27
+    },
+    {
+      "title": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
+      "link": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
+      "summary": "AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe and WPP are bringing agentic AI to the center of enterprise marketing operations across creative production and...",
+      "pubDate": "Mon, 20 Apr 2026 13:00:50 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 26
     },
     {
       "title": "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
@@ -125,10 +125,30 @@
       "relevance": 25
     },
     {
-      "title": "Chinese tech workers are starting to train their AI doubles–and pushing back",
-      "link": "https://www.technologyreview.com/2026/04/20/1136149/chinese-tech-workers-ai-colleagues/",
-      "summary": "Tech workers in China are being instructed by their bosses to train AI agents to replace them—and it’s prompting a wave of soul-searching among otherwise enthusiastic early adopters.  Earlier this month a GitHub project called Colleague Skill, which claimed workers could use it to “distill” their co...",
-      "pubDate": "Mon, 20 Apr 2026 09:00:00 +0000",
+      "title": "SpaceX cuts a deal to maybe buy Cursor for $60 billion",
+      "link": "https://www.theverge.com/science/916427/spacex-cursor-potential-deal-acquisition",
+      "summary": "With an IPO looming for Elon Musk's SpaceX / xAI / X combo platter of companies, SpaceX has announced an odd arrangement to either acquire the automated programming platform Cursor for $60 billion or pay a fee of $10 billion. Buying this startup that's focused on AI coding could help xAI's tools com...",
+      "pubDate": "2026-04-21T22:45:37.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 18
+    },
+    {
+      "title": "3 new ways Ads Advisor is making Google Ads safer and faster",
+      "link": "https://blog.google/products/ads-commerce/ads-advisor-google-ads/",
+      "summary": "Three new agentic safety and policy features integrated into Ads Advisor will help protect and streamline your Google Ads account....",
+      "pubDate": "Tue, 21 Apr 2026 14:30:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 15
+    },
+    {
+      "title": "Agent orchestration",
+      "link": "https://www.technologyreview.com/2026/04/21/1135654/agent-orchestration-ai-artificial-intelligence/",
+      "summary": "When people say AI will speed up drug development or fear that it will bring about mass layoffs, what they have in mind—whether they know it or not—are AI agents. ChatGPT made large language models a mass consumer product. But to change the world, AI needs to do more than just talk back: It needs…...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
@@ -155,6 +175,16 @@
       "relevance": 12
     },
     {
+      "title": "OpenAI’s updated image generator can now pull information from the web",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/916166/openai-chatgpt-images-2",
+      "summary": "An image generated by ChatGPT Images 2.0. | Image: OpenAI\t\n\nOpenAI is rolling out the latest version of its AI-powered image generator with new \"thinking capabilities,\" allowing it to search the web to help it create multiple images from a single prompt. On Tuesday, OpenAI announced that ChatGPT Ima...",
+      "pubDate": "2026-04-21T19:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 11
+    },
+    {
       "title": "Nous Research's NousCoder-14B is an open-source coding model landing right in the Claude Code moment",
       "link": "https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in",
       "summary": "Nous Research, the open-source artificial intelligence startup backed by crypto venture firm Paradigm, released a new competitive programming model on Monday that it says matches or exceeds several larger proprietary systems — trained in just four days using 48 of Nvidia's latest B200 graphics proce...",
@@ -163,6 +193,16 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 11
+    },
+    {
+      "title": "AI research lab NeoCognition lands $40M seed to build agents that learn like humans",
+      "link": "https://techcrunch.com/2026/04/21/ai-research-lab-neocognition-lands-40m-seed-to-build-agents-that-learn-like-humans/",
+      "summary": "Founded by an OSU researcher, the startup is developing AI agents that can become experts in any domain....",
+      "pubDate": "Tue, 21 Apr 2026 19:11:29 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 10
     },
     {
       "title": "From RTX to Spark: NVIDIA Accelerates Gemma 4 for Local Agentic AI",
@@ -175,13 +215,23 @@
       "relevance": 10
     },
     {
-      "title": "NVIDIA and Partners Showcase the Future of AI-Driven Manufacturing at Hannover Messe 2026",
-      "link": "https://blogs.nvidia.com/blog/ai-manufacturing-hannover-messe/",
-      "summary": "Manufacturing is at an inflection point. Across every major industrial economy, the pressure to do more with less — due to faster design cycles, leaner operations and strain on skilled labor pools — is accelerating the shift to AI-driven production.  The question is no longer whether to adopt AI, bu...",
-      "pubDate": "Mon, 20 Apr 2026 08:30:55 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
+      "title": "Resistance",
+      "link": "https://www.technologyreview.com/2026/04/21/1135665/resistance-ai-artificial-intelligence-backlash-protests/",
+      "summary": "Turns out not everyone wants to live in the future that AI companies are building. People from all walks of life are speaking out against rising electricity bills from data centers, disappearing jobs, chatbots’ impact on teen mental health, the military’s use of AI, and copyright infringement—among ...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 9
+    },
+    {
+      "title": "Apple’s John Ternus will run one of the world’s most powerful companies; the job is a minefield",
+      "link": "https://techcrunch.com/2026/04/21/apples-john-ternus-will-run-one-of-the-worlds-most-powerful-companies-the-job-is-a-minefield/",
+      "summary": "Apple's top job comes with almost unrivaled power and money, but it comes with plenty of baggage, too....",
+      "pubDate": "Tue, 21 Apr 2026 20:23:24 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
       "relevance": 9
     },
     {
@@ -205,43 +255,43 @@
       "relevance": 9
     },
     {
-      "title": "Anthropic’s new cybersecurity model could get it back in the government’s good graces",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/914229/tides-turning-anthropic-trump-administration-cybersecurity-mythos-preview",
-      "summary": "The Trump administration has spent nearly two months fighting with AI company Anthropic. It's dubbed the company a \"RADICAL LEFT, WOKE COMPANY\" full of \"Leftwing nut jobs\" and a menace to national security. But some of the ice may reportedly be melting between the two, thanks to Anthropic's buzzy ne...",
-      "pubDate": "2026-04-17T20:14:21.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 8
-    },
-    {
-      "title": "Fortnite developers can make AI characters now — just don&#8217;t try to date them",
-      "link": "https://www.theverge.com/games/914963/fortnite-ai-characters-developers-conversations",
-      "summary": "Following last year's AI-powered Darth Vader in Fortnite that swore in a re-creation of James Earl Jones' voice, Epic Games is now letting Fortnite creators experiment with a new \"conversations\" tool to create AI-powered characters that players can talk and interact with.\n\"Instead of authoring dialo...",
-      "pubDate": "2026-04-20T16:58:39.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
+      "title": "Supercharged scams",
+      "link": "https://www.technologyreview.com/2026/04/21/1135647/supercharged-scams-ai-artificial-intelligence/",
+      "summary": "When ChatGPT was released to the public in late 2022, it opened people’s eyes to how easily generative AI could churn out vast amounts of human-seeming text from simple prompts. This quickly caught the attention of criminals, who soon began using large language models to produce malicious emails—bot...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 7
     },
     {
-      "title": "CEO and CFO suddenly depart AI nuclear power upstart Fermi",
-      "link": "https://techcrunch.com/2026/04/20/fermi-ceo-and-cfo-depart-texas-nuclear-power-ai/",
-      "summary": "The startup, co-founded by former U.S. Energy Secretary Rick Perry, has faced headwinds with its AI campus in Texas....",
-      "pubDate": "Mon, 20 Apr 2026 15:30:19 +0000",
+      "title": "Sam Altman throws shade at Anthropic’s cyber model, Mythos: ‘fear-based marketing’",
+      "link": "https://techcrunch.com/2026/04/21/sam-altman-throws-shade-at-anthropics-cyber-model-mythos-fear-based-marketing/",
+      "summary": "This week, during a podcast appearance, OpenAI CEO Sam Altman called out his competitor's new cybersecurity model, noting that the company was using fear to make its product sound more impressive than it actually is....",
+      "pubDate": "Tue, 21 Apr 2026 18:51:52 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 7
     },
     {
-      "title": "Should you stare into Sam Altman&#8217;s orb before your next date?",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/914385/world-id-tinder-identity-verifying-orb",
-      "summary": "Tinder users who prove they're a real person by visiting an identity-verifying orb will soon be able to get five free boosts in the app - and it's just the latest service to embrace the orb. World, which was co-founded by OpenAI CEO Sam Altman, initially tested Tinder verification using its facial s...",
-      "pubDate": "2026-04-17T20:42:47.000Z",
+      "title": "John Ternus’ first big problem is AI",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/915662/john-ternus-apple-ceo-tim-cook-ai-problem-siri",
+      "summary": "Less than a year ago, Apple made headlines for a lack of AI announcements at its annual WWDC event. Ten months later, the company has announced that hardware executive John Ternus will succeed longtime CEO Tim Cook as chief executive - and the official release doesn't mention AI once. \nTernus, curre...",
+      "pubDate": "2026-04-21T13:37:55.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
+      "relevance": 7
+    },
+    {
+      "title": "NVIDIA and Partners Showcase the Future of AI-Driven Manufacturing at Hannover Messe 2026",
+      "link": "https://blogs.nvidia.com/blog/ai-manufacturing-hannover-messe/",
+      "summary": "Manufacturing is at an inflection point. Across every major industrial economy, the pressure to do more with less — due to faster design cycles, leaner operations and strain on skilled labor pools — is accelerating the shift to AI-driven production.  The question is no longer whether to adopt AI, bu...",
+      "pubDate": "Mon, 20 Apr 2026 08:30:55 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
       "relevance": 7
     },
     {
@@ -255,20 +305,40 @@
       "relevance": 7
     },
     {
-      "title": "Google rolls out Gemini in Chrome in 7 new countries",
-      "link": "https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/",
-      "summary": "Google is rolling out Gemini in Chrome in Australia, Indonesia, Japan, the Philippines, Singapore, South Korea, and Vietnam. The company is rolling this feature out to both desktop and iOS in all of these countries except Japan....",
-      "pubDate": "Mon, 20 Apr 2026 22:00:00 +0000",
+      "title": "LLMs+",
+      "link": "https://www.technologyreview.com/2026/04/21/1135645/llm-large-language-models-ai/",
+      "summary": "When ChatGPT launched as an experimental prototype in late 2022, OpenAI’s chatbot became an everyday everything app for hundreds of millions of people. LLMs like ChatGPT were the new future: The entire tech industry was consumed by the inferno, with companies racing to spin up rival products. The as...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 6
+    },
+    {
+      "title": "Weaponized deepfakes",
+      "link": "https://www.technologyreview.com/2026/04/21/1135652/weaponized-deepfakes-ai-artificial-intelligence/",
+      "summary": "For years, experts have warned that deepfakes—AI-generated videos, images, or audio recordings of people doing or saying things they haven’t actually done in real life—could be deployed in malicious ways.  These dangers are now here. Improvements in deepfake technology, and the widespread availabili...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 6
+    },
+    {
+      "title": "ChatGPT’s new Images 2.0 model is surprisingly good at generating text",
+      "link": "https://techcrunch.com/2026/04/21/chatgpts-new-images-2-0-model-is-surprisingly-good-at-generating-text/",
+      "summary": "ChatGPT Images 2.0, the newest image-generation model from OpenAI, shows just how much AI capabilities have evolved over the last few years....",
+      "pubDate": "Tue, 21 Apr 2026 19:00:00 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 6
     },
     {
-      "title": "Silicon Valley has forgotten what normal people want",
-      "link": "https://www.theverge.com/tldr/915176/nft-metaverse-ai-weirdos",
-      "summary": "The long-term risks of the All-In Podcast, illustrated. | Image: Cath Virginia / The Verge, Turbosquid, Getty Images\t\n\nOne of the most mortifying things about knowing a lot of techies is listening to them tell me excitedly about some very important discovery that they believe they have made. Recentl...",
-      "pubDate": "2026-04-20T20:30:00.000Z",
+      "title": "Ordering with the Starbucks ChatGPT app was a true coffee nightmare",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/915821/starbucks-chatgpt-app-testing",
+      "summary": "You just cannot convince me this is how people order coffee. | Image: Starbucks\t\n\nVenti iced coffee, light skim milk. That's what I get at Starbucks. It is what I have gotten at Starbucks every time I've been to Starbucks for as long as I can remember, other than a brief love affair with the caffe m...",
+      "pubDate": "2026-04-21T16:19:40.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
@@ -285,93 +355,153 @@
       "relevance": 6
     },
     {
-      "title": "Anthropic takes $5B from Amazon and pledges $100B in cloud spending in return",
-      "link": "https://techcrunch.com/2026/04/20/anthropic-takes-5b-from-amazon-and-pledges-100b-in-cloud-spending-in-return/",
-      "summary": "Amazon has made another circular AI deal: It's investing another $5 billion in Anthropic. Anthropic has agreed to spend $100 billion on AWS in return....",
-      "pubDate": "Mon, 20 Apr 2026 23:10:27 +0000",
+      "title": "Meta will record employees’ keystrokes and use it to train its AI models",
+      "link": "https://techcrunch.com/2026/04/21/meta-will-record-employees-keystrokes-and-use-it-to-train-its-ai-models/",
+      "summary": "Meta says that it has a new internal tool that is converting mouse movements and button clicks into data that can train its AI models....",
+      "pubDate": "Tue, 21 Apr 2026 23:45:21 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 5
     },
     {
-      "title": "It’s not just one thing — it’s another thing",
-      "link": "https://techcrunch.com/2026/04/20/ai-writing-its-not-just-this-its-that-barrons/",
-      "summary": "This sentence construction (\"It's not just this — it's that\") has become so common in AI-generated writing that it's no longer just a clue that a piece of writing may be synthetic — it's almost a guarantee....",
-      "pubDate": "Mon, 20 Apr 2026 19:37:07 +0000",
+      "title": "Unauthorized group has gained access to Anthropic’s exclusive cyber tool Mythos, report claims",
+      "link": "https://techcrunch.com/2026/04/21/unauthorized-group-has-gained-access-to-anthropics-exclusive-cyber-tool-mythos-report-claims/",
+      "summary": "Anthropic told TechCrunch it is investigating the claims, but maintains that there is no evidence that its systems have been impacted....",
+      "pubDate": "Tue, 21 Apr 2026 23:26:45 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 5
     },
     {
-      "title": "Can we AI our way to a more sustainable world?",
-      "link": "https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/",
-      "summary": "Doug Burger, sustainability expert Amy Luers, and optimization researcher Ishai Menache examine the global emissions implications of datacenter operations, efficiency gains, and AI's potential across electrification, materials, and food systems.\nThe post Can we AI our way to a more sustainable world...",
-      "pubDate": "Mon, 20 Apr 2026 16:24:01 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
+      "title": "SpaceX is working with Cursor and has an option to buy the startup for $60B",
+      "link": "https://techcrunch.com/2026/04/21/spacex-is-working-with-cursor-and-has-an-option-to-buy-the-startup-for-60-billion/",
+      "summary": "The move could shore up weaknesses at each company, but it also reveals them. Neither Cursor nor xAI has proprietary models that can match the leading offerings from Anthropic and OpenAI — the same companies now competing directly with Cursor for the developer market....",
+      "pubDate": "Tue, 21 Apr 2026 22:58:22 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "10 Things That Matter in AI Right Now",
+      "link": "https://www.technologyreview.com/2026/04/21/1135643/10-ai-artificial-intelligence-trends-technologies-research-2026/",
+      "summary": "...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
       "category": "research",
       "relevance": 5
     },
     {
-      "title": "NSA spies are reportedly using Anthropic’s Mythos, despite Pentagon feud",
-      "link": "https://techcrunch.com/2026/04/20/nsa-spies-are-reportedly-using-anthropics-mythos-despite-pentagon-feud/",
-      "summary": "NSA is said to be using Anthropic's restricted Mythos AI model....",
-      "pubDate": "Mon, 20 Apr 2026 16:06:21 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
+      "title": "World models",
+      "link": "https://www.technologyreview.com/2026/04/21/1135650/world-models-ai-artificial-intelligence/",
+      "summary": "AI systems have already gained impressive mastery over the digital world, but the physical world is still humanity’s domain. As it turns out, building an AI system that can compose a novel or code an app is far easier than developing one that can fold laundry or navigate a city street. To get there,...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 5
     },
     {
-      "title": "OpenAI’s former Sora boss is leaving",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/914463/openai-sora-bill-peebles-kevin-weil-leaving-departing",
-      "summary": "Last month, OpenAI gave up on its Sora video generation tool, and on Friday, the Sora team's leader, Bill Peebles, announced that he is leaving the company. OpenAI has been shifting its priorities as part of an effort to avoid \"side quests,\" and Peebles' departure is just one of many recent changes ...",
-      "pubDate": "2026-04-17T21:13:25.000Z",
+      "title": "China’s open-source bet",
+      "link": "https://www.technologyreview.com/2026/04/21/1135658/china-open-source-models-ai-artificial-intelligence/",
+      "summary": "Silicon Valley AI companies follow a familiar playbook: Keep the secret sauce behind an API, and charge for every drop. China’s leading AI labs are playing a different game: They ship models as downloadable “open-weight” packages. This lets developers adapt the models and run them on their own hardw...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "Artificial scientists",
+      "link": "https://www.technologyreview.com/2026/04/21/1135663/artificial-scientists-ai-artificial-intelligence/",
+      "summary": "AI companies frequently invoke the possibility of AI-enabled scientific discovery as a justification for their existence: If the technology eventually cures cancer and solves climate change, then all the carbon emissions and slop videos will have been well worth it.  Already, LLMs can assist scienti...",
+      "pubDate": "Tue, 21 Apr 2026 20:45:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "AI backlash is coming for elections",
+      "link": "https://www.theverge.com/policy/916210/ai-midterm-elections-data-centers-jobs",
+      "summary": "Ask Americans how they feel about AI and most say they have concerns. Communities have mounted resistance to data center projects, stalling them across the US. On social media, anger at AI companies and executives is unrestrained - sometimes to the point of condoning violence.\nBut look at the issues...",
+      "pubDate": "2026-04-21T19:00:05.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
       "relevance": 5
     },
     {
-      "title": "Dairy Queen is putting an AI chatbot in its drive-thrus",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/913928/dairy-queen-ai-drive-thru-presto",
-      "summary": "Dairy Queen is becoming the latest fast food chain to get in on AI, as it's bringing a chatbot to dozens of its drive-thrus across the US and Canada. It aims to help speed up drive-thru service and \"encourage customers to add more food to their orders,\" according to The Wall Street Journal.\nFollowin...",
-      "pubDate": "2026-04-17T15:46:37.000Z",
+      "title": "Celebrities will be able to find and request removal of AI deepfakes on YouTube",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/915872/celebrities-will-be-able-to-find-and-request-removal-of-ai-deepfakes-on-youtube",
+      "summary": "YouTube is expanding its AI deepfake monitoring feature to Hollywood - meaning some celebrity AI videos could soon disappear.\nThe platform's likeness detection feature searches YouTube for AI deepfake content and flags it for public figures enrolled in the program. Public figures can use it to keep ...",
+      "pubDate": "2026-04-21T17:30:24.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
-      "relevance": 4
+      "relevance": 5
     },
     {
-      "title": "Treating enterprise AI as an operating layer",
-      "link": "https://www.technologyreview.com/2026/04/16/1135554/treating-enterprise-ai-as-an-operating-layer/",
-      "summary": "There’s a fault line running through enterprise AI, and it’s not the one getting the most attention. The public conversation still tracks foundation models and benchmarks—GPT versus Gemini, reasoning scores, and marginal capability gains. But in practice, the more durable advantage is structural: wh...",
-      "pubDate": "Thu, 16 Apr 2026 13:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 4
+      "title": "Clarifai deletes 3 million photos that OkCupid provided to train facial recognition AI, report says",
+      "link": "https://techcrunch.com/2026/04/21/clarifai-okcupid-facial-recognition-ai-ftc-settlement/",
+      "summary": "The photo deletion comes after an FTC settlement with Clarifai. The company had asked OkCupid — whose executives had invested in Clarifai — to share data in 2014, according to court documents....",
+      "pubDate": "Tue, 21 Apr 2026 17:11:01 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
     },
     {
-      "title": "Redefining the future of software engineering",
-      "link": "https://www.technologyreview.com/2026/04/14/1134397/redefining-the-future-of-software-engineering/",
-      "summary": "Software engineering has experienced two seismic shifts this century. First was the rise of the open source movement, which gradually made code accessible to developers and engineers everywhere. Second, the adoption of development operations (DevOps) and agile methodologies took software from siloed...",
-      "pubDate": "Tue, 14 Apr 2026 18:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 4
+      "title": "AI Dungeon maker Latitude unveils Voyage, a platform for creating AI-powered RPGs",
+      "link": "https://techcrunch.com/2026/04/21/voyage-is-an-ai-rpg-platform-for-creating-custom-gaming-worlds-with-ai-generated-npc-interactions/",
+      "summary": "Latitude's new AI-native platform, Voyage, aims to help gamers create their very own role-playing game....",
+      "pubDate": "Tue, 21 Apr 2026 16:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
     },
     {
-      "title": "Want to understand the current state of AI? Check out these charts.",
-      "link": "https://www.technologyreview.com/2026/04/13/1135675/want-to-understand-the-current-state-of-ai-check-out-these-charts/",
-      "summary": "If you’re following AI news, you’re probably getting whiplash. AI is a gold rush. AI is a bubble. AI is taking your job. AI can’t even read a clock. The 2026 AI Index from Stanford University’s Institute for Human-Centered Artificial Intelligence, AI’s annual report card, comes out today and cuts th...",
-      "pubDate": "Mon, 13 Apr 2026 13:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
+      "title": "Bond, a new social media platform, wants to use AI to help you kick your doomscrolling habit",
+      "link": "https://techcrunch.com/2026/04/21/bond-social-media-platform-ai-memories-kick-doomscrolling-habit/",
+      "summary": "Bond wants you to get off the couch and get back into the real world, its creator says. The new platform's AI system is designed to motivate users to do things away from the app....",
+      "pubDate": "Tue, 21 Apr 2026 15:24:29 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Yelp is making its AI chatbot way more useful",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/915626/yelp-ai-assistant-chatbot-major-upgrade",
+      "summary": "Yelp is giving its chatbot assistant a major upgrade, turning the platform into something closer to a digital concierge with a suite of new features designed for \"getting things done.\" The move, one of several AI-focused updates in recent months, is part of a broader industry push to make AI more re...",
+      "pubDate": "2026-04-21T11:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Fortnite developers can make AI characters now — just don&#8217;t try to date them",
+      "link": "https://www.theverge.com/games/914963/fortnite-ai-characters-developers-conversations",
+      "summary": "Following last year's AI-powered Darth Vader in Fortnite that swore in a re-creation of James Earl Jones' voice, Epic Games is now letting Fortnite creators experiment with a new \"conversations\" tool to create AI-powered characters that players can talk and interact with.\n\"Instead of authoring dialo...",
+      "pubDate": "2026-04-20T16:58:39.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Silicon Valley has forgotten what normal people want",
+      "link": "https://www.theverge.com/tldr/915176/nft-metaverse-ai-weirdos",
+      "summary": "The long-term risks of the All-In Podcast, illustrated. | Image: Cath Virginia / The Verge, Turbosquid, Getty Images\t\n\nOne of the most mortifying things about knowing a lot of techies is listening to them tell me excitedly about some very important discovery that they believe they have made. Recentl...",
+      "pubDate": "2026-04-20T20:30:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
       "relevance": 4
     },
     {
@@ -385,43 +515,13 @@
       "relevance": 4
     },
     {
-      "title": "OpenAI’s existential questions",
-      "link": "https://techcrunch.com/2026/04/19/openais-existential-questions/",
-      "summary": "On the latest episode of Equity, we discuss OpenAI's latest acquisitions and whether they address \"two big existential problems\" for the company....",
-      "pubDate": "Sun, 19 Apr 2026 21:24:06 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "Cloud development platform Vercel was hacked",
-      "link": "https://www.theverge.com/tech/914723/vercel-hacked",
-      "summary": "Vercel, a major development platform that hosts and deploys web apps, was compromised, and the hackers are attempting to sell stolen data. A person claiming to be a member of ShinyHunters, which was behind the recent hack of Rockstar Games, posted some data online, including employee names, email ad...",
-      "pubDate": "2026-04-19T19:54:52.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "The 12-month window",
-      "link": "https://techcrunch.com/2026/04/19/the-12-month-window/",
-      "summary": "A lot of AI startups exist partly because the foundation models haven't expanded into their category yet. As many jokingly acknowledge, that won't last forever....",
-      "pubDate": "Sun, 19 Apr 2026 19:30:00 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "TechCrunch Mobility: Uber enters its assetmaxxing era",
-      "link": "https://techcrunch.com/2026/04/19/techcrunch-mobility-uber-enters-its-assetmaxxing-era/",
-      "summary": "Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, how AI is playing a part....",
-      "pubDate": "Sun, 19 Apr 2026 16:01:00 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
+      "title": "Can we AI our way to a more sustainable world?",
+      "link": "https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/",
+      "summary": "Doug Burger, sustainability expert Amy Luers, and optimization researcher Ishai Menache examine the global emissions implications of datacenter operations, efficiency gains, and AI's potential across electrification, materials, and food systems.\nThe post Can we AI our way to a more sustainable world...",
+      "pubDate": "Mon, 20 Apr 2026 16:24:01 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
       "relevance": 3
     },
     {
@@ -445,16 +545,6 @@
       "relevance": 2
     },
     {
-      "title": "Making AI operational in constrained public sector environments",
-      "link": "https://www.technologyreview.com/2026/04/16/1135216/making-ai-operational-in-constrained-public-sector-environments/",
-      "summary": "The AI boom has hit across industries, and public sector organizations are facing pressure to accelerate adoption. At the same time, government institutions face distinct constraints around security, governance, and operations that set them apart from their business counterparts. For this reason, pu...",
-      "pubDate": "Thu, 16 Apr 2026 13:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 2
-    },
-    {
       "title": "National Robotics Week — Latest Physical AI Research, Breakthroughs and Resources",
       "link": "https://blogs.nvidia.com/blog/national-robotics-week-2026/",
       "summary": "This National Robotics Week, NVIDIA is highlighting the breakthroughs that are bringing AI into the physical world — as well as the growing wave of robots transforming industries, from agricultural and manufacturing to energy and beyond. Advancements in robot learning, simulation and foundation mode...",
@@ -473,36 +563,6 @@
       "sourceLogo": "🔷",
       "category": "research",
       "relevance": 2
-    },
-    {
-      "title": "The RAM shortage could last years",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/914672/the-ram-shortage-could-last-years",
-      "summary": "According to Nikkei Asia, even as suppliers ramp up DRAM production, manufacturers are only expected to meet 60 percent of demand by the end of 2027. SK Group chairman has even said that shortages could last until 2030.\nThe world's largest memory makers - Samsung, SK Hynix, and Micron - are all work...",
-      "pubDate": "2026-04-18T21:08:45.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 1
-    },
-    {
-      "title": "AI chip startup Cerebras files for IPO",
-      "link": "https://techcrunch.com/2026/04/18/ai-chip-startup-cerebras-files-for-ipo/",
-      "summary": "In recent months, the company announced an agreement with Amazon Web Services to use Cerebras chips in Amazon data centers, as well as a deal with OpenAI reportedly worth more than $10 billion....",
-      "pubDate": "Sat, 18 Apr 2026 19:19:11 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 1
-    },
-    {
-      "title": "Anthropic’s relationship with the Trump administration seems to be thawing",
-      "link": "https://techcrunch.com/2026/04/18/anthropics-relationship-with-the-trump-administration-seems-to-be-thawing/",
-      "summary": "Despite recently being designated a supply-chain risk by the Pentagon, Anthropic is still talking to high-level members of the Trump administration....",
-      "pubDate": "Sat, 18 Apr 2026 14:56:48 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 1
     },
     {
       "title": "New ways to create personalized images in the Gemini app",
@@ -545,36 +605,6 @@
       "relevance": 1
     },
     {
-      "title": "This charming gadget writes bad AI poetry",
-      "link": "https://www.theverge.com/gadgets/913981/poetry-camera-ai-hands-on",
-      "summary": "I kind of wish it just took pictures.\t\n\nI've never been as charmed and frustrated by one gadget as I have with the Poetry Camera.\nIt's a delightful object. White and cherry red with a color-matched woven strap, it looks playful and adorably lo-fi. If I saw it on a store shelf, I'd absolutely pick it...",
-      "pubDate": "2026-04-17T17:30:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 0
-    },
-    {
-      "title": "The ‘AI is inevitable’ trap",
-      "link": "https://www.theverge.com/podcast/913792/ai-divide-sam-altman-vergecast",
-      "summary": "In the latest sign of AI silly season, Allbirds, the shoe company, told the world it was now an AI company and briefly managed to septuple its stock price. The Newbird AI story is really just one of a bunch of things this week that made us wonder: have we reached the peak of AI, or at least a peak o...",
-      "pubDate": "2026-04-17T13:24:34.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 0
-    },
-    {
-      "title": "How robots learn: A brief, contemporary history",
-      "link": "https://www.technologyreview.com/2026/04/17/1135416/how-robots-learn-brief-contemporary-history/",
-      "summary": "Roboticists used to dream big but build small. They’d hope to match or exceed the extraordinary complexity of the human body, and then they’d spend their career refining robotic arms for auto plants. Aim for C-3P0; end up with the Roomba.  The real ambition for many of these researchers was the robo...",
-      "pubDate": "Fri, 17 Apr 2026 10:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
       "title": "No Need for Space Gear — Capcom’s ‘PRAGMATA’ Joins GeForce NOW on Launch Day",
       "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-pragmata/",
       "summary": "Head straight for orbit with GeForce NOW — no space helmet required.  PRAGMATA, Capcom’s long-awaited sci-fi action adventure, touches down on GeForce NOW the same day it launches worldwide. The futuristic journey through a cold lunar station in the near future can be streamed instantly from the clo...",
@@ -582,16 +612,6 @@
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 0
-    },
-    {
-      "title": "Why having “humans in the loop” in an AI war is an illusion",
-      "link": "https://www.technologyreview.com/2026/04/16/1136029/humans-in-the-loop-ai-war-illusion/",
-      "summary": "The availability of artificial intelligence for use in warfare is at the center of a legal battle between Anthropic and the Pentagon. This debate has become urgent, with AI playing a bigger role than ever before in the current conflict with Iran. AI is no longer just helping humans analyze intellige...",
-      "pubDate": "Thu, 16 Apr 2026 12:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
       "relevance": 0
     },
     {
@@ -605,26 +625,6 @@
       "relevance": 0
     },
     {
-      "title": "Building trust in the AI era with privacy-led UX",
-      "link": "https://www.technologyreview.com/2026/04/15/1135530/building-trust-in-the-ai-era-with-privacy-led-ux/",
-      "summary": "The practice of privacy-led user experience (UX) is a design philosophy that treats transparency around data collection and usage as an integral part of the customer relationship. An undertapped opportunity in digital marketing, privacy-led UX treats user consent not as a tick-box compliance exercis...",
-      "pubDate": "Wed, 15 Apr 2026 06:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Coming soon: 10 Things That Matter in AI Right Now",
-      "link": "https://www.technologyreview.com/2026/04/14/1135298/coming-soon-10-things-that-matter-in-ai-right-now/",
-      "summary": "Each year we compile our 10 Breakthrough Technologies list, featuring our educated predictions for which technologies will have the biggest impact on how we live and work. This year, however, we had a dilemma. While our final picks encompass all our core coverage areas (energy, AI, and biotech, plus...",
-      "pubDate": "Tue, 14 Apr 2026 11:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
       "title": "Bringing people together at AI for the Economy Forum",
       "link": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/ai-economy-forum/",
       "summary": "Google is bringing people together in Washington D.C. at our AI for the Economy Forum....",
@@ -632,16 +632,6 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Why opinion on AI is so divided",
-      "link": "https://www.technologyreview.com/2026/04/13/1135720/why-opinion-on-ai-is-so-divided/",
-      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. In an industry that doesn’t stand still, Stanford’s AI Index, an annual roundup of key results and trends, is a chance to take a breath. (It’s a marathon, not a s...",
-      "pubDate": "Mon, 13 Apr 2026 15:48:28 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
       "relevance": 0
     },
     {
@@ -692,16 +682,6 @@
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Watch James Manyika talk AI and creativity with LL COOL J.",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/ll-cool-j-dialogues/",
-      "summary": "In the latest episode of our Dialogues on Technology and Society series, LL COOL J sits down with James Manyika....",
-      "pubDate": "Thu, 26 Mar 2026 17:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
       "relevance": 0
     },
     {

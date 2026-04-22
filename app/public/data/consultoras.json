@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-21T06:33:12.457Z",
+  "lastUpdated": "2026-04-22T06:33:46.569Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -44,15 +44,6 @@
       "score": 8
     },
     {
-      "title": "Australia’s AI moment: Building Asia–Pacific’s compute hub",
-      "link": "https://www.mckinsey.com/au/our-insights/australias-ai-moment-building-asia-pacifics-compute-hub",
-      "description": "Australia has an opportunity to become an Asia–Pacific AI hub, unlocking economic growth and productivity—though a number of constraints need to be addressed....",
-      "pubDate": "Wed, 15 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 8
-    },
-    {
       "title": "Paving the road for AI agents: Interview with Factory CEO Matan Grinberg",
       "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/paving-the-road-for-ai-agents-interview-with-factory-ceo-matan-grinberg",
       "description": "Factory CEO and cofounder Matan Grinberg discusses why scaling AI in software engineering depends less on flashy demos and more on changes to the operating model and how teams work....",
@@ -60,6 +51,15 @@
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 7
+    },
+    {
+      "title": "Australia’s AI moment: Building Asia–Pacific’s compute hub",
+      "link": "https://www.mckinsey.com/au/our-insights/australias-ai-moment-building-asia-pacifics-compute-hub",
+      "description": "Australia has an opportunity to become an Asia–Pacific AI hub, unlocking economic growth and productivity—though a number of constraints need to be addressed....",
+      "pubDate": "Wed, 15 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 6
     },
     {
       "title": "Can the US sustain its competitive edge?",
@@ -71,6 +71,33 @@
       "score": 6
     },
     {
+      "title": "Seizing the advantage in shipbuilding amid geopolitical shifts",
+      "link": "https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/seizing-the-advantage-in-shipbuilding-amid-geopolitical-shifts",
+      "description": "Naval and commercial shipbuilders are navigating geopolitical shifts that pose both risks and opportunities. A proven playbook can help shipbuilders build resilience and gain competitive advantages....",
+      "pubDate": "Tue, 21 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "How leaders can help their organizations metabolize strain",
+      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-leaders-can-help-their-organizations-metabolize-strain",
+      "description": "Trauma-informed leadership recognizes that sustained performance depends less on eliminating stress and more on managing how it affects attention, judgment, and relationships....",
+      "pubDate": "Tue, 21 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Reinventing marketing workflows with agentic AI",
+      "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/reinventing-marketing-workflows-with-agentic-ai",
+      "description": "For marketers, AI-enabled workflows will fuel new levels of growth, speed, and efficiency. What is your activation plan?...",
+      "pubDate": "Tue, 21 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
       "title": "Incentive pricing for batteries: Scaling the Western supply chain",
       "link": "https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/incentive-pricing-for-batteries-scaling-the-western-supply-chain",
       "description": "A set of incentive pricing mechanisms can help guide investments, without prescribing specific technologies or companies, and make Western battery projects more competitive across the value chain....",
@@ -80,18 +107,18 @@
       "score": 5
     },
     {
-      "title": "",
-      "link": "https://www.mckinsey.com/cn/our-insights/our-insights/mckinsey-china-week-2026",
-      "description": "On April 9 we convened McKinsey China Week 2026 in Shanghai under the theme: \"The Next China is Still China.\"...",
+      "title": "The next age of fintech: AI, digital assets, and new paths to success",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/the-next-age-of-fintech-ai-digital-assets-and-new-paths-to-success",
+      "description": "Fintechs are now generating $650 billion in revenue, and the most successful ones are balancing scale, profitability, and new-found regulatory maturity....",
       "pubDate": "Mon, 20 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "The next age of fintech: AI, digital assets, and new paths to success",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/the-next-age-of-fintech-ai-digital-assets-and-new-paths-to-success",
-      "description": "Fintechs are now generating $650 billion in revenue, and the most successful ones are balancing scale, profitability, and new-found regulatory maturity....",
+      "title": "",
+      "link": "https://www.mckinsey.com/cn/our-insights/our-insights/mckinsey-china-week-2026",
+      "description": "On April 9 we convened McKinsey China Week 2026 in Shanghai under the theme: \"The Next China is Still China.\"...",
       "pubDate": "Mon, 20 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
@@ -111,24 +138,6 @@
       "link": "https://www.mckinsey.com/industries/industrials/our-insights/turning-humanoid-supply-chain-constraints-into-billion-dollar-wins",
       "description": "The robotics supply chain is the most underappreciated constraint on humanoid scale. But for companies that move now, it is the most significant opportunity in a generation....",
       "pubDate": "Fri, 17 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Goldman Sachs’ David Solomon on adapting to disruption",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/goldman-sachs-david-solomon-on-adapting-to-disruption",
-      "description": "The chair and CEO reflects on an AI-fueled future, how he got through tough challenges early in his tenure, and how he sees the future....",
-      "pubDate": "Wed, 15 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Beyond $1 trillion: The next chapter for insurance and private capital",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/beyond-one-trillion-dollar-the-next-chapter-for-insurance-and-private-capital",
-      "description": "Private-capital-backed insurers, whose assets totaled nearly $1.5 trillion in 2025, have reshaped the life insurance industry over the past decade. As growth matures and returns compress, sustaining a...",
-      "pubDate": "Wed, 15 Apr 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
@@ -161,6 +170,24 @@
       "score": 4
     },
     {
+      "title": "Goldman Sachs’ David Solomon on adapting to disruption",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/goldman-sachs-david-solomon-on-adapting-to-disruption",
+      "description": "The chair and CEO reflects on an AI-fueled future, how he got through tough challenges early in his tenure, and how he sees the future....",
+      "pubDate": "Wed, 15 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Beyond $1 trillion: The next chapter for insurance and private capital",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/beyond-one-trillion-dollar-the-next-chapter-for-insurance-and-private-capital",
+      "description": "Private-capital-backed insurers, whose assets totaled nearly $1.5 trillion in 2025, have reshaped the life insurance industry over the past decade. As growth matures and returns compress, sustaining a...",
+      "pubDate": "Wed, 15 Apr 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
       "title": "Shaping the future of Japan’s pharmaceutical operations",
       "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/shaping-the-future-of-japans-pharmaceutical-operations",
       "description": "Japan’s pharma industry, a global innovation leader, faces strain from shifting demand, supply vulnerabilities, and digital disruption. Eight priorities can position it to lead in operations....",
@@ -177,33 +204,6 @@
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3
-    },
-    {
-      "title": "State of Food and Beverage: The choices CPG leaders can make to renew growth",
-      "link": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/state-of-food-and-beverage",
-      "description": "The slow erosion of value in the consumer goods industry is now speeding up. Leaders need to reshape their portfolios, sharpen their value propositions, and fully harness tech and AI—or risk ceding gr...",
-      "pubDate": "Wed, 08 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "The signal in the sell-off: Wealth management’s value in the AI era",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/the-signal-in-the-sell-off-wealth-managements-value-in-the-ai-era",
-      "description": "As AI automates technical planning and other tasks, wealth managers must pivot from producing outputs to delivering outcomes anchored in human trust and defensible control points....",
-      "pubDate": "Wed, 08 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "B2B pricing: Navigating the next phase of the AI revolution",
-      "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-pricing-navigating-the-next-phase-of-the-ai-revolution",
-      "description": "Agentic AI promises a fundamental shift in how B2B pricing is set, managed, and optimized to drive a step change in both efficiency and effectiveness....",
-      "pubDate": "Tue, 07 Apr 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
     }
   ]
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-22T11:56:07.357Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-22T18:02:52.600Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Jensen Huang (NVIDIA)\n\n\"NVIDIA&#39;s plan: 100 AI agents per employee\"\n\n▶️ youtube.com/watch?v=rn9QW5gPhaM",
+    "type": "recent_video",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=rn9QW5gPhaM",
-    "imageUrl": "https://i.ytimg.com/vi/rn9QW5gPhaM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

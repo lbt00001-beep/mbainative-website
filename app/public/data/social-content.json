@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-22T06:58:02.741Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-22T11:56:07.357Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "news",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot...",
+    "type": "guru_quote",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Jensen Huang (NVIDIA)\n\n\"NVIDIA&#39;s plan: 100 AI agents per employee\"\n\n▶️ youtube.com/watch?v=rn9QW5gPhaM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=rn9QW5gPhaM",
+    "imageUrl": "https://i.ytimg.com/vi/rn9QW5gPhaM/mqdefault.jpg"
   }
 }

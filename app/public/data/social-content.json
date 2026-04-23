@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-04-22T18:02:52.600Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-04-23T07:02:04.498Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 13,
-    "title": "Datos como activo estratégico",
-    "icon": "📊"
+    "id": 14,
+    "title": "Global desde el día uno",
+    "icon": "🌐"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
+    "type": "news",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the ...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "jensenhuang"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
-    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-04-23T18:09:25.292Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-04-24T07:05:13.564Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 14,
-    "title": "Global desde el día uno",
-    "icon": "🌐"
+    "id": 15,
+    "title": "Mejora continua automatizada",
+    "icon": "🔄"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
+    "type": "news",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot,...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "jensenhuang"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
-    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

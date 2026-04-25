@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-25T06:21:30.267Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-25T11:34:35.990Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "news",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the compan...",
+    "type": "guru_quote",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 gary-marcus\n\n\"What 11 Jobs Can AI Not Replace in 2026?\"\n\n▶️ youtube.com/watch?v=ZMmuivGqiiM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "garymarcus"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=ZMmuivGqiiM",
+    "imageUrl": "https://i.ytimg.com/vi/ZMmuivGqiiM/mqdefault.jpg"
   }
 }

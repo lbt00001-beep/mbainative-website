@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-26T11:35:24.995Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-26T17:43:27.074Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 Fei-Fei Li (Stanford)\n\n\"AI&#39;s Impact: Human Agency &amp; the Future of Work #shorts\"\n\n▶️ youtube.com/watch?v=WcWSs6IhvbI",
+    "type": "recent_video",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "feifeili"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=WcWSs6IhvbI",
-    "imageUrl": "https://i.ytimg.com/vi/WcWSs6IhvbI/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-28T12:22:06.796Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-28T18:21:15.190Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Andrew Ng (Landing AI)\n\n\"AI Agents Full Course 2026: Master Agentic AI (2 Hours)\"\n\n▶️ youtube.com/watch?v=EsTrWCV0Ph4",
+    "type": "recent_video",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrewng"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=EsTrWCV0Ph4",
-    "imageUrl": "https://i.ytimg.com/vi/EsTrWCV0Ph4/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

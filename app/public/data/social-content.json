@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-30T12:11:23.485Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-04-30T18:13:32.378Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Yoshua Bengio\n\n\"Global AI News: Yoshua Bengio’s Impact &amp; the Future of Artificial Intelligence Worldwide\"\n\n▶️ youtube.com/watch?v=MKpd60uEBjk",
+    "type": "recent_video",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yoshuabengio"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=MKpd60uEBjk",
-    "imageUrl": "https://i.ytimg.com/vi/MKpd60uEBjk/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

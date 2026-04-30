@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-04-30T07:29:36.389Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-04-30T12:11:23.485Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "news",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbo...",
+    "type": "guru_quote",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Yoshua Bengio\n\n\"Global AI News: Yoshua Bengio’s Impact &amp; the Future of Artificial Intelligence Worldwide\"\n\n▶️ youtube.com/watch?v=MKpd60uEBjk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=MKpd60uEBjk",
+    "imageUrl": "https://i.ytimg.com/vi/MKpd60uEBjk/mqdefault.jpg"
   }
 }

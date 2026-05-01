@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-01T11:54:11.100Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-05-01T18:02:29.345Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Sam Altman (OpenAI)\n\n\"Elon Musk vs. Sam Altman, AI Job Loss, and OpenAI’s $852B Valuation | EP #247\"\n\n▶️ youtube.com/watch?v=5ak26W2YNRY",
+    "type": "recent_video",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "samaltman"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=5ak26W2YNRY",
-    "imageUrl": "https://i.ytimg.com/vi/5ak26W2YNRY/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

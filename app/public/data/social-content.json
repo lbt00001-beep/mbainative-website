@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-02T11:39:39.424Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-05-02T17:50:26.606Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 Dario Amodei (Anthropic)\n\n\"Pentagon Threatens to End Anthropic Work in Feud Over AI Terms\"\n\n▶️ youtube.com/watch?v=qHV714ZxLA8",
+    "type": "recent_video",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=qHV714ZxLA8",
-    "imageUrl": "https://i.ytimg.com/vi/qHV714ZxLA8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

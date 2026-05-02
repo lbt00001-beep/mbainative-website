@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-05-01T18:02:29.345Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-05-02T07:02:39.893Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 2,
-    "title": "Los empleados de silicio",
-    "icon": "🤖"
+    "id": 3,
+    "title": "Organización por tareas, no por puestos",
+    "icon": "📋"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
+    "type": "news",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "jensenhuang"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
-    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

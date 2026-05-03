@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-03T07:20:50.547Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-03T11:37:32.542Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "news",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Sl...",
+    "type": "guru_quote",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Dario Amodei (Anthropic)\n\n\"AI vs JOBS : What no one is saying\"\n\n▶️ youtube.com/watch?v=h3vJfoVeq98",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=h3vJfoVeq98",
+    "imageUrl": "https://i.ytimg.com/vi/h3vJfoVeq98/mqdefault.jpg"
   }
 }

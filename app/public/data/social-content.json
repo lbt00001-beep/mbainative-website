@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-08T06:54:00.109Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-08T12:06:29.497Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "news",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot...",
+    "type": "guru_quote",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Sam Altman (OpenAI)\n\n\"Will AI Actually Steal Your Job? The Truth About the Future of Work\"\n\n▶️ youtube.com/watch?v=1Mw_mffYq3A",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "samaltman"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=1Mw_mffYq3A",
+    "imageUrl": "https://i.ytimg.com/vi/1Mw_mffYq3A/mqdefault.jpg"
   }
 }

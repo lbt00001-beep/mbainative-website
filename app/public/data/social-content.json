@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-10T11:44:36.079Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-05-10T17:54:33.158Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Demis Hassabis (DeepMind)\n\n\"The future of intelligence | Demis Hassabis (Co-founder and CEO of DeepMind)\"\n\n▶️ youtube.com/watch?v=PqVbypvxDto",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=PqVbypvxDto",
-    "imageUrl": "https://i.ytimg.com/vi/PqVbypvxDto/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

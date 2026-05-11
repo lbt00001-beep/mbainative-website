@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-11T13:42:02.258Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-05-11T19:00:07.991Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"[DAILY NEWS RUNDOWN] The Enterprise Code Red: OpenAI’s Pivot, Microsoft’s Superintelligence...\"\n\n▶️ youtube.com/watch?v=dr8x0NSTcqQ",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Jensen Huang\n\n\"Jensen Huang: AI Digital Workers Are Here To Solve Labor Shortages! #shorts\"\n\n▶️ youtube.com/watch?v=uMUnXvy6rdo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "mustafasuleyman"
+      "UltimaHora",
+      "jensenhuang"
     ],
-    "url": "https://youtube.com/watch?v=dr8x0NSTcqQ",
-    "imageUrl": "https://i.ytimg.com/vi/dr8x0NSTcqQ/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uMUnXvy6rdo",
+    "imageUrl": "https://i.ytimg.com/vi/uMUnXvy6rdo/mqdefault.jpg"
   }
 }

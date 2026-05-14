@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-14T07:44:59.344Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-14T12:22:43.940Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 15,
     "title": "Mejora continua automatizada",
     "icon": "🔄"
   },
   "post": {
-    "type": "news",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot,...",
+    "type": "guru_quote",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🧠 Jensen Huang (NVIDIA)\n\n\"Jensen Huang: Every Software Company Will Become Agentic\"\n\n▶️ youtube.com/watch?v=NH1D1z2aOlk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=NH1D1z2aOlk",
+    "imageUrl": "https://i.ytimg.com/vi/NH1D1z2aOlk/mqdefault.jpg"
   }
 }

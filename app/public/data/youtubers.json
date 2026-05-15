@@ -1,11 +1,18 @@
 {
-  "lastUpdated": "2026-04-22T06:42:04.883Z",
+  "lastUpdated": "2026-05-15T08:01:05.799Z",
   "youtubers": {
     "lex-fridman": {
       "name": "Lex Fridman",
       "description": "Investigador de MIT. Entrevistas profundas sobre IA, ciencia y filosofía.",
       "photo": "/images/gurus/lex-fridman.jpg",
       "videos": [
+        {
+          "videoId": "nepKKz-MzFM",
+          "title": "FFmpeg: The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast #496",
+          "description": "Jean-Baptiste Kempf is lead developer of VLC and president of VideoLAN. Kieran Kunhya is a longtime FFmpeg contributor, codec engineer, and the person behind the now-infamous FFmpeg account on X.\nThan...",
+          "thumbnail": "https://i.ytimg.com/vi/nepKKz-MzFM/hqdefault.jpg",
+          "publishedAt": "2026-05-06T22:03:16Z"
+        },
         {
           "videoId": "iKx3gAODybU",
           "title": "Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495",
@@ -68,13 +75,6 @@
           "description": "Paul Rosolie is a naturalist, explorer, author of a new book titled Junglekeeper, and is someone who has dedicated his life to protecting the Amazon rainforest.\nThank you for listening ❤ Check out our...",
           "thumbnail": "https://i.ytimg.com/vi/Z-FRe5AKmCU/hqdefault.jpg",
           "publishedAt": "2026-01-13T20:06:59Z"
-        },
-        {
-          "videoId": "14OPT6CcsH4",
-          "title": "Infinity, Paradoxes, Gödel Incompleteness & the Mathematical Multiverse | Lex Fridman Podcast #488",
-          "description": "Joel David Hamkins is a mathematician and philosopher specializing in set theory, the foundations of mathematics, and the nature of infinity, and he's the #1 highest-rated user on MathOverflow. He is ...",
-          "thumbnail": "https://i.ytimg.com/vi/14OPT6CcsH4/hqdefault.jpg",
-          "publishedAt": "2025-12-31T21:26:17Z"
         }
       ]
     }

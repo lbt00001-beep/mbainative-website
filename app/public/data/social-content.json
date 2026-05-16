@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-16T07:17:04.947Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-16T11:44:59.289Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "news",
-    "content": "💡 Principio #17: Innovación acelerada\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the com...",
+    "type": "guru_quote",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Microsoft reorganizes for AI supremacy, Anthropic defies Pentagon, and NVIDIA bets $1 trillion\"\n\n▶️ youtube.com/watch?v=Z11wUXeG7iI",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "mustafasuleyman"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Z11wUXeG7iI",
+    "imageUrl": "https://i.ytimg.com/vi/Z11wUXeG7iI/mqdefault.jpg"
   }
 }

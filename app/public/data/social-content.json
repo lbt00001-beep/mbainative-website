@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-22T13:26:42.858Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-05-22T18:56:58.857Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 gary-marcus\n\n\"What 11 Jobs Can AI Not Replace in 2026?\"\n\n▶️ youtube.com/watch?v=BkpLDU7ibmM",
+    "type": "recent_video",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre ilya-sutskever\n\n\"SpaceX absorbs xAI completely &amp; OpenAI trial and governance stakes - AI News (May 13, 2026)\"\n\n▶️ youtube.com/wat...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "garymarcus"
+      "UltimaHora",
+      "ilyasutskever"
     ],
-    "url": "https://youtube.com/watch?v=BkpLDU7ibmM",
-    "imageUrl": "https://i.ytimg.com/vi/BkpLDU7ibmM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=GuEMuRt10Ok",
+    "imageUrl": "https://i.ytimg.com/vi/GuEMuRt10Ok/mqdefault.jpg"
   }
 }

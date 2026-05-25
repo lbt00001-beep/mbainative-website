@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-25T08:59:18.792Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-25T13:56:55.330Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of ...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Yoshua Bengio\n\n\"The Global South Needs to Step Up To The AI Challenge | Yoshua Bengio, Turing Award Winner\"\n\n▶️ youtube.com/watch?v=sfK1zuWBuyo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=sfK1zuWBuyo",
+    "imageUrl": "https://i.ytimg.com/vi/sfK1zuWBuyo/mqdefault.jpg"
   }
 }

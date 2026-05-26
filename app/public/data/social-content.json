@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-26T08:33:49.116Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-26T13:50:48.953Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "news",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot,...",
+    "type": "guru_quote",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 gary-marcus\n\n\"What 11 Jobs Can AI Not Replace in 2026?\"\n\n▶️ youtube.com/watch?v=ZMmuivGqiiM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "garymarcus"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=ZMmuivGqiiM",
+    "imageUrl": "https://i.ytimg.com/vi/ZMmuivGqiiM/mqdefault.jpg"
   }
 }

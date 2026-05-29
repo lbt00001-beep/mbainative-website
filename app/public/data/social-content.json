@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-05-29T08:43:26.234Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-05-29T13:54:09.658Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "news",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slac...",
+    "type": "guru_quote",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Demis Hassabis: Agents, AGI &amp; The Next Big Scientific Breakthrough\"\n\n▶️ youtube.com/watch?v=JNyuX1zoOgU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=JNyuX1zoOgU",
+    "imageUrl": "https://i.ytimg.com/vi/JNyuX1zoOgU/mqdefault.jpg"
   }
 }

@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-05-30T18:04:16.301Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-05-31T08:16:37.495Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 11,
-    "title": "Escalabilidad sin límites",
-    "icon": "📐"
+    "id": 12,
+    "title": "Seguridad por diseño",
+    "icon": "🔒"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre ilya-sutskever\n\n\"SpaceX absorbs xAI completely &amp; OpenAI trial and governance stakes - AI News (May 13, 2026)\"\n\n▶️ youtube.com/watch?v=GuEMuRt10Ok",
+    "type": "news",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the com...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "ilyasutskever"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=GuEMuRt10Ok",
-    "imageUrl": "https://i.ytimg.com/vi/GuEMuRt10Ok/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

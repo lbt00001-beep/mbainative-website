@@ -1,8 +1,32 @@
 {
-  "lastUpdated": "2026-05-15T07:52:44.904Z",
-  "totalVideos": 61,
+  "lastUpdated": "2026-06-03T09:29:21.799Z",
+  "totalVideos": 60,
   "gurus": {
     "demis-hassabis": [
+      {
+        "videoId": "Ig4CHPnUToA",
+        "title": "Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills",
+        "description": "Google DeepMind CEO Demis Hassabis had a big week and his message goes against much of the AI jobs panic....",
+        "thumbnail": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg",
+        "publishedAt": "2026-06-02T20:30:30Z",
+        "channelTitle": "Career Jam"
+      },
+      {
+        "videoId": "9OQ5vaYbGV0",
+        "title": "Google’s AI endgame is here… everything you missed at I/O 2026",
+        "description": "Try using Emergent's specialized agents in parallel to build any full-stack application ......",
+        "thumbnail": "https://i.ytimg.com/vi/9OQ5vaYbGV0/mqdefault.jpg",
+        "publishedAt": "2026-05-22T16:38:42Z",
+        "channelTitle": "Fireship"
+      },
+      {
+        "videoId": "wYSncx9zLIU",
+        "title": "Google I/O &#39;26 Keynote",
+        "description": "It's time to I/O! Tune in to learn the latest news, announcements, and AI updates from Google. 00:00 Opening 17:10 Gemini Omni ......",
+        "thumbnail": "https://i.ytimg.com/vi/wYSncx9zLIU/mqdefault.jpg",
+        "publishedAt": "2026-05-19T19:00:09Z",
+        "channelTitle": "Google"
+      },
       {
         "videoId": "JNyuX1zoOgU",
         "title": "Demis Hassabis: Agents, AGI &amp; The Next Big Scientific Breakthrough",
@@ -18,30 +42,6 @@
         "thumbnail": "https://i.ytimg.com/vi/KdL55PK35ZM/mqdefault.jpg",
         "publishedAt": "2026-04-13T09:45:58Z",
         "channelTitle": "Michael Coppola"
-      },
-      {
-        "videoId": "kwSVtQ7dziU",
-        "title": "Skill Issue: Andrej Karpathy on Code Agents, AutoResearch, and the Loopy Era of AI",
-        "description": "What happens when AI agents can design experiments, collect data, and improve — without a human in the loop? Andrej ......",
-        "thumbnail": "https://i.ytimg.com/vi/kwSVtQ7dziU/mqdefault.jpg",
-        "publishedAt": "2026-03-20T13:27:35Z",
-        "channelTitle": "No Priors: AI, Machine Learning, Tech, & Startups"
-      },
-      {
-        "videoId": "dmMxnFRWE2c",
-        "title": "High-Paying Careers of the Future: What AI Won’t Take Over",
-        "description": "AI will take your job. Not because you're bad. Because it's cheaper. Some of the most powerful people in tech are saying the quiet ......",
-        "thumbnail": "https://i.ytimg.com/vi/dmMxnFRWE2c/mqdefault.jpg",
-        "publishedAt": "2026-02-26T05:21:44Z",
-        "channelTitle": "Daria about AI"
-      },
-      {
-        "videoId": "lIJelwO8yHQ",
-        "title": "How Fast Will A.I. Agents Rip Through the Economy? | The Ezra Klein Show",
-        "description": "A.I. agents are here. Have they changed your life yet? The release of agents like Claude Code marked a new pivot point in the ......",
-        "thumbnail": "https://i.ytimg.com/vi/lIJelwO8yHQ/mqdefault.jpg",
-        "publishedAt": "2026-02-24T16:01:06Z",
-        "channelTitle": "The Ezra Klein Show"
       }
     ],
     "yann-lecun": [
@@ -106,12 +106,36 @@
     ],
     "geoffrey-hinton": [
       {
+        "videoId": "_PZ4xODejMI",
+        "title": "By 2028: Unemployment Doubles, Stock Market Drops 35% — The AI Economic Warning 🚨 #Shorts",
+        "description": "By 2028: Unemployment Doubles, Stock Market Drops 35% — The AI Economic Warning #shorts A research paper ......",
+        "thumbnail": "https://i.ytimg.com/vi/_PZ4xODejMI/mqdefault.jpg",
+        "publishedAt": "2026-05-23T02:24:38Z",
+        "channelTitle": "THE VEE CODE"
+      },
+      {
+        "videoId": "2G8WqQ994eA",
+        "title": "&quot;I&#39;m Proud My Student FIRED Sam Altman&quot; — Geoffrey Hinton&#39;s Explosive Warning #Shorts",
+        "description": "\"I'm Proud My Student FIRED Sam Altman\" — Geoffrey Hinton's Explosive Warning #youtubeshorts The man who literally ......",
+        "thumbnail": "https://i.ytimg.com/vi/2G8WqQ994eA/mqdefault.jpg",
+        "publishedAt": "2026-05-19T13:23:26Z",
+        "channelTitle": "THE VEE CODE"
+      },
+      {
         "videoId": "CpyWjFCyBoY",
         "title": "The Godfather of AI Just Gave a Chilling Warning… We Have 20 Years",
         "description": "The Godfather of AI Issues a Stark Warning | Is Humanity Ready? In this eye-opening video, we break down the alarming insights ......",
         "thumbnail": "https://i.ytimg.com/vi/CpyWjFCyBoY/mqdefault.jpg",
         "publishedAt": "2026-05-06T09:52:55Z",
-        "channelTitle": "The Algorithm"
+        "channelTitle": "The Frame Daily"
+      },
+      {
+        "videoId": "0qwb9YzZtwU",
+        "title": "AI के गॉडफादर की चेतावनी: क्या सच में खत्म हो जाएंगी सब नौकरियां?",
+        "description": "Explore the chilling prophecy from Geoffrey Hinton, the \"Godfather of AI,\" who warns that Artificial Intelligence could break ......",
+        "thumbnail": "https://i.ytimg.com/vi/0qwb9YzZtwU/mqdefault.jpg",
+        "publishedAt": "2026-04-26T07:30:01Z",
+        "channelTitle": "Jagran Josh"
       },
       {
         "videoId": "ELOJcYY4YvM",
@@ -120,30 +144,6 @@
         "thumbnail": "https://i.ytimg.com/vi/ELOJcYY4YvM/mqdefault.jpg",
         "publishedAt": "2026-04-04T06:05:06Z",
         "channelTitle": "Aahmed Irshad"
-      },
-      {
-        "videoId": "39KD0zjI-Tg",
-        "title": "The Godfather of AI: &quot;We Have No Idea What’s Coming&quot;. Please watch this video seriously. ",
-        "description": "\"I have a sudden realization that the digital intelligence we are creating is fundamentally different from biological intelligence......",
-        "thumbnail": "https://i.ytimg.com/vi/39KD0zjI-Tg/mqdefault.jpg",
-        "publishedAt": "2026-03-28T07:48:21Z",
-        "channelTitle": "\nUnmasked The Truth "
-      },
-      {
-        "videoId": "RxD4FhYB7-0",
-        "title": "Will AI actually kill jobs? The Godfather of AI has a surprising take.",
-        "description": "Geoffrey Hinton, widely recognized as the pioneer behind modern artificial intelligence, offers a provocative perspective on the ......",
-        "thumbnail": "https://i.ytimg.com/vi/RxD4FhYB7-0/mqdefault.jpg",
-        "publishedAt": "2026-03-26T20:45:42Z",
-        "channelTitle": "Future Shock AI"
-      },
-      {
-        "videoId": "_N-QcRWdKZk",
-        "title": "Will AI really replace you? The Godfather of AI reveals the uncomfortable truth.",
-        "description": "Geoffrey Hinton, the pioneer behind the technology powering modern AI, offers a stark warning about the future of the workforce....",
-        "thumbnail": "https://i.ytimg.com/vi/_N-QcRWdKZk/mqdefault.jpg",
-        "publishedAt": "2026-03-25T16:44:40Z",
-        "channelTitle": "Future Shock AI"
       }
     ],
     "gary-marcus": [
@@ -154,56 +154,48 @@
         "thumbnail": "https://i.ytimg.com/vi/ZMmuivGqiiM/mqdefault.jpg",
         "publishedAt": "2026-04-06T07:41:36Z",
         "channelTitle": "Daily Q&A"
-      },
-      {
-        "videoId": "BkpLDU7ibmM",
-        "title": "What 11 Jobs Can AI Not Replace in 2026?",
-        "description": "Updated: APRIL 6, 2026 What 11 Jobs Can AI Not Replace in 2026? As AI investments by companies like Oracle fuel layoffs, the ......",
-        "thumbnail": "https://i.ytimg.com/vi/BkpLDU7ibmM/mqdefault.jpg",
-        "publishedAt": "2026-04-06T01:01:08Z",
-        "channelTitle": "Daily Q&A"
       }
     ],
     "sam-altman": [
       {
-        "videoId": "IkmuBPD78Jw",
-        "title": "Sam Altman’s 13 Page Industrial Policy 🤯",
-        "description": "OpenAI CEO Sam Altman released a 13-page plan covering superintelligence, robot taxes, AI income, and a 4-day work week ......",
-        "thumbnail": "https://i.ytimg.com/vi/IkmuBPD78Jw/mqdefault.jpg",
-        "publishedAt": "2026-05-11T12:27:01Z",
-        "channelTitle": "FabRich"
+        "videoId": "iQAjMkVuDa0",
+        "title": "OpenAI GPT 5 2027  Sam Altman’s AI and the Future of Work",
+        "description": "OpenAI's GPT-5 could become one of the most influential technologies shaping the global workforce by 2027 as artificial ......",
+        "thumbnail": "https://i.ytimg.com/vi/iQAjMkVuDa0/mqdefault.jpg",
+        "publishedAt": "2026-06-01T16:00:03Z",
+        "channelTitle": "Tech Folk Insights "
       },
       {
-        "videoId": "k1gVA3qSXjs",
-        "title": "The AI Era’s New Job: Agent Maestro",
-        "description": "The All-In Podcast talks about a new kind of role in today's AI-driven world, the “Agent Maestro.” Instead of doing everything ......",
-        "thumbnail": "https://i.ytimg.com/vi/k1gVA3qSXjs/mqdefault.jpg",
-        "publishedAt": "2026-05-05T11:46:02Z",
-        "channelTitle": "Tech Formation"
+        "videoId": "Ksw-IDahYR8",
+        "title": "AI Leaders Warn: Millions of Jobs Will Change | Sam Altman, Elon Musk &amp; The Future of Work",
+        "description": "Artificial Intelligence is transforming the world faster than most people realize. In this video, hear directly from Sam Altman, Elon ......",
+        "thumbnail": "https://i.ytimg.com/vi/Ksw-IDahYR8/mqdefault.jpg",
+        "publishedAt": "2026-05-30T05:38:38Z",
+        "channelTitle": "Wacha Experience"
       },
       {
-        "videoId": "cIP2TS8Hcqc",
-        "title": "Your CEO Just Got an AI Workforce on Demand. Jensen Huang and Sam Altman Made Sure of It.",
-        "description": "Your CEO just got an AI workforce on demand. Jensen Huang deployed OpenAI Codex to 10000+ Nvidia employees across legal, ......",
-        "thumbnail": "https://i.ytimg.com/vi/cIP2TS8Hcqc/mqdefault.jpg",
-        "publishedAt": "2026-05-05T05:00:47Z",
-        "channelTitle": "AI News Decoded with Edna Shamouni"
+        "videoId": "5ElSfZtKREE",
+        "title": "Will Robots take your Job ?",
+        "description": "What does the arrival of GPT-5 actually mean for builders, creators, and the future of your career?In this video, we break down ......",
+        "thumbnail": "https://i.ytimg.com/vi/5ElSfZtKREE/mqdefault.jpg",
+        "publishedAt": "2026-05-29T14:30:24Z",
+        "channelTitle": "Booked up"
       },
       {
-        "videoId": "mOybsc9AoMs",
-        "title": "Sam Altman’s Vision for the Future of Ai 🤯 | The Truth About AGI, Jobs &amp; Humanity",
-        "description": "Sam Altman's Vision for the Future of AI | The Truth About AGI, Jobs & Humanity Sam Altman, CEO of OpenAI, shares his ......",
-        "thumbnail": "https://i.ytimg.com/vi/mOybsc9AoMs/mqdefault.jpg",
-        "publishedAt": "2026-05-04T17:45:40Z",
-        "channelTitle": "Ai Podcaster7"
+        "videoId": "9VoO69fRtf8",
+        "title": "AI CEOs Finally Revealed The Truth About AI Jobs in 2026!",
+        "description": "For career guidance: https://luckyithub.com/career-guidance/ for interview preparation contact : luckyithub@gmail.com fresher's ......",
+        "thumbnail": "https://i.ytimg.com/vi/9VoO69fRtf8/mqdefault.jpg",
+        "publishedAt": "2026-05-28T12:45:07Z",
+        "channelTitle": "Lucky Techzone"
       },
       {
-        "videoId": "wBz1MTli6XQ",
-        "title": "Companies Are Faking AI Job Layoffs 😳 Sam Altman Exposes the Truth",
-        "description": "OpenAI CEO Sam Altman has revealed a shocking truth about how companies are using “AI washing” to explain layoffs. AI LIE ......",
-        "thumbnail": "https://i.ytimg.com/vi/wBz1MTli6XQ/mqdefault.jpg",
-        "publishedAt": "2026-05-04T12:01:43Z",
-        "channelTitle": "TechmysteryAI"
+        "videoId": "MRGzUHnssSU",
+        "title": "AI Sab Jobs Kha Jayega? Sam Altman Ka Dangerous Prediction#ai ",
+        "description": "AI duniya ko kitni tezi se badal raha hai? Is video mein hum baat karte hain: ⚡ AI future ⚡ Jobs ka future ⚡ Universal Basic ......",
+        "thumbnail": "https://i.ytimg.com/vi/MRGzUHnssSU/mqdefault.jpg",
+        "publishedAt": "2026-05-17T17:14:28Z",
+        "channelTitle": "Ai Growth  ⬆️"
       }
     ],
     "ilya-sutskever": [
@@ -250,20 +242,28 @@
     ],
     "dario-amodei": [
       {
+        "videoId": "gP8V6mYKrQs",
+        "title": "AI-designed proteins for drug discovery &amp; Faster private tool access via MCP - AI News (May 29, 2...",
+        "description": "Please support this podcast by checking out our sponsors: - SurveyMonkey, Using AI to surface insights faster and reduce manual ......",
+        "thumbnail": "https://i.ytimg.com/vi/gP8V6mYKrQs/mqdefault.jpg",
+        "publishedAt": "2026-05-29T12:42:00Z",
+        "channelTitle": "The Automated Daily"
+      },
+      {
+        "videoId": "kxyeZJY5mbs",
+        "title": "Anthropic CEO Reveals the Future of AI | AI Agents, Jobs &amp; Coding Explained",
+        "description": "Anthropic CEO Reveals the Future of AI | AI Agents, Jobs & Coding Explained What does the future of Artificial Intelligence really ......",
+        "thumbnail": "https://i.ytimg.com/vi/kxyeZJY5mbs/mqdefault.jpg",
+        "publishedAt": "2026-05-17T16:45:42Z",
+        "channelTitle": "Ai Podcaster7"
+      },
+      {
         "videoId": "qXd7Ac1rW_o",
         "title": "Anthropic CEO: Software Companies Without AI Could Go Bust #AI #Anthropic #FutureOfWork #shorts",
         "description": "AI IS NO LONGER OPTIONAL Dario Amodei warned that software companies that fail to integrate AI could “completely go bust....",
         "thumbnail": "https://i.ytimg.com/vi/qXd7Ac1rW_o/mqdefault.jpg",
         "publishedAt": "2026-05-07T13:30:33Z",
         "channelTitle": "Future of Work AI"
-      },
-      {
-        "videoId": "u0B0BgSAZ6k",
-        "title": "OpenAI vs. Anthropic&#39;s Direct Faceoff + Future of Agents — With Aaron Levie",
-        "description": "Aaron Levie is the CEO of Box . Levie joins Big Technology to discuss the battle between OpenAI and Anthropic as their product ......",
-        "thumbnail": "https://i.ytimg.com/vi/u0B0BgSAZ6k/mqdefault.jpg",
-        "publishedAt": "2026-04-08T16:30:06Z",
-        "channelTitle": "Alex Kantrowitz"
       },
       {
         "videoId": "qHV714ZxLA8",
@@ -280,14 +280,6 @@
         "thumbnail": "https://i.ytimg.com/vi/lIJelwO8yHQ/mqdefault.jpg",
         "publishedAt": "2026-02-24T16:01:06Z",
         "channelTitle": "The Ezra Klein Show"
-      },
-      {
-        "videoId": "JILSzhssMsk",
-        "title": "Anthropic Vs. OpenAI: How Safety Became The Advantage In AI",
-        "description": "Daniela and Dario Amodei left OpenAI five years ago to form Anthropic, a company focused on AI safety and enterprise....",
-        "thumbnail": "https://i.ytimg.com/vi/JILSzhssMsk/mqdefault.jpg",
-        "publishedAt": "2026-01-10T16:00:29Z",
-        "channelTitle": "CNBC"
       }
     ],
     "karen-hao": [
@@ -334,6 +326,22 @@
     ],
     "mustafa-suleyman": [
       {
+        "videoId": "15aaC5m5LIY",
+        "title": "Microsoft Strikes Back: Homegrown MAI AI Models Challenge Claude Code at Build 2026",
+        "description": "AI Competitive Shift: Microsoft vs Anthropic What's Happening: Microsoft will unveil a suite of homegrown AI models at Build 2026 ......",
+        "thumbnail": "https://i.ytimg.com/vi/15aaC5m5LIY/mqdefault.jpg",
+        "publishedAt": "2026-05-31T20:30:40Z",
+        "channelTitle": "ApiTechTips"
+      },
+      {
+        "videoId": "1u45AowRcY0",
+        "title": "Stalled at Week Eight: Why Most Enterprise AI Deployments Never Actually Land",
+        "description": "Reflect w/ Ed Fassio — where AI tells the stories that matter. Tuesday we talked about Mustafa Suleiman's 12-to-18 month window ......",
+        "thumbnail": "https://i.ytimg.com/vi/1u45AowRcY0/mqdefault.jpg",
+        "publishedAt": "2026-05-29T12:16:29Z",
+        "channelTitle": "Reflect w/ Ed Fassio"
+      },
+      {
         "videoId": "8yLWmhxar0s",
         "title": "The Day the Chatbot Died. 💀 (Microsoft AI Reorg)",
         "description": "Sources: https://microsoft.ai/news/towards-humanist-superintelligence/ ......",
@@ -347,7 +355,7 @@
         "description": "LISTEN TO ADS-FREE Audio of this episode at https://djamgamind.com/daily This episode is made possible by our sponsors: ......",
         "thumbnail": "https://i.ytimg.com/vi/t-RPaUGa5XQ/mqdefault.jpg",
         "publishedAt": "2026-03-18T17:54:02Z",
-        "channelTitle": "Etienne Noumen For AI Unraveled and DJAMGAMIND"
+        "channelTitle": "Etienne Noumen @ DJAMGAMIND"
       },
       {
         "videoId": "T9AdP8EgoBo",
@@ -355,23 +363,7 @@
         "description": "LISTEN TO ADS-FREE FULL RUNDOWN of this episode at https://djamgamind.com/daily This episode is made possible by our ......",
         "thumbnail": "https://i.ytimg.com/vi/T9AdP8EgoBo/mqdefault.jpg",
         "publishedAt": "2026-03-18T17:26:45Z",
-        "channelTitle": "Etienne Noumen For AI Unraveled and DJAMGAMIND"
-      },
-      {
-        "videoId": "dr8x0NSTcqQ",
-        "title": "[DAILY NEWS RUNDOWN] The Enterprise Code Red: OpenAI’s Pivot, Microsoft’s Superintelligence...",
-        "description": "LISTEN TO ADS-FREE Audio of this episode at https://djamgamind.com/daily This episode is made possible by our sponsors: ......",
-        "thumbnail": "https://i.ytimg.com/vi/dr8x0NSTcqQ/mqdefault.jpg",
-        "publishedAt": "2026-03-18T17:18:14Z",
-        "channelTitle": "Etienne Noumen For AI Unraveled and DJAMGAMIND"
-      },
-      {
-        "videoId": "Z11wUXeG7iI",
-        "title": "Microsoft reorganizes for AI supremacy, Anthropic defies Pentagon, and NVIDIA bets $1 trillion",
-        "description": "Major shifts in AI leadership, enterprise loyalty, and infrastructure investment are reshaping the tech landscape this week....",
-        "thumbnail": "https://i.ytimg.com/vi/Z11wUXeG7iI/mqdefault.jpg",
-        "publishedAt": "2026-03-18T13:27:40Z",
-        "channelTitle": "DIGIALL | AI & Tech"
+        "channelTitle": "Etienne Noumen @ DJAMGAMIND"
       }
     ],
     "fei-fei-li": [
@@ -393,6 +385,14 @@
       }
     ],
     "jensen-huang": [
+      {
+        "videoId": "YIwgsQXKlCY",
+        "title": "Enterprise AI backbone: Anthropic locks in Fortune 500 in May 2026",
+        "description": "Anthropic moved from startup to enterprise infrastructure backbone in a single month — Hitachi, KPMG, Dell, and Cloudflare all ......",
+        "thumbnail": "https://i.ytimg.com/vi/YIwgsQXKlCY/mqdefault.jpg",
+        "publishedAt": "2026-05-19T15:30:43Z",
+        "channelTitle": "Architect Ledger TV"
+      },
       {
         "videoId": "iQGfExaMM2k",
         "title": "NVIDIA &amp; ServiceNow&#39;s Project ARK: AI Agents That Code &amp; Work Autonomously",
@@ -424,14 +424,6 @@
         "thumbnail": "https://i.ytimg.com/vi/Q5K9IxKyEo8/mqdefault.jpg",
         "publishedAt": "2026-03-23T14:00:42Z",
         "channelTitle": "SekharOn AI"
-      },
-      {
-        "videoId": "dLzwd-_sOBY",
-        "title": "NVIDIA’s 1:100 AI Agent Vision: What It Really Means for Jobs",
-        "description": "NVIDIA just revealed a bold vision for the future of work: One human managing up to 100 AI agents. At first glance, this sounds ......",
-        "thumbnail": "https://i.ytimg.com/vi/dLzwd-_sOBY/mqdefault.jpg",
-        "publishedAt": "2026-03-21T20:23:35Z",
-        "channelTitle": "ResumeGauge"
       }
     ],
     "andrew-ng": [
@@ -478,44 +470,44 @@
     ],
     "andrej-karpathy": [
       {
-        "videoId": "dcuHnXcMw2Q",
-        "title": "&quot;프런티어 랩들은 수만 개 GPU 클러스터로 이걸 돌린다. 연구자는 루프에서 빼라&quot; Karpathy의 차세대 전략 #Shorts",
-        "description": "Andrej Karpathy가 No Priors Podcast에서 해부한 프런티어 AI 랩들의 실제 작업 방식 — \"작은 모델로 자동화 탐색 → 큰 모델로 외삽\"....",
-        "thumbnail": "https://i.ytimg.com/vi/dcuHnXcMw2Q/mqdefault.jpg",
-        "publishedAt": "2026-05-06T09:06:51Z",
-        "channelTitle": "HHC-shorts (스타트업 생존에 대하여)"
+        "videoId": "wF0MOEvmh1A",
+        "title": "Stop Building AI Agents. Use This Folder System Instead.",
+        "description": "Gartner predicts over 40% of agentic AI projects will fail next year. Stop building fragile multi-agent frameworks and use this ......",
+        "thumbnail": "https://i.ytimg.com/vi/wF0MOEvmh1A/mqdefault.jpg",
+        "publishedAt": "2026-06-02T17:50:59Z",
+        "channelTitle": "Brock Misner"
       },
       {
-        "videoId": "ID7nZX8NPfA",
-        "title": "Why coding documentation is about to change forever.",
-        "description": "Andrej Karpathy challenges the current status quo of software development documentation, arguing that traditional docs are ......",
-        "thumbnail": "https://i.ytimg.com/vi/ID7nZX8NPfA/mqdefault.jpg",
-        "publishedAt": "2026-05-04T11:25:38Z",
-        "channelTitle": "InstinctHub (InstinctHub)"
+        "videoId": "E54VN98013Y",
+        "title": "Skill para Claude Code cometer 90% menos erros | Método Andrej Karpathy",
+        "description": "Andrej Karpathy (co-fundador OpenAI, ex-Tesla AI) documentou 5 princípios que reduzem em 90% os erros em código gerado ......",
+        "thumbnail": "https://i.ytimg.com/vi/E54VN98013Y/mqdefault.jpg",
+        "publishedAt": "2026-06-02T17:12:47Z",
+        "channelTitle": "Rafael Castro - Inteligência Artificial"
       },
       {
-        "videoId": "lmhFJPnRrRY",
-        "title": "Karpathy warnt: Vibe Coding reicht nicht mehr",
-        "description": "Vibe Coding fühlt sich schnell an, aber Produktion braucht mehr als funktionierenden Demo-Code: Architektur, Tests, Reviews, ......",
-        "thumbnail": "https://i.ytimg.com/vi/lmhFJPnRrRY/mqdefault.jpg",
-        "publishedAt": "2026-05-04T09:31:34Z",
-        "channelTitle": "KI Infos & Anleitungen"
+        "videoId": "OcIB42L5yPE",
+        "title": "Andrej Karpathy Just Exposed The Biggest Problem In AI Coding",
+        "description": "AI coding tools changed software development forever. Today, developers can build apps faster than ever using tools like Cursor, ......",
+        "thumbnail": "https://i.ytimg.com/vi/OcIB42L5yPE/mqdefault.jpg",
+        "publishedAt": "2026-06-02T06:38:47Z",
+        "channelTitle": "Kuberns"
       },
       {
-        "videoId": "HD9_YhaCo-g",
-        "title": "AI Agents Are Now Writing Better ML Code Than You - AutoResearch Explained",
-        "description": "AI isn't just helping write code anymore… it's optimizing it — autonomously. This is what happens when you move from single ......",
-        "thumbnail": "https://i.ytimg.com/vi/HD9_YhaCo-g/mqdefault.jpg",
-        "publishedAt": "2026-05-02T20:33:33Z",
-        "channelTitle": "Kane & Alessia Minkus"
+        "videoId": "0QAz-WQszLE",
+        "title": "One File Took Claude Code From 65% → 94% Accuracy #shorts",
+        "description": "Your AI coding agent keeps making junior mistakes — silent assumptions, overcomplicated code, and editing files you never told ......",
+        "thumbnail": "https://i.ytimg.com/vi/0QAz-WQszLE/mqdefault.jpg",
+        "publishedAt": "2026-06-01T20:42:03Z",
+        "channelTitle": "Eli Tanenbaum | Ai Agent Automation OpenClaw n8n"
       },
       {
-        "videoId": "-EJMLZansuw",
-        "title": "AI is Doing Its Own Research 🤯 (Future of AI) #nextgenai #chatgpt #coding #memes #programming",
-        "description": "This idea comes from Andrej Karpathy. Instead of humans manually training models, an AI agent edits the code, runs experiments, ......",
-        "thumbnail": "https://i.ytimg.com/vi/-EJMLZansuw/mqdefault.jpg",
-        "publishedAt": "2026-05-02T14:30:00Z",
-        "channelTitle": "Kishorelytics"
+        "videoId": "3Kxf_nCGXxU",
+        "title": "One File Took Claude Code From 65% → 94% Accuracy #shorts",
+        "description": "Your AI coding agent is making you look bad. One ~65-line file took Claude Code from ~65% to 94% accuracy in the dev ......",
+        "thumbnail": "https://i.ytimg.com/vi/3Kxf_nCGXxU/mqdefault.jpg",
+        "publishedAt": "2026-06-01T18:32:32Z",
+        "channelTitle": "Eli Tanenbaum | Ai Agent Automation OpenClaw n8n"
       }
     ]
   }

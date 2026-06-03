@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-15T07:48:07.231Z",
+  "lastUpdated": "2026-06-03T09:20:29.954Z",
   "totalArticles": 65,
   "featured": [
     {
@@ -23,16 +23,6 @@
       "relevance": 37
     },
     {
-      "title": "The creator of Claude Code just revealed his workflow, and developers are losing their minds",
-      "link": "https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are",
-      "summary": "When the creator of the world's most advanced coding agent speaks, Silicon Valley doesn't just listen — it takes notes.\nFor the past week, the engineering community has been dissecting a thread on X from Boris Cherny, the creator and head of Claude Code at Anthropic. What began as a casual sharing o...",
-      "pubDate": "Mon, 05 Jan 2026 07:45:00 GMT",
-      "source": "VentureBeat AI",
-      "sourceLogo": "🟠",
-      "category": "news",
-      "relevance": 34
-    },
-    {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
       "link": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
       "summary": "The artificial intelligence coding revolution comes with a catch: it's expensive.\nClaude Code, Anthropic's terminal-based AI agent that can write, debug, and deploy code autonomously, has captured the imagination of software developers worldwide. But its pricing — ranging from $20 to $200 per month ...",
@@ -47,6 +37,16 @@
       "link": "https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud",
       "summary": "Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million in a Series B funding round, as surging demand for artificial intelligence applications exposes the limitations of lega...",
       "pubDate": "Thu, 22 Jan 2026 14:00:00 GMT",
+      "source": "VentureBeat AI",
+      "sourceLogo": "🟠",
+      "category": "news",
+      "relevance": 25
+    },
+    {
+      "title": "Listen Labs raises $69M after viral billboard hiring stunt to scale AI customer interviews",
+      "link": "https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai",
+      "summary": "Alfred Wahlforss was running out of options. His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg's $100 million offers seemed impossible. So he spent $5,000 — a fifth of his marketing budget — on a billboard in San Francisco displaying what looked like ...",
+      "pubDate": "Fri, 16 Jan 2026 14:01:00 GMT",
       "source": "VentureBeat AI",
       "sourceLogo": "🟠",
       "category": "news",
@@ -73,16 +73,6 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 37
-    },
-    {
-      "title": "The creator of Claude Code just revealed his workflow, and developers are losing their minds",
-      "link": "https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are",
-      "summary": "When the creator of the world's most advanced coding agent speaks, Silicon Valley doesn't just listen — it takes notes.\nFor the past week, the engineering community has been dissecting a thread on X from Boris Cherny, the creator and head of Claude Code at Anthropic. What began as a casual sharing o...",
-      "pubDate": "Mon, 05 Jan 2026 07:45:00 GMT",
-      "source": "VentureBeat AI",
-      "sourceLogo": "🟠",
-      "category": "news",
-      "relevance": 34
     },
     {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
@@ -115,103 +105,143 @@
       "relevance": 25
     },
     {
-      "title": "Data readiness for agentic AI in financial services",
-      "link": "https://www.technologyreview.com/2026/05/14/1137034/data-readiness-for-agentic-ai-in-financial-services/",
-      "summary": "Financial services companies have unique needs when it comes to business AI. They operate in one of the most highly regulated sectors while responding to external events that are updated by the second. As a result, the success of agentic AI in financial services depends less on the sophistication of...",
-      "pubDate": "Thu, 14 May 2026 13:00:00 +0000",
+      "title": "Rethinking organizational design in the age of agentic AI",
+      "link": "https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/",
+      "summary": "Amid rapidly growing adoption of enterprise-level AI agents, there’s a disconnect emerging between ambition and execution.  Although 85% of organizations say they want to be agentic within the next three years, 76% say their current operations and infrastructure can’t support that change. They cite ...",
+      "pubDate": "Tue, 26 May 2026 14:54:10 +0000",
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 17
+      "relevance": 16
     },
     {
-      "title": "Microsoft&#8217;s Edge Copilot update uses AI to pull information from across your tabs",
-      "link": "https://www.theverge.com/tech/930188/microsoft-edge-copilot-ai-tabs",
-      "summary": "Microsoft Edge is adding a new feature that will allow its Copilot AI chatbot to gather information from all of your open tabs. When you start a conversation with Copilot, you can ask the chatbot questions about what's in your tabs, compare the products you're looking at, summarize your open article...",
-      "pubDate": "2026-05-13T22:04:28.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 17
-    },
-    {
-      "title": "Live updates from Elon Musk and Sam Altman’s court battle over the future of OpenAI",
-      "link": "https://www.theverge.com/tech/917225/sam-altman-elon-musk-openai-lawsuit",
-      "summary": "Sam Altman and Elon Musk are facing off in a high-stakes trial that could alter the future of OpenAI and its most well-known product, ChatGPT. In 2024, Musk filed a lawsuit accusing OpenAI of abandoning its founding mission of developing AI to benefit humanity and shifting focus to boosting profits ...",
-      "pubDate": "2026-05-14T15:46:04.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 15
-    },
-    {
-      "title": "Establishing AI and data sovereignty in the age of autonomous systems",
-      "link": "https://www.technologyreview.com/2026/05/14/1137168/establishing-ai-and-data-sovereignty-in-the-age-of-autonomous-systems/",
-      "summary": "When generative AI first moved from research labs into real-world business applications, enterprises made a tacit bargain: “Capability now, control later.” Feed your proprietary data into third-party AI models, and you will get powerful results. But your data passes through systems you do not own, u...",
-      "pubDate": "Thu, 14 May 2026 13:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 15
-    },
-    {
-      "title": "NVIDIA and SAP Bring Trust to Specialized Agents",
-      "link": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
-      "summary": "Announced today at SAP Sapphire — where NVIDIA founder and CEO Jensen Huang joined  SAP CEO Christian Klein’s keynote by video — SAP and NVIDIA’s expanded collaboration helps enterprises run specialized agents with security and governance controls....",
-      "pubDate": "Tue, 12 May 2026 12:30:56 +0000",
+      "title": "NVIDIA Partners With Microsoft on Unified Stack for Agentic AI Deployment, From Windows Devices to Cloud to Local",
+      "link": "https://blogs.nvidia.com/blog/microsoft-build-windows-local-cloud-devices/",
+      "summary": "The agentic AI moment has arrived, but delivering on its promise requires more than good models. It also takes fast hardware, secure runtimes, a responsive data layer and models tuned for long-running reasoning. NVIDIA and Microsoft are bringing that full stack to developers across Windows devices, ...",
+      "pubDate": "Tue, 02 Jun 2026 19:00:08 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
       "relevance": 15
     },
     {
-      "title": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
-      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
-      "summary": "Agentic AI is changing the way users get work done. Following the success of OpenClaw, the community is embracing new open source agentic frameworks. The latest is Hermes Agent, which crossed 140,000 GitHub stars in under three months....",
-      "pubDate": "Wed, 13 May 2026 13:00:10 +0000",
+      "title": "Rehumanizing global health care with agentic AI",
+      "link": "https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/",
+      "summary": "The global health care sector is under increasing strain.  Decades of chronic underinvestment and constraints in recruitment have coincided with a surge in demand for services for aging populations. Gaps in provision are already taking a toll, with fragmented access to care and high rates of stress ...",
+      "pubDate": "Tue, 02 Jun 2026 11:23:34 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 15
+    },
+    {
+      "title": "Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.",
+      "link": "https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think",
+      "summary": "For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor, a few typed words, and a list of blue links. On Tuesday, Google will formally retire that paradigm.\nAt its annual I/O developer conference, Google an...",
+      "pubDate": "Tue, 19 May 2026 17:45:00 GMT",
+      "source": "VentureBeat AI",
+      "sourceLogo": "🟠",
+      "category": "news",
+      "relevance": 15
+    },
+    {
+      "title": "Industrial Software Leaders Build Secure, Autonomous AI Engineers With NVIDIA NemoClaw",
+      "link": "https://blogs.nvidia.com/blog/industrial-software-leaders-secure-autonomous-ai-engineers-nemoclaw/",
+      "summary": "Accelerated computing has revolutionized industrial engineering, compressing simulation times from weeks to hours.  Today’s remaining challenges sit in the end-to-end workflow surrounding the simulations: computer-aided design, meshing, simulation setup and debugging, as well as post-processing and ...",
+      "pubDate": "Tue, 02 Jun 2026 22:00:58 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 14
+    },
+    {
+      "title": "NVIDIA AI Cloud Ecosystem Expands Worldwide to Meet Global AI Compute Demand",
+      "link": "https://blogs.nvidia.com/blog/ai-cloud-ecosystem/",
+      "summary": "The NVIDIA AI Cloud ecosystem is accelerating the global buildout of AI factory infrastructure. Partners are expanding capacity to meet growing demand from enterprises, startups, nations, AI labs and developers scaling agentic AI applications.  NVIDIA AI Clouds are a growing ecosystem of purpose-bui...",
+      "pubDate": "Mon, 01 Jun 2026 05:00:56 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 14
+    },
+    {
+      "title": "NVIDIA Jetson Brings Agentic AI to the Physical World",
+      "link": "https://blogs.nvidia.com/blog/jetson-agentic-ai-physical-world/",
+      "summary": "Agentic AI is getting physical. At COMPUTEX on Tuesday, NVIDIA announced NVIDIA JetPack 7.2 and NVIDIA NemoClaw support on NVIDIA Jetson. JetPack 7.2 brings agentic AI skills, Yocto project support, NVIDIA CUDA 13 on NVIDIA Jetson Orin, a substantial performance gain on Jetson AGX Orin 32GB module a...",
+      "pubDate": "Tue, 02 Jun 2026 02:00:40 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
       "relevance": 13
     },
     {
-      "title": "Cisco cuts nearly 4,000 jobs to spend more on AI, reports ‘record quarterly revenue’",
-      "link": "https://techcrunch.com/2026/05/14/cisco-cuts-nearly-4000-jobs-to-spend-more-on-ai-reports-record-quarterly-revenue/",
-      "summary": "This is Cisco's latest layoff in recent years, while the company's chief executive touts record revenue and growth....",
-      "pubDate": "Thu, 14 May 2026 14:01:14 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 12
+      "title": "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models",
+      "link": "https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/",
+      "summary": "MagenticLite is an agentic system for small models that works across the browser and local file system in a single workflow. It combines specialized models and orchestration to support efficient agentic performance on everyday tasks.\nThe post MagenticLite, MagenticBrain, Fara1.5: An agentic experien...",
+      "pubDate": "Thu, 21 May 2026 17:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 13
     },
     {
-      "title": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Learning Infrastructure",
-      "link": "https://blogs.nvidia.com/blog/ineffable-intelligence-reinforcement-learning-infrastructure/",
-      "summary": "Reinforcement-learning agents — AI systems that learn by trial and error — can convert computation into new knowledge. That’s the focus of a new engineering-level collaboration between NVIDIA and Ineffable Intelligence, the London-based AI lab founded by AlphaGo architect David Silver in the wake of...",
-      "pubDate": "Wed, 13 May 2026 13:00:57 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 12
-    },
-    {
-      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
-      "link": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
-      "summary": "Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond simple prompts to take on more complex tasks. The next step is bringing those capabilities into enterprise env...",
-      "pubDate": "Tue, 05 May 2026 17:00:40 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 12
-    },
-    {
-      "title": "OpenAI’s Codex is now in the ChatGPT mobile app",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/930763/openai-codex-chatgpt-ios-android-app-preview",
-      "summary": "OpenAI is going to let users access Codex, its desktop AI tool that can write code and use apps on your computer, from the ChatGPT app on your phone. \nFollowing the surge in popularity for Anthropic's Claude Code, OpenAI has been working quickly to try and catch up, including by cutting back on \"sid...",
-      "pubDate": "2026-05-14T20:00:00.000Z",
+      "title": "Microsoft Build 2026: All the news about Windows, AI, RTX Spark, and more",
+      "link": "https://www.theverge.com/tech/941668/microsoft-build-may-2026-live-news-updates",
+      "summary": "Microsoft Build 2026 kicked off with a keynote presentation that introduced some developer-focused Windows updates, an OpenClaw-based AI assistant called Scout, the new Majorana 2 quantum computing chip, and a Surface mini PC designed for AI developers. Microsoft also rolled out a new Android-based ...",
+      "pubDate": "2026-06-02T15:59:58.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
+      "relevance": 12
+    },
+    {
+      "title": "Microsoft Scout is a new AI personal assistant built on OpenClaw",
+      "link": "https://www.theverge.com/news/939713/microsoft-scout-assistant-openclaw",
+      "summary": "Much like Google, Microsoft is launching its own version of OpenClaw. Microsoft Scout is an always-on assistant that integrates into Microsoft 365 apps like Outlook, OneDrive, and Microsoft Teams, allowing businesses to assign a virtual assistant to employees to help with organizing calendars, expen...",
+      "pubDate": "2026-06-02T18:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 11
+    },
+    {
+      "title": "Taiwan’s Industry Titans Turbocharge World’s AI Infrastructure Buildout With NVIDIA",
+      "link": "https://blogs.nvidia.com/blog/taiwan-ecosystem-ai-infrastructure/",
+      "summary": "Taiwan is home to more than 500 NVIDIA ecosystem partners. More than 1 million NVIDIA MGX rack components for NVIDIA Vera Rubin infrastructure come together in Taiwan, from across 25 factory sites. As Vera Rubin ramps into full production to power agentic AI factories worldwide, that ecosystem spans...",
+      "pubDate": "Mon, 01 Jun 2026 05:00:41 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 11
+    },
+    {
+      "title": "Data Formulator 0.7: AI-powered data analytics for enterprise data",
+      "link": "https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/",
+      "summary": "Data Formulator introduces AI-powered analytics for enterprise data workflows. Data teams can easily bring enterprise data into an AI-ready workspace where users can explore, analyze, and visualize data with AI agents to turn raw data into actionable insights.\nThe post Data Formulator 0.7: AI-powere...",
+      "pubDate": "Thu, 28 May 2026 16:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 11
+    },
+    {
+      "title": "A reality check on the AI jobs hysteria",
+      "link": "https://www.technologyreview.com/2026/05/26/1137855/a-reality-check-on-the-ai-jobs-hysteria/",
+      "summary": "Haven’t you heard? White-collar jobs are going away, decimated by AI. Waves of layoffs in the tech sector (most recently at Coinbase and Meta and Cisco) are said to presage what will soon come for all of us knowledge workers. But before you quit your job as a software developer or financial analyst—...",
+      "pubDate": "Tue, 26 May 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 11
+    },
+    {
+      "title": "I/O 2026: Welcome to the agentic Gemini era",
+      "link": "https://blog.google/innovation-and-ai/sundar-pichai-io-2026/",
+      "summary": "The latest from Google I/O: See how we’re helping you get more done with Gemini....",
+      "pubDate": "Tue, 19 May 2026 17:45:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
       "relevance": 11
     },
     {
@@ -225,183 +255,223 @@
       "relevance": 11
     },
     {
-      "title": "Microsoft starts canceling Claude Code licenses",
-      "link": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad",
-      "summary": "Microsoft first started opening up access to Claude Code in December, inviting thousands of its own developers to use Anthropic's AI coding tool daily. It was part of an effort to get project managers, designers, and other employees to experiment with coding for the first time, and sources tell me t...",
-      "pubDate": "2026-05-14T19:00:00.000Z",
+      "title": "Microsoft offers devs a better way to control AI agent behavior",
+      "link": "https://techcrunch.com/2026/06/02/microsoft-offers-devs-a-better-way-to-control-ai-agent-behavior/",
+      "summary": "The specification lets developer, compliance, and security teams define their own policies for agents to follow in portable policy files....",
+      "pubDate": "Tue, 02 Jun 2026 18:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 10
+    },
+    {
+      "title": "Microsoft&#8217;s Project Solara is an OS for AI agent gadgets",
+      "link": "https://www.theverge.com/news/941830/microsoft-project-solara-os-ai-agent-gadgets",
+      "summary": "Microsoft just announced \"Project Solara,\" a new OS designed for gadgets that run AI agents, at Build 2026. The company is calling it \"a new platform built from the ground up to power agent-driven experiences.\" It's built on Android, not Windows.\nMicrosoft demonstrated two concept Project Solara dev...",
+      "pubDate": "2026-06-02T17:31:02.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
-      "relevance": 9
+      "relevance": 10
     },
     {
-      "title": "Khosla Ventures is betting $10M on Ian Crosby, whose first startup, Bench, imploded",
-      "link": "https://techcrunch.com/2026/05/14/khosla-ventures-is-betting-10m-on-ian-crosby-whose-last-startup-bench-imploded/",
-      "summary": "Crosby is building Synthetic, a fully autonomous AI bookkeeping service for other startups....",
-      "pubDate": "Thu, 14 May 2026 15:20:18 +0000",
+      "title": "OpenAI launches new Codex tools for white-collar work",
+      "link": "https://techcrunch.com/2026/06/02/openai-launches-new-codex-tools-for-white-collar-work/",
+      "summary": "OpenAI released a set of six plug-ins aimed at specific jobs: data analytics, creative production, sales, product design, equity investing, and investment banking. Available from within the Codex app, each of the new tools bundles integrations, instructions, and context to allow Codex to approximate...",
+      "pubDate": "Tue, 02 Jun 2026 16:00:00 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 9
     },
     {
-      "title": "The shock of seeing your body used in deepfake porn ",
-      "link": "https://www.technologyreview.com/2026/05/14/1137161/ai-porn-nonconsensual-deepfakes-takedown-piracy-copyright/",
-      "summary": "When Jennifer got a job doing research for a nonprofit in 2023, she ran her new professional headshot through a facial recognition program. She wanted to see if the tech would pull up the porn videos she’d made more than 10 years before, when she was in her early 20s. It did in fact return…...",
-      "pubDate": "Thu, 14 May 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
+      "title": "NVIDIA Levels Up Local AI Agents Across RTX PCs and DGX Spark",
+      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-computex-spark-local-agents/",
+      "summary": "Personal agents are exploding in popularity, with open source projects like OpenClaw and Hermes seeing rapid adoption by AI developer communities on GitHub. Built to adapt to individual preferences and workflows, these agents can interact with applications, generate content, automate repetitive proc...",
+      "pubDate": "Mon, 01 Jun 2026 04:30:11 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
       "relevance": 9
     },
     {
-      "title": "New Future of Work: AI is driving rapid change, uneven benefits",
-      "link": "https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/",
-      "summary": "For the past five years, the New Future of Work report has captured how work is changing. This year, the shift feels especially sharp. Previous editions have focused on technology’s role in increasing productivity by automating tasks, accelerating communication, and expanding access to information, ...",
-      "pubDate": "Thu, 09 Apr 2026 16:11:44 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 9
-    },
-    {
-      "title": "OpenAI says Codex is coming to your phone",
-      "link": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
-      "summary": "The update gives users enhanced flexibility over how they can manage their workflows....",
-      "pubDate": "Thu, 14 May 2026 20:58:55 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
+      "title": "NVIDIA Factory Operations Blueprint Gives Factories a New AI Brain",
+      "link": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "summary": "As factories move from isolated automation to plant-wide intelligence, manufacturers need AI systems that can connect live machine signals, quality systems, work instructions and operational alerts into a unified decision layer.  Today at GTC Taipei at COMPUTEX, NVIDIA announced the NVIDIA Factory O...",
+      "pubDate": "Mon, 01 Jun 2026 05:00:47 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
       "relevance": 8
     },
     {
-      "title": "Elon Musk’s SpaceXAI has been bleeding staff since its merger",
-      "link": "https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/",
-      "summary": "More than 50 employees have reportedly left Elon Musk’s newly merged SpaceXAI since February, raising questions about burnout, leadership changes, talent poaching, and whether liquidity events weakened retention incentives....",
-      "pubDate": "Thu, 14 May 2026 21:30:44 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
+      "title": "Microsoft Build 2026: The 7 biggest announcements",
+      "link": "https://www.theverge.com/tech/941738/microsoft-build-2026-biggest-announcements",
+      "summary": "Microsoft just kicked off Build 2026 with a keynote from CEO Satya Nadella and other company leaders. As expected, it was filled with announcements, ranging from new Surface hardware to an always-on personal assistant and updates across Microsoft's in-house AI models.\nIf you didn't watch the event l...",
+      "pubDate": "2026-06-02T19:23:52.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
       "category": "news",
       "relevance": 7
     },
     {
-      "title": "OpenAI is reportedly preparing legal action against Apple; it wouldn’t be the first partner to feel burned",
-      "link": "https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/",
-      "summary": "OpenAI is so frustrated with Apple over a ChatGPT integration that failed to deliver the subscribers and prominence it expected that the company is now actively exploring legal action against the iPhone maker....",
-      "pubDate": "Thu, 14 May 2026 19:12:03 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 6
-    },
-    {
-      "title": "Closing time",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/931006/musk-v-altman-closing-arguments-analysis",
-      "summary": "Today was closing arguments in the Musk v. Altman trial, and I almost feel bad writing about the unbelievable demolition derby I just witnessed. Steven Molo, Musk's lawyer, stumbled over his words. He at one point called Greg Brockman - a co-defendant - Greg Altman. He erroneously claimed that Musk ...",
-      "pubDate": "2026-05-14T22:21:46.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Behold, the Elon Musk jackass trophy",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/930893/elon-musk-sam-altman-trial-ai-safety-jackass-statue",
-      "summary": "Yesterday, in Musk v. Altman, before the jurors came in, Sam Altman's team passed up what looked - from a distance - like a little league trophy. It was not. Yvonne Gonzalez Rogers had the lawyers read the inscription aloud for the press: \"Never stop being a jackass.\" It's a commemoration OpenAI emp...",
-      "pubDate": "2026-05-14T20:59:23.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "What happens when AI starts building itself?",
-      "link": "https://techcrunch.com/2026/05/14/what-happens-when-ai-starts-building-itself/",
-      "summary": "Richard Socher's new $650 million startup wants to build an AI that can research and improve itself indefinitely — and he insists it will actually ship products....",
-      "pubDate": "Thu, 14 May 2026 19:57:20 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Clawdmeter turns your Claude Code usage stats into a tiny desktop dashboard",
-      "link": "https://techcrunch.com/2026/05/14/clawdmeter-turns-your-claude-code-usage-stats-into-a-tiny-desktop-dashboard/",
-      "summary": "A new open source gadget called Clawdmeter turns Claude Code usage stats into a tiny desktop dashboard for AI coding power users....",
-      "pubDate": "Thu, 14 May 2026 19:05:01 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Use this map to find the data centers in your backyard",
-      "link": "https://www.theverge.com/policy/930629/data-center-policy-map-interactive",
-      "summary": "An interactive map tracking data center construction and AI policy, built by Isabelle Reksopuro.\t\n\nWhen Oregon resident Isabelle Reksopuro heard Google was gobbling up public land to fuel its data centers in her home state, she didn't initially know what to believe. \"There's a lot of misinformation ...",
-      "pubDate": "2026-05-14T17:40:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Cerebras raises $5.5B, then stock pops $108%, in the first huge tech IPO of 2026",
-      "link": "https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/",
-      "summary": "A year ago, it looked like this day would never happen for Cerebras....",
-      "pubDate": "Thu, 14 May 2026 16:30:02 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Americans do not want AI data centers in their backyards",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/930477/ai-data-centers-gallup-survey-70-percent-opposition",
-      "summary": "Over 70 percent of Americans oppose AI data center construction in their area, according to a new Gallup survey. Just 7 percent said they were \"strongly\" in favor of new data centers. According to Gallup, data centers are so strongly disliked that Americans would prefer to live near a nuclear power ...",
-      "pubDate": "2026-05-14T15:24:53.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Wirestock raises $23M to supply creative multimodal data to AI labs",
-      "link": "https://techcrunch.com/2026/05/14/wirestock-raises-23m-to-supply-multi-modal-data-to-ai-labs/",
-      "summary": "The company pivoted to being a data provider in 2023 and now supplies datasets of images, videos, design assets, and gaming and 3D content to AI labs....",
-      "pubDate": "Thu, 14 May 2026 14:00:00 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Sea You in the Cloud: ‘Subnautica 2’ Early Access Dives Onto GeForce NOW",
-      "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-subnautica-2/",
-      "summary": "Editor’s note: The Gaijin single sign-on feature is now up and running. Dive masks on — Subnautica 2 is making a splash on GeForce NOW day-and-date with launch, so members can plunge into the title’s brand-new alien ocean from almost any device. It leads 11 new games joining the cloud this week. A l...",
-      "pubDate": "Thu, 14 May 2026 13:00:08 +0000",
+      "title": "Why Financial Institutions Are Converging on Transaction Foundation Models to Build Their Own Intelligence",
+      "link": "https://blogs.nvidia.com/blog/financial-institutions-transaction-foundation-models/",
+      "summary": "Financial institutions have spent years building AI: fraud models, credit models, recommendation engines and risk systems. While this sprawl of task-specific models has been effective, it’s also constrained by siloed systems.  Siloed systems prevent institutions from developing a unified understandi...",
+      "pubDate": "Tue, 02 Jun 2026 06:00:36 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 5
+      "relevance": 6
     },
     {
-      "title": "You can make an app for that",
-      "link": "https://www.theverge.com/tech/928905/vibe-code-personal-software-revolution",
-      "summary": "The tyranny of software is almost over. Since the first computer programmers wrote the first computer programs, we, the users of that software, have been forced to live in the worlds those programs create. The features are the features. The design is the design. Want something else, something better...",
-      "pubDate": "2026-05-14T11:00:00.000Z",
+      "title": "AI has a water problem. Google thinks it has a fix",
+      "link": "https://www.theverge.com/policy/942296/google-water-commitments-data-centers",
+      "summary": "In the face of widespread backlash to the AI data center buildout throughout the US, Google is touting its efforts to minimize the environmental impact by actually increasing water for local communities. \nThe company laid out five commitments around water use in a new blog post published Wednesday, ...",
+      "pubDate": "2026-06-03T09:00:00.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
       "relevance": 5
     },
     {
-      "title": "Mark Zuckerberg announces &#8216;completely private&#8217; encrypted Meta AI chat",
-      "link": "https://www.theverge.com/tech/929791/meta-ai-incognito-chats",
-      "summary": "Meta CEO Mark Zuckerberg says its new Incognito Chat is \"the first major AI product where there is no log of your conversations stored on servers.\" Messages in Incognito Chat aren't saved or stored in users' chat history, similar to incognito modes on other AI chatbots, but Meta says its version is ...",
-      "pubDate": "2026-05-13T16:45:43.000Z",
+      "title": "Google must let publishers opt out of AI Search features, rules UK",
+      "link": "https://www.theverge.com/tech/942302/google-search-ai-overviews-uk-cma-publisher-opt-out",
+      "summary": "Online publishers are getting more control over whether their websites appear in Google's AI Search features, thanks to a UK regulatory ruling. The new conduct rule imposed by the Competition and Markets Authority (CMA) requires Google to let website owners keep their content out of features like AI...",
+      "pubDate": "2026-06-03T08:45:48.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Uber caps employee AI spending after blowing through budget in 4 months",
+      "link": "https://techcrunch.com/2026/06/02/uber-caps-employee-ai-spending-after-blowing-through-budget-in-four-months/",
+      "summary": "Uber's cutback has occurred after the company had reportedly encouraged staff to use AI as much as possible....",
+      "pubDate": "Tue, 02 Jun 2026 19:11:48 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "New Microsoft tool lets devs spin up AI behavior tests using text descriptions",
+      "link": "https://techcrunch.com/2026/06/02/new-microsoft-tool-lets-devs-spin-up-ai-behavior-tests-using-text-descriptions/",
+      "summary": "Microsoft on Tuesday took the wraps off Adaptive Spec-driven Scoring for Evaluation and Regression Testing, an open source framework for spinning up AI evaluations....",
+      "pubDate": "Tue, 02 Jun 2026 19:02:21 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Trump signs executive order to review AI models before they’re released",
+      "link": "https://www.theverge.com/policy/941775/trump-ai-executive-order",
+      "summary": "President Donald Trump signed an executive order Tuesday creating a \"voluntary framework\" for AI companies to share their frontier models with the federal government before they're released \"to promote secure innovation and strengthen the cybersecurity of critical infrastructure.\"\nThe order says the...",
+      "pubDate": "2026-06-02T18:33:42.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Martin Scorsese becomes the latest — and most unlikely — Hollywood voice for AI",
+      "link": "https://techcrunch.com/2026/06/02/martin-scorsese-becomes-the-latest-and-most-unlikely-hollywood-voice-for-ai/",
+      "summary": "The caveat is that one of the world's most famous living directors is using the tech solely for storyboarding....",
+      "pubDate": "Tue, 02 Jun 2026 18:16:53 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Microsoft’s first advanced reasoning AI is here",
+      "link": "https://www.theverge.com/tech/941664/microsoft-ai-model-reasoning-mai-thinking-1-build-2026",
+      "summary": "Microsoft announced a bunch of new in-house AI models at Build 2026, including a new \"flagship\" model: MAI-Thinking-1. It's an ambitious step into model development for Microsoft, which introduced its initial in-house models last year - before then, it had relied on OpenAI's models. The two companie...",
+      "pubDate": "2026-06-02T18:12:44.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Microsoft launches Scout, an OpenClaw-inspired personal assistant",
+      "link": "https://techcrunch.com/2026/06/02/microsoft-launches-scout-an-openclaw-inspired-personal-assistant/",
+      "summary": "Launched at Build, Microsoft Scout is a new AI assistant meant to bring the power and flexibility of OpenClaw into the Microsoft 365 system....",
+      "pubDate": "Tue, 02 Jun 2026 18:02:44 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Google rolls out fake call detection to protect against AI deepfake impersonation scams",
+      "link": "https://techcrunch.com/2026/06/02/google-rolls-out-fake-call-detection-to-protect-against-ai-deepfake-impersonation-scams/",
+      "summary": "As people increasingly refuse to answer calls from unknown numbers, scammers are shifting their tactics by spoofing trusted phone numbers and using AI deepfake technology to sound like authority figures, family members, or employers....",
+      "pubDate": "Tue, 02 Jun 2026 18:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Google’s Phone app will tell you if a scammer is impersonating one of your contacts",
+      "link": "https://www.theverge.com/tech/941517/google-phone-scammer-ai-impersonation",
+      "summary": "Google is launching a new feature for its Phone app that aims to protect you from AI impersonation scams. Now, when you receive a call from a scammer that appears to be coming from the same number as one of your contacts, Phone by Google will flag the call as suspicious so you can hang up.\nIt's part...",
+      "pubDate": "2026-06-02T18:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Amazon faces class action lawsuit over Ring facial-recognition feature",
+      "link": "https://techcrunch.com/2026/06/02/amazon-faces-class-action-lawsuit-over-ring-facial-recognition-feature/",
+      "summary": "The class action lawsuit, filed in Seattle by Virginia resident Charles Sigwalt, claims that Ring's Familiar Faces feature stores images of passersby without consent....",
+      "pubDate": "Tue, 02 Jun 2026 17:47:28 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Microsoft created the mini Surface dev box that Qualcomm couldn&#8217;t",
+      "link": "https://www.theverge.com/news/941271/microsoft-surface-rtx-spark-dev-box-specs-availability",
+      "summary": "Microsoft only just announced a new Surface Laptop Ultra at the weekend, and it's now revealing a miniature Surface PC aimed at developers. The new Surface RTX Spark Dev Box is powered by Nvidia's new Arm-based RTX Spark chips, just like the Surface Laptop Ultra, and is optimized for sustained workl...",
+      "pubDate": "2026-06-02T16:30:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Trump signs narrower executive order on AI oversight after industry objections ",
+      "link": "https://techcrunch.com/2026/06/02/trump-signs-narrower-executive-order-on-ai-oversight-after-industry-objections/",
+      "summary": "After industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models....",
+      "pubDate": "Tue, 02 Jun 2026 16:23:08 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Anthropic scales Claude Mythos  to critical infrastructure in 15+ countries",
+      "link": "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/",
+      "summary": "Anthropic is expanding Project Glasswing, its security vulnerability program, and access to Mythos to 150 organizations across 15 countries — targeting critical infrastructure in power, water, healthcare, and communications where a cyberattack could affect 100 million people....",
+      "pubDate": "Tue, 02 Jun 2026 14:44:21 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "How small businesses can leverage AI",
+      "link": "https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/",
+      "summary": "This article is from Making AI Work, MIT Technology Review’s limited-run newsletter examining how to apply LLMs across industries. To receive it in your inbox,sign up here. From accounting to design to market research and product development, there’s a staggering breadth of skills needed to run a bu...",
+      "pubDate": "Tue, 02 Jun 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
       "relevance": 5
     },
     {
@@ -415,114 +485,204 @@
       "relevance": 5
     },
     {
-      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
-      "summary": "Event-Driven Webhooks are a push-based notification system that eliminates the need for inefficient polling....",
-      "pubDate": "Mon, 04 May 2026 15:30:00 +0000",
+      "title": "How we used Gemini to build Google I/O 2026",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/io-2026-google-ai/",
+      "summary": "Learn how Googlers used AI to produce Google I/O 2026....",
+      "pubDate": "Mon, 01 Jun 2026 16:00:00 +0000",
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 5
+      "relevance": 4
     },
     {
-      "title": "Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale",
-      "link": "https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/",
-      "summary": "Safe agents don’t guarantee a safe ecosystem of interconnected agents. Microsoft Research examines what breaks when AI agents interact and why network-level risks require new approaches.\nThe post Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale appeared fir...",
-      "pubDate": "Thu, 30 Apr 2026 21:53:21 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
+      "title": "It’s time to address the looming crisis in entry-level work",
+      "link": "https://www.technologyreview.com/2026/05/26/1137865/its-time-to-address-the-looming-crisis-in-entry-level-work/",
+      "summary": "Artificial intelligence has not so far produced a clean story of mass unemployment. Aggregate employment in developed countries remains broadly stable, and recent assessments have found limited evidence that AI has shifted the headline numbers. But a troubling change may be hiding beneath the surfac...",
+      "pubDate": "Tue, 26 May 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 5
+      "relevance": 4
     },
     {
-      "title": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
-      "link": "https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/",
-      "summary": "By early 2026, the open source project OpenClaw had become a phenomenon. In January, its GitHub star count crossed 100,000 as developer interest surged....",
-      "pubDate": "Thu, 30 Apr 2026 20:00:39 +0000",
+      "title": "Google I/O showed how the path for AI-driven science is shifting",
+      "link": "https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/",
+      "summary": "During Tuesday’s Google I/O keynote, Demis Hassabis, the CEO of Google DeepMind, proclaimed that we are currently “standing in the foothills of the singularity.” It was a striking statement—the singularity is the theoretical future moment when AI rapidly exceeds human intelligence and dramatically t...",
+      "pubDate": "Fri, 22 May 2026 10:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 4
+    },
+    {
+      "title": "We’re announcing new community investments in Missouri.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/missouri-programs/",
+      "summary": "We’re helping build the state’s next-generation workforce and investing in energy programs....",
+      "pubDate": "Wed, 20 May 2026 20:40:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 4
+    },
+    {
+      "title": "NVIDIA Research Advances Robotics From Simulation to the Real World",
+      "link": "https://blogs.nvidia.com/blog/icra-research-robotics-simulation-to-real-world/",
+      "summary": "Robotics is entering a new phase: moving from controlled demos and scripted automation toward generalizable, reliable embodied autonomy in the real world.  At the International Conference on Robotics and Automation (ICRA), eight of NVIDIA Research’s 28 accepted papers show how simulation-to-real tra...",
+      "pubDate": "Thu, 28 May 2026 13:00:51 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 5
-    },
-    {
-      "title": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/",
-      "summary": "Google is bringing back its 5-Day AI Agents Intensive Course with Kaggle and registration is open....",
-      "pubDate": "Mon, 27 Apr 2026 13:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 5
-    },
-    {
-      "title": "AI chatbots are giving out people’s real phone numbers",
-      "link": "https://www.technologyreview.com/2026/05/13/1137203/ai-chatbots-are-giving-out-peoples-real-phone-numbers/",
-      "summary": "A Redditor recently wrote that he was “desperate for help”: for about a month, he said, his phone had been inundated by calls from “strangers” who were “looking for a lawyer, a product designer, a locksmith.” Callers were apparently misdirected by Google’s generative AI.  In March, a software develo...",
-      "pubDate": "Wed, 13 May 2026 18:09:03 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 4
-    },
-    {
-      "title": "Implementing advanced AI technologies in finance",
-      "link": "https://www.technologyreview.com/2026/05/11/1136786/implementing-advanced-ai-technologies-in-finance/",
-      "summary": "In finance departments that have long been defined by precision and control, AI has arrived less as a neatly managed upgrade than as a quiet insurgency. Employees are already using it while leadership races to impose structure, governance, and strategy after the fact. The result is a paradox: one of...",
-      "pubDate": "Mon, 11 May 2026 13:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 4
-    },
-    {
-      "title": "Who decides what AI tells you? Campbell Brown, once Meta’s news chief, has thoughts",
-      "link": "https://techcrunch.com/2026/05/13/who-decides-what-ai-tells-you-campbell-brown-once-metas-news-chief-has-thoughts/",
-      "summary": "\"The conversation is sort of happening in Silicon Valley around one thing, and a totally different conversation is happening among consumers,\" Campbell Brown said at StrictlyVC....",
-      "pubDate": "Thu, 14 May 2026 06:05:31 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
       "relevance": 3
     },
     {
-      "title": "‘Your Career Starts at the Beginning of the AI Revolution,’ NVIDIA CEO Tells Graduates",
-      "link": "https://blogs.nvidia.com/blog/nvidia-ceo-carnegie-mellon-commencement-address/",
-      "summary": "“You are entering the world at an extraordinary moment,” NVIDIA founder and CEO Jensen Huang told graduates as he delivered the keynote address at Carnegie Mellon University’s 128th commencement ceremony on Sunday. “A new industry is being born. A new era of science and discovery is beginning.” “No ...",
-      "pubDate": "Sun, 10 May 2026 22:00:50 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 2
+      "title": "Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability",
+      "link": "https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/",
+      "summary": "Our recent paper, “LLMs Corrupt Your Documents When You Delegate”, has generated discussion about the reliability of AI systems in delegated workflows. We appreciate the interest in this work and want to clarify several important points about what the paper does—and does not—claim. The research aims...",
+      "pubDate": "Fri, 15 May 2026 18:06:57 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 3
     },
     {
-      "title": "Musk v. Altman week 2: OpenAI fires back, and Shivon Zilis reveals that Musk tried to poach Sam Altman",
-      "link": "https://www.technologyreview.com/2026/05/08/1137008/musk-v-altman-week-2-openai-fires-back-and-shivon-zilis-reveals-that-musk-tried-to-poach-sam-altman/",
-      "summary": "In the second week of the landmark trial between Elon Musk and OpenAI, Musk’s motivations for bringing the suit were under scrutiny. Last week, Musk took the stand, alleging that OpenAI CEO Sam Altman and president Greg Brockman had deceived him into donating $38 million to the company. He claimed t...",
-      "pubDate": "Fri, 08 May 2026 23:59:19 +0000",
+      "title": "How the Pope’s Magnifica Humanitas offers a template for individuals to meet the AI moment",
+      "link": "https://www.technologyreview.com/2026/05/29/1138107/how-the-popes-magnifica-humanitas-offers-a-template-for-individuals-to-meet-the-ai-moment/",
+      "summary": "Pope Leo XIV’s new encyclical on artificial intelligence includes a statement that warrants serious attention from technologists and policymakers: “Technology is never neutral.” Magnifica Humanitas (“Magnificent Humanity”) is a clarion call to all people to act with courage and solidarity as we ente...",
+      "pubDate": "Fri, 29 May 2026 10:00:00 +0000",
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
       "relevance": 2
     },
     {
-      "title": "See what happens when creative legends use AI to make ads for small businesses.",
-      "link": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
-      "summary": "Today we're launching The Small Brief, an initiative bringing together three ad industry icons to champion a local businesses they love. Their mission is to build breakt…...",
-      "pubDate": "Fri, 08 May 2026 15:00:00 +0000",
+      "title": "The AI Hype Index: AI gets booed in graduation season",
+      "link": "https://www.technologyreview.com/2026/05/28/1138053/the-ai-hype-index-ai-gets-booed-in-graduation-season/",
+      "summary": "It is one thing to say AI will change the world. It is another to expect the class of 2026 to applaud it. In fact, when former Google CEO Eric Schmidt told University of Arizona graduates that their task is to help shape AI, he was met with a resounding chorus of boos. “I can…...",
+      "pubDate": "Thu, 28 May 2026 09:51:11 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 2
+    },
+    {
+      "title": "Catch up on the Dialogues stage at Google I/O 2026.",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/",
+      "summary": "A recap of the 2026 I/O Dialogues, where leaders discuss the future of AI, quantum computing, robotics and creativity....",
+      "pubDate": "Fri, 22 May 2026 18:00:00 +0000",
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
       "relevance": 2
     },
     {
-      "title": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for Gigascale AI, Now With MRC",
-      "link": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
-      "summary": "The race to build the world’s most powerful AI factories demands networking that keeps pace with the ambitions of AI itself.  NVIDIA Spectrum-X Ethernet scale-out infrastructure stands at the forefront of that race as the most advanced AI networking technology available today, deployed by industry l...",
-      "pubDate": "Wed, 06 May 2026 11:30:20 +0000",
+      "title": "How Cosmos 3 Helps Physical AI Think Before It Acts",
+      "link": "https://blogs.nvidia.com/blog/cosmos-3-physical-ai-open-world-foundation-model/",
+      "summary": "...",
+      "pubDate": "Mon, 01 Jun 2026 04:45:07 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 2
+      "relevance": 1
+    },
+    {
+      "title": "9 demos of Gemini Omni and Gemini 3.5 in action",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
+      "summary": "Watch 9 videos showing the capabilities of Gemini Omni and Gemini 3.5, announced at Google I/O 2026....",
+      "pubDate": "Fri, 29 May 2026 17:30:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 1
+    },
+    {
+      "title": "Catch up on 12 major I/O 2026 moments",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
+      "summary": "Here are 12 of the biggest Google I/O 2026 keynote moments, including news about Gemini Omni, Gemini 3.5 Flash and more....",
+      "pubDate": "Thu, 28 May 2026 15:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 1
+    },
+    {
+      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
+      "summary": "We used Google AI Studio to vibe code a quiz about our top I/O 2026 announcements....",
+      "pubDate": "Fri, 29 May 2026 19:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
+    },
+    {
+      "title": "Check out real-life AI prototypes from the Futures Lab.",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/university-waterloo-labs/",
+      "summary": "University of Waterloo students develop AI prototypes like sign language tutors to reshape the future of education and work....",
+      "pubDate": "Fri, 29 May 2026 12:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
+    },
+    {
+      "title": "Extending Human Intelligence Through AI",
+      "link": "https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/",
+      "summary": "Understanding AI as an extension of human intelligence—not a replacement for it—offers a more grounded path for building trustworthy AI systems.\nThe post Extending Human Intelligence Through AI appeared first on Microsoft Research....",
+      "pubDate": "Wed, 27 May 2026 16:00:00 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "Roundtables: Can AI Learn to Understand the World?",
+      "link": "https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/",
+      "summary": "Listen to the session or watch below AI companies want to build systems that understand the external world and overcome the limitations of LLMs. Recent developments have brought world models to the forefront of the AI discussion. Watch a conversation with editor in chief Mat Honan, senior AI editor ...",
+      "pubDate": "Thu, 21 May 2026 20:41:05 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "Scaling creativity in the age of AI",
+      "link": "https://www.technologyreview.com/2026/05/21/1137613/scaling-creativity-in-the-age-of-ai/",
+      "summary": "Storytelling is core to humanity’s DNA, stemming from our impulse to express ideals, warnings, hopes, and experiences. Technology has always been woven through the medium and the distribution: from early humans’ innovation of natural pigments and charcoals for cave paintings to literal representatio...",
+      "pubDate": "Thu, 21 May 2026 19:16:43 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "Vega: Zero-knowledge proofs for digital identity in the age of AI",
+      "link": "https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/",
+      "summary": "Vega turns a full credential into a single proof, sharing only what is needed and nothing more, with performance that works in real apps. \nThe post Vega: Zero-knowledge proofs for digital identity in the age of AI appeared first on Microsoft Research....",
+      "pubDate": "Thu, 21 May 2026 13:48:40 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 0
+    },
+    {
+      "title": "How AI Mode is changing the way people search in the U.S.",
+      "link": "https://blog.google/products-and-platforms/products/search/ai-mode-us-insights/",
+      "summary": "One year after launch, see how AI Mode’s users are shifting from keywords to natural language queries....",
+      "pubDate": "Tue, 19 May 2026 17:45:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
+    },
+    {
+      "title": "New ways to create and get things done in Google Workspace",
+      "link": "https://blog.google/products-and-platforms/products/workspace/workspace-updates/",
+      "summary": "Announcing new voice capabilities in Gmail, Docs and Keep, a new design tool called Google Pics and updates to AI Inbox....",
+      "pubDate": "Tue, 19 May 2026 17:45:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 0
     },
     {
       "title": "Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models",
@@ -532,46 +692,6 @@
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",
-      "relevance": 1
-    },
-    {
-      "title": "8 Gemini tips for organizing your space (and life)",
-      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
-      "summary": "Organize your home and digital space with Gemini. Use AI-powered tips for cleaning schedules, inbox decluttering, seasonal chores....",
-      "pubDate": "Fri, 24 Apr 2026 19:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 1
-    },
-    {
-      "title": "Three things in AI to watch, according to a Nobel-winning economist",
-      "link": "https://www.technologyreview.com/2026/05/11/1137090/three-things-in-ai-to-watch-according-to-a-nobel-winning-economist/",
-      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. A few months before he was awarded the Nobel Prize in economics in 2024, Daron Acemoglu published a paper that earned him few fans in Silicon Valley. Contrary to ...",
-      "pubDate": "Mon, 11 May 2026 17:35:12 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Fostering breakthrough AI innovation through customer-back engineering",
-      "link": "https://www.technologyreview.com/2026/05/11/1136967/fostering-breakthrough-ai-innovation-through-customer-back-engineering/",
-      "summary": "Despite years of digitization, organizations capture less than one-third of the value expected from digital investments, according to McKinsey research. That’s because most big companies begin with technological capabilities and bolt applications onto them, rather than starting with customer needs a...",
-      "pubDate": "Mon, 11 May 2026 13:33:06 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "The new AI-powered Google Finance is expanding to Europe.",
-      "link": "https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/",
-      "summary": "This week, the new, AI-powered Google Finance is launching across Europe, with full local language support. This reimagined experience offers a suite of powerful capabil…...",
-      "pubDate": "Mon, 11 May 2026 06:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
       "relevance": 0
     },
     {
@@ -579,126 +699,6 @@
       "link": "https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/",
       "summary": "Microsoft Research is excited to release an open dataset of approximate transmission topology of the U.S. power grid derived from publicly available data. The ability to study transmission-level power grid behavior is essential for modern power systems research. Analyses of congestion, transmission ...",
       "pubDate": "Fri, 08 May 2026 19:53:56 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’s Ian Buck on the Genesis Mission",
-      "link": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
-      "summary": "AI will help build the energy it needs. That’s the case U.S. Energy Secretary Chris Wright and NVIDIA Vice President of Hyperscale and High-Performance Computing Ian Buck made Thursday morning at the SCSP AI+ Expo. The 30-minute fireside chat, moderated by SCSP president Ylli Bajraktari, was called ...",
-      "pubDate": "Thu, 07 May 2026 19:14:38 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 0
-    },
-    {
-      "title": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
-      "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
-      "summary": "Less typing, more tanking. Faster logins mean more time in the gaming action — and this week provides GeForce NOW members with a smoother path straight into the battlefield. Cloud gaming is all about instant access to titles across devices, and the latest GeForce NOW update removes another layer for...",
-      "pubDate": "Thu, 07 May 2026 13:00:27 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 0
-    },
-    {
-      "title": "5 gardening tips you can try right in Search",
-      "link": "https://blog.google/products-and-platforms/products/search/gardening-tips/",
-      "summary": "We’ve rounded up the top ways you can use Google’s AI Mode, Search Live and Shopping to help your plants thrive....",
-      "pubDate": "Wed, 06 May 2026 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition.",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/",
-      "summary": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Future Vision film competition....",
-      "pubDate": "Tue, 05 May 2026 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Microsoft at NSDI 2026: Advances in large-scale networked systems",
-      "link": "https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/",
-      "summary": "Microsoft researchers share advances in building and operating large-scale distributed systems, spanning datacenters, networking, and the growing intersection with AI during  NSDI ’26.\nThe post Microsoft at NSDI 2026: Advances in large-scale networked systems appeared first on Microsoft Research....",
-      "pubDate": "Tue, 05 May 2026 16:00:00 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "A blueprint for using AI to strengthen democracy",
-      "link": "https://www.technologyreview.com/2026/05/05/1136843/ai-democracy-blueprint/",
-      "summary": "Every few centuries, changes in how information moves reshape how societies govern themselves. The printing press spread vernacular literacy, helping give rise to the Reformation and, eventually, representative government. The telegraph made it possible to administer vast nations like the US, accele...",
-      "pubDate": "Tue, 05 May 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "The latest AI news we announced in April 2026",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/",
-      "summary": "Here are Google’s latest AI updates from April 2026...",
-      "pubDate": "Mon, 04 May 2026 17:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Week one of the Musk v. Altman trial: What it was like in the room",
-      "link": "https://www.technologyreview.com/2026/05/04/1136826/week-one-of-the-musk-v-altman-trial-what-it-was-like-in-the-room/",
-      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Two of the most powerful people in AI—Sam Altman and Elon Musk—began their face-off in court in Oakland, California, last week. Musk is suing OpenAI, alleging tha...",
-      "pubDate": "Mon, 04 May 2026 15:51:27 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Celebrating 20 years of Google Translate: Fun facts, tips and new features to try",
-      "link": "https://blog.google/products-and-platforms/products/translate/fun-facts-google-translate-20-years/",
-      "summary": "Google’s sharing 20 fun facts to celebrate Google Translate turning 20, from its roots as a 2006 AI experiment to supporting almost 250 languages today....",
-      "pubDate": "Tue, 28 Apr 2026 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Here’s how our TPUs power increasingly demanding AI workloads.",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/what-is-a-tpu/",
-      "summary": "Learn how Google’s TPUs power increasingly demanding AI workloads with this new video....",
-      "pubDate": "Thu, 23 Apr 2026 12:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "AutoAdapt: Automated domain adaptation for large language models",
-      "link": "https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/",
-      "summary": "Deploying large language models (LLMs) in real-world, high-stakes settings is harder than it should be. In high-stakes settings like law, medicine, and cloud incident response, performance and reliability can quickly break down because adapting models to domain-specific requirements is a slow and ma...",
-      "pubDate": "Wed, 22 Apr 2026 16:25:30 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Can we AI our way to a more sustainable world?",
-      "link": "https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/",
-      "summary": "Doug Burger, sustainability expert Amy Luers, and optimization researcher Ishai Menache examine the global emissions implications of datacenter operations, efficiency gains, and AI's potential across electrification, materials, and food systems.\nThe post Can we AI our way to a more sustainable world...",
-      "pubDate": "Mon, 20 Apr 2026 16:24:01 +0000",
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",

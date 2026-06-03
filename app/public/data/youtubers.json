@@ -1,11 +1,18 @@
 {
-  "lastUpdated": "2026-05-15T08:01:05.799Z",
+  "lastUpdated": "2026-06-03T09:37:42.630Z",
   "youtubers": {
     "lex-fridman": {
       "name": "Lex Fridman",
       "description": "Investigador de MIT. Entrevistas profundas sobre IA, ciencia y filosofía.",
       "photo": "/images/gurus/lex-fridman.jpg",
       "videos": [
+        {
+          "videoId": "1M3Vdl6DRkU",
+          "title": "Biggest Mysteries in Physics: Antimatter, Dark Energy & ToE - Don Lincoln | Lex Fridman Podcast #497",
+          "description": "Don Lincoln is a particle physicist at Fermilab who has spent decades working at the frontiers of high energy physics.\nThank you for listening ❤ Check out our sponsors: https://lexfridman.com/sponsors...",
+          "thumbnail": "https://i.ytimg.com/vi/1M3Vdl6DRkU/hqdefault.jpg",
+          "publishedAt": "2026-05-29T16:18:31Z"
+        },
         {
           "videoId": "nepKKz-MzFM",
           "title": "FFmpeg: The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast #496",
@@ -68,13 +75,6 @@
           "description": "Nathan Lambert and Sebastian Raschka are machine learning researchers, engineers, and educators. Nathan is the post-training lead at the Allen Institute for AI (Ai2) and the author of The RLHF Book. S...",
           "thumbnail": "https://i.ytimg.com/vi/EV7WhVT270Q/hqdefault.jpg",
           "publishedAt": "2026-01-31T22:33:33Z"
-        },
-        {
-          "videoId": "Z-FRe5AKmCU",
-          "title": "Paul Rosolie: Uncontacted Tribes in the Amazon Jungle | Lex Fridman Podcast #489",
-          "description": "Paul Rosolie is a naturalist, explorer, author of a new book titled Junglekeeper, and is someone who has dedicated his life to protecting the Amazon rainforest.\nThank you for listening ❤ Check out our...",
-          "thumbnail": "https://i.ytimg.com/vi/Z-FRe5AKmCU/hqdefault.jpg",
-          "publishedAt": "2026-01-13T20:06:59Z"
         }
       ]
     }

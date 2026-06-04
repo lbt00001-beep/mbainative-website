@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-04T08:52:07.632Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-04T13:54:40.422Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "news",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the compan...",
+    "type": "guru_quote",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Jensen Huang (NVIDIA)\n\n\"NVIDIA &amp; ServiceNow&#39;s Project ARK: AI Agents That Code &amp; Work Autonomously\"\n\n▶️ youtube.com/watch?v=iQGfExaMM2k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=iQGfExaMM2k",
+    "imageUrl": "https://i.ytimg.com/vi/iQGfExaMM2k/mqdefault.jpg"
   }
 }

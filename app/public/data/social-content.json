@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-05T13:50:33.634Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-05T18:59:00.956Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Jobs Khatam Kar Raha Hai? Geoffrey Hinton Ki Warning!”“10 Saal Mein Kaun Si Jobs Khatam?\"\n\n▶️ youtube.com/watch?v=ELOJcYY4YvM",
+    "type": "recent_video",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/watch?v=Ig4CHP...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=ELOJcYY4YvM",
-    "imageUrl": "https://i.ytimg.com/vi/ELOJcYY4YvM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-06T12:04:03.123Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-06T18:10:40.662Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 karen-hao\n\n\"“Empire of AI”: Karen Hao on How AI Is Threatening Democracy &amp; Creating a New Colonial World\"\n\n▶️ youtube.com/watch?v=Xa6JuimHoEA",
+    "type": "recent_video",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/watc...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "karenhao"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=Xa6JuimHoEA",
-    "imageUrl": "https://i.ytimg.com/vi/Xa6JuimHoEA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

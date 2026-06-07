@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-07T08:25:30.325Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-07T12:18:22.092Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "news",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, t...",
+    "type": "guru_quote",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 karen-hao\n\n\"AI Whistleblower: We Are Being Gaslit By AI Companies, They’re Hiding The Truth! - Karen Hao\"\n\n▶️ youtube.com/watch?v=Cn8HBj8QAbk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "karenhao"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Cn8HBj8QAbk",
+    "imageUrl": "https://i.ytimg.com/vi/Cn8HBj8QAbk/mqdefault.jpg"
   }
 }

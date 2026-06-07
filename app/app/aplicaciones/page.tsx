@@ -9,6 +9,13 @@ const categorias = [
     descripcion: "Herramientas de análisis financiero y estimación de inversiones",
     apps: [
       {
+        nombre: "España vs UE — Dashboard",
+        descripcion: "Comparativa macro y microeconómica de los 27 países de la Unión Europea. Evolución histórica de 25 años e índice ISCB.",
+        url: "/aplicaciones/comparativa-ue",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Inversión con Fundamentales",
         descripcion: "Analiza los fundamentales de un ticker y estima su potencial de inversión.",
         url: "/aplicaciones/inversion-fundamentales",
@@ -202,6 +209,21 @@ const categorias = [
         nombre: "QR Poster Studio",
         descripcion: "Genera carteles profesionales con código QR listos para imprimir. 6 estilos prediseñados, colores personalizables, logo drag & drop y exportación en PNG y PDF de alta resolución.",
         url: "https://qr-poster-mbai.web.app",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
+  },
+  {
+    id: "ia-personal",
+    nombre: "IA Personal",
+    icono: "🧠",
+    descripcion: "Clones virtuales y asistentes de IA personalizados que aprenden tu personalidad",
+    apps: [
+      {
+        nombre: "Clonify — Clon Virtual Interactivo",
+        descripcion: "Crea un clon virtual de tu personalidad que aprende de tus WhatsApp, Gmail y Calendar. Conversa por voz o texto con tu clon, que responde en tu estilo y con tu tono. 100% privado en tu navegador.",
+        url: "https://clonify-dashboard.web.app",
         tipo: "externo",
         estado: "disponible"
       }

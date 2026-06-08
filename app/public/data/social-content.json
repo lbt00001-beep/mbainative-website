@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-08T14:44:00.301Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-08T19:23:09.804Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Jobs Khatam Kar Raha Hai? Geoffrey Hinton Ki Warning!”“10 Saal Mein Kaun Si Jobs Khatam?\"\n\n▶️ youtube.com/watch?v=ELOJcYY4YvM",
+    "type": "recent_video",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/watch?v=...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=ELOJcYY4YvM",
-    "imageUrl": "https://i.ytimg.com/vi/ELOJcYY4YvM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

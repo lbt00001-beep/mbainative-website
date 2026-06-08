@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-08T09:25:56.556Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-08T14:44:00.301Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "news",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, t...",
+    "type": "guru_quote",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI Jobs Khatam Kar Raha Hai? Geoffrey Hinton Ki Warning!”“10 Saal Mein Kaun Si Jobs Khatam?\"\n\n▶️ youtube.com/watch?v=ELOJcYY4YvM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=ELOJcYY4YvM",
+    "imageUrl": "https://i.ytimg.com/vi/ELOJcYY4YvM/mqdefault.jpg"
   }
 }

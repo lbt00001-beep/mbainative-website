@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-09T08:32:17.270Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-09T13:40:59.686Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "news",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbo...",
+    "type": "guru_quote",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Andrew Ng (Landing AI)\n\n\"Agentic AI explained: How workflows actually work.\"\n\n▶️ youtube.com/watch?v=AcGqzYixcNE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=AcGqzYixcNE",
+    "imageUrl": "https://i.ytimg.com/vi/AcGqzYixcNE/mqdefault.jpg"
   }
 }

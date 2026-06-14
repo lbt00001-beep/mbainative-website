@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-06-13T18:12:00.125Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-06-14T08:43:19.589Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 5,
-    "title": "La información fluye horizontalmente",
-    "icon": "↔️"
+    "id": 6,
+    "title": "Decisiones con autonomía configurable",
+    "icon": "🎚️"
   },
   "post": {
-    "type": "recent_video",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com...",
+    "type": "news",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of ...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "demishassabis"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
-    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

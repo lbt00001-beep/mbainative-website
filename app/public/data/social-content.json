@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-16T10:11:33.490Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-16T15:50:05.971Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 Ilya Sutskever (SSI)\n\n\"AI Agents Explained: Architecture, Tools, Frameworks &amp; Real-World Use Cases\"\n\n▶️ youtube.com/watch?v=Fw5U0mmLSk0",
+    "type": "recent_video",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "ilyasutskever"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=Fw5U0mmLSk0",
-    "imageUrl": "https://i.ytimg.com/vi/Fw5U0mmLSk0/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

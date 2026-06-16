@@ -199,6 +199,13 @@ const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Analizador Profesional de Contenidos",
+        descripcion: "Convierte videos de YouTube, PDFs, DOCX, articulos y libros en informes profesionales con ideas numeradas, visuales, conclusiones, aplicaciones derivadas y prompts listos para Codex, Claude o Gemini.",
+        url: "https://analizador-de-temas-416251601036.europe-west1.run.app",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "Detector de Textos IA (Doctrina MBAI)",
         descripcion: "Analiza cualquier fragmento de texto para determinar mediante 10 vectores lingüísticos si ha sido escrito por un humano o generado por Inteligencia Artificial.",
         url: "https://mbai-native-detector-2026.web.app",

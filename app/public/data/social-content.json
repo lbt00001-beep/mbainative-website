@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-18T09:17:33.995Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-18T13:59:31.385Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "news",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slac...",
+    "type": "guru_quote",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"&quot;I&#39;m Proud My Student FIRED Sam Altman&quot; — Geoffrey Hinton&#39;s Explosive Warning #Shorts\"\n\n▶️ youtube.com/watc...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=2G8WqQ994eA",
+    "imageUrl": "https://i.ytimg.com/vi/2G8WqQ994eA/mqdefault.jpg"
   }
 }

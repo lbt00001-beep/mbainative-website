@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-18T13:59:31.385Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-18T19:33:23.027Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"&quot;I&#39;m Proud My Student FIRED Sam Altman&quot; — Geoffrey Hinton&#39;s Explosive Warning #Shorts\"\n\n▶️ youtube.com/watc...",
+    "type": "recent_video",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/w...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=2G8WqQ994eA",
-    "imageUrl": "https://i.ytimg.com/vi/2G8WqQ994eA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

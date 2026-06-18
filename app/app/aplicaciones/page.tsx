@@ -218,6 +218,13 @@ const categorias = [
         url: "https://qr-poster-mbai.web.app",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "PlanPro Marketing",
+        descripcion: "Crea un Plan de Marketing profesional con diagnóstico, buyer personas, estrategia omnicanal, objetivos SMART, presupuesto, simulación IA y documento final en DOCX o PDF.",
+        url: "/plan-de-marketing/index.html",
+        tipo: "interno",
+        estado: "disponible"
       }
     ]
   },

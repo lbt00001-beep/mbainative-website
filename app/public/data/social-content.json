@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-18T13:59:31.385Z",
+  "generatedAt": "2026-06-20T12:25:03.208Z",
   "scheduleSlot": "noon",
   "principle": {
-    "id": 10,
-    "title": "Velocidad como ventaja competitiva",
-    "icon": "⚡"
+    "id": 12,
+    "title": "Seguridad por diseño",
+    "icon": "🔒"
   },
   "post": {
     "type": "guru_quote",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"&quot;I&#39;m Proud My Student FIRED Sam Altman&quot; — Geoffrey Hinton&#39;s Explosive Warning #Shorts\"\n\n▶️ youtube.com/watc...",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Yoshua Bengio\n\n\"Godfather of AI: The next 5 years Will Change Humanity Forever | Yoshua Bengio\"\n\n▶️ youtube.com/watch?v=0fXGtQoJgNo",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "GurusIA",
-      "geoffreyhinton"
+      "yoshuabengio"
     ],
-    "url": "https://youtube.com/watch?v=2G8WqQ994eA",
-    "imageUrl": "https://i.ytimg.com/vi/2G8WqQ994eA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=0fXGtQoJgNo",
+    "imageUrl": "https://i.ytimg.com/vi/0fXGtQoJgNo/mqdefault.jpg"
   }
 }

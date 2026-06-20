@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-03T09:29:24.488Z",
+  "lastUpdated": "2026-06-19T09:29:06.163Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 28
+      "articleCount": 34
     },
     {
       "id": "bcg",
@@ -26,184 +26,184 @@
   ],
   "articles": [
     {
-      "title": "When AI meets desire: Innovating human-centered luxury experiences in the agentic age",
-      "link": "https://www.mckinsey.com/industries/retail/our-insights/when-ai-meets-desire-innovating-human-centered-luxury-experiences-in-the-agentic-age",
-      "description": "With luxury consumers rapidly embracing AI, the strategic question for merchants is no longer whether agents will mediate the journey, but who controls how brands are perceived....",
-      "pubDate": "Fri, 29 May 2026",
+      "title": "Europe’s skilling dividend: Turning talent into growth",
+      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/europes-skilling-dividend-turning-talent-into-growth",
+      "description": "Europe’s workforce is a source of strength, but limited mobility holds people back. Organizations that make it easier for workers to move across roles, regions, and sectors can help accelerate growth....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 9
+      "score": 12
     },
     {
-      "title": "From Family Business to Diversified Powerhouse: A Conversation with Daniel Tsai, Chairman, Fubon Group",
-      "link": "https://www.mckinsey.com/featured-insights/future-of-asia/leading-asia/from-family-business-to-diversified-powerhouse-a-conversation-with-daniel-tsai-chairman-fubon-group",
-      "description": "How Daniel Tsai transformed a family insurer into one of Asia’s most diversified — and most resilient — business empires....",
-      "pubDate": "Tue, 02 Jun 2026",
+      "title": "Rewiring Talent to Value in the age of AI",
+      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/rewiring-talent-to-value-in-the-age-of-ai",
+      "description": "As humans enter a new era with AI agents as coworkers, companies need to update their framework for defining their most valuable roles. Here’s how to get started....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 12
     },
     {
-      "title": "The next gold rush: How the Bay Area can keep its edge in the AI era",
-      "link": "https://www.mckinsey.com/industries/social-sector/our-insights/the-next-gold-rush-how-the-bay-area-can-keep-its-edge-in-the-ai-era",
-      "description": "San Francisco is driving the AI revolution. How can the Bay Area sustain and expand this innovation ecosystem in the years to come?...",
-      "pubDate": "Tue, 02 Jun 2026",
+      "title": "Prompt Hungary: The impact of AI on the competitiveness of the economy",
+      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/prompt-hungary-the-impact-of-ai-on-the-competitiveness-of-the-economy",
+      "description": "AI could become a powerful growth engine for the country by helping overcome the economy’s challenges and limitations, and generating improved productivity and lasting competitive advantage....",
+      "pubDate": "Tue, 16 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 8
     },
     {
-      "title": "Airline premium cabins: Profitability at the front of the plane",
-      "link": "https://www.mckinsey.com/industries/travel/our-insights/airline-premium-cabins-profitability-at-the-front-of-the-plane",
-      "description": "Airlines can modernize their approach to business- and first-class revenue. Premium cabins call for differentiated strategies....",
-      "pubDate": "Mon, 01 Jun 2026",
+      "title": "Reinventing autonomous driving in the age of generative AI",
+      "link": "https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/reinventing-autonomous-driving-in-the-age-of-generative-ai",
+      "description": "As AI-native systems take hold, autonomous driving is becoming a race for compute power, software, data, and semiconductors....",
+      "pubDate": "Tue, 09 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 7
     },
     {
-      "title": "When AI becomes part of the workflow: Redesigning how software gets built",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/overview/when-ai-becomes-part-of-the-workflow-redesigning-how-software-gets-built",
-      "description": "AI is already transforming how software is built—but most organizations are capturing only a fraction of its value. At Sonar, teams redesigned the product development life cycle and showed AI can unlo...",
-      "pubDate": "Mon, 01 Jun 2026",
+      "title": "HR Monitor 2026: A turning point for the people function",
+      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/hr-monitor",
+      "description": "A comprehensive benchmark survey of workforce and HR trends across Europe, the United States, and China delivers critical insights for today’s HR leaders....",
+      "pubDate": "Mon, 08 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 7
     },
     {
-      "title": "The Next Wow Factor: A Conversation with Sidney Lu, Chairman and CEO, Foxconn Interconnect Technology (FIT)",
-      "link": "https://www.mckinsey.com/featured-insights/future-of-asia/leading-asia/the-next-wow-factor-a-conversation-with-sidney-lu-chairman-and-ceo-foxconn-interconnect-technology",
-      "description": "Sidney Lu has spent four decades building things no one thought Taiwan could build. His rule: every three years, deliver something that genuinely surprises — or risk becoming history. He isn’t done ye...",
-      "pubDate": "Sun, 31 May 2026",
+      "title": "Productivity reimagined",
+      "link": "https://www.mckinsey.com/featured-insights/insights-on-europe/productivity-reimagined",
+      "description": "Bold moves to redefine growth in Germany....",
+      "pubDate": "Wed, 10 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 6
     },
     {
-      "title": "The future of AI and trade",
-      "link": "https://www.mckinsey.com/mgi/media-center/the-future-of-ai-and-trade",
-      "description": "For all the constant buzz around AI, broad-based announcements about how AI has boosted profits are noticeably missing. The reason for this loud silence: it hasn’t happened—yet, write Olivia White and...",
-      "pubDate": "Fri, 29 May 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "AI is already rewiring the aftermarket and services",
-      "link": "https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/ai-is-already-rewiring-the-aftermarket-and-services",
-      "description": "For industrial companies, applying AI to the aftermarket and services could provide a source for differentiation on top of cost and time savings and enhanced customer experiences....",
-      "pubDate": "Fri, 29 May 2026",
+      "title": "What corporate leaders can learn from start-up founders",
+      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/what-corporate-leaders-can-learn-from-start-up-founders",
+      "description": "Alurx Founder and CEO Julia Stewart discusses her journey from public company CEO to health tech entrepreneur—and how corporate leaders can build confidence to transform their companies with AI....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "The surprising economics of B2B growth: The new survival threshold—and what it takes to thrive",
-      "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-surprising-economics-of-b2b-growth-the-new-survival-threshold-and-what-it-takes-to-thrive",
-      "description": "The 2026 Global B2B Pulse Survey finds a divide between leaders and laggards—and shows how integrating hyperpersonalization, AI, and sales accountability creates a new operating system for growth....",
-      "pubDate": "Thu, 28 May 2026",
+      "title": "From aisle to algorithm: The beauty categories, channels, and concepts shaping 2030 growth",
+      "link": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/state-of-beauty",
+      "description": "The global beauty market is expected to grow by 5 percent annually through 2030. But major disruptions are underway, driven by expanding definitions of beauty, fluid shopping behavior, and social comm...",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "Move first or fall behind: How AI is rewriting the rules of banking",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/move-first-or-fall-behind-how-ai-is-rewriting-the-rules-of-banking",
-      "description": "AI is poised to reshape banking not just by cutting costs, but by redistributing profits, redefining customer relationships, and accelerating competition. How should banks respond?...",
-      "pubDate": "Thu, 28 May 2026",
+      "title": "The rise of the agentic shopper: ASOS’s AI investment",
+      "link": "https://www.mckinsey.com/industries/retail/our-insights/the-rise-of-the-agentic-shopper-asoss-ai-investment",
+      "description": "The British fashion retailer’s chief technology officer discusses why agentic AI represents ‘a structural shift’ in how consumers engage with brands....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "Rewiring software delivery for the agentic era",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/rewiring-software-delivery-for-the-agentic-era",
-      "description": "The way agentic AI is being used in software development is a harbinger for broader changes in the delivery model....",
-      "pubDate": "Thu, 28 May 2026",
+      "title": "Brilliant Moves: Coffee with FairPrice Group’s Vipul Chawla",
+      "link": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/brilliant-moves-coffee-with-fairprice-groups-vipul-chawla",
+      "description": "FairPrice Group’s Vipul Chawla chats with McKinsey’s Gautam Kumra about using AI to remove friction from shopping, navigating supply chain shocks, and balancing innovation with the mission to keep dai...",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "Building the AI advantage: How ADEO is preparing for retail’s next wave",
-      "link": "https://www.mckinsey.com/industries/retail/our-insights/building-the-ai-advantage-how-adeo-is-preparing-for-retails-next-wave",
-      "description": "The global home-improvement retailer’s chief digital and information officer on unlocking the potential of AI—and keeping people’s feet on the ground....",
-      "pubDate": "Thu, 28 May 2026",
+      "title": "The symbiotic enterprise",
+      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-symbiotic-enterprise",
+      "description": "Advances in cognitive and physical AI are reinventing enterprise execution—ushering in a new organizational model built around human–AI collaboration....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "Primary care, reimagined: Workforce and care model innovation in a modern age",
-      "link": "https://www.mckinsey.com/mhi/our-insights/primary-care-reimagined-workforce-and-care-model-innovation-in-a-modern-age",
-      "description": "Inequitable access to primary care jeopardizes the health of millions of Americans, especially in rural communities, resulting in the equivalent of 45 million people with unmet primary care needs....",
-      "pubDate": "Tue, 19 May 2026",
+      "title": "AI is turning every company into a software company",
+      "link": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/ai-is-turning-every-company-into-a-software-company",
+      "description": "As AI makes software faster and cheaper to build, the real competitive edge shifts to how it’s used—pushing leaders to rethink what work looks like and how teams spend their time....",
+      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "Alabama’s playbook for jobs, growth, and economic opportunity",
-      "link": "https://www.mckinsey.com/institute-for-economic-mobility/our-insights/alabamas-playbook-for-jobs-growth-and-economic-opportunity",
-      "description": "Ellen McNair, the secretary of commerce for Alabama, discusses the state’s CatALyst economic development strategy and the value of strong partnerships in driving investment and inclusive growth....",
-      "pubDate": "Thu, 14 May 2026",
+      "title": "What could rising fuel costs mean for airlines?",
+      "link": "https://www.mckinsey.com/industries/travel/our-insights/what-could-rising-fuel-costs-mean-for-airlines",
+      "description": "Conflict in the Gulf region has disrupted jet fuel prices. Airlines can take action now to stay ahead of volatility....",
+      "pubDate": "Wed, 17 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
     },
     {
-      "title": "The board’s role in managing emerging AI risks",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/overview/cybersecurity/the-boards-role-in-managing-emerging-ai-risks",
-      "description": "Leading cybersecurity executives and board directors discuss the challenges and opportunities of AI....",
-      "pubDate": "Wed, 27 May 2026",
+      "title": "How conflict in the Gulf is remapping global travel",
+      "link": "https://www.mckinsey.com/industries/travel/our-insights/how-conflict-in-the-gulf-is-remapping-global-travel",
+      "description": "Geopolitics is disrupting the summer travel market, but traveler demand remains strong. Tourism players can take steps to navigate the challenge....",
+      "pubDate": "Wed, 17 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The turning point for real-world robotics",
+      "link": "https://www.mckinsey.com/industries/industrials/our-insights/the-turning-point-for-real-world-robotics",
+      "description": "Daniela Rus, director of MIT’s Computer Science and Artificial Intelligence Laboratory, shares a vision for robots that learn faster, respond in real time, and fit naturally into our lives....",
+      "pubDate": "Wed, 17 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The agentic advertising economy: From attention to action",
+      "link": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-agentic-advertising-economy-from-attention-to-action",
+      "description": "As AI changes how consumers discover products and impact is measured, advertising value will shift to the players that can shape what is seen, selected, and purchased....",
+      "pubDate": "Tue, 16 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The health system CEO imperative: Turning AI’s promise into performance",
+      "link": "https://www.mckinsey.com/industries/healthcare/our-insights/the-health-system-ceo-imperative-turning-ais-promise-into-performance",
+      "description": "Health systems aren’t short on AI, they’re short on impact from AI. Capturing real value requires CEO-led transformation and a fundamental rethink of how care and operations run....",
+      "pubDate": "Mon, 15 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "As America turns 250, unlocking the next generation's potential is key",
+      "link": "https://www.mckinsey.com/mgi/media-center/as-america-turns-250-unlocking-the-next-generations-potential-is-key",
+      "description": "As America prepares to celebrate its 250th birthday, I've been reflecting on the generations that built the country's success and what it will take to prepare the next generation for the economic tran...",
+      "pubDate": "Mon, 15 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The seven operating truths of AI-native companies",
+      "link": "https://www.mckinsey.com/capabilities/business-building/our-insights/the-seven-operating-truths-of-ai-native-companies",
+      "description": "Almost every company has AI tools, but few really know how to use them. Leaders at 15 AI-savvy companies say the difference comes down to seven operating truths—that most organizations still get wrong...",
+      "pubDate": "Thu, 11 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3
     },
     {
-      "title": "Japan’s $100 billion opportunity in general-purpose robotics",
-      "link": "https://www.mckinsey.com/industries/industrials/our-insights/japans-100-billion-opportunity-in-general-purpose-robotics",
-      "description": "Can Japan translate its hardware expertise into AI, data, and software to emerge as a leader as general-purpose robots scale?...",
-      "pubDate": "Tue, 26 May 2026",
+      "title": "Elevating the customer experience: IKEA’s agentic AI journey",
+      "link": "https://www.mckinsey.com/industries/retail/our-insights/elevating-the-customer-experience-ikeas-agentic-ai-journey",
+      "description": "The Swedish home-furnishing giant’s chief digital officer discusses the need to prioritize AI initiatives amid ‘the risk of doing everything but maybe nothing.’...",
+      "pubDate": "Thu, 11 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3
-    },
-    {
-      "title": "Beyond stablecoins: The emerging architecture of on-chain money",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/beyond-stablecoins-the-emerging-architecture-of-on-chain-money",
-      "description": "As attention focuses on stablecoins, a larger $4 trillion transformation is underway, integrating bank deposits and central bank assets into a unified global monetary stack....",
-      "pubDate": "Thu, 21 May 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "The next era of healthcare is personal",
-      "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/the-next-era-of-healthcare-is-personal",
-      "description": "Moderna CEO Stéphane Bancel explains how mRNA, AI, and individualized care could transform everything from vaccines to cancer treatment....",
-      "pubDate": "Thu, 21 May 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Global Banking Annual Review 2026: Precision with speed",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/global-banking-annual-review",
-      "description": "In this preview of our 2026 Global Banking Annual Review, we provide a glimpse of banks’ continued strong results in 2025; the emergence of a new world map; the tipping point for customer ownership; a...",
-      "pubDate": "Thu, 21 May 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Author Talks: Testing AI’s limits in a one-year experiment",
-      "link": "https://www.mckinsey.com/featured-insights/mckinsey-on-books/author-talks-testing-ais-limits-in-a-one-year-experiment",
-      "description": "What happens when AI runs your life for a year? NBC News Chief Technology Analyst Joanna Stern reveals surprising gains—and unsettling trade-offs—to embedding AI into everything from labor to leisure....",
-      "pubDate": "Wed, 20 May 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
     }
   ]
 }

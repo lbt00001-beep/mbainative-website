@@ -167,6 +167,13 @@ const categorias = [
         url: "https://ai-research-radar-mbai.web.app/",
         tipo: "externo",
         estado: "disponible"
+      },
+      {
+        nombre: "Comparador de Benchmarks de IA",
+        descripcion: "Comparativa visual y detallada de rendimiento y costes de los modelos de IA en 2026, con resúmenes didácticos e informes descargables.",
+        url: "https://benchmarks-ia-mbai.web.app",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

@@ -1,0 +1,44 @@
+name: Actualizar Benchmarks de IA Semanalmente
+
+on:
+  schedule:
+    # Se ejecuta todos los domingos a las 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+    # Permite disparar la actualización de forma manual desde el panel de GitHub Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update-benchmarks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ejecutar script de actualización en vivo
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: node .github/scripts/update-benchmarks.js
+
+      - name: Confirmar y empujar cambios
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Verificar si hay cambios en el archivo HTML
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Detectados cambios en el archivo de benchmarks. Haciendo commit..."
+            git add app/public/benchmarks-ia/index.html
+            git commit -m "🤖 Automatización: Actualización semanal de benchmarks de IA [skip ci]"
+            git push origin master
+          else
+            echo "No se encontraron cambios ni actualizaciones en los benchmarks esta semana."
+          fi

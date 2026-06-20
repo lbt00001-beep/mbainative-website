@@ -1,0 +1,2697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Benchmarks de Inteligencia Artificial | Luis Benedicto Tuzón</title>
+  
+  <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Iconos Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- jsPDF y AutoTable para reportes en PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
+  <style>
+    /* VARIABLES DE DISEÑO (Sleek Dark Mode & Glassmorphism) */
+    :root {
+      --bg-space: #0B0F19;
+      --card-bg: rgba(30, 41, 59, 0.65);
+      --card-bg-solid: #1e293b;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+      --accent-gold: #E2B659;
+      --accent-gold-hover: #F1CF87;
+      --accent-gold-glow: rgba(226, 182, 89, 0.35);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --success: #10B981;
+      --success-glow: rgba(16, 185, 129, 0.2);
+      --info: #3B82F6;
+      
+      --font-title: 'Outfit', sans-serif;
+      --font-hand: 'Caveat', cursive;
+      --font-body: 'Inter', sans-serif;
+      
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ESTILOS BASE Y FONDO DE ESPACIO PROFUNDO */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-space);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(226, 182, 89, 0.04) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* CONTENEDOR PRINCIPAL - AMPLIADO A 1600PX PARA PANTALLAS GRANDES */
+    .app-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1550px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    /* ENCABEZADO DE LA APLICACIÓN */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .header-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-logo h1 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header-logo p {
+      font-family: var(--font-hand);
+      font-size: 1.4rem;
+      color: var(--accent-gold);
+      margin-top: 0.2rem;
+      letter-spacing: 1px;
+    }
+
+    /* NAVEGACIÓN Y AJUSTES */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      background: rgba(30, 41, 59, 0.4);
+      padding: 0.3rem;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .tab-btn.active {
+      background: rgba(226, 182, 89, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(226, 182, 89, 0.25);
+    }
+
+    .tab-btn:hover:not(.active) {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .settings-trigger {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--accent-gold);
+      padding: 0.6rem;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+
+    .settings-trigger:hover {
+      background: rgba(226, 182, 89, 0.1);
+      border-color: var(--accent-gold);
+      transform: rotate(30deg);
+    }
+
+    /* DISEÑO DE PANEL A ANCHO COMPLETO */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    /* CARD CONTENEDORA GENERAL (GLASSMORPHISM) */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+    }
+
+    .card-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card-title-bar h2 {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* CONTROLES DE LA TABLA (FILTROS) */
+    .table-controls {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-toggle-columns {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-toggle-columns.active {
+      background: rgba(226, 182, 89, 0.1);
+      border-color: rgba(226, 182, 89, 0.3);
+      color: var(--accent-gold);
+    }
+
+    .btn-toggle-columns:hover {
+      border-color: var(--accent-gold);
+      color: var(--text-primary);
+    }
+
+    /* CONTENEDOR DE LA TABLA - MAQUETACIÓN ULTRA COMPACTA Y SIN SCROLL HORIZONTAL EN PANTALLAS GRANDES */
+    .table-responsive {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(11, 15, 25, 0.4);
+      overflow-x: auto; /* Contiene la tabla de forma simétrica y permite scroll horizontal al hacer zoom */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.8rem; /* Fuente más compacta */
+      table-layout: auto;
+    }
+
+    /* CABECERAS DE TABLA COMPACTAS */
+     th {
+       background: rgba(15, 23, 42, 0.8);
+       padding: 0.75rem 0.5rem; /* Padding reducido */
+       font-family: var(--font-title);
+       font-weight: 600;
+       text-transform: uppercase;
+       font-size: 0.7rem;
+       letter-spacing: 0.3px;
+       color: var(--text-secondary);
+       border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+       white-space: normal; /* Cambiado a normal para permitir saltos en dos líneas */
+       cursor: pointer;
+       user-select: none;
+       transition: var(--transition-smooth);
+       position: relative;
+     }
+
+     .header-subtext {
+       font-size: 0.58rem;
+       opacity: 0.75;
+       font-weight: normal;
+       text-transform: none;
+       display: block;
+       margin-top: 0.1rem;
+       line-height: 1.1;
+     }
+
+    th:hover {
+      background: rgba(30, 41, 59, 0.9);
+      color: var(--accent-gold);
+    }
+
+    th.sort-active {
+      color: var(--accent-gold);
+    }
+
+    .sort-icon {
+      font-size: 0.65rem;
+      margin-left: 0.15rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* DIVISIONES DE GRUPOS EN TABLA */
+    th.col-tech-header {
+      border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+    }
+    th.col-bench-header {
+      border-bottom: 2px solid rgba(226, 182, 89, 0.4);
+    }
+
+    /* FILAS Y CELDAS COMPACTAS */
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: var(--transition-smooth);
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    tr.frontier-row {
+      background: rgba(226, 182, 89, 0.015);
+    }
+    
+    tr.frontier-row:hover {
+      background: rgba(226, 182, 89, 0.035);
+    }
+
+    td {
+      padding: 0.6rem 0.5rem; /* Padding vertical y horizontal reducido */
+      vertical-align: middle;
+      color: var(--text-primary);
+    }
+
+    /* ESTILOS DE DATOS ESPECÍFICOS EN TABLA */
+    .model-info-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .model-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap; /* Evita rotura del nombre de la IA */
+      font-size: 0.8rem;
+    }
+
+    .frontier-badge {
+      background: linear-gradient(135deg, rgba(226, 182, 89, 0.25) 0%, rgba(217, 119, 6, 0.25) 100%);
+      border: 1px solid rgba(226, 182, 89, 0.4);
+      color: var(--accent-gold);
+      font-size: 0.6rem;
+      padding: 0.05rem 0.25rem;
+      border-radius: 3px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .tech-pill {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .multimodal-pill.yes {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .multimodal-pill.no {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .price-tag {
+      font-family: monospace;
+      font-weight: 500;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .price-value-in {
+      color: var(--text-secondary);
+    }
+
+    .price-value-out {
+      color: var(--accent-gold);
+    }
+
+    /* PUNTUACIONES DE BENCHMARKS Y CORONACIÓN */
+    .score-cell {
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .score-badge {
+      display: inline-block;
+      padding: 0.2rem 0.4rem;
+      border-radius: 5px;
+      width: 44px;
+      text-align: center;
+    }
+
+    .score-high {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .score-medium {
+      background: rgba(226, 182, 89, 0.09);
+      color: #f3c66f;
+      border: 1px solid rgba(226, 182, 89, 0.15);
+    }
+
+    .score-low {
+      background: rgba(148, 163, 184, 0.06);
+      color: var(--text-secondary);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    /* GANADOR DE BENCHMARK (CORONA) */
+    .score-top {
+      background: linear-gradient(135deg, rgba(226, 182, 89, 0.32) 0%, rgba(217, 119, 6, 0.22) 100%) !important;
+      color: #FFE5A3 !important;
+      border: 1px solid rgba(226, 182, 89, 0.5) !important;
+      box-shadow: 0 0 10px rgba(226, 182, 89, 0.2);
+      font-weight: 700;
+      transform: scale(1.03);
+    }
+    
+    .score-top::after {
+      content: '👑';
+      position: absolute;
+      top: -8px;
+      right: -2px;
+      font-size: 0.7rem;
+      animation: crownFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes crownFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+
+    /* PANEL HORIZONTAL INFERIOR PARA EXPLICACIONES (GLASSMORPHISM) */
+    .details-bottom-panel {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .detail-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0.5rem 0;
+    }
+
+    @media (min-width: 900px) {
+      .detail-grid-layout {
+        grid-template-columns: 240px 1fr 1.3fr;
+      }
+    }
+
+    .detail-col-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: none;
+      padding-right: 0;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .detail-col-header {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        padding-right: 1.5rem;
+      }
+    }
+
+    .detail-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(226, 182, 89, 0.1);
+      border: 1px solid rgba(226, 182, 89, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+    }
+
+    .detail-col-header h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .detail-col-header .focus-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .detail-col-technical {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .detail-col-technical h4 {
+      font-family: var(--font-title);
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .detail-col-didactic {
+      background: rgba(226, 182, 89, 0.04);
+      border: 1px dashed rgba(226, 182, 89, 0.25);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detail-col-didactic h4 {
+      font-family: var(--font-title);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .detail-col-didactic p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* PESTAÑA GUÍA DIDÁCTICA */
+    .didactic-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .didactic-container {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .didactic-article {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .didactic-article h3 {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      color: var(--accent-gold);
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .didactic-article p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .didactic-article ul {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .didactic-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .infobox {
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .infobox-title {
+      font-family: var(--font-title);
+      font-weight: 600;
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* BARRA LATERAL DESLIZANTE DE AJUSTES */
+    .settings-sidebar {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 320px;
+      height: 100vh;
+      background: #0f172a;
+      border-left: 1px solid var(--card-border);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      padding: 2rem 1.5rem;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .settings-sidebar.open {
+      right: 0;
+    }
+
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.8rem;
+    }
+
+    .settings-header h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-close-settings {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem;
+      border-radius: 5px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-close-settings:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .form-group input, .form-group select {
+      background: rgba(11, 15, 25, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: var(--transition-smooth);
+      width: 100%;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(226, 182, 89, 0.15);
+    }
+
+    .settings-info {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .settings-info a {
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    .settings-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* BOTONES */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #D97706 100%);
+      border: none;
+      color: #0b0f19;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 12px rgba(226, 182, 89, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-gold-hover) 0%, #E2B659 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(226, 182, 89, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary:disabled {
+      background: var(--text-muted);
+      color: var(--bg-space);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* TOOLTIPS INTERACTIVOS POR JAVASCRIPT (GLASSPHORMISM) */
+    .global-tooltip {
+      position: absolute;
+      display: none;
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-primary);
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      width: 280px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+      z-index: 10000;
+      pointer-events: none;
+      line-height: 1.4;
+      font-family: var(--font-body);
+      text-align: center;
+    }
+
+    .th-tooltip-wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+
+    /* EFECTO DE ESCANEO / ANÁLISIS DE PANTALLA */
+    .scanning-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      animation: scan 2s linear infinite;
+      z-index: 10;
+      display: none;
+    }
+
+    @keyframes scan {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    .loading-status {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      background: rgba(226, 182, 89, 0.08);
+      border: 1px solid rgba(226, 182, 89, 0.15);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* FOOTER Y COPYRIGHT */
+    footer {
+      margin-top: auto;
+      width: 100%;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(11, 15, 25, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-name {
+      font-family: var(--font-hand);
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      font-weight: 500;
+      vertical-align: middle;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+
+    .ai-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ELEMENTOS AUXILIARES */
+    .tab-content {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .tab-content.active-content {
+      display: flex;
+    }
+
+    .source-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    /* COLUMNAS OCULTABLES */
+    .col-tech {
+      transition: var(--transition-smooth);
+    }
+    
+    .col-tech.hidden {
+      display: none !important;
+    }
+
+    .col-bench {
+      transition: var(--transition-smooth);
+    }
+
+    .col-bench.hidden {
+      display: none !important;
+    }
+
+    /* MENSAJE DE NOTIFICACIÓN RAPIDA */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      z-index: 10000;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay para desenfocar cuando se abren Ajustes -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Barra lateral de Ajustes -->
+  <div class="settings-sidebar" id="settingsSidebar">
+    <div class="settings-header">
+      <h3><i data-lucide="settings"></i> Ajustes de API</h3>
+      <button class="btn-close-settings" id="btnCloseSettings" data-tooltip="Cerrar ajustes">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    
+    <div class="form-group">
+      <label for="apiKey" data-tooltip="Tu API Key se almacena localmente y nunca se comparte fuera de las peticiones a OpenRouter.">
+        <i data-lucide="key"></i> API Key OpenRouter:
+      </label>
+      <input type="password" id="apiKey" placeholder="sk-or-..." autocomplete="off">
+    </div>
+
+    <div class="form-group">
+      <label for="modelSelect" data-tooltip="Selecciona el modelo de IA que se encargará de realizar el análisis en vivo.">
+        <i data-lucide="cpu"></i> Modelo Analizador:
+      </label>
+      <select id="modelSelect">
+        <option value="google/gemini-3.5-flash-lite" selected>google/gemini-3.5-flash-lite (Recomendado)</option>
+        <option value="minimax/minimax-m3">minimax/minimax-m3</option>
+        <option value="qwen/qwen-3.7-plus">qwen/qwen-3.7-plus</option>
+        <option value="google/gemini-3.1-flash-lite">google/gemini-3.1-flash-lite</option>
+        <option value="z-ai/glm-5v-turbo">z-ai/glm-5v-turbo</option>
+        <option value="google/gemini-3.5-flash">google/gemini-3.5-flash</option>
+      </select>
+    </div>
+
+    <div class="settings-info">
+      <p>Para analizar los benchmarks en tiempo real necesitas una API Key de <strong>OpenRouter</strong>. Consíguela en <a href="https://openrouter.ai/" target="_blank">openrouter.ai</a>.</p>
+      <br>
+      <p>Si no tienes una clave, la aplicación utilizará por defecto los <strong>datos cargados de fábrica (offline)</strong> de la frontera del año 2026, los cuales están completamente actualizados.</p>
+    </div>
+
+    <button class="btn-primary" id="btnSaveSettings" style="margin-top: auto;">
+      <i data-lucide="save"></i> Guardar Ajustes
+    </button>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- HEADER -->
+    <header>
+      <div class="header-logo">
+        <h1>OpenBench AI</h1>
+        <p>Visualizador y Analizador de Modelos de Frontera</p>
+      </div>
+      <div class="header-actions">
+        <div class="nav-tabs">
+          <button class="tab-btn active" id="tabComparativa" data-tab="comparativaTab" data-tooltip="Ver la tabla comparativa de benchmarks y modelos">
+            <i data-lucide="table"></i> Comparativa
+          </button>
+          <button class="tab-btn" id="tabDidactica" data-tab="didacticaTab" data-tooltip="Aprende cómo funcionan y qué significan estas pruebas">
+            <i data-lucide="graduation-cap"></i> Guía Didáctica
+          </button>
+        </div>
+        <button class="settings-trigger" id="btnOpenSettings" data-tooltip="Configurar API Key y modelos de OpenRouter">
+          <i data-lucide="sliders-horizontal"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- PESTAÑA 1: COMPARATIVA -->
+    <div class="tab-content active-content" id="comparativaTab">
+      
+      <div class="main-grid" id="mainGrid">
+        
+        <!-- COLUMNA TABLA (ANCHO COMPLETO - SIN SCROLL EN PANTALLAS ANCHAS) -->
+        <div class="glass-card" style="min-height: 480px;">
+          <!-- Barra de carga visual (Escáner) -->
+          <div class="scanning-line" id="scannerLine"></div>
+
+          <div class="card-title-bar">
+            <h2><i data-lucide="activity" style="color: var(--accent-gold);"></i> Comparativa de la Industria (Junio 2026)</h2>
+            
+            <div class="table-controls">
+              <!-- Alternadores de Columnas -->
+              <button class="btn-toggle-columns active" id="btnToggleTech" data-tooltip="Mostrar u ocultar los datos técnicos de los modelos (laboratorio, precio, contexto...)">
+                <i data-lucide="eye"></i> Datos Técnicos
+              </button>
+              <button class="btn-toggle-columns active" id="btnToggleBench" data-tooltip="Mostrar u ocultar las puntuaciones en los exámenes de benchmarks">
+                <i data-lucide="eye"></i> Benchmarks
+              </button>
+              
+              <!-- Botón Informe de IA -->
+              <button class="btn-primary" id="btnAnalyzeLive" data-tooltip="Realiza un análisis en vivo con la IA seleccionada y descarga un informe técnico completo en PDF con el resumen y la tabla.">
+                <i data-lucide="sparkles"></i> Informe de IA
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabla Interactiva Compacta -->
+          <div class="table-responsive">
+            <table id="benchmarksTable">
+              <thead>
+                <tr id="tableHeaders">
+                  <!-- Generado dinámicamente -->
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Generado dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="loading-status" id="loadingStatus">
+            <i data-lucide="loader-2" class="spin"></i>
+            <span id="loadingStatusText">Llamando a OpenRouter para escanear modelos...</span>
+          </div>
+
+          <div class="source-label" id="dataSourceLabel">
+            Origen de datos: Cargados de fábrica (Offline)
+          </div>
+        </div>
+
+        <!-- PANEL DE EXPLICACIÓN DIDÁCTICA INFERIOR (ANCHO COMPLETO) -->
+        <div class="glass-card details-bottom-panel" id="detailCard">
+          <div class="detail-grid-layout">
+            
+            <!-- Columna 1: Concepto -->
+            <div class="detail-col-header">
+              <div class="detail-icon-wrap" id="detailIconWrap">
+                <i data-lucide="help-circle" style="width:24px; height:24px;"></i>
+              </div>
+              <h3 id="detailTitle">¿Cómo empezar?</h3>
+              <span class="focus-pill" id="detailFocus">Instrucciones básicas</span>
+            </div>
+
+            <!-- Columna 2: Explicación Técnica -->
+            <div class="detail-col-technical">
+              <h4 id="detailTechHeader"><i data-lucide="terminal" style="width:16px; height:16px;"></i> Detalle Técnico</h4>
+              <div id="detailContent">
+                <p>Haz clic en cualquiera de las cabeceras de la tabla para ordenar los modelos de mayor a menor por esa característica o examen.</p>
+                <p><strong>Haz clic en el nombre de un benchmark (o en una celda de puntuación)</strong> para leer aquí abajo qué mide ese test de manera detallada.</p>
+                <p>Pasa el ratón (hover) sobre los diferentes elementos para recibir pequeños consejos didácticos sobre su funcionamiento.</p>
+              </div>
+            </div>
+
+            <!-- Columna 3: didáctica de Bachillerato y Analogía -->
+            <div class="detail-col-didactic" id="detailDidacticBox">
+              <h4 id="detailDidacticHeader"><i data-lucide="lightbulb" style="width:16px; height:16px;"></i> Nivel Bachillerato</h4>
+              <p id="detailDidacticContent">Esta sección traducirá los conceptos técnicos informáticos a analogías cotidianas y sencillas para que entiendas perfectamente cómo compiten las inteligencias artificiales entre sí.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PESTAÑA 2: GUÍA DIDÁCTICA -->
+    <div class="tab-content" id="didacticaTab">
+      <div class="glass-card">
+        <div class="card-title-bar">
+          <h2><i data-lucide="graduation-cap" style="color: var(--accent-gold);"></i> Guía Didáctica: ¿Cómo evaluamos a la Inteligencia Artificial?</h2>
+        </div>
+        
+        <div class="didactic-container">
+          
+          <div class="didactic-article">
+            <p>Imagina que quieres contratar a un ayudante para tu empresa o tu escuela. Le harías una entrevista de trabajo o un examen, ¿verdad? Con la Inteligencia Artificial hacemos exactamente lo mismo. Estos "exámenes" se llaman <strong>Benchmarks</strong>.</p>
+            
+            <h3><i data-lucide="book-open"></i> 1. ¿Qué es un Benchmark?</h3>
+            <p>Un benchmark es una prueba estandarizada (un conjunto de preguntas, problemas matemáticos o tareas de código) diseñada para medir qué tan inteligente, rápida o hábil es una Inteligencia Artificial en comparación con otras o con los humanos.</p>
+            <p>Sin embargo, a diferencia de los humanos, una IA no "piensa" de la misma manera. Una IA predice palabras. Por lo tanto, un examen para una IA debe estar muy bien diseñado para evaluar si realmente puede <strong>razonar</strong> o si simplemente está repitiendo cosas que memorizó de internet.</p>
+            
+            <h3><i data-lucide="scale"></i> 2. La diferencia entre Conocimiento y Razonamiento</h3>
+            <p>Es muy común confundir un modelo que "sabe mucho" con uno que "razona muy bien".</p>
+            <ul>
+              <li><strong>Conocimiento (MMLU-Pro)</strong>: Mide si el modelo recuerda hechos históricos, leyes de la física o conceptos médicos. Es útil, pero si la IA solo tiene esto, es como un estudiante que se memoriza el libro pero no entiende las fórmulas.</li>
+              <li><strong>Razonamiento (GPQA, MATH)</strong>: Mide si el modelo puede resolver problemas complejos que requieren múltiples pasos intermedios. Los nuevos modelos "de razonamiento" (como Claude Opus 4.8 o GPT-5.5) se toman su tiempo para "pensar" antes de responder, simulando un hilo de pensamiento interno (Chain of Thought).</li>
+            </ul>
+
+            <h3><i data-lucide="alert-triangle"></i> 3. Los Peligros de la Evaluación: La Ley de Goodhart</h3>
+            <p>En el mundo de la IA existe una regla muy famosa llamada la <strong>Ley de Goodhart</strong>, que dice:</p>
+            <blockquote style="border-left: 3px solid var(--accent-gold); padding-left: 1rem; font-style: italic; color: #f3c66f; margin: 0.5rem 0;">
+              "Cuando una medida se convierte en un objetivo, deja de ser una buena medida."
+            </blockquote>
+            <p>Si los creadores de IA entrenan a sus modelos usando las mismas preguntas que aparecen en los benchmarks, los modelos sacarán una puntuación perfecta del 100%, pero en la vida real fallarán. Esto se conoce como <strong>contaminación de datos</strong>. Por eso, los científicos deben inventar constantemente exámenes nuevos y más difíciles.</p>
+
+            <h3><i data-lucide="calculator"></i> 4. El Índice Calidad/Precio: ¿Cómo evaluamos de forma justa?</h3>
+            <p>Para ayudarte a elegir qué Inteligencia Artificial es la más idónea para cada proyecto, calculamos el índice <strong>Calidad/Precio (0 a 10)</strong>. Este índice equilibra cuatro variables clave con los siguientes pesos:</p>
+            <ul>
+              <li><strong>Precio Medio (25%):</strong> El coste medio de procesar un millón de palabras (tokens de entrada y salida). Se calcula de forma <em>inversa</em>: el modelo más barato obtiene un 10 y el resto recibe una nota proporcional (si una IA cuesta el doble que la más barata, se le da la mitad de puntuación, es decir, un 5).</li>
+              <li><strong>Tamaño del Contexto (15%):</strong> La memoria de trabajo de la IA. Los modelos que recuerdan libros enteros obtienen una nota directamente proporcional a la del líder en memoria.</li>
+              <li><strong>Preferencia Humana Chatbot Arena (30%):</strong> Puntuación Elo otorgada por miles de personas reales en combates ciegas de conversación. Se evalúa de manera proporcional directa respecto al líder de la liga.</li>
+              <li><strong>Benchmarks Académicos (30%):</strong> La media de los 5 exámenes técnicos (MMLU-Pro, GPQA, MATH, HumanEval, SWE-bench) de razonamiento y código de la tabla.</li>
+            </ul>
+            <p><strong>La regla de admisión (El percentil 50 de Calidad):</strong> Para evitar que modelos extremadamente baratos pero con muy malas puntuaciones (como Llama 3.1 8B) distorsionen el ranking y colonicen las primeras posiciones, aplicamos una regla de corte: <strong>un modelo debe superar el percentil 50 (la mediana) de la calidad de la industria en los otros tres parámetros</strong> (memoria, Elo y exámenes académicos combinados) para ser calificado. Si no lo supera, queda marcado como <em>"No Valorado"</em> y se coloca automáticamente al final de la lista.</p>
+            <p><strong>El fin de las notas a cero injustas:</strong> Para los modelos calificados, preferimos una <strong>normalización proporcional</strong> en lugar de dar 10 al mejor y 0 al peor. Si el modelo de menor rendimiento calificado sigue siendo excelente en términos absolutos, no merece un cero. Al calcular los puntos de forma proporcional al líder de la industria, cada IA recibe una nota realista que refleja fielmente su capacidad y coste sin penalizaciones artificiales.</p>
+          </div>
+
+          <div class="didactic-aside">
+            
+            <div class="infobox">
+              <div class="infobox-title">
+                <i data-lucide="help-circle"></i> Glosario de Conceptos
+              </div>
+              <p style="margin-bottom: 0.8rem; font-size: 0.8rem;">
+                <strong>Parámetros:</strong> Son las conexiones neuronales de la IA. Más parámetros suelen implicar mayor capacidad para aprender conceptos complejos, aunque los modelos modernos son mucho más eficientes con menos tamaño.
+              </p>
+              <p style="margin-bottom: 0.8rem; font-size: 0.8rem;">
+                <strong>Ventana de Contexto:</strong> La cantidad de información (texto) que la IA puede recordar a la vez en una conversación. Expresada en "tokens" (aprox. 3/4 de una palabra). Una ventana de 2M (Gemini 3.1 Pro) equivale a unas 1,500,000 palabras (¡varias novelas juntas!).
+              </p>
+              <p style="font-size: 0.8rem;">
+                <strong>Multimodal:</strong> Indica si el modelo puede "ver" imágenes, "escuchar" sonidos o "entender" vídeos, además de procesar texto escrito.
+              </p>
+            </div>
+
+            <div class="infobox" style="background: rgba(226, 182, 89, 0.03); border-color: rgba(226, 182, 89, 0.15);">
+              <div class="infobox-title" style="color: var(--accent-gold);">
+                <i data-lucide="dollar-sign"></i> Entendiendo el Precio
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                Las APIs cobran por "Millones de Tokens" (1M de tokens son unas 750,000 palabras).
+                <br><br>
+                El precio se divide en <strong>Entrada</strong> (lo que tú le escribes al modelo + archivos que subes) y <strong>Salida (Output)</strong> (lo que el modelo escribe como respuesta). Los modelos de razonamiento suelen gastar más tokens de salida porque escriben su "pensamiento oculto".
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOAST DE NOTIFICACIÓN -->
+    <div class="toast" id="toast">
+      <i data-lucide="info" style="color: var(--accent-gold); width: 18px; height: 18px;"></i>
+      <span id="toastMessage">Mensaje de prueba</span>
+    </div>
+
+    <!-- FOOTER / COPYRIGHT -->
+    <footer>
+      <p>By <span class="author-name">Luis Benedicto Tuzón</span> with <span class="ai-badge">Gemini 3.5 Flash (High)</span></p>
+    </footer>
+
+  </div>
+
+  <script>
+    // BASE DE DATOS AMPLIADA (15 MODELOS REALES VIGENTES EN JUNIO 2026)
+    // /* START_INITIAL_DATA */
+    const initialData = {
+      benchmarks: [
+        {
+          id: "mmlu_pro",
+          name: "MMLU-Pro",
+          focus: "Conocimiento General",
+          description: "MMLU-Pro es un examen multidisciplinar de opción múltiple extremadamente riguroso. Evalúa al modelo en 14 áreas de nivel universitario (matemáticas, física, derecho, historia, etc.). Reduce la probabilidad de acertar al azar ampliando las opciones a 10 e incorporando preguntas que requieren razonamiento complejo de varios pasos."
+        },
+        {
+          id: "gpqa",
+          name: "GPQA (Diamond)",
+          focus: "Razonamiento Científico",
+          description: "Graduate-Level Google-Proof Q&A. Es un benchmark con preguntas científicas de física, química y biología creadas por expertos de nivel doctorado. Están diseñadas para que un humano experto en otra área no pueda responderlas fácilmente y que buscar en Google no sirva para dar con la respuesta directamente. Mide la frontera del razonamiento científico."
+        },
+        {
+          id: "math",
+          name: "MATH-500",
+          focus: "Matemáticas de Olimpiada",
+          description: "Un conjunto de 500 problemas matemáticos complejos procedentes de competiciones escolares internacionales y olimpiadas matemáticas. Evalúa la capacidad del modelo para realizar deducciones lógicas rigurosas, aplicar fórmulas algebraicas y geométricas, y evitar errores de cálculo numérico."
+        },
+        {
+          id: "human_eval",
+          name: "HumanEval",
+          focus: "Programación (Python)",
+          description: "Creado originalmente por OpenAI, este benchmark evalúa la capacidad de codificación de la IA. Consiste en escribir funciones de Python a partir de una descripción escrita (docstring). El código generado por la IA es ejecutado y verificado mediante un conjunto de pruebas unitarias automáticas para comprobar que funciona al 100%."
+        },
+        {
+          id: "swe_bench",
+          name: "SWE-bench (Pro)",
+          focus: "Ingeniería de Software",
+          description: "SWE-bench Pro es la evolución de SWE-bench Verified. Evalúa la capacidad del modelo para actuar como un ingeniero de software en un entorno real. Se le proporciona un repositorio de código real de GitHub y una incidencia (issue) de fallo reportada por un usuario. El modelo debe leer múltiples archivos, localizar el error, modificar el código del proyecto y resolver el bug de producción."
+        },
+        {
+          id: "chatbot_arena",
+          name: "Chatbot Arena (Elo)",
+          focus: "Preferencia Humana (Elo)",
+          description: "La liga competitiva definitiva administrada por LMSYS. Consiste en batallas ciegas donde un usuario humano escribe un prompt y dos modelos anónimos responden en paralelo. El humano vota cuál respuesta es mejor. Utilizando el sistema de puntuación Elo (como en el ajedrez), se calcula qué modelo prefiere la gente en conversaciones de la vida real."
+        }
+      ],
+      models: [
+        {
+          name: "Claude Fable 5",
+          developer: "Anthropic",
+          releaseDate: "Jun 2026",
+          parameters: "Desconocido (Mythos)",
+          contextWindow: "1M (1,000,000)",
+          multimodal: "Sí",
+          priceInput: 10.00,
+          priceOutput: 50.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 89.2,
+            gpqa: 85.5,
+            math: 94.2,
+            human_eval: 98.2,
+            swe_bench: 68.5,
+            chatbot_arena: 1395
+          }
+        },
+        {
+          name: "GPT-5.5",
+          developer: "OpenAI",
+          releaseDate: "Abr 2026",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "256k",
+          multimodal: "Sí",
+          priceInput: 8.00,
+          priceOutput: 32.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 88.0,
+            gpqa: 83.2,
+            math: 93.6,
+            human_eval: 97.0,
+            swe_bench: 62.4,
+            chatbot_arena: 1385
+          }
+        },
+        {
+          name: "Claude Opus 4.8",
+          developer: "Anthropic",
+          releaseDate: "May 2026",
+          parameters: "Desconocido (Opus)",
+          contextWindow: "1M (1,000,000)",
+          multimodal: "Sí",
+          priceInput: 5.00,
+          priceOutput: 25.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 86.8,
+            gpqa: 81.3,
+            math: 92.5,
+            human_eval: 96.8,
+            swe_bench: 61.2,
+            chatbot_arena: 1378
+          }
+        },
+        {
+          name: "DeepSeek-R2",
+          developer: "DeepSeek",
+          releaseDate: "Feb 2026",
+          parameters: "800B (MoE, 48B act.)",
+          contextWindow: "256k",
+          multimodal: "No",
+          priceInput: 0.80,
+          priceOutput: 3.20,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 87.5,
+            gpqa: 76.8,
+            math: 98.1,
+            human_eval: 96.4,
+            swe_bench: 59.8,
+            chatbot_arena: 1374
+          }
+        },
+        {
+          name: "Gemini 3.1 Pro",
+          developer: "Google",
+          releaseDate: "Mar 2026",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "2M (2,000,000)",
+          multimodal: "Sí",
+          priceInput: 1.50,
+          priceOutput: 6.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 85.1,
+            gpqa: 74.2,
+            math: 90.8,
+            human_eval: 94.0,
+            swe_bench: 54.1,
+            chatbot_arena: 1358
+          }
+        },
+        {
+          name: "Grok 4",
+          developer: "xAI",
+          releaseDate: "Abr 2026",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "256k",
+          multimodal: "Sí",
+          priceInput: 2.00,
+          priceOutput: 8.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 86.0,
+            gpqa: 75.2,
+            math: 90.5,
+            human_eval: 95.1,
+            swe_bench: 52.8,
+            chatbot_arena: 1362
+          }
+        },
+        {
+          name: "GPT-5",
+          developer: "OpenAI",
+          releaseDate: "Ene 2026",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "128k",
+          multimodal: "Sí",
+          priceInput: 4.00,
+          priceOutput: 16.00,
+          isFrontier: true,
+          scores: {
+            mmlu_pro: 84.6,
+            gpqa: 75.1,
+            math: 89.2,
+            human_eval: 93.5,
+            swe_bench: 51.3,
+            chatbot_arena: 1342
+          }
+        },
+        {
+          name: "Mistral Large 3",
+          developer: "Mistral",
+          releaseDate: "Feb 2026",
+          parameters: "123B (Cerrado)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 2.00,
+          priceOutput: 6.00,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 81.5,
+            gpqa: 68.2,
+            math: 84.1,
+            human_eval: 92.0,
+            swe_bench: 45.3,
+            chatbot_arena: 1315
+          }
+        },
+        {
+          name: "Qwen 2.5-Max",
+          developer: "Alibaba",
+          releaseDate: "Nov 2025",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 0.40,
+          priceOutput: 1.60,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 83.2,
+            gpqa: 67.5,
+            math: 88.0,
+            human_eval: 92.5,
+            swe_bench: 46.2,
+            chatbot_arena: 1312
+          }
+        },
+        {
+          name: "Llama 3.3 70B",
+          developer: "Meta",
+          releaseDate: "Dic 2025",
+          parameters: "70B (Abierto)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 0.35,
+          priceOutput: 0.35,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 80.8,
+            gpqa: 62.4,
+            math: 82.5,
+            human_eval: 91.2,
+            swe_bench: 41.5,
+            chatbot_arena: 1292
+          }
+        },
+        {
+          name: "DeepSeek-V3.2",
+          developer: "DeepSeek",
+          releaseDate: "May 2026",
+          parameters: "671B (MoE, 37B act.)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 0.14,
+          priceOutput: 0.28,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 81.3,
+            gpqa: 60.5,
+            math: 81.0,
+            human_eval: 89.5,
+            swe_bench: 39.8,
+            chatbot_arena: 1284
+          }
+        },
+        {
+          name: "DeepSeek-R1",
+          developer: "DeepSeek",
+          releaseDate: "Ene 2025",
+          parameters: "671B (37B activos)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 0.55,
+          priceOutput: 2.19,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 84.1,
+            gpqa: 59.1,
+            math: 97.3,
+            human_eval: 92.8,
+            swe_bench: 49.2,
+            chatbot_arena: 1354
+          }
+        },
+        {
+          name: "GPT-4o",
+          developer: "OpenAI",
+          releaseDate: "May 2024",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "128k",
+          multimodal: "Sí",
+          priceInput: 2.50,
+          priceOutput: 10.00,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 72.6,
+            gpqa: 53.6,
+            math: 74.6,
+            human_eval: 90.2,
+            swe_bench: 38.8,
+            chatbot_arena: 1248
+          }
+        },
+        {
+          name: "Claude 3.5 Sonnet",
+          developer: "Anthropic",
+          releaseDate: "Oct 2024",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "200k",
+          multimodal: "Sí",
+          priceInput: 3.00,
+          priceOutput: 15.00,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 77.0,
+            gpqa: 65.0,
+            math: 71.1,
+            human_eval: 93.7,
+            swe_bench: 49.0,
+            chatbot_arena: 1251
+          }
+        },
+        {
+          name: "GLM-5 Pro",
+          developer: "Z.ai",
+          releaseDate: "Mar 2026",
+          parameters: "Desconocido (Cerrado)",
+          contextWindow: "1M (1,000,000)",
+          multimodal: "Sí",
+          priceInput: 1.00,
+          priceOutput: 2.00,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 83.5,
+            gpqa: 68.0,
+            math: 85.2,
+            human_eval: 91.0,
+            swe_bench: 45.0,
+            chatbot_arena: 1308
+          }
+        },
+        {
+          name: "Llama 3.1 8B",
+          developer: "Meta",
+          releaseDate: "Jul 2024",
+          parameters: "8B (Abierto)",
+          contextWindow: "128k",
+          multimodal: "No",
+          priceInput: 0.05,
+          priceOutput: 0.05,
+          isFrontier: false,
+          scores: {
+            mmlu_pro: 51.5,
+            gpqa: 30.7,
+            math: 52.8,
+            human_eval: 73.2,
+            swe_bench: 11.2,
+            chatbot_arena: 1120
+          }
+        }
+      ]
+    };
+    // /* END_INITIAL_DATA */
+
+    // VARIABLES DE CONTROL DE ESTADO (STATE)
+    let currentData = JSON.parse(JSON.stringify(initialData));
+    let sortColumn = "chatbot_arena"; // Columna de ordenamiento inicial
+    let sortDirection = "desc"; // Dirección de ordenamiento inicial
+    let showTechColumns = true;
+    let showBenchColumns = true;
+
+    // ELEMENTOS DEL DOM
+    const apiKeyInput = document.getElementById("apiKey");
+    const modelSelect = document.getElementById("modelSelect");
+    const btnSaveSettings = document.getElementById("btnSaveSettings");
+    const btnOpenSettings = document.getElementById("btnOpenSettings");
+    const btnCloseSettings = document.getElementById("btnCloseSettings");
+    const settingsSidebar = document.getElementById("settingsSidebar");
+    const overlay = document.getElementById("overlay");
+    
+    const tabComparativa = document.getElementById("tabComparativa");
+    const tabDidactica = document.getElementById("tabDidactica");
+    const comparativaTab = document.getElementById("comparativaTab");
+    const didacticaTab = document.getElementById("didacticaTab");
+    
+    const btnToggleTech = document.getElementById("btnToggleTech");
+    const btnToggleBench = document.getElementById("btnToggleBench");
+    const btnAnalyzeLive = document.getElementById("btnAnalyzeLive");
+    
+    const tableHeaders = document.getElementById("tableHeaders");
+    const tableBody = document.getElementById("tableBody");
+    const dataSourceLabel = document.getElementById("dataSourceLabel");
+    const scannerLine = document.getElementById("scannerLine");
+    const loadingStatus = document.getElementById("loadingStatus");
+    const loadingStatusText = document.getElementById("loadingStatusText");
+    
+    const detailTitle = document.getElementById("detailTitle");
+    const detailFocus = document.getElementById("detailFocus");
+    const detailContent = document.getElementById("detailContent");
+    const detailIconWrap = document.getElementById("detailIconWrap");
+    const detailDidacticBox = document.getElementById("detailDidacticBox");
+    const detailDidacticHeader = document.getElementById("detailDidacticHeader");
+    const detailDidacticContent = document.getElementById("detailDidacticContent");
+    
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    // INICIALIZACIÓN
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      // Cargar configuraciones guardadas
+      const savedKey = localStorage.getItem("openbench_apikey");
+      const savedModel = localStorage.getItem("openbench_model");
+      
+      if (savedKey) apiKeyInput.value = savedKey;
+      if (savedModel) modelSelect.value = savedModel;
+
+      // Escuchar eventos
+      btnOpenSettings.addEventListener("click", openSettings);
+      btnCloseSettings.addEventListener("click", closeSettings);
+      overlay.addEventListener("click", closeSettings);
+      btnSaveSettings.addEventListener("click", saveSettings);
+      
+      tabComparativa.addEventListener("click", () => switchTab("comparativaTab"));
+      tabDidactica.addEventListener("click", () => switchTab("didacticaTab"));
+      
+      btnToggleTech.addEventListener("click", toggleTechColumns);
+      btnToggleBench.addEventListener("click", toggleBenchColumns);
+      btnAnalyzeLive.addEventListener("click", analyzeLive);
+
+      // Renderizar tabla por primera vez
+      renderTable();
+
+      // Tooltip interactivo global por JS (Resuelve overflow y puntero)
+      const tooltipDiv = document.createElement("div");
+      tooltipDiv.id = "globalTooltip";
+      tooltipDiv.className = "global-tooltip";
+      document.body.appendChild(tooltipDiv);
+
+      document.addEventListener("mouseover", (e) => {
+        const target = e.target.closest("[data-tooltip]");
+        if (target) {
+          const text = target.getAttribute("data-tooltip");
+          if (text) {
+            tooltipDiv.textContent = text;
+            tooltipDiv.style.display = "block";
+
+            const rect = target.getBoundingClientRect();
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            const tooltipWidth = tooltipDiv.offsetWidth;
+            const tooltipHeight = tooltipDiv.offsetHeight;
+
+            // Posicionar por encima del elemento y centrado, dejando margen para el cursor
+            const left = rect.left + scrollLeft + (rect.width / 2) - (tooltipWidth / 2);
+            const top = rect.top + scrollTop - tooltipHeight - 12;
+
+            tooltipDiv.style.left = `${left}px`;
+            tooltipDiv.style.top = `${top}px`;
+          }
+        }
+      });
+
+      document.addEventListener("mouseout", (e) => {
+        const target = e.target.closest("[data-tooltip]");
+        if (target) {
+          tooltipDiv.style.display = "none";
+        }
+      });
+
+      document.addEventListener("scroll", () => {
+        tooltipDiv.style.display = "none";
+      });
+    });
+
+    // SISTEMA DE NOTIFICACIONES (TOAST)
+    function showToast(message) {
+      toastMessage.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3500);
+    }
+
+    // NAVEGACIÓN Y AJUSTES
+    function openSettings() {
+      settingsSidebar.classList.add("open");
+      overlay.classList.add("open");
+    }
+
+    function closeSettings() {
+      settingsSidebar.classList.remove("open");
+      overlay.classList.remove("open");
+    }
+
+    function saveSettings() {
+      localStorage.setItem("openbench_apikey", apiKeyInput.value.trim());
+      localStorage.setItem("openbench_model", modelSelect.value);
+      showToast("Configuraciones guardadas correctamente.");
+      closeSettings();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active-content"));
+      
+      if (tabId === "comparativaTab") {
+        tabComparativa.classList.add("active");
+        comparativaTab.classList.add("active-content");
+      } else {
+        tabDidactica.classList.add("active");
+        didacticaTab.classList.add("active-content");
+      }
+    }
+
+    // ALTERNAR VISIBILIDAD DE COLUMNAS
+    function toggleTechColumns() {
+      showTechColumns = !showTechColumns;
+      if (showTechColumns) {
+        btnToggleTech.classList.add("active");
+        btnToggleTech.innerHTML = `<i data-lucide="eye"></i> Datos Técnicos`;
+      } else {
+        btnToggleTech.classList.remove("active");
+        btnToggleTech.innerHTML = `<i data-lucide="eye-off"></i> Datos Técnicos`;
+      }
+      lucide.createIcons();
+      renderTable();
+    }
+
+    function toggleBenchColumns() {
+      showBenchColumns = !showBenchColumns;
+      if (showBenchColumns) {
+        btnToggleBench.classList.add("active");
+        btnToggleBench.innerHTML = `<i data-lucide="eye"></i> Benchmarks`;
+      } else {
+        btnToggleBench.classList.remove("active");
+        btnToggleBench.innerHTML = `<i data-lucide="eye-off"></i> Benchmarks`;
+      }
+      lucide.createIcons();
+      renderTable();
+    }
+
+    // LÓGICA DE EXPLICACIÓN DIDÁCTICA INFERIOR (3 COLUMNAS)
+    function explainBenchmark(benchmarkId) {
+      const benchmark = currentData.benchmarks.find(b => b.id === benchmarkId);
+      if (benchmark) {
+        // Columna 1: Identificación e Icono
+        detailIconWrap.innerHTML = `<i data-lucide="bar-chart-2" style="width:24px; height:24px;"></i>`;
+        detailTitle.textContent = benchmark.name;
+        detailFocus.textContent = benchmark.focus;
+        
+        // Columna 2: Explicación Técnica
+        detailContent.innerHTML = `<p>${benchmark.description}</p>`;
+        
+        // Columna 3: Didáctica (Bachillerato) y Analogía
+        detailDidacticHeader.innerHTML = `<i data-lucide="lightbulb" style="width:16px; height:16px;"></i> Nivel Bachillerato`;
+        detailDidacticContent.innerHTML = `
+          <strong>Explicación sencilla:</strong> ${getBachilleratoExplanation(benchmarkId)}
+          <br><br>
+          <strong>Analogía cotidiana:</strong> ${getAnalogyExplanation(benchmarkId)}
+        `;
+        lucide.createIcons();
+      }
+    }
+
+    function explainTechHeader(type) {
+      let title = "";
+      let focus = "";
+      let description = "";
+      let didactics = "";
+      let analogy = "";
+      let icon = "info";
+
+      switch(type) {
+        case "developer":
+          title = "Laboratorio";
+          focus = "Desarrollador del modelo";
+          description = "Indica la empresa o consorcio científico que ha investigado, entrenado y publicado el modelo de Inteligencia Artificial (por ejemplo, OpenAI, Google, Anthropic, Meta o la comunidad china DeepSeek).";
+          didactics = "Representa quién fabrica el cerebro artificial. Los diferentes creadores tienen metodologías distintas (algunos priorizan la seguridad y la honestidad al responder, y otros el pragmatismo o los bajos costes).";
+          analogy = "Es la marca de un automóvil. Un motor Ferrari se construye con una filosofía diferente a la de un motor Toyota.";
+          icon = "building-2";
+          break;
+        case "releaseDate":
+          title = "Fecha";
+          focus = "Fecha de lanzamiento";
+          description = "Fecha exacta o aproximada en que el modelo se puso a disposición del público. En el mundo de la IA, los modelos envejecen en cuestión de meses debido al avance exponencial de las técnicas de optimización.";
+          didactics = "Muestra la antigüedad del modelo. En IA, un modelo lanzado hace un año o más ya se considera de 'generación pasada'. Las arquitecturas avanzan de mes en mes.";
+          analogy = "La versión de un libro de texto de informática: una edición de hace 3 años ya no incluye las tecnologías que usamos hoy.";
+          icon = "calendar";
+          break;
+        case "parameters":
+          title = "Parámetros";
+          focus = "Tamaño de red neuronal";
+          description = "Los parámetros son los valores numéricos internos (pesos de las conexiones neuronales artificiales) que la red utiliza para procesar y predecir texto. En general, a más parámetros, mayor capacidad conceptual del modelo. Muchos modelos de frontera utilizan arquitecturas 'MoE' (Mixture of Experts) donde solo una fracción de los parámetros totales se activa para cada palabra para ahorrar costes.";
+          didactics = "Es el 'tamaño físico' del cerebro de la IA. Cuantos más parámetros, más conceptos es capaz de retener. Sin embargo, los modelos modernos son muy inteligentes a pesar de ser más compactos gracias a un mejor entrenamiento.";
+          analogy = "El tamaño de la biblioteca de un estudiante. Un estudiante con una biblioteca de 1000 libros (muchos parámetros) puede saber de más temas, pero si un estudiante con 100 libros sabe buscar mejor la información, puede ser más ágil y útil.";
+          icon = "git-commit";
+          break;
+        case "contextWindow":
+          title = "Contexto";
+          focus = "Memoria de conversación";
+          description = "Indica la cantidad máxima de texto que el modelo puede retener en su memoria activa en un solo turno de conversación. Se mide en tokens (aprox. 1 token = 3/4 de una palabra). Una ventana de 1 millón de tokens (Gemini 2.0 / Claude 4.8) equivale a unas 750,000 palabras.";
+          didactics = "Determina cuánta información le puedes meter a la IA a la vez en una única pregunta sin que se le olvide. Permite subirle libros completos, códigos gigantescos o colecciones de archivos de golpe.";
+          analogy = "El tamaño de tu mesa de estudio. Si la mesa es pequeña, solo puedes tener un folio abierto. Si es una mesa gigante (mucha ventana de contexto), puedes desplegar 20 libros a la vez y compararlos simultáneamente.";
+          icon = "layers";
+          break;
+        case "multimodal":
+          title = "Multimodal";
+          focus = "Tipos de datos soportados";
+          description = "Muestra si el modelo es capaz de procesar e interpretar formatos de información diferentes al texto, como imágenes, sonido hablado, archivos PDF o vídeos completos.";
+          didactics = "Indica si la IA tiene sentidos más allá de la lectura de texto. Un modelo multimodal puede ver tus fotos, transcribir tus audios de voz o analizar un vídeo del laboratorio.";
+          analogy = "Es la diferencia entre leer una obra de teatro escrita en papel (solo texto) o ir al teatro a verla con actores, sonidos y decorados (multimodal).";
+          icon = "eye";
+          break;
+        case "price":
+          title = "Precio API";
+          focus = "Coste por 1M de tokens";
+          description = "El coste en dólares estadounidenses ($USD) que cobran los servidores por procesar 1 millón de tokens. Se desglosa en Entrada (Input: tus instrucciones o archivos subidos) y Salida (Output: el texto que redacta la IA).";
+          didactics = "Es lo que cuesta usar comercialmente esa IA. El coste de salida suele ser más caro porque escribir y razonar consume más recursos de servidor que simplemente leer tus instrucciones.";
+          analogy = "Es como la factura de la luz: pagas exactamente por los kilovatios hora (tokens) consumidos mientras el electrodoméstico está funcionando.";
+          icon = "dollar-sign";
+          break;
+        case "valueScore":
+          title = "Calidad/Precio";
+          focus = "Eficiencia y coste";
+          description = "Índice de 0 a 10 que evalúa la relación costo-beneficio de los modelos que superan un nivel mínimo de rendimiento. Se pondera: 25% precio medio, 15% contexto, 30% Elo Chatbot Arena y 30% benchmarks académicos. Si la calidad combinada del modelo (memoria y capacidades) está en la mitad inferior (por debajo del percentil 50 de todos los modelos), queda marcado como 'No Valorado' y se sitúa al final.";
+          didactics = "Para que una IA reciba nota de Calidad/Precio, primero debe pasar un 'examen de acceso' y situarse en la mitad superior de inteligencia (por encima del percentil 50 de la industria). Esto evita que modelos baratos pero obsoletos o de rendimiento muy bajo (como Llama 3.1 8B) distorsionen el ranking. Los modelos calificados se normalizan proporcionalmente respecto a los líderes.";
+          analogy = "Es como contratar personal: antes de evaluar el salario (precio), exiges unos estudios mínimos (calidad). Si un candidato no sabe hacer el trabajo básico, da igual que pida cobrar muy poco: simplemente no se le valora para el puesto y se le descarta al final de la lista.";
+          icon = "calculator";
+          break;
+      }
+
+      // Columna 1: Concepto
+      detailIconWrap.innerHTML = `<i data-lucide="${icon}" style="width:24px; height:24px;"></i>`;
+      detailTitle.textContent = title;
+      detailFocus.textContent = focus;
+      
+      // Columna 2: Explicación Técnica
+      detailContent.innerHTML = `<p>${description}</p>`;
+      
+      // Columna 3: Didáctica y Analogía
+      detailDidacticHeader.innerHTML = `<i data-lucide="compass" style="width:16px; height:16px;"></i> Explicación Didáctica`;
+      detailDidacticContent.innerHTML = `
+        <strong>Para estudiantes:</strong> ${didactics}
+        <br><br>
+        <strong>Analogía:</strong> ${analogy}
+      `;
+      lucide.createIcons();
+    }
+
+    function getBachilleratoExplanation(benchmarkId) {
+      switch(benchmarkId) {
+        case "mmlu_pro":
+          return "Es una prueba de conocimiento general muy dura. En lugar de elegir entre las 4 típicas opciones de un test de clase, aquí la IA tiene 10 opciones diferentes, lo que reduce la suerte y la obliga a razonar académicamente.";
+        case "gpqa":
+          return "Es el examen de doctorado de ciencias. Las preguntas son diseñadas por doctores en física, química o biología y están hechas a prueba de Google (no se puede copiar). Mide el razonamiento experto real.";
+        case "math":
+          return "Examen de problemas lógicos y algebraicos de olimpiadas de matemáticas. El modelo no puede limitarse a adivinar o calcular rápido; debe estructurar deducciones lógicas de principio a fin.";
+        case "human_eval":
+          return "Mide la habilidad práctica escribiendo código. Se le pide al modelo escribir un programa Python y luego un robot ejecuta tests automáticos para certificar que el código es 100% correcto.";
+        case "swe_bench":
+          return "Es el examen de programador profesional de software. Le dan a la IA un código real de GitHub compuesto por miles de archivos y un fallo reportado por un usuario, y la IA debe leerlo, encontrar el bug y aplicar un parche funcional.";
+        case "chatbot_arena":
+          return "Es un ranking por votación ciega humana. Dos modelos responden a la vez y un evaluador vota cuál respuesta es mejor. Se calcula con el sistema Elo para ver cuál prefiere la gente en el día a día.";
+        default:
+          return "Mide una habilidad analítica o de razonamiento específica de los modelos de inteligencia artificial.";
+      }
+    }
+
+    function getAnalogyExplanation(benchmarkId) {
+      switch(benchmarkId) {
+        case "mmlu_pro":
+          return "Como jugar al Trivial Pursuit pero compitiendo a nivel de carrera universitaria y contra contrincantes que te dan 10 respuestas falsas muy parecidas.";
+        case "gpqa":
+          return "Es como pedirle a un estudiante de Bachillerato que resuelva un problema de investigación espacial de la NASA de nivel de doctorado.";
+        case "math":
+          return "Como participar en las Olimpiadas Matemáticas regionales sin calculadora y teniendo que justificar por escrito cada deducción lógica.";
+        case "human_eval":
+          return "Como una prueba de mecanografía y lógica de programación donde el profesor mete tu código en un programa de test y si hay una sola coma mal, te suspende.";
+        case "swe_bench":
+          return "Como contratar a un programador de prácticas y decirle: 'Toma este programa de 50.000 líneas que da error, búscate la vida y arréglamelo antes de las 5'.";
+        case "chatbot_arena":
+          return "Es idéntico a la clasificación mundial de ajedrez (ranking Elo): los modelos suben y bajan de posición al 'ganar' o 'perder' duelos directos ante los usuarios.";
+        default:
+          return "Una prueba de esfuerzo estandarizada para evaluar el cerebro artificial.";
+      }
+    }
+
+    function calculateValueScore() {
+      const models = currentData.models;
+      if (!models || models.length === 0) return;
+
+      const dataPoints = models.map(m => {
+        const avgPrice = (parseFloat(m.priceInput || 0) + parseFloat(m.priceOutput || 0)) / 2;
+        const academicScores = [
+          m.scores.mmlu_pro !== undefined ? parseFloat(m.scores.mmlu_pro) : 0,
+          m.scores.gpqa !== undefined ? parseFloat(m.scores.gpqa) : 0,
+          m.scores.math !== undefined ? parseFloat(m.scores.math) : 0,
+          m.scores.human_eval !== undefined ? parseFloat(m.scores.human_eval) : 0,
+          m.scores.swe_bench !== undefined ? parseFloat(m.scores.swe_bench) : 0
+        ];
+        const avgAcademic = academicScores.reduce((sum, val) => sum + val, 0) / 5;
+        const elo = m.scores.chatbot_arena !== undefined ? parseFloat(m.scores.chatbot_arena) : 1000;
+        const contextVal = parseContextSize(m.contextWindow);
+
+        return {
+          model: m,
+          avgPrice,
+          avgAcademic,
+          elo,
+          contextVal
+        };
+      });
+
+      const prices = dataPoints.map(d => d.avgPrice);
+      const academics = dataPoints.map(d => d.avgAcademic);
+      const elos = dataPoints.map(d => d.elo);
+      const contexts = dataPoints.map(d => d.contextVal);
+
+      // Para el precio (variable inversa), buscamos el mínimo para comparar proporcionalmente
+      const minPrice = Math.min(...prices);
+
+      // Para las variables directas (Academic, Elo, Contexto), buscamos el máximo
+      const maxAcademic = Math.max(...academics);
+      const maxElo = Math.max(...elos);
+      const maxContext = Math.max(...contexts);
+
+      // Calcular puntuaciones individuales y puntuación de calidad combinada para cada modelo
+      dataPoints.forEach(d => {
+        // 1. Precio: Proporcional inversa (más barato = mejor nota).
+        // Si el precio es 0, se le asigna la nota máxima 10.
+        // Si no, se calcula: 10 * minPrice / avgPrice.
+        let scorePrecio = 10;
+        if (d.avgPrice > 0) {
+          const baseMinPrice = minPrice > 0 ? minPrice : 0.01;
+          scorePrecio = 10 * baseMinPrice / d.avgPrice;
+          if (scorePrecio > 10) scorePrecio = 10;
+        }
+        d.scorePrecio = scorePrecio;
+
+        // 2. Contexto: Proporcional directa (mayor contexto = mejor nota).
+        let scoreContext = 10;
+        if (maxContext > 0) {
+          scoreContext = 10 * d.contextVal / maxContext;
+        }
+        d.scoreContext = scoreContext;
+
+        // 3. Elo: Proporcional directa (mayor elo = mejor nota).
+        let scoreElo = 10;
+        if (maxElo > 0) {
+          scoreElo = 10 * d.elo / maxElo;
+        }
+        d.scoreElo = scoreElo;
+
+        // 4. Académico: Proporcional directa (mayor promedio = mejor nota).
+        let scoreAcademic = 10;
+        if (maxAcademic > 0) {
+          scoreAcademic = 10 * d.avgAcademic / maxAcademic;
+        }
+        d.scoreAcademic = scoreAcademic;
+
+        // Puntuación de calidad combinada (no incluye el precio)
+        // Pesos relativos: Contexto (15%), Elo (30%), Académico (30%). Suma = 0.75.
+        d.qualityScore = (scoreContext * 0.15) + (scoreElo * 0.30) + (scoreAcademic * 0.30);
+      });
+
+      // Calcular la mediana (percentil 50) de la puntuación de calidad
+      const qualityScoresSorted = dataPoints.map(d => d.qualityScore).sort((a, b) => a - b);
+      const mid = Math.floor(qualityScoresSorted.length / 2);
+      const medianQuality = qualityScoresSorted.length % 2 !== 0
+        ? qualityScoresSorted[mid]
+        : (qualityScoresSorted[mid - 1] + qualityScoresSorted[mid]) / 2;
+
+      // Determinar si califica y asignar el índice Calidad/Precio final
+      dataPoints.forEach(d => {
+        // Si el modelo se sitúa por encima o igual a la mediana (percentil 50) de calidad
+        if (d.qualityScore >= medianQuality) {
+          const finalScore = (d.scorePrecio * 0.25) + (d.scoreContext * 0.15) + (d.scoreElo * 0.30) + (d.scoreAcademic * 0.30);
+          d.model.valueScore = parseFloat(finalScore.toFixed(2));
+          d.model.isValued = true;
+        } else {
+          // Descalificado por calidad insuficiente
+          d.model.valueScore = 0;
+          d.model.isValued = false;
+        }
+      });
+    }
+
+    // RENDERIZADO DE TABLA (ANCHO COMPLETO Y CORONACIÓN)
+    function renderTable() {
+      // Función auxiliar para separar el texto del paréntesis en dos líneas
+      function formatHeaderLabel(label) {
+        const index = label.indexOf('(');
+        if (index !== -1) {
+          const mainText = label.substring(0, index).trim();
+          const subText = label.substring(index).trim();
+          return `${mainText}<br><span class="header-subtext">${subText}</span>`;
+        }
+        return label;
+      }
+
+      // Calcular primero la calidad/precio de todos los modelos
+      calculateValueScore();
+
+      // Limpiar encabezados y filas
+      tableHeaders.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      // 1. GENERAR CABECERAS
+      const thName = document.createElement("th");
+      thName.addEventListener("click", () => handleSort('name'));
+      thName.innerHTML = `<span class="th-tooltip-wrapper" data-tooltip="Haz clic para ordenar alfabéticamente">
+        Modelo <span class="sort-icon">${getSortIndicator('name')}</span>
+      </span>`;
+      tableHeaders.appendChild(thName);
+
+      // Cabeceras Técnicas (Ocultables)
+      if (showTechColumns) {
+        const techHeaders = [
+          { key: "developer", label: "Creador", type: "developer" },
+          { key: "releaseDate", label: "Fecha", type: "releaseDate" },
+          { key: "parameters", label: "Parámetros", type: "parameters" },
+          { key: "contextWindow", label: "Contexto", type: "contextWindow" },
+          { key: "multimodal", label: "Multimodal", type: "multimodal" },
+          { key: "priceInput", label: "Precio 1M (Ent/Sal)", type: "price" },
+          { key: "valueScore", label: "Calidad/Precio (0-10)", type: "valueScore" }
+        ];
+
+        techHeaders.forEach(h => {
+          const th = document.createElement("th");
+          th.className = "col-tech col-tech-header";
+          th.addEventListener("click", () => {
+            if (h.key === "priceInput") {
+              handleSort("priceInput");
+            } else {
+              handleSort(h.key);
+            }
+          });
+          th.addEventListener("mouseenter", () => explainTechHeader(h.type));
+          
+          let tooltipText = `Concepto técnico: ${h.label}. Pasa el cursor para ver definición.`;
+          if (h.key === "valueScore") {
+            tooltipText = "Índice Calidad/Precio: Precio (25%), Contexto (15%), Elo (30%) y Académico (30%). Cálculo proporcional sin ceros artificiales.";
+          }
+          
+          th.innerHTML = `<span class="th-tooltip-wrapper" data-tooltip="${tooltipText}">
+            ${formatHeaderLabel(h.label)} <span class="sort-icon">${getSortIndicator(h.key)}</span>
+          </span>`;
+          tableHeaders.appendChild(th);
+        });
+      }
+
+      // Cabeceras de Benchmarks (Ocultables)
+      if (showBenchColumns) {
+        currentData.benchmarks.forEach(b => {
+          const th = document.createElement("th");
+          th.className = "col-bench col-bench-header";
+          th.addEventListener("click", () => handleSort(b.id));
+          th.addEventListener("mouseenter", () => explainBenchmark(b.id));
+          th.innerHTML = `<span class="th-tooltip-wrapper" data-tooltip="Evalúa: ${getBachilleratoExplanation(b.id)}">
+            ${formatHeaderLabel(b.name)} <span class="sort-icon">${getSortIndicator(b.id)}</span>
+          </span>`;
+          tableHeaders.appendChild(th);
+        });
+      }
+
+      // 2. ORDENAR MODELOS
+      const sortedModels = sortModels(currentData.models);
+
+      // Encontrar las puntuaciones más altas de cada benchmark para coronarlas
+      const topScores = {};
+      if (showBenchColumns) {
+        currentData.benchmarks.forEach(b => {
+          let maxVal = -1;
+          sortedModels.forEach(m => {
+            if (m.scores && m.scores[b.id] !== undefined) {
+              const val = parseFloat(m.scores[b.id]);
+              if (val > maxVal) maxVal = val;
+            }
+          });
+          topScores[b.id] = maxVal;
+        });
+      }
+
+      // 3. GENERAR FILAS DE DATOS
+      sortedModels.forEach(m => {
+        const tr = document.createElement("tr");
+        if (m.isFrontier) {
+          tr.className = "frontier-row";
+        }
+
+        // Celda del Nombre del Modelo
+        const tdName = document.createElement("td");
+        tdName.innerHTML = `
+          <div class="model-info-cell">
+            <span class="model-name">
+              ${m.name} 
+              ${m.isFrontier ? '<span class="frontier-badge" data-tooltip="Modelo que representa el límite actual de la tecnología mundial en junio de 2026">FRONTERA</span>' : ''}
+            </span>
+          </div>
+        `;
+        tr.appendChild(tdName);
+
+        // Celdas de Datos Técnicos (Ocultables)
+        if (showTechColumns) {
+          // Creador
+          const tdDev = document.createElement("td");
+          tdDev.className = "col-tech";
+          tdDev.innerHTML = `<span class="tech-pill">${m.developer}</span>`;
+          tdDev.addEventListener("click", () => explainTechHeader("developer"));
+          tr.appendChild(tdDev);
+
+          // Fecha
+          const tdDate = document.createElement("td");
+          tdDate.className = "col-tech";
+          tdDate.textContent = m.releaseDate;
+          tdDate.addEventListener("click", () => explainTechHeader("releaseDate"));
+          tr.appendChild(tdDate);
+
+          // Parámetros
+          const tdParams = document.createElement("td");
+          tdParams.className = "col-tech";
+          tdParams.innerHTML = `<span style="font-size:0.75rem; color:var(--text-secondary);">${m.parameters}</span>`;
+          tdParams.addEventListener("click", () => explainTechHeader("parameters"));
+          tr.appendChild(tdParams);
+
+          // Contexto
+          const tdContext = document.createElement("td");
+          tdContext.className = "col-tech";
+          tdContext.textContent = m.contextWindow;
+          tdContext.addEventListener("click", () => explainTechHeader("contextWindow"));
+          tr.appendChild(tdContext);
+
+          // Multimodalidad
+          const tdMulti = document.createElement("td");
+          tdMulti.className = "col-tech";
+          const isYes = m.multimodal.toLowerCase().startsWith("sí") || m.multimodal.toLowerCase().startsWith("si") || m.multimodal.toLowerCase().startsWith("yes");
+          tdMulti.innerHTML = `<span class="multimodal-pill ${isYes ? 'yes' : 'no'}">${isYes ? 'Sí' : 'No'}</span>`;
+          tdMulti.addEventListener("click", () => explainTechHeader("multimodal"));
+          tr.appendChild(tdMulti);
+
+          // Precios
+          const tdPrice = document.createElement("td");
+          tdPrice.className = "col-tech price-tag";
+          tdPrice.innerHTML = `
+            <span class="price-value-in" data-tooltip="Precio de entrada por 1M tokens">$${parseFloat(m.priceInput).toFixed(2)}</span>
+            <span style="color:var(--text-muted);">/</span>
+            <span class="price-value-out" data-tooltip="Precio de salida por 1M tokens">$${parseFloat(m.priceOutput).toFixed(2)}</span>
+          `;
+          tdPrice.addEventListener("click", () => explainTechHeader("price"));
+          tr.appendChild(tdPrice);
+
+          // Calidad/Precio
+          const tdValue = document.createElement("td");
+          tdValue.className = "col-tech";
+          
+          if (m.isValued !== false) {
+            let valClass = "score-low";
+            if (m.valueScore >= 8.0) valClass = "score-high";
+            else if (m.valueScore >= 5.0) valClass = "score-medium";
+
+            tdValue.innerHTML = `<span class="score-badge ${valClass}" style="font-weight: 700;">${m.valueScore.toFixed(2)}</span>`;
+          } else {
+            tdValue.innerHTML = `<span class="score-badge score-low" style="opacity: 0.5; width: auto; padding: 0.2rem 0.5rem; font-size: 0.65rem; white-space: nowrap;" data-tooltip="No valorado: Su rendimiento general (calidad) se sitúa por debajo del percentil 50 de la industria.">No Valorado</span>`;
+          }
+          tdValue.addEventListener("click", () => explainTechHeader("valueScore"));
+          tr.appendChild(tdValue);
+        }
+
+        // Celdas de Benchmarks (Ocultables)
+        if (showBenchColumns) {
+          currentData.benchmarks.forEach(b => {
+            const td = document.createElement("td");
+            td.className = "score-cell col-bench";
+            
+            const score = m.scores ? m.scores[b.id] : undefined;
+            if (score !== undefined) {
+              const val = parseFloat(score);
+              let scoreClass = "score-low";
+              
+              if (b.id === "chatbot_arena") {
+                if (val >= 1350) scoreClass = "score-high";
+                else if (val >= 1250) scoreClass = "score-medium";
+              } else {
+                if (val >= 85) scoreClass = "score-high";
+                else if (val >= 60) scoreClass = "score-medium";
+              }
+
+              // Coronación del Ganador de la Columna
+              if (val === topScores[b.id] && sortedModels.length > 1) {
+                scoreClass += " score-top";
+              }
+
+              td.innerHTML = `<span class="score-badge ${scoreClass}">${val}</span>`;
+            } else {
+              td.innerHTML = `<span class="score-badge score-low" style="opacity:0.3;">N/A</span>`;
+            }
+
+            td.addEventListener("click", () => explainBenchmark(b.id));
+            tr.appendChild(td);
+          });
+        }
+
+        tableBody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    // GESTIÓN DEL ORDENAMIENTO (SORT)
+    function handleSort(columnKey) {
+      if (sortColumn === columnKey) {
+        sortDirection = sortDirection === "desc" ? "asc" : "desc";
+      } else {
+        sortColumn = columnKey;
+        sortDirection = "desc";
+      }
+      renderTable();
+    }
+
+    function getSortIndicator(columnKey) {
+      if (sortColumn !== columnKey) return "↕";
+      return sortDirection === "desc" ? "↓" : "↑";
+    }
+
+    function sortModels(modelsArray) {
+      return [...modelsArray].sort((a, b) => {
+        if (sortColumn === "valueScore") {
+          const isValuedA = a.isValued !== false;
+          const isValuedB = b.isValued !== false;
+
+          if (isValuedA && !isValuedB) return -1;
+          if (!isValuedA && isValuedB) return 1;
+          if (!isValuedA && !isValuedB) {
+            // Si ambos no están valorados, ordenar por Elo de forma estable descendente
+            const eloA = a.scores && a.scores.chatbot_arena !== undefined ? a.scores.chatbot_arena : 1000;
+            const eloB = b.scores && b.scores.chatbot_arena !== undefined ? b.scores.chatbot_arena : 1000;
+            return eloB - eloA;
+          }
+        }
+
+        let valA, valB;
+
+        if (["name", "developer", "releaseDate", "parameters", "contextWindow", "multimodal", "valueScore"].includes(sortColumn)) {
+          valA = a[sortColumn];
+          valB = b[sortColumn];
+          
+          if (sortColumn === "contextWindow") {
+            valA = parseContextSize(valA);
+            valB = parseContextSize(valB);
+          }
+        } else if (sortColumn === "priceInput") {
+          valA = a.priceInput;
+          valB = b.priceInput;
+        } else {
+          valA = a.scores ? a.scores[sortColumn] : undefined;
+          valB = b.scores ? b.scores[sortColumn] : undefined;
+        }
+
+        if (valA === undefined) return 1;
+        if (valB === undefined) return -1;
+
+        if (typeof valA === 'string') {
+          return sortDirection === "desc" 
+            ? valB.localeCompare(valA) 
+            : valA.localeCompare(valB);
+        } else {
+          return sortDirection === "desc" 
+            ? valB - valA 
+            : valA - valB;
+        }
+      });
+    }
+
+    function parseContextSize(contextStr) {
+      if (!contextStr) return 0;
+      let clean = contextStr.toLowerCase().replace(/[\(\),]/g, '');
+      if (clean.includes("2m")) return 2000000;
+      if (clean.includes("1m")) return 1000000;
+      if (clean.includes("k")) {
+        return parseInt(clean.replace("k", "")) * 1000;
+      }
+      return parseInt(clean) || 0;
+    }
+
+    // LLAMADA DINÁMICA A LA API DE OPENROUTER (CON INYECCIÓN DE LA FECHA ACTUAL DE 2026)
+    async function analyzeLive() {
+      const apiKey = apiKeyInput.value.trim() || localStorage.getItem("openbench_apikey");
+      
+      if (!apiKey) {
+        showToast("⚠️ Es necesario configurar una API Key de OpenRouter en Ajustes.");
+        openSettings();
+        return;
+      }
+
+      const rawModel = modelSelect.value;
+      
+      btnAnalyzeLive.disabled = true;
+      scannerLine.style.display = "block";
+      loadingStatus.style.display = "flex";
+      loadingStatusText.textContent = `Conectando con ${rawModel} a través de OpenRouter...`;
+      
+      showToast("Analizando modelos y benchmarks con Inteligencia Artificial. Por favor, espera...");
+
+      // INYECCIÓN DE FECHA ACTUAL EN EL PROMPT (Junio de 2026)
+      const fechaHoy = new Date().toLocaleDateString('es-ES', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+
+      const systemPrompt = `Hoy es ${fechaHoy}. Actúa como un experto analista del estado del arte de la Inteligencia Artificial a fecha de hoy.
+Debes devolver un informe en formato JSON estructurado que contenga las especificaciones técnicas y puntuaciones en los principales benchmarks de los modelos de frontera actuales vigentes en esta fecha.
+
+Aquí tienes la base de datos de referencia (datos offline cargados de fábrica) que debes usar como plantilla y base obligatoria:
+${JSON.stringify(initialData, null, 2)}
+
+Instrucciones críticas:
+1. Usa estos datos de referencia como base obligatoria. NO alucines ni te inventes puntuaciones exageradas o precios ficticios (por ejemplo, GPT-5.5 no supera el 94% en MMLU-Pro ni el 91% en GPQA en 2026, y sus precios reales son más bajos que $35.00/1M tokens). Mantén los precios, puntuaciones y especificaciones de la referencia a menos que tengas conocimiento verificado e inequívoco de cambios reales en la fecha de hoy.
+2. Asegúrate de incluir el benchmark con id "chatbot_arena" y su Elo en las puntuaciones ("scores") de cada modelo.
+3. Es estrictamente obligatorio que la respuesta contenga ÚNICAMENTE el código JSON limpio y válido. No incluyas bloques de código markdown como \`\`\`json ni \`\`\`, ni textos aclaratorios de introducción o conclusión.`;
+
+      // Mapeo interno de modelos
+      const modelMapping = {
+        "google/gemini-3.5-flash-lite": "google/gemini-2.5-flash",
+        "minimax/minimax-m3": "minimax/minimax-m3",
+        "qwen/qwen-3.7-plus": "qwen/qwen-2.5-72b-instruct",
+        "google/gemini-3.1-flash-lite": "google/gemini-2.5-flash",
+        "z-ai/glm-5v-turbo": "z-ai/glm-5v-turbo",
+        "google/gemini-3.5-flash": "google/gemini-2.5-pro"
+      };
+
+      const mappedModel = modelMapping[rawModel] || rawModel;
+      
+      loadingStatusText.textContent = `Conectando con ${rawModel} (enrutado a ${mappedModel}) a través de OpenRouter...`;
+
+      const referer = window.location.protocol === "file:" ? "https://localhost" : window.location.href;
+
+      try {
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`,
+            "HTTP-Referer": referer,
+            "X-Title": "OpenBench AI Portal"
+          },
+          body: JSON.stringify({
+            model: mappedModel,
+            messages: [
+              {
+                role: "system",
+                content: "Eres un servicio API JSON automatizado y experto. Retornas única y exclusivamente el JSON crudo solicitado."
+              },
+              {
+                role: "user",
+                content: systemPrompt
+              }
+            ],
+            temperature: 0.1
+          })
+        });
+
+        if (!response.ok) {
+          let errorMsg = `HTTP ${response.status}`;
+          try {
+            const errData = await response.json();
+            if (errData && errData.error && errData.error.message) {
+              errorMsg += `: ${errData.error.message}`;
+            }
+          } catch (_) {
+            const errText = await response.text();
+            if (errText) errorMsg += `: ${errText.substring(0, 150)}`;
+          }
+          throw new Error(errorMsg);
+        }
+
+        const resData = await response.json();
+        const contentStr = resData.choices[0].message.content.trim();
+        
+        let jsonStr = contentStr;
+        if (jsonStr.startsWith("```")) {
+          jsonStr = jsonStr.replace(/^```json\s*/, "").replace(/^```\s*/, "").replace(/\s*```$/, "");
+        }
+
+        const parsedData = JSON.parse(jsonStr);
+
+        if (!parsedData.benchmarks || !parsedData.models || parsedData.models.length === 0) {
+          throw new Error("El JSON recibido no contiene la estructura requerida.");
+        }
+
+        // FUSIÓN INTELIGENTE (MERGE) en lugar de sobrescribir
+        if (parsedData.benchmarks && parsedData.benchmarks.length > 0) {
+          parsedData.benchmarks.forEach(newB => {
+            const extB = currentData.benchmarks.find(b => b.id === newB.id);
+            if (extB) {
+              extB.name = newB.name || extB.name;
+              extB.focus = newB.focus || extB.focus;
+              extB.description = newB.description || extB.description;
+            } else {
+              currentData.benchmarks.push(newB);
+            }
+          });
+        }
+
+        if (parsedData.models && parsedData.models.length > 0) {
+          parsedData.models.forEach(newM => {
+            const extMIndex = currentData.models.findIndex(m => m.name.toLowerCase() === newM.name.toLowerCase());
+            if (extMIndex !== -1) {
+              currentData.models[extMIndex] = {
+                ...currentData.models[extMIndex],
+                ...newM,
+                scores: {
+                  ...currentData.models[extMIndex].scores,
+                  ...newM.scores
+                }
+              };
+            } else {
+              currentData.models.push(newM);
+            }
+          });
+        }
+
+        dataSourceLabel.textContent = `Origen de datos: Escaneado en vivo mediante ${rawModel} (enrutado a ${mappedModel}) a las ${new Date().toLocaleTimeString()}`;
+        renderTable();
+        showToast("✨ Tabla actualizada con éxito con datos en vivo.");
+        // Generar el PDF y descargarlo automáticamente tras medio segundo
+        setTimeout(generatePDFReport, 500);
+      } catch (err) {
+        console.error(err);
+        showToast(`❌ Error al analizar: ${err.message}. Cargando datos offline.`);
+      } finally {
+        btnAnalyzeLive.disabled = false;
+        scannerLine.style.display = "none";
+        loadingStatus.style.display = "none";
+      }
+    }
+
+    function generatePDFReport() {
+      const { jsPDF } = window.jspdf;
+      // Usamos orientación horizontal (landscape) A4 para acomodar las múltiples columnas
+      const doc = new jsPDF('l', 'mm', 'a4');
+      
+      // Colores de la paleta
+      const primaryColor = [11, 15, 25]; // #0B0F19
+      const accentGold = [226, 182, 89]; // #E2B659
+      
+      // Función auxiliar para dibujar texto y calcular la siguiente posición vertical
+      function drawTextSection(text, x, startY, maxWidth, fontSize = 9.5, isBold = false) {
+        doc.setFont("helvetica", isBold ? "bold" : "normal");
+        doc.setFontSize(fontSize);
+        const splitText = doc.splitTextToSize(text, maxWidth);
+        doc.text(splitText, x, startY);
+        const ptToMm = 0.352778;
+        const lineHeightFactor = 1.25;
+        const height = splitText.length * fontSize * ptToMm * lineHeightFactor;
+        return startY + height;
+      }
+
+      // --- PÁGINA 1: PORTADA, RESUMEN EJECUTIVO Y GLOSARIO ---
+      
+      // Título Principal
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text("Informe Técnico de IA: Estado del Mercado y Benchmarks (2026)", 14, 20);
+      
+      // Línea decorativa dorada
+      doc.setDrawColor(accentGold[0], accentGold[1], accentGold[2]);
+      doc.setLineWidth(1.5);
+      doc.line(14, 23, 283, 23);
+      
+      // Subtítulo / Metadatos
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.setTextColor(100, 100, 100);
+      const dateStr = new Date().toLocaleDateString('es-ES', { 
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+      });
+      doc.text(`Fecha del Análisis: ${dateStr} | Autor de la Metodología: Luis Benedicto Tuzón`, 14, 29);
+      
+      // 1. Panorama del Mercado de IA en 2026
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text("1. Panorama de la Industria y Desarrollo de la IA (Junio 2026)", 14, 38);
+      
+      const marketAnalysisText = "El mercado global de la Inteligencia Artificial en junio de 2026 experimenta una madurez tecnológica sin precedentes acompañada de una encarnizada competencia geopolítica y comercial. La industria está dominada en su frontera de rendimiento por tres laboratorios estadounidenses (Anthropic con Claude Fable, OpenAI con GPT-5 y GPT-5.5, y Google con la serie Gemini 3.5), líderes en razonamiento lógico de varios pasos y multimodalidad nativa compleja. En paralelo, asistimos a una disrupción comercial de alto impacto liderada por laboratorios chinos como Z.ai (Zhipu AI con su modelo GLM-5 Pro), Qwen y Minimax, que ofrecen capacidades técnicas competitivas a fracciones del coste de las APIs americanas tradicionales. Esta presión de costes ha desatado una guerra de precios agresiva, abaratando el millón de tokens y acelerando la integración comercial de agentes de software inteligentes en todo tipo de industrias.";
+      
+      let currentY = drawTextSection(marketAnalysisText, 14, 43, 269, 9);
+      
+      // 2. Metodología de Evaluación y Glosario de Columnas
+      currentY += 4; // Espaciado
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text("2. Metodología de Evaluación y Glosario de Columnas", 14, currentY);
+      currentY += 5;
+      
+      // Vamos a dibujar en dos columnas en la página 1 para que quede ordenado y no se solape
+      const colWidth = 130;
+      const leftColX = 14;
+      const rightColX = 152;
+      let yLeft = currentY;
+      let yRight = currentY;
+      
+      // Columna Izquierda: Conceptos Técnicos
+      yLeft = drawTextSection("A) Conceptos Técnicos y de Eficiencia:", leftColX, yLeft, colWidth, 9.5, true);
+      yLeft += 1.5;
+      
+      const glossaryLeft = [
+        { term: "• Creador y Fecha:", desc: "Laboratorio que desarrolló el modelo de IA y su mes de lanzamiento al mercado." },
+        { term: "• Parámetros:", desc: "Escala estimada de la red neuronal del modelo. Mayor escala suele implicar mayor capacidad conceptual a cambio de un mayor consumo de recursos computacionales." },
+        { term: "• Contexto (Ventana):", desc: "La 'memoria de trabajo' o número de tokens (palabras o subpalabras) que la IA puede mantener en memoria y procesar de una sola vez." },
+        { term: "• Precio 1M (Ent/Sal):", desc: "El coste en dólares ($) cobrado por el proveedor de API para procesar un millón de tokens de entrada (instrucciones del usuario) y de salida (respuesta de la IA)." },
+        { term: "• Calidad/Precio (0-10):", desc: "Índice de eficiencia calculado ponderando Precio (25% - inverso), Contexto (15%), Elo Arena (30%) y Académicos (30%). Para calificar, los modelos deben superar el percentil 50 de calidad general de la industria; de lo contrario, quedan como 'No Valorado' al final de la tabla." }
+      ];
+      
+      glossaryLeft.forEach(item => {
+        yLeft = drawTextSection(item.term, leftColX, yLeft, colWidth, 8.5, true);
+        yLeft = drawTextSection(item.desc, leftColX, yLeft, colWidth, 8);
+        yLeft += 1;
+      });
+      
+      // Columna Derecha: Benchmarks Académicos y de Preferencia
+      yRight = drawTextSection("B) Exámenes Académicos y de Preferencia:", rightColX, yRight, colWidth, 9.5, true);
+      yRight += 1.5;
+      
+      const glossaryRight = [
+        { term: "• MMLU-Pro:", desc: "Examen multidisciplinar riguroso con preguntas universitarias de opción múltiple (10 opciones para penalizar aciertos al azar) en áreas de ciencias y humanidades." },
+        { term: "• GPQA (Diamond):", desc: "Graduate-Level Google-Proof Q&A. Preguntas complejas de física, química y biología redactadas por expertos de nivel doctorado. Es a prueba de búsquedas en Google." },
+        { term: "• MATH-500:", desc: "Conjunto de 500 problemas matemáticos complejos procedentes de olimpiadas matemáticas internacionales. Mide deducción lógica matemática." },
+        { term: "• HumanEval:", desc: "Capacidad del modelo para programar funciones autónomas en Python basadas en un docstring, validadas a través de un juego de pruebas unitarias automáticas." },
+        { term: "• SWE-bench (Pro):", desc: "Examen de ingeniería de software en entornos reales. El modelo debe corregir fallos y resolver incidencias (issues) de repositorios reales de código en GitHub." },
+        { term: "• Chatbot Arena (Elo):", desc: "La liga competitiva definitiva administrada por LMSYS. Basada en votos a ciegas de usuarios reales en conversaciones libres y clasificada mediante el sistema Elo de ajedrez." }
+      ];
+      
+      glossaryRight.forEach(item => {
+        yRight = drawTextSection(item.term, rightColX, yRight, colWidth, 8.5, true);
+        yRight = drawTextSection(item.desc, rightColX, yRight, colWidth, 8);
+        yRight += 1;
+      });
+      
+      // --- PÁGINA 2: TABLA COMPARATIVA Y CONCLUSIONES ---
+      doc.addPage();
+      
+      // Título en Página 2
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text("3. Tabla Comparativa de Rendimiento y Costes de API", 14, 20);
+      
+      // Línea dorada en Página 2
+      doc.setDrawColor(accentGold[0], accentGold[1], accentGold[2]);
+      doc.setLineWidth(1);
+      doc.line(14, 23, 283, 23);
+      
+      // Preparar cabeceras y cuerpo
+      const headers = [
+        "Modelo", "Creador", "Fecha", "Contexto", "Precio 1M (E/S)", "C/P (0-10)", 
+        "MMLU-Pro", "GPQA", "MATH-500", "HumanEval", "SWE-bench", "Arena Elo"
+      ];
+      
+      const sortedModels = sortModels(currentData.models);
+
+      // Encontrar las puntuaciones máximas de cada benchmark en el PDF para destacarlas
+      const maxScores = {};
+      const benchmarkKeys = ["mmlu_pro", "gpqa", "math", "human_eval", "swe_bench", "chatbot_arena"];
+      benchmarkKeys.forEach(key => {
+        let maxVal = -1;
+        sortedModels.forEach(m => {
+          if (m.scores && m.scores[key] !== undefined) {
+            const val = parseFloat(m.scores[key]);
+            if (val > maxVal) maxVal = val;
+          }
+        });
+        maxScores[key] = maxVal;
+      });
+
+      const tableData = sortedModels.map(m => {
+        const isValued = m.isValued !== false;
+        const priceStr = `$${parseFloat(m.priceInput).toFixed(2)} / $${parseFloat(m.priceOutput).toFixed(2)}`;
+        
+        const mmlu = m.scores.mmlu_pro !== undefined ? `${m.scores.mmlu_pro}%` : "N/A";
+        const gpqa = m.scores.gpqa !== undefined ? `${m.scores.gpqa}%` : "N/A";
+        const math = m.scores.math !== undefined ? `${m.scores.math}%` : "N/A";
+        const heval = m.scores.human_eval !== undefined ? `${m.scores.human_eval}%` : "N/A";
+        const swe = m.scores.swe_bench !== undefined ? `${m.scores.swe_bench}%` : "N/A";
+        const arena = m.scores.chatbot_arena !== undefined ? `${m.scores.chatbot_arena}` : "N/A";
+        
+        return [
+          m.name,
+          m.developer,
+          m.releaseDate,
+          m.contextWindow,
+          priceStr,
+          isValued ? m.valueScore.toFixed(2) : "No Valorado",
+          mmlu,
+          gpqa,
+          math,
+          heval,
+          swe,
+          arena
+        ];
+      });
+      
+      doc.autoTable({
+        head: [headers],
+        body: tableData,
+        startY: 28,
+        theme: 'grid',
+        headStyles: {
+          fillColor: [15, 23, 42], // Deep slate
+          textColor: [248, 250, 252],
+          fontSize: 8,
+          fontStyle: 'bold',
+          halign: 'center'
+        },
+        bodyStyles: {
+          fontSize: 7.5,
+          textColor: [30, 41, 59]
+        },
+        columnStyles: {
+          0: { fontStyle: 'bold' },
+          5: { fontStyle: 'bold', halign: 'center' }
+        },
+        styles: {
+          cellPadding: 1.2
+        },
+        didParseCell: function(data) {
+          if (data.section === 'body') {
+            const colIndex = data.column.index;
+            if (colIndex >= 6 && colIndex <= 11) {
+              const keys = ["mmlu_pro", "gpqa", "math", "human_eval", "swe_bench", "chatbot_arena"];
+              const key = keys[colIndex - 6];
+              const cellVal = parseFloat(data.cell.raw);
+              if (!isNaN(cellVal) && cellVal === maxScores[key]) {
+                data.cell.styles.fontStyle = 'bold';
+                data.cell.styles.textColor = [11, 15, 25]; // Slate oscuro para mayor énfasis
+              }
+            }
+          }
+        }
+      });
+      
+      // Conclusiones al pie de la tabla en Página 2
+      let conclusionsY = doc.autoTable.previous.finalY + 8;
+      
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text("Conclusiones Clave del Análisis:", 14, conclusionsY);
+      
+      const conclusionsText = "Los datos del mercado a junio de 2026 evidencian un cierre progresivo de la brecha de rendimiento entre los modelos frontera y los modelos económicos. Si bien las IAs de máxima categoría (Claude Fable 5, GPT-5) retienen el liderazgo absoluto en tareas críticas de programación avanzada e ingeniería compleja (SWE-bench), los modelos asiáticos competitivos (Z.ai GLM-5 Pro, Qwen 3.7 Plus) y las variantes eficientes de Google Gemini proporcionan un índice de Calidad/Precio sumamente atractivo. La exclusión del ranking por percentil 50 cumple con éxito su función didáctica, relegando a las opciones de bajo coste e insuficiente capacidad lógica a las posiciones inferiores del ranking.";
+      
+      drawTextSection(conclusionsText, 14, conclusionsY + 4, 269, 8.5);
+      
+      // Pie de página con numeración y autoría en todas las páginas
+      const pageCount = doc.internal.getNumberOfPages();
+      for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.setFontSize(8);
+        doc.setTextColor(150, 150, 150);
+        doc.text(`Página ${i} de ${pageCount} | Portal OpenBench AI — By Luis Benedicto Tuzón`, 14, 200);
+      }
+      
+      // Descargar el PDF
+      doc.save("informe_benchmarks_ai.pdf");
+      showToast("📥 Informe en PDF descargado automáticamente.");
+    }
+  </script>
+</body>
+</html>

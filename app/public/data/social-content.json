@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-20T12:25:03.208Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-20T18:16:25.860Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Yoshua Bengio\n\n\"Godfather of AI: The next 5 years Will Change Humanity Forever | Yoshua Bengio\"\n\n▶️ youtube.com/watch?v=0fXGtQoJgNo",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch?v=orSkLH...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yoshuabengio"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=0fXGtQoJgNo",
-    "imageUrl": "https://i.ytimg.com/vi/0fXGtQoJgNo/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=orSkLHvJRik",
+    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-21T13:02:57.665Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-21T18:21:23.482Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Dario Amodei (Anthropic)\n\n\"Pentagon Threatens to End Anthropic Work in Feud Over AI Terms\"\n\n▶️ youtube.com/watch?v=qHV714ZxLA8",
+    "type": "recent_video",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=qHV714ZxLA8",
-    "imageUrl": "https://i.ytimg.com/vi/qHV714ZxLA8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=orSkLHvJRik",
+    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
   }
 }

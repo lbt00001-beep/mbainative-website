@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-21T18:21:23.482Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-06-22T10:42:20.386Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 13,
-    "title": "Datos como activo estratégico",
-    "icon": "📊"
+    "id": 14,
+    "title": "Global desde el día uno",
+    "icon": "🌐"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch...",
+    "type": "guru_quote",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n🧠 Andrej Karpathy\n\n\"AI Agent Guardrails &amp; Safeguards for Claude Code and Codex DAY 53\"\n\n▶️ youtube.com/watch?v=-Qb4NOB4KGk",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
+      "GurusIA",
       "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=orSkLHvJRik",
-    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=-Qb4NOB4KGk",
+    "imageUrl": "https://i.ytimg.com/vi/-Qb4NOB4KGk/mqdefault.jpg"
   }
 }

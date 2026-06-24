@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-06-23T19:10:48.921Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-06-24T08:24:44.014Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 15,
-    "title": "Mejora continua automatizada",
-    "icon": "🔄"
+    "id": 16,
+    "title": "Human-in-the-loop",
+    "icon": "👤"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch?...",
+    "type": "news",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the compan...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrejkarpathy"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=orSkLHvJRik",
-    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

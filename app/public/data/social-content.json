@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-24T13:14:21.131Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-24T18:53:53.500Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Dario Amodei (Anthropic)\n\n\"Anthropic CEO: Software Companies Without AI Could Go Bust #AI #Anthropic #FutureOfWork #shorts\"\n\n▶️ youtube.com/watch?v=qXd7Ac1rW_o",
+    "type": "recent_video",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch?v=orSkLHvJRik",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=qXd7Ac1rW_o",
-    "imageUrl": "https://i.ytimg.com/vi/qXd7Ac1rW_o/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=orSkLHvJRik",
+    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
   }
 }

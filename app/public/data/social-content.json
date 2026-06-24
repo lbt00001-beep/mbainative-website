@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-06-24T08:24:44.014Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-06-24T13:14:21.131Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "news",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the compan...",
+    "type": "guru_quote",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Dario Amodei (Anthropic)\n\n\"Anthropic CEO: Software Companies Without AI Could Go Bust #AI #Anthropic #FutureOfWork #shorts\"\n\n▶️ youtube.com/watch?v=qXd7Ac1rW_o",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=qXd7Ac1rW_o",
+    "imageUrl": "https://i.ytimg.com/vi/qXd7Ac1rW_o/mqdefault.jpg"
   }
 }

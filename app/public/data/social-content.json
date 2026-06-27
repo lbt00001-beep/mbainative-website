@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-27T12:05:45.936Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-27T18:07:54.575Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Yann LeCun (Meta)\n\n\"The Future of AI:  level b2 esl reading, listening and vocabulary practice\"\n\n▶️ youtube.com/watch?v=5lI_prM9psM",
+    "type": "recent_video",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Last stream Vibecoding TOKENMAXXING AI Agent Guardrails/Safeguards for Claude Code &amp; Codex DAY 53\"\n\n▶️ youtube.com/watch?v=...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yannlecun"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=5lI_prM9psM",
-    "imageUrl": "https://i.ytimg.com/vi/5lI_prM9psM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=orSkLHvJRik",
+    "imageUrl": "https://i.ytimg.com/vi/orSkLHvJRik/mqdefault.jpg"
   }
 }

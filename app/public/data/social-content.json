@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-29T14:44:38.720Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-06-29T19:06:40.513Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Fei-Fei Li (Stanford)\n\n\"AI Replacing Everyone?! Fei-Fei Li Reveals the Ultimate Survival Guide for the Workforce Shockwave!\"\n\n▶️ youtube.com/watch?v=FJ8VXXQJGsI",
+    "type": "recent_video",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre Sam Altman\n\n\"AI vs Humans: The End of White-Collar Jobs? #ai #jobscrisis #middleclass @ConsumertoCreator\"\n\n▶️ youtube.com/watch?v=a5kpPke-Czc",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "feifeili"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=FJ8VXXQJGsI",
-    "imageUrl": "https://i.ytimg.com/vi/FJ8VXXQJGsI/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=a5kpPke-Czc",
+    "imageUrl": "https://i.ytimg.com/vi/a5kpPke-Czc/mqdefault.jpg"
   }
 }

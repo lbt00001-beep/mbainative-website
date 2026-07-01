@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-01T13:32:23.485Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-01T19:00:47.378Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 3,
     "title": "Organización por tareas, no por puestos",
     "icon": "📋"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 Dario Amodei (Anthropic)\n\n\"Anthropic CEO Reveals the Future of AI | AI Agents, Jobs &amp; Coding Explained\"\n\n▶️ youtube.com/watch?v=kxyeZJY5mbs",
+    "type": "recent_video",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre Sam Altman\n\n\"AI vs Humans: The End of White-Collar Jobs? #ai #jobscrisis #middleclass @ConsumertoCreator\"\n\n▶️ youtube.com/watch?v=a5k...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=kxyeZJY5mbs",
-    "imageUrl": "https://i.ytimg.com/vi/kxyeZJY5mbs/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=a5kpPke-Czc",
+    "imageUrl": "https://i.ytimg.com/vi/a5kpPke-Czc/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-02T12:54:18.597Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-02T18:27:54.305Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Andrej Karpathy\n\n\"Claude Code For Non-Coders (FULL COURSE - 80 Minutes)\"\n\n▶️ youtube.com/watch?v=Sh3LAwUh5VE",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Loop Engineering Explained: Stop Prompting Claude. Use Karpathy&#39;s Workflow Instead\"\n\n▶️ youtube.com/watch?v=aNsGRV...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=Sh3LAwUh5VE",
-    "imageUrl": "https://i.ytimg.com/vi/Sh3LAwUh5VE/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=aNsGRV8bjwQ",
+    "imageUrl": "https://i.ytimg.com/vi/aNsGRV8bjwQ/mqdefault.jpg"
   }
 }

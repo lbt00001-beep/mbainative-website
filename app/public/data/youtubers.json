@@ -1,11 +1,18 @@
 {
-  "lastUpdated": "2026-06-29T09:33:45.213Z",
+  "lastUpdated": "2026-07-02T08:13:05.808Z",
   "youtubers": {
     "lex-fridman": {
       "name": "Lex Fridman",
       "description": "Investigador de MIT. Entrevistas profundas sobre IA, ciencia y filosofía.",
       "photo": "/images/gurus/lex-fridman.jpg",
       "videos": [
+        {
+          "videoId": "pv1TUJSEM2k",
+          "title": "The Rise and Fall of the Roman Empire and the Byzantine Empire | Lex Fridman Podcast #498",
+          "description": "Anthony Kaldellis is a historian of the Roman Empire and author of \"The New Roman Empire\", a comprehensive history of the Byzantine Empire (Eastern Roman Empire).\nThank you for listening ❤ Check out o...",
+          "thumbnail": "https://i.ytimg.com/vi/pv1TUJSEM2k/hqdefault.jpg",
+          "publishedAt": "2026-06-30T21:16:13Z"
+        },
         {
           "videoId": "1M3Vdl6DRkU",
           "title": "Biggest Mysteries in Physics: Antimatter, Dark Energy & ToE - Don Lincoln | Lex Fridman Podcast #497",
@@ -68,13 +75,6 @@
           "description": "Peter Steinberger is the creator of OpenClaw, an open-source AI agent framework that's the fastest-growing project in GitHub history.\nThank you for listening ❤ Check out our sponsors: https://lexfridm...",
           "thumbnail": "https://i.ytimg.com/vi/YFjfBk8HI5o/hqdefault.jpg",
           "publishedAt": "2026-02-12T03:07:03Z"
-        },
-        {
-          "videoId": "EV7WhVT270Q",
-          "title": "State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast #490",
-          "description": "Nathan Lambert and Sebastian Raschka are machine learning researchers, engineers, and educators. Nathan is the post-training lead at the Allen Institute for AI (Ai2) and the author of The RLHF Book. S...",
-          "thumbnail": "https://i.ytimg.com/vi/EV7WhVT270Q/hqdefault.jpg",
-          "publishedAt": "2026-01-31T22:33:33Z"
         }
       ]
     }

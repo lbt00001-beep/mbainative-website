@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T09:25:27.342Z",
+  "lastUpdated": "2026-07-02T08:04:47.446Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 33
+      "articleCount": 30
     },
     {
       "id": "bcg",
@@ -26,31 +26,13 @@
   ],
   "articles": [
     {
-      "title": "Europe’s skilling dividend: Turning talent into growth",
-      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/europes-skilling-dividend-turning-talent-into-growth",
-      "description": "Europe’s workforce is a source of strength, but limited mobility holds people back. Organizations that make it easier for workers to move across roles, regions, and sectors can help accelerate growth....",
-      "pubDate": "Thu, 18 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 10
-    },
-    {
-      "title": "Rewiring Talent to Value in the age of AI",
-      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/rewiring-talent-to-value-in-the-age-of-ai",
-      "description": "As humans enter a new era with AI agents as coworkers, companies need to update their framework for defining their most valuable roles. Here’s how to get started....",
-      "pubDate": "Thu, 18 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 10
-    },
-    {
       "title": "AI-powered software development: How technology is rewriting the rules",
       "link": "https://www.mckinsey.com/featured-insights/mckinsey-explainers/ai-powered-software-development-how-technology-is-rewriting-the-rules",
       "description": "From individual productivity hacks to full workflow and role reinvention—three McKinsey experts explain how AI is changing the creation of software and what separates the companies capturing value....",
       "pubDate": "Wed, 24 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 8
+      "score": 6
     },
     {
       "title": "Beyond productivity: How AI creates value in private equity",
@@ -59,16 +41,133 @@
       "pubDate": "Tue, 23 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 8
+      "score": 6
     },
     {
-      "title": "Prompt Hungary: The impact of AI on the competitiveness of the economy",
-      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/prompt-hungary-the-impact-of-ai-on-the-competitiveness-of-the-economy",
-      "description": "AI could become a powerful growth engine for the country by helping overcome the economy’s challenges and limitations, and generating improved productivity and lasting competitive advantage....",
-      "pubDate": "Tue, 16 Jun 2026",
+      "title": "McKinsey Global Publishing’s 2026 book picks",
+      "link": "https://www.mckinsey.com/featured-insights/annual-book-recommendations/mckinsey-global-publishings-book-picks",
+      "description": "We asked McKinsey Global Publishing and Marketing colleagues to share what’s on their bookshelves this year—here’s what they said....",
+      "pubDate": "Wed, 01 Jul 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 6
+      "score": 5
+    },
+    {
+      "title": "Lights, camera, algorithm: How AI is rewriting the rules of film and TV",
+      "link": "https://www.mckinsey.com/featured-insights/mckinsey-explainers/lights-camera-algorithm-how-ai-is-rewriting-the-rules-of-film-and-tv",
+      "description": "Artificial intelligence is reshaping film and TV production from script to screen—but the biggest disruptions may not be the ones anyone is predicting....",
+      "pubDate": "Wed, 01 Jul 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Suphachai Chearavanont: Bold moves in innovation-driven transformation",
+      "link": "https://www.mckinsey.com/featured-insights/future-of-asia/suphachai-chearavanont-bold-moves-in-innovation-driven-transformation",
+      "description": "In striving for business growth while creating value for society, Suphachai Chearavanont has based his leadership strategy on looking beyond short-term gains to sustainable social impact and scale....",
+      "pubDate": "Wed, 01 Jul 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Colocation data centers: The infrastructure race behind AI",
+      "link": "https://www.mckinsey.com/mgi/our-research/colocation-data-centers-the-infrastructure-race-behind-ai",
+      "description": "Data center capital expenditures are surging as AI workloads grow, yet competitiveness increasingly depends on securing advanced accelerators, reliable electricity, and fast project delivery....",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Talking with Daniel Marovitz, SVP of Fintech at Booking.com",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/talking-with-daniel-marovitz-svp-of-fintech-at-booking-com",
+      "description": "Booking.com’s senior vice president of fintech describes how the travel-booking company has become the global platform of choice by managing complexity and easing customers’ pain points....",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Solar power: From intermittent sunshine to reliable power",
+      "link": "https://www.mckinsey.com/mgi/our-research/solar-power-from-intermittent-sunshine-to-reliable-power",
+      "description": "Solar photovoltaic projects with battery energy storage systems are moving beyond low-cost generation by transforming intermittent output into more reliable, higher-value electricity....",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "EAF steel: Beyond the blast furnace",
+      "link": "https://www.mckinsey.com/mgi/our-research/eaf-steel-beyond-the-blast-furnace",
+      "description": "Global steel investment is flat, but DRI-EAF production is gaining share in advanced economies....",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Author Talks: Why we need a ‘ritual renaissance’",
+      "link": "https://www.mckinsey.com/featured-insights/mckinsey-on-books/author-talks-why-we-need-a-ritual-renaissance",
+      "description": "What if the antidote to loneliness isn’t technology but ritual? Traveling across 16 countries, author Bruce Feiler uncovered a quiet global movement helping people reconnect in an age of digital overl...",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Nuclear power: A renaissance in the making",
+      "link": "https://www.mckinsey.com/mgi/our-research/nuclear-power-a-renaissance-in-the-making",
+      "description": "The explosion of AI data centers and the continued electrification of automobiles and other products have greatly increased demand for electricity, sparking renewed interest in producing nuclear power...",
+      "pubDate": "Tue, 30 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Plan for midstream adjustments",
+      "link": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/plan-for-midstream-adjustments",
+      "description": "It’s normal for companies to encounter unique issues throughout their technology and AI transformation journey. The key is being prepared to adapt....",
+      "pubDate": "Mon, 29 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "From linear gates to learning loops: Rewiring biopharma R&D with AI",
+      "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/from-linear-gates-to-learning-loops-rewiring-biopharma-r-and-d-with-ai",
+      "description": "An AI-powered R&D model built on connected decision loops—replacing the current sequential, fragmented workflow—can reduce uncertainty, compress timelines, and accelerate medicines to market....",
+      "pubDate": "Mon, 29 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Global Economics Intelligence executive summary, May 2026\r\n",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/global-economics-intelligence",
+      "description": "As energy prices trend higher and drive inflation, consumer confidence is ebbing—and central banks have a dilemma: whether to tackle inflation by raising policy rates or ease them to provide a stimulu...",
+      "pubDate": "Mon, 29 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "African bedrock: How the continent’s minerals can help power the world",
+      "link": "https://www.mckinsey.com/industries/metals-and-mining/our-insights/african-bedrock-how-the-continents-minerals-can-help-power-the-world",
+      "description": "Critical minerals underpin everything from AI to low-carbon energy, and African mining sits at the epicenter. Three key moves can help unlock the continent’s natural minerals advantage....",
+      "pubDate": "Mon, 29 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "In an AI-driven world, the fastest learner will win: An interview with McKinsey’s Sven Smit",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/in-an-ai-driven-world-the-fastest-learner-will-win-an-interview-with-mckinseys-sven-smit",
+      "description": "As he steps down as chair of McKinsey Global Institute, Sven considers the current AI moment, where the next big ideas are coming from, and how institutions will harness knowledge in the future....",
+      "pubDate": "Fri, 26 Jun 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
     },
     {
       "title": "Turning sustainability compliance into a competitive edge",
@@ -86,7 +185,7 @@
       "pubDate": "Thu, 25 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 3
     },
     {
       "title": "Frontiers of compute: The technologies to reduce AI inference costs",
@@ -95,112 +194,13 @@
       "pubDate": "Thu, 25 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
+      "score": 3
     },
     {
       "title": "What it takes to become—and remain—an effective CEO",
       "link": "https://www.mckinsey.com/featured-insights/leadership/what-it-takes-to-become-and-remain-an-effective-ceo",
       "description": "Between the first 90 days and the last, here’s how leaders can successfully manage people, products, processes, and themselves....",
       "pubDate": "Thu, 25 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "The age of thinking machines: Perspectives on the future of robotics",
-      "link": "https://www.mckinsey.com/industries/industrials/our-insights/the-age-of-thinking-machines-perspectives-on-the-future-of-robotics",
-      "description": "The next frontier of AI is physical. Embodied intelligence, in the form of robots, could change how we live and work by 2040....",
-      "pubDate": "Wed, 24 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Resolve AI CEO Spiros Xanthos: AI’s impact on software production systems",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/resolve-ai-ceo-spiros-xanthos-ais-impact-on-software-production-systems",
-      "description": "Automating software’s deployment, production, and monitoring systems has been challenging. Resolve AI’s CEO explains how AI could improve reliability, pace, and workload....",
-      "pubDate": "Wed, 24 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "How KPN is building an agentic AI engine for customer care",
-      "link": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/how-we-help-clients/how-kpn-is-building-an-agentic-ai-engine-for-customer-care",
-      "description": "By transforming its contact center with agentic AI, the leading Dutch telecom company is strengthening quality, improving efficiency, and building AI capabilities for long-term competitiveness....",
-      "pubDate": "Wed, 24 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "AI data readiness: The key to scaling impact",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/ai-data-readiness-the-key-to-scaling-impact",
-      "description": "As companies push their AI pilots to scale, data is emerging as a constraint. Leaders are prioritizing data readiness, connecting structured and unstructured data into a governed, reusable foundation....",
-      "pubDate": "Tue, 23 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Productivity reimagined",
-      "link": "https://www.mckinsey.com/featured-insights/insights-on-europe/productivity-reimagined",
-      "description": "Bold moves to redefine growth in Germany....",
-      "pubDate": "Wed, 10 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 4
-    },
-    {
-      "title": "Capturing Central Europe’s AI opportunity",
-      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/capturing-central-europes-ai-opportunity",
-      "description": "AI is advancing too quickly to remain a side initiative for businesses. Central European companies can get ahead by redesigning business domains—and the organization—around AI....",
-      "pubDate": "Mon, 22 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "From anxiety to advantage: A marketing organization that thrives with AI",
-      "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/from-anxiety-to-advantage-a-marketing-organization-that-thrives-with-ai",
-      "description": "Marketers are using AI, but surface-level enthusiasm is masking the anxiety, indecision, and operating-model gaps holding back meaningful change....",
-      "pubDate": "Mon, 22 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "From campaigns to continuous growth: AI capabilities shaping marketing",
-      "link": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/from-campaigns-to-continuous-growth-ai-capabilities-shaping-marketing",
-      "description": "Capabilities built around insights, creativity, personalization, agentic commerce, and orchestration form the five core pillars of the future of marketing....",
-      "pubDate": "Mon, 22 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Capturing growth in a fragmented world",
-      "link": "https://www.mckinsey.com/quarterly/the-five-fifty/five-fifty-capturing-growth-in-a-fragmented-world",
-      "description": "CEOs who act nimbly and reallocate capital strategically can gain a competitive edge amid a shifting geopolitical landscape....",
-      "pubDate": "Mon, 22 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Putting AI to work: The operational excellence imperative",
-      "link": "https://www.mckinsey.com/capabilities/operations/our-insights/putting-ai-to-work-the-operational-excellence-imperative",
-      "description": "Our survey uncovers how operational excellence becomes the hidden accelerator of AI at scale....",
-      "pubDate": "Fri, 19 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "What corporate leaders can learn from start-up founders",
-      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/what-corporate-leaders-can-learn-from-start-up-founders",
-      "description": "Alurx Founder and CEO Julia Stewart discusses her journey from public company CEO to health tech entrepreneur—and how corporate leaders can build confidence to transform their companies with AI....",
-      "pubDate": "Thu, 18 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3

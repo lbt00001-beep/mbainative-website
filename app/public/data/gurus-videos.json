@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-02T08:04:45.089Z",
-  "totalVideos": 65,
+  "lastUpdated": "2026-07-03T08:03:30.193Z",
+  "totalVideos": 64,
   "gurus": {
     "demis-hassabis": [
       {
@@ -68,14 +68,6 @@
         "thumbnail": "https://i.ytimg.com/vi/5lI_prM9psM/mqdefault.jpg",
         "publishedAt": "2025-07-28T15:41:25Z",
         "channelTitle": "LinguaShift"
-      },
-      {
-        "videoId": "79-bApI3GIU",
-        "title": "Ex-OpenAI Scientist WARNS: &quot;You Have No Idea What&#39;s Coming&quot;",
-        "description": "Ex-OpenAI pioneer Ilya Sutskever warns that as AI begins to self-improve, its trajectory may become \"extremely unpredictable and ......",
-        "thumbnail": "https://i.ytimg.com/vi/79-bApI3GIU/mqdefault.jpg",
-        "publishedAt": "2025-07-16T21:51:04Z",
-        "channelTitle": "AI Upload"
       }
     ],
     "yoshua-bengio": [
@@ -492,31 +484,23 @@
         "channelTitle": "Nate Herk | AI Automation"
       },
       {
-        "videoId": "OaRhpwz_TGM",
-        "title": "The Future of AI Agents with Andrew Ng | Interrupt 26",
-        "description": "Andrew Ng sat down with Harrison Chase for a wide-ranging fireside chat at Interrupt, the agent conference by LangChain. Watch ......",
-        "thumbnail": "https://i.ytimg.com/vi/OaRhpwz_TGM/mqdefault.jpg",
-        "publishedAt": "2026-06-17T12:34:20Z",
-        "channelTitle": "LangChain"
-      },
-      {
         "videoId": "oXpRQajLUrs",
         "title": "Ai AGENT, Clearly Explained || Only 0.1% know",
         "description": "AI #ChatGPT #aiagents #automation Understanding AI Agents doesn't require a technical background. This video breaks down ......",
         "thumbnail": "https://i.ytimg.com/vi/oXpRQajLUrs/mqdefault.jpg",
         "publishedAt": "2026-06-16T13:45:06Z",
         "channelTitle": "Prince Gautam"
+      },
+      {
+        "videoId": "KjQk1fgk6Jk",
+        "title": "Real-World AI Agents You Need To See #tech #ai #shorts",
+        "description": "Discover the latest advancements in ai technology and witness the ai revolution transforming our world. From intelligent machines ......",
+        "thumbnail": "https://i.ytimg.com/vi/KjQk1fgk6Jk/mqdefault.jpg",
+        "publishedAt": "2026-06-07T13:00:28Z",
+        "channelTitle": "SKRS"
       }
     ],
     "andrej-karpathy": [
-      {
-        "videoId": "aNsGRV8bjwQ",
-        "title": "Loop Engineering Explained: Stop Prompting Claude. Use Karpathy&#39;s Workflow Instead",
-        "description": "Everyone is talking about Loop Engineering, Agent Loops, and Claude Code in 2026—but very few people actually explain what ......",
-        "thumbnail": "https://i.ytimg.com/vi/aNsGRV8bjwQ/mqdefault.jpg",
-        "publishedAt": "2026-07-01T20:13:05Z",
-        "channelTitle": "The Ai Algorithm"
-      },
       {
         "videoId": "gxwgYbzCeMY",
         "title": "Vibe Coding AI Agent Guardrails Safeguards Security for Claude Code Codex Day 66",
@@ -527,7 +511,7 @@
       },
       {
         "videoId": "Sh3LAwUh5VE",
-        "title": "Claude Code For Non-Coders (FULL COURSE - 80 Minutes)",
+        "title": "F*ck It, Here&#39;s My Entire Claude Code Course for FREE",
         "description": "This is the best Claude Code tutorial on YouTube for beginners and non-technicals. Claude Code full course for beginners ......",
         "thumbnail": "https://i.ytimg.com/vi/Sh3LAwUh5VE/mqdefault.jpg",
         "publishedAt": "2026-06-30T12:58:29Z",
@@ -548,6 +532,14 @@
         "thumbnail": "https://i.ytimg.com/vi/n3ECEXasQHw/mqdefault.jpg",
         "publishedAt": "2026-06-25T19:39:54Z",
         "channelTitle": "Dr. Alex Hanna"
+      },
+      {
+        "videoId": "HPQ-HO01APs",
+        "title": "Claude Tag: an AI teammate that lives in your Slack #ai #tech #chatgpt #claude #aiagents #ainews",
+        "description": "Anthropic just launched Claude Tag: an AI agent that lives inside Slack, that you @mention like a coworker and hand work to....",
+        "thumbnail": "https://i.ytimg.com/vi/HPQ-HO01APs/mqdefault.jpg",
+        "publishedAt": "2026-06-24T15:00:14Z",
+        "channelTitle": "Bottor."
       }
     ]
   }

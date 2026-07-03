@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T08:00:13.770Z",
+  "lastUpdated": "2026-07-03T07:54:36.284Z",
   "totalArticles": 66,
   "featured": [
     {
@@ -112,7 +112,7 @@
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 18
+      "relevance": 17
     },
     {
       "title": "Agent confidence on the technical frontier",
@@ -122,27 +122,7 @@
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 18
-    },
-    {
-      "title": "Gemini Spark, Google’s agentic assistant, is now available on Mac",
-      "link": "https://techcrunch.com/2026/07/01/gemini-spark-googles-agentic-assistant-is-now-available-on-mac/",
-      "summary": "Google's 24/7 agentic assistant, Gemini Spark, comes to Mac alongside other improvements, like real-time tracking and support for more apps....",
-      "pubDate": "Wed, 01 Jul 2026 14:20:19 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 16
-    },
-    {
-      "title": "Into the Omniverse: Three Workflows for Improving Vision AI Agent Accuracy With Synthetic Data and Fine-Tuning",
-      "link": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
-      "summary": "Editor’s note: This post is part of Into the Omniverse, a series focused on how developers, 3D practitioners, and enterprises can transform their workflows using the latest advances in OpenUSD and NVIDIA Omniverse. Vision AI agents are becoming a practical way to automatically turn video data from t...",
-      "pubDate": "Tue, 30 Jun 2026 13:00:27 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 16
+      "relevance": 17
     },
     {
       "title": "Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.",
@@ -155,24 +135,14 @@
       "relevance": 15
     },
     {
-      "title": "NVIDIA and Partners Build in America, for America",
-      "link": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
-      "summary": "NVIDIA and its partners are investing in American manufacturing, supply chains, energy grids and skilled workforces so the U.S. can produce the infrastructure needed for better healthcare, breakthrough scientific discovery, stronger industrial productivity and global technology leadership....",
-      "pubDate": "Wed, 01 Jul 2026 13:00:47 +0000",
+      "title": "Into the Omniverse: Three Workflows for Improving Vision AI Agent Accuracy With Synthetic Data and Fine-Tuning",
+      "link": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
+      "summary": "Editor’s note: This post is part of Into the Omniverse, a series focused on how developers, 3D practitioners, and enterprises can transform their workflows using the latest advances in OpenUSD and NVIDIA Omniverse. Vision AI agents are becoming a practical way to automatically turn video data from t...",
+      "pubDate": "Tue, 30 Jun 2026 13:00:27 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
       "relevance": 14
-    },
-    {
-      "title": "OpenClaw is finally available on Android and iOS",
-      "link": "https://techcrunch.com/2026/06/30/openclaw-is-finally-available-on-android-and-ios/",
-      "summary": "The free open source agentic program is finally invading your phone....",
-      "pubDate": "Tue, 30 Jun 2026 21:53:28 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 13
     },
     {
       "title": "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models",
@@ -185,24 +155,24 @@
       "relevance": 13
     },
     {
-      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
-      "link": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
-      "summary": "Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders....",
-      "pubDate": "Wed, 01 Jul 2026 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 11
+      "title": "Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped",
+      "link": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "summary": "At an internal meeting, the Meta CEO reportedly said that AI development efforts were not moving as quickly as anticipated....",
+      "pubDate": "Thu, 02 Jul 2026 23:38:10 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 12
     },
     {
-      "title": "NVIDIA BioNeMo Agent Toolkit Brings Accelerated AI to Life Sciences Researchers in Claude Science",
-      "link": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
-      "summary": "Life sciences has entered an era of computational scale, and for more than a decade, NVIDIA has built the full GPU-accelerated computing stack — spanning hardware, frameworks, libraries, models, microservices and domain-specific tools — to help researchers run more sophisticated workflows and iterat...",
-      "pubDate": "Tue, 30 Jun 2026 17:00:38 +0000",
+      "title": "NVIDIA and Partners Build in America, for America",
+      "link": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
+      "summary": "NVIDIA and its partners are investing in American manufacturing, supply chains, energy grids and skilled workforces so the U.S. can produce the infrastructure needed for better healthcare, breakthrough scientific discovery, stronger industrial productivity and global technology leadership....",
+      "pubDate": "Wed, 01 Jul 2026 13:00:47 +0000",
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 11
+      "relevance": 12
     },
     {
       "title": "Data Formulator 0.7: AI-powered data analytics for enterprise data",
@@ -225,14 +195,24 @@
       "relevance": 11
     },
     {
-      "title": "Cloudflare’s new policy pushes AI companies to pay for publishers’ content",
-      "link": "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/",
-      "summary": "Cloudflare is giving AI companies until September 15 to separate web crawlers used for search from those used for AI training and agents, or risk being blocked by default on many publisher sites....",
-      "pubDate": "Wed, 01 Jul 2026 17:48:37 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 10
+      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
+      "link": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+      "summary": "Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders....",
+      "pubDate": "Wed, 01 Jul 2026 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 9
+    },
+    {
+      "title": "NVIDIA BioNeMo Agent Toolkit Brings Accelerated AI to Life Sciences Researchers in Claude Science",
+      "link": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
+      "summary": "Life sciences has entered an era of computational scale, and for more than a decade, NVIDIA has built the full GPU-accelerated computing stack — spanning hardware, frameworks, libraries, models, microservices and domain-specific tools — to help researchers run more sophisticated workflows and iterat...",
+      "pubDate": "Tue, 30 Jun 2026 17:00:38 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 9
     },
     {
       "title": "AI agents are not your “coworkers”",
@@ -242,27 +222,7 @@
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 10
-    },
-    {
-      "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
-      "link": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
-      "summary": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office, Google Apps with AI....",
-      "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 8
-    },
-    {
-      "title": "SkillOpt: Agent skills as trainable parameters",
-      "link": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/",
-      "summary": "AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. Learn how SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.\nThe post SkillOpt: Agent skills as trainable paramet...",
-      "pubDate": "Tue, 30 Jun 2026 16:50:02 +0000",
-      "source": "Microsoft Research",
-      "sourceLogo": "🔷",
-      "category": "research",
-      "relevance": 8
+      "relevance": 9
     },
     {
       "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
@@ -275,24 +235,124 @@
       "relevance": 8
     },
     {
-      "title": "Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off",
-      "link": "https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/",
-      "summary": "Venice AI is already profitable, with annualized run-rate revenues of over $70 million, CEO Erik Voorhees said....",
-      "pubDate": "Wed, 01 Jul 2026 14:25:23 +0000",
+      "title": "Achieving operational excellence with AI",
+      "link": "https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/",
+      "summary": "Frameworks like Lean Six Sigma and business process management (BPM) first gained traction because they promised clarity in the chaos—a structured way to bring order to messy, sprawling operations. Lean Six Sigma emphasized statistical rigor and quality control; BPM created end-to-end maps of how wo...",
+      "pubDate": "Thu, 02 Jul 2026 15:37:08 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 7
+    },
+    {
+      "title": "OpenAI proposed donating 5% of its equity to a US sovereign wealth fund",
+      "link": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
+      "summary": "OpenAI CEO Sam Altman has reportedly proposed giving 5% of the company’s equity to a U.S. sovereign wealth fund, reviving discussions about letting the public share in the financial gains from the AI boom....",
+      "pubDate": "Thu, 02 Jul 2026 15:20:51 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
       "relevance": 7
     },
     {
-      "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
-      "link": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/",
-      "summary": "Meta is developing plans for a cloud infrastructure business, selling access to AI compute power and models. The move would pit it against the big cloud providers like Amazon Web Services, Google Cloud, and Microsoft Azure....",
-      "pubDate": "Wed, 01 Jul 2026 13:43:07 +0000",
+      "title": "OpenAI floats giving Trump administration 5 percent cut of AI boom ",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/960588/openai-government-5-percent-stake-trump",
+      "summary": "OpenAI has floated giving the US government a 5 percent ownership stake as a way of easing tensions with the Trump administration and blunting mounting public backlash against AI, according to the Financial Times.\nCEO Sam Altman argued that giving the public a financial interest in the company would...",
+      "pubDate": "2026-07-02T10:23:27.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 7
+    },
+    {
+      "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
+      "link": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
+      "summary": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office and Google Apps with AI....",
+      "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
-      "relevance": 7
+      "relevance": 6
+    },
+    {
+      "title": "SkillOpt: Agent skills as trainable parameters",
+      "link": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/",
+      "summary": "AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. Learn how SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.\nThe post SkillOpt: Agent skills as trainable paramet...",
+      "pubDate": "Tue, 30 Jun 2026 16:50:02 +0000",
+      "source": "Microsoft Research",
+      "sourceLogo": "🔷",
+      "category": "research",
+      "relevance": 6
+    },
+    {
+      "title": "Jersey Mike’s IPO illustrates how bad the AI hype has become",
+      "link": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
+      "summary": "Just for kicks, I took a look at Jersey Mike's IPO documents. Surely a sandwich shop would have no need to mention AI. But lo and behold....",
+      "pubDate": "Thu, 02 Jul 2026 20:11:59 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Meta quietly launches vibe-coded gaming app Pocket",
+      "link": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/",
+      "summary": "Meta has quietly launched Pocket, an experimental AI app that lets users generate and share interactive mini games using text prompts....",
+      "pubDate": "Thu, 02 Jul 2026 18:44:02 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Anthropic is discussing a new custom chip with Samsung",
+      "link": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
+      "summary": "The news comes about a week after OpenAI announced its own custom AI chip in a partnership with Broadcom....",
+      "pubDate": "Thu, 02 Jul 2026 18:31:09 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
+      "link": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/",
+      "summary": "Microsoft follows Amazon, OpenAI, and Anthropic with its new AI deployment group....",
+      "pubDate": "Thu, 02 Jul 2026 13:53:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Joyride Through July With 12 Games Coming to GeForce NOW",
+      "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list/",
+      "summary": "Summer is heating up — and GeForce NOW is taking players along for the ride. Start the month with Monopoly: Star Wars Heroes vs. Villains, bringing a galaxy far, far away to the iconic board-game franchise, alongside 12 new games joining the cloud this month.  Plus, don’t let the sun set on the bigg...",
+      "pubDate": "Thu, 02 Jul 2026 13:00:23 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 5
+    },
+    {
+      "title": "Teaching AI to run with the turbines",
+      "link": "https://www.technologyreview.com/2026/07/02/1138433/teaching-ai-to-run-with-the-turbines/",
+      "summary": "Artificial intelligence may have captured the public imagination through chatbots and image generators, but some of its most consequential use cases are unfolding far from consumer-facing tools. In industries where physical infrastructure, operational continuity, and safety are paramount, AI is beco...",
+      "pubDate": "Thu, 02 Jul 2026 12:51:44 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 5
+    },
+    {
+      "title": "Yep, we’re using OpenClaw to date now",
+      "link": "https://techcrunch.com/2026/07/02/yep-were-using-openclaw-to-date-now/",
+      "summary": "Ben Guez has \"a bunch of potential international wives in [his] DMs,\" thanks to an automated script he set up using OpenClaw, Claude code, and Instagram trials....",
+      "pubDate": "Thu, 02 Jul 2026 12:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
     },
     {
       "title": "Claude Science is Anthropic’s newest flagship product",
@@ -302,7 +362,7 @@
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 7
+      "relevance": 5
     },
     {
       "title": "Agriculture is ready for AI, but its data isn’t",
@@ -312,37 +372,7 @@
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",
-      "relevance": 7
-    },
-    {
-      "title": "NVIDIA and AWS Collaborate to Bring AI to Production at Scale",
-      "link": "https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/",
-      "summary": "Building AI systems at scale is demanding, requiring low-latency inference, fast vector search, strong GPU price-performance and infrastructure that can grow without multiplying operational complexity.  NVIDIA’s latest work with Amazon Web Services (AWS) addresses each of those constraints. Across A...",
-      "pubDate": "Wed, 24 Jun 2026 00:05:37 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 7
-    },
-    {
-      "title": "LLMs are stuck in a groupthink groove. This startup is trying to get them out.",
-      "link": "https://www.technologyreview.com/2026/07/01/1140003/llms-are-stuck-in-a-groupthink-rut-this-startup-is-trying-to-get-them-out/",
-      "summary": "Let’s start with a game. Open up your chatbot of choice—Claude, ChatGPT, Gemini—and type “Give me a random number between 1 and 10.” You’re going to get 7. Almost always. Now type “Another” and you’ll get 3 or 4. Type “Another” again and you’ll get 8 or 9. That won’t work every time—but if it…...",
-      "pubDate": "Wed, 01 Jul 2026 14:35:16 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 6
-    },
-    {
-      "title": "Google built a great smart speaker, but Gemini isn’t ready for it",
-      "link": "https://www.theverge.com/tech/959503/google-home-speaker-review-gemini-for-home",
-      "summary": "The Google Home Speaker is Google’s first smart speaker in years. And it’s pretty! | Photo: Jennifer Patison Tuohy / The Verge\t\n\nSmart speakers have spent the past few years searching for a compelling second act. Beyond music, timers, and controlling your lights, they've struggled to justify taking ...",
-      "pubDate": "2026-07-01T12:00:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 6
+      "relevance": 5
     },
     {
       "title": "Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity",
@@ -352,7 +382,27 @@
       "source": "Microsoft Research",
       "sourceLogo": "🔷",
       "category": "research",
-      "relevance": 6
+      "relevance": 5
+    },
+    {
+      "title": "LLMs are stuck in a groupthink groove. This startup is trying to get them out.",
+      "link": "https://www.technologyreview.com/2026/07/01/1140003/llms-are-stuck-in-a-groupthink-rut-this-startup-is-trying-to-get-them-out/",
+      "summary": "Let’s start with a game. Open up your chatbot of choice—Claude, ChatGPT, Gemini—and type “Give me a random number between 1 and 10.” You’re going to get 7. Almost always. Now type “Another” and you’ll get 3 or 4. Type “Another” again and you’ll get 8 or 9. That won’t work every time—but if it…...",
+      "pubDate": "Wed, 01 Jul 2026 14:35:16 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 4
+    },
+    {
+      "title": "Google built a great smart speaker, but Gemini isn’t ready for it",
+      "link": "https://www.theverge.com/tech/959503/google-home-speaker-review-gemini-for-home",
+      "summary": "The Google Home Speaker is Google’s first smart speaker in years. And it’s pretty! | Photo: Jennifer Patison Tuohy / The Verge\t\n\nSmart speakers have spent the past few years searching for a compelling second act. Beyond music, timers, and controlling your lights, they've struggled to justify taking ...",
+      "pubDate": "2026-07-01T12:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 4
     },
     {
       "title": "NVIDIA Unlocks AI Compute at Scale, Inviting Partners to Power the AI Infrastructure Buildout",
@@ -362,7 +412,7 @@
       "source": "NVIDIA",
       "sourceLogo": "🟩",
       "category": "hardware",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "SpaceX has an AI device prototype, and it sure sounds phone-ish",
@@ -372,7 +422,7 @@
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller",
@@ -382,7 +432,7 @@
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "The latest AI news we announced in June 2026",
@@ -392,7 +442,7 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "Netflix is using an AI-generated Gene Wilder voice in its Willy Wonka reality show",
@@ -402,7 +452,7 @@
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "Libby will filter out AI content, kind of",
@@ -412,7 +462,7 @@
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
-      "relevance": 5
+      "relevance": 3
     },
     {
       "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
@@ -422,86 +472,6 @@
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",
-      "relevance": 4
-    },
-    {
-      "title": "Trump drops restrictions on Anthropic’s Mythos and Fable models",
-      "link": "https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/",
-      "summary": "The Trump administration's erratic approach to AI policymaking has left companies across the industry with little clarity about what will govern future model releases....",
-      "pubDate": "Wed, 01 Jul 2026 02:16:06 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "Wayve launches $85M employee tender offer at $8.5B valuation",
-      "link": "https://techcrunch.com/2026/06/30/wayve-launches-85m-employee-tender-offer-at-8-5b-valuation/",
-      "summary": "Wayve’s offering is part of a growing trend of AI startups using employee tenders as a strategic tool to attract and retain talent....",
-      "pubDate": "Wed, 01 Jul 2026 02:04:40 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "Anthropic&#8217;s long-sidelined Fable 5 is greenlit to return",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/958964/anthropic-claude-fable-5-is-back",
-      "summary": "After weeks of negotiating with the Trump administration, Anthropic is finally going to be able to bring Claude Fable 5 back online. In a post on X, Anthropic said it plans to begin restoring access Wednesday to users globally on Claude platforms, and that the company would re-enable access on AWS, ...",
-      "pubDate": "2026-07-01T00:03:55.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "Google’s NotebookLM can sum up your research in a TikTok-style clip",
-      "link": "https://www.theverge.com/tech/959778/google-notebooklm-ai-clips",
-      "summary": "Google's NotebookLM is adding a new way to catch up on your notes: TikTok-style AI videos. The new feature is rolling out to Google AI Ultra and Pro subscribers, allowing NotebookLM to generate 60-second vertical AI clips based on the sources you upload to the app.\nThe example shared by Google detai...",
-      "pubDate": "2026-06-30T19:24:51.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "How NVIDIA’s Inference Software Stack Powers the Lowest Token Cost",
-      "link": "https://blogs.nvidia.com/blog/inference-software-lowest-token-cost/",
-      "summary": "As organizations move from AI pilots to production AI factories, infrastructure decisions have shifted from peak chip specifications to cost per token: how many useful tokens they can deliver per dollar, per watt and within required latency targets. Codesigned with NVIDIA GPUs, CPUs, networking and ...",
-      "pubDate": "Tue, 30 Jun 2026 15:00:57 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 3
-    },
-    {
-      "title": "How Jaiveer Singh Is Helping Robots — and Developers — Move Faster",
-      "link": "https://blogs.nvidia.com/blog/nvidia-life-jaiveer-singh/",
-      "summary": "When Jaiveer Singh talks about robots, he doesn’t begin with spectacle. He begins with infrastructure: the boards inside machines, the software that lets developers see through a robot’s cameras and the engineering required before a robot can leave a demo floor to do something useful. As a robotics ...",
-      "pubDate": "Tue, 30 Jun 2026 15:00:49 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 3
-    },
-    {
-      "title": "Meet the lawyer who beat Elon Musk — twice",
-      "link": "https://www.theverge.com/column/959270/elon-musk-open-ai-bill-savitt-twitter",
-      "summary": "“After college, my plan was to come to New York and get a record deal.” | Cath Virginia / The Verge, Getty Images\t\n\nWatching Elon Musk fulminate at Bill Savitt during Musk v. Altman - the case in which Musk sued Sam Altman and OpenAI instead of seeing a therapist about his AI failures - was a bit li...",
-      "pubDate": "2026-06-30T12:00:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 3
-    },
-    {
-      "title": "Open Models, Closed Environments: Palantir Brings Secure AI to US Agencies With NVIDIA Nemotron",
-      "link": "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models/",
-      "summary": "Showcasing the importance of open source innovation in American AI, Palantir’s new intelligent engine — introduced today — uses NVIDIA Nemotron open models to serve the needs of U.S. government agencies. Open source software has long been a pillar of U.S. technology leadership.  In 1969, DARPA conne...",
-      "pubDate": "Mon, 29 Jun 2026 10:59:38 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
       "relevance": 3
     },
     {
@@ -525,13 +495,13 @@
       "relevance": 3
     },
     {
-      "title": "Lawmakers want to ban AI companies from selling your health data",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/959033/health-location-data-protection-act-ai-warren-scanlon",
-      "summary": "A new proposal would ban the sale of Americans' health and location information to data brokers - including information people reveal to an AI chatbot like ChatGPT or Claude. \nIn the coming weeks, Senator Elizabeth Warren (D-MA) and Representative Mary Gay Scanlon (D-PA) are planning to debut a new ...",
-      "pubDate": "2026-06-29T16:00:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
+      "title": "Open Models, Closed Environments: Palantir Brings Secure AI to US Agencies With NVIDIA Nemotron",
+      "link": "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models/",
+      "summary": "Showcasing the importance of open source innovation in American AI, Palantir’s new intelligent engine — introduced today — uses NVIDIA Nemotron open models to serve the needs of U.S. government agencies. Open source software has long been a pillar of U.S. technology leadership.  In 1969, DARPA conne...",
+      "pubDate": "Mon, 29 Jun 2026 10:59:38 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
       "relevance": 2
     },
     {
@@ -545,33 +515,63 @@
       "relevance": 2
     },
     {
-      "title": "Tidal won’t pay royalties on AI-generated music, but isn’t banning it outright",
-      "link": "https://www.theverge.com/tech/959211/tidal-ai-music-policy-demonetizingdetect-label",
-      "summary": "Tidal shared its new policies regarding AI-generated music today and how the platform plans to \"protect artists\" and \"inform listeners.\" Instead of banning it outright, starting on July 15th Tidal will label tracks it has identified as being 100 percent AI-generated with an icon. But starting today ...",
-      "pubDate": "2026-06-29T19:47:35.000Z",
+      "title": "Anthropic&#8217;s long-sidelined Fable 5 is greenlit to return",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/958964/anthropic-claude-fable-5-is-back",
+      "summary": "After weeks of negotiating with the Trump administration, Anthropic is finally going to be able to bring Claude Fable 5 back online. In a post on X, Anthropic said it plans to begin restoring access Wednesday to users globally on Claude platforms, and that the company would re-enable access on AWS, ...",
+      "pubDate": "2026-07-01T00:03:55.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
       "relevance": 1
     },
     {
-      "title": "OpenAI is teasing new hardware… for Codex",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder",
-      "summary": "OpenAI is releasing some sort of device related to its AI-powered coding tool, Codex, on July 15th. In a video posted to X on Monday, OpenAI shows a square-shaped device with several buttons, alongside the caption, \"Your favorite Codex shortcuts are getting an upgrade.\"\nThis isn't the mysterious AI-...",
-      "pubDate": "2026-06-29T18:52:03.000Z",
+      "title": "Google’s NotebookLM can sum up your research in a TikTok-style clip",
+      "link": "https://www.theverge.com/tech/959778/google-notebooklm-ai-clips",
+      "summary": "Google's NotebookLM is adding a new way to catch up on your notes: TikTok-style AI videos. The new feature is rolling out to Google AI Ultra and Pro subscribers, allowing NotebookLM to generate 60-second vertical AI clips based on the sources you upload to the app.\nThe example shared by Google detai...",
+      "pubDate": "2026-06-30T19:24:51.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
       "relevance": 1
     },
     {
-      "title": "Ask an AI expert: What exactly is the full stack?",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/",
-      "summary": "A Google expert explains what it means to take a full-stack approach to AI and why it’s been the foundation of our AI work for so long....",
-      "pubDate": "Mon, 29 Jun 2026 16:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
+      "title": "How NVIDIA’s Inference Software Stack Powers the Lowest Token Cost",
+      "link": "https://blogs.nvidia.com/blog/inference-software-lowest-token-cost/",
+      "summary": "As organizations move from AI pilots to production AI factories, infrastructure decisions have shifted from peak chip specifications to cost per token: how many useful tokens they can deliver per dollar, per watt and within required latency targets. Codesigned with NVIDIA GPUs, CPUs, networking and ...",
+      "pubDate": "Tue, 30 Jun 2026 15:00:57 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 1
+    },
+    {
+      "title": "How Jaiveer Singh Is Helping Robots — and Developers — Move Faster",
+      "link": "https://blogs.nvidia.com/blog/nvidia-life-jaiveer-singh/",
+      "summary": "When Jaiveer Singh talks about robots, he doesn’t begin with spectacle. He begins with infrastructure: the boards inside machines, the software that lets developers see through a robot’s cameras and the engineering required before a robot can leave a demo floor to do something useful. As a robotics ...",
+      "pubDate": "Tue, 30 Jun 2026 15:00:49 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 1
+    },
+    {
+      "title": "Meet the lawyer who beat Elon Musk — twice",
+      "link": "https://www.theverge.com/column/959270/elon-musk-open-ai-bill-savitt-twitter",
+      "summary": "“After college, my plan was to come to New York and get a record deal.” | Cath Virginia / The Verge, Getty Images\t\n\nWatching Elon Musk fulminate at Bill Savitt during Musk v. Altman - the case in which Musk sued Sam Altman and OpenAI instead of seeing a therapist about his AI failures - was a bit li...",
+      "pubDate": "2026-06-30T12:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 1
+    },
+    {
+      "title": "Lawmakers want to ban AI companies from selling your health data",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/959033/health-location-data-protection-act-ai-warren-scanlon",
+      "summary": "A new proposal would ban the sale of Americans' health and location information to data brokers - including information people reveal to an AI chatbot like ChatGPT or Claude. \nIn the coming weeks, Senator Elizabeth Warren (D-MA) and Representative Mary Gay Scanlon (D-PA) are planning to debut a new ...",
+      "pubDate": "2026-06-29T16:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
       "relevance": 1
     },
     {
@@ -595,13 +595,33 @@
       "relevance": 1
     },
     {
-      "title": "China’s Z.ai claims it can match Mythos on cybersecurity",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/958804/chinas-z-ai-glm-52-mythos-cybersecurity",
-      "summary": "China's Zhipu AI (Z.ai) released its open-weight GLM-5.2, and some researchers have claimed that it matches Mythos in certain bug-finding and cybersecurity scenarios. While GLM lags behind models from Anthropic and OpenAI in other, more general tasks, it seems that China has dramatically reduced the...",
-      "pubDate": "2026-06-28T21:42:51.000Z",
+      "title": "Tidal won’t pay royalties on AI-generated music, but isn’t banning it outright",
+      "link": "https://www.theverge.com/tech/959211/tidal-ai-music-policy-demonetizingdetect-label",
+      "summary": "Tidal shared its new policies regarding AI-generated music today and how the platform plans to \"protect artists\" and \"inform listeners.\" Instead of banning it outright, starting on July 15th Tidal will label tracks it has identified as being 100 percent AI-generated with an icon. But starting today ...",
+      "pubDate": "2026-06-29T19:47:35.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
+      "relevance": 0
+    },
+    {
+      "title": "OpenAI is teasing new hardware… for Codex",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder",
+      "summary": "OpenAI is releasing some sort of device related to its AI-powered coding tool, Codex, on July 15th. In a video posted to X on Monday, OpenAI shows a square-shaped device with several buttons, alongside the caption, \"Your favorite Codex shortcuts are getting an upgrade.\"\nThis isn't the mysterious AI-...",
+      "pubDate": "2026-06-29T18:52:03.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 0
+    },
+    {
+      "title": "Ask an AI expert: What exactly is the full stack?",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/",
+      "summary": "A Google expert explains what it means to take a full-stack approach to AI and why it’s been the foundation of our AI work for so long....",
+      "pubDate": "Mon, 29 Jun 2026 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
       "relevance": 0
     },
     {
@@ -629,26 +649,6 @@
       "link": "https://www.technologyreview.com/2026/06/23/1138837/asml-400-million-dollar-machine-powering-future-of-chipmaking/",
       "summary": "Jos Benschop is climbing a ladder to get to the top of his newest machine.  It’s a bit of a schlep. The contraption is the size of a double-decker bus—more than 150 tons of gleaming precision-milled aluminum covered in thousands of snaking tubes, colored cables, and pressurized tanks. From the groun...",
       "pubDate": "Tue, 23 Jun 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "Three things to watch amid Anthropic’s latest feud with the government",
-      "link": "https://www.technologyreview.com/2026/06/22/1139424/three-things-to-watch-amid-anthropics-latest-feud-with-the-government/",
-      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. For those of you enjoying your summer unaware of Anthropic’s latest feud with the US government, here’s a recap: In April the company said it had built an AI mode...",
-      "pubDate": "Mon, 22 Jun 2026 18:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 0
-    },
-    {
-      "title": "A startup claims it broke through a bottleneck that’s holding back LLMs",
-      "link": "https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms/",
-      "summary": "The Miami-based AI startup Subquadratic came out of stealth mode last month with a huge claim. It announced that it had solved a mathematical bottleneck that had been holding back large language models for almost a decade. The details were thin, and many people were unconvinced. But Subquadratic has...",
-      "pubDate": "Fri, 19 Jun 2026 10:40:24 +0000",
       "source": "MIT Technology Review AI",
       "sourceLogo": "🔴",
       "category": "research",

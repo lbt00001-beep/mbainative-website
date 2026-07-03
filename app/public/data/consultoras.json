@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T08:04:47.446Z",
+  "lastUpdated": "2026-07-03T08:03:32.696Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 30
+      "articleCount": 31
     },
     {
       "id": "bcg",
@@ -26,6 +26,15 @@
   ],
   "articles": [
     {
+      "title": "The real future of work in healthcare",
+      "link": "https://www.mckinsey.com/industries/healthcare/our-insights/the-real-future-of-work-in-healthcare",
+      "description": "Healthcare is in a productivity crisis that more hiring and more technology alone will not solve. The next era of care depends on making automation work through human–AI workflows....",
+      "pubDate": "Thu, 02 Jul 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 16
+    },
+    {
       "title": "AI-powered software development: How technology is rewriting the rules",
       "link": "https://www.mckinsey.com/featured-insights/mckinsey-explainers/ai-powered-software-development-how-technology-is-rewriting-the-rules",
       "description": "From individual productivity hacks to full workflow and role reinvention—three McKinsey experts explain how AI is changing the creation of software and what separates the companies capturing value....",
@@ -42,6 +51,24 @@
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 6
+    },
+    {
+      "title": "How Miro is redefining collaboration across the product development life cycle",
+      "link": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/how-miro-is-redefining-collaboration-across-the-product-development-life-cycle",
+      "description": "Miro cofounder and CEO Andrey Khusid reflects on the company’s evolution from a digital whiteboard to an AI-powered workflow platform—and how AI is reshaping competitive advantage in software....",
+      "pubDate": "Thu, 02 Jul 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "The serial builder advantage: Why repeat innovators win",
+      "link": "https://www.mckinsey.com/capabilities/business-building/our-insights/the-serial-builder-advantage-why-repeat-innovators-win",
+      "description": "New McKinsey research explains why organizations that repeatedly build new ventures outperform those that approach innovation as a one-off effort....",
+      "pubDate": "Thu, 02 Jul 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
     },
     {
       "title": "McKinsey Global Publishing’s 2026 book picks",
@@ -161,46 +188,19 @@
       "score": 5
     },
     {
-      "title": "In an AI-driven world, the fastest learner will win: An interview with McKinsey’s Sven Smit",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/in-an-ai-driven-world-the-fastest-learner-will-win-an-interview-with-mckinseys-sven-smit",
-      "description": "As he steps down as chair of McKinsey Global Institute, Sven considers the current AI moment, where the next big ideas are coming from, and how institutions will harness knowledge in the future....",
-      "pubDate": "Fri, 26 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
       "title": "Turning sustainability compliance into a competitive edge",
       "link": "https://www.mckinsey.com/industries/financial-services/our-insights/turning-sustainability-compliance-into-a-competitive-edge",
       "description": "How financial institutions can turn mandatory reporting of financed emissions into a growth opportunity....",
       "pubDate": "Fri, 26 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "What matters most to investors in 2026 and what it means for companies",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/what-matters-most-to-investors-in-2026-and-what-it-means-for-companies",
-      "description": "Even before the Middle East conflict began, geopolitics surged as the foremost investor concern. AI disruption and capital allocation discipline are also top of mind....",
-      "pubDate": "Thu, 25 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
       "score": 3
     },
     {
-      "title": "Frontiers of compute: The technologies to reduce AI inference costs",
-      "link": "https://www.mckinsey.com/industries/semiconductors/our-insights/frontiers-of-compute-the-technologies-to-reduce-ai-inference-costs",
-      "description": "AI’s next breakthrough may not be a smarter model but a cheaper token....",
-      "pubDate": "Thu, 25 Jun 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "What it takes to become—and remain—an effective CEO",
-      "link": "https://www.mckinsey.com/featured-insights/leadership/what-it-takes-to-become-and-remain-an-effective-ceo",
-      "description": "Between the first 90 days and the last, here’s how leaders can successfully manage people, products, processes, and themselves....",
-      "pubDate": "Thu, 25 Jun 2026",
+      "title": "In an AI-driven world, the fastest learner will win: An interview with McKinsey’s Sven Smit",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/in-an-ai-driven-world-the-fastest-learner-will-win-an-interview-with-mckinseys-sven-smit",
+      "description": "As he steps down as chair of McKinsey Global Institute, Sven considers the current AI moment, where the next big ideas are coming from, and how institutions will harness knowledge in the future....",
+      "pubDate": "Fri, 26 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-03T12:52:58.155Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-03T18:15:56.000Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Stalled at Week Eight: Why Most Enterprise AI Deployments Never Actually Land\"\n\n▶️ youtube.com/watch?v=1u45AowRcY0",
+    "type": "recent_video",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Vibe Coding AI Agent Guardrails Safeguards Security for Claude Code Codex Day 66\"\n\n▶️ youtube.com/watch?v=gxwgYbzCeMY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "mustafasuleyman"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=1u45AowRcY0",
-    "imageUrl": "https://i.ytimg.com/vi/1u45AowRcY0/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=gxwgYbzCeMY",
+    "imageUrl": "https://i.ytimg.com/vi/gxwgYbzCeMY/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-07-04T07:49:21.954Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-07-04T12:02:50.840Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of ...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Yann LeCun (Meta)\n\n\"AI 2035: The Future of Humanity | Expert Predictions That Will Shock You\"\n\n▶️ youtube.com/watch?v=iiw-falcz6k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "yannlecun"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=iiw-falcz6k",
+    "imageUrl": "https://i.ytimg.com/vi/iiw-falcz6k/mqdefault.jpg"
   }
 }

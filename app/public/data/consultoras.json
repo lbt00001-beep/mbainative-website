@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T08:03:32.696Z",
+  "lastUpdated": "2026-07-05T07:56:24.322Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 31
+      "articleCount": 30
     },
     {
       "id": "bcg",
@@ -188,18 +188,18 @@
       "score": 5
     },
     {
-      "title": "Turning sustainability compliance into a competitive edge",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/turning-sustainability-compliance-into-a-competitive-edge",
-      "description": "How financial institutions can turn mandatory reporting of financed emissions into a growth opportunity....",
+      "title": "In an AI-driven world, the fastest learner will win: An interview with McKinsey’s Sven Smit",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/in-an-ai-driven-world-the-fastest-learner-will-win-an-interview-with-mckinseys-sven-smit",
+      "description": "As he steps down as chair of McKinsey Global Institute, Sven considers the current AI moment, where the next big ideas are coming from, and how institutions will harness knowledge in the future....",
       "pubDate": "Fri, 26 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3
     },
     {
-      "title": "In an AI-driven world, the fastest learner will win: An interview with McKinsey’s Sven Smit",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/in-an-ai-driven-world-the-fastest-learner-will-win-an-interview-with-mckinseys-sven-smit",
-      "description": "As he steps down as chair of McKinsey Global Institute, Sven considers the current AI moment, where the next big ideas are coming from, and how institutions will harness knowledge in the future....",
+      "title": "Turning sustainability compliance into a competitive edge",
+      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/turning-sustainability-compliance-into-a-competitive-edge",
+      "description": "How financial institutions can turn mandatory reporting of financed emissions into a growth opportunity....",
       "pubDate": "Fri, 26 Jun 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",

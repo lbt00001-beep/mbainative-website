@@ -1,8 +1,16 @@
 {
-  "lastUpdated": "2026-07-03T08:03:30.193Z",
-  "totalVideos": 64,
+  "lastUpdated": "2026-07-05T07:56:21.536Z",
+  "totalVideos": 63,
   "gurus": {
     "demis-hassabis": [
+      {
+        "videoId": "VLJM9VWElbU",
+        "title": "Your Next Job Interview: With an AI Agent?",
+        "description": "AIAgents #ArtificialIntelligence #FutureOfWork AI Agents are rapidly becoming one of the biggest breakthroughs in artificial ......",
+        "thumbnail": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg",
+        "publishedAt": "2026-07-01T20:30:17Z",
+        "channelTitle": "The ThroughPoint"
+      },
       {
         "videoId": "mk9BxnnVKSE",
         "title": "Demis Hassabis on the Future of Personal AI #shorts",
@@ -34,14 +42,6 @@
         "thumbnail": "https://i.ytimg.com/vi/huAwz_BR8WM/mqdefault.jpg",
         "publishedAt": "2026-05-25T17:49:30Z",
         "channelTitle": "Two Minute Papers"
-      },
-      {
-        "videoId": "9OQ5vaYbGV0",
-        "title": "Google’s AI endgame is here… everything you missed at I/O 2026",
-        "description": "Try using Emergent's specialized agents in parallel to build any full-stack application ......",
-        "thumbnail": "https://i.ytimg.com/vi/9OQ5vaYbGV0/mqdefault.jpg",
-        "publishedAt": "2026-05-22T16:38:42Z",
-        "channelTitle": "Fireship"
       }
     ],
     "yann-lecun": [
@@ -290,12 +290,12 @@
         "channelTitle": "The Automated Daily"
       },
       {
-        "videoId": "kxyeZJY5mbs",
-        "title": "Anthropic CEO Reveals the Future of AI | AI Agents, Jobs &amp; Coding Explained",
-        "description": "Anthropic CEO Reveals the Future of AI | AI Agents, Jobs & Coding Explained What does the future of Artificial Intelligence really ......",
-        "thumbnail": "https://i.ytimg.com/vi/kxyeZJY5mbs/mqdefault.jpg",
-        "publishedAt": "2026-05-17T16:45:42Z",
-        "channelTitle": "Ai Podcaster7"
+        "videoId": "zQJr-KOTQeA",
+        "title": "The CEO building AI just warned it will destroy YOUR job 😳 #technews #claude #ainews #ai #technology",
+        "description": "The CEO of Anthropic just sounded the alarm ✓ AI could eliminate 50% of entry-level white-collar jobs ✓ Unemployment could ......",
+        "thumbnail": "https://i.ytimg.com/vi/zQJr-KOTQeA/mqdefault.jpg",
+        "publishedAt": "2026-05-28T11:35:39Z",
+        "channelTitle": "OnlyAIMatters"
       }
     ],
     "karen-hao": [
@@ -384,14 +384,6 @@
     ],
     "fei-fei-li": [
       {
-        "videoId": "b3dc3TLdC1o",
-        "title": "Godmother of AI: In 10 Years There Will Be Only 2 Kinds of Workers",
-        "description": "Fei-Fei Li, the Godmother of AI, in conversation with MasterClass founder David Rogier: In 10 years there will be only 2 kinds of ......",
-        "thumbnail": "https://i.ytimg.com/vi/b3dc3TLdC1o/mqdefault.jpg",
-        "publishedAt": "2026-06-27T04:46:43Z",
-        "channelTitle": "openclaw"
-      },
-      {
         "videoId": "FJ8VXXQJGsI",
         "title": "AI Replacing Everyone?! Fei-Fei Li Reveals the Ultimate Survival Guide for the Workforce Shockwave!",
         "description": "Terrified that AI will make your job obsolete? Stop panicking and watch this! AI pioneer Fei-Fei Li and Masterclass founder David ......",
@@ -476,6 +468,14 @@
         "channelTitle": "Michael Coppola"
       },
       {
+        "videoId": "1UUgaHbSKwc",
+        "title": "Enterprise AI ROI Crisis: $2.59 Trillion Spent, 95% No Returns — Andrew Ng Explains",
+        "description": "Global AI spending will reach $2.59 trillion in 2026, but 95% of generative AI pilot projects deliver no measurable P&L impact....",
+        "thumbnail": "https://i.ytimg.com/vi/1UUgaHbSKwc/mqdefault.jpg",
+        "publishedAt": "2026-06-23T02:34:12Z",
+        "channelTitle": "openclaw"
+      },
+      {
         "videoId": "EuzYhzB0vbI",
         "title": "Finally. Agent Loops Clearly Explained.",
         "description": "My FREE AI OS Course: ......",
@@ -484,31 +484,15 @@
         "channelTitle": "Nate Herk | AI Automation"
       },
       {
-        "videoId": "oXpRQajLUrs",
-        "title": "Ai AGENT, Clearly Explained || Only 0.1% know",
-        "description": "AI #ChatGPT #aiagents #automation Understanding AI Agents doesn't require a technical background. This video breaks down ......",
-        "thumbnail": "https://i.ytimg.com/vi/oXpRQajLUrs/mqdefault.jpg",
-        "publishedAt": "2026-06-16T13:45:06Z",
-        "channelTitle": "Prince Gautam"
-      },
-      {
-        "videoId": "KjQk1fgk6Jk",
-        "title": "Real-World AI Agents You Need To See #tech #ai #shorts",
-        "description": "Discover the latest advancements in ai technology and witness the ai revolution transforming our world. From intelligent machines ......",
-        "thumbnail": "https://i.ytimg.com/vi/KjQk1fgk6Jk/mqdefault.jpg",
-        "publishedAt": "2026-06-07T13:00:28Z",
-        "channelTitle": "SKRS"
+        "videoId": "OaRhpwz_TGM",
+        "title": "The Future of AI Agents with Andrew Ng | Interrupt 26",
+        "description": "Andrew Ng sat down with Harrison Chase for a wide-ranging fireside chat at Interrupt, the agent conference by LangChain. Watch ......",
+        "thumbnail": "https://i.ytimg.com/vi/OaRhpwz_TGM/mqdefault.jpg",
+        "publishedAt": "2026-06-17T12:34:20Z",
+        "channelTitle": "LangChain"
       }
     ],
     "andrej-karpathy": [
-      {
-        "videoId": "gxwgYbzCeMY",
-        "title": "Vibe Coding AI Agent Guardrails Safeguards Security for Claude Code Codex Day 66",
-        "description": "12+ Hours every day Vibe Coding and Tokenmaxxing SigmaShake - AI Agent Security, Guardrails & Safeguards for Claude Code, ......",
-        "thumbnail": "https://i.ytimg.com/vi/gxwgYbzCeMY/mqdefault.jpg",
-        "publishedAt": "2026-07-01T16:30:08Z",
-        "channelTitle": "SigmaShake"
-      },
       {
         "videoId": "Sh3LAwUh5VE",
         "title": "F*ck It, Here&#39;s My Entire Claude Code Course for FREE",
@@ -516,6 +500,22 @@
         "thumbnail": "https://i.ytimg.com/vi/Sh3LAwUh5VE/mqdefault.jpg",
         "publishedAt": "2026-06-30T12:58:29Z",
         "channelTitle": "The AI Architects | Tom Crawshaw"
+      },
+      {
+        "videoId": "tEIOHv4n7RQ",
+        "title": "Vibe Coding AI Agent Guardrails Safeguards Security for Claude Code Codex OpenCode Day 63",
+        "description": "12+ Hours every day Vibe Coding and Tokenmaxxing SigmaShake - AI Agent Security, Guardrails & Safeguards for Claude Code, ......",
+        "thumbnail": "https://i.ytimg.com/vi/tEIOHv4n7RQ/mqdefault.jpg",
+        "publishedAt": "2026-06-28T05:33:35Z",
+        "channelTitle": "SigmaShake"
+      },
+      {
+        "videoId": "4K9taEx40NQ",
+        "title": "The Agentic OS Setup That Will 10x Claude Code",
+        "description": "AGENTIC OS TEMPLATE → https://ethanairesources.com/agentic-os WORK WITH ME 1-ON-1: ......",
+        "thumbnail": "https://i.ytimg.com/vi/4K9taEx40NQ/mqdefault.jpg",
+        "publishedAt": "2026-06-27T14:00:18Z",
+        "channelTitle": "Ethan Nelson"
       },
       {
         "videoId": "k4sMSsMzX2g",
@@ -532,14 +532,6 @@
         "thumbnail": "https://i.ytimg.com/vi/n3ECEXasQHw/mqdefault.jpg",
         "publishedAt": "2026-06-25T19:39:54Z",
         "channelTitle": "Dr. Alex Hanna"
-      },
-      {
-        "videoId": "HPQ-HO01APs",
-        "title": "Claude Tag: an AI teammate that lives in your Slack #ai #tech #chatgpt #claude #aiagents #ainews",
-        "description": "Anthropic just launched Claude Tag: an AI agent that lives inside Slack, that you @mention like a coworker and hand work to....",
-        "thumbnail": "https://i.ytimg.com/vi/HPQ-HO01APs/mqdefault.jpg",
-        "publishedAt": "2026-06-24T15:00:14Z",
-        "channelTitle": "Bottor."
       }
     ]
   }

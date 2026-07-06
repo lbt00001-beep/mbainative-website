@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-07-06T09:02:05.842Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-07-06T14:22:48.089Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "news",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Sla...",
+    "type": "guru_quote",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 karen-hao\n\n\"Karen Hao warns that AI’s impact is already harsh, not because the technology is perfect, but.. #fyp\"\n\n▶️ youtube.com/watch?v=QauOHuHflv4",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "karenhao"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=QauOHuHflv4",
+    "imageUrl": "https://i.ytimg.com/vi/QauOHuHflv4/mqdefault.jpg"
   }
 }

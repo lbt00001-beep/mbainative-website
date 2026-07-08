@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-08T12:16:23.499Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-08T18:21:55.529Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Yoshua Bengio\n\n\"The Next 2 Years Will Decide Your Job\"\n\n▶️ youtube.com/watch?v=kO-jTAXxQYI",
+    "type": "recent_video",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yoshuabengio"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=kO-jTAXxQYI",
-    "imageUrl": "https://i.ytimg.com/vi/kO-jTAXxQYI/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

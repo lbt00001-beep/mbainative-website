@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-07-09T08:30:51.989Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-07-09T13:44:37.761Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "news",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, th...",
+    "type": "guru_quote",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 karen-hao\n\n\"Karen Hao: AI creating a DESPERATE BASE OF WORKERS with no full-time employment\"\n\n▶️ youtube.com/watch?v=E4Zd9ZXjkao",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "karenhao"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=E4Zd9ZXjkao",
+    "imageUrl": "https://i.ytimg.com/vi/E4Zd9ZXjkao/mqdefault.jpg"
   }
 }

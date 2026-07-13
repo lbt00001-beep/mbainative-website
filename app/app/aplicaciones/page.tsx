@@ -232,6 +232,13 @@ const categorias = [
         url: "/plan-de-marketing/index.html",
         tipo: "interno",
         estado: "disponible"
+      },
+      {
+        nombre: "MarkItDown",
+        descripcion: "Conversor universal. Sube PDFs, documentos de Office, imágenes o audios y extrae su texto limpio en Markdown al instante de forma totalmente privada.",
+        url: "https://markitdown-1zg1.vercel.app",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

@@ -178,6 +178,21 @@ const categorias = [
     ]
   },
   {
+    id: "ciberseguridad",
+    nombre: "Ciberseguridad",
+    icono: "🛡️",
+    descripcion: "Análisis defensivo y auditoría autorizada de la superficie de exposición de organizaciones.",
+    apps: [
+      {
+        nombre: "Aegis Security Intelligence",
+        descripcion: "Dashboard profesional para analizar vulnerabilidades, superficie de ataque, configuración web e información interna autorizada, con evidencias y medidas de remediación.",
+        url: "https://aegis.mbainative.com",
+        tipo: "externo",
+        estado: "disponible"
+      }
+    ]
+  },
+  {
     id: "ventas",
     nombre: "Ventas",
     icono: "🎯",

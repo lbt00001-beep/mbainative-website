@@ -178,10 +178,10 @@ const categorias = [
     ]
   },
   {
-    id: "ciberseguridad",
-    nombre: "Ciberseguridad",
-    icono: "🛡️",
-    descripcion: "Análisis defensivo y auditoría autorizada de la superficie de exposición de organizaciones.",
+    id: "aplicaciones-con-acreditacion",
+    nombre: "Aplicaciones con acreditación",
+    icono: "🏅",
+    descripcion: "Aplicaciones con trazabilidad, controles y evidencias profesionales documentadas.",
     apps: [
       {
         nombre: "Aegis Security Intelligence",

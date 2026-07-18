@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-07-18T07:01:19.837Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-07-18T11:48:52.015Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 20,
     "title": "Transformación o extinción",
     "icon": "🚀"
   },
   "post": {
-    "type": "news",
-    "content": "🚀 Principio #20: Transformación o extinción\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, t...",
+    "type": "guru_quote",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Andrew Ng (Landing AI)\n\n\"The Future of AI Agents with Andrew Ng | Interrupt 26\"\n\n▶️ youtube.com/watch?v=OaRhpwz_TGM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=OaRhpwz_TGM",
+    "imageUrl": "https://i.ytimg.com/vi/OaRhpwz_TGM/mqdefault.jpg"
   }
 }

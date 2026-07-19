@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-19T11:51:09.038Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-19T18:00:26.460Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Andrew Ng (Landing AI)\n\n\"95% of Companies Are Failing at AI. Andrew Ng Knows the 5% That Aren&#39;t.\"\n\n▶️ youtube.com/watch?v=0kbcqqPRMDE",
+    "type": "recent_video",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrewng"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=0kbcqqPRMDE",
-    "imageUrl": "https://i.ytimg.com/vi/0kbcqqPRMDE/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

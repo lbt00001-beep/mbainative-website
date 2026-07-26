@@ -1237,352 +1237,352 @@
     // BASE DE DATOS AMPLIADA (15 MODELOS REALES VIGENTES EN JUNIO 2026)
     // /* START_INITIAL_DATA */
     const initialData = {
-      benchmarks: [
-        {
-          id: "mmlu_pro",
-          name: "MMLU-Pro",
-          focus: "Conocimiento General",
-          description: "MMLU-Pro es un examen multidisciplinar de opción múltiple extremadamente riguroso. Evalúa al modelo en 14 áreas de nivel universitario (matemáticas, física, derecho, historia, etc.). Reduce la probabilidad de acertar al azar ampliando las opciones a 10 e incorporando preguntas que requieren razonamiento complejo de varios pasos."
-        },
-        {
-          id: "gpqa",
-          name: "GPQA (Diamond)",
-          focus: "Razonamiento Científico",
-          description: "Graduate-Level Google-Proof Q&A. Es un benchmark con preguntas científicas de física, química y biología creadas por expertos de nivel doctorado. Están diseñadas para que un humano experto en otra área no pueda responderlas fácilmente y que buscar en Google no sirva para dar con la respuesta directamente. Mide la frontera del razonamiento científico."
-        },
-        {
-          id: "math",
-          name: "MATH-500",
-          focus: "Matemáticas de Olimpiada",
-          description: "Un conjunto de 500 problemas matemáticos complejos procedentes de competiciones escolares internacionales y olimpiadas matemáticas. Evalúa la capacidad del modelo para realizar deducciones lógicas rigurosas, aplicar fórmulas algebraicas y geométricas, y evitar errores de cálculo numérico."
-        },
-        {
-          id: "human_eval",
-          name: "HumanEval",
-          focus: "Programación (Python)",
-          description: "Creado originalmente por OpenAI, este benchmark evalúa la capacidad de codificación de la IA. Consiste en escribir funciones de Python a partir de una descripción escrita (docstring). El código generado por la IA es ejecutado y verificado mediante un conjunto de pruebas unitarias automáticas para comprobar que funciona al 100%."
-        },
-        {
-          id: "swe_bench",
-          name: "SWE-bench (Pro)",
-          focus: "Ingeniería de Software",
-          description: "SWE-bench Pro es la evolución de SWE-bench Verified. Evalúa la capacidad del modelo para actuar como un ingeniero de software en un entorno real. Se le proporciona un repositorio de código real de GitHub y una incidencia (issue) de fallo reportada por un usuario. El modelo debe leer múltiples archivos, localizar el error, modificar el código del proyecto y resolver el bug de producción."
-        },
-        {
-          id: "chatbot_arena",
-          name: "Chatbot Arena (Elo)",
-          focus: "Preferencia Humana (Elo)",
-          description: "La liga competitiva definitiva administrada por LMSYS. Consiste en batallas ciegas donde un usuario humano escribe un prompt y dos modelos anónimos responden en paralelo. El humano vota cuál respuesta es mejor. Utilizando el sistema de puntuación Elo (como en el ajedrez), se calcula qué modelo prefiere la gente en conversaciones de la vida real."
-        }
-      ],
-      models: [
-        {
-          name: "Claude Fable 5",
-          developer: "Anthropic",
-          releaseDate: "Jun 2026",
-          parameters: "Desconocido (Mythos)",
-          contextWindow: "1M (1,000,000)",
-          multimodal: "Sí",
-          priceInput: 10.00,
-          priceOutput: 50.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 89.2,
-            gpqa: 85.5,
-            math: 94.2,
-            human_eval: 98.2,
-            swe_bench: 68.5,
-            chatbot_arena: 1395
-          }
-        },
-        {
-          name: "GPT-5.5",
-          developer: "OpenAI",
-          releaseDate: "Abr 2026",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "256k",
-          multimodal: "Sí",
-          priceInput: 8.00,
-          priceOutput: 32.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 88.0,
-            gpqa: 83.2,
-            math: 93.6,
-            human_eval: 97.0,
-            swe_bench: 62.4,
-            chatbot_arena: 1385
-          }
-        },
-        {
-          name: "Claude Opus 4.8",
-          developer: "Anthropic",
-          releaseDate: "May 2026",
-          parameters: "Desconocido (Opus)",
-          contextWindow: "1M (1,000,000)",
-          multimodal: "Sí",
-          priceInput: 5.00,
-          priceOutput: 25.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 86.8,
-            gpqa: 81.3,
-            math: 92.5,
-            human_eval: 96.8,
-            swe_bench: 61.2,
-            chatbot_arena: 1378
-          }
-        },
-        {
-          name: "DeepSeek-R2",
-          developer: "DeepSeek",
-          releaseDate: "Feb 2026",
-          parameters: "800B (MoE, 48B act.)",
-          contextWindow: "256k",
-          multimodal: "No",
-          priceInput: 0.80,
-          priceOutput: 3.20,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 87.5,
-            gpqa: 76.8,
-            math: 98.1,
-            human_eval: 96.4,
-            swe_bench: 59.8,
-            chatbot_arena: 1374
-          }
-        },
-        {
-          name: "Gemini 3.1 Pro",
-          developer: "Google",
-          releaseDate: "Mar 2026",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "2M (2,000,000)",
-          multimodal: "Sí",
-          priceInput: 1.50,
-          priceOutput: 6.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 85.1,
-            gpqa: 74.2,
-            math: 90.8,
-            human_eval: 94.0,
-            swe_bench: 54.1,
-            chatbot_arena: 1358
-          }
-        },
-        {
-          name: "Grok 4",
-          developer: "xAI",
-          releaseDate: "Abr 2026",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "256k",
-          multimodal: "Sí",
-          priceInput: 2.00,
-          priceOutput: 8.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 86.0,
-            gpqa: 75.2,
-            math: 90.5,
-            human_eval: 95.1,
-            swe_bench: 52.8,
-            chatbot_arena: 1362
-          }
-        },
-        {
-          name: "GPT-5",
-          developer: "OpenAI",
-          releaseDate: "Ene 2026",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "128k",
-          multimodal: "Sí",
-          priceInput: 4.00,
-          priceOutput: 16.00,
-          isFrontier: true,
-          scores: {
-            mmlu_pro: 84.6,
-            gpqa: 75.1,
-            math: 89.2,
-            human_eval: 93.5,
-            swe_bench: 51.3,
-            chatbot_arena: 1342
-          }
-        },
-        {
-          name: "Mistral Large 3",
-          developer: "Mistral",
-          releaseDate: "Feb 2026",
-          parameters: "123B (Cerrado)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 2.00,
-          priceOutput: 6.00,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 81.5,
-            gpqa: 68.2,
-            math: 84.1,
-            human_eval: 92.0,
-            swe_bench: 45.3,
-            chatbot_arena: 1315
-          }
-        },
-        {
-          name: "Qwen 2.5-Max",
-          developer: "Alibaba",
-          releaseDate: "Nov 2025",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 0.40,
-          priceOutput: 1.60,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 83.2,
-            gpqa: 67.5,
-            math: 88.0,
-            human_eval: 92.5,
-            swe_bench: 46.2,
-            chatbot_arena: 1312
-          }
-        },
-        {
-          name: "Llama 3.3 70B",
-          developer: "Meta",
-          releaseDate: "Dic 2025",
-          parameters: "70B (Abierto)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 0.35,
-          priceOutput: 0.35,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 80.8,
-            gpqa: 62.4,
-            math: 82.5,
-            human_eval: 91.2,
-            swe_bench: 41.5,
-            chatbot_arena: 1292
-          }
-        },
-        {
-          name: "DeepSeek-V3.2",
-          developer: "DeepSeek",
-          releaseDate: "May 2026",
-          parameters: "671B (MoE, 37B act.)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 0.14,
-          priceOutput: 0.28,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 81.3,
-            gpqa: 60.5,
-            math: 81.0,
-            human_eval: 89.5,
-            swe_bench: 39.8,
-            chatbot_arena: 1284
-          }
-        },
-        {
-          name: "DeepSeek-R1",
-          developer: "DeepSeek",
-          releaseDate: "Ene 2025",
-          parameters: "671B (37B activos)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 0.55,
-          priceOutput: 2.19,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 84.1,
-            gpqa: 59.1,
-            math: 97.3,
-            human_eval: 92.8,
-            swe_bench: 49.2,
-            chatbot_arena: 1354
-          }
-        },
-        {
-          name: "GPT-4o",
-          developer: "OpenAI",
-          releaseDate: "May 2024",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "128k",
-          multimodal: "Sí",
-          priceInput: 2.50,
-          priceOutput: 10.00,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 72.6,
-            gpqa: 53.6,
-            math: 74.6,
-            human_eval: 90.2,
-            swe_bench: 38.8,
-            chatbot_arena: 1248
-          }
-        },
-        {
-          name: "Claude 3.5 Sonnet",
-          developer: "Anthropic",
-          releaseDate: "Oct 2024",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "200k",
-          multimodal: "Sí",
-          priceInput: 3.00,
-          priceOutput: 15.00,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 77.0,
-            gpqa: 65.0,
-            math: 71.1,
-            human_eval: 93.7,
-            swe_bench: 49.0,
-            chatbot_arena: 1251
-          }
-        },
-        {
-          name: "GLM-5 Pro",
-          developer: "Z.ai",
-          releaseDate: "Mar 2026",
-          parameters: "Desconocido (Cerrado)",
-          contextWindow: "1M (1,000,000)",
-          multimodal: "Sí",
-          priceInput: 1.00,
-          priceOutput: 2.00,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 83.5,
-            gpqa: 68.0,
-            math: 85.2,
-            human_eval: 91.0,
-            swe_bench: 45.0,
-            chatbot_arena: 1308
-          }
-        },
-        {
-          name: "Llama 3.1 8B",
-          developer: "Meta",
-          releaseDate: "Jul 2024",
-          parameters: "8B (Abierto)",
-          contextWindow: "128k",
-          multimodal: "No",
-          priceInput: 0.05,
-          priceOutput: 0.05,
-          isFrontier: false,
-          scores: {
-            mmlu_pro: 51.5,
-            gpqa: 30.7,
-            math: 52.8,
-            human_eval: 73.2,
-            swe_bench: 11.2,
-            chatbot_arena: 1120
-          }
-        }
-      ]
-    };
-    // /* END_INITIAL_DATA */
+  "benchmarks": [
+    {
+      "id": "mmlu_pro",
+      "name": "MMLU-Pro",
+      "focus": "Conocimiento General",
+      "description": "MMLU-Pro es un examen multidisciplinar de opción múltiple extremadamente riguroso. Evalúa al modelo en 14 áreas de nivel universitario (matemáticas, física, derecho, historia, etc.). Reduce la probabilidad de acertar al azar ampliando las opciones a 10 e incorporando preguntas que requieren razonamiento complejo de varios pasos."
+    },
+    {
+      "id": "gpqa",
+      "name": "GPQA (Diamond)",
+      "focus": "Razonamiento Científico",
+      "description": "Graduate-Level Google-Proof Q&A. Es un benchmark con preguntas científicas de física, química y biología creadas por expertos de nivel doctorado. Están diseñadas para que un humano experto en otra área no pueda responderlas fácilmente y que buscar en Google no sirva para dar con la respuesta directamente. Mide la frontera del razonamiento científico."
+    },
+    {
+      "id": "math",
+      "name": "MATH-500",
+      "focus": "Matemáticas de Olimpiada",
+      "description": "Un conjunto de 500 problemas matemáticos complejos procedentes de competiciones escolares internacionales y olimpiadas matemáticas. Evalúa la capacidad del modelo para realizar deducciones lógicas rigurosas, aplicar fórmulas algebraicas y geométricas, y evitar errores de cálculo numérico."
+    },
+    {
+      "id": "human_eval",
+      "name": "HumanEval",
+      "focus": "Programación (Python)",
+      "description": "Creado originalmente por OpenAI, este benchmark evalúa la capacidad de codificación de la IA. Consiste en escribir funciones de Python a partir de una descripción escrita (docstring). El código generado por la IA es ejecutado y verificado mediante un conjunto de pruebas unitarias automáticas para comprobar que funciona al 100%."
+    },
+    {
+      "id": "swe_bench",
+      "name": "SWE-bench (Pro)",
+      "focus": "Ingeniería de Software",
+      "description": "SWE-bench Pro es la evolución de SWE-bench Verified. Evalúa la capacidad del modelo para actuar como un ingeniero de software en un entorno real. Se le proporciona un repositorio de código real de GitHub y una incidencia (issue) de fallo reportada por un usuario. El modelo debe leer múltiples archivos, localizar el error, modificar el código del proyecto y resolver el bug de producción."
+    },
+    {
+      "id": "chatbot_arena",
+      "name": "Chatbot Arena (Elo)",
+      "focus": "Preferencia Humana (Elo)",
+      "description": "La liga competitiva definitiva administrada por LMSYS. Consiste en batallas ciegas donde un usuario humano escribe un prompt y dos modelos anónimos responden en paralelo. El humano vota cuál respuesta es mejor. Utilizando el sistema de puntuación Elo (como en el ajedrez), se calcula qué modelo prefiere la gente en conversaciones de la vida real."
+    }
+  ],
+  "models": [
+    {
+      "name": "Claude Fable 5",
+      "developer": "Anthropic",
+      "releaseDate": "Jun 2026",
+      "parameters": "Desconocido (Mythos)",
+      "contextWindow": "1M (1,000,000)",
+      "multimodal": "Sí",
+      "priceInput": 8.5,
+      "priceOutput": 42.5,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 89.2,
+        "gpqa": 85.5,
+        "math": 94.2,
+        "human_eval": 98.2,
+        "swe_bench": 68.5,
+        "chatbot_arena": 1408
+      }
+    },
+    {
+      "name": "GPT-5.5",
+      "developer": "OpenAI",
+      "releaseDate": "Abr 2026",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "256k",
+      "multimodal": "Sí",
+      "priceInput": 7,
+      "priceOutput": 28,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 88,
+        "gpqa": 83.2,
+        "math": 93.6,
+        "human_eval": 97,
+        "swe_bench": 62.4,
+        "chatbot_arena": 1396
+      }
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "developer": "Anthropic",
+      "releaseDate": "May 2026",
+      "parameters": "Desconocido (Opus)",
+      "contextWindow": "1M (1,000,000)",
+      "multimodal": "Sí",
+      "priceInput": 4.5,
+      "priceOutput": 22.5,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 86.8,
+        "gpqa": 81.3,
+        "math": 92.5,
+        "human_eval": 96.8,
+        "swe_bench": 61.2,
+        "chatbot_arena": 1385
+      }
+    },
+    {
+      "name": "DeepSeek-R2",
+      "developer": "DeepSeek",
+      "releaseDate": "Feb 2026",
+      "parameters": "800B (MoE, 48B act.)",
+      "contextWindow": "256k",
+      "multimodal": "No",
+      "priceInput": 0.7,
+      "priceOutput": 2.8,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 87.5,
+        "gpqa": 76.8,
+        "math": 98.1,
+        "human_eval": 96.4,
+        "swe_bench": 59.8,
+        "chatbot_arena": 1381
+      }
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "developer": "Google",
+      "releaseDate": "Mar 2026",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "2M (2,000,000)",
+      "multimodal": "Sí",
+      "priceInput": 1.25,
+      "priceOutput": 5,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 85.1,
+        "gpqa": 74.2,
+        "math": 90.8,
+        "human_eval": 94,
+        "swe_bench": 54.1,
+        "chatbot_arena": 1365
+      }
+    },
+    {
+      "name": "Grok 4",
+      "developer": "xAI",
+      "releaseDate": "Abr 2026",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "256k",
+      "multimodal": "Sí",
+      "priceInput": 1.8,
+      "priceOutput": 7.2,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 86,
+        "gpqa": 75.2,
+        "math": 90.5,
+        "human_eval": 95.1,
+        "swe_bench": 52.8,
+        "chatbot_arena": 1370
+      }
+    },
+    {
+      "name": "GPT-5",
+      "developer": "OpenAI",
+      "releaseDate": "Ene 2026",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "128k",
+      "multimodal": "Sí",
+      "priceInput": 3.5,
+      "priceOutput": 14,
+      "isFrontier": true,
+      "scores": {
+        "mmlu_pro": 84.6,
+        "gpqa": 75.1,
+        "math": 89.2,
+        "human_eval": 93.5,
+        "swe_bench": 51.3,
+        "chatbot_arena": 1352
+      }
+    },
+    {
+      "name": "Mistral Large 3",
+      "developer": "Mistral",
+      "releaseDate": "Feb 2026",
+      "parameters": "123B (Cerrado)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 1.5,
+      "priceOutput": 5,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 81.5,
+        "gpqa": 68.2,
+        "math": 84.1,
+        "human_eval": 92,
+        "swe_bench": 45.3,
+        "chatbot_arena": 1320
+      }
+    },
+    {
+      "name": "Qwen 2.5-Max",
+      "developer": "Alibaba",
+      "releaseDate": "Nov 2025",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 0.3,
+      "priceOutput": 1.2,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 83.2,
+        "gpqa": 67.5,
+        "math": 88,
+        "human_eval": 92.5,
+        "swe_bench": 46.2,
+        "chatbot_arena": 1318
+      }
+    },
+    {
+      "name": "Llama 3.3 70B",
+      "developer": "Meta",
+      "releaseDate": "Dic 2025",
+      "parameters": "70B (Abierto)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 0.25,
+      "priceOutput": 0.25,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 80.8,
+        "gpqa": 62.4,
+        "math": 82.5,
+        "human_eval": 91.2,
+        "swe_bench": 41.5,
+        "chatbot_arena": 1298
+      }
+    },
+    {
+      "name": "DeepSeek-V3.2",
+      "developer": "DeepSeek",
+      "releaseDate": "May 2026",
+      "parameters": "671B (MoE, 37B act.)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 0.1,
+      "priceOutput": 0.2,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 81.3,
+        "gpqa": 60.5,
+        "math": 81,
+        "human_eval": 89.5,
+        "swe_bench": 39.8,
+        "chatbot_arena": 1290
+      }
+    },
+    {
+      "name": "DeepSeek-R1",
+      "developer": "DeepSeek",
+      "releaseDate": "Ene 2025",
+      "parameters": "671B (37B activos)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 0.4,
+      "priceOutput": 1.6,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 84.1,
+        "gpqa": 59.1,
+        "math": 97.3,
+        "human_eval": 92.8,
+        "swe_bench": 49.2,
+        "chatbot_arena": 1360
+      }
+    },
+    {
+      "name": "GPT-4o",
+      "developer": "OpenAI",
+      "releaseDate": "May 2024",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "128k",
+      "multimodal": "Sí",
+      "priceInput": 2,
+      "priceOutput": 8,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 72.6,
+        "gpqa": 53.6,
+        "math": 74.6,
+        "human_eval": 90.2,
+        "swe_bench": 38.8,
+        "chatbot_arena": 1254
+      }
+    },
+    {
+      "name": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "releaseDate": "Oct 2024",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "200k",
+      "multimodal": "Sí",
+      "priceInput": 2.5,
+      "priceOutput": 12.5,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 77,
+        "gpqa": 65,
+        "math": 71.1,
+        "human_eval": 93.7,
+        "swe_bench": 49,
+        "chatbot_arena": 1258
+      }
+    },
+    {
+      "name": "GLM-5 Pro",
+      "developer": "Z.ai",
+      "releaseDate": "Mar 2026",
+      "parameters": "Desconocido (Cerrado)",
+      "contextWindow": "1M (1,000,000)",
+      "multimodal": "Sí",
+      "priceInput": 0.8,
+      "priceOutput": 1.6,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 83.5,
+        "gpqa": 68,
+        "math": 85.2,
+        "human_eval": 91,
+        "swe_bench": 45,
+        "chatbot_arena": 1314
+      }
+    },
+    {
+      "name": "Llama 3.1 8B",
+      "developer": "Meta",
+      "releaseDate": "Jul 2024",
+      "parameters": "8B (Abierto)",
+      "contextWindow": "128k",
+      "multimodal": "No",
+      "priceInput": 0.04,
+      "priceOutput": 0.04,
+      "isFrontier": false,
+      "scores": {
+        "mmlu_pro": 51.5,
+        "gpqa": 30.7,
+        "math": 52.8,
+        "human_eval": 73.2,
+        "swe_bench": 11.2,
+        "chatbot_arena": 1125
+      }
+    }
+  ]
+};
+  // /* END_INITIAL_DATA */
 
     // VARIABLES DE CONTROL DE ESTADO (STATE)
     let currentData = JSON.parse(JSON.stringify(initialData));

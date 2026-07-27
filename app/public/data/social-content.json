@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-27T13:34:38.108Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-27T18:25:41.992Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Dario Amodei (Anthropic)\n\n\"AI-designed proteins for drug discovery &amp; Faster private tool access via MCP - AI News (May 29, 2...\"\n\n▶️ youtube.com/watch?v=gP8V6mYKrQs",
+    "type": "recent_video",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=gP8V6mYKrQs",
-    "imageUrl": "https://i.ytimg.com/vi/gP8V6mYKrQs/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

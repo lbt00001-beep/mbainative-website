@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-07-27T18:25:41.992Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-07-28T07:41:07.560Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 9,
-    "title": "El conocimiento se democratiza",
-    "icon": "🧠"
+    "id": 10,
+    "title": "Velocidad como ventaja competitiva",
+    "icon": "⚡"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
+    "type": "news",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slac...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "demishassabis"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
-    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

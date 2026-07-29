@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-29T12:57:07.614Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-29T18:10:11.278Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"AI 90% नौकरियां खत्म कर देगा? | Geoffrey Hinton की डराने वाली चेतावनी | Future Jobs 2030\"\n\n▶️ youtube.com/watch?v=27nXIBTQnWc",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=27nXIBTQnWc",
-    "imageUrl": "https://i.ytimg.com/vi/27nXIBTQnWc/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-30T12:25:56.793Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-07-30T18:19:27.276Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Jensen Huang (NVIDIA)\n\n\"How Autonomous AI Will Run Your Business in 2026 – Jensen Huang Nvidia AI CEO Just Revealed\"\n\n▶️ youtube.com/watch?v=Q5K9IxKyEo8",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "jensenhuang"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=Q5K9IxKyEo8",
-    "imageUrl": "https://i.ytimg.com/vi/Q5K9IxKyEo8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

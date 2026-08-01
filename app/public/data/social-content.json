@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-07-31T18:23:07.853Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-08-01T07:29:14.909Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 13,
-    "title": "Datos como activo estratégico",
-    "icon": "📊"
+    "id": 14,
+    "title": "Global desde el día uno",
+    "icon": "🌐"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
+    "type": "news",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the ...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "demishassabis"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
-    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
+    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
   }
 }

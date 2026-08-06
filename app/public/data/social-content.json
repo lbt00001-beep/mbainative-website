@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-06T07:42:09.735Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-06T12:53:05.849Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "news",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, t...",
+    "type": "guru_quote",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/watch?v=Ig4CHPnUToA",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
+    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
   }
 }

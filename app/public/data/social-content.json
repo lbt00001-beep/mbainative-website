@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-08T05:44:02.612Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-08T11:21:54.986Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "news",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbo...",
+    "type": "guru_quote",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Andrej Karpathy\n\n\"Vibe Coding AI Agent Guardrails Safeguards Security for Claude Code Codex OpenCode Day 63\"\n\n▶️ youtube.com/watch?v=tEIOHv4n7RQ",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "andrejkarpathy"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=tEIOHv4n7RQ",
+    "imageUrl": "https://i.ytimg.com/vi/tEIOHv4n7RQ/mqdefault.jpg"
   }
 }

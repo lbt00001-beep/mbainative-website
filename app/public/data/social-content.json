@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-09T05:48:40.468Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-09T11:22:36.281Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "news",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the ...",
+    "type": "guru_quote",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"What Your Job Will Look Like in 2100\"\n\n▶️ youtube.com/watch?v=xewcf5FnrM0",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=xewcf5FnrM0",
+    "imageUrl": "https://i.ytimg.com/vi/xewcf5FnrM0/mqdefault.jpg"
   }
 }

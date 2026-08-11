@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-11T11:38:59.914Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-08-11T17:59:02.516Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 karen-hao\n\n\"Will AI take my job?\"\n\n▶️ youtube.com/watch?v=8pru0N0urOY",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "karenhao"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=8pru0N0urOY",
-    "imageUrl": "https://i.ytimg.com/vi/8pru0N0urOY/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-12T06:16:54.548Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-12T11:41:16.520Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "news",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Sl...",
+    "type": "guru_quote",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"A.I and humanoid robots are coming for you, doing exactly what experts warned\"\n\n▶️ youtube.com/watch?v=89UtaVBg-NM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=89UtaVBg-NM",
+    "imageUrl": "https://i.ytimg.com/vi/89UtaVBg-NM/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-14T06:16:12.183Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-14T11:39:20.504Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "news",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot,...",
+    "type": "guru_quote",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Why AI Rollouts Stall at Week Eight: The Governance Gap\"\n\n▶️ youtube.com/watch?v=OR-c0dsza-w",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "mustafasuleyman"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=OR-c0dsza-w",
+    "imageUrl": "https://i.ytimg.com/vi/OR-c0dsza-w/mqdefault.jpg"
   }
 }

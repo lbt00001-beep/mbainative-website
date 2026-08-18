@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-18T11:18:48.602Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-08-18T17:31:04.860Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Demis Hassabis On What AI Will Do Next\"\n\n▶️ youtube.com/watch?v=huAwz_BR8WM",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=huAwz_BR8WM",
-    "imageUrl": "https://i.ytimg.com/vi/huAwz_BR8WM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-21T05:35:20.314Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-21T11:19:12.642Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 14,
     "title": "Global desde el día uno",
     "icon": "🌐"
   },
   "post": {
-    "type": "news",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbot, the ...",
+    "type": "guru_quote",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n🧠 Jensen Huang (NVIDIA)\n\n\"Enterprise AI backbone: Anthropic locks in Fortune 500 in May 2026\"\n\n▶️ youtube.com/watch?v=YIwgsQXKlCY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "jensenhuang"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=YIwgsQXKlCY",
+    "imageUrl": "https://i.ytimg.com/vi/YIwgsQXKlCY/mqdefault.jpg"
   }
 }

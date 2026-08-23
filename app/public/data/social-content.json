@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-23T11:15:05.361Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-08-23T17:23:53.170Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"The Day the Chatbot Died. 💀 (Microsoft AI Reorg)\"\n\n▶️ youtube.com/watch?v=8yLWmhxar0s",
+    "type": "recent_video",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "mustafasuleyman"
+      "UltimaHora",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=8yLWmhxar0s",
-    "imageUrl": "https://i.ytimg.com/vi/8yLWmhxar0s/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

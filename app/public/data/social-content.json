@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-24T11:20:14.358Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-08-24T17:34:11.550Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 17,
     "title": "Innovación acelerada",
     "icon": "💡"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "💡 Principio #17: Innovación acelerada\n\n🧠 Demis Hassabis (DeepMind)\n\n\"Google DeepMind&#39;s CEO Just Rejected the AI Layoff Narrative #careeradvice #careerjam #ai #aiskills\"\n\n▶️ youtube.com/watch?v=Ig4CHPnUToA",
+    "type": "recent_video",
+    "content": "💡 Principio #17: Innovación acelerada\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=Ig4CHPnUToA",
-    "imageUrl": "https://i.ytimg.com/vi/Ig4CHPnUToA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
+    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
   }
 }

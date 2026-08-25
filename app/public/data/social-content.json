@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-25T05:34:23.225Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-25T11:21:04.393Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "news",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n📰 Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI\n\nSalesforce on Tuesday launched an entirely rebuilt version of Slackbo...",
+    "type": "guru_quote",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 Yoshua Bengio\n\n\"Yoshua Bengio Warns AI Automation Could Trigger Economic Catastrophe on AI Futures\"\n\n▶️ youtube.com/watch?v=Tc0diMRdU6c",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "yoshuabengio"
     ],
-    "url": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and"
+    "url": "https://youtube.com/watch?v=Tc0diMRdU6c",
+    "imageUrl": "https://i.ytimg.com/vi/Tc0diMRdU6c/mqdefault.jpg"
   }
 }

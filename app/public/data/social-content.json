@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-26T19:06:32.181Z",
+  "generatedAt": "2026-08-27T16:14:12.615Z",
   "scheduleSlot": "evening",
   "principle": {
-    "id": 19,
-    "title": "La empresa como plataforma",
-    "icon": "🏢"
+    "id": 20,
+    "title": "Transformación o extinción",
+    "icon": "🚀"
   },
   "post": {
     "type": "recent_video",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre Demis Hassabis\n\n\"Your Next Job Interview: With an AI Agent?\"\n\n▶️ youtube.com/watch?v=VLJM9VWElbU",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Stop Letting AI Overengineer\"\n\n▶️ youtube.com/watch?v=uZZrDdL01lQ",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "UltimaHora",
-      "demishassabis"
+      "andrejkarpathy"
     ],
-    "url": "https://youtube.com/watch?v=VLJM9VWElbU",
-    "imageUrl": "https://i.ytimg.com/vi/VLJM9VWElbU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=uZZrDdL01lQ",
+    "imageUrl": "https://i.ytimg.com/vi/uZZrDdL01lQ/mqdefault.jpg"
   }
 }

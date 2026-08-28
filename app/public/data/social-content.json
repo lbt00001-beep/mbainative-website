@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T17:12:56.636Z",
+  "generatedAt": "2026-08-28T21:17:32.791Z",
   "scheduleSlot": "evening",
   "principle": {
     "id": 1,
@@ -8,15 +8,15 @@
   },
   "post": {
     "type": "recent_video",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Stop Letting AI Overengineer\"\n\n▶️ youtube.com/watch?v=uZZrDdL01lQ",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre dario-amodei\n\n\"ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI\"\n\n▶️ youtube.com/watch?v=4TUajmPfh7g",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
       "UltimaHora",
-      "andrejkarpathy"
+      "darioamodei"
     ],
-    "url": "https://youtube.com/watch?v=uZZrDdL01lQ",
-    "imageUrl": "https://i.ytimg.com/vi/uZZrDdL01lQ/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=4TUajmPfh7g",
+    "imageUrl": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg"
   }
 }

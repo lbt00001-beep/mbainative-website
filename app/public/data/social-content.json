@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-28T01:22:59.355Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-28T17:12:56.636Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "news",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n📰 Orchestration is the new challenge for CX in the age of AI agents\n\nPresented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation ...",
+    "type": "recent_video",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre andrej-karpathy\n\n\"Stop Letting AI Overengineer\"\n\n▶️ youtube.com/watch?v=uZZrDdL01lQ",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "UltimaHora",
+      "andrejkarpathy"
     ],
-    "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents"
+    "url": "https://youtube.com/watch?v=uZZrDdL01lQ",
+    "imageUrl": "https://i.ytimg.com/vi/uZZrDdL01lQ/mqdefault.jpg"
   }
 }

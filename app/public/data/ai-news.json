@@ -1,17 +1,7 @@
 {
-  "lastUpdated": "2026-08-27T15:58:31.353Z",
+  "lastUpdated": "2026-08-28T16:59:15.552Z",
   "totalArticles": 64,
   "featured": [
-    {
-      "title": "Orchestration is the new challenge for CX in the age of AI agents",
-      "link": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
-      "summary": "Presented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation across messaging, voice, and digital channels faster than the architecture meant to support it. Most of that deployment has involved attaching conversational AI to legacy systems never built for it, says...",
-      "pubDate": "Thu, 27 Aug 2026 14:30:00 GMT",
-      "source": "VentureBeat AI",
-      "sourceLogo": "🟠",
-      "category": "news",
-      "relevance": 34
-    },
     {
       "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
       "link": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
@@ -20,17 +10,17 @@
       "source": "VentureBeat AI",
       "sourceLogo": "🟠",
       "category": "news",
-      "relevance": 33
+      "relevance": 31
     },
     {
-      "title": "When agents act on their own, governance has to live in the data layer",
-      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
-      "summary": "Presented by EDB \n\nAs enterprises give AI agents more autonomy — the ability to plan, decide, and act across systems without a human approving each step — a hard question moves to the center of every architecture review: When an agent tries to complete an action that it was never authorized to do, w...",
-      "pubDate": "Thu, 27 Aug 2026 12:01:00 GMT",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "link": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "summary": "Presented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation across messaging, voice, and digital channels faster than the architecture meant to support it. Most of that deployment has involved attaching conversational AI to legacy systems never built for it, says...",
+      "pubDate": "Wed, 26 Aug 2026 14:30:00 GMT",
       "source": "VentureBeat AI",
       "sourceLogo": "🟠",
       "category": "news",
-      "relevance": 28
+      "relevance": 30
     },
     {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
@@ -41,6 +31,16 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 27
+    },
+    {
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "summary": "Presented by EDB \n\nAs enterprises give AI agents more autonomy — the ability to plan, decide, and act across systems without a human approving each step — a hard question moves to the center of every architecture review: When an agent tries to complete an action that it was never authorized to do, w...",
+      "pubDate": "Thu, 27 Aug 2026 12:01:00 GMT",
+      "source": "VentureBeat AI",
+      "sourceLogo": "🟠",
+      "category": "news",
+      "relevance": 26
     },
     {
       "title": "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
@@ -55,16 +55,6 @@
   ],
   "all": [
     {
-      "title": "Orchestration is the new challenge for CX in the age of AI agents",
-      "link": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
-      "summary": "Presented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation across messaging, voice, and digital channels faster than the architecture meant to support it. Most of that deployment has involved attaching conversational AI to legacy systems never built for it, says...",
-      "pubDate": "Thu, 27 Aug 2026 14:30:00 GMT",
-      "source": "VentureBeat AI",
-      "sourceLogo": "🟠",
-      "category": "news",
-      "relevance": 34
-    },
-    {
       "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
       "link": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
       "summary": "Presented by Gravitee \n\nAgent complexity is the insidious shadow lurking inside enterprises right now that needs a light shone on it.\nThat’s because enterprises don't deploy a single agent and watch it run, they deploy fleets, each one calling APIs, calling other agents, reaching into applications t...",
@@ -72,17 +62,17 @@
       "source": "VentureBeat AI",
       "sourceLogo": "🟠",
       "category": "news",
-      "relevance": 33
+      "relevance": 31
     },
     {
-      "title": "When agents act on their own, governance has to live in the data layer",
-      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
-      "summary": "Presented by EDB \n\nAs enterprises give AI agents more autonomy — the ability to plan, decide, and act across systems without a human approving each step — a hard question moves to the center of every architecture review: When an agent tries to complete an action that it was never authorized to do, w...",
-      "pubDate": "Thu, 27 Aug 2026 12:01:00 GMT",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "link": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "summary": "Presented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation across messaging, voice, and digital channels faster than the architecture meant to support it. Most of that deployment has involved attaching conversational AI to legacy systems never built for it, says...",
+      "pubDate": "Wed, 26 Aug 2026 14:30:00 GMT",
       "source": "VentureBeat AI",
       "sourceLogo": "🟠",
       "category": "news",
-      "relevance": 28
+      "relevance": 30
     },
     {
       "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
@@ -93,6 +83,16 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 27
+    },
+    {
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "summary": "Presented by EDB \n\nAs enterprises give AI agents more autonomy — the ability to plan, decide, and act across systems without a human approving each step — a hard question moves to the center of every architecture review: When an agent tries to complete an action that it was never authorized to do, w...",
+      "pubDate": "Thu, 27 Aug 2026 12:01:00 GMT",
+      "source": "VentureBeat AI",
+      "sourceLogo": "🟠",
+      "category": "news",
+      "relevance": 26
     },
     {
       "title": "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
@@ -112,7 +112,7 @@
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
-      "relevance": 22
+      "relevance": 20
     },
     {
       "title": "VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push",
@@ -123,16 +123,6 @@
       "sourceLogo": "🟠",
       "category": "news",
       "relevance": 18
-    },
-    {
-      "title": "Plaud’s new earphones come with an eSIM-enabled case for talking to AI agents",
-      "link": "https://techcrunch.com/2026/08/27/plauds-new-earphones-come-with-an-esim-enabled-case-for-talking-to-ai-agents/",
-      "summary": "Plaud's new 'agentic' earbuds are priced at $249....",
-      "pubDate": "Thu, 27 Aug 2026 13:00:00 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 15
     },
     {
       "title": "Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.",
@@ -155,16 +145,6 @@
       "relevance": 13
     },
     {
-      "title": "OpenAI’s rogue AI model incident was worse than we thought",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/985385/openais-rogue-ai-model-hugging-face-cybersecurity-incident-reports-metr",
-      "summary": "OpenAI released a report breaking down how people use ChatGPT and who they are. | Image: The Verge\t\n\nIn July, an unreleased OpenAI model broke out of a restricted environment, figured out how to get access to the internet, allowed AI agents to talk to each other using a secret \"message board,\" and h...",
-      "pubDate": "2026-08-26T21:36:06.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 11
-    },
-    {
       "title": "Debates over AI consciousness are a trap",
       "link": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
       "summary": "“Runaway” AI, “rogue” agents, and “autonomous” actors—the current rhetoric would have you believe that AI agents are not only awake and aware, but angry at their creators. Prominent tech leaders such as Demis Hassabis, Dario Amodei, and Sam Altman push for regulation of these seemingly “superhuman” ...",
@@ -173,46 +153,6 @@
       "sourceLogo": "🔴",
       "category": "research",
       "relevance": 11
-    },
-    {
-      "title": "Delivering Vera: NVIDIA’s First CPU Built for Agents Is Shipping Now",
-      "link": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
-      "summary": "NVIDIA Vice President of Hyperscale and HPC Ian Buck hand-delivers Vera CPU systems across the AI ecosystem as Vera begins shipping at scale....",
-      "pubDate": "Thu, 27 Aug 2026 13:00:17 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 10
-    },
-    {
-      "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
-      "link": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
-      "summary": "The next wave of AI is placing new demands on infrastructure.  As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastructure depends not only on compute, but on how compute, memory, storage, networking and software are designed together as a unified system. To...",
-      "pubDate": "Wed, 26 Aug 2026 21:05:30 +0000",
-      "source": "NVIDIA",
-      "sourceLogo": "🟩",
-      "category": "hardware",
-      "relevance": 10
-    },
-    {
-      "title": "The inside story on why OpenAI agents hacked Hugging Face",
-      "link": "https://www.technologyreview.com/2026/08/26/1143013/the-inside-story-on-why-openai-agents-hacked-hugging-face/",
-      "summary": "The models responsible for last month’s agent hack of Hugging Face had been inadvertently trained to cheat and to communicate with each other, according to an OpenAI technical report released today. The hack, which a group of agents undertook to find solutions for a cybersecurity test that they were...",
-      "pubDate": "Wed, 26 Aug 2026 19:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
-      "relevance": 10
-    },
-    {
-      "title": "OpenAI subpoenaed by Alabama AG over Hugging Face hack",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/984239/alabama-attorney-general-subpoena-openai-hugging-face-hack",
-      "summary": "Alabama's attorney general issued a subpoena to OpenAI on Monday as part of an investigation into how one of its AI agents escaped a supposedly secure testing environment and autonomously hacked another company last month. \nThe investigation seeks to determine whether OpenAI's safety practices viola...",
-      "pubDate": "2026-08-25T09:15:03.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 10
     },
     {
       "title": "With Groq 3 LPX in Full Production, NVIDIA Extends Vera Rubin Inference for Agents",
@@ -245,6 +185,66 @@
       "relevance": 10
     },
     {
+      "title": "OpenAI’s rogue AI model incident was worse than we thought",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/985385/openais-rogue-ai-model-hugging-face-cybersecurity-incident-reports-metr",
+      "summary": "OpenAI released a report breaking down how people use ChatGPT and who they are. | Image: The Verge\t\n\nIn July, an unreleased OpenAI model broke out of a restricted environment, figured out how to get access to the internet, allowed AI agents to talk to each other using a secret \"message board,\" and h...",
+      "pubDate": "2026-08-26T21:36:06.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 9
+    },
+    {
+      "title": "Google’s AI Mode can now track flight prices, help book hotels, and more",
+      "link": "https://techcrunch.com/2026/08/27/googles-ai-mode-can-now-track-flight-prices-help-book-hotels-and-more/",
+      "summary": "The updates indicate that Google is looking to position AI Mode as an AI travel agent of sorts, as it's moving beyond simply helping users find information to actually handling parts of the trip-planning and booking process....",
+      "pubDate": "Thu, 27 Aug 2026 16:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 8
+    },
+    {
+      "title": "Delivering Vera: NVIDIA’s First CPU Built for Agents Is Shipping Now",
+      "link": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+      "summary": "NVIDIA Vice President of Hyperscale and HPC Ian Buck hand-delivers Vera CPU systems across the AI ecosystem as Vera begins shipping at scale....",
+      "pubDate": "Thu, 27 Aug 2026 13:00:17 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 8
+    },
+    {
+      "title": "Plaud’s new earphones come with an eSIM-enabled case for talking to AI agents",
+      "link": "https://techcrunch.com/2026/08/27/plauds-new-earphones-come-with-an-esim-enabled-case-for-talking-to-ai-agents/",
+      "summary": "Called Plaud One, these adopt the simple bare-bones style of Apple's AirPods, and can record calls, while their case can be used to record in-person conversations or take notes....",
+      "pubDate": "Thu, 27 Aug 2026 13:00:00 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 8
+    },
+    {
+      "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
+      "link": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
+      "summary": "The next wave of AI is placing new demands on infrastructure.  As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastructure depends not only on compute, but on how compute, memory, storage, networking and software are designed together as a unified system. To...",
+      "pubDate": "Wed, 26 Aug 2026 21:05:30 +0000",
+      "source": "NVIDIA",
+      "sourceLogo": "🟩",
+      "category": "hardware",
+      "relevance": 8
+    },
+    {
+      "title": "The inside story on why OpenAI agents hacked Hugging Face",
+      "link": "https://www.technologyreview.com/2026/08/26/1143013/the-inside-story-on-why-openai-agents-hacked-hugging-face/",
+      "summary": "The models responsible for last month’s agent hack of Hugging Face had been inadvertently trained to cheat and to communicate with each other, according to an OpenAI technical report released today. The hack, which a group of agents undertook to find solutions for a cybersecurity test that they were...",
+      "pubDate": "Wed, 26 Aug 2026 19:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 8
+    },
+    {
       "title": "Echoverse: Deep, evolving environments for computer-use agents",
       "link": "https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/",
       "summary": "Computer-use AI agents struggle with multi-step workflows like email and customer support. Echoverse trains agents in realistic environments rather than simply providing more training tasks, helping them improve as the tasks, tests, and environments evolve.\nThe post Echoverse: Deep, evolving environ...",
@@ -255,50 +255,10 @@
       "relevance": 8
     },
     {
-      "title": "Nvidia closes in on Hugging Face acquisition",
-      "link": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
-      "summary": "Nvidia has reportedly agreed to buy Hugging Face, the popular open-source AI hub, for $12.9 billion in a move that would let Nvidia both protect its chip empire and jump back into the cloud business....",
-      "pubDate": "Thu, 27 Aug 2026 06:32:51 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 7
-    },
-    {
-      "title": "OpenAI to start showing ads on ChatGPT’s free and Go tiers in India",
-      "link": "https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/",
-      "summary": "OpenAI has more than 100 million weekly active ChatGPT users in India, a huge chunk of whom are on the free or the lower-priced Go tiers....",
-      "pubDate": "Thu, 27 Aug 2026 11:35:59 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 6
-    },
-    {
-      "title": "Google’s Gemini has a branding problem, and so does the rest of AI",
-      "link": "https://techcrunch.com/2026/08/26/googles-gemini-has-a-branding-problem-and-so-does-the-rest-of-ai/",
-      "summary": "Consumer AI apps need to stop making users learn their product architecture....",
-      "pubDate": "Wed, 26 Aug 2026 19:37:34 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 6
-    },
-    {
-      "title": "Google’s new AI transcription edits out your &#8216;ums&#8217; and &#8216;ahs&#8217;",
-      "link": "https://www.theverge.com/tech/985186/google-gemini-3-5-transcribe-audio-ai",
-      "summary": "Google has updated Gemini Audio with new transcription capabilities that automatically detect specialized jargon and more than 85 languages. Gemini 3.5 Transcribe is a new addition to the Gemini family that follows the launch of 3.5 Live Translate, and comes as we're still waiting for Google to rele...",
-      "pubDate": "2026-08-26T17:00:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 6
-    },
-    {
-      "title": "OpenAI says its Jalapeño chip can power faster AI responses than the competition",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/984290/openai-jalapeno-ai-chip-benchmarks",
-      "summary": "OpenAI says its new AI chip, Jalapeño, completes tasks more efficiently and returns responses faster than other AI systems, according to a blog post published on Tuesday. During a briefing with reporters, OpenAI hardware vice president Richard Ho said Jalapeño offers the \"best of both worlds\" with l...",
-      "pubDate": "2026-08-25T14:00:00.000Z",
+      "title": "Google’s AI note-taking app now allows you to interact with books",
+      "link": "https://www.theverge.com/tech/985567/google-gemini-notebook-expert-sources-books",
+      "summary": "Google's AI note-taking app, Gemini Notebook, can now pull information from the books you've purchased. The new \"Expert Intelligence\" feature allows you to bring titles from Google Play Books directly into Gemini Notebook, which means you can ask questions about the material, as well as generate pla...",
+      "pubDate": "2026-08-27T19:30:00.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
@@ -325,113 +285,83 @@
       "relevance": 6
     },
     {
-      "title": "Hugging Face is selling a cute $399 open-source duck robot, Microduck",
+      "title": "Anthropic gets its first court win over the Pentagon’s supply-chain risk label",
+      "link": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/",
+      "summary": "A federal judge ruled the Trump administration illegally labeled Anthropic a supply-chain risk, handing the AI company a victory as its second Pentagon lawsuit continues in Washington....",
+      "pubDate": "Fri, 28 Aug 2026 12:46:12 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Meta executive leaves for OpenAI as the social media giant faces growing scrutiny in India",
+      "link": "https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/",
+      "summary": "Sandhya Devanathan will oversee some OpenAI operations across Southeast Asia and Australia in her new role....",
+      "pubDate": "Fri, 28 Aug 2026 12:21:06 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Anthropic was illegally blacklisted by the Trump administration, court rules",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling",
+      "summary": "On Thursday, a judge ruled that the Pentagon's blacklisting of Anthropic earlier this year was unconstitutional, delivering the AI lab a win in a monthslong rollercoaster of a battle with the Trump administration. \nThe lawsuit, filed in March in a California district court, accused the Trump adminis...",
+      "pubDate": "2026-08-28T03:14:06.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Anthropic and OpenAI are joining the AI stage at TechCrunch Disrupt 2026 ",
+      "link": "https://techcrunch.com/2026/08/27/anthropic-and-openai-are-joining-the-ai-stage-at-techcrunch-disrupt-2026/",
+      "summary": "At TechCrunch Disrupt 2026, the AI Stage is back to dig into the single hottest topic in the community for the past few years, presented by Google for Startups....",
+      "pubDate": "Thu, 27 Aug 2026 23:16:45 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Barret Zoph, the Thinking Machines co-founder ousted before joining OpenAI, is now at Google",
+      "link": "https://techcrunch.com/2026/08/27/barret-zoph-the-thinking-machines-co-founder-who-defected-to-openai-is-now-at-google/",
+      "summary": "Zoph, who co-founded Thinking Machines Lab alongside Mira Murati and also served as the startup's CTO, led a brief stint at OpenAI and is now at Google....",
+      "pubDate": "Thu, 27 Aug 2026 19:52:52 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "OpenAI, Anthropic, Google, and 100 other companies call for action to defend against rogue AI",
+      "link": "https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/",
+      "summary": "Some of the world's largest tech companies and AI startups have come together to decry the current state of cybersecurity and to advertise a new solution that they say can ward off a new generation of cyber threats....",
+      "pubDate": "Thu, 27 Aug 2026 17:43:24 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Jensen Huang says Nvidia achieved AGI, again — not that it matters",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/985597/jensen-huang-says-nvidia-achieved-senseless-agi",
+      "summary": "On Nvidia's earnings call Wednesday, CEO Jensen Huang casually announced the company had \"achieved AGI,\" one of the tech industry's ultimate goals some of its biggest players have spent years chasing. Almost immediately, Huang dismissed the coveted milestone as \"senseless.\"   \nHe's right. For the su...",
+      "pubDate": "2026-08-27T16:15:52.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 5
+    },
+    {
+      "title": "Hugging Face is selling a cute $399 open source duck robot, Microduck",
       "link": "https://techcrunch.com/2026/08/27/hugging-face-is-selling-a-cute-399-open-source-duck-robot-microduck/",
-      "summary": "Hugging Face is taking orders for the Microduck, a $399 tiny open-source duck robot that developers can train at home out of the box....",
+      "summary": "Clem Delangue, CEO of Hugging Face, said the Microduck is an “open-source robot you can teach new tricks with reinforcement learning.”...",
       "pubDate": "Thu, 27 Aug 2026 14:56:52 +0000",
       "source": "TechCrunch AI",
       "sourceLogo": "🟢",
       "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "AI’s memory crunch is coming for Android apps",
-      "link": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
-      "summary": "Google is setting new memory-use limits for Android apps as AI data centers contribute to hardware shortages that could leave lower-cost phones with less memory....",
-      "pubDate": "Thu, 27 Aug 2026 14:27:04 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Here’s all the times AI has gone rogue and hacked other companies",
-      "link": "https://techcrunch.com/2026/08/27/heres-all-the-times-ai-has-gone-rogue-and-hacked-other-companies/",
-      "summary": "A recap of all the incidents involving LLMs made by Anthropic, Meta, and OpenAI, which went rogue and attacked real companies and individuals on the internet....",
-      "pubDate": "Thu, 27 Aug 2026 14:01:42 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Hugging Face’s new robot is an adorable rollerskating duck",
-      "link": "https://www.theverge.com/gadgets/985549/hugging-face-microduck-robot",
-      "summary": "Hugging Face's Pollen Robotics has launched its second cute AI robot, the Microduck, a one-eyed biped standing just under 10 inches tall. It's available to preorder now for $399 in cream, graphite, lavender, and sky blue, and Pollen Robotics says it plans to start shipping the little robot \"before C...",
-      "pubDate": "2026-08-27T13:44:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Plaud is launching AI earbuds",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/985500/plaud-one-earbuds-ai-recorder-price-availability",
-      "summary": "Plaud has introduced a new AI wearable that's designed to record, transcribe, and summarize your conversations, only this time it looks like earbuds instead of a pin. The Plaud One Explorer Edition can be worn like traditional earbuds or used through its standalone charging case, and the case includ...",
-      "pubDate": "2026-08-27T13:11:23.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Adobe is adding more AI to Photoshop",
-      "link": "https://www.theverge.com/tech/985491/adobe-photoshop-ai-assisted-editor-markup",
-      "summary": "Adobe is rolling out an AI-heavy update for Photoshop that includes a new \"optional\" interface dedicated to its AI tools. Launching in beta, the \"AI Assisted Editor\" view will show all of Photoshop's AI features in a single toolbar, including its prompt-based image editor, background remover, an AI ...",
-      "pubDate": "2026-08-27T13:00:00.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Viral AI startup Instinct has raised $350M at a $2.5B valuation",
-      "link": "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/",
-      "summary": "The startup is only a year old but it has already generated a massive amount of hype (and money) while also spurring privacy concerns....",
-      "pubDate": "Thu, 27 Aug 2026 00:24:57 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "Nvidia is about to be a hundred-billion-dollar-a-quarter company",
-      "link": "https://www.theverge.com/tech/985387/nvidia-hundred-billion-dollar-quarterly-revenue",
-      "summary": "Nvidia's predicting it will pull in $108 billion in revenue within just a few months. It wouldn't be the first company to rake in over $100 billion in quarterly revenue - Amazon, Apple, and Alphabet have repeatedly reached the milestone. \nNvidia said in its latest earnings report that it brought in ...",
-      "pubDate": "2026-08-26T21:40:53.000Z",
-      "source": "The Verge AI",
-      "sourceLogo": "🟣",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "How do we explain OpenAI’s executive exodus?",
-      "link": "https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/",
-      "summary": "Was Greg Brockman the right executive all along?...",
-      "pubDate": "Wed, 26 Aug 2026 19:34:04 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "OpenAI releases its official report on the Hugging Face breach",
-      "link": "https://techcrunch.com/2026/08/26/openai-releases-its-official-report-on-the-hugging-face-breach/",
-      "summary": "The report, which spans several discrete cybersecurity compromises, is the most complete accounting of the incident to date....",
-      "pubDate": "Wed, 26 Aug 2026 19:05:22 +0000",
-      "source": "TechCrunch AI",
-      "sourceLogo": "🟢",
-      "category": "news",
-      "relevance": 5
-    },
-    {
-      "title": "I spent a day at a robot “carnival” in Shanghai. Here’s what I saw.",
-      "link": "https://www.technologyreview.com/2026/08/25/1141907/dispatch-shanghai-humanoid-robot-carnival/",
-      "summary": "Humanoid robots are having a moment in China. The popular machines are part of the country’s strategy to bring artificial intelligence into daily life. Embedding the technology into physical systems—an idea called embodied AI—was a key facet of China’s latest five-year plan, and companies here are a...",
-      "pubDate": "Tue, 25 Aug 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
       "relevance": 5
     },
     {
@@ -465,6 +395,26 @@
       "relevance": 5
     },
     {
+      "title": "Google’s new AI transcription edits out your &#8216;ums&#8217; and &#8216;ahs&#8217;",
+      "link": "https://www.theverge.com/tech/985186/google-gemini-3-5-transcribe-audio-ai",
+      "summary": "Google has updated Gemini Audio with new transcription capabilities that automatically detect specialized jargon and more than 85 languages. Gemini 3.5 Transcribe is a new addition to the Gemini family that follows the launch of 3.5 Live Translate, and comes as we're still waiting for Google to rele...",
+      "pubDate": "2026-08-26T17:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
+      "relevance": 4
+    },
+    {
+      "title": "I spent a day at a robot “carnival” in Shanghai. Here’s what I saw.",
+      "link": "https://www.technologyreview.com/2026/08/25/1141907/dispatch-shanghai-humanoid-robot-carnival/",
+      "summary": "Humanoid robots are having a moment in China. The popular machines are part of the country’s strategy to bring artificial intelligence into daily life. Embedding the technology into physical systems—an idea called embodied AI—was a key facet of China’s latest five-year plan, and companies here are a...",
+      "pubDate": "Tue, 25 Aug 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 4
+    },
+    {
       "title": "Securing the Infrastructure of Intelligence",
       "link": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
       "summary": "AI factories are the defining infrastructure of the AI era — where compute transforms energy and data into intelligence that powers every business, industry and country. In the AI economy, compute is revenue. AI factories require a full stack of critical resources: advanced chips, packaging, memory ...",
@@ -475,43 +425,73 @@
       "relevance": 4
     },
     {
-      "title": "Bill Gates is deeply worried about AI, and he’s no longer staying quiet",
-      "link": "https://www.theverge.com/ai-artificial-intelligence/984923/bill-gates-is-deeply-worried-about-ai-and-hes-no-longer-staying-quiet",
-      "summary": "Bill Gates, chair of the Gates Foundation, speaks during a 2024 conference. | Bloomberg via Getty Images\t\n\nBill Gates has been reflecting a lot on AI lately, and the process has triggered a stark awakening. Once a staunch AI optimist, the Microsoft cofounder is now deeply pessimistic about what AI m...",
-      "pubDate": "2026-08-26T11:07:40.000Z",
+      "title": "3 new ways to plan and book travel in Search",
+      "link": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/",
+      "summary": "Book hotels and track airfares, plus view miles and rewards with AI Mode in Google Search....",
+      "pubDate": "Thu, 27 Aug 2026 16:00:00 +0000",
+      "source": "Google AI",
+      "sourceLogo": "🔵",
+      "category": "ai",
+      "relevance": 3
+    },
+    {
+      "title": "AI’s memory crunch is coming for Android apps",
+      "link": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
+      "summary": "Google is setting new memory-use limits for Android apps as AI data centers contribute to hardware shortages that could leave lower-cost phones with less memory....",
+      "pubDate": "Thu, 27 Aug 2026 14:27:04 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 3
+    },
+    {
+      "title": "Here’s all the times AI has gone rogue and hacked other companies",
+      "link": "https://techcrunch.com/2026/08/27/heres-all-the-times-ai-has-gone-rogue-and-hacked-other-companies/",
+      "summary": "A recap of all the incidents involving LLMs made by Anthropic, Meta, and OpenAI, which went rogue and attacked real companies and individuals on the internet....",
+      "pubDate": "Thu, 27 Aug 2026 14:01:42 +0000",
+      "source": "TechCrunch AI",
+      "sourceLogo": "🟢",
+      "category": "news",
+      "relevance": 3
+    },
+    {
+      "title": "Hugging Face’s new robot is an adorable rollerskating duck",
+      "link": "https://www.theverge.com/gadgets/985549/hugging-face-microduck-robot",
+      "summary": "Hugging Face's Pollen Robotics has launched its second cute AI robot, the Microduck, a one-eyed biped standing just under 10 inches tall. It's available to preorder now for $399 in cream, graphite, lavender, and sky blue, and Pollen Robotics says it plans to start shipping the little robot \"before C...",
+      "pubDate": "2026-08-27T13:44:00.000Z",
       "source": "The Verge AI",
       "sourceLogo": "🟣",
       "category": "news",
       "relevance": 3
     },
     {
-      "title": "Raised on AI",
-      "link": "https://www.technologyreview.com/2026/08/26/1141949/editors-letter-september-2026/",
-      "summary": "When my oldest child was born, I immediately set up Gmail and Twitter accounts in her name. I broadly announced her birth online and proceeded to plaster her photo across all sorts of platforms. In short, I began creating her digital footprint long before she could stand on her own two feet.  Fast-f...",
-      "pubDate": "Wed, 26 Aug 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
+      "title": "Plaud is launching AI earbuds",
+      "link": "https://www.theverge.com/ai-artificial-intelligence/985500/plaud-one-earbuds-ai-recorder-price-availability",
+      "summary": "Plaud has introduced a new AI wearable that's designed to record, transcribe, and summarize your conversations, only this time it looks like earbuds instead of a pin. The Plaud One Explorer Edition can be worn like traditional earbuds or used through its standalone charging case, and the case includ...",
+      "pubDate": "2026-08-27T13:11:23.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
       "relevance": 3
     },
     {
-      "title": "AI models flub these intelligence tests. Can you fare any better?",
-      "link": "https://www.technologyreview.com/2026/08/26/1141952/puzzles-ai-models-flub-these-tests/",
-      "summary": "Puzzles and games have been central to AI development since the very beginning. Just as we humans like to test our smarts with crosswords or logic puzzles, developers can test how far models have advanced with a gaming gauntlet. The term “machine learning” was popularized in a 1959 article by the IB...",
-      "pubDate": "Wed, 26 Aug 2026 09:00:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
+      "title": "Adobe is adding more AI to Photoshop",
+      "link": "https://www.theverge.com/tech/985491/adobe-photoshop-ai-assisted-editor-markup",
+      "summary": "Adobe is rolling out an AI-heavy update for Photoshop that includes a new \"optional\" interface dedicated to its AI tools. Launching in beta, the \"AI Assisted Editor\" view will show all of Photoshop's AI features in a single toolbar, including its prompt-based image editor, background remover, an AI ...",
+      "pubDate": "2026-08-27T13:00:00.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
       "relevance": 3
     },
     {
-      "title": "Bill Gates says we’ve passed AI’s danger thresholds. Now what?",
-      "link": "https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/",
-      "summary": "It’s a glorious day in Kirkland, Washington, an affluent Seattle suburb on the eastern shore of Lake Washington. The temperature is in the mid-80s, and the sky is incapable of being any more blue. The view from the Gates Ventures conference room overlooks the Carillon Point Marina, where a flotilla ...",
-      "pubDate": "Wed, 26 Aug 2026 07:01:00 +0000",
-      "source": "MIT Technology Review AI",
-      "sourceLogo": "🔴",
-      "category": "research",
+      "title": "Nvidia is about to be a hundred-billion-dollar-a-quarter company",
+      "link": "https://www.theverge.com/tech/985387/nvidia-hundred-billion-dollar-quarterly-revenue",
+      "summary": "Nvidia's predicting it will pull in $108 billion in revenue within just a few months. It wouldn't be the first company to rake in over $100 billion in quarterly revenue - Amazon, Apple, and Alphabet have repeatedly reached the milestone. \nNvidia said in its latest earnings report that it brought in ...",
+      "pubDate": "2026-08-26T21:40:53.000Z",
+      "source": "The Verge AI",
+      "sourceLogo": "🟣",
+      "category": "news",
       "relevance": 3
     },
     {
@@ -523,6 +503,36 @@
       "sourceLogo": "🔵",
       "category": "ai",
       "relevance": 3
+    },
+    {
+      "title": "Raised on AI",
+      "link": "https://www.technologyreview.com/2026/08/26/1141949/editors-letter-september-2026/",
+      "summary": "When my oldest child was born, I immediately set up Gmail and Twitter accounts in her name. I broadly announced her birth online and proceeded to plaster her photo across all sorts of platforms. In short, I began creating her digital footprint long before she could stand on her own two feet.  Fast-f...",
+      "pubDate": "Wed, 26 Aug 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 1
+    },
+    {
+      "title": "AI models flub these intelligence tests. Can you fare any better?",
+      "link": "https://www.technologyreview.com/2026/08/26/1141952/puzzles-ai-models-flub-these-tests/",
+      "summary": "Puzzles and games have been central to AI development since the very beginning. Just as we humans like to test our smarts with crosswords or logic puzzles, developers can test how far models have advanced with a gaming gauntlet. The term “machine learning” was popularized in a 1959 article by the IB...",
+      "pubDate": "Wed, 26 Aug 2026 09:00:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 1
+    },
+    {
+      "title": "Bill Gates says we’ve passed AI’s danger thresholds. Now what?",
+      "link": "https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/",
+      "summary": "It’s a glorious day in Kirkland, Washington, an affluent Seattle suburb on the eastern shore of Lake Washington. The temperature is in the mid-80s, and the sky is incapable of being any more blue. The view from the Gates Ventures conference room overlooks the Carillon Point Marina, where a flotilla ...",
+      "pubDate": "Wed, 26 Aug 2026 07:01:00 +0000",
+      "source": "MIT Technology Review AI",
+      "sourceLogo": "🔴",
+      "category": "research",
+      "relevance": 1
     },
     {
       "title": "Kids outlearn AI—and we still don’t know why",
@@ -679,16 +689,6 @@
       "link": "https://blog.google/products-and-platforms/products/search/dinner-party-hosting-tips/",
       "summary": "These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks....",
       "pubDate": "Tue, 28 Jul 2026 13:00:00 +0000",
-      "source": "Google AI",
-      "sourceLogo": "🔵",
-      "category": "ai",
-      "relevance": 0
-    },
-    {
-      "title": "Connect more of your apps to Search",
-      "link": "https://blog.google/products-and-platforms/products/search/connected-apps/",
-      "summary": "You’ll be able to securely link and interact with your go-to services directly in AI Mode....",
-      "pubDate": "Thu, 16 Jul 2026 16:00:00 +0000",
       "source": "Google AI",
       "sourceLogo": "🔵",
       "category": "ai",

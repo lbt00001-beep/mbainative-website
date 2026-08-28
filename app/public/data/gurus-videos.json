@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-27T16:03:04.653Z",
-  "totalVideos": 64,
+  "lastUpdated": "2026-08-28T17:03:56.104Z",
+  "totalVideos": 65,
   "gurus": {
     "demis-hassabis": [
       {
@@ -266,6 +266,14 @@
     ],
     "dario-amodei": [
       {
+        "videoId": "4TUajmPfh7g",
+        "title": "ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI",
+        "description": "A very exciting update for the Salesforce ecosystem! Salesforce × Anthropic's ClaudeForce is more than just another AI ......",
+        "thumbnail": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg",
+        "publishedAt": "2026-08-28T12:21:16Z",
+        "channelTitle": "Winfomi"
+      },
+      {
         "videoId": "uD5BUFwWK0w",
         "title": "Dario Amodei Says AI Has A Crisis Of Trust - But Is It Really A Crisis Of Delivery? - MoAISC 031",
         "description": "Dario Amodei has described AI as experiencing a fundamental crisis of trust. The Ministry of AI Common Sense has been ......",
@@ -296,14 +304,6 @@
         "thumbnail": "https://i.ytimg.com/vi/x2VHFgyawPE/mqdefault.jpg",
         "publishedAt": "2026-06-17T12:00:14Z",
         "channelTitle": "Bloomberg Originals"
-      },
-      {
-        "videoId": "pf1ymzO7mV4",
-        "title": "Anthropic’s Amodei on AI  Power and Risk",
-        "description": "https://nextgentechnologies.ai/ Welcome to NextGen AI Technologies! Where innovation meets customer satisfaction! Join us ......",
-        "thumbnail": "https://i.ytimg.com/vi/pf1ymzO7mV4/mqdefault.jpg",
-        "publishedAt": "2026-06-10T19:18:48Z",
-        "channelTitle": " NextGen Technologies Academy"
       }
     ],
     "karen-hao": [
@@ -391,6 +391,14 @@
       }
     ],
     "fei-fei-li": [
+      {
+        "videoId": "mv8i4M3JoIo",
+        "title": "The Future of Work with AI",
+        "description": "AI's Future Workplace – Only Two Types of People Will Remain, Says Fei-Fei Li In a recent episode of the podcast Silicon Valley ......",
+        "thumbnail": "https://i.ytimg.com/vi/mv8i4M3JoIo/mqdefault.jpg",
+        "publishedAt": "2026-08-27T21:09:26Z",
+        "channelTitle": "AI is changing the world"
+      },
       {
         "videoId": "L09T-E96ML0",
         "title": "The AI4 Debrief: Chaos Means Cash",

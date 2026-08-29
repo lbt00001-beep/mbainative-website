@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-08-28T21:17:32.791Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-08-29T00:54:15.243Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 1,
-    "title": "El talento artificial se compra",
-    "icon": "🪙"
+    "id": 2,
+    "title": "Los empleados de silicio",
+    "icon": "🤖"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre dario-amodei\n\n\"ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI\"\n\n▶️ youtube.com/watch?v=4TUajmPfh7g",
+    "type": "news",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n📰 Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.\n\nPresented by Gravitee \n\nAgent complexity is the insidious shadow lurking inside enter...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "darioamodei"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=4TUajmPfh7g",
-    "imageUrl": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg"
+    "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them"
   }
 }

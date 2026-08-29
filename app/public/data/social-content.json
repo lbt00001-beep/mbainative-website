@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-29T00:54:15.243Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-08-29T11:31:24.634Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "news",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n📰 Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.\n\nPresented by Gravitee \n\nAgent complexity is the insidious shadow lurking inside enter...",
+    "type": "guru_quote",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Demis Hassabis (DeepMind)\n\n\"The Agentic Era: Will AI Go Rogue?\"\n\n▶️ youtube.com/watch?v=yEpHAgO1D4g",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them"
+    "url": "https://youtube.com/watch?v=yEpHAgO1D4g",
+    "imageUrl": "https://i.ytimg.com/vi/yEpHAgO1D4g/mqdefault.jpg"
   }
 }

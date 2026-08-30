@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-29T19:38:49.947Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-08-30T10:21:47.724Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 2,
-    "title": "Los empleados de silicio",
-    "icon": "🤖"
+    "id": 3,
+    "title": "Organización por tareas, no por puestos",
+    "icon": "📋"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre dario-amodei\n\n\"ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI\"\n\n▶️ youtube.com/watch?v=4TUajmPfh7g",
+    "type": "guru_quote",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 Yann LeCun (Meta)\n\n\"The Future of AI:  level b2 esl reading, listening and vocabulary practice\"\n\n▶️ youtube.com/watch?v=5lI_prM9psM",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "darioamodei"
+      "GurusIA",
+      "yannlecun"
     ],
-    "url": "https://youtube.com/watch?v=4TUajmPfh7g",
-    "imageUrl": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5lI_prM9psM",
+    "imageUrl": "https://i.ytimg.com/vi/5lI_prM9psM/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-30T19:40:47.101Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-08-31T11:27:16.202Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 3,
-    "title": "Organización por tareas, no por puestos",
-    "icon": "📋"
+    "id": 4,
+    "title": "El nuevo organigrama es una ciencia",
+    "icon": "🏗️"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre dario-amodei\n\n\"ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI\"\n\n▶️ youtube.com/watch?v=4TUajmPfh7g",
+    "type": "guru_quote",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Microsoft Strikes Back: Homegrown MAI AI Models Challenge Claude Code at Build 2026\"\n\n▶️ youtube.com/watch?v=15aaC5m5LIY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "darioamodei"
+      "GurusIA",
+      "mustafasuleyman"
     ],
-    "url": "https://youtube.com/watch?v=4TUajmPfh7g",
-    "imageUrl": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=15aaC5m5LIY",
+    "imageUrl": "https://i.ytimg.com/vi/15aaC5m5LIY/mqdefault.jpg"
   }
 }

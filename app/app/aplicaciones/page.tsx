@@ -84,10 +84,17 @@ const categorias = [
   },
   {
     id: "prensa",
-    nombre: "Prensa",
+    nombre: "Prensa & Opinión Pública",
     icono: "📰",
-    descripcion: "Herramientas de generación de contenido periodístico",
+    descripcion: "Herramientas de inteligencia informativa, monitorización de opinión pública y análisis periodístico",
     apps: [
+      {
+        nombre: "OpinionPulse AI — Inteligencia de Opinión & Polarización",
+        descripcion: "Monitor en tiempo real de sentimiento y controversia en Reddit, Prensa y Redes. Ponderación contextual bayesiana, detección de polarización bimodal e informes ejecutivos con IA.",
+        url: "https://opinionpulse-ai.vercel.app",
+        tipo: "externo",
+        estado: "disponible"
+      },
       {
         nombre: "Radar de Calidad Periodística",
         descripcion: "Sube un PDF, selecciona un modelo de IA y obtén un diagnóstico profesional con puntuación 0-100. Funciona 100% en tu navegador.",

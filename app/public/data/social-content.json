@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-09-02T09:22:10.055Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-09-02T14:52:35.492Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 6,
     "title": "Decisiones con autonomía configurable",
     "icon": "🎚️"
   },
   "post": {
-    "type": "news",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n📰 Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.\n\nPresented by Gravitee \n\nAgent complexity is the insidious shadow lurkin...",
+    "type": "guru_quote",
+    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🧠 Ilya Sutskever (SSI)\n\n\"Why AI Benchmarks Miss the Real Economic Shift #Shorts\"\n\n▶️ youtube.com/watch?v=1wzGsfT7nxc",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "VentureBeatAI"
+      "GurusIA",
+      "ilyasutskever"
     ],
-    "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them"
+    "url": "https://youtube.com/watch?v=1wzGsfT7nxc",
+    "imageUrl": "https://i.ytimg.com/vi/1wzGsfT7nxc/mqdefault.jpg"
   }
 }

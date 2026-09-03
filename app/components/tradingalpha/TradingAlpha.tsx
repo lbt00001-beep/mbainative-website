@@ -840,7 +840,7 @@ export default function TradingAlpha() {
                 </div>
                 <div className="border border-slate-300 bg-slate-50 p-2 rounded">
                   <div className="text-[9px] uppercase text-slate-500">Sentimiento / Momento</div>
-                  <div className="font-bold text-slate-900 text-sm mt-0.5">NSI: {sentimentData?.nsi ?? 0} ({sentimentData?.label ?? 'Neutral'})</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">NSI: {sentimentData?.nsi ?? 0} ({sentimentData?.nsiLabel ?? 'Neutral'})</div>
                   <div className="text-[9px] text-slate-600">RSI(14): {technicalSummary.rsi14 ?? '—'} • {technicalSummary.signals.rsiStatus}</div>
                 </div>
               </div>

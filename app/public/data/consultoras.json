@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-28T17:03:59.867Z",
+  "lastUpdated": "2026-09-03T09:21:59.295Z",
   "totalArticles": 20,
   "consultoras": [
     {
@@ -7,7 +7,7 @@
       "name": "McKinsey & Company",
       "logo": "/images/consultoras/mckinsey.png",
       "website": "https://www.mckinsey.com/",
-      "articleCount": 31
+      "articleCount": 32
     },
     {
       "id": "bcg",
@@ -32,7 +32,16 @@
       "pubDate": "Wed, 26 Aug 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 12
+      "score": 10
+    },
+    {
+      "title": "Revolutionizing semiconductor fab operations with AI",
+      "link": "https://www.mckinsey.com/industries/semiconductors/our-insights/revolutionizing-semiconductor-fab-operations-with-ai",
+      "description": "AI has the potential to improve build processes and operations within semiconductor fabs. Early adopters could see significant cost improvement and productivity gains....",
+      "pubDate": "Mon, 31 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 8
     },
     {
       "title": "Where AI agents pay off: A practical guide to the economics of agentic workflows",
@@ -41,67 +50,58 @@
       "pubDate": "Mon, 24 Aug 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 9
+      "score": 7
+    },
+    {
+      "title": "Climbing higher: Securing Switzerland’s competitiveness in a changing landscape",
+      "link": "https://www.mckinsey.com/featured-insights/insights-on-europe/climbing-higher-securing-switzerlands-competitiveness-in-a-changing-landscape",
+      "description": "Switzerland remains one of Europe’s most attractive locations for multinationals—but attractiveness is no longer self-sustaining. The question is not whether it stays attractive, but whether it active...",
+      "pubDate": "Wed, 02 Sep 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Why progress is more physical than we think",
+      "link": "https://www.mckinsey.com/mgi/our-research/a-century-of-plenty/podcast/why-progress-is-more-physical-than-we-think",
+      "description": "From tomatoes and copper to data centers and steel, the modern economy depends on a material world hidden in plain sight....",
+      "pubDate": "Wed, 02 Sep 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Private equity confirms a timeless principle: Purchase price matters",
+      "link": "https://www.mckinsey.com/industries/private-capital/our-insights/private-equity-confirms-a-timeless-principle-purchase-price-matters",
+      "description": "Recent data shows that buyout firms that maintain strict price discipline are delivering significantly higher MOIC than their peers....",
+      "pubDate": "Wed, 02 Sep 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "Europe on the move: A conversation with Boerse Stuttgart Group’s CEO",
+      "link": "https://www.mckinsey.com/featured-insights/insights-on-europe/podcasts-and-videos/europe-on-the-move-a-conversation-with-boerse-stuttgart-groups-ceo",
+      "description": "With 160 years of experience, Boerse Stuttgart Group is Europe's sixth-largest exchange group, helping position Europe for the future through digital, blockchain innovation, and financial infrastructu...",
+      "pubDate": "Mon, 31 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
+    },
+    {
+      "title": "AstraZeneca’s Bob Li on the MARS mission to eliminate cancer",
+      "link": "https://www.mckinsey.com/industries/life-sciences/our-insights/astrazenecas-bob-li-on-the-mars-mission-to-eliminate-cancer",
+      "description": "Bob Li, AstraZeneca’s Senior Vice President, Global Head of Medical Affairs, Oncology, on why only 7 percent of cancer patients get access to clinical trials, and what decentralized trials, AI, and in...",
+      "pubDate": "Mon, 31 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 5
     },
     {
       "title": "The new management playbook for AI: How to move faster and create more value",
       "link": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-new-management-playbook-for-ai-how-to-move-faster-and-create-more-value",
-      "description": "Scale is where the value is. Enabling scale depends on how strong your foundations are....",
+      "description": "There is a new management playbook emerging for how to run companies better in the age of AI....",
       "pubDate": "Fri, 28 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Pacsun’s Gen Z playbook: Listen, learn, and let go",
-      "link": "https://www.mckinsey.com/industries/retail/our-insights/pacsuns-gen-z-playbook-listen-learn-and-let-go",
-      "description": "Brieane Olson, CEO of the US-based clothing retailer, says the secret to the company’s success is community cocreation—which can work in other industries, too....",
-      "pubDate": "Thu, 27 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Consumers don’t trust AI advice. They turn to it anyway.",
-      "link": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/consumers-dont-trust-ai-advice-they-turn-to-it-anyway",
-      "description": "Consumer behavior is more dynamic and unpredictable than ever. Our latest research highlights four converging trends redefining how consumers shop, what they value, and why they buy....",
-      "pubDate": "Thu, 27 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "The decision dividend: How AI creates economic value",
-      "link": "https://www.mckinsey.com/industries/industrials/our-insights/the-decision-dividend-how-ai-creates-economic-value",
-      "description": "AI’s largest gains rarely come from labor savings alone. They come from faster decisions, better use of existing assets, and opportunities that would otherwise be missed....",
-      "pubDate": "Wed, 26 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Can upstream oil and gas produce value from AI’s $230 billion pay zone?",
-      "link": "https://www.mckinsey.com/industries/oil-and-gas/our-insights/can-upstream-oil-and-gas-produce-value-from-ais-230-billion-dollar-pay-zone",
-      "description": "AI could unlock $230 billion for oil and gas and OFSE companies. The challenge is where to concentrate, how to scale, and how to share value when efficiency reduces the activity that many contracts re...",
-      "pubDate": "Tue, 25 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "The state of AI in 2026: On the road to ROI",
-      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-      "description": "Organizations are deploying agentic coding tools and coming to grips with the costs of AI while still seeking to capture more of the benefits that their workers are deriving from their individual use ...",
-      "pubDate": "Tue, 25 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 5
-    },
-    {
-      "title": "Global Economics Intelligence executive summary, July 2026",
-      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/global-economics-intelligence",
-      "description": "With mixed economic signals and energy markets still vulnerable to disruption, central banks face an increasingly difficult balance between supporting growth and containing inflation....",
-      "pubDate": "Tue, 25 Aug 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 5
@@ -134,13 +134,58 @@
       "score": 4
     },
     {
-      "title": "Is the AI productivity story at a turning point?",
-      "link": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/is-the-ai-productivity-story-at-a-turning-point",
-      "description": "Stanford economist Erik Brynjolfsson reveals where we stand on the J-curve, how leaders can accelerate progress and create new value, and what gives him hope—and keeps him up at night....",
-      "pubDate": "Fri, 31 Jul 2026",
+      "title": "Pacsun’s Gen Z playbook: Listen, learn, and let go",
+      "link": "https://www.mckinsey.com/industries/retail/our-insights/pacsuns-gen-z-playbook-listen-learn-and-let-go",
+      "description": "Brieane Olson, CEO of the US-based clothing retailer, says the secret to the company’s success is community cocreation—which can work in other industries, too....",
+      "pubDate": "Thu, 27 Aug 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
-      "score": 4
+      "score": 3
+    },
+    {
+      "title": "Consumers don’t trust AI advice. They turn to it anyway.",
+      "link": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/consumers-dont-trust-ai-advice-they-turn-to-it-anyway",
+      "description": "Consumer behavior is more dynamic and unpredictable than ever. Our latest research highlights four converging trends redefining how consumers shop, what they value, and why they buy....",
+      "pubDate": "Thu, 27 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The decision dividend: How AI creates economic value",
+      "link": "https://www.mckinsey.com/industries/industrials/our-insights/the-decision-dividend-how-ai-creates-economic-value",
+      "description": "AI’s largest gains rarely come from labor savings alone. They come from faster decisions, better use of existing assets, and opportunities that would otherwise be missed....",
+      "pubDate": "Wed, 26 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Can upstream oil and gas produce value from AI’s $230 billion pay zone?",
+      "link": "https://www.mckinsey.com/industries/oil-and-gas/our-insights/can-upstream-oil-and-gas-produce-value-from-ais-230-billion-dollar-pay-zone",
+      "description": "AI could unlock $230 billion for oil and gas and OFSE companies. The challenge is where to concentrate, how to scale, and how to share value when efficiency reduces the activity that many contracts re...",
+      "pubDate": "Tue, 25 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "Global Economics Intelligence executive summary, July 2026",
+      "link": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/global-economics-intelligence",
+      "description": "With mixed economic signals and energy markets still vulnerable to disruption, central banks face an increasingly difficult balance between supporting growth and containing inflation....",
+      "pubDate": "Tue, 25 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
+    },
+    {
+      "title": "The state of AI in 2026: On the road to ROI",
+      "link": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "description": "Organizations are deploying agentic coding tools and coming to grips with the costs of AI while still seeking to capture more of the benefits that their workers are deriving from their individual use ...",
+      "pubDate": "Tue, 25 Aug 2026",
+      "source": "McKinsey & Company",
+      "sourceId": "mckinsey",
+      "score": 3
     },
     {
       "title": "Beyond the copilot: Scaling the agentic product development life cycle",
@@ -152,58 +197,13 @@
       "score": 3
     },
     {
-      "title": "Earning and sustaining trust in the age of AI",
-      "link": "https://www.mckinsey.com/industries/financial-services/our-insights/earning-and-sustaining-trust-in-the-age-of-ai",
-      "description": "Invesco President and CEO Andrew Schlossberg argues that AI should be part of a firm’s strategy, not on the sidelines, and that trust, once lost, is hard to win back....",
-      "pubDate": "Thu, 20 Aug 2026",
+      "title": "Reckitt’s transformation: Three moves, one strategic reset",
+      "link": "https://www.mckinsey.com/industries/retail/how-we-help-clients/reckitts-transformation-three-moves-one-strategic-reset",
+      "description": "Reckitt didn’t sequence change. It did three moves at once: transforming its core, separating noncore businesses, and resetting its operating model. That decisive reset cut business complexity, accele...",
+      "pubDate": "Fri, 21 Aug 2026",
       "source": "McKinsey & Company",
       "sourceId": "mckinsey",
       "score": 3
-    },
-    {
-      "title": "Advancing American healthcare: An interview with Seema Verma",
-      "link": "https://www.mckinsey.com/industries/public-sector/our-insights/advancing-american-healthcare-an-interview-with-seema-verma",
-      "description": "A former CMS administrator and current Oracle Health and Life Sciences executive discusses leadership, public–private collaboration, and the promise of AI and value-based care....",
-      "pubDate": "Wed, 19 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "How can the public sector meet the AI moment?",
-      "link": "https://www.mckinsey.com/industries/public-sector/our-insights/rewiring-public-sector",
-      "description": "AI can help public sector agencies improve outcomes for residents and make every taxpayer dollar go further. But realizing that potential requires moving beyond experimentation and rewiring how servic...",
-      "pubDate": "Tue, 18 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "Governing AI with intention in the social impact sector",
-      "link": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/governing-ai-with-intention-in-the-social-impact-sector",
-      "description": "As AI adoption grows, mission-driven organizations must weigh how to adopt new capabilities without sacrificing the trust central to every donor relationship, constituent served, and mission pursued....",
-      "pubDate": "Mon, 17 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 3
-    },
-    {
-      "title": "How premium leisure travel is rewriting airline economics",
-      "link": "https://www.mckinsey.com/industries/travel/our-insights/how-premium-leisure-travel-is-rewriting-airline-economics",
-      "description": "Business class isn’t just for corporate travelers anymore. Affluent vacationers are splurging on premium cabins—and becoming one of the biggest drivers of airline profitability....",
-      "pubDate": "Thu, 13 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
-    },
-    {
-      "title": "Joseph Tsai: Putting customers at the heart of innovation",
-      "link": "https://www.mckinsey.com/featured-insights/future-of-asia/joseph-tsai-putting-customers-at-the-heart-of-innovation",
-      "description": "Joseph Tsai has reshaped Cathay United Bank by balancing innovation with a long-term view that consistently focuses on the customer....",
-      "pubDate": "Wed, 12 Aug 2026",
-      "source": "McKinsey & Company",
-      "sourceId": "mckinsey",
-      "score": 1
     }
   ]
 }

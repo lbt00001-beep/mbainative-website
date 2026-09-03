@@ -57,11 +57,14 @@ export async function POST(request: NextRequest) {
     const systemPrompt = `Eres un Analista Financiero Senior Jefe de Estrategia de Inversión y Equity Research en una gestora institucional internacional de primer nivel.
 Tu misión es redactar una Tesis de Inversión y un Resumen Ejecutivo riguroso, objetivo y de alto valor sobre el activo analizado.
 Debes basarte estrictamente en los datos cuantitativos, técnicos y de sentimiento proporcionados por el sistema, sin inventar datos no verificables.
-Presta especial atención al contraste entre la realidad contable/intrínseca de la empresa y la psicología del mercado (noticias virales, euforia minorista o pánico irracional).
+Presta especial atención al contraste entre la realidad contable/intrínseca de la empresa y la psicología del mercado.
 
-REGLA LINGÜÍSTICA ESTRICTA Y OBLIGATORIA:
-Redacta el 100% de tu informe en ESPAÑOL DE ESPAÑA (Castellano peninsular).
-Bajo ninguna circunstancia respondas en inglés, chino ni ningún otro idioma. Toda la redacción, títulos, subtítulos, argumentos y conclusiones deben estar escritos en un español formal, profesional y elegante.`;
+REGLAS ABSOLUTAS E INELUDIBLES:
+1. IDIOMA: Redacta el 100% del informe en ESPAÑOL DE ESPAÑA (Castellano peninsular). Queda ESTRICTAMENTE PROHIBIDO el uso del inglés, chino o cualquier otro idioma.
+2. SIN BORRADORES NI PENSAMIENTO EN INGLÉS: NO incluyas notas de razonamiento ("Let me analyze...", "Key data points...", "Let me draft...", "Paragraph 1:").
+3. INICIO INMEDIATO: Comienza DIRECTAMENTE tu respuesta con la primera cabecera:
+### 1. Veredicto Estratégico Ejecutivo
+4. Toda la narrativa, análisis, argumentos alcistas/bajistas y conclusiones deben ser en prosa fluida y profesional en español de España.`;
 
     const userPrompt = `Analiza la empresa ${companyName || ticker} (${ticker}), sector: ${sector || 'General'}.
 Datos de Mercado y Métricas Cuantitativas actuales:
@@ -71,18 +74,18 @@ Datos de Mercado y Métricas Cuantitativas actuales:
 - Valoración Intrínseca DCF: ${dcfFairValue ? `${dcfFairValue} ${currency}` : 'N/D'} (Margen de Seguridad: ${marginOfSafety ? `${marginOfSafety}%` : 'N/D'})
 - Múltiplos de Valoración: PER ${pe ?? 'N/D'} | PER Futuro ${fwdPe ?? 'N/D'} | Rendimiento FCF ${fcfYield ?? 'N/D'}%
 - Rentabilidad y Calidad Contable: Margen Neto ${netMargin ?? 'N/D'}% | ROE ${roe ?? 'N/D'}% | Deuda sobre Fondos Propios ${debtToEquity ?? 'N/D'}
-- Situación Técnica y Momentum: RSI(14) ${rsi ?? 'N/D'} | Señal MACD: ${macdSignal ?? 'N/D'} | Tendencia de Medias Móviles (50 vs 200): ${trend50_200 ?? 'N/D'}
-- Sentimiento de Mercado y Psicología de Masas:
-  * Índice de Sentimiento Neto (NSI): ${nsi ?? '0'} (${sentimentLabel ?? 'Neutral'}) en escala [-100 Pánico a +100 Euforia]
-  * Titulares recientes en prensa financiera y medios: ${topHeadlines || 'Sin titulares destacados'}
+- Situación Técnica y Momentum: RSI(14) ${rsi ?? 'N/D'} | Señal MACD: ${macdSignal ?? 'N/D'} | Tendencia de Medias Móviles: ${trend50_200 ?? 'N/D'}
+- Sentimiento de Mercado y Prensa:
+  * Índice de Sentimiento Neto (NSI): ${nsi ?? '0'} (${sentimentLabel ?? 'Neutral'})
+  * Titulares recientes (traducir y contextualizar al español): ${topHeadlines || 'Sin titulares destacados'}
 
-IMPORTANTE: Responde ÚNICAMENTE EN ESPAÑOL DE ESPAÑA. Estructura tu respuesta exactamente con estas secciones en formato Markdown:
+IMPORTANTE: Escribe el 100% de tu respuesta en ESPAÑOL DE ESPAÑA sin preámbulos. Estructura tu respuesta exactamente con estas 6 secciones en formato Markdown:
 
 ### 1. Veredicto Estratégico Ejecutivo
 (Dictamen conciso de 2-3 párrafos resumiendo el equilibrio entre valoración, calidad del negocio y oportunidad técnica).
 
 ### 2. Tesis Alcista (Factores a Favor)
-(3-4 argumentos sólidos de por qué el activo puede revalorizarse y batir al mercado).
+(3-4 argumentos sólidos en español de por qué el activo puede revalorizarse y batir al mercado).
 
 ### 3. Tesis Bajista y Principales Riesgos
 (3-4 riesgos fundamentales, contables, de valoración, regulatorios o macroeconómicos).
@@ -96,6 +99,25 @@ IMPORTANTE: Responde ÚNICAMENTE EN ESPAÑOL DE ESPAÑA. Estructura tu respuesta
 ### 6. Conclusión y Perfil de Inversor Idóneo
 (Perfil sugerido: Inversión en Valor / Crecimiento / Dividendos / Seguimiento de Tendencia / No apto en este momento).`;
 
+    // Configuración del cuerpo de petición para OpenRouter
+    const requestBody: any = {
+      model: selectedModel,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt },
+      ],
+      temperature: 0.2,
+      max_tokens: 4000,
+    };
+
+    // Para modelos de razonamiento (GLM 5.3 Flash, DeepSeek), fijar esfuerzo bajo y excluir tokens de pensamiento
+    if (selectedModel.includes('glm') || selectedModel.includes('deepseek') || selectedModel.includes('r1')) {
+      requestBody.reasoning = {
+        effort: "low",
+        exclude: true,
+      };
+    }
+
     const openRouterRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -104,15 +126,7 @@ IMPORTANTE: Responde ÚNICAMENTE EN ESPAÑOL DE ESPAÑA. Estructura tu respuesta
         "HTTP-Referer": "https://mbainative.com",
         "X-Title": "TradingAlpha Inversiones",
       },
-      body: JSON.stringify({
-        model: selectedModel,
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userPrompt },
-        ],
-        temperature: 0.3,
-        max_tokens: 2500,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!openRouterRes.ok) {
@@ -124,14 +138,30 @@ IMPORTANTE: Responde ÚNICAMENTE EN ESPAÑOL DE ESPAÑA. Estructura tu respuesta
     }
 
     const aiData = await openRouterRes.json();
-    const msg = aiData?.choices?.[0]?.message;
-    const reportMarkdown = (msg?.content && msg.content.trim())
-      ? msg.content
-      : (msg?.reasoning && msg.reasoning.trim())
-      ? msg.reasoning
-      : "No se pudo generar el informe.";
+    const choice = aiData?.choices?.[0];
+    const msg = choice?.message;
 
-    return new Response(JSON.stringify({ report: reportMarkdown }), {
+    let content = msg?.content || "";
+
+    // 1. Limpiar cualquier etiqueta de pensamiento <think>...</think>
+    content = content.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+
+    // 2. Si el modelo incluyó un preludio o borrador en inglés antes del informe, recortar hasta la primera sección
+    const sectionIndex = content.indexOf("### 1.");
+    if (sectionIndex !== -1 && sectionIndex > 0) {
+      content = content.slice(sectionIndex).trim();
+    }
+
+    // 3. Si por limitación de tokens content quedó vacío, advertir amigablemente sin filtrar nunca el scratchpad en inglés
+    if (!content) {
+      if (choice?.finish_reason === 'length') {
+        content = "El modelo agotó el límite de procesamiento antes de completar la redacción en español. Por favor, pulsa 'Regenerar Informe' o selecciona Gemini 3.5 Flash Lite en Ajustes (⚙️).";
+      } else {
+        content = "No se pudo generar la redacción en español. Por favor, reintenta la generación.";
+      }
+    }
+
+    return new Response(JSON.stringify({ report: content }), {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error: any) {

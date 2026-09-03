@@ -41,7 +41,10 @@ const QUICK_TICKERS = [
 
 function parseReportSections(text: string) {
   if (!text) return [];
-  const parts = text.split(/(?=###\s+)/g);
+  // Si el informe contiene la sección formal ### 1., descartar cualquier preludio o borrador previo
+  const firstSectionIdx = text.indexOf('### 1.');
+  const sanitizedText = firstSectionIdx !== -1 ? text.slice(firstSectionIdx) : text;
+  const parts = sanitizedText.split(/(?=###\s+)/g);
   return parts
     .map((part) => {
       const trimmed = part.trim();

@@ -23,6 +23,7 @@ import {
   AltmanZResult,
   DuPontBreakdown,
 } from './financialEngine';
+import { SP500_SECTORS } from './sp500Data';
 
 const QUICK_TICKERS = [
   { symbol: 'AAPL', label: 'Apple' },
@@ -98,6 +99,62 @@ export default function TradingAlpha() {
   // AI Report State
   const [isGeneratingAi, setIsGeneratingAi] = useState(false);
   const [aiReport, setAiReport] = useState<string | null>(null);
+
+  // S&P 500 Megamenu / Sector Dropdown State
+  const [isSectorMenuOpen, setIsSectorMenuOpen] = useState<boolean>(false);
+  const [selectedSectorTab, setSelectedSectorTab] = useState<string>('all');
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnterSearch = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setIsSectorMenuOpen(true);
+  };
+
+  const handleMouseLeaveSearch = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsSectorMenuOpen(false);
+    }, 350);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsSectorMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Filtrado reactivo de sectores del S&P 500 según el texto buscado
+  const filteredSectors = React.useMemo(() => {
+    const query = searchInput.trim().toUpperCase();
+
+    return SP500_SECTORS.map((sec) => {
+      if (selectedSectorTab !== 'all' && sec.id !== selectedSectorTab) {
+        return { ...sec, stocks: [] };
+      }
+
+      if (!query) return sec;
+
+      const matches = sec.stocks.filter(
+        (s) =>
+          s.ticker.toUpperCase().includes(query) ||
+          s.name.toUpperCase().includes(query) ||
+          (s.subIndustry && s.subIndustry.toUpperCase().includes(query))
+      );
+
+      return { ...sec, stocks: matches };
+    }).filter((sec) => sec.stocks.length > 0);
+  }, [searchInput, selectedSectorTab]);
+
+  const totalMatchedStocks = filteredSectors.reduce((acc, s) => acc + s.stocks.length, 0);
 
   // Safe helper
   const pick = (obj: any): number | null => {
@@ -393,16 +450,208 @@ export default function TradingAlpha() {
             </p>
           </div>
 
-          {/* Search Form */}
-          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Buscar ticker (ej. AAPL, NVDA, ITX.MC)..."
-                className="bg-[#141d30] text-sm text-white placeholder-slate-500 px-4 py-2 rounded-xl border border-[#223048] focus:outline-none focus:border-blue-500 w-64 uppercase font-mono"
-              />
+          {/* Search Form with S&P 500 Sector Megamenu */}
+          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 relative">
+            <div
+              className="relative"
+              ref={searchContainerRef}
+              onMouseEnter={handleMouseEnterSearch}
+              onMouseLeave={handleMouseLeaveSearch}
+            >
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  value={searchInput}
+                  onChange={(e) => {
+                    setSearchInput(e.target.value);
+                    if (!isSectorMenuOpen) setIsSectorMenuOpen(true);
+                  }}
+                  onFocus={() => setIsSectorMenuOpen(true)}
+                  placeholder="Buscar ticker (ej. AAPL, SAN.MC, ITX.MC)..."
+                  className="bg-[#141d30] text-sm text-white placeholder-slate-500 pl-4 pr-24 py-2 rounded-xl border border-[#223048] focus:outline-none focus:border-blue-500 w-72 uppercase font-mono transition-all"
+                />
+                <button
+                  type="button"
+                  onClick={() => setIsSectorMenuOpen((prev) => !prev)}
+                  className="absolute right-1.5 px-2 py-1 rounded-lg bg-[#1e293b] hover:bg-[#27354f] text-[10px] text-blue-300 font-bold border border-[#334155] flex items-center gap-1 transition-all"
+                  title="Directorio S&P 500 por Sectores"
+                >
+                  <span>🏛️</span> S&P 500
+                </button>
+              </div>
+
+              {/* S&P 500 & Global Stocks Megamenu */}
+              {isSectorMenuOpen && (
+                <div
+                  className="absolute right-0 sm:left-0 top-full mt-2 w-[92vw] sm:w-[640px] md:w-[740px] lg:w-[840px] bg-[#0c1322]/95 backdrop-blur-xl border border-[#223048] rounded-2xl shadow-2xl z-50 overflow-hidden text-left animate-in fade-in zoom-in-95 duration-150"
+                  onMouseEnter={handleMouseEnterSearch}
+                  onMouseLeave={handleMouseLeaveSearch}
+                >
+                  {/* Header & Global Instructions */}
+                  <div className="bg-[#101827] border-b border-[#1e293b] px-4 py-3 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-base">🏛️</span>
+                      <div>
+                        <div className="text-xs font-bold text-white flex items-center gap-2">
+                          Directorio Oficial S&P 500 por Sectores (GICS)
+                          <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2 py-0.2 rounded-full font-normal">
+                            11 Sectores
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 mt-0.5">
+                          Selecciona una empresa o teclea cualquier ticker internacional (ej. <span className="font-mono text-cyan-400 font-semibold">SAN.MC</span>, <span className="font-mono text-cyan-400 font-semibold">ITX.MC</span>, <span className="font-mono text-cyan-400 font-semibold">AIR.PA</span>, <span className="font-mono text-cyan-400 font-semibold">ASML</span>, <span className="font-mono text-cyan-400 font-semibold">BTC-USD</span>) y pulsa <span className="text-white font-semibold">Enter</span>.
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setIsSectorMenuOpen(false)}
+                      className="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded-lg bg-[#1e293b] hover:bg-[#2e3e58] transition-colors shrink-0"
+                    >
+                      ✕ Cerrar
+                    </button>
+                  </div>
+
+                  {/* Custom Ticker / Free Search Direct Action */}
+                  {searchInput.trim() && (
+                    <div className="bg-gradient-to-r from-blue-950/40 via-[#101c34] to-cyan-950/30 border-b border-blue-500/30 px-4 py-2.5 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-blue-300 font-medium">Búsqueda libre global:</span>
+                        <span className="font-mono font-bold text-cyan-300 bg-blue-900/40 border border-blue-500/40 px-2.5 py-0.5 rounded-lg text-xs tracking-wider">
+                          {searchInput.trim().toUpperCase()}
+                        </span>
+                        <span className="text-[11px] text-slate-400 hidden sm:inline">
+                          (Acción de cualquier bolsa internacional o activo fuera del S&P 500)
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          selectTicker(searchInput);
+                          setIsSectorMenuOpen(false);
+                        }}
+                        className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all flex items-center gap-1.5 shrink-0"
+                      >
+                        Analizar {searchInput.trim().toUpperCase()} ➔
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Sector Filter Tabs */}
+                  <div className="px-4 pt-3 pb-2 border-b border-[#1e293b] bg-[#0d1525]/60 flex items-center gap-1.5 overflow-x-auto custom-scrollbar">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedSectorTab('all')}
+                      className={`text-xs px-3 py-1 rounded-lg font-medium whitespace-nowrap transition-all ${
+                        selectedSectorTab === 'all'
+                          ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30'
+                          : 'bg-[#141d30] text-slate-400 hover:text-white hover:bg-[#1c273e]'
+                      }`}
+                    >
+                      🌐 Todos ({totalMatchedStocks})
+                    </button>
+                    {SP500_SECTORS.map((sec) => (
+                      <button
+                        key={sec.id}
+                        type="button"
+                        onClick={() => setSelectedSectorTab(sec.id)}
+                        className={`text-xs px-2.5 py-1 rounded-lg font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                          selectedSectorTab === sec.id
+                            ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-600/30'
+                            : 'bg-[#141d30] text-slate-400 hover:text-white hover:bg-[#1c273e]'
+                        }`}
+                      >
+                        <span>{sec.icon}</span>
+                        <span>{sec.name}</span>
+                        <span className="text-[10px] text-slate-500">({sec.stocks.length})</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Sector Stocks List */}
+                  <div className="max-h-[380px] overflow-y-auto p-4 space-y-5 custom-scrollbar bg-[#080d17]/80">
+                    {filteredSectors.length === 0 ? (
+                      <div className="text-center py-8">
+                        <div className="text-2xl mb-2">🔍</div>
+                        <div className="text-sm font-semibold text-slate-200">
+                          Ningún ticker del S&P 500 coincide con "{searchInput.trim().toUpperCase()}"
+                        </div>
+                        <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                          Recuerda que puedes analizar cualquier valor aunque no pertenezca a Wall Street ni al S&P 500.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            selectTicker(searchInput);
+                            setIsSectorMenuOpen(false);
+                          }}
+                          className="mt-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg transition-all"
+                        >
+                          Cargar cotización global de {searchInput.trim().toUpperCase()} ➔
+                        </button>
+                      </div>
+                    ) : (
+                      filteredSectors.map((sector) => (
+                        <div key={sector.id} className="space-y-2">
+                          <div className="flex items-center justify-between pb-1 border-b border-[#1b263b]">
+                            <div className="flex items-center gap-2">
+                              <span className="text-base">{sector.icon}</span>
+                              <span className="text-xs font-bold text-white tracking-wide">
+                                {sector.name}
+                              </span>
+                            </div>
+                            <span className="text-[10px] font-mono text-slate-400 bg-[#141d30] px-2 py-0.5 rounded border border-[#223048]">
+                              {sector.stocks.length} empresas
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+                            {sector.stocks.map((stock) => (
+                              <button
+                                key={stock.ticker}
+                                type="button"
+                                onClick={() => {
+                                  selectTicker(stock.ticker);
+                                  setIsSectorMenuOpen(false);
+                                }}
+                                className="p-2 rounded-xl bg-[#101827] hover:bg-[#1a253c] border border-[#1e293b] hover:border-blue-500/50 text-left transition-all group flex flex-col justify-between"
+                              >
+                                <div className="flex items-center justify-between w-full">
+                                  <span className="font-mono font-bold text-xs text-cyan-400 group-hover:text-cyan-200">
+                                    {stock.ticker}
+                                  </span>
+                                  <span className="text-slate-600 group-hover:text-blue-400 text-xs transition-transform group-hover:translate-x-0.5">
+                                    ➔
+                                  </span>
+                                </div>
+                                <div className="text-[11px] text-slate-200 font-medium truncate mt-0.5 w-full" title={stock.name}>
+                                  {stock.name}
+                                </div>
+                                {stock.subIndustry && (
+                                  <div className="text-[9px] text-slate-500 truncate w-full" title={stock.subIndustry}>
+                                    {stock.subIndustry}
+                                  </div>
+                                )}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  {/* Footer Notice */}
+                  <div className="bg-[#0e1626] border-t border-[#1e293b] px-4 py-2 flex items-center justify-between text-[11px] text-slate-400">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Directorio institucional sincronizado en tiempo real con Yahoo Finance
+                    </span>
+                    <span className="text-slate-500 hidden sm:inline">
+                      Tip: Haz clic en un ticker o presiona Enter para consultar
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
             <button
               type="submit"

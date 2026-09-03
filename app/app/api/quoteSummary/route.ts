@@ -5,8 +5,12 @@ import { type NextRequest } from 'next/server'
 // -------------------- Utils --------------------
 function sanitizeTicker(t: string | null): string | null {
   if (!t) return null;
-  const up = String(t).trim().toUpperCase().replaceAll(".", "-"); // BRK.B -> BRK-B
-  if (!/^[A-Z0-9=\-]{1,16}$/.test(up)) return null;
+  let up = String(t).trim().toUpperCase();
+  // Manejar solo clases de acciones de EE.UU. (ej. BRK.B -> BRK-B) sin romper sufijos de bolsas internacionales (.MC, .PA, etc.)
+  if (/^[A-Z]{1,5}\.[A-B]$/.test(up)) {
+    up = up.replace('.', '-');
+  }
+  if (!/^[A-Z0-9=.\-^]{1,20}$/.test(up)) return null;
   return up;
 }
 

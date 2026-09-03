@@ -5,14 +5,15 @@
 
 ## 1. Visión General del Proyecto
 **TradingAlpha Inversiones** es una suite institucional de análisis bursátil que combina en un único panel interactivo:
-1. **Análisis Técnico Avanzado (Estilo TradingView):** Gráficos vectoriales reactivos en SVG con velas japonesas, volumen, medias móviles (SMA 20, 50, 200; EMA 9, 21), Bandas de Bollinger (20, 2), RSI (14 periodos con suavizado de Wilder) y MACD (12, 26, 9) con histograma y crosshair en tiempo real.
-2. **Radar Snowflake Cuantitativo (Estilo Simply Wall St):** Radar pentagonal de 5 ejes (Valor, Salud Financiera, Pasado, Futuro, Dividendos) y puntuación sintética *AlphaScore* (0 a 100).
-3. **Simulador DCF Interactivo (Flujo de Caja Descontado):** Estimación de valor razonable y Margen de Seguridad con sliders reactivos de tasa de crecimiento y descuento (WACC).
-4. **Estados Financieros & DuPont (Estilo Koyfin / Bloomberg):** Cuenta de resultados, balance y flujo de caja normalizados a 4 ejercicios, descomposición de ROE en 3 fases (Margen Neto × Rotación × Apalancamiento), auditoría de 9 pruebas de Piotroski F-Score y Altman Z-Score de solvencia.
-5. **Finanzas Conductuales & Pulso de Sentimiento:** Extracción y análisis de titulares de noticias en tiempo real vía Yahoo RSS, cálculo del *Net Sentiment Index* (NSI) y matriz cuadrante de oportunidad (Sentimiento vs Fundamentales).
-6. **Centro Pedagógico de Ayuda (Nivel Bachillerato):** 8 módulos didácticos interactivos con explicaciones intuitivas y buscador de conceptos financieros.
-7. **Motor de Equity Research con IA (OpenRouter):** Generación de tesis ejecutivas con GLM 5.3 Flash, Gemini 3.5 Flash Lite y otros modelos punteros, con desglose de costes y tarifas en tiempo real.
-8. **Panel de Ajustes & Diagnóstico:** Semáforo de salud y latencia en ms para los 4 conectores, selector de modelos y almacenamiento seguro de API keys en cliente.
+1. **Análisis Fundamental Cuantitativo**: Modelo de Descuento de Flujos de Caja (DCF) bi-etápico, cálculo de Valor Intrínseco y Margen de Seguridad.
+2. **Radar Cuantitativo de 5 Dimensiones**: Evaluación de Valor, Crecimiento, Rentabilidad (Performance), Salud Financiera e Historial.
+3. **Auditoría Forense Contable**: Desglose Piotroski F-Score (0 a 9) y Altman Z-Score acotado.
+4. **Estados Financieros Normalizados a 4 Años**: Cuenta de Resultados, Balance de Situación y Estado de Flujos con Descomposición DuPont de 3 fases.
+5. **Terminal Técnico Multitemporal**: Gráfico interactivo con velas japonesas, medias móviles exponenciales/simples (EMA 20, SMA 50, SMA 200), RSI(14) y MACD (12, 26, 9).
+6. **Finanzas Conductuales & Pulso de Sentimiento:** Extracción y análisis de titulares de noticias en tiempo real vía Yahoo RSS, cálculo del *Net Sentiment Index* (NSI) y matriz cuadrante de oportunidad (Sentimiento vs Fundamentales).
+7. **Centro Pedagógico de Ayuda (Nivel Bachillerato):** 8 módulos didácticos interactivos con explicaciones intuitivas y buscador de conceptos financieros.
+8. **Motor de Equity Research con IA (OpenRouter):** Generación de tesis ejecutivas con GLM 5.3 Flash, Gemini 3.5 Flash Lite y otros modelos punteros, con desglose de costes y tarifas en tiempo real.
+9. **Panel de Ajustes & Diagnóstico:** Semáforo de salud y latencia en ms para los 4 conectores, selector de modelos y almacenamiento seguro de API keys en cliente.
 
 ---
 

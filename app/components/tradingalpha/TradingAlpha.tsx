@@ -603,48 +603,256 @@ export default function TradingAlpha() {
               </div>
             </div>
 
-            {/* 4 Pillars Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-xl">
-                <div className="text-slate-400 text-xs font-medium mb-1">Margen de Seguridad DCF</div>
-                <div className="text-xl font-bold text-white font-mono">
-                  {dcfResult ? `${dcfResult.marginOfSafety > 0 ? '+' : ''}${dcfResult.marginOfSafety}%` : 'N/D'}
+            {/* 4 Pillars Grid con Baremos Calibrados */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Card 1: Margen de Seguridad DCF con Baremo Graham */}
+              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400 text-xs font-medium">Margen de Seguridad DCF</span>
+                    {dcfResult && (
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        dcfResult.marginOfSafety >= 20 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                        dcfResult.marginOfSafety >= 0 ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30' :
+                        dcfResult.marginOfSafety >= -15 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
+                        'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                      }`}>
+                        {dcfResult.marginOfSafety >= 20 ? 'Descuento Alto' : dcfResult.marginOfSafety >= 0 ? 'Descuento Leve' : dcfResult.marginOfSafety >= -15 ? 'Prima Moderada' : 'Sobrevalorada'}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className={`text-2xl font-bold font-mono ${
+                      !dcfResult ? 'text-white' :
+                      dcfResult.marginOfSafety >= 15 ? 'text-emerald-400' :
+                      dcfResult.marginOfSafety >= 0 ? 'text-teal-300' :
+                      dcfResult.marginOfSafety >= -15 ? 'text-amber-300' :
+                      'text-rose-400'
+                    }`}>
+                      {dcfResult ? `${dcfResult.marginOfSafety > 0 ? '+' : ''}${dcfResult.marginOfSafety}%` : 'N/D'}
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-mono">
+                      (Valor justo: {currency}{dcfResult?.fairValue ?? '—'})
+                    </span>
+                  </div>
                 </div>
-                <p className="text-[11px] text-slate-400 mt-1">
-                  {dcfResult ? `Valor justo: ${currency}${dcfResult.fairValue}` : 'Calculando con flujo de caja'}
-                </p>
-              </div>
 
-              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-xl">
-                <div className="text-slate-400 text-xs font-medium mb-1">Auditoría Piotroski F</div>
-                <div className="text-xl font-bold text-emerald-400 font-mono">
-                  {piotroski.score}/9
-                </div>
-                <p className="text-[11px] text-slate-400 mt-1">Calidad contable {piotroski.quality.toLowerCase()}</p>
-              </div>
-
-              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-xl">
-                <div className="text-slate-400 text-xs font-medium mb-1">Riesgo Quiebra Altman Z</div>
-                <div className="text-xl font-bold text-cyan-400 font-mono">
-                  {altmanZ ? (altmanZ.notApplicable ? 'N/A' : altmanZ.score) : 'N/D'}
-                </div>
-                <p className="text-[11px] text-slate-400 mt-1">
-                  {altmanZ?.notApplicable ? (
-                    <span className="text-slate-400">No aplica (Banca/Finanzas)</span>
-                  ) : (
-                    <>Zona: <span className="font-semibold text-slate-200">{altmanZ?.zone ?? 'N/D'}</span></>
+                {/* Baremo Visual Calibrado de Margen de Seguridad */}
+                <div className="space-y-1 bg-[#101827] p-2.5 rounded-xl border border-[#1e293b]">
+                  <div className="text-[10px] text-slate-400 font-medium flex justify-between">
+                    <span>Baremo Graham:</span>
+                    <span className="text-slate-200 font-semibold">
+                      {dcfResult ? (
+                        dcfResult.marginOfSafety >= 25 ? '🎯 >+25% Excelente margen' :
+                        dcfResult.marginOfSafety >= 10 ? '✅ +10% a +25% Favorable' :
+                        dcfResult.marginOfSafety >= -10 ? '⚖️ ±10% Precio equilibrado' :
+                        dcfResult.marginOfSafety >= -25 ? '⚠️ -10% a -25% Exigida' :
+                        '🚨 <-25% Fuerte sobrevaloración'
+                      ) : 'Esperando datos'}
+                    </span>
+                  </div>
+                  <div className="relative h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex">
+                    <div className="w-[35%] bg-rose-500/70" title="<-10% Sobrevalorada"></div>
+                    <div className="w-[35%] bg-amber-500/70" title="-10% a +20% Rango Justo"></div>
+                    <div className="w-[30%] bg-emerald-500/70" title=">+20% Margen Óptimo"></div>
+                  </div>
+                  {dcfResult && (
+                    <div className="relative w-full h-1.5">
+                      <div
+                        className="absolute -top-1 -ml-1 w-2.5 h-2.5 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
+                        style={{
+                          left: `${Math.min(95, Math.max(5, ((dcfResult.marginOfSafety + 50) / 100) * 100))}%`
+                        }}
+                      ></div>
+                    </div>
                   )}
-                </p>
+                  <div className="flex justify-between text-[8px] text-slate-400 font-mono pt-0.5">
+                    <span>-50% (Cara)</span>
+                    <span>0% (Justo)</span>
+                    <span>+50% (Ganga)</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-xl">
-                <div className="text-slate-400 text-xs font-medium mb-1">Tendencia Técnica (SMA 200)</div>
-                <div className="text-xl font-bold text-amber-400 font-mono">
-                  {technicalSummary.signals.trendPrimary}
+              {/* Card 2: Auditoría Piotroski F */}
+              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400 text-xs font-medium">Auditoría Piotroski F</span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                      piotroski.score >= 7 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                      piotroski.score >= 5 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
+                      'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                    }`}>
+                      {piotroski.quality}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-2xl font-bold text-emerald-400 font-mono">
+                      {piotroski.score}/9
+                    </span>
+                    <span className="text-[11px] text-slate-400">pruebas superadas</span>
+                  </div>
                 </div>
-                <p className="text-[11px] text-slate-400 mt-1">
-                  RSI: {technicalSummary.rsi14 ?? '—'} ({technicalSummary.signals.rsiStatus})
-                </p>
+
+                {/* Baremo Piotroski */}
+                <div className="space-y-1 bg-[#101827] p-2.5 rounded-xl border border-[#1e293b]">
+                  <div className="text-[10px] text-slate-400 font-medium flex justify-between">
+                    <span>Baremo Chicago:</span>
+                    <span className="text-slate-200 font-semibold">
+                      {piotroski.score >= 7 ? '⭐ 7-9 Salud contable élite' : piotroski.score >= 5 ? '⚖️ 5-6 Calidad estándar' : '⚠️ 0-4 Debilidad contable'}
+                    </span>
+                  </div>
+                  <div className="h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex gap-0.5">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((step) => (
+                      <div
+                        key={step}
+                        className={`flex-1 rounded-sm ${
+                          step <= piotroski.score
+                            ? step >= 7
+                              ? 'bg-emerald-400'
+                              : step >= 5
+                              ? 'bg-amber-400'
+                              : 'bg-rose-400'
+                            : 'bg-[#1f2c42]'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                  <div className="flex justify-between text-[8px] text-slate-400 font-mono pt-0.5">
+                    <span>0 (Riesgo)</span>
+                    <span>5 (Media)</span>
+                    <span>9 (Máx Calidad)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Riesgo Quiebra Altman Z con Baremo Canónico */}
+              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400 text-xs font-medium">Riesgo Quiebra Altman Z</span>
+                    {altmanZ && (
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        altmanZ.notApplicable ? 'bg-slate-700/40 text-slate-300 border border-slate-600/30' :
+                        altmanZ.zone === 'Segura' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                        altmanZ.zone === 'Gris' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
+                        'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                      }`}>
+                        {altmanZ.notApplicable ? 'N/A Banca' : `Zona ${altmanZ.zone}`}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className={`text-2xl font-bold font-mono ${
+                      !altmanZ ? 'text-white' :
+                      altmanZ.notApplicable ? 'text-slate-400' :
+                      altmanZ.zone === 'Segura' ? 'text-emerald-400' :
+                      altmanZ.zone === 'Gris' ? 'text-amber-300' :
+                      'text-rose-400'
+                    }`}>
+                      {altmanZ ? (altmanZ.notApplicable ? 'N/A' : altmanZ.score) : 'N/D'}
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      {altmanZ?.notApplicable ? '(Sector Financiero)' : altmanZ?.zone === 'Segura' ? '(Solvencia alta)' : altmanZ?.zone === 'Gris' ? '(Riesgo intermedio)' : '(Tensión contable)'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Baremo Altman Z */}
+                <div className="space-y-1 bg-[#101827] p-2.5 rounded-xl border border-[#1e293b]">
+                  <div className="text-[10px] text-slate-400 font-medium flex justify-between">
+                    <span>Baremo Altman:</span>
+                    <span className="text-slate-200 font-semibold">
+                      {altmanZ ? (
+                        altmanZ.notApplicable ? 'Exento (Auditoría Basilea)' :
+                        altmanZ.score >= 3.0 ? '🛡️ >3.0 Zona Segura (<1% quiebra)' :
+                        altmanZ.score >= 1.8 ? '⚠️ 1.8-3.0 Zona Gris (Solvencia media)' :
+                        '🚨 <1.8 Peligro (Estrés severo)'
+                      ) : 'Esperando datos'}
+                    </span>
+                  </div>
+                  {altmanZ?.notApplicable ? (
+                    <div className="h-2.5 w-full bg-[#162032] rounded-full flex items-center justify-center text-[9px] text-slate-400">
+                      No aplicable a bancos (Auditoría CET1)
+                    </div>
+                  ) : (
+                    <>
+                      <div className="relative h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex">
+                        <div className="w-[30%] bg-rose-500/70" title="<1.8 Peligro"></div>
+                        <div className="w-[25%] bg-amber-500/70" title="1.8 a 3.0 Gris"></div>
+                        <div className="w-[45%] bg-emerald-500/70" title=">3.0 Segura"></div>
+                      </div>
+                      {altmanZ && typeof altmanZ.score === 'number' && (
+                        <div className="relative w-full h-1.5">
+                          <div
+                            className="absolute -top-1 -ml-1 w-2.5 h-2.5 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
+                            style={{
+                              left: `${Math.min(95, Math.max(5, (altmanZ.score / 5) * 100))}%`
+                            }}
+                          ></div>
+                        </div>
+                      )}
+                      <div className="flex justify-between text-[8px] text-slate-400 font-mono pt-0.5">
+                        <span>0.0 (Peligro)</span>
+                        <span>1.8 (Gris)</span>
+                        <span>3.0+ (Segura)</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Card 4: Tendencia Técnica (SMA 200) */}
+              <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400 text-xs font-medium">Tendencia Técnica (SMA 200)</span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                      technicalSummary.signals.trendPrimary === 'Alcista' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                      technicalSummary.signals.trendPrimary === 'Bajista' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' :
+                      'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                    }`}>
+                      {technicalSummary.signals.trendPrimary}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-2xl font-bold text-amber-400 font-mono">
+                      {technicalSummary.signals.trendPrimary}
+                    </span>
+                    <span className="text-[11px] text-slate-400">vs Media Móvil 200</span>
+                  </div>
+                </div>
+
+                {/* Baremo RSI */}
+                <div className="space-y-1 bg-[#101827] p-2.5 rounded-xl border border-[#1e293b]">
+                  <div className="text-[10px] text-slate-400 font-medium flex justify-between">
+                    <span>Baremo RSI(14):</span>
+                    <span className="text-slate-200 font-semibold">
+                      {technicalSummary.rsi14 ? `${technicalSummary.rsi14} • ${technicalSummary.signals.rsiStatus}` : 'N/D'}
+                    </span>
+                  </div>
+                  <div className="relative h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex">
+                    <div className="w-[30%] bg-emerald-500/70" title="<30 Sobrevendida"></div>
+                    <div className="w-[40%] bg-blue-500/70" title="30 a 70 Zona Neutral"></div>
+                    <div className="w-[30%] bg-rose-500/70" title=">70 Sobrecomprada"></div>
+                  </div>
+                  {technicalSummary.rsi14 && (
+                    <div className="relative w-full h-1.5">
+                      <div
+                        className="absolute -top-1 -ml-1 w-2.5 h-2.5 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
+                        style={{
+                          left: `${Math.min(95, Math.max(5, technicalSummary.rsi14))}%`
+                        }}
+                      ></div>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-[8px] text-slate-400 font-mono pt-0.5">
+                    <span>0 (Sobreventa)</span>
+                    <span>50 (Neutral)</span>
+                    <span>100 (Sobrecompra)</span>
+                  </div>
+                </div>
               </div>
             </div>
 

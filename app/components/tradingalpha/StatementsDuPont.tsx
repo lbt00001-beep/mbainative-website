@@ -119,24 +119,55 @@ export default function StatementsDuPont({
               {altmanZ?.explanation || 'Estimación cuantitativa de riesgo de quiebra e insolvencia.'}
             </p>
 
-            {/* Visual Zone Bar */}
+            {/* Visual Zone Bar con Calibración Dinámica */}
             <div className="space-y-1.5 pt-2">
-              <div className="h-3 w-full rounded-full overflow-hidden flex bg-[#162032]">
-                <div className="w-[30%] bg-rose-500/60 flex items-center justify-center text-[9px] font-bold text-white">
-                  Peligro &lt;1.8
-                </div>
-                <div className="w-[30%] bg-amber-500/60 flex items-center justify-center text-[9px] font-bold text-white">
-                  Gris 1.8-3.0
-                </div>
-                <div className="w-[40%] bg-emerald-500/60 flex items-center justify-center text-[9px] font-bold text-white">
-                  Segura &gt;3.0
-                </div>
+              <div className="flex justify-between text-[11px] text-slate-300">
+                <span className="text-slate-400">Baremo Canónico:</span>
+                <span className="font-semibold">
+                  {altmanZ ? (
+                    altmanZ.notApplicable ? 'Exento (Sector Bancario)' :
+                    altmanZ.score >= 3.0 ? '🛡️ Zona Segura (Quiebra improbable)' :
+                    altmanZ.score >= 1.8 ? '⚠️ Zona Gris (Vulnerable a recesión)' :
+                    '🚨 Zona Peligro (Estrés severo de balance)'
+                  ) : 'Calculando...'}
+                </span>
               </div>
-              <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                <span>Estrés Financiero</span>
-                <span>Intermedia</span>
-                <span>Grado Inversión</span>
-              </div>
+
+              {!altmanZ?.notApplicable ? (
+                <>
+                  <div className="h-3 w-full rounded-full overflow-hidden flex bg-[#162032]">
+                    <div className="w-[30%] bg-rose-500/70 flex items-center justify-center text-[9px] font-bold text-white" title="<1.8 Peligro">
+                      Peligro &lt;1.8
+                    </div>
+                    <div className="w-[25%] bg-amber-500/70 flex items-center justify-center text-[9px] font-bold text-white" title="1.8 a 3.0 Gris">
+                      Gris 1.8-3.0
+                    </div>
+                    <div className="w-[45%] bg-emerald-500/70 flex items-center justify-center text-[9px] font-bold text-white" title=">3.0 Segura">
+                      Segura &gt;3.0
+                    </div>
+                  </div>
+                  {altmanZ && typeof altmanZ.score === 'number' && (
+                    <div className="relative w-full h-1.5">
+                      <div
+                        className="absolute -top-1 -ml-1.5 w-3 h-3 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
+                        style={{
+                          left: `${Math.min(95, Math.max(5, (altmanZ.score / 5) * 100))}%`
+                        }}
+                        title={`Score actual: ${altmanZ.score}`}
+                      ></div>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-[9px] text-slate-400 font-mono pt-0.5">
+                    <span>0.0 (Estrés)</span>
+                    <span>1.8 (Alerta)</span>
+                    <span>3.0+ (Solvente)</span>
+                  </div>
+                </>
+              ) : (
+                <div className="p-2.5 bg-[#141d30] rounded-xl text-center text-xs text-slate-400 border border-[#223048]">
+                  Las instituciones bancarias se auditan por coeficientes regulatorios de capital CET1 y colchón de liquidez de Basilea III.
+                </div>
+              )}
             </div>
           </div>
           <div className="text-[11px] text-slate-500 pt-3 border-t border-[#1e293b] mt-4">

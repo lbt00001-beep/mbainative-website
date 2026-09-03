@@ -102,20 +102,56 @@ export default function DCFSimulator({
           </div>
 
           {dcfResult && (
-            <div className="mt-3 flex items-center gap-2">
-              <span
-                className={`text-xs font-bold px-2.5 py-1 rounded-full ${
-                  dcfResult.marginOfSafety >= 15
-                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                    : dcfResult.marginOfSafety <= -15
-                    ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
-                    : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                }`}
-              >
-                {dcfResult.marginOfSafety >= 0 ? '+' : ''}
-                {dcfResult.marginOfSafety}% Margen de Seguridad
-              </span>
-              <span className="text-xs text-slate-400">({dcfResult.verdict})</span>
+            <div className="mt-3 space-y-2">
+              <div className="flex items-center gap-2">
+                <span
+                  className={`text-xs font-bold px-2.5 py-1 rounded-full ${
+                    dcfResult.marginOfSafety >= 20
+                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                      : dcfResult.marginOfSafety >= 0
+                      ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+                      : dcfResult.marginOfSafety >= -15
+                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                      : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                  }`}
+                >
+                  {dcfResult.marginOfSafety >= 0 ? '+' : ''}
+                  {dcfResult.marginOfSafety}% Margen de Seguridad
+                </span>
+                <span className="text-xs text-slate-400">({dcfResult.verdict})</span>
+              </div>
+
+              {/* Baremo Calibrado Graham */}
+              <div className="bg-[#0e1626] p-2.5 rounded-xl border border-[#223048] space-y-1 mt-2">
+                <div className="flex justify-between text-[10px] text-slate-400">
+                  <span>Baremo de Descuento:</span>
+                  <span className="text-slate-200 font-semibold">
+                    {dcfResult.marginOfSafety >= 25 ? '🎯 >+25% Excelente margen' :
+                     dcfResult.marginOfSafety >= 10 ? '✅ +10% a +25% Favorable' :
+                     dcfResult.marginOfSafety >= -10 ? '⚖️ ±10% Precio equilibrado' :
+                     dcfResult.marginOfSafety >= -25 ? '⚠️ -10% a -25% Exigida' :
+                     '🚨 <-25% Fuerte sobrevaloración'}
+                  </span>
+                </div>
+                <div className="relative h-2 w-full bg-[#162032] rounded-full overflow-hidden flex">
+                  <div className="w-[35%] bg-rose-500/70" title="<-10% Sobrevalorada"></div>
+                  <div className="w-[35%] bg-amber-500/70" title="-10% a +20% Rango Justo"></div>
+                  <div className="w-[30%] bg-emerald-500/70" title=">+20% Margen Óptimo"></div>
+                </div>
+                <div className="relative w-full h-1">
+                  <div
+                    className="absolute -top-1 -ml-1 w-2 h-2 bg-white rounded-full shadow-[0_0_6px_#fff] transition-all"
+                    style={{
+                      left: `${Math.min(95, Math.max(5, ((dcfResult.marginOfSafety + 50) / 100) * 100))}%`
+                    }}
+                  ></div>
+                </div>
+                <div className="flex justify-between text-[8px] text-slate-500 font-mono pt-0.5">
+                  <span>-50% (Cara)</span>
+                  <span>0% (Justo)</span>
+                  <span>+50% (Descuento)</span>
+                </div>
+              </div>
             </div>
           )}
         </div>

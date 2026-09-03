@@ -74,18 +74,15 @@ export async function POST(request: NextRequest) {
     }
 
     if (type === 'yahooQuote') {
-      const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
-      const res = await fetch("https://fc.yahoo.com/", {
-        redirect: "manual",
-        headers: { "User-Agent": UA },
+      const res = await fetch("https://query2.finance.yahoo.com/v8/finance/chart/AAPL?range=1d&interval=1d", {
+        headers: { "User-Agent": "Mozilla/5.0" },
       });
       const latency = Date.now() - start;
-      const ok = res.status === 404 || res.status === 302 || res.status === 200;
       return new Response(JSON.stringify({
-        ok,
-        status: 200,
+        ok: res.ok,
+        status: res.status,
         latency,
-        error: ok ? null : `Fallo en Yahoo Quote Session (${res.status})`,
+        error: res.ok ? null : `Fallo en Yahoo Quote Server (${res.status})`,
       }), {
         headers: { 'Content-Type': 'application/json' },
       });

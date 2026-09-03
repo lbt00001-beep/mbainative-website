@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import CandleChart from './CandleChart';
 import SnowflakeRadar from './SnowflakeRadar';
 import DCFSimulator from './DCFSimulator';
@@ -65,6 +65,9 @@ export default function TradingAlpha() {
   const [range, setRange] = useState<string>('1y');
   const [activeTab, setActiveTab] = useState<'summary' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
 
+  // Ref para cancelar respuestas obsoletas o fuera de orden
+  const activeTickerRef = useRef<string>('AAPL');
+
   // Settings & Custom OpenRouter Key
   const [userApiKey, setUserApiKey] = useState<string>('');
   const [selectedModel, setSelectedModel] = useState<string>('z-ai/glm-5.3-flash');
@@ -104,6 +107,21 @@ export default function TradingAlpha() {
     return null;
   };
 
+  // Función atómica para cambiar de ticker y limpiar inmediatamente el estado anterior
+  const selectTicker = useCallback((newTicker: string) => {
+    const clean = newTicker.trim().toUpperCase();
+    if (!clean) return;
+
+    activeTickerRef.current = clean;
+    setTicker(clean);
+    setSearchInput('');
+    setStatusMsg(null);
+    setQuoteData(null); // Borrar datos de inmediato para evitar mezclar nombres de empresas
+    setChartBars([]);
+    setSentimentData(null);
+    setAiReport(null);
+  }, []);
+
   // 1. Fetch Chart Data (OHLCV)
   const loadChartData = useCallback(async (t: string, r: string) => {
     try {
@@ -113,14 +131,20 @@ export default function TradingAlpha() {
         throw new Error(`Chart HTTP ${res.status}`);
       }
       const data = await res.json();
+      // Descartar si el usuario ya cambió a otro ticker
+      if (activeTickerRef.current !== t) return;
       if (data.bars && Array.isArray(data.bars)) {
         setChartBars(data.bars);
         if (data.currency) setCurrency(data.currency === 'EUR' ? '€' : '$');
       }
     } catch (e: any) {
-      console.error('Error fetching chart:', e);
+      if (activeTickerRef.current === t) {
+        console.error('Error fetching chart:', e);
+      }
     } finally {
-      setIsLoadingChart(false);
+      if (activeTickerRef.current === t) {
+        setIsLoadingChart(false);
+      }
     }
   }, []);
 
@@ -145,6 +169,8 @@ export default function TradingAlpha() {
         throw new Error(`Quote HTTP ${res.status}`);
       }
       const json = await res.json();
+      // Descartar si el usuario ya cambió a otro ticker
+      if (activeTickerRef.current !== t) return;
       if (json.data) {
         setQuoteData(json.data);
         setStatusMsg({ type: 'ok', text: `Datos de ${t} cargados con éxito.` });
@@ -152,13 +178,17 @@ export default function TradingAlpha() {
         throw new Error('No se recibieron datos de Yahoo Finance.');
       }
     } catch (e: any) {
-      console.error('Error fetching quote:', e);
-      setStatusMsg({
-        type: 'error',
-        text: `No se pudieron cargar datos para ${t}. Revisa el ticker o prueba con otro símbolo.`,
-      });
+      if (activeTickerRef.current === t) {
+        console.error('Error fetching quote:', e);
+        setStatusMsg({
+          type: 'error',
+          text: `No se pudieron cargar datos para ${t}. Revisa el ticker o prueba con otro símbolo.`,
+        });
+      }
     } finally {
-      setIsLoadingQuote(false);
+      if (activeTickerRef.current === t) {
+        setIsLoadingQuote(false);
+      }
     }
   }, []);
 
@@ -170,21 +200,26 @@ export default function TradingAlpha() {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Sentiment HTTP ${res.status}`);
       const json = await res.json();
+      if (activeTickerRef.current !== t) return;
       setSentimentData(json);
     } catch (e) {
-      console.error('Error fetching sentiment:', e);
+      if (activeTickerRef.current === t) {
+        console.error('Error fetching sentiment:', e);
+      }
     } finally {
-      setIsLoadingSentiment(false);
+      if (activeTickerRef.current === t) {
+        setIsLoadingSentiment(false);
+      }
     }
   }, []);
 
   // On ticker change
   useEffect(() => {
+    activeTickerRef.current = ticker;
     loadQuoteSummary(ticker);
     loadChartData(ticker, range);
     loadSentimentData(ticker);
-    setAiReport(null);
-  }, [ticker, loadQuoteSummary, loadChartData, loadSentimentData]);
+  }, [ticker, range, loadQuoteSummary, loadChartData, loadSentimentData]);
 
   // On range change
   const handleRangeChange = (newRange: string) => {
@@ -194,11 +229,7 @@ export default function TradingAlpha() {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const clean = searchInput.trim().toUpperCase();
-    if (clean) {
-      setTicker(clean);
-      setSearchInput('');
-    }
+    selectTicker(searchInput);
   };
 
   // Quantitative Calculations
@@ -206,17 +237,25 @@ export default function TradingAlpha() {
     return computeTechnicalIndicators(chartBars);
   }, [chartBars]);
 
-  const profile = quoteData?.assetProfile || {};
-  const fin = quoteData?.financialData || {};
-  const stats = quoteData?.defaultKeyStatistics || {};
-  const sum = quoteData?.summaryDetail || {};
-  const priceObj = quoteData?.price || {};
+  // Blindaje de concordancia: verificar que quoteData corresponde exactamente al ticker actual
+  const quoteSymbol = (quoteData?.price?.symbol || quoteData?.symbol || '').toUpperCase();
+  const isDataMatching = quoteData && (!quoteSymbol || quoteSymbol === ticker.toUpperCase());
+  const safeQuoteData = isDataMatching ? quoteData : null;
+
+  const profile = safeQuoteData?.assetProfile || {};
+  const fin = safeQuoteData?.financialData || {};
+  const stats = safeQuoteData?.defaultKeyStatistics || {};
+  const sum = safeQuoteData?.summaryDetail || {};
+  const priceObj = safeQuoteData?.price || {};
 
   const currentPrice = pick(priceObj.regularMarketPrice) || pick(fin.currentPrice) || (chartBars.length > 0 ? chartBars[chartBars.length - 1].close : 0);
   const regularMarketChange = pick(priceObj.regularMarketChange) ?? 0;
   const regularMarketChangePercent = (pick(priceObj.regularMarketChangePercent) ?? 0) * 100;
-  const companyName = priceObj.shortName || priceObj.longName || ticker;
-  const sector = profile.sector || 'N/D';
+  
+  // Nombre de empresa protegido: nunca usa nombres obsoletos de otros tickers
+  const quickInfo = QUICK_TICKERS.find((q) => q.symbol.toUpperCase() === ticker.toUpperCase());
+  const companyName = priceObj.shortName || priceObj.longName || quickInfo?.label || ticker;
+  const sector = profile.sector || (quickInfo ? 'Equities' : 'N/D');
   const industry = profile.industry || 'N/D';
 
   const fcfBase = pick(fin.freeCashflow) ?? (pick(fin.totalRevenue) ? (pick(fin.totalRevenue)! * 0.15) : 1e9);
@@ -394,7 +433,7 @@ export default function TradingAlpha() {
           {QUICK_TICKERS.map((item) => (
             <button
               key={item.symbol}
-              onClick={() => setTicker(item.symbol)}
+              onClick={() => selectTicker(item.symbol)}
               className={`text-xs px-2.5 py-1 rounded-lg border font-mono transition-all ${
                 ticker === item.symbol
                   ? 'bg-blue-600 text-white border-blue-500 font-bold shadow-md shadow-blue-600/30'
@@ -428,10 +467,19 @@ export default function TradingAlpha() {
           <div>
             <div className="flex items-center gap-3">
               <span className="text-2xl font-black font-mono text-white tracking-wide">{ticker}</span>
-              <span className="text-base font-semibold text-slate-300">{companyName}</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1e293b] text-slate-300 border border-[#2e3e58]">
-                {sector}
-              </span>
+              {isLoadingQuote ? (
+                <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 animate-pulse flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+                  Cargando {companyName}...
+                </span>
+              ) : (
+                <>
+                  <span className="text-base font-semibold text-slate-300">{companyName}</span>
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1e293b] text-slate-300 border border-[#2e3e58]">
+                    {sector}
+                  </span>
+                </>
+              )}
             </div>
 
             <div className="flex items-baseline gap-4 mt-2">

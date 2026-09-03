@@ -58,39 +58,43 @@ export async function POST(request: NextRequest) {
 Tu misión es redactar una Tesis de Inversión y un Resumen Ejecutivo riguroso, objetivo y de alto valor sobre el activo analizado.
 Debes basarte estrictamente en los datos cuantitativos, técnicos y de sentimiento proporcionados por el sistema, sin inventar datos no verificables.
 Presta especial atención al contraste entre la realidad contable/intrínseca de la empresa y la psicología del mercado (noticias virales, euforia minorista o pánico irracional).
-Usa un tono profesional, directo, analítico y en español de España.`;
+
+REGLA LINGÜÍSTICA ESTRICTA Y OBLIGATORIA:
+Redacta el 100% de tu informe en ESPAÑOL DE ESPAÑA (Castellano peninsular).
+Bajo ninguna circunstancia respondas en inglés, chino ni ningún otro idioma. Toda la redacción, títulos, subtítulos, argumentos y conclusiones deben estar escritos en un español formal, profesional y elegante.`;
 
     const userPrompt = `Analiza la empresa ${companyName || ticker} (${ticker}), sector: ${sector || 'General'}.
 Datos de Mercado y Métricas Cuantitativas actuales:
 - Precio actual: ${price} ${currency} | Capitalización: ${marketCap}
 - Puntuación Alpha Global: ${alphaScore}/100 (Salud Fundamental: ${fundamentalScore}/100, Momentum Técnico: ${technicalScore}/100)
-- Piotroski F-Score: ${piotroski ?? 'N/D'}/9 | Altman Z-Score: ${altmanZ ?? 'N/D'}
+- Auditoría Piotroski F-Score: ${piotroski ?? 'N/D'}/9 | Riesgo de Quiebra Altman Z-Score: ${altmanZ ?? 'N/D'}
 - Valoración Intrínseca DCF: ${dcfFairValue ? `${dcfFairValue} ${currency}` : 'N/D'} (Margen de Seguridad: ${marginOfSafety ? `${marginOfSafety}%` : 'N/D'})
-- Múltiplos: PER ${pe ?? 'N/D'} | Forward PER ${fwdPe ?? 'N/D'} | FCF Yield ${fcfYield ?? 'N/D'}%
-- Rentabilidad & Calidad: Margen Neto ${netMargin ?? 'N/D'}% | ROE ${roe ?? 'N/D'}% | D/E ${debtToEquity ?? 'N/D'}
-- Situación Técnica: RSI(14) ${rsi ?? 'N/D'} | Señal MACD: ${macdSignal ?? 'N/D'} | Tendencia Medias (50 vs 200): ${trend50_200 ?? 'N/D'}
-- Sentimiento y Psicología de Masas:
+- Múltiplos de Valoración: PER ${pe ?? 'N/D'} | PER Futuro ${fwdPe ?? 'N/D'} | Rendimiento FCF ${fcfYield ?? 'N/D'}%
+- Rentabilidad y Calidad Contable: Margen Neto ${netMargin ?? 'N/D'}% | ROE ${roe ?? 'N/D'}% | Deuda sobre Fondos Propios ${debtToEquity ?? 'N/D'}
+- Situación Técnica y Momentum: RSI(14) ${rsi ?? 'N/D'} | Señal MACD: ${macdSignal ?? 'N/D'} | Tendencia de Medias Móviles (50 vs 200): ${trend50_200 ?? 'N/D'}
+- Sentimiento de Mercado y Psicología de Masas:
   * Índice de Sentimiento Neto (NSI): ${nsi ?? '0'} (${sentimentLabel ?? 'Neutral'}) en escala [-100 Pánico a +100 Euforia]
-  * Titulares recientes en medios financieros y redes: ${topHeadlines || 'Sin titulares destacados'}
+  * Titulares recientes en prensa financiera y medios: ${topHeadlines || 'Sin titulares destacados'}
 
-Estructura tu respuesta exactamente con estas secciones en formato Markdown:
+IMPORTANTE: Responde ÚNICAMENTE EN ESPAÑOL DE ESPAÑA. Estructura tu respuesta exactamente con estas secciones en formato Markdown:
+
 ### 1. Veredicto Estratégico Ejecutivo
-(Dictamen conciso de 2-3 párrafos resumiendo el equilibrio entre valoración, calidad del negocio y timing técnico).
+(Dictamen conciso de 2-3 párrafos resumiendo el equilibrio entre valoración, calidad del negocio y oportunidad técnica).
 
-### 2. Tesis Alcista (Bull Case)
-(3-4 argumentos sólidos de por qué el activo puede generar alfa o revalorizarse).
+### 2. Tesis Alcista (Factores a Favor)
+(3-4 argumentos sólidos de por qué el activo puede revalorizarse y batir al mercado).
 
-### 3. Tesis Bajista & Principales Riesgos (Bear Case)
-(3-4 riesgos fundamentales, de valoración, regulatorios o de ciclo de mercado).
+### 3. Tesis Bajista y Principales Riesgos
+(3-4 riesgos fundamentales, contables, de valoración, regulatorios o macroeconómicos).
 
-### 4. Diagnóstico Técnico & Timing de Entrada
-(Lectura de la acción del precio, momentum RSI/MACD y niveles clave a vigilar).
+### 4. Diagnóstico Técnico y Momento de Entrada
+(Lectura de la acción del precio, niveles de soporte/resistencia, fuerza del RSI/MACD y momento adecuado para operar).
 
-### 5. Psicología del Mercado y Sesgo Mediático (Behavioral Finance)
-(Diagnóstico de si existe trampa de euforia/FOMO minorista o una oportunidad contraria por pánico desmedido en las noticias).
+### 5. Psicología del Mercado y Finanzas Conductuales
+(Evaluación de si existe trampa de euforia/FOMO minorista o una oportunidad de compra por sobrerreacción o pánico excesivo en las noticias).
 
 ### 6. Conclusión y Perfil de Inversor Idóneo
-(Perfil recomendado: Value / Growth / Dividendos / Momentum / No apto en este momento).`;
+(Perfil sugerido: Inversión en Valor / Crecimiento / Dividendos / Seguimiento de Tendencia / No apto en este momento).`;
 
     const openRouterRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",

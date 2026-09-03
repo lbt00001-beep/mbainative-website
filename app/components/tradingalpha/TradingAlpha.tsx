@@ -39,6 +39,23 @@ const QUICK_TICKERS = [
   { symbol: 'QQQ', label: 'Nasdaq' },
 ];
 
+function parseReportSections(text: string) {
+  if (!text) return [];
+  const parts = text.split(/(?=###\s+)/g);
+  return parts
+    .map((part) => {
+      const trimmed = part.trim();
+      if (!trimmed) return null;
+      const lines = trimmed.split('\n');
+      const firstLine = lines[0] || '';
+      const isHeader = firstLine.startsWith('###');
+      const title = isHeader ? firstLine.replace(/^###\s*/, '').trim() : '';
+      const body = isHeader ? lines.slice(1).join('\n').trim() : trimmed;
+      return { title, body };
+    })
+    .filter(Boolean) as Array<{ title: string; body: string }>;
+}
+
 export default function TradingAlpha() {
   const [ticker, setTicker] = useState<string>('AAPL');
   const [searchInput, setSearchInput] = useState<string>('');
@@ -315,9 +332,9 @@ export default function TradingAlpha() {
   const pos52 = high52 && low52 && high52 > low52 ? Math.min(100, Math.max(0, ((currentPrice - low52) / (high52 - low52)) * 100)) : 50;
 
   return (
-    <div className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 sm:p-6 lg:p-8 space-y-6">
+    <div className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 sm:p-6 lg:p-8 space-y-6 print:p-0 print:m-0 print:bg-white print:text-slate-900 print:min-h-0">
       {/* 1. Header & Asset Selector Bar */}
-      <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-2xl space-y-4">
+      <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-2xl space-y-4 print:hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
@@ -737,10 +754,11 @@ export default function TradingAlpha() {
         />
       )}
 
-      {/* TAB 6: INFORME DE RESEARCH CON IA (OPENROUTER GEMINI 3.5 FLASH LITE) */}
+      {/* TAB 6: INFORME DE RESEARCH CON IA */}
       {activeTab === 'aiReport' && (
-        <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1e293b] pb-4">
+        <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl space-y-6 print:bg-white print:border-none print:p-0 print:shadow-none print:space-y-4">
+          {/* Header Bar on Screen (Hidden on Print) */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1e293b] pb-4 print:hidden">
             <div>
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <span>🤖</span> Equity Research Memo — {companyName} ({ticker})
@@ -773,12 +791,61 @@ export default function TradingAlpha() {
 
               <button
                 onClick={() => window.print()}
-                className="bg-[#141d30] hover:bg-[#1a253c] text-slate-300 text-xs font-semibold px-3 py-2 rounded-xl border border-[#223048] transition-all"
+                title="Genera un PDF institucional optimizado para formato A4"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-1.5"
               >
-                🖨️ Imprimir / PDF
+                <span>🖨️</span> Descargar / Imprimir PDF
               </button>
             </div>
           </div>
+
+          {/* Institutional Print Cover Header (Visible ONLY when printing to PDF) */}
+          {aiReport && (
+            <div className="hidden print:block border-b-2 border-slate-800 pb-4 mb-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <div className="text-[10px] uppercase font-mono tracking-widest text-slate-500 font-bold">
+                    TRADINGALPHA RESEARCH • INSTITUTIONAL EQUITY MEMORANDUM
+                  </div>
+                  <h1 className="text-2xl font-black text-slate-900 mt-0.5">
+                    {companyName} <span className="font-mono text-slate-500 text-lg font-normal">({ticker})</span>
+                  </h1>
+                  <div className="text-xs text-slate-600 mt-1">
+                    Sector: <strong>{sector || 'Renta Variable'}</strong> • Cotización de Cierre: <strong>{currency}{currentPrice.toFixed(2)}</strong> • Cap: <strong>${(pick(sum.marketCap) ? (pick(sum.marketCap)! / 1e9).toFixed(2) + 'B' : 'N/D')}</strong>
+                  </div>
+                </div>
+                <div className="text-right text-[11px] text-slate-600 font-mono space-y-0.5">
+                  <div>Fecha: <strong>{new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</strong></div>
+                  <div>Motor: <strong>{currentModelInfo.name}</strong></div>
+                  <div>Pasarela: <strong>OpenRouter Gateway</strong></div>
+                </div>
+              </div>
+
+              {/* 4-Box Executive KPI Summary Strip for PDF */}
+              <div className="grid grid-cols-4 gap-2 mt-4 text-xs font-mono">
+                <div className="border border-slate-300 bg-slate-50 p-2 rounded">
+                  <div className="text-[9px] uppercase text-slate-500">Puntuación Alpha Global</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">{snowflakeScores.alphaScore}/100</div>
+                  <div className="text-[9px] text-slate-600">Fund: {snowflakeScores.health} | Téc: {technicalSummary.signals.technicalScore}</div>
+                </div>
+                <div className="border border-slate-300 bg-slate-50 p-2 rounded">
+                  <div className="text-[9px] uppercase text-slate-500">Valor Justo DCF</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">{dcfResult ? `${currency}${dcfResult.fairValue}` : 'N/D'}</div>
+                  <div className="text-[9px] text-slate-600">Margen Seguridad: {dcfResult ? `${dcfResult.marginOfSafety}%` : 'N/D'}</div>
+                </div>
+                <div className="border border-slate-300 bg-slate-50 p-2 rounded">
+                  <div className="text-[9px] uppercase text-slate-500">Auditoría Piotroski / Z</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">{piotroski.score}/9 • {piotroski.quality}</div>
+                  <div className="text-[9px] text-slate-600">Altman Z: {altmanZ?.notApplicable ? 'N/A Banca' : (altmanZ?.score ?? 'N/D')}</div>
+                </div>
+                <div className="border border-slate-300 bg-slate-50 p-2 rounded">
+                  <div className="text-[9px] uppercase text-slate-500">Sentimiento / Momento</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">NSI: {sentimentData?.nsi ?? 0} ({sentimentData?.label ?? 'Neutral'})</div>
+                  <div className="text-[9px] text-slate-600">RSI(14): {technicalSummary.rsi14 ?? '—'} • {technicalSummary.signals.rsiStatus}</div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Report Display */}
           {isGeneratingAi ? (
@@ -792,8 +859,41 @@ export default function TradingAlpha() {
               </p>
             </div>
           ) : aiReport ? (
-            <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-6 text-sm text-slate-200 leading-relaxed space-y-4 whitespace-pre-wrap font-sans">
-              {aiReport}
+            <div className="space-y-4">
+              {parseReportSections(aiReport).length > 0 ? (
+                <div className="space-y-4">
+                  {parseReportSections(aiReport).map((sec, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-2.5 transition-all print:bg-white print:border print:border-slate-300 print:rounded-lg print:p-3.5 print:mb-3"
+                      style={{ breakInside: 'avoid', pageBreakInside: 'avoid' }}
+                    >
+                      {sec.title && (
+                        <h4 className="text-sm font-bold text-blue-400 print:text-slate-900 border-b border-[#1e293b] print:border-slate-200 pb-2 flex items-center gap-2">
+                          <span>📌</span> {sec.title}
+                        </h4>
+                      )}
+                      <div className="text-sm text-slate-200 print:text-slate-800 leading-relaxed whitespace-pre-wrap font-sans">
+                        {sec.body}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-6 text-sm text-slate-200 print:text-slate-900 print:bg-white leading-relaxed space-y-4 whitespace-pre-wrap font-sans">
+                  {aiReport}
+                </div>
+              )}
+
+              {/* Institutional Disclaimer */}
+              <div
+                className="border-t border-[#1e293b] print:border-slate-300 pt-4 text-[11px] text-slate-500 print:text-slate-600 print:mt-4"
+                style={{ breakInside: 'avoid', pageBreakInside: 'avoid' }}
+              >
+                <p>
+                  <strong>Aviso Metodológico y Legal:</strong> Este memorando de equity research ha sido elaborado de forma automatizada por el motor de inteligencia artificial de TradingAlpha combinando modelos cuantitativos descontados (DCF), auditorías forenses contables (Piotroski F-Score y Altman Z-Score) y procesamiento conductual de noticias en tiempo real. No constituye asesoramiento financiero regulado bajo directiva MiFID II.
+                </p>
+              </div>
             </div>
           ) : (
             <div className="py-16 text-center space-y-3">

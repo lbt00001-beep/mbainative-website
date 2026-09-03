@@ -192,13 +192,13 @@ export default function HelpGuide() {
     },
     {
       id: 'snowflake',
-      title: '4. El Radar Snowflake (La Huella Dactilar del Activo)',
+      title: '4. El Radar Pentagonal (La Huella Dactilar del Activo)',
       icon: '❄️',
-      badge: 'Visual Simply Wall St',
+      badge: 'Radar Pentagonal',
       content: (
         <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
           <p>
-            Inspirado en la popular metodología visual de <em>Simply Wall St</em>, el <strong>Radar Snowflake</strong> es un pentágono que sintetiza en un solo golpe de vista la salud general de una empresa a través de 5 dimensiones puntuadas de 0 a 100:
+            El <strong>Radar Pentagonal</strong> es una metodología cuantitativa que sintetiza en un solo golpe de vista la salud general de una empresa a través de 5 dimensiones puntuadas de 0 a 100:
           </p>
 
           <div className="space-y-2 text-xs">

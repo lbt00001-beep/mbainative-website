@@ -200,7 +200,7 @@ export default function StatementsDuPont({
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1e293b] pb-4">
           <div>
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <span>📊</span> Estados Financieros Normalizados a 4 Años (Koyfin & Bloomberg Style)
+              <span>📊</span> Estados Financieros Normalizados a 4 Años (Auditoría Fundamental)
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
               Datos contables auditados de los últimos ejercicios fiscales

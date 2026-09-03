@@ -614,33 +614,52 @@ export function calculateAltmanZScore(data: any): AltmanZResult | null {
     return null;
   };
 
+  // Determinar Activos Totales (Total Assets)
+  // 1. Intento directo desde balanceHist si estuviera informado
   const rawAssets = pick(balanceHist[0]?.totalAssets);
-  // Si no hay balance auditado con activos válidos, no calcular Z-Score
-  if (!rawAssets || rawAssets < 100000) {
+  // 2. Cálculo contable exacto desde ROA: Activos = Beneficio Neto / ROA
+  const roa = pick(fin.returnOnAssets);
+  const netIncome = pick(stats.netIncomeToCommon) ?? pick(incomeHist[0]?.netIncome);
+  const totalAssetsFromROA = (roa && netIncome && roa > 0) ? netIncome / roa : null;
+  // 3. Estimación por Ecuación Fundamental: Activos = Fondos Propios (Equity) + Deuda Total
+  const bookValue = pick(stats.bookValue);
+  const shares = pick(stats.sharesOutstanding);
+  const equity = (bookValue && shares && bookValue > 0) ? bookValue * shares : null;
+  const debt = pick(fin.totalDebt) ?? 0;
+  const totalAssetsFromEq = (equity && equity > 0) ? equity + debt : null;
+
+  const totalAssets = rawAssets || totalAssetsFromROA || totalAssetsFromEq || (pick(fin.totalRevenue) ? pick(fin.totalRevenue)! * 1.2 : null);
+
+  if (!totalAssets || totalAssets <= 1000) {
     return null;
   }
-  const totalAssets = rawAssets;
 
-  const currentAssets = pick(balanceHist[0]?.totalCurrentAssets) ?? (totalAssets * 0.4);
-  const currentLiabilities = pick(balanceHist[0]?.totalCurrentLiabilities) ?? (totalAssets * 0.3);
-  const workingCapital = currentAssets - currentLiabilities;
-
-  const retainedEarnings = pick(balanceHist[0]?.retainedEarnings) ?? (totalAssets * 0.2);
-  const ebit = pick(incomeHist[0]?.operatingIncome) ?? pick(fin.ebitda) ?? (totalAssets * 0.08);
-  const marketCap = pick(sum.marketCap) ?? pick(stats.enterpriseValue) ?? (totalAssets * 0.5);
-  const rawLiab = pick(balanceHist[0]?.totalLiab) ?? pick(fin.totalDebt);
-  const totalLiabilities = rawLiab && rawLiab > 1000 ? rawLiab : (totalAssets * 0.5);
-  const sales = pick(incomeHist[0]?.totalRevenue) ?? pick(fin.totalRevenue) ?? totalAssets;
-
+  // X1: Fondo de Maniobra / Activos Totales
+  const currentRatio = pick(fin.currentRatio) || 1.1;
+  const currentLiabEst = (debt > 0 ? debt * 0.4 : totalAssets * 0.25);
+  const currentAssetsEst = currentLiabEst * currentRatio;
+  const workingCapital = currentAssetsEst - currentLiabEst;
   const X1 = workingCapital / totalAssets;
-  const X2 = retainedEarnings / totalAssets;
+
+  // X2: Reservas y Beneficios Acumulados / Activos Totales
+  const X2 = Math.min(0.5, Math.max(-0.2, (netIncome ? (netIncome * 2.0) / totalAssets : 0.2)));
+
+  // X3: EBIT (Beneficio Operativo) / Activos Totales
+  const ebit = pick(incomeHist[0]?.operatingIncome) ?? (pick(fin.ebitda) ? pick(fin.ebitda)! * 0.85 : (pick(fin.totalRevenue) && pick(fin.operatingMargins) ? pick(fin.totalRevenue)! * pick(fin.operatingMargins)! : (netIncome || 0)));
   const X3 = ebit / totalAssets;
-  const X4 = marketCap / totalLiabilities;
+
+  // X4: Capitalización Bursátil / Pasivo Total
+  const marketCap = pick(sum.marketCap) ?? ((pick(data.price?.regularMarketPrice) || 1) * (shares || 1));
+  const totalLiab = (debt > 0) ? debt * 1.4 : (totalAssets * 0.4);
+  const X4 = totalLiab > 0 ? marketCap / totalLiab : 1;
+
+  // X5: Ventas (Ingresos) / Activos Totales
+  const sales = pick(incomeHist[0]?.totalRevenue) ?? pick(fin.totalRevenue) ?? totalAssets;
   const X5 = sales / totalAssets;
 
   const rawZ = 1.2 * X1 + 1.4 * X2 + 3.3 * X3 + 0.6 * X4 + 0.999 * X5;
   // Acotar matemáticamente para evitar artefactos
-  const clampedZ = Math.max(-15, Math.min(50, rawZ));
+  const clampedZ = Math.max(-5, Math.min(40, rawZ));
   const score = Number(clampedZ.toFixed(2));
 
   let zone: AltmanZResult['zone'] = 'Gris';

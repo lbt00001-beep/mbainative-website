@@ -52,7 +52,7 @@ export default function SentimentPulse({
           Escaneando titulares financieros y sentimiento de mercado en tiempo real...
         </div>
         <p className="text-xs text-slate-400">
-          Procesando Bloomberg, Reuters, TheStreet, Google News y valencias de polarización.
+          Procesando agencias de noticias financieras y valencias de polarización.
         </p>
       </div>
     );

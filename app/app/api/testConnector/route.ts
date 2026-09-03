@@ -74,9 +74,8 @@ export async function POST(request: NextRequest) {
     }
 
     if (type === 'yahooQuote') {
-      const res = await fetch("https://query2.finance.yahoo.com/v10/finance/quoteSummary/AAPL?modules=price,summaryDetail", {
-        headers: { "User-Agent": "Mozilla/5.0" },
-      });
+      const url = new URL('/api/quoteSummary?t=AAPL', request.url);
+      const res = await fetch(url.toString());
       const latency = Date.now() - start;
       return new Response(JSON.stringify({
         ok: res.ok,

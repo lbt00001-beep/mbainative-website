@@ -60,7 +60,7 @@ export default function TradingAlpha() {
   const [ticker, setTicker] = useState<string>('AAPL');
   const [searchInput, setSearchInput] = useState<string>('');
   const [range, setRange] = useState<string>('1y');
-  const [activeTab, setActiveTab] = useState<'summary' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings'>('summary');
+  const [activeTab, setActiveTab] = useState<'summary' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
 
   // Settings & Custom OpenRouter Key
   const [userApiKey, setUserApiKey] = useState<string>('');
@@ -347,7 +347,7 @@ export default function TradingAlpha() {
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-1">
-              Terminal unificado de Análisis Fundamental (Bloomberg/Koyfin/Simply Wall St) y Análisis Técnico (TradingView)
+              Terminal unificado de Análisis Fundamental Cuantitativo y Análisis Técnico Algorítmico
             </p>
           </div>
 
@@ -490,9 +490,9 @@ export default function TradingAlpha() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap items-center gap-2 border-t border-[#1e293b] pt-4 mt-6">
+        <div className="flex flex-wrap items-center gap-2 border-t border-[#1e293b] pt-4 mt-6 print:hidden">
           {[
-            { id: 'summary', label: '📊 Resumen & Radar Snowflake', icon: '📊' },
+            { id: 'summary', label: '📊 Resumen & Radar Cuantitativo', icon: '📊' },
             { id: 'technical', label: '📈 Terminal Técnico & Velas', icon: '📈' },
             { id: 'valuation', label: '💎 Valoración Intrínseca (DCF)', icon: '💎' },
             { id: 'statements', label: '📑 Estados Financieros & DuPont', icon: '📑' },
@@ -500,6 +500,7 @@ export default function TradingAlpha() {
             { id: 'aiReport', label: '🤖 Informe Research con IA', icon: '🤖' },
             { id: 'help', label: '🎓 Guía Didáctica & Conceptos', icon: '🎓' },
             { id: 'settings', label: '⚙️ Ajustes & Conectores', icon: '⚙️' },
+            { id: 'legal', label: '⚖️ Salvedad Legal & Riesgos', icon: '⚖️' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -525,7 +526,7 @@ export default function TradingAlpha() {
           <div className="lg:col-span-5 bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl flex flex-col items-center justify-between">
             <div className="w-full text-center">
               <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-xs text-blue-400 font-semibold mb-2">
-                Radar de 5 Dimensiones (Simply Wall St Style)
+                Radar de 5 Dimensiones • Huella Cuantitativa
               </div>
               <h3 className="text-xl font-black text-white">Huella Cuantitativa del Activo</h3>
             </div>
@@ -589,7 +590,7 @@ export default function TradingAlpha() {
                 {/* Technical Momentum Bar */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-slate-300">Momentum Técnico (TradingView)</span>
+                    <span className="text-slate-300">Momentum Técnico Algorítmico</span>
                     <span className="text-blue-400 font-mono">{technicalSummary.signals.technicalScore}/100</span>
                   </div>
                   <div className="h-3 bg-[#162032] rounded-full overflow-hidden border border-[#27354f]">
@@ -930,6 +931,115 @@ export default function TradingAlpha() {
           setSelectedModel={setSelectedModel}
         />
       )}
+
+      {/* TAB 9: SALVEDAD LEGAL & DESCARGO DE RESPONSABILIDAD REGULATORIA */}
+      {activeTab === 'legal' && (
+        <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+          <div className="border-b border-[#1e293b] pb-4">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">⚖️</span>
+              <div>
+                <h3 className="text-xl font-bold text-white">
+                  Aviso Legal, Salvedad Regulatoria y Descargo Universal de Responsabilidad
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Marco de cumplimiento para Europa (MiFID II / MAR), Estados Unidos (SEC / FINRA) y Jurisdicciones Internacionales.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Box 1: Unión Europea */}
+            <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <span>🇪🇺</span> Marco Regulatorio Unión Europea
+              </div>
+              <div className="text-xs text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  <strong>Directiva MiFID II (2014/65/UE):</strong> Esta plataforma es un software tecnológico de cálculo algorítmico y simulación cuantitativa. No constituye una Empresa de Servicios de Inversión (ESI) ni una entidad de crédito autorizada.
+                </p>
+                <p>
+                  <strong>Ausencia de Asesoramiento:</strong> Ningún ratio, puntuación (AlphaScore, Piotroski, Altman Z), modelo de descuento de flujos (DCF) ni informe redactado por Inteligencia Artificial constituye asesoramiento en materia de inversión ni recomendación personalizada con arreglo a los artículos 24 y 25 de MiFID II.
+                </p>
+                <p>
+                  <strong>Reglamento MAR (596/2014):</strong> Los contenidos generados no constituyen prospección comercial ni informes de análisis de inversiones regulados bajo las normas europeas de abuso de mercado.
+                </p>
+              </div>
+            </div>
+
+            {/* Box 2: Estados Unidos */}
+            <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <span>🇺🇸</span> U.S. Regulatory Compliance (SEC & FINRA)
+              </div>
+              <div className="text-xs text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  <strong>Investment Advisers Act of 1940:</strong> Neither this application nor its operators are registered as investment advisers, broker-dealers, or financial planners with the U.S. Securities and Exchange Commission (SEC) or FINRA.
+                </p>
+                <p>
+                  <strong>No Solicitation:</strong> Nothing contained herein constitutes an offer to buy or sell, or a recommendation to buy, hold, or sell any security, derivative, ETF, or financial instrument.
+                </p>
+                <p>
+                  <strong>No Fiduciary Duty:</strong> Use of this application does not establish any advisory, brokerage, or fiduciary relationship between the user and mbainative.com or its creators.
+                </p>
+              </div>
+            </div>
+
+            {/* Box 3: Internacional / DYODD */}
+            <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                <span>🌐</span> Cláusula Universal de Exención de Responsabilidad
+              </div>
+              <div className="text-xs text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  <strong>Principio DYODD (Do Your Own Due Diligence):</strong> La inversión en renta variable y mercados financieros conlleva un riesgo sustancial de pérdida económica, incluyendo la posible pérdida total del capital invertido.
+                </p>
+                <p>
+                  <strong>Responsabilidad Exclusiva:</strong> El usuario asume de forma total, exclusiva e irrevocable cualquier consecuencia patrimonial de sus operaciones. Ningún cálculo matemático garantiza rentabilidades futuras.
+                </p>
+                <p>
+                  <strong>Limitación de Responsabilidad (Hold Harmless):</strong> En ninguna circunstancia los desarrolladores, colaboradores o mbainative.com responderán de daños patrimoniales directos, indirectos, lucro cesante o pérdidas derivadas del uso de esta app.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Modelos Matemáticos e Inteligencia Artificial */}
+          <div className="bg-[#141d30] border border-[#223048] rounded-2xl p-5 space-y-3">
+            <h4 className="text-sm font-bold text-white flex items-center gap-2">
+              <span>🤖</span> Naturaleza de los Modelos de IA y Cálculos Cuantitativos
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-300 leading-relaxed">
+              <p>
+                <strong>Modelos LLM (Inteligencia Artificial):</strong> Los informes ejecutivos son sintetizados por modelos de lenguaje abiertos (vía OpenRouter). Pese a operar con instrucciones estrictas de neutralidad, los modelos de lenguaje pueden presentar sesgos o interpretaciones imprecisas y deben ser tratados exclusivamente como borradores de trabajo no vinculantes.
+              </p>
+              <p>
+                <strong>Fuentes de Datos de Mercado:</strong> Los datos contables, fundamentales, técnicos y de cotización son servidos por APIs públicas de mercado (Yahoo Finance). No se garantiza la exactitud absoluta, integridad o puntualidad en tiempo real de los datos recibidos.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* PERSISTENT GLOBAL REGULATORY NOTICE (Visible across all tabs) */}
+      <div className="bg-[#0b1220] border border-[#1e293b] rounded-2xl p-5 text-xs text-slate-400 space-y-3 print:hidden">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1a2638] pb-3">
+          <div className="flex items-center gap-2 text-slate-200 font-bold">
+            <span>⚖️</span>
+            <span>Salvedad Legal Internacional y Descargo de Responsabilidad</span>
+          </div>
+          <button
+            onClick={() => setActiveTab('legal')}
+            className="text-blue-400 hover:text-blue-300 underline font-semibold text-left sm:text-right cursor-pointer"
+          >
+            Consultar marco regulatorio completo (MiFID II / SEC / DYODD) ↗
+          </button>
+        </div>
+        <p className="text-[11px] text-slate-500 leading-relaxed">
+          <strong>Aviso de Riesgo y Carácter No Asesor:</strong> TradingAlpha es una herramienta de simulación matemática, análisis cuantitativo algorítmico y divulgación formativa. <strong>No proporciona asesoramiento financiero ni recomendaciones personalizadas de inversión.</strong> Ninguna métrica cuantitativa (DCF, Piotroski, Altman Z) ni informe generado por Inteligencia Artificial constituye una recomendación de inversión bajo la Directiva MiFID II (UE 2014/65), el Reglamento MAR (UE 596/2014) ni bajo la regulación de la SEC o FINRA de los Estados Unidos. Operar en bolsa conlleva alto riesgo de pérdida de capital. Realiza siempre tu propio análisis independiente (DYODD) o consulta a un asesor financiero registrado antes de tomar decisiones de inversión.
+        </p>
+      </div>
     </div>
   );
 }

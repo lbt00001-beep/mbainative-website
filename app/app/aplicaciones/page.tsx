@@ -23,6 +23,13 @@ const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "TradingAlpha — Suite Inversiones Pro",
+        descripcion: "Terminal institucional: velas interactivas, radar Snowflake de 5 ejes, DCF con margen de seguridad, DuPont, auditoría contable Piotroski/Altman Z, pulso de sentimiento de mercado y tesis con IA.",
+        url: "/aplicaciones/tradingalpha",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Correlaciones Financieras",
         descripcion: "Analiza correlaciones entre activos financieros para optimizar carteras.",
         url: "https://correlaciones-finanzas-mbai.web.app",

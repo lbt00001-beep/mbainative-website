@@ -16,6 +16,11 @@ const ALLOWED_MODULES = new Set([
   "defaultKeyStatistics",
   "financialData",
   "assetProfile",
+  "incomeStatementHistory",
+  "balanceSheetHistory",
+  "cashflowStatementHistory",
+  "recommendationTrend",
+  "earnings",
 ]);
 
 function sanitizeModules(modStr: string | null): string[] {

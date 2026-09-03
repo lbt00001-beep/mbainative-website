@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-09-02T19:39:49.535Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-09-03T09:31:45.627Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 6,
-    "title": "Decisiones con autonomía configurable",
-    "icon": "🎚️"
+    "id": 7,
+    "title": "Relaciones externas agénticas",
+    "icon": "🤝"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🎚️ Principio #6: Decisiones con autonomía configurable\n\n🔥 Recién publicado sobre dario-amodei\n\n\"ClaudeForce: @salesforce  × @anthropic-ai  | The Future of Enterprise AI\"\n\n▶️ youtube.com/watch?v=4TUajmPfh7g",
+    "type": "news",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n📰 Orchestration is the new challenge for CX in the age of AI agents\n\nPresented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation ac...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "darioamodei"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=4TUajmPfh7g",
-    "imageUrl": "https://i.ytimg.com/vi/4TUajmPfh7g/mqdefault.jpg"
+    "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents"
   }
 }

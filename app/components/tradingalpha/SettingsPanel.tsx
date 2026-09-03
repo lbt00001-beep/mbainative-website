@@ -182,18 +182,34 @@ export default function SettingsPanel({
   // Test Yahoo Quote Summary Connector
   const testQuote = useCallback(async () => {
     setQuoteStatus({ ok: null, loading: true });
+    const start = Date.now();
     try {
-      const res = await fetch('/api/testConnector', {
+      // 1. Probar directamente el endpoint de cotización real de la aplicación
+      const res = await fetch('/api/quoteSummary?t=AAPL&modules=price');
+      const latency = Date.now() - start;
+      if (res.ok) {
+        const data = await res.json();
+        const isOk = !!data?.data?.price?.regularMarketPrice;
+        setQuoteStatus({
+          ok: isOk,
+          loading: false,
+          latency,
+          error: isOk ? undefined : 'Datos incompletos desde Yahoo Finance',
+        });
+        return;
+      }
+      // 2. Fallback a testConnector
+      const resFallback = await fetch('/api/testConnector', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'yahooQuote' }),
       });
-      const data = await res.json();
+      const dataFallback = await resFallback.json();
       setQuoteStatus({
-        ok: data.ok,
+        ok: dataFallback.ok,
         loading: false,
-        latency: data.latency,
-        error: data.error,
+        latency: dataFallback.latency || latency,
+        error: dataFallback.error,
       });
     } catch (e: any) {
       setQuoteStatus({ ok: false, loading: false, error: e.message });

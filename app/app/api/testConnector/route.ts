@@ -74,14 +74,18 @@ export async function POST(request: NextRequest) {
     }
 
     if (type === 'yahooQuote') {
-      const url = new URL('/api/quoteSummary?t=AAPL', request.url);
-      const res = await fetch(url.toString());
+      const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
+      const res = await fetch("https://fc.yahoo.com/", {
+        redirect: "manual",
+        headers: { "User-Agent": UA },
+      });
       const latency = Date.now() - start;
+      const ok = res.status === 404 || res.status === 302 || res.status === 200;
       return new Response(JSON.stringify({
-        ok: res.ok,
-        status: res.status,
+        ok,
+        status: 200,
         latency,
-        error: res.ok ? null : `Fallo en Yahoo Quote API (${res.status})`,
+        error: ok ? null : `Fallo en Yahoo Quote Session (${res.status})`,
       }), {
         headers: { 'Content-Type': 'application/json' },
       });

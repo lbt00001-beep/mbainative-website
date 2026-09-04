@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-04T14:40:58.967Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-09-04T19:21:48.072Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 8,
     "title": "Cumplimiento normativo automatizado",
     "icon": "⚖️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🧠 Yann LeCun (Meta)\n\n\"The Future of AI:  level b2 esl reading, listening and vocabulary practice\"\n\n▶️ youtube.com/watch?v=5lI_prM9psM",
+    "type": "recent_video",
+    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yannlecun"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=5lI_prM9psM",
-    "imageUrl": "https://i.ytimg.com/vi/5lI_prM9psM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

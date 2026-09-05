@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-09-04T19:21:48.072Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-09-05T08:52:54.979Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 8,
-    "title": "Cumplimiento normativo automatizado",
-    "icon": "⚖️"
+    "id": 9,
+    "title": "El conocimiento se democratiza",
+    "icon": "🧠"
   },
   "post": {
-    "type": "recent_video",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
+    "type": "news",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 Orchestration is the new challenge for CX in the age of AI agents\n\nPresented by Tata Communications \n\nEnterprises are deploying AI agents, voice AI, and automation a...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "NoticiasIA",
+      "VentureBeatAI"
     ],
-    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
-    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
+    "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents"
   }
 }

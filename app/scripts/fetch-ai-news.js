@@ -94,7 +94,7 @@ const PRIORITY_KEYWORDS = [
     'agent', 'agentic', 'autonomous', 'copilot', 'assistant',
     // Mercado de trabajo
     'job', 'worker', 'workforce', 'employment', 'labor', 'workplace', 'hiring', 'layoff',
-    // Empresas y productividad  
+    // Empresas y productividad
     'enterprise', 'business', 'corporate', 'productivity', 'efficiency', 'workflow',
     // Transformación
     'transform', 'future of work', 'automation', 'replace', 'augment'
@@ -195,21 +195,16 @@ async function main() {
     // Fetch all feeds in parallel
     const results = await Promise.all(SOURCES.map(fetchFeed));
 
-    // Flatten and sort by relevance
-    const allNews = results
-        .flat()
-        .sort((a, b) => {
-            // Primary: relevance score
-            if (b.relevance !== a.relevance) return b.relevance - a.relevance;
-            // Secondary: date
-            return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-        });
+    const { recentNews } = await import('../lib/news.mjs');
+    const allNews = results.flat().filter(item => /^https?:\/\//i.test(item.link));
+    if (!allNews.length) throw new Error('No se han recibido artículos: se conserva la última recopilación.');
+    allNews.sort((a,b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
 
     // Generate output
     const output = {
         lastUpdated: new Date().toISOString(),
         totalArticles: allNews.length,
-        featured: allNews.slice(0, 5), // Top 5 for home page
+        featured: recentNews(allNews).slice(0, 5),
         all: allNews
     };
 
@@ -231,4 +226,4 @@ async function main() {
     console.log(`   Output: ${outputPath}`);
 }
 
-main().catch(console.error);
+main().catch(error => { console.error(error.message); process.exitCode = 1; });

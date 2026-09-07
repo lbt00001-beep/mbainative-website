@@ -1,46 +1,24 @@
-const ServiceCard = ({ title, description }: { title: string, description: string }) => (
-  <div className="bg-[--dark-gray] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-    <h3 className="text-3xl font-bold text-[--accent] mb-4">{title}</h3>
-    <p className="text-gray-300">{description}</p>
-  </div>
-);
-
+import Link from 'next/link';
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata('/services');
+const services = [
+  { title:'Formación ejecutiva en IA', audience:'Para directivos y responsables de equipos.', text:'Comprende qué puedes delegar, cómo dar contexto a un agente y cómo evaluar sus resultados.', items:['Mapa de tareas de tu equipo','Ejercicios con herramientas y simulación','Criterios de supervisión y autonomía'], interest:'formacion' },
+  { title:'Estrategia y consultoría', audience:'Para empresas que necesitan priorizar.', text:'Identifica un proceso con potencial y define una prueba con un objetivo verificable.', items:['Diagnóstico del proceso y sus datos','Propuesta de piloto y criterios de éxito','Estimación de recursos y seguimiento'], interest:'consultoria' },
+  { title:'Talleres para equipos', audience:'Para quienes quieren aprender haciendo.', text:'Trabaja sobre un caso de uso de tu actividad y documenta una forma de repetirlo.', items:['Sesión aplicada a una tarea concreta','Procedimiento de trabajo documentado','Revisión de resultados y siguientes pasos'], interest:'taller' },
+  { title:'Desarrollo de soluciones', audience:'Para equipos con un problema definido.', text:'Diseña una herramienta adaptada a tu flujo de trabajo, con límites claros y revisión del resultado.', items:['Definición funcional y prototipo','Integración de las fuentes acordadas','Validación y documentación de uso'], interest:'desarrollo' },
+  { title:'Auditoría y optimización', audience:'Para empresas que ya utilizan IA.', text:'Revisa la utilidad, el coste y los puntos de supervisión de tus sistemas actuales.', items:['Revisión de calidad y errores frecuentes','Análisis de consumo y permisos','Propuestas de mejora priorizadas'], interest:'auditoria' },
+  { title:'Investigación aplicada', audience:'Para responsables de innovación.', text:'Convierte novedades e investigaciones en decisiones sobre qué merece una prueba.', items:['Selección de fuentes relevantes','Comparativa orientada a tu caso de uso','Hipótesis de aplicación y validación'], interest:'investigacion' },
+];
 export default function Services() {
-  return (
-    <section className="py-20 px-4 bg-[--primary] text-white">
-      <div className="container mx-auto text-center">
-        <h1 className="text-5xl font-extrabold mb-8">Nuestros Servicios</h1>
-        <p className="text-xl max-w-3xl mx-auto mb-12">
-          En MBAI Native, ofrecemos una gama de servicios diseñados para impulsar tu éxito en la era de la Inteligencia Artificial.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          <ServiceCard
-            title="MBAI Programa Ejecutivo"
-            description="Nuestro programa insignia para formar líderes estratégicos con una profunda comprensión de la IA y su aplicación en los negocios."
-          />
-          <ServiceCard
-            title="Consultoría en Estrategia IA"
-            description="Asesoramos a empresas en la formulación e implementación de estrategias de Inteligencia Artificial para maximizar su impacto."
-          />
-          <ServiceCard
-            title="Talleres y Capacitación Personalizada"
-            description="Ofrecemos talleres a medida para equipos y ejecutivos, cubriendo desde los fundamentos de la IA hasta implementaciones avanzadas."
-          />
-          <ServiceCard
-            title="Desarrollo de Soluciones IA"
-            description="Ayudamos a diseñar y desarrollar soluciones de IA personalizadas para resolver desafíos empresariales específicos."
-          />
-          <ServiceCard
-            title="Auditoría y Optimización de IA"
-            description="Evaluamos tus sistemas y procesos de IA existentes para identificar oportunidades de mejora y optimización."
-          />
-          <ServiceCard
-            title="Investigación y Análisis de Tendencias"
-            description="Mantenemos a nuestros clientes al tanto de las últimas tendencias y avances en Inteligencia Artificial para una toma de decisiones informada."
-          />
-        </div>
-      </div>
-    </section>
-  );
+  return <div className="site-shell page-content">
+    <p className="eyebrow">Servicios MBAI Native</p><h1>Una aplicación concreta.<br /><span className="hero-accent">Un resultado que puedas evaluar.</span></h1>
+    <p className="page-intro">Formación, estrategia y desarrollo para introducir IA en tu empresa. Partimos de tus tareas y del conocimiento de tu equipo.</p>
+    <div className="feature-grid services-grid">{services.map(s => <article className="feature-card" key={s.interest}>
+      <p className="eyebrow">{s.audience}</p><h2>{s.title}</h2><p>{s.text}</p>
+      <ul className="deliverables">{s.items.map(i => <li key={i}>{i}</li>)}</ul>
+      <p className="result-label">Alcance, duración y presupuesto acordados tras conocer tu caso.</p>
+      <Link className="text-link" href={'/contact?interes='+s.interest}>Consultar este servicio →</Link>
+    </article>)}</div>
+    <div className="guide-banner mt-12"><div><h2>Empieza por contarnos el problema.</h2><p>Qué tarea te ocupa tiempo, con qué información trabajas y qué resultado esperas conseguir.</p></div><Link className="button" href="/contact">Hablar de mi proyecto ↗</Link></div>
+  </div>;
 }

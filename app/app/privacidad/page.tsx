@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/privacidad");
 import Link from 'next/link';
 
 export default function PrivacyPolicy() {
@@ -11,7 +13,7 @@ export default function PrivacyPolicy() {
                 <h1 className="text-4xl font-extrabold mb-8">Política de Privacidad</h1>
 
                 <div className="prose prose-invert max-w-none space-y-6 text-gray-300">
-                    <p className="text-sm text-gray-400">Última actualización: 28 de diciembre de 2025</p>
+                    <p className="text-sm text-gray-400">Última actualización: 7 de septiembre de 2026</p>
 
                     <h2 className="text-2xl font-bold text-white mt-8">1. Responsable del Tratamiento</h2>
                     <p>
@@ -71,6 +73,18 @@ export default function PrivacyPolicy() {
                     <p>
                         Nos reservamos el derecho de modificar esta política de privacidad.
                         Cualquier cambio será publicado en esta página.
+                    </p>
+                    <h2 className="text-2xl font-bold text-white mt-8">9. Informes de IA en TradingAlpha</h2>
+                    <p>
+                        Para generar un informe, TradingAlpha envía los datos del análisis y la clave de OpenRouter
+                        que introduces a nuestro servidor, que realiza la consulta a OpenRouter. El proveedor procesa
+                        la solicitud según sus propias condiciones. Evita incluir información confidencial que no
+                        quieras transmitir a ese servicio.
+                    </p>
+                    <p>
+                        Si guardas la clave en Ajustes, se conserva durante la sesión de la pestaña del navegador.
+                        Puedes borrarla desde ese panel. La preferencia de modelo se recuerda entre visitas.
+                        Las aplicaciones externas enlazadas desde el catálogo tienen sus propias políticas.
                     </p>
                 </div>
             </div>

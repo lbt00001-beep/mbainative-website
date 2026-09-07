@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -118,8 +119,7 @@ export default function YoutubersPage() {
                             className={`${styles.tab} ${selectedYoutuber === key ? styles.tabActive : ''}`}
                             onClick={() => setSelectedYoutuber(key)}
                         >
-                            <img
-                                src={youtuber.photo}
+                            <Image unoptimized width={48} height={48} src={youtuber.photo}
                                 alt={youtuber.name}
                                 className={styles.tabPhoto}
                                 onError={(e) => {
@@ -163,8 +163,7 @@ export default function YoutubersPage() {
                                 className={styles.videoCard}
                             >
                                 <div className={styles.thumbnailWrapper}>
-                                    <img
-                                        src={video.thumbnail}
+                                    <Image unoptimized width={480} height={270} src={video.thumbnail}
                                         alt={video.title}
                                         className={styles.thumbnail}
                                     />

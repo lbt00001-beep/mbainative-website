@@ -1,36 +1,15 @@
+import Link from 'next/link';
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata('/about');
 export default function About() {
-  return (
-    <section className="py-20 px-4 bg-[--primary] text-white">
-      <div className="container mx-auto text-center">
-        <h1 className="text-5xl font-extrabold mb-8">Sobre <span className="text-[--accent]">MBAI Native</span></h1>
-        <p className="text-xl max-w-3xl mx-auto mb-12">
-          En MBAI Native, estamos comprometidos con la formación de la próxima generación de líderes en la era de la Inteligencia Artificial. Nuestra misión es dotar a profesionales y empresas con el conocimiento y las herramientas necesarias para innovar y prosperar en un mundo transformado por la IA.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div className="p-8 bg-[--dark-gray] rounded-lg shadow-lg">
-            <h3 className="text-3xl font-bold text-[--accent] mb-4">Nuestra Misión</h3>
-            <p className="text-gray-300">
-              Empoderar a líderes y organizaciones para que naveguen y dominen el panorama empresarial impulsado por la IA, a través de educación de vanguardia y aplicación práctica.
-            </p>
-          </div>
-          <div className="p-8 bg-[--dark-gray] rounded-lg shadow-lg">
-            <h3 className="text-3xl font-bold text-[--accent] mb-4">Nuestra Visión</h3>
-            <p className="text-gray-300">
-              Ser el referente global en la creación de principios sólidos y un ecosistema de aprendizaje robusto para las empresas nativas en Inteligencia Artificial.
-            </p>
-          </div>
-          <div className="p-8 bg-[--dark-gray] rounded-lg shadow-lg">
-            <h3 className="text-3xl font-bold text-[--accent] mb-4">Nuestros Valores</h3>
-            <ul className="text-gray-300 list-disc list-inside">
-              <li>Innovación Constante</li>
-              <li>Ética en IA</li>
-              <li>Excelencia Educativa</li>
-              <li>Impacto Transformador</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <div className="site-shell page-content">
+    <p className="eyebrow">El proyecto</p><h1>Entender la IA.<br /><span className="hero-accent">Aprender a dirigir con ella.</span></h1>
+    <p className="page-intro">MBAI Native reúne principios de gestión, recursos de aprendizaje y aplicaciones de inteligencia artificial. Nuestro foco es el trabajo que comparten personas y agentes.</p>
+    <div className="feature-grid">
+      <article className="feature-card"><span className="eyebrow">01 / CRITERIO</span><h2>Una visión de empresa</h2><p>Organizar por tareas, decidir qué autonomía tiene cada agente y conservar la responsabilidad sobre las decisiones.</p><Link href="/mejores-practicas/doctrinas" className="text-link">Conocer los 20 principios →</Link></article>
+      <article className="feature-card"><span className="eyebrow">02 / PRÁCTICA</span><h2>Herramientas para probar</h2><p>Un catálogo de aplicaciones para explorar problemas de análisis, comunicación y productividad mediante casos concretos.</p><Link href="/aplicaciones" className="text-link">Explorar el trabajo publicado →</Link></article>
+      <article className="feature-card"><span className="eyebrow">03 / APRENDIZAJE</span><h2>Resultados que se revisan</h2><p>Documentar fuentes, comprobar resultados y ajustar los procesos. Una respuesta convincente debe poder contrastarse.</p><Link href="/mejores-practicas/ia-en-la-practica" className="text-link">Leer nuestra guía aplicada →</Link></article>
+    </div>
+    <section className="guide-banner mt-12"><div><p className="eyebrow">MBAI Native · Madrid</p><h2>Conoce el proyecto a través de lo que hace.</h2><p>Las aplicaciones y los materiales publicados son nuestra primera presentación. Para conocer quién participaría en tu proyecto, el enfoque y la experiencia relevante, escríbenos.</p></div><Link href="/contact" className="button">Contactar con MBAI Native ↗</Link></section>
+  </div>;
 }

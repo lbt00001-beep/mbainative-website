@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MBAI Native · Web corporativa
 
-## Getting Started
+Next.js 15.5 (App Router), React 19, TypeScript y Tailwind CSS 3. Node.js 22 recomendado; mínimo 20.9.
 
-First, run the development server:
+## Desarrollo y comprobaciones
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para mantener una vista de desarrollo durante un build de producción, establece `MBAI_DEV=1` **solo en el proceso de desarrollo**. Utiliza `.next-dev` en lugar de `.next`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contenido
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `data/applications.ts`: catálogo completo de aplicaciones. El buscador y los filtros están en `components/ApplicationCatalog.tsx`.
+- `lib/seo.ts`: títulos, descripciones y rutas del sitemap. Las páginas cliente reciben metadatos desde su layout servidor.
+- `app/mejores-practicas/ia-en-la-practica/page.tsx`: guía basada en la charla de Carlos Santana (DotCSV) publicada por Holded. Incluye atribución y marcas de tiempo; las aplicaciones empresariales se identifican como propuestas de MBAI.
+- `scripts/fetch-ai-news.js`: recopila noticias. La portada solo muestra publicaciones de los últimos 21 días; el archivo conserva las demás. Si todas las fuentes fallan, no sobrescribe los datos existentes.
 
-## Learn More
+## Correo y protección de API
 
-To learn more about Next.js, take a look at the following resources:
+Configura las variables de `.env.example` en Hostinger. Puerto 465 utiliza TLS directo; 587 exige STARTTLS. La validación de certificados permanece activa. El formulario envía **un único correo al destinatario configurado**, sin respuestas automáticas a direcciones arbitrarias. La confirmación se muestra en pantalla.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Los POST requieren un origen permitido, JSON de tamaño limitado y validación de campos. Hay límites de frecuencia por credencial/email y un límite global por proceso. **Estos límites no son persistentes ni compartidos entre instancias**: al ampliar a varios procesos o servidores, configura cuotas compartidas en el proxy o un almacén central antes de escalar. El filtro por origen es una defensa del navegador, no autenticación de clientes externos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+TradingAlpha utiliza exclusivamente la clave personal del visitante. Nunca recurre a una clave del servidor. La clave puede guardarse en `sessionStorage`, se elimina el antiguo guardado persistente en `localStorage`, y se transmite al servidor para consultar OpenRouter. No se registra en logs. El modelo se valida contra `lib/ai-models.ts`, se limita a 4.000 tokens de salida y las llamadas tienen tiempo máximo. Las tarifas son una referencia fechada, no una garantía del coste final.
 
-## Deploy on Vercel
+Los parches de PostCSS y Sharp se fijan también mediante `overrides` para cubrir las dependencias transitivas de Next.js. Revisa estos overrides al actualizar el framework. La auditoría npm comprueba paquetes conocidos, no constituye una prueba completa de penetración.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Publicación
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La infraestructura existente despliega en **Hostinger desde `master` de GitHub**. Mantén `output: 'standalone'`. No configures `MBAI_DEV` en producción.
+
+Se conserva el renderizado dinámico del layout y la revalidación inmediata del HTML: el commit `be3b463` documenta errores 404 de CSS provocados por HTML obsoleto en la caché del alojamiento. Los recursos con hash conservan caché larga. No cambies las páginas a generación estática hasta verificar que Hostinger invalida el HTML al desplegar y conserva los recursos necesarios durante la transición.
+
+Antes del push ejecuta lint, tipos, pruebas, build y auditoría. `validate.yml` repite las comprobaciones en GitHub. Comprueba después el título de la portada, la guía, `/robots.txt` y `/sitemap.xml`. Si Hostinger conserva contenido anterior, revisa su despliegue y caché.
+
+Las pruebas de correo y OpenRouter utilizan dobles locales: no envían correos ni consumen créditos. La recepción real del formulario depende de la configuración SMTP del alojamiento.

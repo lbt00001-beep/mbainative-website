@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -86,8 +87,7 @@ export default function GurusPage() {
                     return (
                         <div key={guru.id} className={styles.card}>
                             <div className={styles.cardHeader}>
-                                <img
-                                    src={guru.photo}
+                                <Image width={80} height={80} src={guru.photo}
                                     alt={guru.name}
                                     className={styles.photo}
                                 />
@@ -136,8 +136,7 @@ export default function GurusPage() {
                                                     rel="noopener noreferrer"
                                                     className={styles.videoItem}
                                                 >
-                                                    <img
-                                                        src={video.thumbnail}
+                                                    <Image unoptimized width={160} height={90} src={video.thumbnail}
                                                         alt={video.title}
                                                         className={styles.videoThumb}
                                                     />

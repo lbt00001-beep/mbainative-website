@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/aplicaciones/corrector-rae");
 import CorrectorRAE from "@/components/aplicaciones/CorrectorRAE";
 
 export default function CorrectorRAEPage() {

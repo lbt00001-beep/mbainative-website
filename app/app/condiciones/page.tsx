@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/condiciones");
 import Link from 'next/link';
 
 export default function TermsOfUse() {
@@ -56,7 +58,7 @@ export default function TermsOfUse() {
 
                     <h2 className="text-2xl font-bold text-white mt-8">6. Limitación de Responsabilidad</h2>
                     <p>
-                        El contenido de este sitio web se proporciona "tal cual" sin garantías de ningún tipo.
+                        El contenido de este sitio web se proporciona &quot;tal cual&quot; sin garantías de ningún tipo.
                         MBAI Native no será responsable por daños directos, indirectos, incidentales o
                         consecuentes que resulten del uso de este sitio web.
                     </p>

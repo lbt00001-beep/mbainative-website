@@ -1,11 +1,11 @@
-﻿'use client';
+'use client';
 
 export default function ComparativaUE() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <div className="flex-grow w-full h-[90vh]">
-        <iframe 
-          src="https://mbai-native-detector-2026.web.app" 
+        <iframe
+          src="https://mbai-native-detector-2026.web.app"
           className="w-full h-full border-none shadow-inner"
           title="Dashboard Económico España vs UE"
           allow="fullscreen"

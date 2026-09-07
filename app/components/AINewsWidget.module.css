@@ -19,7 +19,7 @@
 }
 
 .updated {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--secondary);
 }
 
@@ -48,7 +48,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 16px;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .source {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--accent);
 }

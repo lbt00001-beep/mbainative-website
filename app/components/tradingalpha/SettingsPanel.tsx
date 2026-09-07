@@ -18,99 +18,8 @@ interface SettingsPanelProps {
   setSelectedModel: (model: string) => void;
 }
 
-export interface AIModelOption {
-  id: string;
-  name: string;
-  provider: string;
-  badge: string;
-  inputCost: string;
-  outputCost: string;
-  costPerReport: string;
-  reportsPerDollar: string;
-  desc: string;
-  isFree?: boolean;
-}
-
-export const AVAILABLE_MODELS: AIModelOption[] = [
-  {
-    id: 'z-ai/glm-5.3-flash',
-    name: 'GLM 5.3 Flash',
-    provider: 'Zhipu AI (Z.ai)',
-    badge: 'Ultra Económico ($0.075/M)',
-    inputCost: '$0.075 / 1M',
-    outputCost: '$0.250 / 1M',
-    costPerReport: '~$0.00019',
-    reportsPerDollar: '≈ 5.200 informes / $1',
-    desc: 'El modelo de alta velocidad más asequible de la familia GLM. Destaca por su rapidez, capacidad de razonamiento lógico y coste minúsculo.',
-  },
-  {
-    id: 'google/gemini-3.5-flash-lite',
-    name: 'Google Gemini 3.5 Flash Lite',
-    provider: 'Google DeepMind',
-    badge: 'Recomendado ($0.30/M)',
-    inputCost: '$0.300 / 1M',
-    outputCost: '$2.500 / 1M',
-    costPerReport: '~$0.00150',
-    reportsPerDollar: '≈ 660 informes / $1',
-    desc: 'El estándar de oro en velocidad (~200ms) y precisión en la estructuración de informes ejecutivos institucionales.',
-  },
-  {
-    id: 'google/gemini-2.5-flash-lite',
-    name: 'Google Gemini 2.5 Flash Lite',
-    provider: 'Google DeepMind',
-    badge: 'Hiper Asequible ($0.10/M)',
-    inputCost: '$0.100 / 1M',
-    outputCost: '$0.400 / 1M',
-    costPerReport: '~$0.00030',
-    reportsPerDollar: '≈ 3.300 informes / $1',
-    desc: 'Versión ultraligera de Gemini con inferencia casi instantánea y costes mínimos.',
-  },
-  {
-    id: 'deepseek/deepseek-chat',
-    name: 'DeepSeek V3',
-    provider: 'DeepSeek',
-    badge: 'Gran Rigor Lógico ($0.26/M)',
-    inputCost: '$0.257 / 1M',
-    outputCost: '$1.028 / 1M',
-    costPerReport: '~$0.00070',
-    reportsPerDollar: '≈ 1.400 informes / $1',
-    desc: 'Modelo MoE puntero especializado en análisis financiero, cuentas anuales y deducción contable.',
-  },
-  {
-    id: 'openai/gpt-4o-mini',
-    name: 'OpenAI GPT-4o Mini',
-    provider: 'OpenAI',
-    badge: 'Estándar OpenAI ($0.15/M)',
-    inputCost: '$0.150 / 1M',
-    outputCost: '$0.600 / 1M',
-    costPerReport: '~$0.00045',
-    reportsPerDollar: '≈ 2.200 informes / $1',
-    desc: 'El modelo económico de OpenAI optimizado para respuestas rápidas y formato consistente.',
-  },
-  {
-    id: 'anthropic/claude-3.5-sonnet',
-    name: 'Anthropic Claude 3.5 Sonnet',
-    provider: 'Anthropic',
-    badge: 'Calidad Élite ($3.00/M)',
-    inputCost: '$3.000 / 1M',
-    outputCost: '$15.000 / 1M',
-    costPerReport: '~$0.01000',
-    reportsPerDollar: '≈ 100 informes / $1',
-    desc: 'La redacción institucional más cuidada y el análisis cualitativo más exhaustivo del mercado.',
-  },
-  {
-    id: 'z-ai/glm-5.2:free',
-    name: 'GLM 5.2 (Free Tier)',
-    provider: 'Zhipu AI (OpenRouter)',
-    badge: '100% Gratuito (:free)',
-    inputCost: '$0.00 / 1M',
-    outputCost: '$0.00 / 1M',
-    costPerReport: '$0.00 (Gratis)',
-    reportsPerDollar: 'Ilimitado (Gratis)',
-    isFree: true,
-    desc: 'Modelo gratuito de cortesía ofrecido por OpenRouter sin consumo de saldo (sujeto a límite de peticiones).',
-  },
-];
+import { AVAILABLE_MODELS, DEFAULT_AI_MODEL } from '@/lib/ai-models';
+export { AVAILABLE_MODELS } from '@/lib/ai-models';
 
 export default function SettingsPanel({
   userApiKey,
@@ -246,13 +155,14 @@ export default function SettingsPanel({
   }, [testOpenRouter, testChart, testQuote, testSentiment]);
 
   useEffect(() => {
-    testAllConnectors();
+    const timer = setTimeout(testAllConnectors, 700);
+    return () => clearTimeout(timer);
   }, [testAllConnectors]);
 
   // Handle Save API Key
   const handleSaveKey = () => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('tradingalpha_openrouter_key', userApiKey);
+      sessionStorage.setItem('tradingalpha_openrouter_key', userApiKey);
       localStorage.setItem('tradingalpha_model', selectedModel);
       setSaveSuccessMsg(true);
       setTimeout(() => setSaveSuccessMsg(false), 3000);
@@ -262,9 +172,9 @@ export default function SettingsPanel({
 
   const handleResetKey = () => {
     setUserApiKey('');
-    setSelectedModel('google/gemini-3.5-flash-lite');
+    setSelectedModel(DEFAULT_AI_MODEL);
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('tradingalpha_openrouter_key');
+      sessionStorage.removeItem('tradingalpha_openrouter_key');
       localStorage.removeItem('tradingalpha_model');
     }
     testOpenRouter('');
@@ -534,6 +444,7 @@ export default function SettingsPanel({
         </div>
       </div>
 
+      <p className="text-sm text-slate-300">Tarifas consultadas el 7 de septiembre de 2026. Las estimaciones usan 2.000 tokens de entrada y 1.000 de salida; el coste real depende del consumo y de la tarifa vigente de OpenRouter.</p>
       {/* 2. OPENROUTER CONFIGURATION & API KEY SETTINGS */}
       <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-6 shadow-xl space-y-6">
         <div>
@@ -541,7 +452,7 @@ export default function SettingsPanel({
             <span>🔑</span> Configuración de Clave API de OpenRouter
           </h3>
           <p className="text-xs text-slate-400 mt-0.5">
-            Puedes introducir tu propia clave de OpenRouter o dejar la clave del servidor predeterminada. La clave se almacena de forma segura en tu navegador.
+            Utiliza tu propia clave de OpenRouter. Al guardarla, permanece solo durante esta sesión del navegador y se envía a nuestro servidor para consultar OpenRouter. Puedes borrarla en cualquier momento.
           </p>
         </div>
 
@@ -586,7 +497,7 @@ export default function SettingsPanel({
 
           {saveSuccessMsg && (
             <p className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
-              ✓ Clave y modelo guardados en la memoria de tu navegador con éxito.
+              ✓ Clave guardada para esta sesión. Preferencia de modelo actualizada.
             </p>
           )}
         </div>

@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/mejores-practicas");
 import Link from "next/link";
 import QuoteCard from "../../components/QuoteCard";
 
@@ -107,6 +109,7 @@ export default function MejoresPracticas() {
                     </p>
                 </div>
 
+                <div className="guide-banner mb-12"><div><p className="eyebrow">Nueva guía aplicada</p><h2>De usar IA a trabajar con agentes</h2><p>Contexto, procedimientos, evaluación y coste por resultado. Nuestra lectura práctica de la charla de Carlos Santana (DotCSV), publicada por Holded.</p></div><Link href="/mejores-practicas/ia-en-la-practica" className="button">Leer la guía →</Link></div>
                 {/* Principios Destacados */}
                 <div className="mb-20">
                     <h2 className="text-3xl font-bold text-center mb-8 text-[--accent]">

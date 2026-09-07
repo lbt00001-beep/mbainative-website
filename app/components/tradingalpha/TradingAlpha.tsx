@@ -23,6 +23,7 @@ import {
   AltmanZResult,
   DuPontBreakdown,
 } from './financialEngine';
+import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
 import { SP500_SECTORS } from './sp500Data';
 
 const QUICK_TICKERS = [
@@ -71,14 +72,15 @@ export default function TradingAlpha() {
 
   // Settings & Custom OpenRouter Key
   const [userApiKey, setUserApiKey] = useState<string>('');
-  const [selectedModel, setSelectedModel] = useState<string>('z-ai/glm-5.3-flash');
+  const [selectedModel, setSelectedModel] = useState<string>(DEFAULT_AI_MODEL);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const savedKey = localStorage.getItem('tradingalpha_openrouter_key');
+      localStorage.removeItem('tradingalpha_openrouter_key');
+      const savedKey = sessionStorage.getItem('tradingalpha_openrouter_key');
       const savedModel = localStorage.getItem('tradingalpha_model');
       if (savedKey) setUserApiKey(savedKey);
-      if (savedModel) setSelectedModel(savedModel);
+      if (savedModel && AI_MODEL_IDS.includes(savedModel)) setSelectedModel(savedModel);
     }
   }, []);
 
@@ -308,7 +310,7 @@ export default function TradingAlpha() {
   const currentPrice = pick(priceObj.regularMarketPrice) || pick(fin.currentPrice) || (chartBars.length > 0 ? chartBars[chartBars.length - 1].close : 0);
   const regularMarketChange = pick(priceObj.regularMarketChange) ?? 0;
   const regularMarketChangePercent = (pick(priceObj.regularMarketChangePercent) ?? 0) * 100;
-  
+
   // Nombre de empresa protegido: nunca usa nombres obsoletos de otros tickers
   const quickInfo = QUICK_TICKERS.find((q) => q.symbol.toUpperCase() === ticker.toUpperCase());
   const companyName = priceObj.shortName || priceObj.longName || quickInfo?.label || ticker;
@@ -574,7 +576,7 @@ export default function TradingAlpha() {
                       <div className="text-center py-8">
                         <div className="text-2xl mb-2">🔍</div>
                         <div className="text-sm font-semibold text-slate-200">
-                          Ningún ticker del S&P 500 coincide con "{searchInput.trim().toUpperCase()}"
+                          Ningún ticker del S&P 500 coincide con &ldquo;{searchInput.trim().toUpperCase()}&rdquo;
                         </div>
                         <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
                           Recuerda que puedes analizar cualquier valor aunque no pertenezca a Wall Street ni al S&P 500.

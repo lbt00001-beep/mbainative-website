@@ -61,7 +61,6 @@ function isFresh(): boolean {
 }
 
 async function getCookieViaFC(): Promise<string | null> {
-  console.log("DEBUG: Attempting to get cookie from fc.yahoo.com");
   const r = await fetch("https://fc.yahoo.com/", {
     redirect: "manual",
     headers: {
@@ -70,20 +69,15 @@ async function getCookieViaFC(): Promise<string | null> {
       "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
     },
   });
-  console.log("DEBUG: Response status from fc.yahoo.com:", r.status);
-  console.log("DEBUG: Response headers from fc.yahoo.com:", r.headers);
 
 
   const setCookies = r.headers.getSetCookie ? r.headers.getSetCookie() : [];
-  console.log("DEBUG: Raw Set-Cookie header:", setCookies);
 
   const cookie = cookieFromSetCookies(setCookies);
-  console.log("DEBUG: Extracted cookie:", cookie);
   return cookie || null;
 }
 
 async function getCrumb(cookie: string): Promise<string> {
-  console.log("DEBUG: Attempting to get crumb with cookie:", cookie);
   const r = await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb", {
     headers: {
       "User-Agent": UA,
@@ -103,7 +97,6 @@ async function getCrumb(cookie: string): Promise<string> {
     (err as any).body = text.slice(0, 800);
     throw err;
   }
-  console.log("DEBUG: Successfully got crumb:", text);
   return text;
 }
 
@@ -234,7 +227,7 @@ export async function GET(request: NextRequest) {
     const data = await fetchQuoteSummary(t, modules);
 
     return new Response(JSON.stringify({ ticker: t, modules, data }), {
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'no-store'
        },
@@ -244,7 +237,7 @@ export async function GET(request: NextRequest) {
     return new Response(JSON.stringify({
       error: e.message || "Error",
       status: e.status || 500,
-      details: e.body || null,
+
     }), {
       status: e.status || 500,
       headers: { 'Content-Type': 'application/json' },

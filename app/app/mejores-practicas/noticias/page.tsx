@@ -43,7 +43,7 @@ export default function NoticiasPage() {
     }, []);
 
     const formatDate = (dateStr: string) => {
-        return new Date(dateStr).toLocaleDateString('en-US', {
+        return new Date(dateStr).toLocaleDateString('es-ES', {
             month: 'short',
             day: 'numeric',
             year: 'numeric'
@@ -53,21 +53,20 @@ export default function NoticiasPage() {
     const sources = news ? [...new Set(news.all.map(n => n.source))] : [];
     const filteredNews = news?.all.filter(n =>
         filter === 'all' || n.source === filter
-    ) || [];
+    ).sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate)) || [];
 
     return (
-        <main className={styles.main}>
+        <div className={styles.main}>
             <header className={styles.header}>
-                <h1>🔥 AI News & Best Practices</h1>
+                <h1>🔥 Noticias y fuentes de IA</h1>
                 <p>
-                    Daily curated news from the world's leading AI companies.
-                    Stay updated with the latest insights from Google Cloud, OpenAI, NVIDIA, and Microsoft.
+                    Una selección de publicaciones sobre IA y empresa. Los titulares y extractos conservan el idioma de la fuente original.
                 </p>
                 {news && (
                     <div className={styles.meta}>
-                        <span>Last updated: {formatDate(news.lastUpdated)}</span>
+                        <span>Última recopilación: {formatDate(news.lastUpdated)}</span>
                         <span>•</span>
-                        <span>{news.totalArticles} articles</span>
+                        <span>{news.totalArticles} artículos</span>
                     </div>
                 )}
             </header>
@@ -78,7 +77,7 @@ export default function NoticiasPage() {
                     className={`${styles.filterBtn} ${filter === 'all' ? styles.active : ''}`}
                     onClick={() => setFilter('all')}
                 >
-                    All Sources
+                    Todas las fuentes
                 </button>
                 {sources.map(source => (
                     <button
@@ -95,7 +94,7 @@ export default function NoticiasPage() {
             {loading && (
                 <div className={styles.loading}>
                     <span className={styles.spinner}></span>
-                    Loading news...
+                    Cargando noticias…
                 </div>
             )}
 
@@ -119,7 +118,7 @@ export default function NoticiasPage() {
                             <h3 className={styles.cardTitle}>{item.title}</h3>
                             <p className={styles.cardSummary}>{item.summary}</p>
                             <div className={styles.cardFooter}>
-                                <span className={styles.readMore}>Read more →</span>
+                                <span className={styles.readMore}>Leer en la fuente →</span>
                             </div>
                         </a>
                     ))}
@@ -128,9 +127,9 @@ export default function NoticiasPage() {
 
             {!loading && filteredNews.length === 0 && (
                 <div className={styles.empty}>
-                    No news found for this filter.
+                    No hay noticias disponibles para este filtro.
                 </div>
             )}
-        </main>
+        </div>
     );
 }

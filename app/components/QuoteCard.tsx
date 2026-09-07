@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 interface QuoteCardProps {
     quote: string;
@@ -24,8 +25,7 @@ export default function QuoteCard({
             <div className="flex items-start gap-4">
                 {imageUrl && (
                     <div className="flex-shrink-0">
-                        <img
-                            src={imageUrl}
+                        <Image unoptimized width={64} height={64} src={imageUrl}
                             alt={author}
                             className="w-16 h-16 rounded-full object-cover border-2 border-[--accent]"
                         />
@@ -33,7 +33,7 @@ export default function QuoteCard({
                 )}
                 <div className="flex-1">
                     <blockquote className="text-lg italic text-gray-200 mb-4">
-                        "{quote}"
+                        &ldquo;{quote}&rdquo;
                     </blockquote>
                     <div className="flex items-center justify-between">
                         <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useCallback } from 'react';
 import { CandleBar, TechnicalSummary } from './financialEngine';
 
 interface CandleChartProps {
@@ -64,15 +64,15 @@ export default function CandleChart({
   const plotH = height - padding.top - padding.bottom;
 
   // Mapping functions
-  const getY = (price: number) => {
+  const getY = useCallback((price: number) => {
     if (maxPrice === minPrice) return height / 2;
     return padding.top + plotH - ((price - minPrice) / (maxPrice - minPrice)) * plotH;
-  };
+  }, [maxPrice, minPrice, padding.top, plotH]);
 
   const candleW = Math.max(2, Math.min(12, (plotW / (n || 1)) * 0.65));
-  const getX = (index: number) => {
+  const getX = useCallback((index: number) => {
     return padding.left + (index + 0.5) * (plotW / (n || 1));
-  };
+  }, [n, padding.left, plotW]);
 
   // Hovered Bar Info
   const activeBar = hoveredIdx !== null && displayBars[hoveredIdx]
@@ -89,7 +89,7 @@ export default function CandleChart({
       pts.push({ x: getX(i), y: getY(avg) });
     }
     return pts;
-  }, [displayBars, n, minPrice, maxPrice]);
+  }, [displayBars, n, getX, getY]);
 
   const seriesSMA50 = useMemo(() => {
     if (n < 50) return [];
@@ -100,7 +100,7 @@ export default function CandleChart({
       pts.push({ x: getX(i), y: getY(avg) });
     }
     return pts;
-  }, [displayBars, n, minPrice, maxPrice]);
+  }, [displayBars, n, getX, getY]);
 
   const seriesEMA9 = useMemo(() => {
     if (n < 9) return [];
@@ -113,7 +113,7 @@ export default function CandleChart({
       pts.push({ x: getX(i), y: getY(ema) });
     }
     return pts;
-  }, [displayBars, n, minPrice, maxPrice]);
+  }, [displayBars, n, getX, getY]);
 
   // Bollinger Band Series (20, 2)
   const bollingerSeries = useMemo(() => {
@@ -129,7 +129,7 @@ export default function CandleChart({
       lowers.push({ x: getX(i), y: getY(avg - 2 * sd) });
     }
     return { uppers, lowers };
-  }, [displayBars, n, minPrice, maxPrice]);
+  }, [displayBars, n, getX, getY]);
 
   // RSI Series for Subpanel
   const rsiSeries = useMemo(() => {
@@ -159,7 +159,7 @@ export default function CandleChart({
       pts.push({ x: getX(i), val: rsi });
     }
     return pts;
-  }, [displayBars, n]);
+  }, [displayBars, n, getX]);
 
   const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();

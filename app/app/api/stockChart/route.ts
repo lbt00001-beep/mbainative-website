@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
     const ticker = sanitizeTicker(searchParams.get('t'));
     const range = searchParams.get('range') || '1y';
     const interval = searchParams.get('interval') || '1d';
+    if (!new Set(['1d','1wk','1mo']).has(interval)) return Response.json({error:'Intervalo no válido'}, {status:400});
 
     if (!ticker) {
       return new Response(JSON.stringify({ error: "Ticker inválido" }), {

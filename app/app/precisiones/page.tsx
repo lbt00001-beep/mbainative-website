@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/precisiones");
 import Link from 'next/link';
 
 export default function Precisiones() {

@@ -9,7 +9,7 @@ Este documento describe la infraestructura de despliegue de **mbainative.com** y
 ## 1. Web principal: mbainative.com
 
 ### Tecnología
-- **Framework**: Next.js 14.2 (App Router)
+- **Framework**: Next.js 15.5 (App Router), React 19; Node.js 22 recomendado (mínimo 20.9)
 - **Código fuente**: `C:\Dev\mbainative-website\app\`
 - **Hosting**: Hostinger (conectado a GitHub para deploy automático)
 
@@ -34,7 +34,7 @@ C:\Dev\mbainative-website\
 ├── app/                          ← Proyecto Next.js
 │   ├── app/                      ← App Router (páginas)
 │   │   ├── aplicaciones/
-│   │   │   ├── page.tsx          ← Catálogo de apps (AQUÍ se añaden nuevas apps)
+│   │   │   ├── page.tsx          ← Catálogo con búsqueda y filtros
 │   │   │   ├── corrector-rae/
 │   │   │   ├── futuros/
 │   │   │   ├── inversion-fundamentales/
@@ -58,7 +58,9 @@ C:\Dev\mbainative-website\
 
 ### Cómo añadir una nueva app al catálogo
 
-Editar `C:\Dev\mbainative-website\app\app\aplicaciones\page.tsx`:
+Actualización 7 septiembre 2026: los datos están ahora en app/data/applications.ts. La página del catálogo monta el buscador y los filtros. Las rutas locales antiguas de este documento son referencias históricas.
+
+Editar `app/data/applications.ts` desde la raíz del repositorio:
 
 ```tsx
 // Buscar el array 'categorias' y añadir una entrada:

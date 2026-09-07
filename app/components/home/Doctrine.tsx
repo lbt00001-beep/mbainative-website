@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const DoctrineItem = ({ icon, title, description, number }: { icon: string, title: string, description: string, number: number }) => (

@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/mejores-practicas/tecnologia");
 import Link from "next/link";
 import QuoteCard from "../../../components/QuoteCard";
 
@@ -135,7 +137,7 @@ export default function TecnologiaPage() {
                                 </h3>
                                 <p className="text-gray-400 mb-4">{principio.descripcion}</p>
                                 <blockquote className="text-sm italic text-[--accent] border-l-2 border-[--accent] pl-4">
-                                    "{principio.cita}"
+                                    &ldquo;{principio.cita}&rdquo;
                                 </blockquote>
                             </div>
                         ))}

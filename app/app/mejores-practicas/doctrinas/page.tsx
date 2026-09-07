@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/mejores-practicas/doctrinas");
 import Link from 'next/link';
 import { DOCTRINES, DOCTRINE_CATEGORIES, getDoctrinesByCategory } from '@/data/doctrines';
 import { getGuruById } from '@/data/gurus';
@@ -89,8 +92,7 @@ export default function DoctrinasPage() {
                                                             href={`/mejores-practicas/gurus#${guru.id}`}
                                                             className={styles.proponentTag}
                                                         >
-                                                            <img
-                                                                src={guru.photo}
+                                                            <Image width={40} height={40} src={guru.photo}
                                                                 alt={guru.name}
                                                                 className={styles.proponentPhoto}
                                                             />

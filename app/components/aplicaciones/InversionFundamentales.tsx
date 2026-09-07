@@ -571,7 +571,7 @@ export default function InversionFundamentales() {
             </div>
           </div>
 
-          <div className={`${styles.status} ${status.kind && styles[status.kind]}`} dangerouslySetInnerHTML={{ __html: status.html }} />
+          <div className={`${styles.status} ${status.kind && styles[status.kind]}`} role="status">{status.html.replace(/<[^>]*>/g, " ")}</div>
 
           {/* Gauge & KPIs */}
           <div className={styles.split} style={{ marginTop: 12 }}>
@@ -658,7 +658,7 @@ export default function InversionFundamentales() {
             </tbody>
           </table>
         </div>
-        <div className={styles.footer}><b>Nota:</b> el índice mide "salud" del negocio, no garantiza que el precio esté barato.</div>
+        <div className={styles.footer}><b>Nota:</b> el índice mide &ldquo;salud&rdquo; del negocio, no garantiza que el precio esté barato.</div>
       </section>
 
       {/* Report Section */}
@@ -695,7 +695,7 @@ export default function InversionFundamentales() {
                   <br />• Alto: suele indicar <b>rentabilidad</b>, <b>solidez</b>, <b>crecimiento</b> y <b>caja</b>.
                   <br />• Bajo: suele indicar <b>debilidades</b> (márgenes pobres, mucha deuda, caída de ingresos…).
                   <br /><br />
-                  <b>Ojo:</b> "fundamentales sanos" no equivale a "acción barata".
+                  <b>Ojo:</b> &ldquo;fundamentales sanos&rdquo; no equivale a &ldquo;acción barata&rdquo;.
                 </div>
                 <div className={styles.chips} style={{ marginTop: 10 }}>
                   <span className={`${styles.badge} ${analysisResult.score >= 65 ? styles.bGood : analysisResult.score >= 50 ? styles.bWarn : styles.bBad}`}>

@@ -1,3 +1,5 @@
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata("/mejores-practicas/retail");
 import Link from "next/link";
 import QuoteCard from "../../../components/QuoteCard";
 

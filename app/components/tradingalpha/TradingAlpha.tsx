@@ -412,7 +412,7 @@ export default function TradingAlpha() {
 
       if (!res.ok) {
         if (data.code === 'MISSING_OPENROUTER_KEY') {
-          setAiReport(`🔒 Clave de OpenRouter no configurada\n\nPara generar tesis automáticas de inversión con Inteligencia Artificial, necesitas ingresar tu clave personal de OpenRouter en la pestaña "⚙️ Ajustes & Conectores".\n\n1. Ve a la pestaña "⚙️ Ajustes & Conectores" en el menú superior.\n2. Introduce tu clave privada (formato sk-or-v1-...).\n3. Haz clic en "Guardar Clave" (se guardará de forma segura y privada únicamente en tu navegador).\n4. Vuelve a esta pestaña y haz clic en "Generar Informe Ahora".`);
+          setAiReport(`🔒 Clave de OpenRouter no configurada\n\nPara generar tesis automáticas de inversión con Inteligencia Artificial, necesitas ingresar tu clave personal de OpenRouter en la pestaña "⚙️ Ajustes & Conectores".\n\n1. Ve a la pestaña "⚙️ Ajustes & Conectores" en el menú superior.\n2. Introduce tu clave privada (formato sk-or-v1-...).\n3. Haz clic en "Guardar Clave" (se conservará durante esta sesión y se enviará a nuestro servidor para consultar OpenRouter).\n4. Vuelve a esta pestaña y haz clic en "Generar Informe Ahora".`);
           return;
         }
         throw new Error(data.error || `HTTP ${res.status}`);

@@ -220,7 +220,7 @@ export default function SettingsPanel({
                 <span className="text-2xl">🤖</span>
                 <div>
                   <h4 className="font-bold text-white text-sm">OpenRouter AI Gateway</h4>
-                  <p className="text-[11px] text-slate-400">Generación de Tesis con Gemini, Claude o DeepSeek</p>
+                  <p className="text-[11px] text-slate-400">Informes con los modelos disponibles en el selector</p>
                 </div>
               </div>
 
@@ -458,16 +458,18 @@ export default function SettingsPanel({
 
         {/* Input API Key */}
         <div className="space-y-2">
-          <label className="text-xs font-semibold text-slate-300 block">
+          <label htmlFor="openrouter-api-key" className="text-xs font-semibold text-slate-300 block">
             Clave de API de OpenRouter (formato: <code className="text-blue-400">sk-or-v1-...</code>)
           </label>
           <div className="flex items-center gap-2">
             <div className="relative flex-1">
               <input
+                id="openrouter-api-key"
+                autoComplete="off"
                 type={showKey ? 'text' : 'password'}
                 value={userApiKey}
                 onChange={(e) => setUserApiKey(e.target.value)}
-                placeholder="Introduce tu clave sk-or-v1-... (o déjalo vacío para usar la clave por defecto)"
+                placeholder="Introduce tu clave personal sk-or-v1-..."
                 className="w-full bg-[#141d30] text-sm text-white placeholder-slate-500 px-4 py-2.5 rounded-xl border border-[#223048] focus:outline-none focus:border-blue-500 font-mono"
               />
               <button
@@ -488,7 +490,7 @@ export default function SettingsPanel({
 
             <button
               onClick={handleResetKey}
-              title="Restablecer clave por defecto del sistema"
+              title="Borrar la clave de esta sesión y restablecer el modelo"
               className="bg-[#141d30] hover:bg-[#1a253c] text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-[#223048] transition-all shrink-0"
             >
               Restablecer
@@ -512,6 +514,10 @@ export default function SettingsPanel({
             {AVAILABLE_MODELS.map((model) => (
               <div
                 key={model.id}
+                role="button"
+                tabIndex={0}
+                aria-pressed={selectedModel === model.id}
+                onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.currentTarget.click(); } }}
                 onClick={() => {
                   setSelectedModel(model.id);
                   if (typeof window !== 'undefined') {
@@ -555,11 +561,11 @@ export default function SettingsPanel({
                     </span>
                   </div>
                   <div className="flex justify-between border-t border-[#1e293b] pt-1">
-                    <span className="text-slate-400">Coste medio / informe:</span>
+                    <span className="text-slate-400">Coste estimado / informe:</span>
                     <span className="font-bold text-amber-300">{model.costPerReport}</span>
                   </div>
                   <div className="flex justify-between text-[10px] text-slate-500">
-                    <span>Rendimiento por \$1:</span>
+                    <span>Informes estimados por $1:</span>
                     <span className="text-slate-300 font-semibold">{model.reportsPerDollar}</span>
                   </div>
                 </div>

@@ -4,9 +4,9 @@ import {parseHTML} from 'linkedom';
 import {extractGuide,splitSpeech,pickVoice} from '../public/assistant/core.mjs';
 
 test('editorial extraction excludes forms, private content and hidden elements',()=>{
-  const {document}=parseHTML('<html><body><main><h1>Guía</h1><p>Contenido público.</p><form><p>Dato personal</p></form><div data-assistant-private><p>Documento privado</p></div><p hidden>Oculto</p></main></body></html>');
+  const {document}=parseHTML('<html><body><main><h1>Empresa<br>nativa</h1><p>Contenido público.</p><form><p>Dato personal</p></form><div data-assistant-private><p>Documento privado</p></div><p hidden>Oculto</p></main></body></html>');
   const guide=JSON.stringify(extractGuide(document,'/'));
-  assert.match(guide,/Contenido público/);assert.doesNotMatch(guide,/Dato personal|Documento privado|Oculto/);
+  assert.match(guide,/Contenido público/);assert.match(guide,/Empresa nativa/);assert.doesNotMatch(guide,/Dato personal|Documento privado|Oculto/);
   const text='Explicación sencilla sobre agentes y personas. '.repeat(20).trim();
   assert.equal(splitSpeech(text).join(' '),text);
   assert.equal(pickVoice([{lang:'en-US',name:'Google'},{lang:'es-ES',name:'Microsoft Elvira Natural'}]).name,'Microsoft Elvira Natural');

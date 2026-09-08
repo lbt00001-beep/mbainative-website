@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T15:52:52.599Z",
+  "updatedAt": "2026-09-08T16:00:26.855Z",
   "pages": {
     "/empresa-nativa-ia": [
       {
@@ -14,13 +14,13 @@
         ]
       },
       {
-        "title": "El trabajo se diseñaalrededor del resultado.",
+        "title": "El trabajo se diseña alrededor del resultado.",
         "match": "El trabajo se diseñaalrededor del resultado.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "756887c743dc850700b665fd",
+          "a76a0e846b1d37a9d9781bde",
           "f46a9db853c140ea6e4cd9f3",
           "a9a3ce6881ae30f8d0752c60",
           "08fe2d9fa1a8d5a86f557af4",
@@ -84,13 +84,13 @@
         ]
       },
       {
-        "title": "Tu primera unidad de cambiopuede ser un solo proceso.",
+        "title": "Tu primera unidad de cambio puede ser un solo proceso.",
         "match": "Tu primera unidad de cambiopuede ser un solo proceso.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "042d1462225691e7d86bb08d",
+          "8a594efa875f315d0499d86a",
           "21371f2fa7ca40cc90b5ff8c"
         ]
       },
@@ -202,13 +202,13 @@
         ]
       },
       {
-        "title": "El mismo agente.Tres niveles de autorización.",
+        "title": "El mismo agente. Tres niveles de autorización.",
         "match": "El mismo agente.Tres niveles de autorización.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "91391d7f27e2db15476f4ef6",
+          "46a8614e1820a0e0bcc2f855",
           "ac88d0ee404f1ecc904f29a1",
           "94a2c190c009cc87b8093d9a"
         ]
@@ -351,14 +351,16 @@
         ]
       },
       {
-        "title": "Seis capas para convertircapacidad en trabajo fiable.",
+        "title": "Seis capas para convertir capacidad en trabajo fiable.",
         "match": "Seis capas para convertircapacidad en trabajo fiable.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "e4c865b4968f49569b3d99f5",
-          "c3ff71518025fd94d351b3e1"
+          "e7b4b9975d1e5704dd2c3d49",
+          "713a781257b3525921b3288d",
+          "35c41ae2853607308a299e24",
+          "cf758db9bab4ac276660c675"
         ]
       },
       {
@@ -606,13 +608,13 @@
     ],
     "/": [
       {
-        "title": "Lidera una empresanativa en IA.",
+        "title": "Lidera una empresa nativa en IA.",
         "match": "Lidera una empresanativa en IA.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "b389b99eeb4d665bdaf255d2",
+          "2b729a2ade9c7bea0ac8ae20",
           "e336e755a5822944355c257f"
         ]
       },
@@ -629,13 +631,13 @@
         ]
       },
       {
-        "title": "Entiéndelo.Imagínalo en tu empresa.",
+        "title": "Entiéndelo. Imagínalo en tu empresa.",
         "match": "Entiéndelo.Imagínalo en tu empresa.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "78b3ff37136b118b4084ae7b",
+          "5c3d3f6cf33e294fb8b257d2",
           "4ce85265c7aa143158c19784"
         ]
       },
@@ -747,13 +749,13 @@
     ],
     "/about": [
       {
-        "title": "Entender la IA.Aprender a dirigir con ella.",
+        "title": "Entender la IA. Aprender a dirigir con ella.",
         "match": "Entender la IA.Aprender a dirigir con ella.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "1a855d017930ca5dd0a97f06",
+          "7ace411c066762f015b8f218",
           "fcb655b805ce5f96013b2ef1"
         ]
       },
@@ -802,13 +804,13 @@
     ],
     "/services": [
       {
-        "title": "Una aplicación concreta.Un resultado que puedas evaluar.",
+        "title": "Una aplicación concreta. Un resultado que puedas evaluar.",
         "match": "Una aplicación concreta.Un resultado que puedas evaluar.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "cc11a27232db27ffba0d501e",
+          "436776cf5b228c7159685dfe",
           "1190c2f403b989c9b5c8e0cb"
         ]
       },
@@ -914,7 +916,7 @@
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "4629e106e248ca2949e6fb04"
+          "bd1b287c98c24c2c9c576eaf"
         ]
       },
       {
@@ -930,13 +932,13 @@
     ],
     "/aplicaciones": [
       {
-        "title": "Encuentra una herramientapara tu próxima tarea.",
+        "title": "Encuentra una herramienta para tu próxima tarea.",
         "match": "Encuentra una herramientapara tu próxima tarea.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "b5311177ad1e5c27f902ded4",
+          "0f5ec2e484f88df072c0b66c",
           "00ce9a10d5c29f07c4631853"
         ]
       },
@@ -1598,24 +1600,24 @@
     ],
     "/mejores-practicas": [
       {
-        "title": "Comprende el cambio.Después, llévalo a tu empresa.",
+        "title": "Comprende el cambio. Después, llévalo a tu empresa.",
         "match": "Comprende el cambio.Después, llévalo a tu empresa.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "8d5b4552cbb0895b3c990191",
+          "8cbe14822b8ee5ca92770318",
           "cd822ffde21f41ecd38bd573"
         ]
       },
       {
-        "title": "Entiéndelo.Imagínalo en tu empresa.",
+        "title": "Entiéndelo. Imagínalo en tu empresa.",
         "match": "Entiéndelo.Imagínalo en tu empresa.",
         "selector": "",
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "78b3ff37136b118b4084ae7b",
+          "5c3d3f6cf33e294fb8b257d2",
           "4ce85265c7aa143158c19784"
         ]
       },
@@ -1742,13 +1744,13 @@
     ],
     "/mejores-practicas/ia-en-la-practica": [
       {
-        "title": "De usar IA atrabajar con agentes.",
+        "title": "De usar IA a trabajar con agentes.",
         "match": "De usar IA atrabajar con agentes.",
         "selector": "",
         "tag": "h1",
         "occurrence": 0,
         "segments": [
-          "10e321e1b29f1199bcd338e3",
+          "d69b804bd6fab0c6cba61641",
           "62c3027b436f61415f9f4261"
         ]
       },
@@ -3659,7 +3661,8 @@
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "ee50fc1e016d8ce5f9978993"
+          "1c3d2b9d24a78b96f7175926",
+          "ea08b90ad4cabbf9c355c576"
         ]
       },
       {
@@ -3869,7 +3872,7 @@
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "0dda0d9e3e4989b6d2e29b82"
+          "6c6d3a045a77c7ef64aecb9d"
         ]
       }
     ],
@@ -3969,8 +3972,8 @@
         "tag": "h2",
         "occurrence": 0,
         "segments": [
-          "e15b02490c0eafecc9049ccb",
-          "ea08b90ad4cabbf9c355c576"
+          "b0ce40263d3fe0ad4fe0db92",
+          "88e51fbce036c553e21e3dac"
         ]
       }
     ],
@@ -4121,7 +4124,7 @@
   "segments": {
     "e82584d9643a3bf72b9a9cc3": "Imagina tu empresa trabajando de otra manera.. Recorre una empresa nativa en IA: entiende qué cambia, sigue un proceso y descubre qué necesitas para empezar en la tuya.",
     "4b0f6a5633f3f0de8ddb75cb": "01 / Una forma distinta de trabajar.",
-    "756887c743dc850700b665fd": "El trabajo se diseñaalrededor del resultado.. En una empresa nativa en IA, cada proceso combina personas, software y agentes desde su diseño.",
+    "a76a0e846b1d37a9d9781bde": "El trabajo se diseña alrededor del resultado.. En una empresa nativa en IA, cada proceso combina personas, software y agentes desde su diseño.",
     "f46a9db853c140ea6e4cd9f3": "La dirección decide qué resultado busca; un responsable define cómo conseguirlo y quién lo supervisa.",
     "a9a3ce6881ae30f8d0752c60": "El agente puede interpretar información y utilizar herramientas. Su actuación forma parte de un proceso con permisos, comprobaciones y una persona que responde por él.",
     "08fe2d9fa1a8d5a86f557af4": "El contexto, las reglas y la revisión forman parte del mismo circuito. La persona puede dedicar más atención a las excepciones y a mejorar el proceso.",
@@ -4137,7 +4140,7 @@
     "709278eafd3a21c734f1b9b6": "Persona. La responsabilidad sigue siendo humana. Una persona diseña y responde por el proceso; otra puede supervisar los expedientes de cada día.",
     "8ea18247c24fffb738a666d3": "Diseña el proceso, revisa excepciones y autoriza cambios. El supervisor del día a día puede ser distinto del dueño del proceso.",
     "c898988a682621dd971f533b": "La transformación empieza en el departamento.",
-    "042d1462225691e7d86bb08d": "Tu primera unidad de cambiopuede ser un solo proceso.. Un responsable elige una tarea repetida, describe sus pasos y fija una prueba.",
+    "8a594efa875f315d0499d86a": "Tu primera unidad de cambio puede ser un solo proceso.. Un responsable elige una tarea repetida, describe sus pasos y fija una prueba.",
     "21371f2fa7ca40cc90b5ff8c": "TI habilita las conexiones. El supervisor comprueba resultados. La dirección decide si merece la pena ampliar el alcance.",
     "75f82ae0b184c56d00883cdd": "Cómo reconocer un avance real.",
     "cd3d4130786e0547e626c291": "Un resultado verificable. Una oferta revisada, un expediente conciliado o una incidencia preparada.",
@@ -4163,7 +4166,7 @@
     "70284221684284f91b19ae61": "Proveedor nuevo, discrepancia de precios o documentación incompleta: detener y escalar. Cómo se mide.",
     "06eaf626bf784f761ddeee2d": "Tiempo por expediente aceptado, comparativas corregidas y pedidos duplicados. Punto de comparación.",
     "9cfacbaf7a1f54be565d17e2": "Cronometrar expedientes actuales y registrar sus correcciones antes del piloto. La autonomía se concede por proceso.",
-    "91391d7f27e2db15476f4ef6": "El mismo agente.Tres niveles de autorización.. La autonomía se concede por tarea. Puede limitarse a preparar borradores, permitir ejecutar después de una aprobación o autorizar casos concretos dentro de reglas probadas.",
+    "46a8614e1820a0e0bcc2f855": "El mismo agente. Tres niveles de autorización.. La autonomía se concede por tarea. Puede limitarse a preparar borradores, permitir ejecutar después de una aprobación o autorizar casos concretos dentro de reglas probadas.",
     "ac88d0ee404f1ecc904f29a1": "La autonomía depende del riesgo, de las pruebas y de las acciones permitidas. Selecciona un nivel para entender qué cambia;",
     "94a2c190c009cc87b8093d9a": "elegirlo aquí no modifica el ejemplo ni concede permisos reales.",
     "af43a5eadfd078b9679a01f1": "Ejecuta tras aprobación. La persona aprueba una acción concreta. La integración comprueba permisos y ejecuta solo esa versión.",
@@ -4200,8 +4203,10 @@
     "c4cd1ab93fa9bae8bc6db71a": "Compara memoria útil, contexto, usuarios simultáneos, latencia, consumo eléctrico, refrigeración, soporte y recuperación.",
     "3a504bb18ce7614959e89520": "Un máximo teórico de parámetros o de operaciones no equivale a una capacidad garantizada de expedientes por hora.",
     "0e1599edb0993630571a83ce": "03 / Arquitectura del software.",
-    "e4c865b4968f49569b3d99f5": "Seis capas para convertircapacidad en trabajo fiable.. Selecciona una capa para ver su función, un ejemplo y el control que necesita.",
-    "c3ff71518025fd94d351b3e1": "Es una arquitectura de referencia que debe adaptarse a cada empresa. QUIÉN RESPONDE.",
+    "e7b4b9975d1e5704dd2c3d49": "Seis capas para convertir capacidad en trabajo fiable.. Recorre las capas de arriba abajo. Primero definimos quién responde.",
+    "713a781257b3525921b3288d": "Después, cómo avanza el trabajo, qué herramientas usa, qué información consulta, dónde se ejecuta el modelo y cómo se mantiene todo en funcionamiento.",
+    "35c41ae2853607308a299e24": "Selecciona una capa para ver su función, un ejemplo y el control que necesita. Es una arquitectura de referencia que debe adaptarse a cada empresa.",
+    "cf758db9bab4ac276660c675": "QUIÉN RESPONDE.",
     "5ebc43ca42740e907ccb2a41": "Personas y responsabilidad. Un catálogo relaciona cada proceso con su dueño, sus agentes y la persona supervisora.",
     "6452eef189b31bc3ef6437a0": "Cómo se concreta. Compras propuesta de pedido agente comparador técnico supervisor responsable aprobador.",
     "b5e932248587eaff3c012d64": "Control necesario. Las identidades de los agentes son distintas de las personales. La persona responsable aprueba cambios en el alcance del proceso.",
@@ -4243,12 +4248,12 @@
     "bbc9b0d4ee1ff0fa9ad5dabd": "Avanza por cuatro puertas. Primero mide el proceso actual. Después prueba sin acciones externas.",
     "7014cdb8b2174f2f9656c77b": "Revisa resultados y costes con el equipo. Finalmente decide si parar, corregir o ampliar el alcance.",
     "6a750f4d999d9767d5336971": "Cada avance debe tener una persona responsable.",
-    "b389b99eeb4d665bdaf255d2": "Lidera una empresanativa en IA.. Aprende a organizar el trabajo entre personas y agentes. Convierte el conocimiento de tu empresa en procesos que puedas probar, supervisar y mejorar.",
+    "2b729a2ade9c7bea0ac8ae20": "Lidera una empresa nativa en IA.. Aprende a organizar el trabajo entre personas y agentes. Convierte el conocimiento de tu empresa en procesos que puedas probar, supervisar y mejorar.",
     "e336e755a5822944355c257f": "Para profesionales, equipos y directivos que quieren pasar de la conversación a la práctica.",
     "55542160c74c0cb9b87a2ce1": "La autonomía se diseña.. El agente ejecuta. Las personas definen el objetivo, los límites y qué significa hacerlo bien.",
     "4410ab77ab5ee6c552e3017f": "01ContextoConocimiento, fuentes y procedimientos. 02AcciónHerramientas, tareas y permisos. 03EvaluaciónCalidad, coste y revisión humana.",
     "39db2019f58c76d7fc77de07": "Un recorrido para abrir posibilidades.",
-    "78b3ff37136b118b4084ae7b": "Entiéndelo.Imagínalo en tu empresa.. De una idea a un proceso con agentes, infraestructura y personas responsables.",
+    "5c3d3f6cf33e294fb8b257d2": "Entiéndelo. Imagínalo en tu empresa.. De una idea a un proceso con agentes, infraestructura y personas responsables.",
     "4ce85265c7aa143158c19784": "Explora los ejemplos y prepara tu primera prueba.",
     "af0bfaae82a00f9ce503e4d5": "Entender el cambio. Qué cambia en la organización del trabajo.",
     "c56db3ce176b116c751b1228": "Ver un proceso. Compras, Ventas, Finanzas y Operaciones.",
@@ -4265,7 +4270,7 @@
     "676710a302c209ef8e59989e": "Una guía de MBAI para llevar las ideas de la charla publicada por Holded a una primera prueba en tu empresa.",
     "732ec58c2c9d3dac4c0df024": "Cargando actualidad de IA….",
     "b5ae64de12341e4cb69b07bf": "Practica la Gestión AI-Nativa. Simula la dirección de una empresa con agentes de IA. Configura autonomías, supervisa tareas y toma decisiones estratégicas en tiempo real.",
-    "1a855d017930ca5dd0a97f06": "Entender la IA.Aprender a dirigir con ella.. MBAI Native reúne principios de gestión, recursos de aprendizaje y aplicaciones de inteligencia artificial.",
+    "7ace411c066762f015b8f218": "Entender la IA. Aprender a dirigir con ella.. MBAI Native reúne principios de gestión, recursos de aprendizaje y aplicaciones de inteligencia artificial.",
     "fcb655b805ce5f96013b2ef1": "Nuestro foco es el trabajo que comparten personas y agentes.",
     "c55f533a72305f25092e93db": "Una visión de empresa. Organizar por tareas, decidir qué autonomía tiene cada agente y conservar la responsabilidad sobre las decisiones.",
     "08f8f6d18afab5a7983cb03c": "Herramientas para probar. Un catálogo de aplicaciones para explorar problemas de análisis, comunicación y productividad mediante casos concretos.",
@@ -4273,7 +4278,7 @@
     "28525efec330a9117fa99d03": "MBAI Native · Madrid.",
     "41a3b0c6e598acc2396c7da5": "Conoce el proyecto a través de lo que hace.. Las aplicaciones y los materiales publicados son nuestra primera presentación.",
     "3299365a77f2ad87ef5bb32f": "Para conocer quién participaría en tu proyecto, el enfoque y la experiencia relevante, escríbenos.",
-    "cc11a27232db27ffba0d501e": "Una aplicación concreta.Un resultado que puedas evaluar.. Formación, estrategia y desarrollo para introducir IA en tu empresa.",
+    "436776cf5b228c7159685dfe": "Una aplicación concreta. Un resultado que puedas evaluar.. Formación, estrategia y desarrollo para introducir IA en tu empresa.",
     "1190c2f403b989c9b5c8e0cb": "Partimos de tus tareas y del conocimiento de tu equipo. Para directivos y responsables de equipos.",
     "da5f35a4b465a2d095e7379d": "Formación ejecutiva en IA. Comprende qué puedes delegar, cómo dar contexto a un agente y cómo evaluar sus resultados.",
     "9022981aa5da7c37d83ea82a": "Mapa de tareas de tu equipo. Ejercicios con herramientas y simulación. Criterios de supervisión y autonomía.",
@@ -4296,9 +4301,9 @@
     "70ce7c404a9a5e772857f1d6": "Empieza por contarnos el problema.. Qué tarea te ocupa tiempo, con qué información trabajas y qué resultado esperas conseguir.",
     "fa2666b5fedb4351e86135be": "Contáctanos. Cuéntanos qué tarea quieres mejorar, con qué información trabajas y qué resultado necesitas.",
     "4e60c7b353657a78ceca3f3c": "Concretaremos contigo el alcance, los plazos y el presupuesto.",
-    "4629e106e248ca2949e6fb04": "Información de Contacto. Email: info@mbainative.com. Dirección:Calle Romero Robledo, 1428008-Madrid, España.",
+    "bd1b287c98c24c2c9c576eaf": "Información de Contacto. Email: info@mbainative.com. Dirección: Calle Romero Robledo, 14 28008-Madrid, España.",
     "f1bc104be70e9e08ed71d1a2": "Envíanos un Mensaje.",
-    "b5311177ad1e5c27f902ded4": "Encuentra una herramientapara tu próxima tarea.. Explora aplicaciones de análisis, comunicación, formación y productividad.",
+    "0f5ec2e484f88df072c0b66c": "Encuentra una herramienta para tu próxima tarea.. Explora aplicaciones de análisis, comunicación, formación y productividad.",
     "00ce9a10d5c29f07c4631853": "Algunas se abren en servicios externos con sus propias condiciones de acceso. 28 aplicaciones encontradas.",
     "5bc661c3f4758a1feba0c69d": "📊 Finanzas. Herramientas de análisis financiero y estimación de inversiones. En MBAI Native.",
     "217abae63a376eaa93d4b91c": "España vs UE — Dashboard. Comparativa macro y microeconómica de los 27 países de la Unión Europea.",
@@ -4393,7 +4398,7 @@
     "1b003e2fbebe3f8729ee9b60": "Si hay una simulación, distingue sus supuestos de los datos observados.",
     "fdd73241fec99d8232a70f28": "Utiliza la ayuda de la herramienta. Si el panel está incrustado desde otro dominio, el asistente no puede acceder a sus controles internos.",
     "e6cb2f015c8a4168f67bef9f": "Detén la narración para explorar la herramienta y revisar sus explicaciones.",
-    "8d5b4552cbb0895b3c990191": "Comprende el cambio.Después, llévalo a tu empresa.. Empieza por el recorrido visual o profundiza en las guías y fuentes.",
+    "8cbe14822b8ee5ca92770318": "Comprende el cambio. Después, llévalo a tu empresa.. Empieza por el recorrido visual o profundiza en las guías y fuentes.",
     "cd822ffde21f41ecd38bd573": "Separa las propuestas de organización de las capacidades que ya puedes probar. Un recorrido para abrir posibilidades.",
     "786f1258351452c68b72fc38": "Diseñar tu primer piloto. Una ficha descargable para tu equipo.",
     "cd7e01cf757e5b242e95ccc8": "Lecturas para profundizar.",
@@ -4404,7 +4409,7 @@
     "f5fa55010786299ed52145bb": "Divulgación en vídeo. Canales y contenidos para seguir aprendiendo sobre IA.",
     "057d70cb523fd77c326127f8": "Actualidad y fuentes. Publicaciones recientes con acceso a sus fuentes originales.",
     "b3f3e5bb4cf94d4abc3bef0c": "Explora tu sector.",
-    "10e321e1b29f1199bcd338e3": "De usar IA atrabajar con agentes.. Una empresa necesita algo más que acceso a un modelo: contexto, procedimientos, herramientas y una forma de comprobar los resultados.",
+    "d69b804bd6fab0c6cba61641": "De usar IA a trabajar con agentes.. Una empresa necesita algo más que acceso a un modelo: contexto, procedimientos, herramientas y una forma de comprobar los resultados.",
     "62c3027b436f61415f9f4261": "La charla que inspira esta guía.",
     "ff80b7c34aadd5906edc37b3": "La IA ya no sorprende: así hay que usarla ahora. Carlos Santana (DotCSV) · Publicada por Holded · Evento Inteligencia Emprendedora · 1 h 03 min.",
     "eca87d3cecde9ae5ac353e69": "Síntesis editorial de MBAI Native a partir de la transcripción automática. Las propuestas de aplicación son nuestras;",
@@ -4638,7 +4643,8 @@
     "bd8d320e9ee5bca187d13ad6": "✓ Gestión de datos: Invertir en infraestructura de datos robusta. ✓ Mejora continua: Usar feedback loops para refinar modelos.",
     "48a27fe46a0838520832aec2": "✓ Empoderar workforce: Herramientas y formación para operarios.",
     "122d22bb94c128b84e1479e0": "Política de Privacidad. Última actualización: 7 de septiembre de 2026.",
-    "ee50fc1e016d8ce5f9978993": "1. Responsable del Tratamiento. MBAI NativeCalle Romero Robledo, 1428008-Madrid, EspañaEmail: info@mbainative.com.",
+    "1c3d2b9d24a78b96f7175926": "1. Responsable del Tratamiento. MBAI Native Calle Romero Robledo, 14 28008-Madrid, España Email:",
+    "ea08b90ad4cabbf9c355c576": "info@mbainative.com.",
     "2aafda37684cc8e3ffa34c23": "2. Datos que Recopilamos. Recopilamos los siguientes datos personales:. Datos de contacto: nombre, dirección de email y mensaje cuando utilizas nuestro formulario de contacto.",
     "ed4f323ed184070ee5f47d41": "Datos de navegación: información técnica como dirección IP, tipo de navegador y páginas visitadas.",
     "d17cbdb023a77e4a5bc592af": "3. Finalidad del Tratamiento. Utilizamos tus datos para:. Responder a tus consultas y solicitudes de información.",
@@ -4675,7 +4681,7 @@
     "2f71b79a3261d5294d28efe9": "7. Modificaciones. Nos reservamos el derecho de modificar estas condiciones en cualquier momento.",
     "4719ce7f71ad9478b4003a4c": "Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio web.",
     "27492b4aa4eb57e2b4707f94": "8. Ley Aplicable. Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Madrid.",
-    "0dda0d9e3e4989b6d2e29b82": "9. Contacto. Para cualquier consulta sobre estas condiciones, puedes contactarnos en:Email: info@mbainative.com.",
+    "6c6d3a045a77c7ef64aecb9d": "9. Contacto. Para cualquier consulta sobre estas condiciones, puedes contactarnos en: Email: info@mbainative.com.",
     "f2d64a66ca33bbb411d45208": "Política de Cookies. Última actualización: 28 de diciembre de 2025.",
     "4f41cb3ccfa23e37ac93e58e": "1. ¿Qué son las Cookies?. Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo cuando los visitas.",
     "049bcf17c20d2e622f41c714": "Se utilizan para recordar tus preferencias, mejorar tu experiencia de navegación y recopilar información sobre cómo utilizas el sitio.",
@@ -4692,8 +4698,8 @@
     "f7a23f485f4d02a83d2b1253": "No tenemos control sobre estas cookies de terceros.",
     "8e01b52f3487af770bad96f1": "5. Actualización de esta Política. Podemos actualizar esta política de cookies en cualquier momento.",
     "04b73931f796ff30466d4034": "Te recomendamos revisar esta página periódicamente para estar informado de cualquier cambio.",
-    "e15b02490c0eafecc9049ccb": "6. Contacto. Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en:Email:",
-    "ea08b90ad4cabbf9c355c576": "info@mbainative.com.",
+    "b0ce40263d3fe0ad4fe0db92": "6. Contacto. Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en:",
+    "88e51fbce036c553e21e3dac": "Email: info@mbainative.com.",
     "eb23f3a5a338bc21b2dc7898": "Precisiones. La expresión talento artificial no se debe entender por comparación con el talento natural de las personas.",
     "03200fd5d25e0a887b3405bb": "El talento de las personas y cualquier otra forma de vida biológica se ha configurado a través de un proceso evolutivo de cientos de millones de años regido por leyes;",
     "59af4034fdd9378bc52f72e7": "sean cuales sean esas leyes, es su autor, el autor de las leyes, el origen de ese talento. En el caso de la Inteligencia Artificial (IA) son las personas las que, conociendo y dominando las leyes de la naturaleza, las",

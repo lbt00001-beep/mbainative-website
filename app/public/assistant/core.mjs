@@ -31,9 +31,10 @@ export function extractGuide(document, path) {
   for(const node of root.querySelectorAll('h1,h2,h3,h4,p,li,dt,dd,figcaption')){
     if(node.closest(ignored))continue;
     if(node.tagName==='LI'&&node.querySelector('p,h1,h2,h3,h4,li'))continue;
-    const text=clean(node.textContent||'');if(!text)continue;
+    const spoken=node.cloneNode(true);for(const br of spoken.querySelectorAll('br'))br.replaceWith(' ');
+    const text=clean(spoken.textContent||'');if(!text)continue;
     if(/^H[1-4]$/.test(node.tagName)){
-      current={title:text,match:text,text:explanations[normalize(text)]||'',tag:node.tagName.toLowerCase()};chapters.push(current);
+      current={title:text,match:clean(node.textContent||''),text:explanations[normalize(text)]||'',tag:node.tagName.toLowerCase()};chapters.push(current);
     }else if(current){current.text+=(current.text?' ':'')+text+( /[.!?]$/.test(text)?'':'.');}
   }
   if(!chapters.length)chapters.push({title:'Cómo utilizar esta página',match:'',text:'Esta página contiene una herramienta incrustada. Puedes explorar sus controles y consultar su ayuda. El asistente de MBAI no puede recorrer el contenido interno de una aplicación de otro dominio.',tag:'main'});

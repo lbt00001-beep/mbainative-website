@@ -792,7 +792,7 @@ export default function TradingAlpha() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap items-center gap-2 border-t border-[#1e293b] pt-4 mt-6 print:hidden">
+        <div data-assistant-target="trading-tabs" className="flex flex-wrap items-center gap-2 border-t border-[#1e293b] pt-4 mt-6 print:hidden">
           {[
             { id: 'summary', label: '📊 Resumen & Radar Cuantitativo', icon: '📊' },
             { id: 'technical', label: '📈 Terminal Técnico & Velas', icon: '📈' },

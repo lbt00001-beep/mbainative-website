@@ -1,0 +1,4725 @@
+{
+  "updatedAt": "2026-09-08T15:52:52.599Z",
+  "pages": {
+    "/empresa-nativa-ia": [
+      {
+        "title": "Imagina tu empresa trabajando de otra manera.",
+        "match": "Imagina tu empresa trabajando de otra manera.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "e82584d9643a3bf72b9a9cc3",
+          "4b0f6a5633f3f0de8ddb75cb"
+        ]
+      },
+      {
+        "title": "El trabajo se diseñaalrededor del resultado.",
+        "match": "El trabajo se diseñaalrededor del resultado.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "756887c743dc850700b665fd",
+          "f46a9db853c140ea6e4cd9f3",
+          "a9a3ce6881ae30f8d0752c60",
+          "08fe2d9fa1a8d5a86f557af4",
+          "39c2a70de9f065987ff8dd1f"
+        ]
+      },
+      {
+        "title": "Cuatro conceptos. Funciones diferentes.",
+        "match": "Cuatro conceptos. Funciones diferentes.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e778c771065e8bcf05ce178a"
+        ]
+      },
+      {
+        "title": "Modelo",
+        "match": "Modelo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "cda355e305d278fd1a762967",
+          "62572c21b64e90318918a73f"
+        ]
+      },
+      {
+        "title": "Agente",
+        "match": "Agente",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "7f087d20494f350336666d6b",
+          "e8ee1924a9973e2c7e332800",
+          "7308b0b1a74cf771be143a11"
+        ]
+      },
+      {
+        "title": "Proceso",
+        "match": "Proceso",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1bc0018118ede138f998b5b9",
+          "4288751a857079ffc1177788"
+        ]
+      },
+      {
+        "title": "Persona",
+        "match": "Persona",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "709278eafd3a21c734f1b9b6",
+          "8ea18247c24fffb738a666d3",
+          "c898988a682621dd971f533b"
+        ]
+      },
+      {
+        "title": "Tu primera unidad de cambiopuede ser un solo proceso.",
+        "match": "Tu primera unidad de cambiopuede ser un solo proceso.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "042d1462225691e7d86bb08d",
+          "21371f2fa7ca40cc90b5ff8c"
+        ]
+      },
+      {
+        "title": "Cómo reconocer un avance real",
+        "match": "Cómo reconocer un avance real",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "75f82ae0b184c56d00883cdd"
+        ]
+      },
+      {
+        "title": "Un resultado verificable",
+        "match": "Un resultado verificable",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "cd3d4130786e0547e626c291",
+          "7a1de46400c4f1f9b0637f38"
+        ]
+      },
+      {
+        "title": "Un coste completo",
+        "match": "Un coste completo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "449f1ac1cd1682446fcdaf3e",
+          "f459de3f5956df2f0dab98d7",
+          "52a4fd9bd3d8ab1cbde9e90a"
+        ]
+      },
+      {
+        "title": "Un límite explícito",
+        "match": "Un límite explícito",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "9db6a23982e45d29fc6abde1",
+          "9b9b06d8b9d6c9eddd7f1610"
+        ]
+      },
+      {
+        "title": "Para profundizar en las fuentes",
+        "match": "Para profundizar en las fuentes",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ceca7661326e2024f7f0dc7b",
+          "3863e6e3e1fc09b9fd3f6d75",
+          "cbec9c3198ded72a26f762b7"
+        ]
+      }
+    ],
+    "/empresa-nativa-ia/procesos": [
+      {
+        "title": "Un proceso. Agentes concretos. Personas responsables.",
+        "match": "Un proceso. Agentes concretos. Personas responsables.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "ea638df2dc5ad926a7f92acf",
+          "f46c2f03d7f6594a0eedab81",
+          "b31a379c727f15526da728dd"
+        ]
+      },
+      {
+        "title": "De una necesidad a una propuesta de compra",
+        "match": "De una necesidad a una propuesta de compra",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "774513162e762600efc41928"
+        ]
+      },
+      {
+        "title": "Entrada",
+        "match": "Entrada",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "810f96e280b62184b604a8ae",
+          "e7d87729aede70da75b1a784"
+        ]
+      },
+      {
+        "title": "La ficha que define el responsable del departamento",
+        "match": "La ficha que define el responsable del departamento",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "a36d90cb04d42d22b92bee42",
+          "0a7444a72309fe37f526f345",
+          "b75deaa85282ccd1c2bb1af2",
+          "9d7801167c9ef2708f6de8d9",
+          "70284221684284f91b19ae61",
+          "06eaf626bf784f761ddeee2d",
+          "9cfacbaf7a1f54be565d17e2"
+        ]
+      },
+      {
+        "title": "El mismo agente.Tres niveles de autorización.",
+        "match": "El mismo agente.Tres niveles de autorización.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "91391d7f27e2db15476f4ef6",
+          "ac88d0ee404f1ecc904f29a1",
+          "94a2c190c009cc87b8093d9a"
+        ]
+      },
+      {
+        "title": "Ejecuta tras aprobación",
+        "match": "Ejecuta tras aprobación",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "af43a5eadfd078b9679a01f1",
+          "2d5c04920d66cfa6a9c7f2ba"
+        ]
+      },
+      {
+        "title": "¿Quién prepara qué?",
+        "match": "¿Quién prepara qué?",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e86554c10ba4fbf956c4332a"
+        ]
+      },
+      {
+        "title": "El departamento diseña",
+        "match": "El departamento diseña",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "5f375f90f70ff7057ce936de"
+        ]
+      },
+      {
+        "title": "TI hace posible la ejecución",
+        "match": "TI hace posible la ejecución",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "b56c9996a0828fb3bfc1cffb"
+        ]
+      },
+      {
+        "title": "Dirección acuerda los límites",
+        "match": "Dirección acuerda los límites",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "102a5e4385296ecfe034d015",
+          "cf3441ca3436a251d2cc35a9"
+        ]
+      },
+      {
+        "title": "Para profundizar en las fuentes",
+        "match": "Para profundizar en las fuentes",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ceca7661326e2024f7f0dc7b",
+          "3863e6e3e1fc09b9fd3f6d75",
+          "e796605a46e8e453fe52b87a"
+        ]
+      }
+    ],
+    "/arquitectura-solucion": [
+      {
+        "title": "Arquitectura de la solución.",
+        "match": "Arquitectura de la solución.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "650b94f0a7ea56de8ec6dc9d",
+          "3bbd384100439a30d6168e68"
+        ]
+      },
+      {
+        "title": "Tu empresa ya tiene una base.",
+        "match": "Tu empresa ya tiene una base.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "661a152b054f8db6c7bac9c4",
+          "9f23b04fc8f2679abbcb96c7",
+          "7074b8008c5019a44f2c8b06",
+          "5fbd9ef5a506a0f0975ccb38",
+          "e1b5bae26351f6cbf2171782"
+        ]
+      },
+      {
+        "title": "Tres maneras de situar la inteligencia.",
+        "match": "Tres maneras de situar la inteligencia.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "53b167cd22afc3d24a78a934",
+          "d040850ec9ed0c13c68f7c5f",
+          "a8126f9a98f1535189d6fcda",
+          "44506fb4af1796de9226c4f4"
+        ]
+      },
+      {
+        "title": "Datos locales y modelos externos cuando procede.",
+        "match": "Datos locales y modelos externos cuando procede.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1c4e893c7ee6fec17f3689e1",
+          "4b2d8c22515b6124aff8066a",
+          "949146f133c56bd0aaca2d95",
+          "510e61bcd0236bf190d73e3a",
+          "2fbdfa9554212b846fb65be5"
+        ]
+      },
+      {
+        "title": "Repartir peticiones entre equipos.",
+        "match": "Repartir peticiones entre equipos.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b1af7081e143c1ab2dcbf68e",
+          "92d1c2f2dccfe8f8ae1d3e73",
+          "28a172a09e55aa994e5b6245",
+          "d32378f56d1301f1bd347fc4",
+          "45ad5c331404f64258091707",
+          "4afec75c5fbcd4964a2d8784",
+          "61854398f02f727f56f0f8d0",
+          "c4cd1ab93fa9bae8bc6db71a",
+          "3a504bb18ce7614959e89520",
+          "0e1599edb0993630571a83ce"
+        ]
+      },
+      {
+        "title": "Seis capas para convertircapacidad en trabajo fiable.",
+        "match": "Seis capas para convertircapacidad en trabajo fiable.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e4c865b4968f49569b3d99f5",
+          "c3ff71518025fd94d351b3e1"
+        ]
+      },
+      {
+        "title": "Personas y responsabilidad",
+        "match": "Personas y responsabilidad",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "5ebc43ca42740e907ccb2a41"
+        ]
+      },
+      {
+        "title": "Cómo se concreta",
+        "match": "Cómo se concreta",
+        "selector": "",
+        "tag": "h4",
+        "occurrence": 0,
+        "segments": [
+          "6452eef189b31bc3ef6437a0"
+        ]
+      },
+      {
+        "title": "Control necesario",
+        "match": "Control necesario",
+        "selector": "",
+        "tag": "h4",
+        "occurrence": 0,
+        "segments": [
+          "b5e932248587eaff3c012d64",
+          "841b97d27cca7f93a2925568",
+          "a21ab0faa7c7fc1a53acd51e"
+        ]
+      },
+      {
+        "title": "Un expediente recorre toda la arquitectura.",
+        "match": "Un expediente recorre toda la arquitectura.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "5b8ece8070cc974303812dac"
+        ]
+      },
+      {
+        "title": "Una persona registra una necesidad",
+        "match": "Una persona registra una necesidad",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "228727b785c33cf7dd490bb1"
+        ]
+      },
+      {
+        "title": "El motor carga la definición aprobada",
+        "match": "El motor carga la definición aprobada",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "e0cfac8891d155093cf03e99"
+        ]
+      },
+      {
+        "title": "El agente prepara una propuesta",
+        "match": "El agente prepara una propuesta",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "6fb3babc5f94cc1c8f315171"
+        ]
+      },
+      {
+        "title": "La persona revisa y aprueba",
+        "match": "La persona revisa y aprueba",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c3e27cad7734754b17874b98"
+        ]
+      },
+      {
+        "title": "La integración ejecuta y registra",
+        "match": "La integración ejecuta y registra",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "4972531f464875a0a29d6da3",
+          "62b40a6ac0d063b615db9dc5"
+        ]
+      },
+      {
+        "title": "Del sistema actual a la nueva operación.",
+        "match": "Del sistema actual a la nueva operación.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b46df50b8246f797bdbc60e4"
+        ]
+      },
+      {
+        "title": "1. Conectar para leer",
+        "match": "1. Conectar para leer",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "5f60ed21a4ac44dfe88eed59",
+          "650b513f3b32767bb7117c6f"
+        ]
+      },
+      {
+        "title": "2. Proponer y revisar",
+        "match": "2. Proponer y revisar",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "2127e0120fba597e21903e0a",
+          "2c457e4f866d307cbe90516b"
+        ]
+      },
+      {
+        "title": "3. Ejecutar con límites",
+        "match": "3. Ejecutar con límites",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "abecff0693d999ec21ff061f",
+          "5da1457f9158e850893dba1b",
+          "68030fe77050f4999c9cb1fb",
+          "b54db50ee3be36b04892ba58"
+        ]
+      },
+      {
+        "title": "Para profundizar en las fuentes",
+        "match": "Para profundizar en las fuentes",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ceca7661326e2024f7f0dc7b",
+          "d59f155b74d14bb979f521ff",
+          "f413a9032f5c87877d2e69ac"
+        ]
+      }
+    ],
+    "/empresa-nativa-ia/empezar": [
+      {
+        "title": "Diseña tu primer piloto",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "28e2e00f82babf2b5eb1fcf4",
+          "bbe3b864dbb10b6bd6a42e87"
+        ]
+      },
+      {
+        "title": "Elige una tarea adecuada",
+        "match": "",
+        "selector": ".pilot-introduction",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "6d78da5223aeebdd85ceec45",
+          "3ae133adfd6dae5035e4e3d5"
+        ]
+      },
+      {
+        "title": "Parte de un ejemplo",
+        "match": "",
+        "selector": ".pilot-template",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "f925d10b4765dffa51bf0600",
+          "fd743bc4936fb2a6fc47f928"
+        ]
+      },
+      {
+        "title": "Asigna personas responsables",
+        "match": "",
+        "selector": "#pilot-owner",
+        "tag": "",
+        "occurrence": 3,
+        "segments": [
+          "3480b7493dabb1a515b4ca17",
+          "a62b2f019e4273176b4bf639"
+        ]
+      },
+      {
+        "title": "Define entradas, agentes y permisos",
+        "match": "",
+        "selector": "#pilot-trigger",
+        "tag": "",
+        "occurrence": 4,
+        "segments": [
+          "eb3e2e541007e4a7f9938dac",
+          "72723165951fb1f822e1fc10",
+          "6c95551a8ef5f7c83c07d7e3"
+        ]
+      },
+      {
+        "title": "Acuerda cómo comprobar el resultado",
+        "match": "",
+        "selector": "#pilot-approval",
+        "tag": "",
+        "occurrence": 5,
+        "segments": [
+          "6d7952248de8c4964d7c9e64",
+          "88afe5344dfd97ffa06e6d58"
+        ]
+      },
+      {
+        "title": "Descarga y revisa la ficha",
+        "match": "",
+        "selector": ".pilot-privacy",
+        "tag": "",
+        "occurrence": 6,
+        "segments": [
+          "fa9e66944562d658cce40dd3",
+          "f97765aa027c63854fe6ea2a"
+        ]
+      },
+      {
+        "title": "Avanza por cuatro puertas",
+        "match": "",
+        "selector": ".architecture-trace",
+        "tag": "",
+        "occurrence": 7,
+        "segments": [
+          "bbc9b0d4ee1ff0fa9ad5dabd",
+          "7014cdb8b2174f2f9656c77b",
+          "6a750f4d999d9767d5336971"
+        ]
+      }
+    ],
+    "/": [
+      {
+        "title": "Lidera una empresanativa en IA.",
+        "match": "Lidera una empresanativa en IA.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "b389b99eeb4d665bdaf255d2",
+          "e336e755a5822944355c257f"
+        ]
+      },
+      {
+        "title": "La autonomía se diseña.",
+        "match": "La autonomía se diseña.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "55542160c74c0cb9b87a2ce1",
+          "4410ab77ab5ee6c552e3017f",
+          "39db2019f58c76d7fc77de07"
+        ]
+      },
+      {
+        "title": "Entiéndelo.Imagínalo en tu empresa.",
+        "match": "Entiéndelo.Imagínalo en tu empresa.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "78b3ff37136b118b4084ae7b",
+          "4ce85265c7aa143158c19784"
+        ]
+      },
+      {
+        "title": "Entender el cambio",
+        "match": "Entender el cambio",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "af0bfaae82a00f9ce503e4d5"
+        ]
+      },
+      {
+        "title": "Ver un proceso",
+        "match": "Ver un proceso",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c56db3ce176b116c751b1228"
+        ]
+      },
+      {
+        "title": "Explorar la arquitectura",
+        "match": "Explorar la arquitectura",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1321eb2c936a3f59829c387c"
+        ]
+      },
+      {
+        "title": "Diseñar tu primer piloto",
+        "match": "Diseñar tu primer piloto",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d5afc4309f9725ec9f1530d7"
+        ]
+      },
+      {
+        "title": "Empieza por una tarea real.",
+        "match": "Empieza por una tarea real.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "8add0312cf749d5644b11f65"
+        ]
+      },
+      {
+        "title": "PlanPro Marketing",
+        "match": "PlanPro Marketing",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "81afd92d728869df07b622e8",
+          "f995889d7a6d3ba6b4e9cf3e"
+        ]
+      },
+      {
+        "title": "TradingAlpha",
+        "match": "TradingAlpha",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c9526ff9ad186bdab0e0ff4f",
+          "8665baddc960ddc7f4ccd356"
+        ]
+      },
+      {
+        "title": "Analizador de contenidos",
+        "match": "Analizador de contenidos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "516c942d08a84d6eeb4a6f71",
+          "b50ee9b5a04b60f2c9acaddf"
+        ]
+      },
+      {
+        "title": "De usar IA a trabajar con agentes.",
+        "match": "De usar IA a trabajar con agentes.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2b001f951292131ee025bbbe",
+          "676710a302c209ef8e59989e",
+          "732ec58c2c9d3dac4c0df024"
+        ]
+      },
+      {
+        "title": "Practica la Gestión AI-Nativa",
+        "match": "Practica la Gestión AI-Nativa",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b5ae64de12341e4cb69b07bf"
+        ]
+      }
+    ],
+    "/about": [
+      {
+        "title": "Entender la IA.Aprender a dirigir con ella.",
+        "match": "Entender la IA.Aprender a dirigir con ella.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "1a855d017930ca5dd0a97f06",
+          "fcb655b805ce5f96013b2ef1"
+        ]
+      },
+      {
+        "title": "Una visión de empresa",
+        "match": "Una visión de empresa",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c55f533a72305f25092e93db"
+        ]
+      },
+      {
+        "title": "Herramientas para probar",
+        "match": "Herramientas para probar",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "08f8f6d18afab5a7983cb03c"
+        ]
+      },
+      {
+        "title": "Resultados que se revisan",
+        "match": "Resultados que se revisan",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "eee190703530852903120de4",
+          "28525efec330a9117fa99d03"
+        ]
+      },
+      {
+        "title": "Conoce el proyecto a través de lo que hace.",
+        "match": "Conoce el proyecto a través de lo que hace.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "41a3b0c6e598acc2396c7da5",
+          "3299365a77f2ad87ef5bb32f"
+        ]
+      }
+    ],
+    "/services": [
+      {
+        "title": "Una aplicación concreta.Un resultado que puedas evaluar.",
+        "match": "Una aplicación concreta.Un resultado que puedas evaluar.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "cc11a27232db27ffba0d501e",
+          "1190c2f403b989c9b5c8e0cb"
+        ]
+      },
+      {
+        "title": "Formación ejecutiva en IA",
+        "match": "Formación ejecutiva en IA",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "da5f35a4b465a2d095e7379d",
+          "9022981aa5da7c37d83ea82a",
+          "e49fc2c19751499fb93894c2"
+        ]
+      },
+      {
+        "title": "Estrategia y consultoría",
+        "match": "Estrategia y consultoría",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a1200ed945cb386511512f87",
+          "12bf2b1f0da5e1a9f437b101",
+          "0a443710226e4e9b9dbccd21"
+        ]
+      },
+      {
+        "title": "Talleres para equipos",
+        "match": "Talleres para equipos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "37f4223c943de6936c3c233a",
+          "2b6751d1f82e254710fd339d",
+          "6163208702d928815a4f0329"
+        ]
+      },
+      {
+        "title": "Desarrollo de soluciones",
+        "match": "Desarrollo de soluciones",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b7e2a5ff2cc576e94ed1c076",
+          "49a9c2570d2b4260754ecb3b",
+          "a267369969dd498147200431"
+        ]
+      },
+      {
+        "title": "Auditoría y optimización",
+        "match": "Auditoría y optimización",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "83dfe2795da16823d0095b6b",
+          "5397feb7caff9963c31c2c4d",
+          "158a55e63eb945fb41d514be"
+        ]
+      },
+      {
+        "title": "Investigación aplicada",
+        "match": "Investigación aplicada",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b61fb28612cd3464e3e15a95",
+          "b9d49a755f0daae4e739f274",
+          "1ba086525e29ed5e88319018"
+        ]
+      },
+      {
+        "title": "Empieza por contarnos el problema.",
+        "match": "Empieza por contarnos el problema.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "70ce7c404a9a5e772857f1d6"
+        ]
+      }
+    ],
+    "/contact": [
+      {
+        "title": "Contáctanos",
+        "match": "Contáctanos",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "fa2666b5fedb4351e86135be",
+          "4e60c7b353657a78ceca3f3c"
+        ]
+      },
+      {
+        "title": "Información de Contacto",
+        "match": "Información de Contacto",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "4629e106e248ca2949e6fb04"
+        ]
+      },
+      {
+        "title": "Envíanos un Mensaje",
+        "match": "Envíanos un Mensaje",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "f1bc104be70e9e08ed71d1a2"
+        ]
+      }
+    ],
+    "/aplicaciones": [
+      {
+        "title": "Encuentra una herramientapara tu próxima tarea.",
+        "match": "Encuentra una herramientapara tu próxima tarea.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "b5311177ad1e5c27f902ded4",
+          "00ce9a10d5c29f07c4631853"
+        ]
+      },
+      {
+        "title": "📊 Finanzas",
+        "match": "📊 Finanzas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "5bc661c3f4758a1feba0c69d"
+        ]
+      },
+      {
+        "title": "España vs UE — Dashboard",
+        "match": "España vs UE — Dashboard",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "217abae63a376eaa93d4b91c",
+          "25540d63ee46d6eb8fd4923b"
+        ]
+      },
+      {
+        "title": "Inversión con Fundamentales",
+        "match": "Inversión con Fundamentales",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "f85c71c63b7cb16e50bb26f6",
+          "bb26f475bc765e5e540ec81e"
+        ]
+      },
+      {
+        "title": "TradingAlpha — Suite Inversiones Pro",
+        "match": "TradingAlpha — Suite Inversiones Pro",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "01fabe7e5330e86260170601",
+          "9efad390853f654595f639ee"
+        ]
+      },
+      {
+        "title": "Correlaciones Financieras",
+        "match": "Correlaciones Financieras",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "cacc1c272155a8684533b644",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Dashboard Economía España",
+        "match": "Dashboard Economía España",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "4cccc53d075b77c7f4387d31",
+          "bb26f475bc765e5e540ec81e"
+        ]
+      },
+      {
+        "title": "Monitor de Futuros Líquidos",
+        "match": "Monitor de Futuros Líquidos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "3a969ec9b0dd871ba09ff621",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "CasaCalc — Comprar vs Alquilar",
+        "match": "CasaCalc — Comprar vs Alquilar",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "867bd61a478ad93e01a36ebb",
+          "87fbc9a45396143f184a24f2"
+        ]
+      },
+      {
+        "title": "📝 Lengua",
+        "match": "📝 Lengua",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "786f140f5ba6d8bf1646d587"
+        ]
+      },
+      {
+        "title": "Corrector Ortotipográfico RAE",
+        "match": "Corrector Ortotipográfico RAE",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "27465ab7de4ce1e936a78447"
+        ]
+      },
+      {
+        "title": "🗳 Sondeos",
+        "match": "🗳 Sondeos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "19ed53627429a142b07747d3"
+        ]
+      },
+      {
+        "title": "Estimador CIS",
+        "match": "Estimador CIS",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "ec10d363858b7710dc3d3496"
+        ]
+      },
+      {
+        "title": "📰 Prensa & Opinión Pública",
+        "match": "📰 Prensa & Opinión Pública",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "9df89114980a6600d078ac17",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "OpinionPulse AI — Inteligencia de Opinión & Polarización",
+        "match": "OpinionPulse AI — Inteligencia de Opinión & Polarización",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d1510a54431bcd580c0afb36",
+          "500be9d38629e0ba6552b62e",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Radar de Calidad Periodística",
+        "match": "Radar de Calidad Periodística",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "8320aa6301d513b099cefb6d",
+          "8f3e1ef83eb283e801755bb8"
+        ]
+      },
+      {
+        "title": "Prensa Resumen MBAI",
+        "match": "Prensa Resumen MBAI",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "9630f27903d1108a388905e9"
+        ]
+      },
+      {
+        "title": "🎬 Video/Audio",
+        "match": "🎬 Video/Audio",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "615b222d72e1343b6ce03a09"
+        ]
+      },
+      {
+        "title": "FotoAI Slides — Presentaciones con IA",
+        "match": "FotoAI Slides — Presentaciones con IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "163ea773e17d15e9acb7f39c",
+          "6485beed245ea2c0b638bad7"
+        ]
+      },
+      {
+        "title": "Generador de Guiones",
+        "match": "Generador de Guiones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "39d8bf08e0b917573256d797",
+          "ab19b9e6ff7d332a7c11aeb9"
+        ]
+      },
+      {
+        "title": "Generador de Vídeos IA",
+        "match": "Generador de Vídeos IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d9eb013a924595186871d7a7"
+        ]
+      },
+      {
+        "title": "🌍 Simulaciones",
+        "match": "🌍 Simulaciones",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "bc850d4ca23677e80ba842bf"
+        ]
+      },
+      {
+        "title": "Evolución Demográfica Humana",
+        "match": "Evolución Demográfica Humana",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1678b12e449dc69ce017c901",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Análisis Político",
+        "match": "Análisis Político",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c410950c3f71dafc96e3f823"
+        ]
+      },
+      {
+        "title": "🔬 Investigación IA",
+        "match": "🔬 Investigación IA",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "98e0e5fa9913b601b907140d",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "AI Research Radar",
+        "match": "AI Research Radar",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "b1e98f2a1a9edef92a8f58e1",
+          "6c904d26c191070c05865bb5"
+        ]
+      },
+      {
+        "title": "Comparador de Benchmarks de IA",
+        "match": "Comparador de Benchmarks de IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "67e16da6e668592a21a67e88"
+        ]
+      },
+      {
+        "title": "🏅 Aplicaciones con acreditación",
+        "match": "🏅 Aplicaciones con acreditación",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "f4a9d990d75a4732ce494926",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Aegis Security Intelligence",
+        "match": "Aegis Security Intelligence",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "a19ae162493ba5099b47bbac"
+        ]
+      },
+      {
+        "title": "🎯 Ventas",
+        "match": "🎯 Ventas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "f302cac791017e1aa9d18109"
+        ]
+      },
+      {
+        "title": "Coach Comercial IA",
+        "match": "Coach Comercial IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "3a601cc9f06c824642afbc5c"
+        ]
+      },
+      {
+        "title": "🚀 Aplicaciones que multiplican tu productividad",
+        "match": "🚀 Aplicaciones que multiplican tu productividad",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a69824d4eee63b9786adacab",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Generador Autónomo de Masterclass (MBAI Presenter)",
+        "match": "Generador Autónomo de Masterclass (MBAI Presenter)",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "6c76f05daf2b8020dbe3a19f",
+          "e657172f6e872247d9b9cd20"
+        ]
+      },
+      {
+        "title": "Analizador Profesional de Contenidos",
+        "match": "Analizador Profesional de Contenidos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "a28aee09f0988f7e2a4504f6",
+          "63e4f0ee7566fbc30dae6c87"
+        ]
+      },
+      {
+        "title": "Detector de Textos IA (Doctrina MBAI)",
+        "match": "Detector de Textos IA (Doctrina MBAI)",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "cfe5bd18447db8ab27cb0d42",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "QR Poster Studio",
+        "match": "QR Poster Studio",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "2e5c19c11fca8ad731e1ccfa",
+          "bb26f475bc765e5e540ec81e"
+        ]
+      },
+      {
+        "title": "PlanPro Marketing",
+        "match": "PlanPro Marketing",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d17746ec149f23fbc4bd9c8a",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "MarkItDown",
+        "match": "MarkItDown",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "bae770441554aa21345e9b5c"
+        ]
+      },
+      {
+        "title": "🧠 IA Personal",
+        "match": "🧠 IA Personal",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "3a9b46e7d72404a23b401a7d",
+          "4128bc244737660849270d64"
+        ]
+      },
+      {
+        "title": "Clonify — Clon Virtual Interactivo",
+        "match": "Clonify — Clon Virtual Interactivo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d2e1ea4746751667c8b7a98a",
+          "8994dea5206fbef93642d557"
+        ]
+      },
+      {
+        "title": "¿Tu proceso necesita algo distinto?",
+        "match": "¿Tu proceso necesita algo distinto?",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "f6d7525c31c74d0e2771332d"
+        ]
+      }
+    ],
+    "/aplicaciones/tradingalpha": [
+      {
+        "title": "Bienvenido a TradingAlpha",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "375b78f94aa4f71fb44c5d90",
+          "48ad68e4a6c16f1764a55434"
+        ]
+      },
+      {
+        "title": "Elegir un activo",
+        "match": "",
+        "selector": "input",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "68223c8c166a6659d0d51204",
+          "30f2df85e996ee92ec44dc2a"
+        ]
+      },
+      {
+        "title": "Resumen y radar",
+        "match": "",
+        "selector": "[data-assistant-target=\"trading-tabs\"]",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "233306d6c893e205565331da",
+          "d2c28684def5e0dca48ba773"
+        ]
+      },
+      {
+        "title": "Gráficos y valoración",
+        "match": "",
+        "selector": "[data-assistant-target=\"trading-tabs\"]",
+        "tag": "",
+        "occurrence": 3,
+        "segments": [
+          "c5676290cf5e3e39a1b71c1b",
+          "e71061c0366281031af15038"
+        ]
+      },
+      {
+        "title": "Estados financieros y noticias",
+        "match": "",
+        "selector": "[data-assistant-target=\"trading-tabs\"]",
+        "tag": "",
+        "occurrence": 4,
+        "segments": [
+          "3ad7e811be0db15f845a97ae",
+          "9398c151da388a067521525e"
+        ]
+      },
+      {
+        "title": "Informe con inteligencia artificial",
+        "match": "",
+        "selector": "[data-assistant-target=\"trading-tabs\"]",
+        "tag": "",
+        "occurrence": 5,
+        "segments": [
+          "3e991cb0d9b976b93da759e4",
+          "50467612d7588bbd2ee139bc"
+        ]
+      },
+      {
+        "title": "Revisión antes de decidir",
+        "match": "",
+        "selector": "[data-assistant-target=\"trading-tabs\"]",
+        "tag": "",
+        "occurrence": 6,
+        "segments": [
+          "6149bef74ac673fea6dc0fbb",
+          "9422db568143ce42b6c1ce1c"
+        ]
+      }
+    ],
+    "/aplicaciones/inversion-fundamentales": [
+      {
+        "title": "Análisis de fundamentales",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "699452e447ddb772c7243c72",
+          "dbf22dc522f4f43ad0d9d236"
+        ]
+      },
+      {
+        "title": "Selecciona la empresa",
+        "match": "",
+        "selector": "input",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "61f4b873e48000edb97eeb00",
+          "f212bf34906efb106c4086bd"
+        ]
+      },
+      {
+        "title": "Interpreta los indicadores",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "4c5c852e2163153295d5eb38",
+          "b7559358b95ee6174162bf7f"
+        ]
+      },
+      {
+        "title": "Trabaja con escenarios",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 3,
+        "segments": [
+          "cc887fd882d19b60c7bd4bc8",
+          "303e11605aa494d480b402ab"
+        ]
+      }
+    ],
+    "/aplicaciones/comparativa-ue": [
+      {
+        "title": "Comparar España y la Unión Europea",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "b7b3d400c9b5e1d91f6909db",
+          "ddcaff1fea78ba623b117dc9"
+        ]
+      },
+      {
+        "title": "Lee cada gráfico con contexto",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "6992d9640a7bc3c9aa0c9f52",
+          "85ff196ee7ca98549287ce7d"
+        ]
+      },
+      {
+        "title": "Explora el panel a tu ritmo",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "5796f84a1318668c37ab9d66",
+          "b16bcba35740dfa5a81f401f"
+        ]
+      }
+    ],
+    "/aplicaciones/corrector-rae": [
+      {
+        "title": "Corrector ortotipográfico",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "1162612f92fcd4db0e0233cb",
+          "8c9ac5378bfc3a12d925b2fb"
+        ]
+      },
+      {
+        "title": "Prepara el documento",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "16e943e13bff77fd9007562a",
+          "c9b262ed004c51a7c1523c31"
+        ]
+      },
+      {
+        "title": "Revisa el resultado",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "2f51ef67e30d7bd066cae526",
+          "ecd76ba23a840cce13ea77d3"
+        ]
+      }
+    ],
+    "/aplicaciones/futuros": [
+      {
+        "title": "Monitor de futuros",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "4e030ad08bdc53c81f98fa22",
+          "287231509a705498a9f46a0f"
+        ]
+      },
+      {
+        "title": "Comprueba el instrumento",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "ac0f08545c9a0fbad043474f",
+          "1b003e2fbebe3f8729ee9b60"
+        ]
+      },
+      {
+        "title": "Utiliza la ayuda de la herramienta",
+        "match": "",
+        "selector": "iframe",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "fdd73241fec99d8232a70f28",
+          "e6cb2f015c8a4168f67bef9f"
+        ]
+      }
+    ],
+    "/mejores-practicas": [
+      {
+        "title": "Comprende el cambio.Después, llévalo a tu empresa.",
+        "match": "Comprende el cambio.Después, llévalo a tu empresa.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "8d5b4552cbb0895b3c990191",
+          "cd822ffde21f41ecd38bd573"
+        ]
+      },
+      {
+        "title": "Entiéndelo.Imagínalo en tu empresa.",
+        "match": "Entiéndelo.Imagínalo en tu empresa.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "78b3ff37136b118b4084ae7b",
+          "4ce85265c7aa143158c19784"
+        ]
+      },
+      {
+        "title": "Entender el cambio",
+        "match": "Entender el cambio",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "af0bfaae82a00f9ce503e4d5"
+        ]
+      },
+      {
+        "title": "Ver un proceso",
+        "match": "Ver un proceso",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c56db3ce176b116c751b1228"
+        ]
+      },
+      {
+        "title": "Explorar la arquitectura",
+        "match": "Explorar la arquitectura",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1321eb2c936a3f59829c387c"
+        ]
+      },
+      {
+        "title": "Diseñar tu primer piloto",
+        "match": "Diseñar tu primer piloto",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "786f1258351452c68b72fc38"
+        ]
+      },
+      {
+        "title": "Lecturas para profundizar",
+        "match": "Lecturas para profundizar",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "cd7e01cf757e5b242e95ccc8"
+        ]
+      },
+      {
+        "title": "La IA llevada al trabajo",
+        "match": "La IA llevada al trabajo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "f0470a344d0a02555029554c"
+        ]
+      },
+      {
+        "title": "20 principios para debatir",
+        "match": "20 principios para debatir",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1145a37698f2ee3a21222daa"
+        ]
+      },
+      {
+        "title": "Voces del sector",
+        "match": "Voces del sector",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "05b1424899a7466803dc5222"
+        ]
+      },
+      {
+        "title": "Investigación de consultoras",
+        "match": "Investigación de consultoras",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "ba13ce75913495e2bfd6d34f"
+        ]
+      },
+      {
+        "title": "Divulgación en vídeo",
+        "match": "Divulgación en vídeo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "f5fa55010786299ed52145bb"
+        ]
+      },
+      {
+        "title": "Actualidad y fuentes",
+        "match": "Actualidad y fuentes",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "057d70cb523fd77c326127f8"
+        ]
+      },
+      {
+        "title": "Explora tu sector",
+        "match": "Explora tu sector",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b3f3e5bb4cf94d4abc3bef0c"
+        ]
+      }
+    ],
+    "/mejores-practicas/ia-en-la-practica": [
+      {
+        "title": "De usar IA atrabajar con agentes.",
+        "match": "De usar IA atrabajar con agentes.",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "10e321e1b29f1199bcd338e3",
+          "62c3027b436f61415f9f4261"
+        ]
+      },
+      {
+        "title": "La IA ya no sorprende: así hay que usarla ahora",
+        "match": "La IA ya no sorprende: así hay que usarla ahora",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ff80b7c34aadd5906edc37b3",
+          "eca87d3cecde9ae5ac353e69",
+          "3265f2a3ff0675c15c7b63e5"
+        ]
+      },
+      {
+        "title": "Cinco ideas para llevar al trabajo",
+        "match": "Cinco ideas para llevar al trabajo",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "09c486626d96f4a6f5820eff"
+        ]
+      },
+      {
+        "title": "Aprende capacidades, no una lista de herramientas.",
+        "match": "Aprende capacidades, no una lista de herramientas.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1a507f3e9b78d18f6a267fe8",
+          "f8e4d00543017655975b5873",
+          "c38468a106dac2cb3c1c5c57"
+        ]
+      },
+      {
+        "title": "Replantea cómo llegas al resultado.",
+        "match": "Replantea cómo llegas al resultado.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "f99886534259b64ef6822527",
+          "7d2ee1a819a7da18771dcd15"
+        ]
+      },
+      {
+        "title": "Convierte conocimiento en contexto útil.",
+        "match": "Convierte conocimiento en contexto útil.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "a5f8f55c93c0f5353e60d882",
+          "10fac306d82e7f58a0059701"
+        ]
+      },
+      {
+        "title": "Define cómo sabrás si lo ha hecho bien.",
+        "match": "Define cómo sabrás si lo ha hecho bien.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "246adcba143328374e471329",
+          "0c8e6f8e10c1c31916f24d66",
+          "7cd71fdc7a80e04e871a02e3"
+        ]
+      },
+      {
+        "title": "Gestiona el coste de cada resultado.",
+        "match": "Gestiona el coste de cada resultado.",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "b9b9e75deffb254b82bae9dc",
+          "19e8394c99a40cbb8aa558ac",
+          "fffd31316f4ea0c3e927fba4",
+          "dbb32f08017a731c79ec7af2"
+        ]
+      },
+      {
+        "title": "Documenta una tarea mientras la haces.",
+        "match": "Documenta una tarea mientras la haces.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c2fc8f7ca04263bdfda58485",
+          "4d3513933d90a2c60cfa26a2",
+          "f83dbb8802f22593fc8e29d5"
+        ]
+      },
+      {
+        "title": "Una tarea. Un responsable. Un criterio de éxito.",
+        "match": "Una tarea. Un responsable. Un criterio de éxito.",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a72e1abdc78d9eaf40bf449e",
+          "59e5576fc6e42bf9ef9c1804",
+          "fc6622566e6dce96f16dcf3e",
+          "d2aeae6dd97fe6e43944f9ca",
+          "f41539226a5e03ef6205f317",
+          "41d3aa94c72ef87385e64354"
+        ]
+      }
+    ],
+    "/mejores-practicas/doctrinas": [
+      {
+        "title": "20 Principios de la Empresa AI-Nativa",
+        "match": "20 Principios de la Empresa AI-Nativa",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "b988ec001fec921ba6c8ce73",
+          "0e64b387585a1f89d174f13c"
+        ]
+      },
+      {
+        "title": "Organización Empresarial",
+        "match": "Organización Empresarial",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ffa5f8004f8969e89e5b5835"
+        ]
+      },
+      {
+        "title": "El talento artificial se compra",
+        "match": "El talento artificial se compra",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c45ddbd4ad76a2321b052742"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "504b8c3283616d661c3fc10e",
+          "8b063e90235f1baa28f0ba3e"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "87ac37c76c012a0f1589e7bf"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "2eef81c9365d1da0088e4143"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Los empleados de silicio",
+        "match": "Los empleados de silicio",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "8cc64cc0cc608472c07b0cf6"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 1,
+        "segments": [
+          "041ee4d9392d6fbc6bf6be19",
+          "16e293fc2fd88d7278f07fb5"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 1,
+        "segments": [
+          "7c40a69795cad53d8898b0e2",
+          "dfcbd0658492d49dc3778c72"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 1,
+        "segments": [
+          "6cc385a5c30f1996e7b61120"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 1,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Organización por tareas, no por puestos",
+        "match": "Organización por tareas, no por puestos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "67819c4708c8b9cb571304b2"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 2,
+        "segments": [
+          "f546199c506d1976dc56a841",
+          "b3dfb73eea4a01658b35f376"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 2,
+        "segments": [
+          "799fc8991159742c22854605"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 2,
+        "segments": [
+          "c9e839e236f9d7f7977e0013"
+        ]
+      },
+      {
+        "title": "El nuevo organigrama es una ciencia",
+        "match": "El nuevo organigrama es una ciencia",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "6c317ef705cd983f500cbe6c"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 3,
+        "segments": [
+          "63a461939297da1c99f19902"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 3,
+        "segments": [
+          "15dc61d6ba02b4340e03a3ca"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 3,
+        "segments": [
+          "8c0452afcaee1effd35e542d"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 2,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "La información fluye horizontalmente",
+        "match": "La información fluye horizontalmente",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a1b2edd71059841bf91f22c5"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 4,
+        "segments": [
+          "1caf9a29b88816e36fa405a7",
+          "d93aafcb2fc675f94e5de773"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 4,
+        "segments": [
+          "e050664d607e2b7c971e79cc"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 4,
+        "segments": [
+          "463093f70273f7605d8b8bf9"
+        ]
+      },
+      {
+        "title": "Decisiones con autonomía configurable",
+        "match": "Decisiones con autonomía configurable",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "93960a7344a84a41cd3a75d9"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 5,
+        "segments": [
+          "0f29735b7d54f11384c7a819",
+          "6e6623917274af3c021d7bef"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 5,
+        "segments": [
+          "6cb0f2dfb005fab75e47de8d",
+          "5309e1b99a743d145c07f2df"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 5,
+        "segments": [
+          "cab517f986dba7f211c641c8"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 3,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Relaciones externas agénticas",
+        "match": "Relaciones externas agénticas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "7fe7f8fafbab16d6c3a9329d"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 6,
+        "segments": [
+          "0c3ef2f69ebe94904220621b",
+          "d5866a35d3e91c856134fbcf"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 6,
+        "segments": [
+          "3fec2af7daf63be6b724b17a"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 6,
+        "segments": [
+          "6b04d8fed346f8e1eca04f0e"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 4,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Cumplimiento normativo automatizado",
+        "match": "Cumplimiento normativo automatizado",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "4976fb18f0b164b507d79682"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 7,
+        "segments": [
+          "8c5492485a5d93ee51547de3"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 7,
+        "segments": [
+          "ecd24832f51dfdbc5464ad33",
+          "86db4ff87e5fe2c27a509c7b"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 7,
+        "segments": [
+          "126db3e64e38a4b5d6d1c975"
+        ]
+      },
+      {
+        "title": "El capital humano se transforma",
+        "match": "El capital humano se transforma",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "50ab9cce547512880db78736"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 8,
+        "segments": [
+          "f0a46c5bcaff1e6980ce3593",
+          "d5b06c238cba4d3a26252df8"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 8,
+        "segments": [
+          "c3248f96c8b535621e34f990",
+          "6aebe4d71a12b61ce984ecfe"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 8,
+        "segments": [
+          "3d13f389d2db120386a59db8"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 5,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Memoria institucional digital",
+        "match": "Memoria institucional digital",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c581e3ab342d3d249b3fbf45"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 9,
+        "segments": [
+          "255040122c21cd01fe108997",
+          "4d7247157a70bfc7a7a13f66"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 9,
+        "segments": [
+          "68e527b3e0b13f0168c85d9a",
+          "1aed8885e3d74f43c44d787a"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 9,
+        "segments": [
+          "61e837da2b17978524a050ec"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 6,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Escalabilidad instantánea",
+        "match": "Escalabilidad instantánea",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "bb1275add8934fde243d1838"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 10,
+        "segments": [
+          "aa722d465b5012c55b39c7c2",
+          "1b1243524bbc8b15abc36264"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 10,
+        "segments": [
+          "90033bf7a645ebcc757c7cd9"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 10,
+        "segments": [
+          "e4f5a33ac489d4152ab9894d"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 7,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "El dashboard como centro de mando",
+        "match": "El dashboard como centro de mando",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a039cad371354cef4f91c841"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 11,
+        "segments": [
+          "bbf2f58b5470a5fd0b09187c",
+          "e7af26aa1eb95a71e930f422"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 11,
+        "segments": [
+          "7c45797833e7c3e285b79a8e"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 11,
+        "segments": [
+          "95762a0bb9ccb64b671d032b"
+        ]
+      },
+      {
+        "title": "Fundamentos Tecnológicos",
+        "match": "Fundamentos Tecnológicos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "5821796894afc6ebfe33199f"
+        ]
+      },
+      {
+        "title": "La IA como infraestructura crítica",
+        "match": "La IA como infraestructura crítica",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "691386df68d3d863cbc56c99"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 12,
+        "segments": [
+          "0299521dbac932aaa22114b5",
+          "ae5576bc5962811312e5e751"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 12,
+        "segments": [
+          "2d188c6b6be3a1bef06aff37",
+          "3c5379218f12af75dc1248b3"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 12,
+        "segments": [
+          "21ba74e62b31591fd22412bf"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 8,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Optimizar el token",
+        "match": "Optimizar el token",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e208b4dffe43aa737abe26da"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 13,
+        "segments": [
+          "b54b7c901df9c30f2986d1b4"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 13,
+        "segments": [
+          "152fd13c0ae6133919a1532f"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 13,
+        "segments": [
+          "1469ffe96890fab951392896"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 9,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Alineamiento y control de agentes",
+        "match": "Alineamiento y control de agentes",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "11f0dab26b0762b7c3779f5e"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 14,
+        "segments": [
+          "388ac822b5b7082a9fe2aa1d",
+          "e7cd891f0d38c35c19ed6cd3"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 14,
+        "segments": [
+          "fe8598f96a610fcba5e9cc80"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 14,
+        "segments": [
+          "91f8c6c8b433ea2da7f99152"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 10,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "La seguridad como requisito no negociable",
+        "match": "La seguridad como requisito no negociable",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "05d365922bd4eb2d97736f4e"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 15,
+        "segments": [
+          "4ac678c88f76e2db5c77f504",
+          "1887d07cb2b9cf48e33aac5d"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 15,
+        "segments": [
+          "4d87917172ec5c41d4ae6ea5"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 15,
+        "segments": [
+          "723b7536f6977f3d5c94bd64"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 11,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Ética y Responsabilidad",
+        "match": "Ética y Responsabilidad",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "1b5b4df261663d9f64818115"
+        ]
+      },
+      {
+        "title": "IA centrada en el humano",
+        "match": "IA centrada en el humano",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "4c50fc24b76792bb994c1a6b"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 16,
+        "segments": [
+          "b8886a38458d0632a8db3e9b"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 16,
+        "segments": [
+          "1c1cf84392f010e602e610d9"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 16,
+        "segments": [
+          "4222fa41b5b5d02d3488e3d4"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 12,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Transparencia y explicabilidad",
+        "match": "Transparencia y explicabilidad",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "d06dae0273e7b43f0a8b02b7"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 17,
+        "segments": [
+          "ba866dabb9dfc17ca9fb7255"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 17,
+        "segments": [
+          "6e8f9b717d8b7193d290d5fd"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 17,
+        "segments": [
+          "4d0632bba5b3c33aba80317e"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 13,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Responsabilidad y accountability",
+        "match": "Responsabilidad y accountability",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2a2de2a6ab50123f4adcc38f"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 18,
+        "segments": [
+          "31e2cccb3985a21f8da823cc"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 18,
+        "segments": [
+          "8e008b20dd084f27f31c69b5"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 18,
+        "segments": [
+          "ba1ca008458047ec8cae5699"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 14,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      },
+      {
+        "title": "Sostenibilidad y eficiencia energética",
+        "match": "Sostenibilidad y eficiencia energética",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a3181b374f086d5e99ad5f03"
+        ]
+      },
+      {
+        "title": "Tesis",
+        "match": "Tesis",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 19,
+        "segments": [
+          "d246cd1bd80837cf82f491bc"
+        ]
+      },
+      {
+        "title": "Implicaciones",
+        "match": "Implicaciones",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 19,
+        "segments": [
+          "1c5ac34d5f6dd58f2a324faf"
+        ]
+      },
+      {
+        "title": "Retos",
+        "match": "Retos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 19,
+        "segments": [
+          "26039643e1bd95e1dbad5be8"
+        ]
+      },
+      {
+        "title": "👤 Impulsores",
+        "match": "👤 Impulsores",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 15,
+        "segments": [
+          "1390852389e9865978683c8e"
+        ]
+      }
+    ],
+    "/mejores-practicas/noticias": [
+      {
+        "title": "Actualidad de inteligencia artificial",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "135f726c92fa78a7a656672a",
+          "001bb23851d45ce986283aca"
+        ]
+      },
+      {
+        "title": "Explora las fuentes",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "e13e31e902831e57afa8033f",
+          "40eac708a91f35687393ff15"
+        ]
+      },
+      {
+        "title": "De una noticia a una prueba",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "d6a4afe774ee5a1d6701b75d",
+          "fbad6f81f6618e51ae0cbfb7"
+        ]
+      }
+    ],
+    "/mejores-practicas/gurus": [
+      {
+        "title": "¿Qué dicen los Gurús de la IA?",
+        "match": "¿Qué dicen los Gurús de la IA?",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "69e85fece0cef58ee706af9b"
+        ]
+      },
+      {
+        "title": "Demis Hassabis",
+        "match": "Demis Hassabis",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "99cc3e3feee49ed57309f071",
+          "d51f28aea1a9b123c0b1ba0d"
+        ]
+      },
+      {
+        "title": "Yann LeCun",
+        "match": "Yann LeCun",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "017ade64168c04dc20f94a51",
+          "c44f79ed72f408fb918ed9b4"
+        ]
+      },
+      {
+        "title": "Yoshua Bengio",
+        "match": "Yoshua Bengio",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "188cdce1baa5768b941cca8d",
+          "f3e21e5b12e3a5e8ecbbd936"
+        ]
+      },
+      {
+        "title": "Geoffrey Hinton",
+        "match": "Geoffrey Hinton",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "45e981af03060cfcb91d5f0c",
+          "5727dba984f0f4f1946dc113"
+        ]
+      },
+      {
+        "title": "Gary Marcus",
+        "match": "Gary Marcus",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "bfeb396ba8a47890809696cf",
+          "08dd506989dfca314c0966de"
+        ]
+      },
+      {
+        "title": "Sam Altman",
+        "match": "Sam Altman",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "6be7fc9c57925c7992afd5f5",
+          "b2b5045a58a81b3582e61b9b"
+        ]
+      },
+      {
+        "title": "Ilya Sutskever",
+        "match": "Ilya Sutskever",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "35a328f206191f6d8b61c0d0",
+          "e47ab3e18516d72ad98e948a"
+        ]
+      },
+      {
+        "title": "Dario Amodei",
+        "match": "Dario Amodei",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e08f9e31bdbc1d1996c037c8",
+          "b2b5045a58a81b3582e61b9b"
+        ]
+      },
+      {
+        "title": "Karen Hao",
+        "match": "Karen Hao",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b20fbeebec10d4c70d0e8a56",
+          "a9ba985fe2a66db0b6cdd33f"
+        ]
+      },
+      {
+        "title": "Mustafa Suleyman",
+        "match": "Mustafa Suleyman",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c7acae447bc75acbe42b7c63",
+          "79a738f2af2e01db66ce6085"
+        ]
+      },
+      {
+        "title": "Fei-Fei Li",
+        "match": "Fei-Fei Li",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "276e8dbda6a19bc7f23ecfad",
+          "d5c075b9125e3f94d9b1ab5c"
+        ]
+      },
+      {
+        "title": "Jensen Huang",
+        "match": "Jensen Huang",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "441340a7b73ec69b1fb6d428",
+          "b2b5045a58a81b3582e61b9b"
+        ]
+      },
+      {
+        "title": "Andrew Ng",
+        "match": "Andrew Ng",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "1459436c5e49f9b7c4c59dc4",
+          "ab83ce3aba9c6020867bfe22"
+        ]
+      },
+      {
+        "title": "Andrej Karpathy",
+        "match": "Andrej Karpathy",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "8c1c7591d650f8f770fc3f8b",
+          "b2a9067ae89085a40a3c4354"
+        ]
+      }
+    ],
+    "/mejores-practicas/consultoras": [
+      {
+        "title": "Consultoras y el Futuro del Trabajo",
+        "match": "Consultoras y el Futuro del Trabajo",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "3fff01f89d9dc7bf83957c12",
+          "fc00ffa0c4ac643dda72510d"
+        ]
+      }
+    ],
+    "/mejores-practicas/youtubers": [
+      {
+        "title": "Cargando...",
+        "match": "Cargando...",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "5c1ad93494ae8d6558249f07"
+        ]
+      }
+    ],
+    "/mejores-practicas/tecnologia": [
+      {
+        "title": "Sector Tecnológico",
+        "match": "Sector Tecnológico",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "bb73f30c1d2bf5c0252b197b"
+        ]
+      },
+      {
+        "title": "📺 Fuente Principal",
+        "match": "📺 Fuente Principal",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "1b323fd0929eae1a8aae5295"
+        ]
+      },
+      {
+        "title": "Los 6 Principios de Jensen Huang",
+        "match": "Los 6 Principios de Jensen Huang",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "80efe74bc79d6539e0d4ed4f"
+        ]
+      },
+      {
+        "title": "Estructura Organizativa Plana",
+        "match": "Estructura Organizativa Plana",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "32f2a2ed7381b9f5b8111832"
+        ]
+      },
+      {
+        "title": "Transparencia Radical",
+        "match": "Transparencia Radical",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "21931f7f18a6ead9bb004c80"
+        ]
+      },
+      {
+        "title": "Estrategia Dictada por Ejecución",
+        "match": "Estrategia Dictada por Ejecución",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "0a3d0b9dd5985d3ffe92e07b"
+        ]
+      },
+      {
+        "title": "Pilot in Command (PIC)",
+        "match": "Pilot in Command (PIC)",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "7a102d7ed5228494243199fd"
+        ]
+      },
+      {
+        "title": "Workforce Híbrida Humano-IA",
+        "match": "Workforce Híbrida Humano-IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "b2323a39be288f00bf1761c3"
+        ]
+      },
+      {
+        "title": "Liderazgo como Enseñanza",
+        "match": "Liderazgo como Enseñanza",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "c2cc435b6a1752606d2a361c"
+        ]
+      },
+      {
+        "title": "Otras Voces del Liderazgo Tech",
+        "match": "Otras Voces del Liderazgo Tech",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "af30c73bfb7af23c54901400",
+          "9e5a612d924b85974eafacc3"
+        ]
+      },
+      {
+        "title": "Conclusión para Empresas Tecnológicas",
+        "match": "Conclusión para Empresas Tecnológicas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "a98889e7679711a54fca9d04",
+          "1d2233a6ac8ae8e9bc2358dd",
+          "20940827fc9f2cce1aee8cb0",
+          "ed09a16f449d86b1ed38ac53"
+        ]
+      }
+    ],
+    "/mejores-practicas/finanzas": [
+      {
+        "title": "Sector Financiero",
+        "match": "Sector Financiero",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "76cfd023fea08263841179e8"
+        ]
+      },
+      {
+        "title": "Mejores Prácticas IA en Finanzas",
+        "match": "Mejores Prácticas IA en Finanzas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "cad5d992996cbcb911027c12"
+        ]
+      },
+      {
+        "title": "Detección de Fraude en Tiempo Real",
+        "match": "Detección de Fraude en Tiempo Real",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "3083572400245bc6686219fb"
+        ]
+      },
+      {
+        "title": "Evaluación de Riesgo Crediticio",
+        "match": "Evaluación de Riesgo Crediticio",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "86fa8adc5a69f733a3e350d1"
+        ]
+      },
+      {
+        "title": "Asistentes Virtuales 24/7",
+        "match": "Asistentes Virtuales 24/7",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "138f3a46860c54ef24a74866"
+        ]
+      },
+      {
+        "title": "Automatización de Procesos Back-Office",
+        "match": "Automatización de Procesos Back-Office",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "2480a2b0f04a49bd47b06581"
+        ]
+      },
+      {
+        "title": "Workforce Híbrida: Upskilling",
+        "match": "Workforce Híbrida: Upskilling",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "73b36fd7cc4c8c1b8e9f9e64",
+          "556d91a5780b9884713abdc7"
+        ]
+      },
+      {
+        "title": "Gobernanza y Cumplimiento IA",
+        "match": "Gobernanza y Cumplimiento IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "5852a0056b1b9d3ad2eecbd3"
+        ]
+      },
+      {
+        "title": "Insights de la Industria",
+        "match": "Insights de la Industria",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "8d75b8f701c07b20519ecb2d"
+        ]
+      },
+      {
+        "title": "📊 Datos Clave del Sector (2024)",
+        "match": "📊 Datos Clave del Sector (2024)",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "3aba255a65d478d714ae7c98",
+          "8ec76ee449b234acf8c74534"
+        ]
+      }
+    ],
+    "/mejores-practicas/salud": [
+      {
+        "title": "Sector Salud",
+        "match": "Sector Salud",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "3bb0da886cbe5e54c85923d9"
+        ]
+      },
+      {
+        "title": "Mejores Prácticas IA en Salud",
+        "match": "Mejores Prácticas IA en Salud",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "469cb1ba20023473f5d2eda3"
+        ]
+      },
+      {
+        "title": "Diagnóstico Asistido por IA",
+        "match": "Diagnóstico Asistido por IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "a008d5123890e189fe76d069"
+        ]
+      },
+      {
+        "title": "Medicina Personalizada",
+        "match": "Medicina Personalizada",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1b2b7dec54e052ca290a8253"
+        ]
+      },
+      {
+        "title": "Cirugía Robótica",
+        "match": "Cirugía Robótica",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "35408b21f7ed296b99c9fd64"
+        ]
+      },
+      {
+        "title": "Asistentes Virtuales de Salud",
+        "match": "Asistentes Virtuales de Salud",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "0cd14d3d92cf5944d4028648"
+        ]
+      },
+      {
+        "title": "Analítica Predictiva",
+        "match": "Analítica Predictiva",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "fb02c9ddb50e4cebc42a11d1"
+        ]
+      },
+      {
+        "title": "Automatización Administrativa",
+        "match": "Automatización Administrativa",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "d437e368d79f17c592c5ca44"
+        ]
+      },
+      {
+        "title": "Directrices Éticas",
+        "match": "Directrices Éticas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b69865fd6ee07618e74821ca"
+        ]
+      },
+      {
+        "title": "⚕ Consideraciones Éticas",
+        "match": "⚕ Consideraciones Éticas",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b8543f403b6e2d4a2beece0a",
+          "b287fd12dc3f46b7ed02a18a",
+          "fad87d59aa978152af8b5bb0"
+        ]
+      }
+    ],
+    "/mejores-practicas/retail": [
+      {
+        "title": "Sector Retail",
+        "match": "Sector Retail",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "7a52dd82fb5b8050ef6067f2"
+        ]
+      },
+      {
+        "title": "Mejores Prácticas IA en Retail",
+        "match": "Mejores Prácticas IA en Retail",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "d04764f0c6fdd742d9847dcd"
+        ]
+      },
+      {
+        "title": "Chatbots y Atención 24/7",
+        "match": "Chatbots y Atención 24/7",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "4af35c76d51e2956eae37ebe"
+        ]
+      },
+      {
+        "title": "Hiper-Personalización",
+        "match": "Hiper-Personalización",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "edca9aeb6661d40edc897aa6"
+        ]
+      },
+      {
+        "title": "Gestión Inteligente de Inventario",
+        "match": "Gestión Inteligente de Inventario",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "81bb476f3bb15b8a1bf233bd"
+        ]
+      },
+      {
+        "title": "Experiencia Omnicanal",
+        "match": "Experiencia Omnicanal",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "11112f30bc02fea3c4e072c9"
+        ]
+      },
+      {
+        "title": "Análisis de Sentimiento",
+        "match": "Análisis de Sentimiento",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "6445e3604afa122bc73397bb"
+        ]
+      },
+      {
+        "title": "Búsqueda Generativa",
+        "match": "Búsqueda Generativa",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "1620b65e79116cbd3eaefbb9"
+        ]
+      },
+      {
+        "title": "Insights del Sector",
+        "match": "Insights del Sector",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "32711e85f7f03386cd8e75b9"
+        ]
+      },
+      {
+        "title": "🎯 Claves para el Éxito",
+        "match": "🎯 Claves para el Éxito",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2662afa9b445822e95e6b4c2",
+          "03b1e3abbec54d959bd61b2e",
+          "f9783d3fe6e11068392e05d8"
+        ]
+      }
+    ],
+    "/mejores-practicas/manufactura": [
+      {
+        "title": "Sector Manufactura",
+        "match": "Sector Manufactura",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "276b778a858c7df6d375e06a"
+        ]
+      },
+      {
+        "title": "Mejores Prácticas IA en Manufactura",
+        "match": "Mejores Prácticas IA en Manufactura",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "16e6b98ca864f7ea699f0ebd"
+        ]
+      },
+      {
+        "title": "Mantenimiento Predictivo",
+        "match": "Mantenimiento Predictivo",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "724564cd28d95e5209a4d0b7"
+        ]
+      },
+      {
+        "title": "Control de Calidad con Visión IA",
+        "match": "Control de Calidad con Visión IA",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "287bf19db2604334210e548d"
+        ]
+      },
+      {
+        "title": "Optimización de Procesos",
+        "match": "Optimización de Procesos",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "b81c86e5a72ff1a702cfffa3"
+        ]
+      },
+      {
+        "title": "Robots Colaborativos (Cobots)",
+        "match": "Robots Colaborativos (Cobots)",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "17415a0ecbedeb5b14200ab6"
+        ]
+      },
+      {
+        "title": "Gemelos Digitales",
+        "match": "Gemelos Digitales",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "0e0306374261ad78ad614335"
+        ]
+      },
+      {
+        "title": "Gestión de Cadena de Suministro",
+        "match": "Gestión de Cadena de Suministro",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "912814a7b2ecf7c9d118c2d9"
+        ]
+      },
+      {
+        "title": "Casos de Éxito",
+        "match": "Casos de Éxito",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "37a893f24c13e3fb003157c8"
+        ]
+      },
+      {
+        "title": "Roadmap de Implementación",
+        "match": "Roadmap de Implementación",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "7a8f455fcb60519e119575b8",
+          "bd8d320e9ee5bca187d13ad6",
+          "48a27fe46a0838520832aec2"
+        ]
+      }
+    ],
+    "/privacidad": [
+      {
+        "title": "Política de Privacidad",
+        "match": "Política de Privacidad",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "122d22bb94c128b84e1479e0"
+        ]
+      },
+      {
+        "title": "1. Responsable del Tratamiento",
+        "match": "1. Responsable del Tratamiento",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "ee50fc1e016d8ce5f9978993"
+        ]
+      },
+      {
+        "title": "2. Datos que Recopilamos",
+        "match": "2. Datos que Recopilamos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2aafda37684cc8e3ffa34c23",
+          "ed4f323ed184070ee5f47d41"
+        ]
+      },
+      {
+        "title": "3. Finalidad del Tratamiento",
+        "match": "3. Finalidad del Tratamiento",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "d17cbdb023a77e4a5bc592af",
+          "de6313c90c8e58fe40dfe97d"
+        ]
+      },
+      {
+        "title": "4. Base Legal",
+        "match": "4. Base Legal",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "3ec51e400f668d4d64ac9d96",
+          "640596bf1145d4be83c02ba2"
+        ]
+      },
+      {
+        "title": "5. Conservación de Datos",
+        "match": "5. Conservación de Datos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "d9e8c5454a3a54825ecb5d34"
+        ]
+      },
+      {
+        "title": "6. Tus Derechos",
+        "match": "6. Tus Derechos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2b0f9973eb3d593ad6d7a696",
+          "dd7d5b17abbf24b7fc194866",
+          "2eb7eaca3926a3fdfde7d376"
+        ]
+      },
+      {
+        "title": "7. Seguridad",
+        "match": "7. Seguridad",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "1c4f20e0ace38d244376b655"
+        ]
+      },
+      {
+        "title": "8. Cambios en esta Política",
+        "match": "8. Cambios en esta Política",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "3b45a18ad67bb095d2ff6092",
+          "421704d1216c58debf87bfb3"
+        ]
+      },
+      {
+        "title": "9. Informes de IA en TradingAlpha",
+        "match": "9. Informes de IA en TradingAlpha",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "624887f7ddcdce432c8d79d8",
+          "4c56c4843ed7e91c4d10233f",
+          "2801a69ba46d7d109ac9d38b",
+          "997705b66e7621677783b59d"
+        ]
+      },
+      {
+        "title": "10. Asistente de lectura guiada",
+        "match": "10. Asistente de lectura guiada",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "6b296b472d69f6281ea46434",
+          "5db9f4611517b706bd1909a3",
+          "4be7c63a62bed86b41249624",
+          "3f829066f5e96f7599d16408",
+          "d4c8ac64e44acc4f06f72cdc"
+        ]
+      }
+    ],
+    "/condiciones": [
+      {
+        "title": "Condiciones de Uso",
+        "match": "Condiciones de Uso",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "6d9b5733cdbfee409f9e4f01"
+        ]
+      },
+      {
+        "title": "1. Aceptación de las Condiciones",
+        "match": "1. Aceptación de las Condiciones",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "dcbac326275ed88ab7a0c6fc",
+          "8dc6111ed6cad531bfb3eca6"
+        ]
+      },
+      {
+        "title": "2. Descripción del Servicio",
+        "match": "2. Descripción del Servicio",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e582624b621e0571f78ecf8b"
+        ]
+      },
+      {
+        "title": "3. Propiedad Intelectual",
+        "match": "3. Propiedad Intelectual",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "b04a55de5caa3840f4da1e01",
+          "06bd620479a3b20a8e4affe2"
+        ]
+      },
+      {
+        "title": "4. Uso Aceptable",
+        "match": "4. Uso Aceptable",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "03c559c387b47eacc74a4db9",
+          "8e03bbb0dc23fe03e5071344"
+        ]
+      },
+      {
+        "title": "5. Enlaces a Terceros",
+        "match": "5. Enlaces a Terceros",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "92cb4ec966ef04df8ef6750d"
+        ]
+      },
+      {
+        "title": "6. Limitación de Responsabilidad",
+        "match": "6. Limitación de Responsabilidad",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "456347b31234b78f9023c44b",
+          "7a342c5bbd2648622eb977c4"
+        ]
+      },
+      {
+        "title": "7. Modificaciones",
+        "match": "7. Modificaciones",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "2f71b79a3261d5294d28efe9",
+          "4719ce7f71ad9478b4003a4c"
+        ]
+      },
+      {
+        "title": "8. Ley Aplicable",
+        "match": "8. Ley Aplicable",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "27492b4aa4eb57e2b4707f94"
+        ]
+      },
+      {
+        "title": "9. Contacto",
+        "match": "9. Contacto",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "0dda0d9e3e4989b6d2e29b82"
+        ]
+      }
+    ],
+    "/cookies": [
+      {
+        "title": "Política de Cookies",
+        "match": "Política de Cookies",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "f2d64a66ca33bbb411d45208"
+        ]
+      },
+      {
+        "title": "1. ¿Qué son las Cookies?",
+        "match": "1. ¿Qué son las Cookies?",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "4f41cb3ccfa23e37ac93e58e",
+          "049bcf17c20d2e622f41c714"
+        ]
+      },
+      {
+        "title": "2. Tipos de Cookies que Utilizamos",
+        "match": "2. Tipos de Cookies que Utilizamos",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "867f915eac8fa298987ca6e1"
+        ]
+      },
+      {
+        "title": "Cookies Técnicas (Necesarias)",
+        "match": "Cookies Técnicas (Necesarias)",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "6cdd0006dc7924dd86742120",
+          "f5b8b310f0731e5ffd31f961"
+        ]
+      },
+      {
+        "title": "Cookies Analíticas",
+        "match": "Cookies Analíticas",
+        "selector": "",
+        "tag": "h3",
+        "occurrence": 0,
+        "segments": [
+          "e1f3dafeebac61ab242b7e90"
+        ]
+      },
+      {
+        "title": "3. Gestión de Cookies",
+        "match": "3. Gestión de Cookies",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "c007466776971b93aacc486a",
+          "7224027a6fb77e02cb309cf7",
+          "cbfc9282e88efb0a65a7df51",
+          "e701e95d41399b0157fe00b4",
+          "055ae5c55597ea4584768862"
+        ]
+      },
+      {
+        "title": "4. Cookies de Terceros",
+        "match": "4. Cookies de Terceros",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "53a61eacd2ad20c917f08a6b",
+          "f7a23f485f4d02a83d2b1253"
+        ]
+      },
+      {
+        "title": "5. Actualización de esta Política",
+        "match": "5. Actualización de esta Política",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "8e01b52f3487af770bad96f1",
+          "04b73931f796ff30466d4034"
+        ]
+      },
+      {
+        "title": "6. Contacto",
+        "match": "6. Contacto",
+        "selector": "",
+        "tag": "h2",
+        "occurrence": 0,
+        "segments": [
+          "e15b02490c0eafecc9049ccb",
+          "ea08b90ad4cabbf9c355c576"
+        ]
+      }
+    ],
+    "/precisiones": [
+      {
+        "title": "Precisiones",
+        "match": "Precisiones",
+        "selector": "",
+        "tag": "h1",
+        "occurrence": 0,
+        "segments": [
+          "eb23f3a5a338bc21b2dc7898",
+          "03200fd5d25e0a887b3405bb",
+          "59af4034fdd9378bc52f72e7",
+          "489459de2e1bf93d3db65ac9",
+          "954ba9b64beb892e7a16bc0a",
+          "031d46d0f3fd612e57989179"
+        ]
+      }
+    ],
+    "/plan-de-marketing/index.html": [
+      {
+        "title": "Tu plan de marketing",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "a66c25b34240659d9be844ef",
+          "cf506596e708a2b23c7dd2cf"
+        ]
+      },
+      {
+        "title": "Comprende el punto de partida",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "4fe95940895822e7f6cf107b",
+          "4a132ab11aa3f7668d76b594"
+        ]
+      },
+      {
+        "title": "Define objetivos y acciones",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "1e3fc485008c9cc811089adb",
+          "56f4a4c01c92364bbc45b8b4"
+        ]
+      },
+      {
+        "title": "Presupuesta y revisa",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 3,
+        "segments": [
+          "623faa3a4778d1d7cd459f5a",
+          "8784f77e1e6e6c08a150d424"
+        ]
+      }
+    ],
+    "/benchmarks-ia/index.html": [
+      {
+        "title": "Comparar modelos de inteligencia artificial",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "86e50aa65508134f885846a3",
+          "72a76a2e19dfa48d1f39e953"
+        ]
+      },
+      {
+        "title": "Comprueba qué mide cada prueba",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "89049e7ef71475be8f078864"
+        ]
+      },
+      {
+        "title": "Contrasta capacidad, coste y uso real",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "45829a8f6838f03b9ca37211",
+          "133889970fa0db17745c426c"
+        ]
+      }
+    ],
+    "/evolucion/index.html": [
+      {
+        "title": "Explora la evolución demográfica",
+        "match": "",
+        "selector": "h1",
+        "tag": "",
+        "occurrence": 0,
+        "segments": [
+          "e2b25abbef8e052d9e38a4ab",
+          "edecbe1b702a8dffc1c0e177"
+        ]
+      },
+      {
+        "title": "Cronología y controles",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 1,
+        "segments": [
+          "304db5186aa7d62237d6f3f7",
+          "2b4b8571253b67245e338f95"
+        ]
+      },
+      {
+        "title": "Mapa y distribución",
+        "match": "",
+        "selector": "main",
+        "tag": "",
+        "occurrence": 2,
+        "segments": [
+          "a6e6cc57fb45894d8d738375",
+          "eee7f8d69d4699fa06fb7ae3"
+        ]
+      },
+      {
+        "title": "Interpretar la curva",
+        "match": "",
+        "selector": "canvas",
+        "tag": "",
+        "occurrence": 3,
+        "segments": [
+          "eb4affc2b4c190c2d50eea5f",
+          "dbd3933a2b4d425792d671c0"
+        ]
+      }
+    ]
+  },
+  "segments": {
+    "e82584d9643a3bf72b9a9cc3": "Imagina tu empresa trabajando de otra manera.. Recorre una empresa nativa en IA: entiende qué cambia, sigue un proceso y descubre qué necesitas para empezar en la tuya.",
+    "4b0f6a5633f3f0de8ddb75cb": "01 / Una forma distinta de trabajar.",
+    "756887c743dc850700b665fd": "El trabajo se diseñaalrededor del resultado.. En una empresa nativa en IA, cada proceso combina personas, software y agentes desde su diseño.",
+    "f46a9db853c140ea6e4cd9f3": "La dirección decide qué resultado busca; un responsable define cómo conseguirlo y quién lo supervisa.",
+    "a9a3ce6881ae30f8d0752c60": "El agente puede interpretar información y utilizar herramientas. Su actuación forma parte de un proceso con permisos, comprobaciones y una persona que responde por él.",
+    "08fe2d9fa1a8d5a86f557af4": "El contexto, las reglas y la revisión forman parte del mismo circuito. La persona puede dedicar más atención a las excepciones y a mejorar el proceso.",
+    "39c2a70de9f065987ff8dd1f": "Qué significa cada pieza.",
+    "e778c771065e8bcf05ce178a": "Cuatro conceptos. Funciones diferentes..",
+    "cda355e305d278fd1a762967": "Modelo. Piensa en el modelo como la capacidad de interpretar y redactar. Para hacer un trabajo necesita recibir información y estar conectado a un proceso.",
+    "62572c21b64e90318918a73f": "Es una capacidad que el proceso utiliza; no es por sí solo un empleado ni una aplicación completa.",
+    "7f087d20494f350336666d6b": "Agente. Un agente utiliza esa capacidad para dar pasos y usar herramientas. Por ejemplo, consultar un catálogo y preparar una propuesta.",
+    "e8ee1924a9973e2c7e332800": "Sus permisos determinan hasta dónde puede llegar. Necesita un objetivo, contexto, permisos y límites.",
+    "7308b0b1a74cf771be143a11": "Puede equivocarse y debe poder detenerse.",
+    "1bc0018118ede138f998b5b9": "Proceso. Un proceso convierte una petición en un resultado. Define los pasos, las reglas, las personas responsables y qué hacer cuando aparece una excepción.",
+    "4288751a857079ffc1177788": "Define entradas, reglas, responsables, aprobaciones y qué ocurre si algo falla. Algunos pasos pueden ser software determinista.",
+    "709278eafd3a21c734f1b9b6": "Persona. La responsabilidad sigue siendo humana. Una persona diseña y responde por el proceso; otra puede supervisar los expedientes de cada día.",
+    "8ea18247c24fffb738a666d3": "Diseña el proceso, revisa excepciones y autoriza cambios. El supervisor del día a día puede ser distinto del dueño del proceso.",
+    "c898988a682621dd971f533b": "La transformación empieza en el departamento.",
+    "042d1462225691e7d86bb08d": "Tu primera unidad de cambiopuede ser un solo proceso.. Un responsable elige una tarea repetida, describe sus pasos y fija una prueba.",
+    "21371f2fa7ca40cc90b5ff8c": "TI habilita las conexiones. El supervisor comprueba resultados. La dirección decide si merece la pena ampliar el alcance.",
+    "75f82ae0b184c56d00883cdd": "Cómo reconocer un avance real.",
+    "cd3d4130786e0547e626c291": "Un resultado verificable. Una oferta revisada, un expediente conciliado o una incidencia preparada.",
+    "7a1de46400c4f1f9b0637f38": "Define qué debe contener para aceptarlo.",
+    "449f1ac1cd1682446fcdaf3e": "Un coste completo. No basta con mirar el precio de los tokens. Cuenta también el tiempo de revisar, la integración y el mantenimiento.",
+    "f459de3f5956df2f0dab98d7": "La comparación útil es cuánto cuesta un resultado que realmente aceptas. Cuenta modelos, infraestructura, integración y revisión humana.",
+    "52a4fd9bd3d8ab1cbde9e90a": "Compara por resultado aceptado, no solo por llamada al modelo.",
+    "9db6a23982e45d29fc6abde1": "Un límite explícito. Un límite evita que el agente continúe cuando no debería. Por ejemplo: faltan datos, aparece un proveedor nuevo o se supera el presupuesto de prueba.",
+    "9b9b06d8b9d6c9eddd7f1610": "El equipo conoce cuándo el agente debe preguntar, detenerse o devolver el trabajo a una persona.",
+    "ceca7661326e2024f7f0dc7b": "Para profundizar en las fuentes. Propuesta práctica de MBAI Native. Referencias técnicas consultadas el 8 de septiembre de 2026;",
+    "3863e6e3e1fc09b9fd3f6d75": "los ejemplos no describen una implantación real ni implican respaldo de los proveedores. Anthropic · Building effective agents.",
+    "cbec9c3198ded72a26f762b7": "Microsoft · Work Trend Index 2025.",
+    "ea638df2dc5ad926a7f92acf": "Un proceso. Agentes concretos. Personas responsables.. Sigue una petición a través del departamento.",
+    "f46c2f03d7f6594a0eedab81": "Descubre qué puede hacer un agente y en qué momento debe intervenir una persona. Elige un departamento · ejemplos ilustrativos.",
+    "b31a379c727f15526da728dd": "Un expediente, de principio a fin. Recorrido de ejemplo. No ejecuta operaciones ni utiliza datos de tu empresa.",
+    "774513162e762600efc41928": "De una necesidad a una propuesta de compra. Un equipo registra una necesidad de material. Paso 1 de 5.",
+    "810f96e280b62184b604a8ae": "Entrada. El agente identifica material, cantidad y fecha. Si falta un dato, solicita aclaración.",
+    "e7d87729aede70da75b1a784": "Responde por el proceso. Responsable de Compras. Supervisa cada expediente. Técnico de compras asignado al expediente.",
+    "a36d90cb04d42d22b92bee42": "La ficha que define el responsable del departamento. Fuentes autorizadas. Solicitud, catálogo aprobado, existencias y condiciones de proveedores.",
+    "0a7444a72309fe37f526f345": "Agentes asignados. Preparador del expediente · Comparador de ofertas. Herramientas y permisos. Lectura del ERP y catálogo;",
+    "b75deaa85282ccd1c2bb1af2": "creación de un borrador de solicitud. Resultado esperado. Comparativa con fuentes, incidencias y propuesta de pedido.",
+    "9d7801167c9ef2708f6de8d9": "Aprobación. La persona autorizada revisa la selección y aprueba el pedido antes de enviarlo. Excepción y parada.",
+    "70284221684284f91b19ae61": "Proveedor nuevo, discrepancia de precios o documentación incompleta: detener y escalar. Cómo se mide.",
+    "06eaf626bf784f761ddeee2d": "Tiempo por expediente aceptado, comparativas corregidas y pedidos duplicados. Punto de comparación.",
+    "9cfacbaf7a1f54be565d17e2": "Cronometrar expedientes actuales y registrar sus correcciones antes del piloto. La autonomía se concede por proceso.",
+    "91391d7f27e2db15476f4ef6": "El mismo agente.Tres niveles de autorización.. La autonomía se concede por tarea. Puede limitarse a preparar borradores, permitir ejecutar después de una aprobación o autorizar casos concretos dentro de reglas probadas.",
+    "ac88d0ee404f1ecc904f29a1": "La autonomía depende del riesgo, de las pruebas y de las acciones permitidas. Selecciona un nivel para entender qué cambia;",
+    "94a2c190c009cc87b8093d9a": "elegirlo aquí no modifica el ejemplo ni concede permisos reales.",
+    "af43a5eadfd078b9679a01f1": "Ejecuta tras aprobación. La persona aprueba una acción concreta. La integración comprueba permisos y ejecuta solo esa versión.",
+    "2d5c04920d66cfa6a9c7f2ba": "En este proceso: La persona autorizada revisa la selección y aprueba el pedido antes de enviarlo.",
+    "e86554c10ba4fbf956c4332a": "¿Quién prepara qué?.",
+    "5f375f90f70ff7057ce936de": "El departamento diseña. Inventaría sus procesos, nombra a sus responsables, documenta entradas y excepciones y propone qué tareas delegar.",
+    "b56c9996a0828fb3bfc1cffb": "TI hace posible la ejecución. Conecta sistemas, configura identidades y permisos, mantiene la infraestructura y prepara recuperación y monitorización.",
+    "102a5e4385296ecfe034d015": "Dirección acuerda los límites. Asigna presupuesto, valida responsabilidades y decide el avance con resultados de pruebas.",
+    "cf3441ca3436a251d2cc35a9": "Seguridad y otras funciones especializadas participan según el proceso.",
+    "e796605a46e8e453fe52b87a": "LangGraph · Ejecución y supervisión.",
+    "650b94f0a7ea56de8ec6dc9d": "Arquitectura de la solución.. De tus redes y aplicaciones actuales a una empresa que coordina personas, procesos y agentes.",
+    "3bbd384100439a30d6168e68": "Explora dónde se ejecuta la IA y cómo se gobierna su trabajo. Punto de partida.",
+    "661a152b054f8db6c7bac9c4": "Tu empresa ya tiene una base.. No necesitas empezar de cero. El sistema de gestión, el programa comercial, las carpetas y los equipos actuales siguen siendo útiles.",
+    "9f23b04fc8f2679abbcb96c7": "La nueva capa de agentes los conecta mediante permisos definidos. Sobre esa base se incorpora un servicio de procesos y agentes.",
+    "7074b8008c5019a44f2c8b06": "Los sistemas actuales conservan sus registros; las nuevas capacidades acceden a ellos mediante conexiones con permisos definidos.",
+    "5fbd9ef5a506a0f0975ccb38": "Un agente es software. Varios agentes pueden compartir un modelo y un servidor. Crear un agente para Compras no exige comprar un equipo dedicado para Compras.",
+    "e1b5bae26351f6cbf2171782": "01 / Arquitectura física y redes.",
+    "53b167cd22afc3d24a78a934": "Tres maneras de situar la inteligencia.. Centralizada significa compartir un servidor. Distribuida significa repartir trabajo entre equipos.",
+    "d040850ec9ed0c13c68f7c5f": "Híbrida combina recursos internos y servicios externos. Los botones permiten comparar las tres alternativas.",
+    "a8126f9a98f1535189d6fcda": "Explora una topología. La elección depende de tus datos, la concurrencia, la conectividad y la capacidad de TI para operarla.",
+    "44506fb4af1796de9226c4f4": "Esquema lógico orientativo. Las líneas representan relaciones entre servicios, no un plano de cableado ni accesos directos a bases de datos.",
+    "1c4e893c7ee6fec17f3689e1": "Datos locales y modelos externos cuando procede.. Una pasarela decide qué solicitudes pueden salir hacia un proveedor.",
+    "4b2d8c22515b6124aff8066a": "Los procesos que requieren permanencia local siguen usando inferencia interna. Cuándo considerarla.",
+    "949146f133c56bd0aaca2d95": "Cuando conviene combinar control local con capacidades externas y capacidad variable. Qué hay que resolver.",
+    "510e61bcd0236bf190d73e3a": "Definir qué datos salen, a qué proveedor y con qué condiciones. Si falla la nube, el proceso debe degradarse o pasar a revisión humana.",
+    "2fbdfa9554212b846fb65be5": "02 / Un ejemplo concreto: NVIDIA PAIR.",
+    "b1af7081e143c1ab2dcbf68e": "Repartir peticiones entre equipos.. NVIDIA PAIR es un repartidor de solicitudes. Envía cada petición a un equipo que pueda atenderla.",
+    "92d1c2f2dccfe8f8ae1d3e73": "No convierte varias tarjetas gráficas en una sola ni junta su memoria. Personal AI Router presenta un punto de acceso local para aplicaciones y agentes.",
+    "28a172a09e55aa994e5b6245": "Cada petición se dirige a un equipo compatible según el modelo disponible y la carga. Se instala en el equipo de la aplicación;",
+    "d32378f56d1301f1bd347fc4": "su entrada acepta solicitudes de ese mismo equipo. Los nodos que atienden peticiones necesitan un motor compatible, como Ollama o LM Studio, y el modelo correspondiente.",
+    "45ad5c331404f64258091707": "Una petición va a un sistema. Dividir un modelo entre nodos requiere otra arquitectura. NVIDIA documenta también la conexión de dos DGX Spark mediante QSFP a 200 GbE para cargas distribuidas;",
+    "4afec75c5fbcd4964a2d8784": "enlazarlos no hace que cualquier programa distribuya automáticamente su trabajo. DGX Spark dispone de 128 GB de memoria unificada y combina CPU, GPU y red en un equipo compacto.",
+    "61854398f02f727f56f0f8d0": "Es una opción para desarrollo y cargas locales; la idoneidad de un despliegue depende del modelo y del servicio requerido.",
+    "c4cd1ab93fa9bae8bc6db71a": "Compara memoria útil, contexto, usuarios simultáneos, latencia, consumo eléctrico, refrigeración, soporte y recuperación.",
+    "3a504bb18ce7614959e89520": "Un máximo teórico de parámetros o de operaciones no equivale a una capacidad garantizada de expedientes por hora.",
+    "0e1599edb0993630571a83ce": "03 / Arquitectura del software.",
+    "e4c865b4968f49569b3d99f5": "Seis capas para convertircapacidad en trabajo fiable.. Selecciona una capa para ver su función, un ejemplo y el control que necesita.",
+    "c3ff71518025fd94d351b3e1": "Es una arquitectura de referencia que debe adaptarse a cada empresa. QUIÉN RESPONDE.",
+    "5ebc43ca42740e907ccb2a41": "Personas y responsabilidad. Un catálogo relaciona cada proceso con su dueño, sus agentes y la persona supervisora.",
+    "6452eef189b31bc3ef6437a0": "Cómo se concreta. Compras propuesta de pedido agente comparador técnico supervisor responsable aprobador.",
+    "b5e932248587eaff3c012d64": "Control necesario. Las identidades de los agentes son distintas de las personales. La persona responsable aprueba cambios en el alcance del proceso.",
+    "841b97d27cca7f93a2925568": "MCP facilita el intercambio con herramientas y fuentes; no es el motor del proceso ni sustituye el control de acceso.",
+    "a21ab0faa7c7fc1a53acd51e": "LangGraph es un ejemplo de ejecución con estado y revisión humana, no una elección obligatoria. 04 / Cómo encajan proceso y tecnología.",
+    "5b8ece8070cc974303812dac": "Un expediente recorre toda la arquitectura..",
+    "228727b785c33cf7dd490bb1": "Una persona registra una necesidad. El portal autentica al solicitante y crea un expediente con identificador único.",
+    "e0cfac8891d155093cf03e99": "El motor carga la definición aprobada. Compras ha definido agentes, supervisor, permisos y criterios de aceptación.",
+    "6fb3babc5f94cc1c8f315171": "El agente prepara una propuesta. Consulta fuentes autorizadas y utiliza el modelo local o externo permitido.",
+    "c3e27cad7734754b17874b98": "La persona revisa y aprueba. Ve la propuesta, las fuentes y las excepciones; la aprobación queda ligada a esa versión.",
+    "4972531f464875a0a29d6da3": "La integración ejecuta y registra. Comprueba la autorización, evita duplicados y conserva el resultado.",
+    "62b40a6ac0d063b615db9dc5": "El panel muestra el coste y las incidencias.",
+    "b46df50b8246f797bdbc60e4": "Del sistema actual a la nueva operación..",
+    "5f60ed21a4ac44dfe88eed59": "1. Conectar para leer. Inventariar sistemas, clasificar datos, nombrar responsables y habilitar fuentes de solo lectura.",
+    "650b513f3b32767bb7117c6f": "Medir el proceso actual.",
+    "2127e0120fba597e21903e0a": "2. Proponer y revisar. Probar un proceso con casos representativos, registrar errores y medir el coste completo.",
+    "2c457e4f866d307cbe90516b": "Revisar cada salida.",
+    "abecff0693d999ec21ff061f": "3. Ejecutar con límites. Autorizar acciones concretas, configurar recuperación y comprobar el comportamiento ante fallos antes de extenderlo a otro departamento.",
+    "5da1457f9158e850893dba1b": "Que el modelo se ejecute en tu oficina no impide que una herramienta envíe datos a un servicio externo.",
+    "68030fe77050f4999c9cb1fb": "TI debe revisar también conectores, registros y salidas de red. Los servicios de procesos, bases de datos y colas pueden funcionar en servidores o máquinas virtuales existentes;",
+    "b54db50ee3be36b04892ba58": "la GPU se dimensiona para las tareas que realmente la requieren.",
+    "d59f155b74d14bb979f521ff": "los ejemplos no describen una implantación real ni implican respaldo de los proveedores. NVIDIA · Personal AI Router (PAIR).",
+    "f413a9032f5c87877d2e69ac": "NVIDIA · DGX Spark. NVIDIA · Conectar dos DGX Spark. MCP · Arquitectura del protocolo. LangGraph · Ejecución y supervisión.",
+    "28e2e00f82babf2b5eb1fcf4": "Diseña tu primer piloto. Un piloto es una prueba pequeña para descubrir si una forma de trabajar mejora un resultado.",
+    "bbe3b864dbb10b6bd6a42e87": "No necesitas transformar toda la empresa. Escoge un proceso concreto y una persona que pueda revisar lo que ocurra.",
+    "6d78da5223aeebdd85ceec45": "Elige una tarea adecuada. Busca una tarea frecuente, con entradas y salida claras, que puedas probar mediante borradores.",
+    "3ae133adfd6dae5035e4e3d5": "Así podrás comparar casos sin autorizar todavía acciones que afecten a clientes, pagos u operaciones.",
+    "f925d10b4765dffa51bf0600": "Parte de un ejemplo. Compras, Ventas, Finanzas y Operaciones ofrecen puntos de partida. Cargar un ejemplo sustituye el contenido de la ficha y conserva los responsables.",
+    "fd743bc4936fb2a6fc47f928": "Adáptalo a la forma real de trabajar de tu equipo.",
+    "3480b7493dabb1a515b4ca17": "Asigna personas responsables. El responsable define el proceso y responde por su resultado. El supervisor revisa los expedientes y atiende excepciones.",
+    "a62b2f019e4273176b4bf639": "Pueden ser la misma persona, pero ambas funciones deben quedar claras.",
+    "eb3e2e541007e4a7f9938dac": "Define entradas, agentes y permisos. Describe qué inicia el trabajo y qué fuentes están autorizadas.",
+    "72723165951fb1f822e1fc10": "Después asigna una función a cada agente. Separa consultar información, preparar un borrador, modificar un registro y enviar una comunicación.",
+    "6c95551a8ef5f7c83c07d7e3": "Cada acción necesita el permiso adecuado.",
+    "6d7952248de8c4964d7c9e64": "Acuerda cómo comprobar el resultado. Especifica qué aprueba una persona, cómo medirás calidad, tiempo y coste, y cuándo hay que detenerse.",
+    "88afe5344dfd97ffa06e6d58": "Antes de empezar, acuerda una muestra de prueba, un presupuesto y un umbral de aceptación.",
+    "fa9e66944562d658cce40dd3": "Descarga y revisa la ficha. La ficha se prepara en tu navegador. Descárgala antes de salir, porque no se guarda al recargar la página.",
+    "f97765aa027c63854fe6ea2a": "Su contenido no se envía al asistente de voz. Revisa el borrador con tu departamento y con TI antes de conectar sistemas.",
+    "bbc9b0d4ee1ff0fa9ad5dabd": "Avanza por cuatro puertas. Primero mide el proceso actual. Después prueba sin acciones externas.",
+    "7014cdb8b2174f2f9656c77b": "Revisa resultados y costes con el equipo. Finalmente decide si parar, corregir o ampliar el alcance.",
+    "6a750f4d999d9767d5336971": "Cada avance debe tener una persona responsable.",
+    "b389b99eeb4d665bdaf255d2": "Lidera una empresanativa en IA.. Aprende a organizar el trabajo entre personas y agentes. Convierte el conocimiento de tu empresa en procesos que puedas probar, supervisar y mejorar.",
+    "e336e755a5822944355c257f": "Para profesionales, equipos y directivos que quieren pasar de la conversación a la práctica.",
+    "55542160c74c0cb9b87a2ce1": "La autonomía se diseña.. El agente ejecuta. Las personas definen el objetivo, los límites y qué significa hacerlo bien.",
+    "4410ab77ab5ee6c552e3017f": "01ContextoConocimiento, fuentes y procedimientos. 02AcciónHerramientas, tareas y permisos. 03EvaluaciónCalidad, coste y revisión humana.",
+    "39db2019f58c76d7fc77de07": "Un recorrido para abrir posibilidades.",
+    "78b3ff37136b118b4084ae7b": "Entiéndelo.Imagínalo en tu empresa.. De una idea a un proceso con agentes, infraestructura y personas responsables.",
+    "4ce85265c7aa143158c19784": "Explora los ejemplos y prepara tu primera prueba.",
+    "af0bfaae82a00f9ce503e4d5": "Entender el cambio. Qué cambia en la organización del trabajo.",
+    "c56db3ce176b116c751b1228": "Ver un proceso. Compras, Ventas, Finanzas y Operaciones.",
+    "1321eb2c936a3f59829c387c": "Explorar la arquitectura. Redes, NVIDIA PAIR y capas de software.",
+    "d5afc4309f9725ec9f1530d7": "Diseñar tu primer piloto. Una ficha descargable para tu equipo. Del concepto al trabajo.",
+    "8add0312cf749d5644b11f65": "Empieza por una tarea real..",
+    "81afd92d728869df07b622e8": "PlanPro Marketing. Convierte un diagnóstico en un plan de marketing con objetivos, presupuesto y acciones.",
+    "f995889d7a6d3ba6b4e9cf3e": "Resultado: un plan exportable a DOCX o PDF.",
+    "c9526ff9ad186bdab0e0ff4f": "TradingAlpha. Explora datos de mercado y escenarios de valoración antes de formular una hipótesis.",
+    "8665baddc960ddc7f4ccd356": "Resultado: un análisis con métricas y escenarios.",
+    "516c942d08a84d6eeb4a6f71": "Analizador de contenidos. Transforma documentos y vídeos en ideas organizadas y propuestas de aplicación.",
+    "b50ee9b5a04b60f2c9acaddf": "Resultado: un informe estructurado para revisar. Lectura recomendada · Carlos Santana, DotCSV.",
+    "2b001f951292131ee025bbbe": "De usar IA a trabajar con agentes.. Contexto, procesos documentados, evaluación y economía de los tokens.",
+    "676710a302c209ef8e59989e": "Una guía de MBAI para llevar las ideas de la charla publicada por Holded a una primera prueba en tu empresa.",
+    "732ec58c2c9d3dac4c0df024": "Cargando actualidad de IA….",
+    "b5ae64de12341e4cb69b07bf": "Practica la Gestión AI-Nativa. Simula la dirección de una empresa con agentes de IA. Configura autonomías, supervisa tareas y toma decisiones estratégicas en tiempo real.",
+    "1a855d017930ca5dd0a97f06": "Entender la IA.Aprender a dirigir con ella.. MBAI Native reúne principios de gestión, recursos de aprendizaje y aplicaciones de inteligencia artificial.",
+    "fcb655b805ce5f96013b2ef1": "Nuestro foco es el trabajo que comparten personas y agentes.",
+    "c55f533a72305f25092e93db": "Una visión de empresa. Organizar por tareas, decidir qué autonomía tiene cada agente y conservar la responsabilidad sobre las decisiones.",
+    "08f8f6d18afab5a7983cb03c": "Herramientas para probar. Un catálogo de aplicaciones para explorar problemas de análisis, comunicación y productividad mediante casos concretos.",
+    "eee190703530852903120de4": "Resultados que se revisan. Documentar fuentes, comprobar resultados y ajustar los procesos. Una respuesta convincente debe poder contrastarse.",
+    "28525efec330a9117fa99d03": "MBAI Native · Madrid.",
+    "41a3b0c6e598acc2396c7da5": "Conoce el proyecto a través de lo que hace.. Las aplicaciones y los materiales publicados son nuestra primera presentación.",
+    "3299365a77f2ad87ef5bb32f": "Para conocer quién participaría en tu proyecto, el enfoque y la experiencia relevante, escríbenos.",
+    "cc11a27232db27ffba0d501e": "Una aplicación concreta.Un resultado que puedas evaluar.. Formación, estrategia y desarrollo para introducir IA en tu empresa.",
+    "1190c2f403b989c9b5c8e0cb": "Partimos de tus tareas y del conocimiento de tu equipo. Para directivos y responsables de equipos.",
+    "da5f35a4b465a2d095e7379d": "Formación ejecutiva en IA. Comprende qué puedes delegar, cómo dar contexto a un agente y cómo evaluar sus resultados.",
+    "9022981aa5da7c37d83ea82a": "Mapa de tareas de tu equipo. Ejercicios con herramientas y simulación. Criterios de supervisión y autonomía.",
+    "e49fc2c19751499fb93894c2": "Alcance, duración y presupuesto acordados tras conocer tu caso. Para empresas que necesitan priorizar.",
+    "a1200ed945cb386511512f87": "Estrategia y consultoría. Identifica un proceso con potencial y define una prueba con un objetivo verificable.",
+    "12bf2b1f0da5e1a9f437b101": "Diagnóstico del proceso y sus datos. Propuesta de piloto y criterios de éxito. Estimación de recursos y seguimiento.",
+    "0a443710226e4e9b9dbccd21": "Alcance, duración y presupuesto acordados tras conocer tu caso. Para quienes quieren aprender haciendo.",
+    "37f4223c943de6936c3c233a": "Talleres para equipos. Trabaja sobre un caso de uso de tu actividad y documenta una forma de repetirlo.",
+    "2b6751d1f82e254710fd339d": "Sesión aplicada a una tarea concreta. Procedimiento de trabajo documentado. Revisión de resultados y siguientes pasos.",
+    "6163208702d928815a4f0329": "Alcance, duración y presupuesto acordados tras conocer tu caso. Para equipos con un problema definido.",
+    "b7e2a5ff2cc576e94ed1c076": "Desarrollo de soluciones. Diseña una herramienta adaptada a tu flujo de trabajo, con límites claros y revisión del resultado.",
+    "49a9c2570d2b4260754ecb3b": "Definición funcional y prototipo. Integración de las fuentes acordadas. Validación y documentación de uso.",
+    "a267369969dd498147200431": "Alcance, duración y presupuesto acordados tras conocer tu caso. Para empresas que ya utilizan IA.",
+    "83dfe2795da16823d0095b6b": "Auditoría y optimización. Revisa la utilidad, el coste y los puntos de supervisión de tus sistemas actuales.",
+    "5397feb7caff9963c31c2c4d": "Revisión de calidad y errores frecuentes. Análisis de consumo y permisos. Propuestas de mejora priorizadas.",
+    "158a55e63eb945fb41d514be": "Alcance, duración y presupuesto acordados tras conocer tu caso. Para responsables de innovación.",
+    "b61fb28612cd3464e3e15a95": "Investigación aplicada. Convierte novedades e investigaciones en decisiones sobre qué merece una prueba.",
+    "b9d49a755f0daae4e739f274": "Selección de fuentes relevantes. Comparativa orientada a tu caso de uso. Hipótesis de aplicación y validación.",
+    "1ba086525e29ed5e88319018": "Alcance, duración y presupuesto acordados tras conocer tu caso.",
+    "70ce7c404a9a5e772857f1d6": "Empieza por contarnos el problema.. Qué tarea te ocupa tiempo, con qué información trabajas y qué resultado esperas conseguir.",
+    "fa2666b5fedb4351e86135be": "Contáctanos. Cuéntanos qué tarea quieres mejorar, con qué información trabajas y qué resultado necesitas.",
+    "4e60c7b353657a78ceca3f3c": "Concretaremos contigo el alcance, los plazos y el presupuesto.",
+    "4629e106e248ca2949e6fb04": "Información de Contacto. Email: info@mbainative.com. Dirección:Calle Romero Robledo, 1428008-Madrid, España.",
+    "f1bc104be70e9e08ed71d1a2": "Envíanos un Mensaje.",
+    "b5311177ad1e5c27f902ded4": "Encuentra una herramientapara tu próxima tarea.. Explora aplicaciones de análisis, comunicación, formación y productividad.",
+    "00ce9a10d5c29f07c4631853": "Algunas se abren en servicios externos con sus propias condiciones de acceso. 28 aplicaciones encontradas.",
+    "5bc661c3f4758a1feba0c69d": "📊 Finanzas. Herramientas de análisis financiero y estimación de inversiones. En MBAI Native.",
+    "217abae63a376eaa93d4b91c": "España vs UE — Dashboard. Comparativa macro y microeconómica de los 27 países de la Unión Europea.",
+    "25540d63ee46d6eb8fd4923b": "Evolución histórica de 25 años e índice ISCB. En MBAI Native.",
+    "f85c71c63b7cb16e50bb26f6": "Inversión con Fundamentales. Analiza los fundamentales de un ticker y estima su potencial de inversión.",
+    "bb26f475bc765e5e540ec81e": "En MBAI Native.",
+    "01fabe7e5330e86260170601": "TradingAlpha — Suite Inversiones Pro. Terminal institucional: velas interactivas, radar Snowflake de 5 ejes, DCF con margen de seguridad, DuPont, auditoría contable Piotroski/Altman Z, pulso de sentimiento de mercado y",
+    "9efad390853f654595f639ee": "tesis con IA. Aplicación externa.",
+    "cacc1c272155a8684533b644": "Correlaciones Financieras. Analiza correlaciones entre activos financieros para optimizar carteras.",
+    "4128bc244737660849270d64": "Aplicación externa.",
+    "4cccc53d075b77c7f4387d31": "Dashboard Economía España. Cuadro de mando integral con IA para analizar la economía en tiempo real (PIB, Paro, ESIOS).",
+    "3a969ec9b0dd871ba09ff621": "Monitor de Futuros Líquidos. Observa futuros de índices, bonos, materias primas y divisas. Detecta anomalías, genera señales y simula operaciones en tiempo real.",
+    "867bd61a478ad93e01a36ebb": "CasaCalc — Comprar vs Alquilar. Dashboard interactivo para analizar el coste real de comprar vivienda en España:",
+    "87fbc9a45396143f184a24f2": "hipoteca, impuestos, coste de oportunidad frente a inversiones alternativas, simulador de reventa y análisis de inversión para alquilar.",
+    "786f140f5ba6d8bf1646d587": "📝 Lengua. Herramientas de corrección y análisis lingüístico. En MBAI Native.",
+    "27465ab7de4ce1e936a78447": "Corrector Ortotipográfico RAE. Corrige documentos Word (.docx) siguiendo las normas de la Real Academia Española.",
+    "19ed53627429a142b07747d3": "🗳 Sondeos. Herramientas de análisis electoral y estimación de voto. Aplicación externa.",
+    "ec10d363858b7710dc3d3496": "Estimador CIS. Monitor de cocina electoral del CIS. Compara Voto Directo, Estimación CIS y el modelo Aldabón-Gemini 3.0 para elecciones generales y autonómicas.",
+    "9df89114980a6600d078ac17": "📰 Prensa & Opinión Pública. Herramientas de inteligencia informativa, monitorización de opinión pública y análisis periodístico.",
+    "d1510a54431bcd580c0afb36": "OpinionPulse AI — Inteligencia de Opinión & Polarización. Monitor en tiempo real de sentimiento y controversia en Reddit, Prensa y Redes.",
+    "500be9d38629e0ba6552b62e": "Ponderación contextual bayesiana, detección de polarización bimodal e informes ejecutivos con IA.",
+    "8320aa6301d513b099cefb6d": "Radar de Calidad Periodística. Sube un PDF, selecciona un modelo de IA y obtén un diagnóstico profesional con puntuación 0-100.",
+    "8f3e1ef83eb283e801755bb8": "Funciona 100% en tu navegador. Aplicación externa.",
+    "9630f27903d1108a388905e9": "Prensa Resumen MBAI. Unidad de inteligencia que escanea 50 medios internacionales en tiempo real, filtra noticias por tema y genera informes estratégicos con análisis de narrativa, sesgos y silencios.",
+    "615b222d72e1343b6ce03a09": "🎬 Video/Audio. Herramientas de creación de contenido audiovisual con IA. Aplicación externa.",
+    "163ea773e17d15e9acb7f39c": "FotoAI Slides — Presentaciones con IA. Sube tus fotos, elige música y efectos cinematográficos, y genera presentaciones animadas con frases personalizadas.",
+    "6485beed245ea2c0b638bad7": "Exporta como vídeo MP4. En preparación.",
+    "39d8bf08e0b917573256d797": "Generador de Guiones. Crea guiones profesionales para vídeos usando IA. Disponible próximamente.",
+    "ab19b9e6ff7d332a7c11aeb9": "En preparación.",
+    "d9eb013a924595186871d7a7": "Generador de Vídeos IA. Genera vídeos completos automáticamente con inteligencia artificial. Disponible próximamente.",
+    "bc850d4ca23677e80ba842bf": "🌍 Simulaciones. Simuladores interactivos de historia, demografía y ciencia. En MBAI Native.",
+    "1678b12e449dc69ce017c901": "Evolución Demográfica Humana. Visualiza 300.000 años de historia: de 2 humanos a 8.100 millones, con migraciones, genética y crecimiento poblacional.",
+    "c410950c3f71dafc96e3f823": "Análisis Político. Simulador de inteligencia que modela situaciones políticas nacionales e internacionales como juegos estratégicos, calculando los escenarios más probables con Teoría de Nash e IA.",
+    "98e0e5fa9913b601b907140d": "🔬 Investigación IA. Monitorización y análisis de las últimas investigaciones de los principales laboratorios de inteligencia artificial.",
+    "b1e98f2a1a9edef92a8f58e1": "AI Research Radar. Dashboards interactivos con las investigaciones más recientes de Anthropic, OpenAI, Google y Microsoft.",
+    "6c904d26c191070c05865bb5": "Vista detallada de artículos en español con gráficos y análisis. En MBAI Native.",
+    "67e16da6e668592a21a67e88": "Comparador de Benchmarks de IA. Comparativa visual y detallada de rendimiento y costes de los modelos de IA en 2026, con resúmenes didácticos e informes descargables.",
+    "f4a9d990d75a4732ce494926": "🏅 Aplicaciones con acreditación. Aplicaciones con trazabilidad, controles y evidencias profesionales documentadas.",
+    "a19ae162493ba5099b47bbac": "Aegis Security Intelligence. Dashboard profesional para analizar vulnerabilidades, superficie de ataque, configuración web e información interna autorizada, con evidencias y medidas de remediación.",
+    "f302cac791017e1aa9d18109": "🎯 Ventas. Herramientas de coaching, entrenamiento comercial y análisis de llamadas B2B. Aplicación externa.",
+    "3a601cc9f06c824642afbc5c": "Coach Comercial IA. Entrena comerciales con simulaciones guiadas por IA, analiza llamadas reales con scorecard automático (discovery, valor, objeciones, cierre) y haz seguimiento individual por vendedor.",
+    "a69824d4eee63b9786adacab": "🚀 Aplicaciones que multiplican tu productividad. Soluciones avanzadas de inteligencia artificial para optimizar tus procesos de revisión, análisis y trabajo diario.",
+    "6c76f05daf2b8020dbe3a19f": "Generador Autónomo de Masterclass (MBAI Presenter). Introduce un tema o sube un PDF y la IA investigará, redactará el guion y las notas del orador, buscará ilustraciones y generará una presentación visual interactiva.",
+    "e657172f6e872247d9b9cd20": "100% en tu navegador. Aplicación externa.",
+    "a28aee09f0988f7e2a4504f6": "Analizador Profesional de Contenidos. Convierte videos de YouTube, PDFs, DOCX, articulos y libros en informes profesionales con ideas numeradas, visuales, conclusiones, aplicaciones derivadas y prompts listos para Codex,",
+    "63e4f0ee7566fbc30dae6c87": "Claude o Gemini. Aplicación externa.",
+    "cfe5bd18447db8ab27cb0d42": "Detector de Textos IA (Doctrina MBAI). Analiza cualquier fragmento de texto para determinar mediante 10 vectores lingüísticos si ha sido escrito por un humano o generado por Inteligencia Artificial.",
+    "2e5c19c11fca8ad731e1ccfa": "QR Poster Studio. Genera carteles profesionales con código QR listos para imprimir. 6 estilos prediseñados, colores personalizables, logo drag & drop y exportación en PNG y PDF de alta resolución.",
+    "d17746ec149f23fbc4bd9c8a": "PlanPro Marketing. Crea un Plan de Marketing profesional con diagnóstico, buyer personas, estrategia omnicanal, objetivos SMART, presupuesto, simulación IA y documento final en DOCX o PDF.",
+    "bae770441554aa21345e9b5c": "MarkItDown. Conversor universal. Sube PDFs, documentos de Office, imágenes o audios y extrae su texto limpio en Markdown al instante de forma totalmente privada.",
+    "3a9b46e7d72404a23b401a7d": "🧠 IA Personal. Clones virtuales y asistentes de IA personalizados que aprenden tu personalidad.",
+    "d2e1ea4746751667c8b7a98a": "Clonify — Clon Virtual Interactivo. Crea un clon virtual de tu personalidad que aprende de tus WhatsApp, Gmail y Calendar.",
+    "8994dea5206fbef93642d557": "Conversa por voz o texto con tu clon, que responde en tu estilo y con tu tono. 100% privado en tu navegador.",
+    "f6d7525c31c74d0e2771332d": "¿Tu proceso necesita algo distinto?. Cuéntanos qué resultado buscas y con qué información trabajas.",
+    "375b78f94aa4f71fb44c5d90": "Bienvenido a TradingAlpha. Esta herramienta reúne información de mercado y varios métodos de análisis.",
+    "48ad68e4a6c16f1764a55434": "Te explicaré cómo orientarte. Los números que aparecen pueden cambiar; esta guía explica los conceptos y no da recomendaciones de compra o venta.",
+    "68223c8c166a6659d0d51204": "Elegir un activo. Busca el símbolo de la empresa o utiliza los accesos rápidos. Espera a que se carguen los datos.",
+    "30f2df85e996ee92ec44dc2a": "Comprueba qué activo estás viendo antes de interpretar un gráfico o una valoración.",
+    "233306d6c893e205565331da": "Resumen y radar. El resumen combina indicadores para ayudar a ordenar el análisis. Una puntuación resume supuestos;",
+    "d2c28684def5e0dca48ba773": "no garantiza lo que hará una acción. Conviene contrastar sus componentes y la fecha de los datos.",
+    "c5676290cf5e3e39a1b71c1b": "Gráficos y valoración. La pestaña técnica muestra la evolución del precio. La valoración por flujos de caja calcula un escenario usando supuestos sobre el futuro.",
+    "e71061c0366281031af15038": "Cambiar esos supuestos puede cambiar mucho el resultado. Explora cada pestaña y revisa la ayuda antes de sacar conclusiones.",
+    "3ad7e811be0db15f845a97ae": "Estados financieros y noticias. Los estados financieros ayudan a entender el negocio. El sentimiento resume señales informativas, que pueden ser incompletas.",
+    "9398c151da388a067521525e": "Compara varias fuentes y separa los hechos de las interpretaciones.",
+    "3e991cb0d9b976b93da759e4": "Informe con inteligencia artificial. El informe redacta una interpretación de los datos. Necesita tu clave personal de OpenRouter, que puedes introducir en Ajustes.",
+    "50467612d7588bbd2ee139bc": "Revisa cifras, fuentes y supuestos del texto generado. El asistente de esta página no lee tu clave ni tu informe privado.",
+    "6149bef74ac673fea6dc0fbb": "Revisión antes de decidir. Consulta la guía didáctica y las salvedades de la aplicación. Utiliza los resultados como material de estudio y contraste.",
+    "9422db568143ce42b6c1ce1c": "Puedes detener este recorrido para explorar una pestaña a tu ritmo.",
+    "699452e447ddb772c7243c72": "Análisis de fundamentales. Aquí puedes consultar indicadores y comparar hipótesis sobre una inversión.",
+    "dbf22dc522f4f43ad0d9d236": "Empezaremos por la empresa, seguiremos por sus datos y terminaremos por los escenarios. La guía explica la herramienta y no recomienda operaciones.",
+    "61f4b873e48000edb97eeb00": "Selecciona la empresa. Introduce un símbolo de mercado válido y solicita el análisis. Comprueba que los datos pertenecen a la empresa y al periodo que quieres estudiar.",
+    "f212bf34906efb106c4086bd": "Si una fuente no responde, evita completar los valores ausentes por intuición.",
+    "4c5c852e2163153295d5eb38": "Interpreta los indicadores. Un ratio compara dos magnitudes del negocio. Puede ayudar a detectar diferencias, pero su significado depende del sector y del momento.",
+    "b7559358b95ee6174162bf7f": "Contrasta rentabilidad, deuda, crecimiento y generación de caja en conjunto.",
+    "cc887fd882d19b60c7bd4bc8": "Trabaja con escenarios. Una valoración depende de sus supuestos. Prueba qué ocurre con un crecimiento menor o con un coste de capital diferente.",
+    "303e11605aa494d480b402ab": "Revisa las limitaciones del método y conserva la responsabilidad sobre tus decisiones.",
+    "b7b3d400c9b5e1d91f6909db": "Comparar España y la Unión Europea. La página muestra un panel económico incrustado. Sirve para explorar indicadores y comparar su evolución.",
+    "ddcaff1fea78ba623b117dc9": "Empieza por una pregunta concreta y elige el indicador, los países y el periodo que permitan responderla.",
+    "6992d9640a7bc3c9aa0c9f52": "Lee cada gráfico con contexto. Comprueba la unidad, las fechas y la fuente. Un total y una cifra por habitante responden a preguntas diferentes.",
+    "85ff196ee7ca98549287ce7d": "Una variación porcentual tampoco equivale a un cambio en puntos porcentuales.",
+    "5796f84a1318668c37ab9d66": "Explora el panel a tu ritmo. El panel pertenece a una aplicación externa. Por esa separación técnica, este asistente explica cómo usarlo, pero no puede recorrer ni interpretar su contenido interno.",
+    "b16bcba35740dfa5a81f401f": "Pausa la guía para utilizar sus controles.",
+    "1162612f92fcd4db0e0233cb": "Corrector ortotipográfico. Esta herramienta ayuda a revisar aspectos de escritura, como comillas, mayúsculas y puntuación.",
+    "8c9ac5378bfc3a12d925b2fb": "Una corrección automática es una propuesta que conviene revisar según el contexto del documento.",
+    "16e943e13bff77fd9007562a": "Prepara el documento. Sigue las instrucciones de carga que aparecen en la herramienta. Conserva una copia del original para comparar los cambios.",
+    "c9b262ed004c51a7c1523c31": "El asistente explica los controles y no lee el contenido de tu archivo.",
+    "2f51ef67e30d7bd066cae526": "Revisa el resultado. Comprueba especialmente los nombres propios, las citas y los términos de tu actividad.",
+    "ecd76ba23a840cce13ea77d3": "Si la aplicación se muestra dentro de un panel externo, utiliza su ayuda: este asistente no puede recorrer el interior de otro dominio.",
+    "4e030ad08bdc53c81f98fa22": "Monitor de futuros. Esta herramienta permite explorar contratos y escenarios. Un futuro es un compromiso sobre una operación posterior;",
+    "287231509a705498a9f46a0f": "su comportamiento y su riesgo dependen del contrato. Esta guía se centra en orientarte por la aplicación.",
+    "ac0f08545c9a0fbad043474f": "Comprueba el instrumento. Antes de interpretar un gráfico, identifica el contrato, su vencimiento y sus unidades.",
+    "1b003e2fbebe3f8729ee9b60": "Si hay una simulación, distingue sus supuestos de los datos observados.",
+    "fdd73241fec99d8232a70f28": "Utiliza la ayuda de la herramienta. Si el panel está incrustado desde otro dominio, el asistente no puede acceder a sus controles internos.",
+    "e6cb2f015c8a4168f67bef9f": "Detén la narración para explorar la herramienta y revisar sus explicaciones.",
+    "8d5b4552cbb0895b3c990191": "Comprende el cambio.Después, llévalo a tu empresa.. Empieza por el recorrido visual o profundiza en las guías y fuentes.",
+    "cd822ffde21f41ecd38bd573": "Separa las propuestas de organización de las capacidades que ya puedes probar. Un recorrido para abrir posibilidades.",
+    "786f1258351452c68b72fc38": "Diseñar tu primer piloto. Una ficha descargable para tu equipo.",
+    "cd7e01cf757e5b242e95ccc8": "Lecturas para profundizar.",
+    "f0470a344d0a02555029554c": "La IA llevada al trabajo. Guía a partir de la charla de Carlos Santana: contexto, evaluación y coste por resultado.",
+    "1145a37698f2ee3a21222daa": "20 principios para debatir. La propuesta de MBAI sobre organización y gestión. Un punto de partida para contrastar con tu realidad.",
+    "05b1424899a7466803dc5222": "Voces del sector. Ideas y recursos de investigadores, divulgadores y líderes de tecnología.",
+    "ba13ce75913495e2bfd6d34f": "Investigación de consultoras. Recursos sobre transformación, trabajo y adopción de inteligencia artificial.",
+    "f5fa55010786299ed52145bb": "Divulgación en vídeo. Canales y contenidos para seguir aprendiendo sobre IA.",
+    "057d70cb523fd77c326127f8": "Actualidad y fuentes. Publicaciones recientes con acceso a sus fuentes originales.",
+    "b3f3e5bb4cf94d4abc3bef0c": "Explora tu sector.",
+    "10e321e1b29f1199bcd338e3": "De usar IA atrabajar con agentes.. Una empresa necesita algo más que acceso a un modelo: contexto, procedimientos, herramientas y una forma de comprobar los resultados.",
+    "62c3027b436f61415f9f4261": "La charla que inspira esta guía.",
+    "ff80b7c34aadd5906edc37b3": "La IA ya no sorprende: así hay que usarla ahora. Carlos Santana (DotCSV) · Publicada por Holded · Evento Inteligencia Emprendedora · 1 h 03 min.",
+    "eca87d3cecde9ae5ac353e69": "Síntesis editorial de MBAI Native a partir de la transcripción automática. Las propuestas de aplicación son nuestras;",
+    "3265f2a3ff0675c15c7b63e5": "no implican colaboración ni respaldo del ponente o de Holded. Los ejemplos de productos corresponden al momento de la charla.",
+    "09c486626d96f4a6f5820eff": "Cinco ideas para llevar al trabajo.",
+    "1a507f3e9b78d18f6a267fe8": "Aprende capacidades, no una lista de herramientas.. La charla propone comprender la generalidad de los modelos:",
+    "f8e4d00543017655975b5873": "una misma tecnología puede resolver cada vez más tareas y simplificar flujos de trabajo. Aplicación MBAI.",
+    "c38468a106dac2cb3c1c5c57": "Elige una tarea frecuente y compara dos formas de resolverla. Conserva el procedimiento más sencillo que alcance tu nivel de calidad.",
+    "f99886534259b64ef6822527": "Replantea cómo llegas al resultado.. La multimodalidad permite combinar texto, imagen, vídeo y código, y encontrar soluciones fuera de la herramienta habitual.",
+    "7d2ee1a819a7da18771dcd15": "Aplicación MBAI. Describe primero el resultado que necesitas. Para una presentación, por ejemplo, separa el contenido verificable, el diseño y el formato que debes entregar.",
+    "a5f8f55c93c0f5353e60d882": "Convierte conocimiento en contexto útil.. Un agente necesita conocer la organización. Documentos, reuniones y procedimientos pueden alimentar una base de conocimiento estructurada.",
+    "10fac306d82e7f58a0059701": "Aplicación MBAI. Empieza con un proceso: objetivo, fuentes, pasos, excepciones y responsable. Guarda la fecha y la procedencia de cada información, limita el acceso y revisa las contradicciones.",
+    "246adcba143328374e471329": "Define cómo sabrás si lo ha hecho bien.. Los agentes necesitan señales de evaluación. La charla advierte que optimizar una métrica equivocada puede producir un resultado no deseado.",
+    "0c8e6f8e10c1c31916f24d66": "Aplicación MBAI. Combina una prueba de calidad con una revisión humana. Cuenta también errores, correcciones y casos que deben escalarse;",
+    "7cd71fdc7a80e04e871a02e3": "no midas solo la velocidad.",
+    "b9b9e75deffb254b82bae9dc": "Gestiona el coste de cada resultado.. El razonamiento y la ejecución continua o en paralelo consumen recursos.",
+    "19e8394c99a40cbb8aa558ac": "El ponente aconseja ajustar la capacidad del modelo a la dificultad de la tarea. Aplicación MBAI.",
+    "fffd31316f4ea0c3e927fba4": "Define un presupuesto de prueba y un límite de intentos. Compara el coste total por resultado aceptado, incluyendo herramientas, infraestructura y tiempo de revisión.",
+    "dbb32f08017a731c79ec7af2": "De la grabación al procedimiento.",
+    "c2fc8f7ca04263bdfda58485": "Documenta una tarea mientras la haces.. La charla muestra cómo una grabación de pantalla puede convertirse en instrucciones de trabajo.",
+    "4d3513933d90a2c60cfa26a2": "Nuestra propuesta: utiliza un ejemplo sin datos sensibles, comprueba cada paso y guarda una versión aprobada con su responsable.",
+    "f83dbb8802f22593fc8e29d5": "Tu primera prueba.",
+    "a72e1abdc78d9eaf40bf449e": "Una tarea. Un responsable. Un criterio de éxito.. Esta ficha es una propuesta de MBAI para diseñar un piloto.",
+    "59e5576fc6e42bf9ef9c1804": "Ajusta los umbrales a tu actividad antes de conceder autonomía. Tarea. Preparar un borrador de informe semanal a partir de fuentes aprobadas.",
+    "fc6622566e6dce96f16dcf3e": "Contexto. Plantilla, ejemplos revisados, fuentes y reglas sobre información confidencial. Permisos.",
+    "d2aeae6dd97fe6e43944f9ca": "Leer las fuentes y redactar un borrador. La publicación la autoriza una persona. Evaluación. Comprobar referencias, cifras, omisiones y utilidad antes de aceptar el informe.",
+    "f41539226a5e03ef6205f317": "Coste. Registrar consumo, intentos y tiempo de revisión por informe aceptado. Aprendizaje. Documentar las correcciones y actualizar el procedimiento con control de versiones.",
+    "41d3aa94c72ef87385e64354": "Si el resultado no se puede verificar, la tarea debe mantenerse bajo supervisión. Aumenta la autonomía solo cuando las pruebas lo justifiquen.",
+    "b988ec001fec921ba6c8ce73": "20 Principios de la Empresa AI-Nativa. Los principios que definen cómo organizar, dirigir y escalar empresas en la era de los agentes de IA.",
+    "0e64b387585a1f89d174f13c": "De la organización por tareas al compliance automatizado.",
+    "ffa5f8004f8969e89e5b5835": "Organización Empresarial. Cómo estructurar la empresa AI-Nativa.",
+    "c45ddbd4ad76a2321b052742": "El talento artificial se compra.",
+    "504b8c3283616d661c3fc10e": "Tesis. El talento personal se contrata, el talento artificial se compra. Google, OpenAI, Anthropic venden la inteligencia de sus modelos en tokens.",
+    "8b063e90235f1baa28f0ba3e": "El coste marginal de la inteligencia tiende a cero.",
+    "87ac37c76c012a0f1589e7bf": "Implicaciones. Las empresas pueden escalar su capacidad cognitiva comprando más tokens. El presupuesto de IA se convierte en una línea estratégica similar a la nómina.",
+    "2eef81c9365d1da0088e4143": "Retos. Dependencia de proveedores de modelos, volatilidad de precios, y necesidad de evaluar qué tareas justifican el coste.",
+    "1390852389e9865978683c8e": "👤 Impulsores.",
+    "8cc64cc0cc608472c07b0cf6": "Los empleados de silicio.",
+    "041ee4d9392d6fbc6bf6be19": "Tesis. Se pueden comprar 'empleados de silicio': agentes de IA que usan tokens para realizar tareas.",
+    "16e293fc2fd88d7278f07fb5": "Inicialmente especializados, estos agentes son cada vez más versátiles y capaces de manejar tareas variadas.",
+    "7c40a69795cad53d8898b0e2": "Implicaciones. Los departamentos de TI se convierten en departamentos de RRHH para empleados digitales.",
+    "dfcbd0658492d49dc3778c72": "La contratación incluye 'onboarding' de agentes.",
+    "6cc385a5c30f1996e7b61120": "Retos. Definir SLAs para agentes, gestionar fallos, y establecer responsabilidades cuando un agente comete errores.",
+    "67819c4708c8b9cb571304b2": "Organización por tareas, no por puestos.",
+    "f546199c506d1976dc56a841": "Tesis. Las empresas no se organizan en posiciones o puestos de trabajo, sino en tareas. Las tareas las realizan agentes de IA y las supervisan personas:",
+    "b3dfb73eea4a01658b35f376": "los trabajadores-supervisores.",
+    "799fc8991159742c22854605": "Implicaciones. Desaparecen las descripciones de puesto tradicionales. Se definen catálogos de tareas con sus inputs, outputs, y criterios de éxito.",
+    "c9e839e236f9d7f7977e0013": "Retos. Rediseñar toda la estructura organizativa, reskilling masivo, y resistencia cultural al cambio.",
+    "6c317ef705cd983f500cbe6c": "El nuevo organigrama es una ciencia.",
+    "63a461939297da1c99f19902": "Tesis. La forma de generar el nuevo organigrama de la empresa, dividido en tareas y flujos de trabajo, pasa a ser una nueva ciencia directamente relacionada con la eficiencia empresarial.",
+    "15dc61d6ba02b4340e03a3ca": "Implicaciones. Emergen nuevos roles: Director de IA, Arquitectos de Tareas, Diseñadores de Flujos Agénticos, Optimizadores de Procesos AI.",
+    "8c0452afcaee1effd35e542d": "Retos. No existen metodologías maduras. Las empresas deben experimentar y desarrollar sus propios frameworks.",
+    "a1b2edd71059841bf91f22c5": "La información fluye horizontalmente.",
+    "1caf9a29b88816e36fa405a7": "Tesis. La información en la empresa ya no circula jerárquicamente, sino horizontalmente. Está disponible para todos en todos los niveles:",
+    "d93aafcb2fc675f94e5de773": "para trabajadores-personas y para agentes de tareas.",
+    "e050664d607e2b7c971e79cc": "Implicaciones. Desaparecen los silos de información. Las personas y los agentes acceden a bases de conocimiento unificadas que proporcionan a cada uno la información que le interesa para sus tareas.",
+    "463093f70273f7605d8b8bf9": "Retos. Gestión de permisos y confidencialidad, sobrecarga informativa, y riesgo de filtraciones.",
+    "93960a7344a84a41cd3a75d9": "Decisiones con autonomía configurable.",
+    "0f29735b7d54f11384c7a819": "Tesis. Las decisiones ya no se toman jerárquicamente. Los trabajadores-supervisores configuran la autonomía de los agentes:",
+    "6e6623917274af3c021d7bef": "mucha o poca. Definen qué tareas requieren consulta previa y cuáles se supervisan a posteriori en el dashboard.",
+    "6cb0f2dfb005fab75e47de8d": "Implicaciones. El control granular de la autonomía se convierte en una competencia directiva clave.",
+    "5309e1b99a743d145c07f2df": "Los dashboards de supervisión son el centro de mando.",
+    "cab517f986dba7f211c641c8": "Retos. Calibrar el nivel correcto de autonomía, evitar la microgestión de agentes, y gestionar la responsabilidad en decisiones autónomas.",
+    "7fe7f8fafbab16d6c3a9329d": "Relaciones externas agénticas.",
+    "0c3ef2f69ebe94904220621b": "Tesis. La empresa gestiona relaciones externas (proveedores, bancos, administración) con agentes supervisados.",
+    "d5866a35d3e91c856134fbcf": "En fase 1: agentes interactúan con humanos externos. En fase 2: agentes interactúan con agentes de otras organizaciones.",
+    "3fec2af7daf63be6b724b17a": "Implicaciones. Los contratos incluirán cláusulas sobre interacción agente-agente. Emergen protocolos estándar de comunicación entre agentes empresariales.",
+    "6b04d8fed346f8e1eca04f0e": "Retos. Confianza inter-organizacional, responsabilidad legal en transacciones agénticas, y estándares de interoperabilidad.",
+    "4976fb18f0b164b507d79682": "Cumplimiento normativo automatizado.",
+    "8c5492485a5d93ee51547de3": "Tesis. La gestión normativa (cumplimiento legal, regulatorio, fiscal) la llevan agentes supervisados que monitorizan cambios legislativos, verifican cumplimiento y generan reportes automáticos.",
+    "ecd24832f51dfdbc5464ad33": "Implicaciones. Los departamentos legales se transforman en supervisores de agentes de compliance.",
+    "86db4ff87e5fe2c27a509c7b": "La auditoría se vuelve continua en lugar de periódica.",
+    "126db3e64e38a4b5d6d1c975": "Retos. Responsabilidad legal cuando el agente falla, interpretación de normas ambiguas, y jurisdicciones múltiples.",
+    "50ab9cce547512880db78736": "El capital humano se transforma.",
+    "f0a46c5bcaff1e6980ce3593": "Tesis. Los empleados evolucionan de ejecutores de tareas a supervisores, diseñadores de procesos y entrenadores de agentes.",
+    "d5b06c238cba4d3a26252df8": "El valor humano se concentra en el juicio, la creatividad y la supervisión estratégica.",
+    "c3248f96c8b535621e34f990": "Implicaciones. La formación se centra en supervisión, prompt engineering, y diseño de workflows.",
+    "6aebe4d71a12b61ce984ecfe": "Los KPIs miden calidad de supervisión, no volumen de ejecución.",
+    "3d13f389d2db120386a59db8": "Retos. Reskilling masivo de la fuerza laboral, resistencia psicológica al cambio de rol, y redefinición de carreras profesionales.",
+    "c581e3ab342d3d249b3fbf45": "Memoria institucional digital.",
+    "255040122c21cd01fe108997": "Tesis. Los agentes retienen y transfieren conocimiento institucional, eliminando la pérdida de know-how cuando empleados dejan la empresa.",
+    "4d7247157a70bfc7a7a13f66": "La memoria de la organización es digital, estructurada y accesible.",
+    "68e527b3e0b13f0168c85d9a": "Implicaciones. El conocimiento tácito se explicita y codifica. Los agentes 'heredan' el contexto de sus predecesores.",
+    "1aed8885e3d74f43c44d787a": "La rotación de personal tiene menos impacto.",
+    "61e837da2b17978524a050ec": "Retos. Capturar conocimiento tácito, mantener la base de conocimiento actualizada, y evitar la obsolescencia informativa.",
+    "bb1275add8934fde243d1838": "Escalabilidad instantánea.",
+    "aa722d465b5012c55b39c7c2": "Tesis. La capacidad de trabajo se escala comprando más tokens y desplegando más agentes, sin las limitaciones de la contratación tradicional.",
+    "1b1243524bbc8b15abc36264": "El crecimiento puede ser instantáneo y reversible.",
+    "90033bf7a645ebcc757c7cd9": "Implicaciones. Las empresas pueden crecer o decrecer su capacidad operativa en horas, no meses. Los picos de demanda se absorben con agentes temporales.",
+    "e4f5a33ac489d4152ab9894d": "Retos. Gestión de costes variables, calidad en escalado rápido, y dependencia de infraestructura cloud.",
+    "a039cad371354cef4f91c841": "El dashboard como centro de mando.",
+    "bbf2f58b5470a5fd0b09187c": "Tesis. La supervisión visual en dashboards en tiempo real reemplaza la gestión tradicional por reuniones y emails.",
+    "e7af26aa1eb95a71e930f422": "Los trabajadores-supervisores monitorizan métricas, alertas y resultados de tareas agénticas.",
+    "7c45797833e7c3e285b79a8e": "Implicaciones. Las reuniones de seguimiento se reducen drásticamente. La toma de decisiones se basa en datos en tiempo real, no en reportes periódicos.",
+    "95762a0bb9ccb64b671d032b": "Retos. Diseño de dashboards efectivos, evitar la parálisis por análisis, y mantener el contexto humano en los datos.",
+    "5821796894afc6ebfe33199f": "Fundamentos Tecnológicos. La infraestructura y arquitectura de la IA.",
+    "691386df68d3d863cbc56c99": "La IA como infraestructura crítica.",
+    "0299521dbac932aaa22114b5": "Tesis. La IA es infraestructura industrial. El cuello de botella es energía, centros de datos y GPUs.",
+    "ae5576bc5962811312e5e751": "La ventaja competitiva es acceso a capacidad de cómputo, no solo algoritmos.",
+    "2d188c6b6be3a1bef06aff37": "Implicaciones. Las empresas deben asegurar acceso a infraestructura AI como aseguran acceso a electricidad o internet.",
+    "3c5379218f12af75dc1248b3": "Emergen contratos a largo plazo con fabricantes de inteligencia.",
+    "21ba74e62b31591fd22412bf": "Retos. Concentración de poder en pocos proveedores, dependencia de supply chain, y costes energéticos crecientes.",
+    "e208b4dffe43aa737abe26da": "Optimizar el token.",
+    "b54b7c901df9c30f2986d1b4": "Tesis. La elección de los modelos de IA apropiados para cada tarea será crucial para optimizar resultados y costes.",
+    "152fd13c0ae6133919a1532f": "Implicaciones. No siempre se necesita el modelo más grande. Los modelos especializados y fine-tuned pueden ser más eficientes para tareas específicas.",
+    "1469ffe96890fab951392896": "Retos. Evaluar qué modelo usar para cada tarea, gestionar múltiples modelos, y anticipar la evolución del mercado de modelos.",
+    "11f0dab26b0762b7c3779f5e": "Alineamiento y control de agentes.",
+    "388ac822b5b7082a9fe2aa1d": "Tesis. Los agentes deben estar alineados con los objetivos de la empresa y bajo control humano. El diseño 'maximiza un objetivo fijo' es peligroso;",
+    "e7cd891f0d38c35c19ed6cd3": "hay que diseñar agentes que consulten ante la incertidumbre.",
+    "fe8598f96a610fcba5e9cc80": "Implicaciones. Las empresas definen 'constituciones' internas para sus agentes. Los agentes preguntan cuando no están seguros en lugar de actuar.",
+    "91f8c6c8b433ea2da7f99152": "Retos. Definir objetivos empresariales de forma que los agentes los interpreten correctamente. Evitar gaming de métricas.",
+    "05d365922bd4eb2d97736f4e": "La seguridad como requisito no negociable.",
+    "4ac678c88f76e2db5c77f504": "Tesis. La seguridad de los sistemas AI no es opcional. Los agentes deben ser robustos, predecibles y auditables.",
+    "1887d07cb2b9cf48e33aac5d": "Los fallos de seguridad pueden ser catastróficos para la empresa.",
+    "4d87917172ec5c41d4ae6ea5": "Implicaciones. Inversión obligatoria en testing, red-teaming y auditoría de agentes. Los agentes en producción pasan por validación rigurosa.",
+    "723b7536f6977f3d5c94bd64": "Retos. Equilibrar velocidad de despliegue con rigor de seguridad. Definir qué significa 'suficientemente seguro'.",
+    "1b5b4df261663d9f64818115": "Ética y Responsabilidad. Principios para una IA responsable.",
+    "4c50fc24b76792bb994c1a6b": "IA centrada en el humano.",
+    "b8886a38458d0632a8db3e9b": "Tesis. El diseño de sistemas AI debe complementar capacidades humanas, no reemplazarlas. El objetivo es aumentar el valor del trabajo humano, no eliminarlo.",
+    "1c1cf84392f010e602e610d9": "Implicaciones. Los agentes se diseñan como asistentes, no como sustitutos. Se preservan roles para juicio humano, creatividad y empatía.",
+    "4222fa41b5b5d02d3488e3d4": "Retos. Equilibrar eficiencia con preservación del empleo. Definir qué tareas son 'inherentemente humanas'.",
+    "d06dae0273e7b43f0a8b02b7": "Transparencia y explicabilidad.",
+    "ba866dabb9dfc17ca9fb7255": "Tesis. Las decisiones de los agentes deben ser explicables a supervisores humanos. La caja negra no es aceptable para decisiones empresariales críticas.",
+    "6e8f9b717d8b7193d290d5fd": "Implicaciones. Los agentes generan logs explicativos de sus decisiones. Los supervisores pueden auditar el razonamiento post-hoc.",
+    "4d0632bba5b3c33aba80317e": "Retos. Los modelos más capaces son menos explicables. Trade-off entre capacidad y transparencia.",
+    "2a2de2a6ab50123f4adcc38f": "Responsabilidad y accountability.",
+    "31e2cccb3985a21f8da823cc": "Tesis. Siempre debe haber un humano responsable de las acciones de un agente. La cadena de responsabilidad debe estar clara incluso cuando el agente actúa autónomamente.",
+    "8e008b20dd084f27f31c69b5": "Implicaciones. Los supervisores firman off en configuraciones de autonomía. Los logs permiten trazar decisiones hasta el responsable humano.",
+    "ba1ca008458047ec8cae5699": "Retos. Definir responsabilidad en decisiones emergentes. Seguros y marcos legales para actuaciones agénticas.",
+    "a3181b374f086d5e99ad5f03": "Sostenibilidad y eficiencia energética.",
+    "d246cd1bd80837cf82f491bc": "Tesis. El consumo energético de la IA es significativo y creciente. Las empresas responsables optimizan el uso de recursos computacionales y miden su huella de carbono AI.",
+    "1c5ac34d5f6dd58f2a324faf": "Implicaciones. Se eligen modelos más eficientes cuando es posible. Se mide y reporta el consumo energético de los agentes.",
+    "26039643e1bd95e1dbad5be8": "Retos. Los modelos más eficientes pueden ser menos capaces. Equilibrar performance con sostenibilidad.",
+    "135f726c92fa78a7a656672a": "Actualidad de inteligencia artificial. Esta página reúne noticias y enlaza a las publicaciones originales.",
+    "001bb23851d45ce986283aca": "Te ayudaré a orientarte sin leer titulares que pueden haber cambiado. Distingue un anuncio de una capacidad que ya puedes probar.",
+    "e13e31e902831e57afa8033f": "Explora las fuentes. Utiliza los filtros disponibles para acotar la selección. Revisa la fecha y el medio de cada publicación.",
+    "40eac708a91f35687393ff15": "Los titulares pueden conservar el idioma de la fuente original.",
+    "d6a4afe774ee5a1d6701b75d": "De una noticia a una prueba. Cuando una idea parezca útil, abre la fuente y busca qué problema resuelve, qué necesita y cuáles son sus límites.",
+    "fbad6f81f6618e51ae0cbfb7": "Después elige una tarea de tu empresa en la que puedas comprobar esa promesa mediante una prueba pequeña.",
+    "69e85fece0cef58ee706af9b": "¿Qué dicen los Gurús de la IA?. 14 líderes que definen el futuro de la Inteligencia Artificial. Sus visiones, sus debates y sus últimos vídeos.",
+    "99cc3e3feee49ed57309f071": "Demis Hassabis. CEO & Co-founder. Google DeepMind. Neurocientífico y programador. Creó AlphaGo, AlphaFold y lidera la visión de AGI en DeepMind.",
+    "d51f28aea1a9b123c0b1ba0d": "Nobel de Química 2024 por AlphaFold. Cargando vídeos...",
+    "017ade64168c04dc20f94a51": "Yann LeCun. Chief AI Scientist. Meta. Pionero del deep learning. Inventó las redes convolucionales (CNNs).",
+    "c44f79ed72f408fb918ed9b4": "Turing Award 2018. Defiende JEPA y world models frente a LLMs. Cargando vídeos...",
+    "188cdce1baa5768b941cca8d": "Yoshua Bengio. Scientific Director. Mila. Padre del deep learning moderno. Turing Award 2018. Fundador de Mila.",
+    "f3e21e5b12e3a5e8ecbbd936": "Voz prominente en riesgos existenciales de la IA. Cargando vídeos...",
+    "45e981af03060cfcb91d5f0c": "Geoffrey Hinton. Godfather of AI. Ex-Google. Inventor del backpropagation. Turing Award 2018. Dejó Google en 2023 para alertar sobre riesgos de IA.",
+    "5727dba984f0f4f1946dc113": "Nobel de Física 2024. Cargando vídeos...",
+    "bfeb396ba8a47890809696cf": "Gary Marcus. AI Critic & Researcher. NYU / Independent. Científico cognitivo y emprendedor. Crítico del hype del deep learning.",
+    "08dd506989dfca314c0966de": "Aboga por enfoques híbridos neuro-simbólicos. Cargando vídeos...",
+    "6be7fc9c57925c7992afd5f5": "Sam Altman. CEO. OpenAI. Líder de OpenAI. Impulsó GPT-4, ChatGPT y la democratización de la IA. Visionario del escalado como camino a AGI.",
+    "b2b5045a58a81b3582e61b9b": "Cargando vídeos...",
+    "35a328f206191f6d8b61c0d0": "Ilya Sutskever. Co-founder. Safe Superintelligence (SSI). Co-fundador de OpenAI, arquitecto de GPT.",
+    "e47ab3e18516d72ad98e948a": "Dejó OpenAI en 2024 para fundar SSI, enfocada en superinteligencia segura. Cargando vídeos...",
+    "e08f9e31bdbc1d1996c037c8": "Dario Amodei. CEO. Anthropic. Ex-VP de OpenAI. Fundó Anthropic con enfoque en AI safety. Creador de Claude y Constitutional AI.",
+    "b20fbeebec10d4c70d0e8a56": "Karen Hao. AI Correspondent. The Atlantic. Periodista especializada en IA. Investigaciones sobre ética, sesgos y poder en la industria.",
+    "a9ba985fe2a66db0b6cdd33f": "Voz crítica del sector. Cargando vídeos...",
+    "c7acae447bc75acbe42b7c63": "Mustafa Suleyman. CEO Microsoft AI. Microsoft. Co-fundador de DeepMind. Fundó Inflection AI (Pi).",
+    "79a738f2af2e01db66ce6085": "Ahora lidera Microsoft AI. Autor de 'The Coming Wave'. Cargando vídeos...",
+    "276e8dbda6a19bc7f23ecfad": "Fei-Fei Li. Co-Director Stanford HAI. Stanford University. Creadora de ImageNet, el dataset que catapultó el deep learning.",
+    "d5c075b9125e3f94d9b1ab5c": "Defensora de IA centrada en humanos y democratización. Cargando vídeos...",
+    "441340a7b73ec69b1fb6d428": "Jensen Huang. CEO & Founder. NVIDIA. Creó NVIDIA y las GPUs que potencian toda la IA moderna. Visionario de 'AI factories' como nueva infraestructura industrial.",
+    "1459436c5e49f9b7c4c59dc4": "Andrew Ng. Founder. DeepLearning.AI / Coursera. Popularizó el ML con cursos online. Ex-Baidu, Stanford.",
+    "ab83ce3aba9c6020867bfe22": "Fundador de Coursera. Enfoque práctico y educativo. Cargando vídeos...",
+    "8c1c7591d650f8f770fc3f8b": "Andrej Karpathy. AI Educator & Researcher. Ex-Tesla, Ex-OpenAI. Lideró Tesla Autopilot y trabajó en OpenAI.",
+    "b2a9067ae89085a40a3c4354": "Ahora crea contenido educativo de IA en YouTube. Altamente influyente. Cargando vídeos...",
+    "3fff01f89d9dc7bf83957c12": "Consultoras y el Futuro del Trabajo. Análisis de McKinsey, BCG y Deloitte sobre el impacto de la IA en el mercado laboral y la organización empresarial.",
+    "fc00ffa0c4ac643dda72510d": "Cargando artículos...",
+    "5c1ad93494ae8d6558249f07": "Cargando....",
+    "bb73f30c1d2bf5c0252b197b": "Sector Tecnológico. Principios de gestión AI-native de los líderes más influyentes: Jensen Huang (NVIDIA), Sam Altman (OpenAI), Satya Nadella (Microsoft) y Sundar Pichai (Google).",
+    "1b323fd0929eae1a8aae5295": "📺 Fuente Principal. Jensen Huang - Canal oficial con todas sus charlas sobre empresas AI-native.",
+    "80efe74bc79d6539e0d4ed4f": "Los 6 Principios de Jensen Huang.",
+    "32f2a2ed7381b9f5b8111832": "Estructura Organizativa Plana. Eliminar capas de gestión innecesarias para fomentar velocidad y agilidad en la toma de decisiones.",
+    "21931f7f18a6ead9bb004c80": "Transparencia Radical. Compartir información ampliamente en toda la organización, incluyendo a empleados junior, para asegurar que todos trabajan con el mismo contexto.",
+    "0a3d0b9dd5985d3ffe92e07b": "Estrategia Dictada por Ejecución. En lugar de planes anuales rígidos, la estrategia emerge de la ejecución continua y la adaptación.",
+    "7a102d7ed5228494243199fd": "Pilot in Command (PIC). Un solo individuo es responsable de cada proyecto clave, con accountability directa sobre los resultados.",
+    "b2323a39be288f00bf1761c3": "Workforce Híbrida Humano-IA. El futuro de la fuerza laboral combina empleados humanos con 'empleados digitales' (agentes IA) que serán gestionados por RRHH.",
+    "c2cc435b6a1752606d2a361c": "Liderazgo como Enseñanza. El líder actúa como maestro, utilizando métodos como pizarras para simplificar ideas complejas y asegurar alineación del equipo.",
+    "af30c73bfb7af23c54901400": "Otras Voces del Liderazgo Tech. Sam Altman. CEO, OpenAI. Satya Nadella. CEO, Microsoft. Sundar Pichai.",
+    "9e5a612d924b85974eafacc3": "CEO, Google/Alphabet. Sam Altman. CEO, OpenAI.",
+    "a98889e7679711a54fca9d04": "Conclusión para Empresas Tecnológicas. ✓ Velocidad sobre jerarquía: Eliminar burocracia y capas de gestión.",
+    "1d2233a6ac8ae8e9bc2358dd": "✓ Información como bien público: Todos deben tener acceso al mismo contexto. ✓ Accountability individual:",
+    "20940827fc9f2cce1aee8cb0": "Un responsable por proyecto. ✓ Prepararse para workforce híbrida: Humanos + agentes IA trabajando juntos.",
+    "ed09a16f449d86b1ed38ac53": "✓ Aprendizaje continuo: Las habilidades de hoy no serán suficientes mañana.",
+    "76cfd023fea08263841179e8": "Sector Financiero. Transformación digital en banca y servicios financieros: desde detección de fraude hasta gestión de riesgo con IA.",
+    "cad5d992996cbcb911027c12": "Mejores Prácticas IA en Finanzas.",
+    "3083572400245bc6686219fb": "Detección de Fraude en Tiempo Real. IA analiza patrones de transacciones en tiempo real para detectar actividades sospechosas más rápido que los métodos tradicionales.",
+    "86fa8adc5a69f733a3e350d1": "Evaluación de Riesgo Crediticio. Algoritmos de ML analizan datos alternativos además de historial crediticio para evaluar riesgo de forma más precisa.",
+    "138f3a46860c54ef24a74866": "Asistentes Virtuales 24/7. Chatbots IA proveen soporte continuo para consultas sobre productos, pagos y transacciones.",
+    "2480a2b0f04a49bd47b06581": "Automatización de Procesos Back-Office. RPA e IA automatizan aprobación de préstamos, gestión de documentos y cumplimiento normativo.",
+    "73b36fd7cc4c8c1b8e9f9e64": "Workforce Híbrida: Upskilling. 73% del tiempo de empleados bancarios puede ser impactado por IA generativa.",
+    "556d91a5780b9884713abdc7": "Requiere reskilling continuo.",
+    "5852a0056b1b9d3ad2eecbd3": "Gobernanza y Cumplimiento IA. Establecer programas robustos de IA que definan uso aceptable, supervisen sistemas y aseguren cumplimiento regulatorio.",
+    "8d75b8f701c07b20519ecb2d": "Insights de la Industria. McKinsey. Informe, McKinsey & Company. IBM. Estudio, IBM Institute for Business Value.",
+    "3aba255a65d478d714ae7c98": "📊 Datos Clave del Sector (2024). ✓ $4.9B inversión proyectada en IA bancaria. ✓ 90%+ de bancos invirtiendo activamente en IA.",
+    "8ec76ee449b234acf8c74534": "✓ 39% de tareas bancarias pueden automatizarse con IA generativa. ✓ 20-30% aumento de productividad con automatización IA.",
+    "3bb0da886cbe5e54c85923d9": "Sector Salud. IA en diagnóstico, tratamiento personalizado, cirugía robótica y gestión hospitalaria.",
+    "469cb1ba20023473f5d2eda3": "Mejores Prácticas IA en Salud.",
+    "a008d5123890e189fe76d069": "Diagnóstico Asistido por IA. Algoritmos analizan imágenes médicas (radiografías, resonancias) para detectar enfermedades como cáncer con alta precisión.",
+    "1b2b7dec54e052ca290a8253": "Medicina Personalizada. IA analiza datos genéticos, historial médico y estilo de vida para crear planes de tratamiento individualizados.",
+    "35408b21f7ed296b99c9fd64": "Cirugía Robótica. Sistemas robóticos asistidos por IA ofrecen mayor precisión, procedimientos mínimamente invasivos y recuperación más rápida.",
+    "0cd14d3d92cf5944d4028648": "Asistentes Virtuales de Salud. Chatbots 24/7 para citas, recordatorios de medicación, soporte mental y respuestas a consultas.",
+    "fb02c9ddb50e4cebc42a11d1": "Analítica Predictiva. Monitorización de signos vitales para predecir deterioro de pacientes y anticipar brotes de enfermedades.",
+    "d437e368d79f17c592c5ca44": "Automatización Administrativa. IA automatiza programación de citas, facturación, codificación médica y gestión de historiales electrónicos.",
+    "b69865fd6ee07618e74821ca": "Directrices Éticas. AMA. Directrices, American Medical Association. WHO. Guía Ética, World Health Organization.",
+    "b8543f403b6e2d4a2beece0a": "⚕ Consideraciones Éticas. ✓ Consentimiento informado: Pacientes deben saber cuándo se usa IA. ✓ Privacidad de datos:",
+    "b287fd12dc3f46b7ed02a18a": "Cumplimiento de HIPAA y GDPR. ✓ Sesgo algorítmico: Validar modelos para evitar discriminación. ✓ Supervisión humana:",
+    "fad87d59aa978152af8b5bb0": "Médicos deben validar decisiones de IA.",
+    "7a52dd82fb5b8050ef6067f2": "Sector Retail. Automatización y personalización en comercio: desde chatbots hasta experiencias omnicanal.",
+    "d04764f0c6fdd742d9847dcd": "Mejores Prácticas IA en Retail.",
+    "4af35c76d51e2956eae37ebe": "Chatbots y Atención 24/7. Asistentes virtuales IA manejan consultas rutinarias sobre productos, envíos y pagos, liberando agentes humanos para casos complejos.",
+    "edca9aeb6661d40edc897aa6": "Hiper-Personalización. IA analiza comportamiento, preferencias e historial de compras para ofrecer recomendaciones y ofertas personalizadas.",
+    "81bb476f3bb15b8a1bf233bd": "Gestión Inteligente de Inventario. Algoritmos predicen demanda, optimizan stock y reducen tanto sobrestock como roturas de inventario.",
+    "11112f30bc02fea3c4e072c9": "Experiencia Omnicanal. IA facilita un viaje del cliente coherente entre canales digitales y tiendas físicas.",
+    "6445e3604afa122bc73397bb": "Análisis de Sentimiento. IA analiza feedback de clientes y reconoce emociones en interacciones de voz para adaptar respuestas.",
+    "1620b65e79116cbd3eaefbb9": "Búsqueda Generativa. Herramientas de IA generativa ayudan a consumidores a encontrar productos y ofertas más eficientemente.",
+    "32711e85f7f03386cd8e75b9": "Insights del Sector. Forbes. Análisis, Forbes.",
+    "2662afa9b445822e95e6b4c2": "🎯 Claves para el Éxito. ✓ Objetivos claros: Definir KPIs antes de implementar IA. ✓ Datos de calidad:",
+    "03b1e3abbec54d959bd61b2e": "La IA es tan buena como sus datos. ✓ Transparencia: Informar a clientes sobre uso de IA. ✓ Balance humano-IA:",
+    "f9783d3fe6e11068392e05d8": "Reservar casos complejos para agentes humanos.",
+    "276b778a858c7df6d375e06a": "Sector Manufactura. Industry 4.0: Robótica, mantenimiento predictivo, gemelos digitales y optimización de cadena de suministro.",
+    "16e6b98ca864f7ea699f0ebd": "Mejores Prácticas IA en Manufactura.",
+    "724564cd28d95e5209a4d0b7": "Mantenimiento Predictivo. IA analiza datos de sensores para predecir fallos de equipos antes de que ocurran, reduciendo paradas no planificadas.",
+    "287bf19db2604334210e548d": "Control de Calidad con Visión IA. Algoritmos de computer vision identifican defectos y anomalías con mayor precisión y velocidad que inspección humana.",
+    "b81c86e5a72ff1a702cfffa3": "Optimización de Procesos. IA analiza flujos de trabajo para identificar ineficiencias y optimizar producción.",
+    "17415a0ecbedeb5b14200ab6": "Robots Colaborativos (Cobots). Cobots trabajan junto a empleados humanos, mejorando productividad y seguridad gracias a sensores avanzados.",
+    "0e0306374261ad78ad614335": "Gemelos Digitales. Réplicas virtuales de activos y procesos para simular, analizar y optimizar operaciones antes de implementar cambios.",
+    "912814a7b2ecf7c9d118c2d9": "Gestión de Cadena de Suministro. IA optimiza inventarios, predice fluctuaciones de demanda e identifica proveedores alternativos.",
+    "37a893f24c13e3fb003157c8": "Casos de Éxito. ASML. Caso de Estudio, ASML + Google Cloud. Siemens. Implementación, Siemens.",
+    "7a8f455fcb60519e119575b8": "Roadmap de Implementación. ✓ Identificar oportunidades: Dónde IA puede optimizar diseño, eficiencia o producción.",
+    "bd8d320e9ee5bca187d13ad6": "✓ Gestión de datos: Invertir en infraestructura de datos robusta. ✓ Mejora continua: Usar feedback loops para refinar modelos.",
+    "48a27fe46a0838520832aec2": "✓ Empoderar workforce: Herramientas y formación para operarios.",
+    "122d22bb94c128b84e1479e0": "Política de Privacidad. Última actualización: 7 de septiembre de 2026.",
+    "ee50fc1e016d8ce5f9978993": "1. Responsable del Tratamiento. MBAI NativeCalle Romero Robledo, 1428008-Madrid, EspañaEmail: info@mbainative.com.",
+    "2aafda37684cc8e3ffa34c23": "2. Datos que Recopilamos. Recopilamos los siguientes datos personales:. Datos de contacto: nombre, dirección de email y mensaje cuando utilizas nuestro formulario de contacto.",
+    "ed4f323ed184070ee5f47d41": "Datos de navegación: información técnica como dirección IP, tipo de navegador y páginas visitadas.",
+    "d17cbdb023a77e4a5bc592af": "3. Finalidad del Tratamiento. Utilizamos tus datos para:. Responder a tus consultas y solicitudes de información.",
+    "de6313c90c8e58fe40dfe97d": "Mejorar nuestros servicios y la experiencia de usuario. Cumplir con obligaciones legales.",
+    "3ec51e400f668d4d64ac9d96": "4. Base Legal. El tratamiento de tus datos se basa en:. Tu consentimiento al enviar el formulario de contacto.",
+    "640596bf1145d4be83c02ba2": "Nuestro interés legítimo en mejorar nuestros servicios.",
+    "d9e8c5454a3a54825ecb5d34": "5. Conservación de Datos. Conservamos tus datos durante el tiempo necesario para cumplir con la finalidad para la que fueron recogidos y para determinar las posibles responsabilidades que se pudieran derivar.",
+    "2b0f9973eb3d593ad6d7a696": "6. Tus Derechos. Puedes ejercer los siguientes derechos:. Acceso: conocer qué datos personales tenemos sobre ti.",
+    "dd7d5b17abbf24b7fc194866": "Rectificación: corregir datos inexactos. Supresión: solicitar la eliminación de tus datos. Oposición:",
+    "2eb7eaca3926a3fdfde7d376": "oponerte al tratamiento de tus datos. Portabilidad: recibir tus datos en formato electrónico. Para ejercer estos derechos, contacta con nosotros en info@mbainative.com.",
+    "1c4f20e0ace38d244376b655": "7. Seguridad. Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra el acceso no autorizado, alteración, divulgación o destrucción.",
+    "3b45a18ad67bb095d2ff6092": "8. Cambios en esta Política. Nos reservamos el derecho de modificar esta política de privacidad.",
+    "421704d1216c58debf87bfb3": "Cualquier cambio será publicado en esta página.",
+    "624887f7ddcdce432c8d79d8": "9. Informes de IA en TradingAlpha. Para generar un informe, TradingAlpha envía los datos del análisis y la clave de OpenRouter que introduces a nuestro servidor, que realiza la consulta a OpenRouter.",
+    "4c56c4843ed7e91c4d10233f": "El proveedor procesa la solicitud según sus propias condiciones. Evita incluir información confidencial que no quieras transmitir a ese servicio.",
+    "2801a69ba46d7d109ac9d38b": "Si guardas la clave en Ajustes, se conserva durante la sesión de la pestaña del navegador. Puedes borrarla desde ese panel.",
+    "997705b66e7621677783b59d": "La preferencia de modelo se recuerda entre visitas. Las aplicaciones externas enlazadas desde el catálogo tienen sus propias políticas.",
+    "6b296b472d69f6281ea46434": "10. Asistente de lectura guiada. El asistente reproduce un guion editorial preparado con contenido público de la web.",
+    "5db9f4611517b706bd1909a3": "No solicita acceso al micrófono ni utiliza las claves, documentos o valores de los formularios del visitante para narrar.",
+    "4be7c63a62bed86b41249624": "La reproducción comienza cuando pulsas su botón. Si eliges una voz profesional disponible, nuestro servidor envía el fragmento del guion a Microsoft Azure o Google Cloud para generar el audio.",
+    "3f829066f5e96f7599d16408": "Si eliges una voz del navegador, la síntesis depende del dispositivo y puede utilizar servicios remotos del proveedor de esa voz.",
+    "d4c8ac64e44acc4f06f72cdc": "Puedes pausar o detener la reproducción en cualquier momento.",
+    "6d9b5733cdbfee409f9e4f01": "Condiciones de Uso. Última actualización: 28 de diciembre de 2025.",
+    "dcbac326275ed88ab7a0c6fc": "1. Aceptación de las Condiciones. Al acceder y utilizar el sitio web mbainative.com, aceptas cumplir con estas condiciones de uso.",
+    "8dc6111ed6cad531bfb3eca6": "Si no estás de acuerdo con alguna de estas condiciones, te rogamos que no utilices este sitio web.",
+    "e582624b621e0571f78ecf8b": "2. Descripción del Servicio. MBAI Native proporciona información y recursos sobre la gestión de empresas AI-nativas, incluyendo principios, mejores prácticas y acceso a un simulador empresarial educativo.",
+    "b04a55de5caa3840f4da1e01": "3. Propiedad Intelectual. Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos, imágenes y software, es propiedad de MBAI Native o de sus proveedores de contenido y está protegido por las leyes de",
+    "06bd620479a3b20a8e4affe2": "propiedad intelectual. Queda prohibida la reproducción, distribución o modificación del contenido sin autorización expresa por escrito.",
+    "03c559c387b47eacc74a4db9": "4. Uso Aceptable. Te comprometes a:. Utilizar el sitio web solo para fines legales. No intentar acceder a áreas restringidas del sitio.",
+    "8e03bbb0dc23fe03e5071344": "No transmitir virus u otro código malicioso. No utilizar el sitio de forma que pueda dañar, deshabilitar o sobrecargar nuestros servidores.",
+    "92cb4ec966ef04df8ef6750d": "5. Enlaces a Terceros. Este sitio web puede contener enlaces a sitios web de terceros. No somos responsables del contenido ni de las políticas de privacidad de estos sitios externos.",
+    "456347b31234b78f9023c44b": "6. Limitación de Responsabilidad. El contenido de este sitio web se proporciona \"tal cual\" sin garantías de ningún tipo.",
+    "7a342c5bbd2648622eb977c4": "MBAI Native no será responsable por daños directos, indirectos, incidentales o consecuentes que resulten del uso de este sitio web.",
+    "2f71b79a3261d5294d28efe9": "7. Modificaciones. Nos reservamos el derecho de modificar estas condiciones en cualquier momento.",
+    "4719ce7f71ad9478b4003a4c": "Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio web.",
+    "27492b4aa4eb57e2b4707f94": "8. Ley Aplicable. Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Madrid.",
+    "0dda0d9e3e4989b6d2e29b82": "9. Contacto. Para cualquier consulta sobre estas condiciones, puedes contactarnos en:Email: info@mbainative.com.",
+    "f2d64a66ca33bbb411d45208": "Política de Cookies. Última actualización: 28 de diciembre de 2025.",
+    "4f41cb3ccfa23e37ac93e58e": "1. ¿Qué son las Cookies?. Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo cuando los visitas.",
+    "049bcf17c20d2e622f41c714": "Se utilizan para recordar tus preferencias, mejorar tu experiencia de navegación y recopilar información sobre cómo utilizas el sitio.",
+    "867f915eac8fa298987ca6e1": "2. Tipos de Cookies que Utilizamos.",
+    "6cdd0006dc7924dd86742120": "Cookies Técnicas (Necesarias). Son esenciales para el funcionamiento del sitio web. Sin ellas, el sitio no funcionaría correctamente.",
+    "f5b8b310f0731e5ffd31f961": "Sesión: Mantienen tu sesión activa mientras navegas. Preferencias: Recuerdan tus preferencias de idioma y configuración.",
+    "e1f3dafeebac61ab242b7e90": "Cookies Analíticas. Nos ayudan a entender cómo los visitantes interactúan con el sitio web, proporcionando información sobre las páginas visitadas, el tiempo de permanencia, y posibles errores.",
+    "c007466776971b93aacc486a": "3. Gestión de Cookies. Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envía una cookie.",
+    "7224027a6fb77e02cb309cf7": "Sin embargo, es posible que algunas características del sitio no funcionen correctamente si desactivas las cookies.",
+    "cbfc9282e88efb0a65a7df51": "Cómo gestionar cookies en los navegadores más comunes:. Chrome: Configuración Privacidad y seguridad Cookies.",
+    "e701e95d41399b0157fe00b4": "Firefox: Opciones Privacidad y seguridad Cookies. Safari: Preferencias Privacidad Cookies. Edge:",
+    "055ae5c55597ea4584768862": "Configuración Cookies y permisos del sitio.",
+    "53a61eacd2ad20c917f08a6b": "4. Cookies de Terceros. Podemos utilizar servicios de terceros (como YouTube para vídeos embebidos) que pueden establecer sus propias cookies.",
+    "f7a23f485f4d02a83d2b1253": "No tenemos control sobre estas cookies de terceros.",
+    "8e01b52f3487af770bad96f1": "5. Actualización de esta Política. Podemos actualizar esta política de cookies en cualquier momento.",
+    "04b73931f796ff30466d4034": "Te recomendamos revisar esta página periódicamente para estar informado de cualquier cambio.",
+    "e15b02490c0eafecc9049ccb": "6. Contacto. Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en:Email:",
+    "ea08b90ad4cabbf9c355c576": "info@mbainative.com.",
+    "eb23f3a5a338bc21b2dc7898": "Precisiones. La expresión talento artificial no se debe entender por comparación con el talento natural de las personas.",
+    "03200fd5d25e0a887b3405bb": "El talento de las personas y cualquier otra forma de vida biológica se ha configurado a través de un proceso evolutivo de cientos de millones de años regido por leyes;",
+    "59af4034fdd9378bc52f72e7": "sean cuales sean esas leyes, es su autor, el autor de las leyes, el origen de ese talento. En el caso de la Inteligencia Artificial (IA) son las personas las que, conociendo y dominando las leyes de la naturaleza, las",
+    "489459de2e1bf93d3db65ac9": "mismas que han producido su talento personal, han podido construir estructuras no biológicas, de momento, que producen inteligencia en sentido general.",
+    "954ba9b64beb892e7a16bc0a": "Así que, aun cuando en el futuro haya personas que construyan estructuras biológicas o mixtas que produzcan inteligencia, lo harán no como creadores, sino aprovechando esas leyes que el Creador, desde el origen, ha",
+    "031d46d0f3fd612e57989179": "puesto en la naturaleza. En sus manos estará, también, la reflexión ética que permita valorar, más allá del rendimiento económico, si este talento artificial beneficia o no a la Humanidad.",
+    "a66c25b34240659d9be844ef": "Tu plan de marketing. Un plan conecta una situación de partida con objetivos y acciones. Esta aplicación te ayuda a ordenar ese trabajo.",
+    "cf506596e708a2b23c7dd2cf": "Te explicaré los pasos generales sin leer los datos que introduzcas.",
+    "4fe95940895822e7f6cf107b": "Comprende el punto de partida. Describe tu oferta, a quién va dirigida y con qué alternativas compite.",
+    "4a132ab11aa3f7668d76b594": "Separa los datos que conoces de las hipótesis que necesitas comprobar.",
+    "1e3fc485008c9cc811089adb": "Define objetivos y acciones. Elige objetivos medibles y acciones vinculadas a ellos. Indica quién hace cada acción, cuándo y con qué recursos.",
+    "56f4a4c01c92364bbc45b8b4": "Una lista larga no sustituye una prioridad clara.",
+    "623faa3a4778d1d7cd459f5a": "Presupuesta y revisa. Comprueba que el presupuesto y el calendario son coherentes. Utiliza la exportación disponible para revisar el plan con tu equipo.",
+    "8784f77e1e6e6c08a150d424": "El documento final debe reflejar decisiones que alguien pueda ejecutar y supervisar.",
+    "86e50aa65508134f885846a3": "Comparar modelos de inteligencia artificial. Un benchmark es una prueba de referencia. Ayuda a comparar determinadas capacidades, pero no representa todas las tareas de tu empresa.",
+    "72a76a2e19dfa48d1f39e953": "Esta guía explica cómo leer las comparaciones sin dar por permanentes sus puntuaciones.",
+    "89049e7ef71475be8f078864": "Comprueba qué mide cada prueba. Revisa la tarea evaluada, la fecha y las condiciones. Modelos con puntuaciones parecidas pueden tener comportamientos distintos ante tus documentos o herramientas.",
+    "45829a8f6838f03b9ca37211": "Contrasta capacidad, coste y uso real. Escoge algunos candidatos y pruébalos con ejemplos representativos.",
+    "133889970fa0db17745c426c": "Cuenta los errores, las correcciones y el coste por resultado aceptado. La mejor elección depende de tu caso de uso.",
+    "e2b25abbef8e052d9e38a4ab": "Explora la evolución demográfica. Este simulador presenta una visión simplificada del cambio de la población a lo largo del tiempo.",
+    "edecbe1b702a8dffc1c0e177": "Utiliza el mapa y la cronología para observar patrones. Una simulación depende de sus supuestos y no equivale a un registro exacto de la historia.",
+    "304db5186aa7d62237d6f3f7": "Cronología y controles. La reproducción del simulador es independiente de la voz de este asistente.",
+    "2b4b8571253b67245e338f95": "Puedes pausar esta guía para mover la cronología o cambiar su velocidad. Comprueba el periodo que estás observando.",
+    "a6e6cc57fb45894d8d738375": "Mapa y distribución. El mapa y los indicadores regionales muestran cómo se reparte la población según el modelo.",
+    "eee7f8d69d4699fa06fb7ae3": "Relaciona lo que ves con la fecha seleccionada y consulta las explicaciones de la aplicación.",
+    "eb4affc2b4c190c2d50eea5f": "Interpretar la curva. La curva demográfica utiliza una escala logarítmica. Eso permite comparar magnitudes muy distintas, pero las distancias no se interpretan como en una escala lineal.",
+    "dbd3933a2b4d425792d671c0": "Revisa los supuestos antes de extraer conclusiones."
+  }
+}

@@ -86,6 +86,9 @@ export default function PrivacyPolicy() {
                         Puedes borrarla desde ese panel. La preferencia de modelo se recuerda entre visitas.
                         Las aplicaciones externas enlazadas desde el catálogo tienen sus propias políticas.
                     </p>
+                    <h2 className="text-2xl font-bold text-white mt-8">10. Asistente de lectura guiada</h2>
+                    <p>El asistente reproduce un guion editorial preparado con contenido público de la web. No solicita acceso al micrófono ni utiliza las claves, documentos o valores de los formularios del visitante para narrar. La reproducción comienza cuando pulsas su botón.</p>
+                    <p>Si eliges una voz profesional disponible, nuestro servidor envía el fragmento del guion a Microsoft Azure o Google Cloud para generar el audio. Si eliges una voz del navegador, la síntesis depende del dispositivo y puede utilizar servicios remotos del proveedor de esa voz. Puedes pausar o detener la reproducción en cualquier momento.</p>
                 </div>
             </div>
         </section>

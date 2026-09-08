@@ -36,7 +36,17 @@ TradingAlpha utiliza exclusivamente la clave personal del visitante. Nunca recur
 
 Los parches de PostCSS y Sharp se fijan también mediante `overrides` para cubrir las dependencias transitivas de Next.js. Revisa estos overrides al actualizar el framework. La auditoría npm comprueba paquetes conocidos, no constituye una prueba completa de penetración.
 
-## Publicación
+## Asistente de cada página
+
+`components/assistant/PageAssistant.tsx` monta el reproductor universal `public/assistant/widget.mjs` en cada ruta. Las tres aplicaciones HTML incluyen el mismo módulo. Play inicia la explicación y el desplazamiento por apartados; Pausa conserva la posición (en voces del navegador, desde la última palabra notificada); Stop vuelve al comienzo. Los subtítulos, el selector de apartados, la velocidad y el seguimiento manual son independientes de las voces profesionales. Al salir de la página se cancela la narración.
+
+Los guiones públicos están versionados en `data/assistant-guides.json`. Para actualizar contenido, arranca la vista local y ejecuta `npm run assistant:prepare -- http://127.0.0.1:3007` (o el puerto utilizado), revisa el JSON y confirma los cambios. `scripts/assistant-overrides.mjs` contiene explicaciones editoriales para herramientas interactivas. Nunca se extrae información introducida por visitantes. Los iframes externos se explican desde su página contenedora; no se controla su contenido interno.
+
+Para activar voces profesionales configura en el servidor `AZURE_SPEECH_KEY` y `AZURE_SPEECH_REGION`, o `GOOGLE_TTS_API_KEY` con Cloud Text-to-Speech habilitado. Sin estas variables, el selector identifica expresamente las voces del navegador. Las claves no llegan al cliente. El endpoint solo admite identificadores de fragmentos editoriales aprobados, con caché de audio de 24 MB, cuatro solicitudes simultáneas, 40 nuevas solicitudes/minuto y `ASSISTANT_DAILY_CHAR_LIMIT` (100.000 caracteres por defecto). Estos límites son por proceso y se reinician al desplegar; configura también las cuotas del proveedor y límites compartidos si utilizas varias instancias. Las llamadas profesionales generan consumo en la cuenta del proveedor.
+
+Las pruebas automatizadas utilizan audio y síntesis simulados; verifican controles, cancelación de eventos atrasados, privacidad, caché y cuotas sin consumir servicios de voz. La calidad acústica real requiere credenciales activas y una comprobación con dispositivos reales.
+
+## Despliegue
 
 La infraestructura existente despliega en **Hostinger desde `master` de GitHub**. Mantén `output: 'standalone'`. No configures `MBAI_DEV` en producción.
 

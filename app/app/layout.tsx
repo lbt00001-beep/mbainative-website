@@ -3,6 +3,7 @@ import './globals.css';
 import './journey.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageAssistant from '@/components/assistant/PageAssistant';
 import { SITE_URL } from '@/lib/seo';
 // Preserve Hostinger's stale-HTML/CSS-404 fix (be3b463) until host cache invalidation is verified.
 export const dynamic = 'force-dynamic';
@@ -15,6 +16,6 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return <html lang="es"><body>
     <a className="skip-link" href="#contenido">Saltar al contenido</a>
-    <Header /><main id="contenido" tabIndex={-1}>{children}</main><Footer />
+    <Header /><main id="contenido" tabIndex={-1}>{children}</main><Footer /><PageAssistant />
   </body></html>;
 }

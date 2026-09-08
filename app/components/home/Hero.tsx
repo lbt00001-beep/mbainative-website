@@ -6,8 +6,8 @@ export default function Hero() {
       <h1>Lidera una empresa<br /><span className="hero-accent">nativa en IA.</span></h1>
       <p className="hero-intro">Aprende a organizar el trabajo entre personas y agentes. Convierte el conocimiento de tu empresa en procesos que puedas probar, supervisar y mejorar.</p>
       <div className="button-row">
-        <Link href="/aplicaciones" className="button">Explorar herramientas <span aria-hidden="true">↗</span></Link>
-        <Link href="/services" className="button button-outline">Aplicar IA en mi empresa</Link>
+        <Link href="/empresa-nativa-ia" className="button">Descubrir cómo funciona <span aria-hidden="true">↗</span></Link>
+        <Link href="/arquitectura-solucion" className="button button-outline">Explorar la arquitectura</Link>
       </div>
       <p className="hero-note">Para profesionales, equipos y directivos que quieren pasar de la conversación a la práctica.</p>
     </div>
@@ -20,7 +20,7 @@ export default function Hero() {
         <li><span>02</span><div><strong>Acción</strong><small>Herramientas, tareas y permisos</small></div></li>
         <li><span>03</span><div><strong>Evaluación</strong><small>Calidad, coste y revisión humana</small></div></li>
       </ol>
-      <Link href="/mejores-practicas/ia-en-la-practica" className="text-link">Descubre el método <span aria-hidden="true">→</span></Link>
+      <Link href="/empresa-nativa-ia/procesos" className="text-link">Ver un proceso en acción <span aria-hidden="true">→</span></Link>
     </aside>
   </section>;
 }

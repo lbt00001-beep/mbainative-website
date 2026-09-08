@@ -20,6 +20,8 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Navegación</h3>
           <ul className="space-y-2">
             <li><Link href="/" className="hover:text-[--accent] transition-colors">Inicio</Link></li>
+            <li><Link href="/empresa-nativa-ia" className="hover:text-[--accent] transition-colors">Descubrir la empresa nativa en IA</Link></li>
+            <li><Link href="/arquitectura-solucion" className="hover:text-[--accent] transition-colors">Arquitectura de la solución</Link></li>
             <li><Link href="/about" className="hover:text-[--accent] transition-colors">El proyecto</Link></li>
             <li><Link href="/services" className="hover:text-[--accent] transition-colors">Servicios</Link></li>
             <li><Link href="/contact" className="hover:text-[--accent] transition-colors">Contacto</Link></li>

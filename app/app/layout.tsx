@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './journey.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE_URL } from '@/lib/seo';

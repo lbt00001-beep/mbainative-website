@@ -18,6 +18,9 @@ Para mantener una vista de desarrollo durante un build de producción, establece
 
 ## Contenido
 
+- Recorrido visual: `/empresa-nativa-ia`, `/empresa-nativa-ia/procesos`, `/arquitectura-solucion` y `/empresa-nativa-ia/empezar`. Componentes en `components/journey`, contenido y exportación en `data/ai-journey.ts`, estilos en `app/journey.css`.
+- Los ejemplos departamentales son ilustrativos. La ficha de piloto utiliza estado en memoria del navegador y descarga Markdown mediante un Blob; no persiste datos ni llama a API. Los parámetros `proceso` se validan contra los ejemplos disponibles. Los controles de diagramas son botones nativos y las variantes SVG para móvil y escritorio comparten el contenido.
+- Arquitectura: NVIDIA PAIR enruta solicitudes independientes; se distingue de la distribución de un modelo entre nodos. Las fuentes oficiales y la fecha de consulta están en cada página. Revisar esas referencias al actualizar capacidades de proveedores.
 - `data/applications.ts`: catálogo completo de aplicaciones. El buscador y los filtros están en `components/ApplicationCatalog.tsx`.
 - `lib/seo.ts`: títulos, descripciones y rutas del sitemap. Las páginas cliente reciben metadatos desde su layout servidor.
 - `app/mejores-practicas/ia-en-la-practica/page.tsx`: guía basada en la charla de Carlos Santana (DotCSV) publicada por Holded. Incluye atribución y marcas de tiempo; las aplicaciones empresariales se identifican como propuestas de MBAI.

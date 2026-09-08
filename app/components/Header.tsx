@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 const links = [
-  ['/', 'Inicio'], ['/about', 'El proyecto'], ['/services', 'Servicios'],
+  ['/empresa-nativa-ia', 'Descubrir'], ['/arquitectura-solucion', 'Arquitectura'], ['/services', 'Servicios'],
   ['/mejores-practicas', 'Aprender'], ['/aplicaciones', 'Aplicaciones'],
 ];
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
         </svg>
       </button>
       <nav id="navegacion-principal" aria-label="Navegación principal" className={'site-nav' + (open ? ' is-open' : '')}>
-        {links.map(([href, label]) => <Link key={href} href={href} aria-current={pathname === href ? 'page' : undefined} onClick={() => setOpenPath(null)}>{label}</Link>)}
+        {links.map(([href, label]) => <Link key={href} href={href} aria-current={(pathname === href || (href === '/empresa-nativa-ia' && pathname.startsWith(href+'/'))) ? 'page' : undefined} onClick={() => setOpenPath(null)}>{label}</Link>)}
         <Link className="button button-small" href="/contact" onClick={() => setOpenPath(null)}>Hablemos de tu proyecto <span aria-hidden="true">↗</span></Link>
       </nav>
     </div>

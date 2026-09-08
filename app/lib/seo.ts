@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 export const SITE_URL = 'https://mbainative.com';
 export const pages: Record<string, [string, string]> = {
+  '/empresa-nativa-ia': ['Qué es una empresa nativa en IA', 'Un recorrido visual para comprender cómo cambian el trabajo, los procesos y las responsabilidades en una empresa nativa en inteligencia artificial.'],
+  '/empresa-nativa-ia/procesos': ['Procesos, agentes y responsables', 'Explora ejemplos de Compras, Ventas, Finanzas y Operaciones. Descubre qué hace cada agente, quién supervisa y cómo se aprueba cada acción.'],
+  '/arquitectura-solucion': ['Arquitectura de la solución de una empresa nativa en IA', 'Del ERP y las redes locales a los agentes: arquitectura centralizada, distribuida e híbrida, NVIDIA PAIR, servidores y supervisión humana.'],
+  '/empresa-nativa-ia/empezar': ['Diseña tu primer piloto de empresa nativa en IA', 'Define un proceso, sus responsables, los agentes, los permisos y la forma de evaluar resultados. Descarga tu ficha de piloto para trabajar con tu equipo.'],
   '/': ['Empresa nativa en IA: formación y herramientas', 'Aprende a dirigir equipos de personas y agentes de IA. Explora herramientas, principios de gestión y servicios para aplicar IA en tu empresa.'],
   '/about': ['El proyecto MBAI Native', 'Conoce el enfoque de MBAI Native: principios de gestión, aprendizaje y aplicaciones para trabajar con agentes de inteligencia artificial.'],
   '/services': ['Formación, consultoría y desarrollo con IA', 'Servicios de formación ejecutiva, estrategia, talleres y desarrollo de soluciones para aplicar inteligencia artificial a procesos empresariales.'],

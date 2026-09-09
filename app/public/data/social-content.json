@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-09-09T09:26:57.067Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-09-09T14:57:28.581Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "news",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n📰 Authors push back as publishers and agents make claims on Anthropic settlement\n\nAuthors say publishers seem to be claiming more than their fair share of settlement p...",
+    "type": "guru_quote",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Demis Hassabis (DeepMind)\n\n\"What Happens When AI Becomes Cheaper Than You?\"\n\n▶️ youtube.com/watch?v=MiOh_vg7jf8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "TechCrunchAI"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/"
+    "url": "https://youtube.com/watch?v=MiOh_vg7jf8",
+    "imageUrl": "https://i.ytimg.com/vi/MiOh_vg7jf8/mqdefault.jpg"
   }
 }

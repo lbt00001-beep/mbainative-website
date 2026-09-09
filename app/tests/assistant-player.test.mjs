@@ -40,6 +40,7 @@ test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',as
   const originals=new Map(Object.keys(names).map(k=>[k,Object.getOwnPropertyDescriptor(globalThis,k)]));
   for(const [key,value] of Object.entries(names))Object.defineProperty(globalThis,key,{value,writable:true,configurable:true});
   window.speechSynthesis=synth;window.SpeechSynthesisUtterance=Utterance;
+  let restoredTop=0;window.scrollTo=({top})=>{restoredTop=top;};
   // linkedom exposes select.value as read-only; supply the browser's setter for this DOM test.
   Object.defineProperty(window.HTMLSelectElement.prototype,'value',{configurable:true,get(){return this.querySelector('option[selected]')?.value||this.querySelector('option')?.value||'';},set(value){for(const option of this.querySelectorAll('option')){if(option.value===String(value))option.setAttribute('selected','');else option.removeAttribute('selected');}}});
   window.HTMLElement.prototype.getClientRects=()=>[{}];window.HTMLElement.prototype.scrollIntoView=function(){this.scrolled=true;};
@@ -49,6 +50,13 @@ test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',as
   const player=document.createElement('mbai-assistant');document.body.append(player);
   await new Promise(r=>setTimeout(r,0));
   player.ui.launcher.click();assert.equal(player.state,'playing');assert.equal(spoken.length,1);
+  assert.equal(document.body.classList.contains('mbai-guide-docked'),true);
+  document.body.scrollTop=320;
+  player.ui.minimize.click();
+  assert.equal(player.state,'playing');assert.equal(cancelled,0);assert.equal(restoredTop,320);
+  assert.equal(document.body.classList.contains('mbai-guide-docked'),false);
+  assert.equal(document.documentElement.classList.contains('mbai-guide-open'),false);
+  player.ui.launcher.click();assert.equal(spoken.length,1);assert.equal(player.expanded,true);
   assert.equal(spoken[0].rate,1.15);assert.equal(player.shadowRoot.querySelector('#guide-rate').value,'1.15');
   assert.equal(document.querySelector('h1').hasAttribute('data-mbai-narrating'),true);
   const stale=spoken[0].onend;spoken[0].onboundary({name:'word',charIndex:8});
@@ -59,6 +67,7 @@ test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',as
   assert.equal(player.state,'idle');assert.equal(player.chapter,0);assert.equal(player.offset,0);assert.equal(document.querySelector('[data-mbai-narrating]'),null);
   player.ui.next.click();assert.equal(player.chapter,1);player.ui.play.click();assert.equal(spoken.at(-1).text,'Segunda explicación.');
   player.remove();assert.equal(player.state,'idle');assert.equal(document.body.classList.contains('mbai-guide-reserved'),false);
+  assert.equal(document.body.classList.contains('mbai-guide-docked'),false);assert.equal(document.documentElement.classList.contains('mbai-guide-open'),false);
   config.voices.push({id:'azure-test',label:'Test professional'});
   let finishSpeech;
   t.mock.method(globalThis,'fetch',async url=>String(url).includes('/speech')?new Promise(resolve=>{finishSpeech=resolve;}):Response.json(config));

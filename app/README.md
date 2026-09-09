@@ -38,6 +38,8 @@ Los parches de PostCSS y Sharp se fijan también mediante `overrides` para cubri
 
 ## Asistente de cada página
 
+La velocidad inicial es 1,15×. Chrome utiliza preferentemente Google español; Edge, Microsoft Alvaro Online (Natural), español de España. Se vuelve a resolver la preferencia cuando el navegador carga su catálogo de voces; si la voz solicitada no está disponible, se elige otra voz española. El visitante puede cambiar la voz y la velocidad desde los controles. En Chrome y Edge se inicia con voz del navegador incluso si hay proveedores profesionales configurados.
+
 `components/assistant/PageAssistant.tsx` monta el reproductor universal `public/assistant/widget.mjs` en cada ruta. Las tres aplicaciones HTML incluyen el mismo módulo. Play inicia la explicación y el desplazamiento por apartados; Pausa conserva la posición (en voces del navegador, desde la última palabra notificada); Stop vuelve al comienzo. Los subtítulos, el selector de apartados, la velocidad y el seguimiento manual son independientes de las voces profesionales. Al salir de la página se cancela la narración.
 
 Los guiones públicos están versionados en `data/assistant-guides.json`. Para actualizar contenido, arranca la vista local y ejecuta `npm run assistant:prepare -- http://127.0.0.1:3007` (o el puerto utilizado), revisa el JSON y confirma los cambios. `scripts/assistant-overrides.mjs` contiene explicaciones editoriales para herramientas interactivas. Nunca se extrae información introducida por visitantes. Los iframes externos se explican desde su página contenedora; no se controla su contenido interno.

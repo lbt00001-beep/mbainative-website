@@ -41,8 +41,17 @@ export function extractGuide(document, path) {
   return {path,chapters:chapters.map((c,i)=>({...c,id:String(i),chunks:splitSpeech(c.title+'. '+c.text)}))};
 }
 
-export function pickVoice(voices) {
-  return [...voices].filter(v=>/^es(?:-|_)/i.test(v.lang)).sort((a,b)=>score(b)-score(a))[0]||null;
+export function browserFamily(userAgent='') {
+  if(/Edg(?:e|A|iOS)?\//i.test(userAgent))return 'edge';
+  if(/(?:Chrome|CriOS)\//i.test(userAgent))return 'chrome';
+  return '';
+}
+export function pickVoice(voices,userAgent='') {
+  const browser=browserFamily(userAgent);
+  const preference=v=>/^es-ES$/i.test(v.lang)&&(
+    browser==='chrome'&&normalize(v.name)==='google espanol'||
+    browser==='edge'&&normalize(v.name).startsWith('microsoft alvaro online natural'))?1000:0;
+  return [...voices].filter(v=>/^es(?:-|_)/i.test(v.lang)).sort((a,b)=>preference(b)+score(b)-preference(a)-score(a))[0]||null;
 }
 function score(v){return (/^es-ES$/i.test(v.lang)?20:0)+(/Microsoft|Google/i.test(v.name)?30:0)+(/Natural|Neural|Online/i.test(v.name)?25:0)+(v.default?1:0);}
 

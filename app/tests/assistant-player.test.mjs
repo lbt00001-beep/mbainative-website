@@ -12,6 +12,24 @@ test('editorial extraction excludes forms, private content and hidden elements',
   assert.equal(pickVoice([{lang:'en-US',name:'Google'},{lang:'es-ES',name:'Microsoft Elvira Natural'}]).name,'Microsoft Elvira Natural');
 });
 
+test('Chrome selects Google español and Edge selects Álvaro ahead of other Spanish voices',()=>{
+  const chrome='Mozilla/5.0 Chrome/140.0.0.0 Safari/537.36';
+  const edge=chrome+' Edg/140.0.0.0';
+  const voices=[
+    {lang:'es-ES',name:'Microsoft Helena - Spanish (Spain)',default:true},
+    {lang:'es-ES',name:'Microsoft Elvira Online (Natural) - Spanish (Spain)'},
+    {lang:'es-ES',name:'Google español'},
+    {lang:'es-ES',name:'Microsoft Alvaro Online (Natural) - Spanish (Spain)'},
+  ];
+  assert.equal(pickVoice(voices,chrome),voices[2]);
+  assert.equal(pickVoice(voices,edge),voices[3]);
+  assert.equal(pickVoice([...voices].reverse(),edge),voices[3]);
+  assert.equal(pickVoice([],chrome),null);
+  // Early voice lists can omit the preferred voice; resolve it when voiceschanged arrives.
+  assert.equal(pickVoice(voices.slice(0,1),chrome),voices[0]);
+  assert.equal(pickVoice(voices,chrome),voices[2]);
+});
+
 test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',async t=>{
   const {window,document}=parseHTML('<html><head></head><body><main><h1>Guía</h1><h2>Segundo</h2></main></body></html>');
   const spoken=[];let cancelled=0;
@@ -31,6 +49,7 @@ test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',as
   const player=document.createElement('mbai-assistant');document.body.append(player);
   await new Promise(r=>setTimeout(r,0));
   player.ui.launcher.click();assert.equal(player.state,'playing');assert.equal(spoken.length,1);
+  assert.equal(spoken[0].rate,1.15);assert.equal(player.shadowRoot.querySelector('#guide-rate').value,'1.15');
   assert.equal(document.querySelector('h1').hasAttribute('data-mbai-narrating'),true);
   const stale=spoken[0].onend;spoken[0].onboundary({name:'word',charIndex:8});
   player.ui.pause.click();assert.equal(player.state,'paused');assert.ok(cancelled);
@@ -45,6 +64,7 @@ test('Play, Pause, resume, Stop and navigation reject stale speech callbacks',as
   t.mock.method(globalThis,'fetch',async url=>String(url).includes('/speech')?new Promise(resolve=>{finishSpeech=resolve;}):Response.json(config));
   const cloud=document.createElement('mbai-assistant');document.body.append(cloud);
   await new Promise(r=>setTimeout(r,0));
+  cloud.voiceId='azure-test'; // Professional voices remain available through an explicit selection.
   const pending=cloud.play();assert.equal(cloud.state,'loading');
   cloud.stop();finishSpeech(new Response(new Uint8Array(32)));await pending;
   assert.equal(cloud.state,'idle');assert.ok(cloud.audio==null);

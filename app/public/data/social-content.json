@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-09T14:57:28.581Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-09-09T19:37:44.842Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 13,
     "title": "Datos como activo estratégico",
     "icon": "📊"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Demis Hassabis (DeepMind)\n\n\"What Happens When AI Becomes Cheaper Than You?\"\n\n▶️ youtube.com/watch?v=MiOh_vg7jf8",
+    "type": "recent_video",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=MiOh_vg7jf8",
-    "imageUrl": "https://i.ytimg.com/vi/MiOh_vg7jf8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

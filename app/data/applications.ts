@@ -129,6 +129,13 @@ export const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Restaurador Super 8 — Películas de 8 mm",
+        descripcion: "App gratuita para Windows que limpia polvo y rayas, estabiliza, corrige parpadeo y color, y mejora resolución y fluidez con IA las películas Super 8 y 8 mm digitalizadas. Funciona en tu ordenador, con o sin GPU.",
+        url: "/restaurador-super8/index.html",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "Generador de Guiones",
         descripcion: "Crea guiones profesionales para vídeos usando IA.",
         url: "#",

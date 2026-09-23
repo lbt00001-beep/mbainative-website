@@ -232,6 +232,13 @@ export const categorias = [
     descripcion: "Soluciones avanzadas de inteligencia artificial para optimizar tus procesos de revisión, análisis y trabajo diario.",
     apps: [
       {
+        nombre: "Buscador Segunda Mano (Wallapop, Milanuncios y Vinted)",
+        descripcion: "Búsqueda multitienda simultánea con coincidencia exacta (sin aproximaciones como 3060/3070 al buscar 3090), ordenación por precio, cercanía a Madrid y fecha del anuncio.",
+        url: "/aplicaciones/buscador-segundamano",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Generador Autónomo de Masterclass (MBAI Presenter)",
         descripcion: "Introduce un tema o sube un PDF y la IA investigará, redactará el guion y las notas del orador, buscará ilustraciones y generará una presentación visual interactiva. 100% en tu navegador.",
         url: "https://presentador-masterclass-mbai.web.app",

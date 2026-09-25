@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-24T20:17:52.309Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-09-25T10:03:21.962Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 8,
-    "title": "Cumplimiento normativo automatizado",
-    "icon": "⚖️"
+    "id": 9,
+    "title": "El conocimiento se democratiza",
+    "icon": "🧠"
   },
   "post": {
-    "type": "recent_video",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
+    "type": "guru_quote",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"The Godfather of AI Warns About the Future of Jobs. #ai #podcast #ceo #clips #geoffreyhinton\"\n\n▶️ youtube.com/watch?v=bsAxJld5vaU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
-    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=bsAxJld5vaU",
+    "imageUrl": "https://i.ytimg.com/vi/bsAxJld5vaU/mqdefault.jpg"
   }
 }

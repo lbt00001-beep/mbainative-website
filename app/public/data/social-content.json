@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-27T10:24:21.678Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-09-27T15:28:41.492Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Fei-Fei Li (Stanford)\n\n\"The AI4 Debrief: Chaos Means Cash\"\n\n▶️ youtube.com/watch?v=L09T-E96ML0",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "feifeili"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=L09T-E96ML0",
-    "imageUrl": "https://i.ytimg.com/vi/L09T-E96ML0/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

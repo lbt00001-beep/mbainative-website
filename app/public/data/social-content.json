@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-28T11:31:42.086Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-09-28T18:19:36.020Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 12,
     "title": "Seguridad por diseño",
     "icon": "🔒"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"The AI Creator&#39;s Warning: &quot;We Might Go Extinct&quot; | Geoffrey Hinton x Steven Bartlett\"\n\n▶️ youtube.com/watch?v=5vKkMhgzG5g",
+    "type": "recent_video",
+    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=5vKkMhgzG5g",
-    "imageUrl": "https://i.ytimg.com/vi/5vKkMhgzG5g/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

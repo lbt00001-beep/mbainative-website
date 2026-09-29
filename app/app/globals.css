@@ -19,6 +19,7 @@ a, button, input, textarea, select { -webkit-tap-highlight-color:transparent; }
 .skip-link:focus { top:12px; }
 .site-shell { width:min(1240px,calc(100% - 64px)); margin-inline:auto; }
 .site-header { position:fixed; inset:0 0 auto; z-index:50; background:rgba(13,21,36,.96); border-bottom:1px solid #253149; backdrop-filter:blur(16px); }
+body:has(#tradingalpha-root) mbai-assistant { display:none!important; }
 .header-inner { min-height:80px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .brand { display:flex; align-items:center; gap:12px; font-weight:750; font-size:21px; white-space:nowrap; }
 .brand-logo { width:59px; height:32px; object-fit:contain; border-radius:3px; }

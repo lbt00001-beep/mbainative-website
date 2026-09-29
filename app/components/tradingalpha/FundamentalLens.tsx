@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import AnalystTrends from './AnalystTrends';
 import { simplyWallStReport } from './simplyWallStLinks';
+import { earningsMetrics } from './fundamentalMetrics';
 
 const raw = (value: any): number | null => {
   const n = typeof value === 'number' ? value : value?.raw;
@@ -62,15 +63,10 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
   const externalReport = simplyWallStReport(ticker, quoteTicker);
   const rows = useMemo(() => yearlyHistory(data), [data]);
   const { cagr, volatility, years } = useMemo(() => annualMetrics(rows), [rows]);
-  const price = data?.price || {};
-  const stats = data?.defaultKeyStatistics || {};
   const fin = data?.financialData || {};
   const sum = data?.summaryDetail || {};
   const sameCurrency = quoteCurrency === financialCurrency;
-  const forwardEPS = raw(stats.forwardEps);
-  const quotePrice = raw(price.regularMarketPrice);
-  const forwardPE = sameCurrency && forwardEPS != null && forwardEPS > 0 && quotePrice != null
-    ? quotePrice / forwardEPS : null;
+  const { forwardEPS, forwardPE, forwardPeriod, trailingPE, trailingPEApproximate } = earningsMetrics(data);
   const cap = raw(sum.marketCap);
   const cash = raw(fin.totalCash);
   const debt = raw(fin.totalDebt);
@@ -98,14 +94,15 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
         {!sameCurrency && <p className="text-xs text-amber-300 mt-2">Monedas distintas: se omiten múltiplos y porcentajes que mezclen {quoteCurrency} con {financialCurrency}.</p>}
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3">
         {[
-          { label: 'PER próximo ejercicio', value: forwardPE == null ? 'N/D' : `${forwardPE.toFixed(1)}×`, note: forwardPE == null ? 'BPA estimado no disponible o moneda incompatible' : 'Precio / BPA estimado por Yahoo' },
-          { label: 'BPA estimado', value: money(forwardEPS, quoteCurrency), note: 'Previsión de Yahoo; confirma ejercicio y cobertura' },
+          { label: 'PER TTM', value: trailingPE == null ? 'N/D' : `${trailingPE.toFixed(1)}×`, note: trailingPEApproximate ? 'Aproximado: precio / (beneficio TTM / acciones actuales)' : 'Dato publicado por Yahoo Finance' },
+          { label: 'PER próximo ejercicio', value: forwardPE == null ? 'N/D' : `${forwardPE.toFixed(1)}×`, note: forwardPeriod ? `Consenso para ejercicio terminado en ${forwardPeriod}` : 'Previsión de Yahoo; ejercicio no identificado' },
+          { label: 'BPA estimado', value: money(forwardEPS, quoteCurrency), note: forwardPeriod ? `Consenso para ejercicio terminado en ${forwardPeriod}` : 'Previsión de Yahoo; confirma ejercicio y cobertura' },
           { label: 'ROE', value: percent(roe == null ? null : roe * 100), note: 'Beneficio / patrimonio; revisar apalancamiento' },
           { label: 'Caja neta / capitalización', value: percent(netCashPct), note: 'Solo con caja, deuda y capitalización en la misma moneda' },
         ].map(card => (
-          <div key={card.label} className="bg-[#141d30] border border-[#223048] rounded-xl p-4">
+          <div key={card.label} className={`bg-[#141d30] border border-[#223048] rounded-xl p-4 ${card.label === 'Caja neta / capitalización' ? 'sm:col-span-2 xl:col-span-1' : ''}`}>
             <div className="text-xs text-slate-400">{card.label}</div>
             <div className="text-xl font-bold text-white mt-2">{card.value}</div>
             <div className="text-[11px] text-slate-500 mt-2">{card.note}</div>

@@ -12,6 +12,8 @@ import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
 import FundamentalLens from './FundamentalLens';
 import InstitutionalRanking from './InstitutionalRanking';
 import { getInstrumentConfig } from './instruments';
+import { dcfGrowthAssumption, earningsMetrics } from './fundamentalMetrics';
+import { dailyPriceChange } from './marketChange';
 import {
   CandleBar,
   TechnicalSummary,
@@ -64,6 +66,16 @@ function parseReportSections(text: string) {
       return { title, body };
     })
     .filter(Boolean) as Array<{ title: string; body: string }>;
+}
+
+function marketCapLabel(value: number | null, code: string): string {
+  if (value == null || value <= 0) return 'N/D';
+  const units: Array<[number, string]> = [
+    [1e15, 'mil billones'], [1e12, 'billones'], [1e9, 'mil millones'], [1e6, 'millones'],
+  ];
+  const [divisor, label] = units.find(([limit]) => value >= limit) || [1, ''];
+  const amount = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2 }).format(value / divisor);
+  return `${amount}${label ? ` ${label}` : ''} ${code}`.trim();
 }
 
 export default function TradingAlpha() {
@@ -330,13 +342,17 @@ export default function TradingAlpha() {
   const currentPrice = instrument.quoteTicker !== ticker
     ? (pick(chartMeta?.regularMarketPrice) ?? (chartBars.length ? chartBars[chartBars.length - 1].close : 0))
     : (pick(priceObj.regularMarketPrice) ?? pick(chartMeta?.regularMarketPrice) ?? 0);
-  const previousClose = pick(chartMeta?.chartPreviousClose);
-  const regularMarketChange = instrument.quoteTicker !== ticker && previousClose != null ? currentPrice - previousClose : (pick(priceObj.regularMarketChange) ?? 0);
-  const regularMarketChangePercent = instrument.quoteTicker !== ticker && previousClose ? regularMarketChange / previousClose * 100 : (pick(priceObj.regularMarketChangePercent) ?? 0) * 100;
+  const receiptDailyChange = dailyPriceChange(currentPrice, chartBars);
+  const regularMarketChange = instrument.quoteTicker !== ticker
+    ? receiptDailyChange?.change ?? null
+    : pick(priceObj.regularMarketChange);
+  const regularMarketChangePercent = instrument.quoteTicker !== ticker
+    ? receiptDailyChange?.percent ?? null
+    : pick(priceObj.regularMarketChangePercent) != null ? pick(priceObj.regularMarketChangePercent)! * 100 : null;
 
   // Nombre de empresa protegido: nunca usa nombres obsoletos de otros tickers
   const quickInfo = QUICK_TICKERS.find((q) => q.symbol.toUpperCase() === ticker.toUpperCase());
-  const companyName = priceObj.shortName || priceObj.longName || quickInfo?.label || ticker;
+  const companyName = instrument.quoteTicker !== ticker ? (instrument.label || quickInfo?.label || ticker) : (priceObj.shortName || priceObj.longName || quickInfo?.label || ticker);
   const sector = profile.sector || (quickInfo ? 'Equities' : 'N/D');
   const industry = profile.industry || 'N/D';
 
@@ -348,21 +364,24 @@ export default function TradingAlpha() {
   const valuationPrice = pick(priceObj.regularMarketPrice);
   const valuationCurrency = priceObj.currency === 'EUR' ? '€' : priceObj.currency === 'USD' ? '$' : `${priceObj.currency || 'N/D'} `;
   const valuationReady = sameFinancialCurrency && fcfBase != null && sharesOutstanding != null && netDebt != null && valuationPrice != null;
-  const eps = sameFinancialCurrency ? (pick(stats.trailingEps) ?? pick(stats.forwardEps)) : null;
+  const observedRevenueGrowth = pick(fin.revenueGrowth);
+  const dcfGrowthRate = dcfGrowthAssumption(observedRevenueGrowth);
+  const measuredEarnings = earningsMetrics(safeQuoteData);
+  const eps = measuredEarnings.trailingEPS ?? measuredEarnings.forwardEPS;
   const bookValue = pick(stats.bookValue);
 
   const dcfResult: DCFResult | null = React.useMemo(() => {
     if (!valuationReady || valuationPrice! <= 0) return null;
     return calculateDCF(
       fcfBase!,
-      pick(fin.revenueGrowth) ?? 0.10,
+      dcfGrowthRate,
       0.025,
       0.09,
       sharesOutstanding!,
       netDebt!,
       valuationPrice!
     );
-  }, [fcfBase, valuationPrice, sharesOutstanding, netDebt, fin.revenueGrowth, valuationReady]);
+  }, [fcfBase, valuationPrice, sharesOutstanding, netDebt, dcfGrowthRate, valuationReady]);
 
   const piotroski: PiotroskiBreakdown = React.useMemo(() => {
     if (!safeQuoteData) return { score: 0, details: [], quality: 'Débil' };
@@ -463,10 +482,10 @@ export default function TradingAlpha() {
   const quoteAgeDays = chartMeta?.regularMarketTime ? Math.max(0, Math.floor((Date.now() - chartMeta.regularMarketTime * 1000) / 86400000)) : null;
 
   return (
-    <div className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 sm:p-6 lg:p-8 space-y-6 print:p-0 print:m-0 print:bg-white print:text-slate-900 print:min-h-0">
+    <div id="tradingalpha-root" className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 pt-28 sm:p-6 sm:pt-28 lg:p-8 lg:pt-32 space-y-6 print:p-0 print:m-0 print:bg-white print:text-slate-900 print:min-h-0">
       {/* 1. Header & Asset Selector Bar */}
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-2xl space-y-4 print:hidden">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">⚡</span>
@@ -483,9 +502,9 @@ export default function TradingAlpha() {
           </div>
 
           {/* Search Form with S&P 500 Sector Megamenu */}
-          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 relative">
+          <form onSubmit={handleSearchSubmit} className="flex flex-wrap items-center gap-2 relative min-w-0">
             <div
-              className="relative"
+              className="relative w-full sm:w-auto"
               ref={searchContainerRef}
               onMouseEnter={handleMouseEnterSearch}
               onMouseLeave={handleMouseLeaveSearch}
@@ -500,7 +519,7 @@ export default function TradingAlpha() {
                   }}
                   onFocus={() => setIsSectorMenuOpen(true)}
                   placeholder="Buscar ticker (ej. AAPL, SAN.MC, ITX.MC)..."
-                  className="bg-[#141d30] text-sm text-white placeholder-slate-500 pl-4 pr-24 py-2 rounded-xl border border-[#223048] focus:outline-none focus:border-blue-500 w-72 uppercase font-mono transition-all"
+                  className="bg-[#141d30] text-sm text-white placeholder-slate-500 pl-4 pr-24 py-2 rounded-xl border border-[#223048] focus:outline-none focus:border-blue-500 w-full sm:w-72 uppercase font-mono transition-all"
                 />
                 <button
                   type="button"
@@ -721,7 +740,7 @@ export default function TradingAlpha() {
                   : 'bg-[#141d30] text-slate-400 border-[#223048] hover:text-white hover:bg-[#1a253c]'
               }`}
             >
-              {item.symbol} <span className="text-[10px] text-slate-500 font-sans">({item.label})</span>
+              {item.symbol} <span className={`text-[10px] font-sans ${ticker === item.symbol ? 'text-blue-100' : 'text-slate-500'}`}>({item.label})</span>
             </button>
           ))}
         </div>
@@ -745,10 +764,10 @@ export default function TradingAlpha() {
 
       {/* 2. Real-Time Hero Header & Quote Strip */}
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div className="flex flex-col 2xl:flex-row 2xl:items-center justify-between gap-6 min-w-0">
           {/* Company Title & Price */}
-          <div>
-            <div className="flex items-center gap-3">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-3">
               <span className="text-2xl font-black font-mono text-white tracking-wide">{ticker}</span>
               {isLoadingQuote ? (
                 <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 animate-pulse flex items-center gap-1.5">
@@ -765,11 +784,11 @@ export default function TradingAlpha() {
               )}
             </div>
 
-            <div className="flex items-baseline gap-4 mt-2">
-              <span className="text-4xl font-extrabold text-white tracking-tight">
+            <div className="flex flex-wrap items-baseline gap-4 mt-2">
+              <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 {currency}{currentPrice.toFixed(2)}
               </span>
-              <span
+              {regularMarketChange != null && regularMarketChangePercent != null && <span
                 className={`text-sm font-bold px-2.5 py-0.5 rounded-lg font-mono ${
                   regularMarketChange >= 0
                     ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
@@ -779,7 +798,7 @@ export default function TradingAlpha() {
                 {regularMarketChange >= 0 ? '+' : ''}
                 {regularMarketChange.toFixed(2)} ({regularMarketChangePercent >= 0 ? '+' : ''}
                 {regularMarketChangePercent.toFixed(2)}%)
-              </span>
+              </span>}
             </div>
             <div className="text-[11px] text-slate-400 mt-2">
               Yahoo Finance · {chartMeta?.exchangeName || 'mercado N/D'} · {quoteCurrencyCode} · {quoteAgeDays == null ? 'fecha N/D' : `última sesión hace ${quoteAgeDays} día(s)`}
@@ -788,7 +807,7 @@ export default function TradingAlpha() {
           </div>
 
           {/* 52-Week Range Bar */}
-          <div className="lg:w-72 space-y-1.5">
+          <div className="2xl:w-72 2xl:shrink-0 space-y-1.5">
             <div className="flex justify-between text-xs text-slate-400 font-mono">
               <span>Mín 52S: {currency}{low52?.toFixed(2) ?? '—'}</span>
               <span>Máx 52S: {currency}{high52?.toFixed(2) ?? '—'}</span>
@@ -805,24 +824,24 @@ export default function TradingAlpha() {
           </div>
 
           {/* Key Metric Chips */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono min-w-0">
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
               <div className="text-slate-400 text-[10px] uppercase font-sans">Cap. Bursátil {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
-              <div className="font-bold text-white mt-0.5">
-                {pick(sum.marketCap) ? `${(pick(sum.marketCap)! / 1e9).toFixed(2)}B ${priceObj.currency || ''}` : '—'}
+              <div className="font-bold text-white mt-0.5 break-words">
+                {marketCapLabel(pick(sum.marketCap), priceObj.currency || '')}
               </div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">PER (TTM) {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
-              <div className="font-bold text-white mt-0.5">{sameFinancialCurrency ? (pick(sum.trailingPE)?.toFixed(1) ?? '—') : '—'}</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">PER (TTM{measuredEarnings.trailingPEApproximate ? ' aprox.' : ''}) {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
+              <div className="font-bold text-white mt-0.5">{measuredEarnings.trailingPE?.toFixed(1) ?? '—'}</div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
               <div className="text-slate-400 text-[10px] uppercase font-sans">Beta Yahoo</div>
               <div className="font-bold text-white mt-0.5">{pick(sum.beta)?.toFixed(2) ?? '—'}</div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">BPA / EPS {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
-              <div className="font-bold text-emerald-400 mt-0.5">{eps ? `${valuationCurrency}${eps.toFixed(2)}` : '—'}</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">{measuredEarnings.trailingEPS != null ? `BPA TTM${measuredEarnings.trailingEPSApproximate ? ' aprox.' : ''}` : 'BPA previsto'} {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
+              <div className="font-bold text-emerald-400 mt-0.5 break-words">{eps != null ? `${valuationCurrency}${new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2 }).format(eps)}` : '—'}</div>
             </div>
           </div>
         </div>
@@ -975,6 +994,7 @@ export default function TradingAlpha() {
                       (Valor justo de {instrument.quoteTicker}: {valuationCurrency}{dcfResult?.fairValue ?? '—'})
                     </span>
                   </div>
+                  {dcfResult && <p className="text-[10px] text-slate-500 mt-1">Escenario DCF: crecimiento del flujo de caja del {(dcfGrowthRate * 100).toFixed(0)}% anual durante 5 años{observedRevenueGrowth != null && (observedRevenueGrowth < 0 || observedRevenueGrowth > 0.30) ? '; crecimiento de ingresos atípico, hipótesis normalizada' : ''}.</p>}
                 </div>
 
                 {/* Baremo Visual Calibrado de Margen de Seguridad */}
@@ -1281,12 +1301,13 @@ export default function TradingAlpha() {
       {/* TAB 3: VALORACIÓN INTRÍNSECA (DCF) */}
       {activeTab === 'valuation' && (
         valuationReady ? <DCFSimulator
+          key={instrument.quoteTicker}
           currentPrice={valuationPrice!}
           currency={valuationCurrency}
           fcfBase={fcfBase!}
           sharesOutstanding={sharesOutstanding!}
           netDebt={netDebt!}
-          defaultGrowthRate={pick(fin.revenueGrowth) ?? 0.10}
+          defaultGrowthRate={dcfGrowthRate}
           eps={eps}
           bookValuePerShare={bookValue}
         /> : <div className="bg-[#0e1626] border border-amber-500/30 rounded-2xl p-6 text-amber-200 text-sm">Valoración no disponible: faltan flujo de caja libre, acciones, caja, deuda o moneda financiera compatible. No se estiman datos ausentes.</div>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurador Super 8 — Restaura tus películas de 8 mm en tu ordenador</title>
+<meta name="description" content="Aplicación gratuita para Windows que limpia, estabiliza y mejora las películas Super 8 y 8 mm digitalizadas. Funciona en tu ordenador: tus vídeos no salen de casa.">
+<meta property="og:title" content="Restaurador Super 8">
+<meta property="og:description" content="Limpia, estabiliza y mejora tus películas Super 8 y 8 mm, en tu propio ordenador.">
+<meta property="og:image" content="./despues_1.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1ea; --panel:#fffdf9; --ink:#1f1b16; --soft:#6c6358; --line:#e4dacb;
+  --accent:#b8501a; --accent-ink:#fff; --accent-soft:#f7e3d6; --film:#1f1b16;
+  --radius:14px; --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#15120f; --panel:#1f1a15; --ink:#f1e9df; --soft:#b3a797; --line:#3a3128;
+         --accent:#e0782f; --accent-ink:#1a0f06; --accent-soft:#3a2415; --film:#0c0a08; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-top:0}
+h3{font-size:1.15rem}
+p{margin:0 0 1em}
+.eyebrow{font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.8em}
+.lead{font-size:1.15rem;color:var(--soft);max-width:40em}
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:.85em 1.35em;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{color:var(--accent);background:transparent}
+.btn small{font-weight:500;opacity:.8}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.6em}
+
+/* Tira de película */
+.strip{height:22px;background:var(--film);background-image:repeating-linear-gradient(90deg,transparent 0 14px,var(--bg) 14px 28px,transparent 28px 44px);background-size:44px 10px;background-repeat:repeat-x;background-position:0 6px}
+
+header.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+/* Comparador antes / después */
+.ba{position:relative;border-radius:var(--radius);overflow:hidden;background:#000;box-shadow:0 18px 40px -18px rgba(0,0,0,.45);user-select:none;touch-action:pan-y;aspect-ratio:1534/948}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.5)}
+.ba .knob{position:absolute;top:50%;left:var(--pos,50%);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;color:#1f1b16;display:grid;place-items:center;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.4);cursor:ew-resize}
+.ba .knob:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ba .tag{position:absolute;top:12px;padding:3px 10px;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.04em}
+.ba .tag.l{left:12px}.ba .tag.r{right:12px}
+.thumbs{display:flex;gap:10px;margin-top:12px}
+.thumbs button{flex:1;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;cursor:pointer;background:none;opacity:.65;transition:opacity .15s,border-color .15s}
+.thumbs button[aria-pressed="true"],.thumbs button:hover{opacity:1;border-color:var(--accent)}
+.hint{font-size:.85rem;color:var(--soft);margin-top:8px}
+
+section{padding:64px 0}
+section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media (max-width:860px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+section.alt .card{background:var(--bg)}
+.card p{color:var(--soft);margin:0}
+.ico{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
+.ico svg{width:20px;height:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.out h3{display:flex;align-items:center;gap:.5em}
+.pill{font-family:Inter,sans-serif;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:16px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+ol.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-family:Fraunces,serif;font-size:1.2rem}
+ol.steps b{display:block}
+ol.steps span{color:var(--soft)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+.dl{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.dl .meta{color:var(--soft);font-size:.92rem}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1em}
+details summary::after{content:"+";color:var(--accent);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--soft);margin:.7em 0 0}
+footer{padding:36px 0 50px;color:var(--soft);font-size:.88rem}
+.note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 16px;border-radius:0 10px 10px 0}
+</style>
+</head>
+<body>
+
+<div class="strip" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Aplicación gratuita para Windows</div>
+      <h1>Devuelve la vida a tus películas Super&nbsp;8 y 8&nbsp;mm</h1>
+      <p class="lead">Limpia el polvo y las rayas, elimina el temblor y el parpadeo, recupera el color y, si quieres, aumenta la resolución y la fluidez con inteligencia artificial. Todo en tu ordenador: tus películas familiares no salen de casa.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./Restaurador_Super8.zip" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+          Descargar <small>ZIP · 0,2 MB</small>
+        </a>
+        <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+      </div>
+    </div>
+    <div>
+      <div class="ba" id="ba" style="--pos:50%">
+        <img class="before" id="baA" src="./antes_1.jpg" alt="Fotograma original digitalizado, con dominante rojiza y poco contraste">
+        <img class="after" id="baD" src="./despues_1.jpg" alt="El mismo fotograma restaurado, con color corregido y más contraste">
+        <span class="tag l">Original</span><span class="tag r">Restaurado</span>
+        <div class="bar"></div>
+        <div class="knob" tabindex="0" role="slider" aria-label="Deslizar para comparar original y restaurado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇆</div>
+      </div>
+      <div class="thumbs" role="group" aria-label="Elegir ejemplo">
+        <button aria-pressed="true" data-i="1"><img src="./despues_1.jpg" alt="Ejemplo 1"></button>
+        <button aria-pressed="false" data-i="2"><img src="./despues_2.jpg" alt="Ejemplo 2"></button>
+        <button aria-pressed="false" data-i="3"><img src="./despues_3.jpg" alt="Ejemplo 3"></button>
+      </div>
+      <p class="hint">Arrastra el control (o usa las flechas del teclado) para comparar. Fotogramas reales de una película Super 8 procesada con la app.</p>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="que-hace">
+  <div class="wrap">
+    <div class="eyebrow">Qué corrige</div>
+    <h2>Los defectos típicos del cine doméstico</h2>
+    <p class="lead">La app mide primero cada defecto y ajusta los filtros a tu película. No hace falta saber de vídeo.</p>
+    <div class="grid3" style="margin-top:28px">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></div><h3>Temblor</h3><p>Sigue cientos de puntos entre fotogramas y compensa el baile de la película en la ventanilla, conservando los movimientos de cámara.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg></div><h3>Parpadeo</h3><p>Iguala el brillo que oscila de un fotograma a otro, también cuando el centro de la imagen brilla más que las esquinas.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="7" cy="8" r="1.5"/><circle cx="16" cy="6" r="1"/><circle cx="12" cy="15" r="2"/><path d="M19 4v16"/></svg></div><h3>Polvo y rayas</h3><p>Detecta las motas que aparecen en un solo fotograma y las rellena con la imagen real de los fotogramas vecinos.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16c3-6 5 2 8-4s5 2 8-4"/></svg></div><h3>Ruido y grano</h3><p>Reduce el ruido promediando fotogramas alineados y devuelve una parte del grano para que siga pareciendo cine.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></div><h3>Color</h3><p>Corrige la dominante rojiza o magenta de la película envejecida y ajusta el contraste escena por escena.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m9 9 6 3-6 3z"/></svg></div><h3>Resolución y fluidez</h3><p>Opcionalmente, amplía la imagen con IA (Real-ESRGAN) y crea fotogramas intermedios (RIFE) para verla fluida en una tele moderna.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2>Dos resultados: uno fiel y otro para disfrutar</h2>
+    <div class="two" style="margin-top:24px">
+      <div class="card out"><h3>Máster restaurado <span class="pill">fiel</span></h3><p>Limpio y estable, sin inventar nada: todo lo que se ve estaba en la película. Se guarda sin pérdida de calidad, para archivar.</p></div>
+      <div class="card out"><h3>Copia mejorada <span class="pill">con IA</span></h3><p>A partir del máster, más resolución y más fluidez para verla en pantalla grande. Va en un archivo aparte porque la IA estima detalle.</p></div>
+    </div>
+    <h3 style="margin-top:40px">En cuatro pasos</h3>
+    <ol class="steps" style="margin-top:16px">
+      <li><div><b>Elige tu vídeo digitalizado</b><span>MP4, AVI, MOV… el archivo que te dio el laboratorio o tu escáner.</span></div></li>
+      <li><div><b>Pulsa «Analizar y proponer parámetros»</b><span>La app diagnostica los defectos, mide la velocidad de tu equipo y deja todo configurado para el tiempo que le indiques.</span></div></li>
+      <li><div><b>Prueba una muestra de unos segundos</b><span>Así compruebas el resultado en minutos antes de procesar la bobina entera.</span></div></li>
+      <li><div><b>Procesa y compara</b><span>Obtienes el máster, la copia mejorada, un vídeo comparativo completo y un informe con lo que ha cambiado, medido.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt" id="requisitos">
+  <div class="wrap grid2">
+    <div>
+      <div class="eyebrow">Requisitos</div>
+      <h2>¿Funciona en mi ordenador?</h2>
+      <p>Sí, en cualquier PC con Windows reciente. <b>No hace falta tarjeta gráfica</b>: sin ella todo funciona igual, solo que más despacio. La app detecta sola lo que tienes y se adapta.</p>
+      <div class="note">La primera vez necesita Internet para instalar sus componentes (Python, FFmpeg y los motores de IA). Después trabaja sin conexión.</div>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th></th><th>Mínimo</th><th>Recomendado</th></tr></thead>
+        <tbody>
+          <tr><td><b>Sistema</b></td><td>Windows 10 de 64 bits</td><td>Windows 11</td></tr>
+          <tr><td><b>Gráfica</b></td><td>No necesaria</td><td>NVIDIA RTX con 8 GB o más</td></tr>
+          <tr><td><b>Memoria</b></td><td>8 GB</td><td>16 GB</td></tr>
+          <tr><td><b>Disco libre</b></td><td>3 GB + 10 veces el vídeo</td><td>SSD con 50 GB</td></tr>
+          <tr><td><b>Tiempo por bobina</b></td><td>De 30 min a varias horas</td><td>Minutos a 1 hora</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="descargar">
+  <div class="wrap">
+    <div class="card dl">
+      <div>
+        <div class="eyebrow">Descarga</div>
+        <h2 style="margin-bottom:.3em">Restaurador Super 8</h2>
+        <p class="meta">Para Windows · Gratuita · Incluye instrucciones (LEEME.txt)</p>
+      </div>
+      <div class="actions" style="margin:0">
+        <a class="btn btn-primary" href="./Restaurador_Super8.zip" download>Descargar la app <small>ZIP</small></a>
+        <a class="btn btn-ghost" href="./Informe_Restaurador_Super8.pdf" target="_blank" rel="noopener">Informe técnico <small>PDF</small></a>
+      </div>
+    </div>
+    <h3 style="margin-top:36px">Instalación</h3>
+    <ol class="steps" style="margin-top:16px">
+      <li><div><b>Descomprime el ZIP</b><span>En una carpeta sencilla, por ejemplo <code>D:\Restaurador_Super8</code>. Mejor fuera del Escritorio si lo tienes sincronizado con OneDrive.</span></div></li>
+      <li><div><b>Doble clic en EJECUTAR.bat</b><span>La primera vez instala lo necesario y tarda un rato. Si Windows avisa, pulsa «Más información» y «Ejecutar de todas formas».</span></div></li>
+      <li><div><b>Se abre en tu navegador</b><span>La app funciona en tu propio equipo (dirección 127.0.0.1). Para cerrarla, usa DETENER.bat.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt" id="preguntas">
+  <div class="wrap">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2>Dudas habituales</h2>
+    <details><summary>¿Se suben mis vídeos a algún sitio?</summary><p>No. Todo el proceso ocurre en tu ordenador. La app solo usa Internet la primera vez, para descargar sus componentes.</p></details>
+    <details><summary>¿La inteligencia artificial cambia mis recuerdos?</summary><p>El máster restaurado no usa IA generativa: solo limpia y estabiliza lo que ya estaba. La copia mejorada sí estima detalle para ampliar la imagen; por eso se guarda aparte y puedes decidir cuánto peso darle.</p></details>
+    <details><summary>Mi vídeo se ve borroso. ¿Lo dejará nítido?</summary><p>La calidad final depende sobre todo de cómo se digitalizó la película. La app mide cuánto detalle real contiene y no amplía más de lo que tiene sentido. Si una bobina es muy valiosa, un reescaneado profesional a 2K o 4K es lo que más mejora el resultado.</p></details>
+    <details><summary>¿Qué formatos acepta?</summary><p>Los habituales: MP4, MOV, AVI, MKV, DV… Entrega un máster sin pérdida (MKV) y una copia MP4 que se reproduce en cualquier tele, ordenador o móvil.</p></details>
+    <details><summary>Windows dice que el archivo podría ser peligroso</summary><p>Es el aviso normal para programas descargados que no están firmados por una empresa. El ZIP solo contiene scripts y código Python que puedes abrir y revisar con el Bloc de notas.</p></details>
+    <details><summary>¿Cuánto tarda?</summary><p>Depende del equipo y de lo que pidas. Con «Analizar y proponer parámetros» indicas el tiempo disponible (20 minutos, una hora, toda la noche…) y la app elige la mejor calidad que cabe en ese tiempo.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Restaurador Super 8 · Una herramienta de <a href="/aplicaciones">mbainative.com</a>. Usa software libre: FFmpeg, OpenCV, Real-ESRGAN, RIFE y PyTorch.</p>
+    <p>Se ofrece tal cual, sin garantía. Haz siempre una copia de tus vídeos originales antes de procesarlos.</p>
+  </div>
+</footer>
+<div class="strip" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var ba = document.getElementById('ba'), knob = ba.querySelector('.knob');
+  var A = document.getElementById('baA'), D = document.getElementById('baD');
+  function set(p){ p = Math.max(0, Math.min(100, p)); ba.style.setProperty('--pos', p + '%'); knob.setAttribute('aria-valuenow', Math.round(p)); }
+  function fromEvent(e){ var r = ba.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+  var drag = false;
+  ba.addEventListener('pointerdown', function(e){ drag = true; ba.setPointerCapture(e.pointerId); fromEvent(e); });
+  ba.addEventListener('pointermove', function(e){ if (drag) fromEvent(e); });
+  ba.addEventListener('pointerup', function(){ drag = false; });
+  ba.addEventListener('pointercancel', function(){ drag = false; });
+  knob.addEventListener('keydown', function(e){
+    var p = parseFloat(getComputedStyle(ba).getPropertyValue('--pos')) || 50;
+    if (e.key === 'ArrowLeft') { set(p - 5); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { set(p + 5); e.preventDefault(); }
+  });
+  document.querySelectorAll('.thumbs button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var i = b.getAttribute('data-i');
+      A.src = 'antes_' + i + '.jpg'; D.src = 'despues_' + i + '.jpg';
+      document.querySelectorAll('.thumbs button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      set(50);
+    });
+  });
+})();
+</script>
+</body>
+</html>

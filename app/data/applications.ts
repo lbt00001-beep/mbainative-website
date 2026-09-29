@@ -129,6 +129,13 @@ export const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Restaurador Super 8 — Películas de 8 mm",
+        descripcion: "App gratuita para Windows que limpia polvo y rayas, estabiliza, corrige parpadeo y color, y mejora resolución y fluidez con IA las películas Super 8 y 8 mm digitalizadas. Funciona en tu ordenador, con o sin GPU.",
+        url: "/restaurador-super8/index.html",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "Generador de Guiones",
         descripcion: "Crea guiones profesionales para vídeos usando IA.",
         url: "#",
@@ -224,6 +231,13 @@ export const categorias = [
     icono: "🚀",
     descripcion: "Soluciones avanzadas de inteligencia artificial para optimizar tus procesos de revisión, análisis y trabajo diario.",
     apps: [
+      {
+        nombre: "Buscador Segunda Mano (Wallapop, Milanuncios y Vinted)",
+        descripcion: "Búsqueda multitienda simultánea con coincidencia exacta (sin aproximaciones como 3060/3070 al buscar 3090), ordenación por precio, cercanía a Madrid y fecha del anuncio.",
+        url: "/aplicaciones/buscador-segundamano",
+        tipo: "interno",
+        estado: "disponible"
+      },
       {
         nombre: "Generador Autónomo de Masterclass (MBAI Presenter)",
         descripcion: "Introduce un tema o sube un PDF y la IA investigará, redactará el guion y las notas del orador, buscará ilustraciones y generará una presentación visual interactiva. 100% en tu navegador.",

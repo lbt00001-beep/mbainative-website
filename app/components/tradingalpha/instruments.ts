@@ -4,6 +4,7 @@ export interface InstrumentConfig {
   label?: string;
   receiptRatio?: number;
   receiptQuoteUnavailable?: boolean;
+  sameShareListing?: boolean;
   warning?: string;
   sourceUrl?: string;
   marketUrl?: string;
@@ -14,6 +15,13 @@ export interface InstrumentConfig {
 // Use the Korean ordinary share for company fundamentals, while the chart and
 // displayed market price continue to belong to the selected London instrument.
 const SPECIAL_INSTRUMENTS: Record<string, InstrumentConfig> = {
+  ASML: {
+    quoteTicker: 'ASML.AS',
+    label: 'ASML Holding N.V.',
+    sameShareListing: true,
+    warning: 'ASML cotiza como acción ordinaria en Nasdaq (USD) y Ámsterdam (EUR). Yahoo entrega la contabilidad en EUR. PER, BPA, objetivos y DCF se toman de ASML.AS en EUR; gráfico y precio mostrado, de ASML en USD. No se convierte el valor en EUR a USD.',
+    sourceUrl: 'https://www.asml.com/en/investors/shares',
+  },
   'SMSN.IL': {
     quoteTicker: '005930.KS',
     label: 'Samsung Electronics GDR, Londres',

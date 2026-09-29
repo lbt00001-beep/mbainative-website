@@ -28,6 +28,14 @@ test('London GDRs without reliable Yahoo prices use the named ordinary share for
   }
 });
 
+test('ASML Nasdaq keeps its USD chart while using the EUR ordinary-share listing for fundamentals', () => {
+  const config = getInstrumentConfig('ASML');
+  assert.equal(config.quoteTicker, 'ASML.AS');
+  assert.equal(config.chartTicker, undefined);
+  assert.equal(config.sameShareListing, true);
+  assert.equal(config.receiptRatio, undefined);
+});
+
 test('Samsung ordinary share shows labeled TTM approximation and dated forward estimates', () => {
   const result = earningsMetrics({
     price: { currency: 'KRW', regularMarketPrice: { raw: 272500 } },

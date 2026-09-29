@@ -431,6 +431,7 @@ export default function TradingAlpha() {
         fundamentalPrice: valuationPrice,
         receiptRatio: instrument.receiptRatio,
         receiptQuoteUnavailable: instrument.receiptQuoteUnavailable,
+        sameShareListing: instrument.sameShareListing,
         valuationComparable: sameFinancialCurrency,
         marginOfSafety: dcfResult?.marginOfSafety,
         rsi: technicalSummary.rsi14,
@@ -758,7 +759,7 @@ export default function TradingAlpha() {
         </div>
       )}
 
-      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {priceTicker}. {instrument.sourceUrl && <a href={instrument.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100">Ver proporción en la fuente oficial ↗</a>} {instrument.marketUrl && <a href={instrument.marketUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100 ml-2">Ver ficha del GDR en la bolsa ↗</a>}</div>}
+      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {priceTicker}. {instrument.sourceUrl && <a href={instrument.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100">Ver estructura de cotización en la fuente oficial ↗</a>} {instrument.marketUrl && <a href={instrument.marketUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100 ml-2">Ver ficha del GDR en la bolsa ↗</a>}</div>}
       {!instrument.warning && safeQuoteData && priceObj.currency && fin.financialCurrency && priceObj.currency !== fin.financialCurrency && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">La cotización de {ticker} está en {priceObj.currency} y sus estados financieros en {fin.financialCurrency}. Sin una correspondencia verificada entre precio, moneda y número de acciones, se omiten el PER inferido y el DCF. Si se trata de un ADR o GDR, analiza también la acción ordinaria correspondiente.</div>}
 
       {/* 2. Real-Time Hero Header & Quote Strip */}

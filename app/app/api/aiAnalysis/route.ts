@@ -37,6 +37,7 @@ export async function POST(request: NextRequest) {
       fundamentalPrice,
       receiptRatio,
       receiptQuoteUnavailable,
+      sameShareListing,
       valuationComparable,
       marginOfSafety,
       rsi,
@@ -67,9 +68,11 @@ export async function POST(request: NextRequest) {
     const ordinaryCurrency = typeof fundamentalCurrency === 'string' && /^[A-Z]{3}$/.test(fundamentalCurrency)
       ? fundamentalCurrency : currency;
     const isReceipt = ordinaryTicker.toUpperCase() !== pricedTicker.toUpperCase();
-    const instrumentBasis = isReceipt
-      ? `- Instrumentos distintos: ${pricedTicker} cotiza a ${price ?? 'N/D'} ${currency} por recibo; ${ordinaryTicker} cotiza a ${fundamentalPrice ?? 'N/D'} ${ordinaryCurrency} por acción ordinaria. Cada recibo representa ${receiptRatio ?? 'N/D'} acciones ordinarias. Los fundamentales y el DCF corresponden a ${ordinaryTicker}. No compares el DCF por acción ordinaria con el precio por recibo sin aplicar la ratio y la conversión de divisa.`
-      : `- Los fundamentales y el DCF corresponden a ${ordinaryTicker} en ${ordinaryCurrency}. ${receiptQuoteUnavailable === true ? `El usuario buscó ${ticker}, pero su GDR carece de cotización fiable en Yahoo: ${price ?? 'N/D'} ${currency} es el precio de la acción ordinaria ${pricedTicker}, no del GDR. No atribuyas su precio, gráfico ni variación al GDR.` : ''}`;
+    const instrumentBasis = sameShareListing === true && isReceipt
+      ? `- La misma acción ordinaria cotiza en dos mercados: ${pricedTicker} a ${price ?? 'N/D'} ${currency} y ${ordinaryTicker} a ${fundamentalPrice ?? 'N/D'} ${ordinaryCurrency}. Los fundamentales, el PER y el DCF se calculan con ${ordinaryTicker} en ${ordinaryCurrency}. No es un ADR/GDR: no apliques ratio de recibo. No compares los precios ni el DCF entre monedas sin conversión de divisa.`
+      : isReceipt
+        ? `- Instrumentos distintos: ${pricedTicker} cotiza a ${price ?? 'N/D'} ${currency} por recibo; ${ordinaryTicker} cotiza a ${fundamentalPrice ?? 'N/D'} ${ordinaryCurrency} por acción ordinaria. Cada recibo representa ${receiptRatio ?? 'N/D'} acciones ordinarias. Los fundamentales y el DCF corresponden a ${ordinaryTicker}. No compares el DCF por acción ordinaria con el precio por recibo sin aplicar la ratio y la conversión de divisa.`
+        : `- Los fundamentales y el DCF corresponden a ${ordinaryTicker} en ${ordinaryCurrency}. ${receiptQuoteUnavailable === true ? `El usuario buscó ${ticker}, pero su GDR carece de cotización fiable en Yahoo: ${price ?? 'N/D'} ${currency} es el precio de la acción ordinaria ${pricedTicker}, no del GDR. No atribuyas su precio, gráfico ni variación al GDR.` : ''}`;
     const comparabilityNote = valuationComparable === false
       ? 'La puntuación es parcial: los múltiplos de valoración y el DCF no son comparables con seguridad por diferencia o ausencia de moneda contable. No infieras PER, margen de seguridad ni recomendación de compra a partir de esas cifras.'
       : 'Interpreta las métricas de valoración en la unidad del instrumento indicada.';

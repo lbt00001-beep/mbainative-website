@@ -116,6 +116,23 @@ test('AI prompt does not describe an ordinary-share fallback as a GDR quote', as
   assert.match(prompt,/no del GDR/);
   assert.doesNotMatch(prompt,/36 TWD por recibo/);
 });
+test('AI prompt distinguishes ASML ordinary-share listings and currencies without a receipt ratio', async t => {
+  let prompt = '';
+  t.mock.method(globalThis,'fetch',async (_url: unknown, options?: RequestInit) => {
+    prompt = JSON.parse(String(options?.body)).messages[1].content;
+    return Response.json({choices:[{message:{content:'### 1. Resultado'}}]});
+  });
+  const result = await analysis(request({
+    userApiKey:key, ticker:'ASML', marketTicker:'ASML', model:DEFAULT_AI_MODEL,
+    price:1834, currency:'USD', fundamentalTicker:'ASML.AS', fundamentalCurrency:'EUR',
+    fundamentalPrice:1601, sameShareListing:true, dcfFairValue:1700,
+  }));
+  assert.equal(result.status,200);
+  assert.match(prompt,/misma acción ordinaria cotiza en dos mercados/);
+  assert.match(prompt,/1834 USD/);
+  assert.match(prompt,/1700 EUR por acción de ASML\.AS/);
+  assert.doesNotMatch(prompt,/1834 USD por recibo/);
+});
 test('provider failures do not expose raw errors or keys', async t => {
   t.mock.method(globalThis,'fetch',async () => new Response('secret upstream detail '+key,{status:500}));
   const result=await analysis(request({userApiKey:key,ticker:'AAPL',model:DEFAULT_AI_MODEL}));

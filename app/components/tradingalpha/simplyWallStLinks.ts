@@ -8,6 +8,7 @@ const REPORTS: Record<string, string> = {
   META: 'https://simplywall.st/stocks/us/media/nasdaq-meta/meta-platforms',
   TSLA: 'https://simplywall.st/stocks/us/automobiles/nasdaq-tsla/tesla',
   ASML: 'https://simplywall.st/stocks/us/semiconductors/nasdaq-asml/asml-holding',
+  BIDU: 'https://simplywall.st/stocks/us/media/nasdaq-bidu/baidu',
   'ASML.AS': 'https://simplywall.st/stocks/nl/semiconductors/ams-asml/asml-holding-shares',
   'ITX.MC': 'https://simplywall.st/stocks/es/retail/bme-itx/industria-de-diseno-textil-shares',
   'SAN.MC': 'https://simplywall.st/stocks/es/banks/bme-san/banco-santander-shares',

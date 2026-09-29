@@ -80,6 +80,7 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
   const revenue = rows.length ? rows[rows.length - 1].revenue : null;
   const rdIntensity = rd != null && revenue != null && revenue > 0 ? rd / revenue * 100 : null;
   const roe = raw(fin.returnOnEquity);
+  const trailingLoss = (raw(data?.defaultKeyStatistics?.netIncomeToCommon) ?? raw(data?.defaultKeyStatistics?.trailingEps) ?? 0) < 0;
 
   return (
     <div className="space-y-5">
@@ -91,12 +92,12 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
         </a>
         {!externalReport.direct && <p className="text-xs text-slate-500 mt-1">La ficha exacta aún no está verificada; se abre una búsqueda limitada a Simply Wall St.</p>}
         {ticker !== quoteTicker && <p className="text-xs text-amber-300 mt-3">Cotización seleccionada: {ticker} ({selectedCurrency}). Fundamentales de la acción ordinaria {quoteTicker} ({financialCurrency}). Las cifras por acción y las valoraciones corresponden a {quoteTicker}.</p>}
-        {!sameCurrency && <p className="text-xs text-amber-300 mt-2">Monedas distintas: se omiten múltiplos y porcentajes que mezclen {quoteCurrency} con {financialCurrency}.</p>}
+        {!sameCurrency && <p className="text-xs text-amber-300 mt-2">Cotización en {quoteCurrency} y estados contables en {financialCurrency}. Solo se muestran PER y BPA por acción cuando Yahoo los publica en una escala coherente con el precio; se omiten cálculos que mezclen ambas monedas.</p>}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3">
         {[
-          { label: 'PER TTM', value: trailingPE == null ? 'N/D' : `${trailingPE.toFixed(1)}×`, note: trailingPEApproximate ? 'Aproximado: precio / (beneficio TTM / acciones actuales)' : 'Dato publicado por Yahoo Finance' },
+          { label: 'PER TTM', value: trailingPE == null ? 'N/D' : `${trailingPE.toFixed(1)}×`, note: trailingPE == null && trailingLoss ? 'No aplicable: beneficio TTM negativo según Yahoo' : trailingPEApproximate ? 'Aproximado: precio / (beneficio TTM / acciones actuales)' : 'Dato publicado por Yahoo Finance' },
           { label: 'PER próximo ejercicio', value: forwardPE == null ? 'N/D' : `${forwardPE.toFixed(1)}×`, note: forwardPeriod ? `Consenso para ejercicio terminado en ${forwardPeriod}` : 'Previsión de Yahoo; ejercicio no identificado' },
           { label: 'BPA estimado', value: money(forwardEPS, quoteCurrency), note: forwardPeriod ? `Consenso para ejercicio terminado en ${forwardPeriod}` : 'Previsión de Yahoo; confirma ejercicio y cobertura' },
           { label: 'ROE', value: percent(roe == null ? null : roe * 100), note: 'Beneficio / patrimonio; revisar apalancamiento' },

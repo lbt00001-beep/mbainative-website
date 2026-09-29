@@ -15,6 +15,13 @@ export interface InstrumentConfig {
 // Use the Korean ordinary share for company fundamentals, while the chart and
 // displayed market price continue to belong to the selected London instrument.
 const SPECIAL_INSTRUMENTS: Record<string, InstrumentConfig> = {
+  BIDU: {
+    quoteTicker: 'BIDU',
+    label: 'Baidu ADS, Nasdaq',
+    receiptRatio: 8,
+    warning: 'Cada ADS de BIDU representa 8 acciones ordinarias. Yahoo cotiza el ADS en USD y publica los estados financieros en CNY. Solo se muestran PER y BPA por ADS si concuerdan con el precio; el PER TTM no se aplica cuando hay pérdidas. Se omiten DCF y ratios que crucen monedas.',
+    sourceUrl: 'https://ir.baidu.com/shareholder-services/investor-faqs',
+  },
   ASML: {
     quoteTicker: 'ASML.AS',
     label: 'ASML Holding N.V.',

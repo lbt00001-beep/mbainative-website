@@ -36,6 +36,13 @@ test('ASML Nasdaq keeps its USD chart while using the EUR ordinary-share listing
   assert.equal(config.receiptRatio, undefined);
 });
 
+test('BIDU records the issuer-verified ADS ratio without changing the Yahoo ticker', () => {
+  const config = getInstrumentConfig('BIDU');
+  assert.equal(config.quoteTicker, 'BIDU');
+  assert.equal(config.receiptRatio, 8);
+  assert.match(config.sourceUrl || '', /^https:\/\/ir\.baidu\.com\//);
+});
+
 test('Samsung ordinary share shows labeled TTM approximation and dated forward estimates', () => {
   const result = earningsMetrics({
     price: { currency: 'KRW', regularMarketPrice: { raw: 272500 } },
@@ -66,6 +73,39 @@ test('different accounting currency cannot produce an inferred PER', () => {
   });
   assert.equal(result.trailingPE, null);
   assert.equal(result.forwardPE, null);
+});
+
+test('BIDU uses the USD ADS forecast only when Yahoo price, EPS and PER reconcile', () => {
+  const result = earningsMetrics({
+    price: { currency: 'USD', regularMarketPrice: { raw: 86.71 } },
+    financialData: { financialCurrency: 'CNY' },
+    summaryDetail: { trailingPE: null, forwardPE: { raw: 11.188242 } },
+    defaultKeyStatistics: {
+      trailingEps: { raw: -2.34 },
+      forwardEps: { raw: 7.7501006 },
+      forwardPE: { raw: 1.670438 }, // Yahoo also returns an incompatible mixed-currency ratio.
+      netIncomeToCommon: { raw: -4709000192 },
+      sharesOutstanding: { raw: 275068110 },
+    },
+    earningsTrend: { trend: [{ period: '+1y', endDate: '2027-12-31', epsTrend: {
+      current: { raw: 51.90854 }, epsTrendCurrency: 'CNY',
+    } }] },
+  });
+  assert.equal(result.trailingPE, null);
+  assert.equal(result.forwardPE, 11.188242);
+  assert.equal(result.forwardEPS, 7.7501006);
+  assert.equal(result.forwardPeriod, null);
+});
+
+test('cross-currency Yahoo forecast stays hidden when the published ratio is incompatible', () => {
+  const result = earningsMetrics({
+    price: { currency: 'USD', regularMarketPrice: { raw: 86.71 } },
+    financialData: { financialCurrency: 'CNY' },
+    summaryDetail: { forwardPE: { raw: 1.67 } },
+    defaultKeyStatistics: { forwardEps: { raw: 7.75 }, forwardPE: { raw: 1.67 } },
+  });
+  assert.equal(result.forwardPE, null);
+  assert.equal(result.forwardEPS, null);
 });
 
 test('daily move uses the preceding session, never the start of the selected chart range', () => {

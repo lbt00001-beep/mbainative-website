@@ -3,6 +3,13 @@ function raw(value: any): number | null {
   return typeof number === 'number' && Number.isFinite(number) ? number : null;
 }
 
+function matchesPriceAndEps(price: number | null, eps: number | null, pe: number | null): boolean {
+  if (price == null || price <= 0 || eps == null || eps <= 0 || pe == null || pe <= 0) return false;
+  // Yahoo sometimes expresses a ratio using CNY EPS and a USD ADS price.
+  // Only accept a cross-currency per-share pair when the quoted ratio reconciles.
+  return Math.abs(price / eps - pe) / pe <= 0.05;
+}
+
 export interface EarningsMetrics {
   trailingPE: number | null;
   trailingPEApproximate: boolean;
@@ -31,9 +38,10 @@ export function earningsMetrics(data: any): EarningsMetrics {
   const estimatedTrailingEPS = sameCurrency && netIncome != null && netIncome > 0 && shares != null && shares > 0
     ? netIncome / shares : null;
   const reportedTrailingEPS = raw(stats.trailingEps);
-  const trailingEPS = sameCurrency ? (reportedTrailingEPS ?? estimatedTrailingEPS) : null;
   const reportedTrailingPE = raw(summary.trailingPE);
-  const trailingPE = sameCurrency
+  const comparableTrailing = sameCurrency || matchesPriceAndEps(quotePrice, reportedTrailingEPS, reportedTrailingPE);
+  const trailingEPS = comparableTrailing ? (reportedTrailingEPS ?? estimatedTrailingEPS) : null;
+  const trailingPE = comparableTrailing
     ? (reportedTrailingPE != null && reportedTrailingPE > 0 ? reportedTrailingPE
       : trailingEPS != null && trailingEPS > 0 && quotePrice != null && quotePrice > 0 ? quotePrice / trailingEPS : null)
     : null;
@@ -43,11 +51,17 @@ export function earningsMetrics(data: any): EarningsMetrics {
   const estimateCurrency = nextYear?.epsTrend?.epsTrendCurrency || nextYear?.earningsEstimate?.earningsCurrency || price.currency;
   const estimatedForwardEPS = estimateCurrency === price.currency
     ? (raw(nextYear?.epsTrend?.current) ?? raw(nextYear?.earningsEstimate?.avg)) : null;
-  const forwardEPS = sameCurrency ? (raw(stats.forwardEps) ?? estimatedForwardEPS) : null;
-  const reportedForwardPE = raw(stats.forwardPE);
-  const forwardPE = sameCurrency
-    ? (reportedForwardPE != null && reportedForwardPE > 0 ? reportedForwardPE
-      : forwardEPS != null && forwardEPS > 0 && quotePrice != null && quotePrice > 0 ? quotePrice / forwardEPS : null)
+  const reportedForwardEPS = raw(stats.forwardEps);
+  const summaryForwardPE = raw(summary.forwardPE);
+  const statsForwardPE = raw(stats.forwardPE);
+  const comparableForward = sameCurrency || matchesPriceAndEps(quotePrice, reportedForwardEPS, summaryForwardPE)
+    || matchesPriceAndEps(quotePrice, reportedForwardEPS, statsForwardPE);
+  const forwardEPS = comparableForward ? (reportedForwardEPS ?? estimatedForwardEPS) : null;
+  const reportedComparablePE = [summaryForwardPE, statsForwardPE].find(pe => matchesPriceAndEps(quotePrice, forwardEPS, pe))
+    ?? (sameCurrency && forwardEPS == null ? [summaryForwardPE, statsForwardPE].find(pe => pe != null && pe > 0) : null);
+  const forwardPE = comparableForward
+    ? (reportedComparablePE
+      ?? (forwardEPS != null && forwardEPS > 0 && quotePrice != null && quotePrice > 0 ? quotePrice / forwardEPS : null))
     : null;
 
   return {
@@ -57,6 +71,6 @@ export function earningsMetrics(data: any): EarningsMetrics {
     trailingEPSApproximate: reportedTrailingEPS == null && trailingEPS != null,
     forwardPE,
     forwardEPS,
-    forwardPeriod: nextYear?.endDate || null,
+    forwardPeriod: sameCurrency || estimateCurrency === price.currency ? nextYear?.endDate || null : null,
   };
 }

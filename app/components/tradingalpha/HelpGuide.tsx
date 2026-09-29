@@ -7,6 +7,7 @@ interface HelpSection {
   title: string;
   icon: string;
   badge: string;
+  keywords?: string;
   content: React.ReactNode;
 }
 
@@ -253,8 +254,9 @@ export default function HelpGuide() {
               <div className="space-y-1.5 text-xs text-slate-300 pl-2">
                 <li>• <strong>Free Cash Flow (FCF):</strong> El dinero real sobrante en la caja tras pagar todos los sueldos, materias primas e inversiones en maquinaria.</li>
                 <li>• <strong>Tasa de Descuento (WACC):</strong> Como 100$ de dentro de 5 años valen menos que 100$ hoy (por la inflación y el riesgo), descontamos los flujos futuros con esta tasa (típicamente entre el 8% y el 10%).</li>
-                <li>• <strong>Margen de Seguridad (%):</strong> Si el valor intrínseco calculado es de 100$ y la acción cotiza a 75$, tienes un <strong>25% de margen de seguridad</strong>. Es tu escudo protector contra errores de cálculo o imprevistos del mercado.</li>
+                <li>• <strong>Margen mostrado (%):</strong> TradingAlpha calcula (valor estimado − precio actual) / precio actual × 100. Si el valor estimado es 100$ y el precio es 75$, muestra +33,3%. Es un resultado del escenario, no una garantía de rentabilidad.</li>
               </div>
+              <p className="text-xs text-slate-400 mt-3">La simulación proyecta cinco años. Si Yahoo informa un crecimiento de ingresos negativo o superior al 30%, la vista inicial utiliza una hipótesis normalizada del 10% anual para no prolongar una cifra excepcional. Puedes modificar la tasa en la pestaña DCF. El precio, el flujo de caja y las acciones en circulación deben corresponder a la misma acción y moneda.</p>
             </div>
 
             {/* Peter Lynch */}
@@ -433,6 +435,57 @@ export default function HelpGuide() {
         </div>
       ),
     },
+    {
+      id: 'global-tickers',
+      title: '9. Tickers internacionales y el GDR de Samsung',
+      icon: '🌍',
+      badge: 'Fuentes',
+      keywords: 'SMSN.IL SMSN.L 005930.KS Londres Corea Yahoo moneda divisa S&P 500 cotización',
+      content: (
+        <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
+          <p>Puedes escribir un símbolo de Yahoo Finance aunque no esté en el directorio S&amp;P 500. Ese directorio es un atajo de búsqueda, no el universo completo de TradingAlpha. Comprueba siempre la bolsa y la moneda indicadas junto al precio.</p>
+          <div className="bg-[#141d30] p-4 rounded-xl border border-[#223048] space-y-2">
+            <h5 className="font-bold text-white">Samsung: recibo de Londres y acción coreana</h5>
+            <p className="text-xs text-slate-300"><strong>SMSN.IL</strong> es un GDR de Londres que representa 25 acciones ordinarias. Su gráfico y su cotización se muestran en USD. Los estados financieros y múltiplos de la empresa se consultan con <strong>005930.KS</strong>, la acción ordinaria coreana, en KRW. Las cifras por acción y el DCF pertenecen a 005930.KS; no debes comparar directamente su PER o su valor estimado con el precio en USD del GDR.</p>
+            <p className="text-xs text-slate-400">SMSN.L es un símbolo alternativo cuya cotización en Yahoo puede estar desactualizada. Cuando precio y datos contables usan monedas incompatibles, la app omite los ratios que las mezclarían.</p>
+          </div>
+          <p>La variación diaria del GDR compara su precio con el cierre de la sesión anterior. El inicio del intervalo elegido para el gráfico no es el cierre anterior.</p>
+        </div>
+      ),
+    },
+    {
+      id: 'analyst-consensus',
+      title: '10. PER, BPA y gráficos de analistas',
+      icon: '🧮',
+      badge: 'Fundamental',
+      keywords: 'PER TTM forward previsto Samsung BPA EPS consenso objetivo Simply Wall St estimaciones recomendaciones',
+      content: (
+        <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
+          <p>Abre <strong>Decisión Fundamental</strong> para ver dos periodos distintos. El <strong>PER TTM</strong> relaciona el precio con el beneficio de los últimos doce meses. El <strong>PER próximo ejercicio</strong> usa beneficios previstos y muestra el cierre del ejercicio del consenso. Por eso pueden aparecer valores tan distintos como 11,6× y 3,8× para Samsung; son mediciones de periodos diferentes y cambian con los datos.</p>
+          <p>Si Yahoo no publica el PER o el BPA TTM, TradingAlpha puede estimarlos con el beneficio neto atribuible y las acciones en circulación actuales de la misma moneda. En ese caso aparece <strong>«aprox.»</strong>. Si faltan datos comparables, muestra N/D. El BPA previsto y su fecha proceden del consenso disponible en Yahoo.</p>
+          <div className="bg-[#141d30] p-4 rounded-xl border border-[#223048] space-y-2">
+            <h5 className="font-bold text-white">Cómo leer los gráficos</h5>
+            <p className="text-xs text-slate-300"><strong>Tendencia de recomendaciones:</strong> media de las calificaciones publicadas para cada mes disponible; 1 equivale a compra fuerte y 5 a venta fuerte. Una línea descendente indica una opinión media más favorable. La cobertura puede variar entre meses.</p>
+            <p className="text-xs text-slate-300"><strong>Revisión del BPA estimado:</strong> compara las estimaciones registradas durante los últimos 90 días para un mismo ejercicio fiscal y en su moneda. Se necesita más de una observación comparable para dibujar cada línea.</p>
+          </div>
+          <p>La sección también muestra el rango de objetivos a 12 meses y el número de analistas. Los objetivos son opiniones, no valores intrínsecos. Los gráficos proceden de Yahoo Finance; el enlace a Simply Wall St abre su informe o una búsqueda externa, pero no aporta datos al gráfico ni reproduce su histórico de objetivos.</p>
+        </div>
+      ),
+    },
+    {
+      id: 'institutional-holdings',
+      title: '11. Grandes gestores y posiciones 13F',
+      icon: '🏦',
+      badge: 'Institucional',
+      keywords: 'BlackRock Vanguard State Street Fidelity propiedad cartera SEC indice exposición 13F ranking',
+      content: (
+        <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
+          <p>La pestaña <strong>Grandes Gestores</strong> ordena acciones según posiciones declaradas en informes 13F a la SEC. Para cada gestor calcula su participación estimada en la empresa y el peso de esa posición dentro de su cartera 13F. El índice suma <strong>100 × participación × peso 13F</strong> de los gestores incluidos.</p>
+          <p>Se examinan las 25 mayores posiciones ordinarias de cada entidad declarante y se excluyen ADR/ADS, opciones y fondos. El detalle de cada fila muestra los aportes de cada gestor y enlaces a los informes utilizados. Las acciones en circulación actuales de Yahoo pueden no coincidir con la fecha de declaración del 13F.</p>
+          <p>Una posición grande mide <strong>exposición observada</strong>, no cuánto «arriesga» activamente el gestor ni una recomendación de compra. BlackRock, Vanguard y State Street también administran fondos que replican índices. Un 13F no recoge toda la cartera, las posiciones cortas ni las cotizaciones de Londres o Corea; tampoco se agregan todas las filiales de un grupo.</p>
+        </div>
+      ),
+    },
   ];
 
   const filteredSections = sections.filter((s) => {
@@ -441,7 +494,8 @@ export default function HelpGuide() {
     return (
       s.title.toLowerCase().includes(q) ||
       s.badge.toLowerCase().includes(q) ||
-      s.id.toLowerCase().includes(q)
+      s.id.toLowerCase().includes(q) ||
+      s.keywords?.toLowerCase().includes(q)
     );
   });
 
@@ -461,7 +515,7 @@ export default function HelpGuide() {
             <span>🎓</span> Guía Completa de TradingAlpha: Conceptos, Modelos y Uso
           </h2>
           <p className="text-xs text-slate-400 mt-1 max-w-2xl">
-            Explicación ordenada y accesible de todos los principios financieros: velas japonesas, medias móviles, valoración intrínseca DCF, salud contable y psicología de masas.
+            Explicación de indicadores, DCF, tickers internacionales, PER, consenso de analistas y posiciones de grandes gestores.
           </p>
         </div>
 

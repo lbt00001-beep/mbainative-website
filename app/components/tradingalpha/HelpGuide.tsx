@@ -265,6 +265,7 @@ export default function HelpGuide() {
               <p className="text-xs text-slate-400">
                 Peter Lynch, el legendario gestor del fondo Magellan de Fidelity, popularizó la regla de que el ratio PER (Precio / Beneficio) de una empresa bien gestionada debería ser equivalente a su tasa de crecimiento sostenible. Si una empresa con beneficios creciendo al 20% anual cotiza a un PER de 12, está infravalorada.
               </p>
+              <p className="text-xs text-slate-400 mt-2">TradingAlpha calcula un escenario orientativo multiplicando el BPA positivo por la tasa de crecimiento expresada en porcentaje. Cuando Yahoo ofrece estimaciones anuales comparables, propone la variación del BPA entre el ejercicio actual y el siguiente como hipótesis inicial editable. Esa variación de un solo año no demuestra crecimiento sostenible. Si es negativa, supera el 50%, falta un BPA positivo o las monedas de las estimaciones difieren, debes introducir una hipótesis prudente o se mostrará N/D. El escenario de Lynch puede aparecer aunque falten datos para el DCF; ambos modelos tienen requisitos distintos.</p>
             </div>
 
             {/* Benjamin Graham */}

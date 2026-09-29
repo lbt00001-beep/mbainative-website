@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { dcfGrowthAssumption, earningsMetrics } from '../components/tradingalpha/fundamentalMetrics';
+import { annualEpsGrowthEstimate, dcfGrowthAssumption, earningsMetrics } from '../components/tradingalpha/fundamentalMetrics';
+import { calculatePeterLynchFairValue } from '../components/tradingalpha/financialEngine';
 import { getInstrumentConfig } from '../components/tradingalpha/instruments';
 import { dailyPriceChange } from '../components/tradingalpha/marketChange';
 
@@ -106,6 +107,26 @@ test('cross-currency Yahoo forecast stays hidden when the published ratio is inc
   });
   assert.equal(result.forwardPE, null);
   assert.equal(result.forwardEPS, null);
+});
+
+test('Lynch starts from two comparable annual EPS estimates rather than an empty growth field', () => {
+  const estimate = annualEpsGrowthEstimate({ earningsTrend: { trend: [
+    { period: '0y', endDate: '2026-09-30', epsTrend: { current: { raw: 8.8 }, epsTrendCurrency: 'USD' } },
+    { period: '+1y', endDate: '2027-09-30', epsTrend: { current: { raw: 9.68 }, epsTrendCurrency: 'USD' } },
+  ] } });
+  assert.ok(estimate);
+  assert.ok(Math.abs(estimate.rate - 10) < 0.00001);
+  assert.equal(calculatePeterLynchFairValue(8.73, estimate.rate / 100), 87.3);
+});
+
+test('Lynch does not infer growth from incompatible currencies or nonpositive EPS', () => {
+  const trend = (base: number, nextCurrency: string) => ({ earningsTrend: { trend: [
+    { period: '0y', endDate: '2026-12-31', epsTrend: { current: { raw: base }, epsTrendCurrency: 'USD' } },
+    { period: '+1y', endDate: '2027-12-31', epsTrend: { current: { raw: 12 }, epsTrendCurrency: nextCurrency } },
+  ] } });
+  assert.equal(annualEpsGrowthEstimate(trend(10, 'CNY')), null);
+  assert.equal(annualEpsGrowthEstimate(trend(-10, 'USD')), null);
+  assert.equal(calculatePeterLynchFairValue(-2, 0.1), null);
 });
 
 test('daily move uses the preceding session, never the start of the selected chart range', () => {

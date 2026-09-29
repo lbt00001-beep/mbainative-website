@@ -2,16 +2,19 @@
 
 import React, { useState, useMemo } from 'react';
 import { calculateDCF, calculatePeterLynchFairValue, calculateGrahamNumber } from './financialEngine';
+import type { AnnualEpsGrowth } from './fundamentalMetrics';
 
 interface DCFSimulatorProps {
   currentPrice: number;
   currency?: string;
-  fcfBase: number; // en dólares/euros
-  sharesOutstanding: number;
-  netDebt: number;
+  fcfBase: number | null;
+  sharesOutstanding: number | null;
+  netDebt: number | null;
   defaultGrowthRate?: number;
   eps?: number | null;
   bookValuePerShare?: number | null;
+  annualEpsGrowth?: AnnualEpsGrowth | null;
+  epsBasis?: 'TTM' | 'previsto' | null;
 }
 
 export default function DCFSimulator({
@@ -23,17 +26,27 @@ export default function DCFSimulator({
   defaultGrowthRate = 0.10,
   eps = null,
   bookValuePerShare = null,
+  annualEpsGrowth = null,
+  epsBasis = null,
 }: DCFSimulatorProps) {
+  const suggestedGrowth = annualEpsGrowth != null && annualEpsGrowth.rate > 0 && annualEpsGrowth.rate <= 50
+    ? annualEpsGrowth.rate.toFixed(1) : '';
   // Sliders state
   const [growthRate5Y, setGrowthRate5Y] = useState<number>(
     Math.min(0.30, Math.max(0.04, defaultGrowthRate || 0.10))
   );
   const [terminalRate, setTerminalRate] = useState<number>(0.025);
   const [wacc, setWacc] = useState<number>(0.09);
-  const [earningsGrowth, setEarningsGrowth] = useState<string>('');
+  // Null means the field follows the latest Yahoo estimate as quote data arrives.
+  // An explicit string, including an empty one, is the user's own hypothesis.
+  const [earningsGrowth, setEarningsGrowth] = useState<string | null>(null);
+  const growthValue = earningsGrowth ?? suggestedGrowth;
+  const dcfAvailable = fcfBase != null && sharesOutstanding != null && sharesOutstanding > 0
+    && netDebt != null && currentPrice > 0;
 
   // Recalculate DCF
   const dcfResult = useMemo(() => {
+    if (!dcfAvailable || fcfBase == null || sharesOutstanding == null || netDebt == null) return null;
     return calculateDCF(
       fcfBase,
       growthRate5Y,
@@ -43,11 +56,11 @@ export default function DCFSimulator({
       netDebt,
       currentPrice
     );
-  }, [fcfBase, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
+  }, [dcfAvailable, fcfBase, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
 
   const peterLynchValue = useMemo(() => {
-    return calculatePeterLynchFairValue(eps, earningsGrowth === '' ? null : Number(earningsGrowth) / 100);
-  }, [eps, earningsGrowth]);
+    return calculatePeterLynchFairValue(eps, growthValue === '' ? null : Number(growthValue) / 100);
+  }, [eps, growthValue]);
 
   const grahamNumber = useMemo(() => {
     return calculateGrahamNumber(eps, bookValuePerShare);
@@ -79,6 +92,7 @@ export default function DCFSimulator({
             setGrowthRate5Y(0.10);
             setTerminalRate(0.025);
             setWacc(0.09);
+            setEarningsGrowth(null);
           }}
           className="text-xs text-blue-400 hover:text-blue-300 font-medium px-3 py-1.5 rounded-lg border border-blue-500/30 hover:bg-blue-500/10 transition-all"
         >
@@ -168,15 +182,18 @@ export default function DCFSimulator({
             </span>
             {peterLynchValue && currentPrice > 0 && (
               <span className={`text-xs font-semibold ${peterLynchValue >= currentPrice ? 'text-emerald-400' : 'text-rose-400'}`}>
-                {peterLynchValue >= currentPrice ? 'Infravalorada vs EPS' : 'Prima sobre beneficios'}
+                {peterLynchValue >= currentPrice ? 'Precio inferior al escenario' : 'Precio superior al escenario'}
               </span>
             )}
           </div>
           <p className="text-xs text-slate-400 mt-3">
             Regla orientativa, no valoración intrínseca. Introduce tu hipótesis de crecimiento anual sostenible del BPA.
           </p>
+          {eps != null && eps > 0 && <p className="text-xs text-slate-400 mt-2">BPA utilizado: {eps.toLocaleString('es-ES', { maximumFractionDigits: 2 })} {currency} ({epsBasis || 'periodo no identificado'}).</p>}
+          {annualEpsGrowth && <p className="text-xs text-slate-400 mt-2">Yahoo estima {annualEpsGrowth.rate.toFixed(1)}% de crecimiento del BPA entre {annualEpsGrowth.fromPeriod} y {annualEpsGrowth.toPeriod} ({annualEpsGrowth.currency}). {annualEpsGrowth.rate <= 0 ? 'La tasa no es positiva: introduce una hipótesis sostenible si procede.' : annualEpsGrowth.rate > 50 ? 'Supera el límite del escenario (50%): introduce una hipótesis sostenible.' : earningsGrowth !== null ? 'Has sustituido esta referencia por tu hipótesis.' : 'Se usa como hipótesis inicial editable; un año no demuestra crecimiento sostenible.'}</p>}
+          {(eps == null || eps <= 0) && <p className="text-xs text-amber-300 mt-2">Se necesita un BPA positivo y comparable para calcular este escenario.</p>}
           <label className="block text-xs text-slate-300 mt-3">Crecimiento BPA esperado (%)
-            <input type="number" min="0" max="50" step="0.5" value={earningsGrowth} onChange={e => setEarningsGrowth(e.target.value)} placeholder="Sin estimación" className="mt-1 w-full rounded-lg bg-[#0e1626] border border-[#334155] px-3 py-2 text-white" />
+            <input type="number" min="0" max="50" step="0.5" value={growthValue} onChange={e => setEarningsGrowth(e.target.value)} placeholder="Introduce 0–50" className="mt-1 w-full rounded-lg bg-[#0e1626] border border-[#334155] px-3 py-2 text-white" />
           </label>
         </div>
 
@@ -197,7 +214,7 @@ export default function DCFSimulator({
       </div>
 
       {/* Interactive DCF Sensitivity Sliders */}
-      <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-5">
+      {dcfAvailable ? <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-5">
         <h4 className="text-sm font-semibold text-slate-200">
           Ajuste Dinámico de Supuestos del DCF
         </h4>
@@ -269,7 +286,7 @@ export default function DCFSimulator({
             </div>
           </div>
         </div>
-      </div>
+      </div> : <p className="text-xs text-amber-300">DCF no disponible: faltan flujo de caja libre, acciones, caja, deuda o moneda financiera comparable. Los escenarios de Lynch y Graham se calculan de forma independiente cuando hay datos suficientes.</p>}
 
       {/* DCF Breakdown Table */}
       {dcfResult && (
@@ -279,7 +296,7 @@ export default function DCFSimulator({
               Proyección de Flujos Descontados (5 Años)
             </h4>
             <span className="text-xs text-slate-400 font-mono">
-              FCF Base: {currency}{formatLargeNum(fcfBase)}
+              FCF Base: {currency}{formatLargeNum(fcfBase!)}
             </span>
           </div>
 
@@ -336,7 +353,7 @@ export default function DCFSimulator({
             <div>
               <span className="text-slate-400">Deuda Neta:</span>
               <div className="font-bold text-slate-200 font-mono">
-                {currency}{formatLargeNum(netDebt)}
+                  {currency}{formatLargeNum(netDebt!)}
               </div>
             </div>
             <div>
@@ -348,7 +365,7 @@ export default function DCFSimulator({
             <div>
               <span className="text-slate-400">Acciones en Circulación:</span>
               <div className="font-bold text-slate-200 font-mono">
-                {formatLargeNum(sharesOutstanding)}
+                  {formatLargeNum(sharesOutstanding!)}
               </div>
             </div>
           </div>

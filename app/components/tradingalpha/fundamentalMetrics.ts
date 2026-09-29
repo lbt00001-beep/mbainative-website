@@ -20,6 +20,32 @@ export interface EarningsMetrics {
   forwardPeriod: string | null;
 }
 
+export interface AnnualEpsGrowth {
+  rate: number;
+  currency: string;
+  fromPeriod: string;
+  toPeriod: string;
+}
+
+export function annualEpsGrowthEstimate(data: any): AnnualEpsGrowth | null {
+  const trend = data?.earningsTrend?.trend;
+  if (!Array.isArray(trend)) return null;
+  const current = trend.find((row: any) => row?.period === '0y');
+  const next = trend.find((row: any) => row?.period === '+1y');
+  const base = raw(current?.epsTrend?.current) ?? raw(current?.earningsEstimate?.avg);
+  const future = raw(next?.epsTrend?.current) ?? raw(next?.earningsEstimate?.avg);
+  const currentCurrency = current?.epsTrend?.epsTrendCurrency || current?.earningsEstimate?.earningsCurrency;
+  const nextCurrency = next?.epsTrend?.epsTrendCurrency || next?.earningsEstimate?.earningsCurrency;
+  if (base == null || base <= 0 || future == null || future <= 0 || !currentCurrency || currentCurrency !== nextCurrency
+    || !current?.endDate || !next?.endDate) return null;
+  return {
+    rate: (future / base - 1) * 100,
+    currency: currentCurrency,
+    fromPeriod: current.endDate,
+    toPeriod: next.endDate,
+  };
+}
+
 export function dcfGrowthAssumption(revenueGrowth: number | null): number {
   // One exceptional revenue period should not compound free cash flow at that rate for five years.
   if (revenueGrowth == null || !Number.isFinite(revenueGrowth) || revenueGrowth < 0 || revenueGrowth > 0.30) return 0.10;

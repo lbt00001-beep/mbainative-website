@@ -12,7 +12,7 @@ import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
 import FundamentalLens from './FundamentalLens';
 import InstitutionalRanking from './InstitutionalRanking';
 import { getInstrumentConfig } from './instruments';
-import { dcfGrowthAssumption, earningsMetrics } from './fundamentalMetrics';
+import { annualEpsGrowthEstimate, dcfGrowthAssumption, earningsMetrics } from './fundamentalMetrics';
 import { dailyPriceChange } from './marketChange';
 import {
   CandleBar,
@@ -357,7 +357,12 @@ export default function TradingAlpha() {
   const observedRevenueGrowth = pick(fin.revenueGrowth);
   const dcfGrowthRate = dcfGrowthAssumption(observedRevenueGrowth);
   const measuredEarnings = earningsMetrics(safeQuoteData);
-  const eps = measuredEarnings.trailingEPS ?? measuredEarnings.forwardEPS;
+  const displayEps = measuredEarnings.trailingEPS ?? measuredEarnings.forwardEPS;
+  const eps = measuredEarnings.trailingEPS != null && measuredEarnings.trailingEPS > 0
+    ? measuredEarnings.trailingEPS : measuredEarnings.forwardEPS != null && measuredEarnings.forwardEPS > 0
+      ? measuredEarnings.forwardEPS : null;
+  const epsBasis = eps == null ? null : eps === measuredEarnings.trailingEPS ? 'TTM' as const : 'previsto' as const;
+  const annualEpsGrowth = annualEpsGrowthEstimate(safeQuoteData);
   const bookValue = pick(stats.bookValue);
 
   const dcfResult: DCFResult | null = React.useMemo(() => {
@@ -842,7 +847,7 @@ export default function TradingAlpha() {
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
               <div className="text-slate-400 text-[10px] uppercase font-sans">{measuredEarnings.trailingEPS != null ? `BPA TTM${measuredEarnings.trailingEPSApproximate ? ' aprox.' : ''}` : 'BPA previsto'} {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
-              <div className="font-bold text-emerald-400 mt-0.5 break-words">{eps != null ? `${valuationCurrency}${new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2 }).format(eps)}` : '—'}</div>
+              <div className="font-bold text-emerald-400 mt-0.5 break-words">{displayEps != null ? `${valuationCurrency}${new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2 }).format(displayEps)}` : '—'}</div>
             </div>
           </div>
         </div>
@@ -1303,17 +1308,19 @@ export default function TradingAlpha() {
 
       {/* TAB 3: VALORACIÓN INTRÍNSECA (DCF) */}
       {activeTab === 'valuation' && (
-        valuationReady ? <DCFSimulator
-          key={instrument.quoteTicker}
-          currentPrice={valuationPrice!}
+        <DCFSimulator
+          key={`${ticker}:${instrument.quoteTicker}`}
+          currentPrice={valuationPrice ?? 0}
           currency={valuationCurrency}
-          fcfBase={fcfBase!}
-          sharesOutstanding={sharesOutstanding!}
-          netDebt={netDebt!}
+          fcfBase={valuationReady ? fcfBase : null}
+          sharesOutstanding={valuationReady ? sharesOutstanding : null}
+          netDebt={valuationReady ? netDebt : null}
           defaultGrowthRate={dcfGrowthRate}
           eps={eps}
-          bookValuePerShare={bookValue}
-        /> : <div className="bg-[#0e1626] border border-amber-500/30 rounded-2xl p-6 text-amber-200 text-sm">Valoración no disponible: faltan flujo de caja libre, acciones, caja, deuda o moneda financiera compatible. No se estiman datos ausentes.</div>
+          epsBasis={epsBasis}
+          annualEpsGrowth={annualEpsGrowth}
+          bookValuePerShare={sameFinancialCurrency ? bookValue : null}
+        />
       )}
 
       {/* TAB 4: ESTADOS FINANCIEROS & DUPONT */}

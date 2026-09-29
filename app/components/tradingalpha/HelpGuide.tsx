@@ -450,6 +450,7 @@ export default function HelpGuide() {
             <p className="text-xs text-slate-400">SMSN.L es un símbolo alternativo cuya cotización en Yahoo puede estar desactualizada. Cuando precio y datos contables usan monedas incompatibles, la app omite los ratios que las mezclarían.</p>
           </div>
           <p>El mismo tratamiento se aplica a <strong>TSM → 2330.TW</strong> (5 acciones ordinarias por ADR) y <strong>NVO → NOVO-B.CO</strong> (1 acción B por ADR), con enlaces a la documentación del emisor. La cobertura de recibos es una lista de correspondencias verificadas, no una conversión automática de todos los ADR/GDR.</p>
+          <p><strong>CEIR y RIGD:</strong> Yahoo no proporciona una cotización fiable de estos GDR de Londres. Al buscarlos, TradingAlpha muestra precio, gráfico, PER y DCF de sus acciones ordinarias: <strong>2324.TW</strong> (Compal, TWD) y <strong>RELIANCE.NS</strong> (Reliance, INR). Un GDR CEIR representa 5 acciones y un RIGD representa 4 acciones actuales. El precio mostrado no es el del GDR; consulta la bolsa para su cotización.</p>
           <p>Para un ticker sin correspondencia verificada cuya divisa de cotización difiera de la divisa contable, se muestra una advertencia y se omiten el PER inferido y el DCF. Consultar directamente el ticker de la acción ordinaria permite ver sus fundamentales en su propia moneda.</p>
           <p>La variación diaria del GDR compara su precio con el cierre de la sesión anterior. El inicio del intervalo elegido para el gráfico no es el cierre anterior.</p>
         </div>

@@ -46,6 +46,8 @@ const QUICK_TICKERS = [
   { symbol: '005930.KS', label: 'Samsung Corea' },
   { symbol: 'TSM', label: 'TSMC ADR' },
   { symbol: 'NVO', label: 'Novo Nordisk ADR' },
+  { symbol: 'CEIR', label: 'Compal GDR' },
+  { symbol: 'RIGD', label: 'Reliance GDR' },
   { symbol: 'SPY', label: 'S&P 500' },
   { symbol: 'QQQ', label: 'Nasdaq' },
 ];
@@ -113,7 +115,6 @@ export default function TradingAlpha() {
   const [quoteData, setQuoteData] = useState<any>(null);
   const [chartBars, setChartBars] = useState<CandleBar[]>([]);
   const [chartMeta, setChartMeta] = useState<any>(null);
-  const [currency, setCurrency] = useState<string>('$');
   const [statusMsg, setStatusMsg] = useState<{ type: 'ok' | 'warn' | 'error'; text: string } | null>(null);
 
   // Sentiment State
@@ -128,21 +129,6 @@ export default function TradingAlpha() {
   const [isSectorMenuOpen, setIsSectorMenuOpen] = useState<boolean>(false);
   const [selectedSectorTab, setSelectedSectorTab] = useState<string>('all');
   const searchContainerRef = useRef<HTMLDivElement>(null);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnterSearch = () => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setIsSectorMenuOpen(true);
-  };
-
-  const handleMouseLeaveSearch = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setIsSectorMenuOpen(false);
-    }, 350);
-  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -210,7 +196,8 @@ export default function TradingAlpha() {
     const requestId = ++chartRequestIdRef.current;
     try {
       setIsLoadingChart(true);
-      const res = await fetch(`/api/stockChart?t=${encodeURIComponent(t)}&range=${r}`);
+      const chartTicker = getInstrumentConfig(t).chartTicker || t;
+      const res = await fetch(`/api/stockChart?t=${encodeURIComponent(chartTicker)}&range=${r}`);
       if (!res.ok) {
         throw new Error(`Chart HTTP ${res.status}`);
       }
@@ -220,7 +207,6 @@ export default function TradingAlpha() {
       if (data.bars && Array.isArray(data.bars)) {
         setChartBars(data.bars);
         setChartMeta(data);
-        if (data.currency) setCurrency(data.currency === 'EUR' ? '€' : data.currency === 'USD' ? '$' : `${data.currency} `);
       }
     } catch (e: any) {
       if (activeTickerRef.current === t && requestId === chartRequestIdRef.current) {
@@ -328,6 +314,7 @@ export default function TradingAlpha() {
 
   // Blindaje de concordancia: verificar que quoteData corresponde exactamente al ticker actual
   const instrument = getInstrumentConfig(ticker);
+  const priceTicker = instrument.chartTicker || ticker;
   const quoteSymbol = (quoteData?.price?.symbol || quoteData?.symbol || '').toUpperCase();
   const isDataMatching = quoteData && quoteSymbol === instrument.quoteTicker;
   const safeQuoteData = isDataMatching ? quoteData : null;
@@ -339,16 +326,17 @@ export default function TradingAlpha() {
   const priceObj = safeQuoteData?.price || {};
 
   const quoteCurrencyCode = chartMeta?.currency || priceObj.currency || 'USD';
+  const currency = quoteCurrencyCode === 'EUR' ? '€' : quoteCurrencyCode === 'USD' ? '$' : `${quoteCurrencyCode} `;
   const financialCurrencyCode = fin.financialCurrency || priceObj.currency || '';
   const sameFinancialCurrency = !!priceObj.currency && priceObj.currency === financialCurrencyCode;
-  const currentPrice = instrument.quoteTicker !== ticker
+  const currentPrice = instrument.quoteTicker !== priceTicker
     ? (pick(chartMeta?.regularMarketPrice) ?? (chartBars.length ? chartBars[chartBars.length - 1].close : 0))
     : (pick(priceObj.regularMarketPrice) ?? pick(chartMeta?.regularMarketPrice) ?? 0);
   const receiptDailyChange = dailyPriceChange(currentPrice, chartBars);
-  const regularMarketChange = instrument.quoteTicker !== ticker
+  const regularMarketChange = instrument.quoteTicker !== priceTicker
     ? receiptDailyChange?.change ?? null
     : pick(priceObj.regularMarketChange);
-  const regularMarketChangePercent = instrument.quoteTicker !== ticker
+  const regularMarketChangePercent = instrument.quoteTicker !== priceTicker
     ? receiptDailyChange?.percent ?? null
     : pick(priceObj.regularMarketChangePercent) != null ? pick(priceObj.regularMarketChangePercent)! * 100 : null;
 
@@ -426,10 +414,11 @@ export default function TradingAlpha() {
       setIsGeneratingAi(true);
       const payload = {
         ticker,
+        marketTicker: priceTicker,
         companyName,
         sector,
         price: currentPrice.toFixed(2),
-        currency,
+        currency: quoteCurrencyCode,
         marketCap: pick(sum.marketCap) ? `${(pick(sum.marketCap)! / 1e9).toFixed(2)} mil millones ${priceObj.currency || ''}` : 'N/D',
         alphaScore: snowflakeScores.alphaScore,
         fundamentalScore: Math.round((snowflakeScores.value + snowflakeScores.health + snowflakeScores.performance) / 3),
@@ -441,6 +430,7 @@ export default function TradingAlpha() {
         fundamentalCurrency: financialCurrencyCode,
         fundamentalPrice: valuationPrice,
         receiptRatio: instrument.receiptRatio,
+        receiptQuoteUnavailable: instrument.receiptQuoteUnavailable,
         valuationComparable: sameFinancialCurrency,
         marginOfSafety: dcfResult?.marginOfSafety,
         rsi: technicalSummary.rsi14,
@@ -515,8 +505,6 @@ export default function TradingAlpha() {
             <div
               className="relative w-full sm:w-auto"
               ref={searchContainerRef}
-              onMouseEnter={handleMouseEnterSearch}
-              onMouseLeave={handleMouseLeaveSearch}
             >
               <div className="relative flex items-center">
                 <input
@@ -533,6 +521,8 @@ export default function TradingAlpha() {
                 <button
                   type="button"
                   onClick={() => setIsSectorMenuOpen((prev) => !prev)}
+                  aria-expanded={isSectorMenuOpen}
+                  aria-controls="sp500-sector-menu"
                   className="absolute right-1.5 px-2 py-1 rounded-lg bg-[#1e293b] hover:bg-[#27354f] text-[10px] text-blue-300 font-bold border border-[#334155] flex items-center gap-1 transition-all"
                   title="Directorio S&P 500 por Sectores"
                 >
@@ -543,9 +533,8 @@ export default function TradingAlpha() {
               {/* S&P 500 & Global Stocks Megamenu */}
               {isSectorMenuOpen && (
                 <div
+                  id="sp500-sector-menu"
                   className="absolute right-0 sm:left-0 top-full mt-2 w-[92vw] sm:w-[640px] md:w-[740px] lg:w-[840px] bg-[#0c1322]/95 backdrop-blur-xl border border-[#223048] rounded-2xl shadow-2xl z-50 overflow-hidden text-left animate-in fade-in zoom-in-95 duration-150"
-                  onMouseEnter={handleMouseEnterSearch}
-                  onMouseLeave={handleMouseLeaveSearch}
                 >
                   {/* Header & Global Instructions */}
                   <div className="bg-[#101827] border-b border-[#1e293b] px-4 py-3 flex items-center justify-between gap-3">
@@ -769,7 +758,7 @@ export default function TradingAlpha() {
         </div>
       )}
 
-      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {ticker}. {instrument.sourceUrl && <a href={instrument.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100">Ver proporción y mercado en la fuente oficial ↗</a>}</div>}
+      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {priceTicker}. {instrument.sourceUrl && <a href={instrument.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100">Ver proporción en la fuente oficial ↗</a>} {instrument.marketUrl && <a href={instrument.marketUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100 ml-2">Ver ficha del GDR en la bolsa ↗</a>}</div>}
       {!instrument.warning && safeQuoteData && priceObj.currency && fin.financialCurrency && priceObj.currency !== fin.financialCurrency && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">La cotización de {ticker} está en {priceObj.currency} y sus estados financieros en {fin.financialCurrency}. Sin una correspondencia verificada entre precio, moneda y número de acciones, se omiten el PER inferido y el DCF. Si se trata de un ADR o GDR, analiza también la acción ordinaria correspondiente.</div>}
 
       {/* 2. Real-Time Hero Header & Quote Strip */}
@@ -778,7 +767,8 @@ export default function TradingAlpha() {
           {/* Company Title & Price */}
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-2xl font-black font-mono text-white tracking-wide">{ticker}</span>
+              <span className="text-2xl font-black font-mono text-white tracking-wide">{priceTicker}</span>
+              {instrument.receiptQuoteUnavailable && <span className="text-xs text-amber-300">Acción subyacente para {ticker}</span>}
               {isLoadingQuote ? (
                 <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 animate-pulse flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
@@ -1288,7 +1278,7 @@ export default function TradingAlpha() {
       {/* TAB 2: TERMINAL TÉCNICO & VELAS */}
       {activeTab === 'fundamentals' && safeQuoteData && (
         <FundamentalLens
-          ticker={ticker}
+          ticker={priceTicker}
           quoteTicker={instrument.quoteTicker}
           data={safeQuoteData}
           selectedCurrency={quoteCurrencyCode}
@@ -1406,7 +1396,7 @@ export default function TradingAlpha() {
                     {companyName} <span className="font-mono text-slate-500 text-lg font-normal">({ticker})</span>
                   </h1>
                   <div className="text-xs text-slate-600 mt-1">
-                    Sector: <strong>{sector || 'Renta Variable'}</strong> • Cotización de {ticker}: <strong>{currency}{currentPrice.toFixed(2)}</strong> • Cap. de {instrument.quoteTicker}: <strong>{pick(sum.marketCap) ? (pick(sum.marketCap)! / 1e9).toFixed(2) + 'B ' + (priceObj.currency || '') : 'N/D'}</strong>
+                    Sector: <strong>{sector || 'Renta Variable'}</strong> • Cotización de {priceTicker}: <strong>{currency}{currentPrice.toFixed(2)}</strong> • Cap. de {instrument.quoteTicker}: <strong>{pick(sum.marketCap) ? (pick(sum.marketCap)! / 1e9).toFixed(2) + 'B ' + (priceObj.currency || '') : 'N/D'}</strong>
                   </div>
                 </div>
                 <div className="text-right text-[11px] text-slate-600 font-mono space-y-0.5">

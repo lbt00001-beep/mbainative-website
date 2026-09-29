@@ -20,6 +20,7 @@ export async function POST(request: NextRequest) {
 
     const {
       ticker,
+      marketTicker,
       companyName,
       sector,
       price,
@@ -35,6 +36,7 @@ export async function POST(request: NextRequest) {
       fundamentalCurrency,
       fundamentalPrice,
       receiptRatio,
+      receiptQuoteUnavailable,
       valuationComparable,
       marginOfSafety,
       rsi,
@@ -60,12 +62,14 @@ export async function POST(request: NextRequest) {
 
     const ordinaryTicker = typeof fundamentalTicker === 'string' && /^[A-Za-z0-9=.\-^]{1,20}$/.test(fundamentalTicker)
       ? fundamentalTicker : ticker;
+    const pricedTicker = typeof marketTicker === 'string' && /^[A-Za-z0-9=.\-^]{1,20}$/.test(marketTicker)
+      ? marketTicker : ticker;
     const ordinaryCurrency = typeof fundamentalCurrency === 'string' && /^[A-Z]{3}$/.test(fundamentalCurrency)
       ? fundamentalCurrency : currency;
-    const isReceipt = ordinaryTicker.toUpperCase() !== ticker.toUpperCase();
+    const isReceipt = ordinaryTicker.toUpperCase() !== pricedTicker.toUpperCase();
     const instrumentBasis = isReceipt
-      ? `- Instrumentos distintos: ${ticker} cotiza a ${price ?? 'N/D'} ${currency} por recibo; ${ordinaryTicker} cotiza a ${fundamentalPrice ?? 'N/D'} ${ordinaryCurrency} por acción ordinaria. Cada recibo representa ${receiptRatio ?? 'N/D'} acciones ordinarias. Los fundamentales y el DCF corresponden a ${ordinaryTicker}. No compares el DCF por acción ordinaria con el precio por recibo sin aplicar la ratio y la conversión de divisa.`
-      : `- Los fundamentales y el DCF corresponden a ${ordinaryTicker} en ${ordinaryCurrency}.`;
+      ? `- Instrumentos distintos: ${pricedTicker} cotiza a ${price ?? 'N/D'} ${currency} por recibo; ${ordinaryTicker} cotiza a ${fundamentalPrice ?? 'N/D'} ${ordinaryCurrency} por acción ordinaria. Cada recibo representa ${receiptRatio ?? 'N/D'} acciones ordinarias. Los fundamentales y el DCF corresponden a ${ordinaryTicker}. No compares el DCF por acción ordinaria con el precio por recibo sin aplicar la ratio y la conversión de divisa.`
+      : `- Los fundamentales y el DCF corresponden a ${ordinaryTicker} en ${ordinaryCurrency}. ${receiptQuoteUnavailable === true ? `El usuario buscó ${ticker}, pero su GDR carece de cotización fiable en Yahoo: ${price ?? 'N/D'} ${currency} es el precio de la acción ordinaria ${pricedTicker}, no del GDR. No atribuyas su precio, gráfico ni variación al GDR.` : ''}`;
     const comparabilityNote = valuationComparable === false
       ? 'La puntuación es parcial: los múltiplos de valoración y el DCF no son comparables con seguridad por diferencia o ausencia de moneda contable. No infieras PER, margen de seguridad ni recomendación de compra a partir de esas cifras.'
       : 'Interpreta las métricas de valoración en la unidad del instrumento indicada.';
@@ -84,7 +88,7 @@ REGLAS ABSOLUTAS E INELUDIBLES:
 
     const userPrompt = `Analiza la empresa ${companyName || ticker} (${ticker}), sector: ${sector || 'General'}.
 Datos de Mercado y Métricas Cuantitativas actuales:
-- Precio actual: ${price} ${currency} | Capitalización: ${marketCap}
+- Precio actual de ${pricedTicker}: ${price} ${currency} | Capitalización de ${ordinaryTicker}: ${marketCap}
 - Base de cálculo: ${instrumentBasis}
 - Comparabilidad: ${comparabilityNote}
 - Puntuación Alpha Global: ${alphaScore}/100 (Salud Fundamental: ${fundamentalScore}/100, Momentum Técnico: ${technicalScore}/100)

@@ -15,6 +15,19 @@ test('verified receipts use ordinary-share fundamentals and keep their documente
   assert.deepEqual(getInstrumentConfig('UNKNOWN'), { quoteTicker: 'UNKNOWN' });
 });
 
+test('London GDRs without reliable Yahoo prices use the named ordinary share for chart and fundamentals', () => {
+  for (const [symbol, ordinary, ratio] of [
+    ['CEIR', '2324.TW', 5], ['CEIR.L', '2324.TW', 5],
+    ['RIGD', 'RELIANCE.NS', 4], ['RIGD.L', 'RELIANCE.NS', 4],
+  ] as const) {
+    const config = getInstrumentConfig(symbol);
+    assert.equal(config.quoteTicker, ordinary);
+    assert.equal(config.chartTicker, ordinary);
+    assert.equal(config.receiptRatio, ratio);
+    assert.equal(config.receiptQuoteUnavailable, true);
+  }
+});
+
 test('Samsung ordinary share shows labeled TTM approximation and dated forward estimates', () => {
   const result = earningsMetrics({
     price: { currency: 'KRW', regularMarketPrice: { raw: 272500 } },

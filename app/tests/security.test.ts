@@ -100,6 +100,22 @@ test('AI prompt separates receipt price from ordinary-share valuation and curren
   assert.match(prompt,/3500 TWD por acción de 2330\.TW/);
   assert.doesNotMatch(prompt,/3500 USD/);
 });
+test('AI prompt does not describe an ordinary-share fallback as a GDR quote', async t => {
+  let prompt = '';
+  t.mock.method(globalThis,'fetch',async (_url: unknown, options?: RequestInit) => {
+    prompt = JSON.parse(String(options?.body)).messages[1].content;
+    return Response.json({choices:[{message:{content:'### 1. Resultado'}}]});
+  });
+  const result = await analysis(request({
+    userApiKey:key, ticker:'CEIR', marketTicker:'2324.TW', model:DEFAULT_AI_MODEL,
+    price:36, currency:'TWD', fundamentalTicker:'2324.TW', fundamentalCurrency:'TWD',
+    receiptRatio:5, receiptQuoteUnavailable:true, dcfFairValue:40,
+  }));
+  assert.equal(result.status,200);
+  assert.match(prompt,/Precio actual de 2324\.TW: 36 TWD/);
+  assert.match(prompt,/no del GDR/);
+  assert.doesNotMatch(prompt,/36 TWD por recibo/);
+});
 test('provider failures do not expose raw errors or keys', async t => {
   t.mock.method(globalThis,'fetch',async () => new Response('secret upstream detail '+key,{status:500}));
   const result=await analysis(request({userApiKey:key,ticker:'AAPL',model:DEFAULT_AI_MODEL}));

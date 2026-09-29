@@ -1,9 +1,12 @@
 export interface InstrumentConfig {
   quoteTicker: string;
+  chartTicker?: string;
   label?: string;
   receiptRatio?: number;
+  receiptQuoteUnavailable?: boolean;
   warning?: string;
   sourceUrl?: string;
+  marketUrl?: string;
 }
 
 // The London instrument is a GDR (25 Korean ordinary shares), quoted in USD.
@@ -38,6 +41,46 @@ const SPECIAL_INSTRUMENTS: Record<string, InstrumentConfig> = {
     receiptRatio: 1,
     warning: 'Cada ADR representa 1 acción B. La cotización de NVO está en USD; los fundamentales de NOVO-B.CO están en DKK.',
     sourceUrl: 'https://www.novonordisk.com/investors/stock-information/dividend.html',
+  },
+  CEIR: {
+    quoteTicker: '2324.TW',
+    chartTicker: '2324.TW',
+    label: 'Compal Electronics',
+    receiptRatio: 5,
+    receiptQuoteUnavailable: true,
+    warning: 'CEIR es un GDR de 5 acciones ordinarias. Yahoo no ofrece CEIR y su CEIR.L tiene cotización obsoleta. Se muestra la acción ordinaria 2324.TW en TWD; su precio y gráfico NO son los del GDR.',
+    sourceUrl: 'https://www.compal.com/mediafiles/sh-meeting/annual-report/1150508_Compal_2025_Annual_Report_EN.pdf',
+    marketUrl: 'https://www.londonstockexchange.com/stock/CEIR/compal-electronics-inc/company-page',
+  },
+  'CEIR.L': {
+    quoteTicker: '2324.TW',
+    chartTicker: '2324.TW',
+    label: 'Compal Electronics',
+    receiptRatio: 5,
+    receiptQuoteUnavailable: true,
+    warning: 'CEIR.L tiene una cotización obsoleta en Yahoo. Se muestra la acción ordinaria 2324.TW en TWD; su precio y gráfico NO son los del GDR CEIR.',
+    sourceUrl: 'https://www.compal.com/mediafiles/sh-meeting/annual-report/1150508_Compal_2025_Annual_Report_EN.pdf',
+    marketUrl: 'https://www.londonstockexchange.com/stock/CEIR/compal-electronics-inc/company-page',
+  },
+  RIGD: {
+    quoteTicker: 'RELIANCE.NS',
+    chartTicker: 'RELIANCE.NS',
+    label: 'Reliance Industries',
+    receiptRatio: 4,
+    receiptQuoteUnavailable: true,
+    warning: 'RIGD es un GDR de 4 acciones ordinarias actuales. Yahoo no ofrece RIGD y su RIGD.L tiene cotización obsoleta. Se muestra la acción ordinaria RELIANCE.NS en INR; su precio y gráfico NO son los del GDR.',
+    sourceUrl: 'https://www.ril.com/ar2025-26/RIL_IAR%202026.pdf',
+    marketUrl: 'https://www.londonstockexchange.com/stock/RIGD/reliance-industries-limited/company-page',
+  },
+  'RIGD.L': {
+    quoteTicker: 'RELIANCE.NS',
+    chartTicker: 'RELIANCE.NS',
+    label: 'Reliance Industries',
+    receiptRatio: 4,
+    receiptQuoteUnavailable: true,
+    warning: 'RIGD.L tiene una cotización obsoleta en Yahoo. Se muestra la acción ordinaria RELIANCE.NS en INR; su precio y gráfico NO son los del GDR RIGD.',
+    sourceUrl: 'https://www.ril.com/ar2025-26/RIL_IAR%202026.pdf',
+    marketUrl: 'https://www.londonstockexchange.com/stock/RIGD/reliance-industries-limited/company-page',
   },
 };
 

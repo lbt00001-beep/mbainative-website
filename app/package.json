@@ -12,12 +12,12 @@
     "assistant:prepare": "node scripts/prepare-assistant.mjs"
   },
   "dependencies": {
-    "fast-xml-parser": "4.5.3",
+    "fast-xml-parser": "5.11.2",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "mammoth": "^1.12.2",
     "next": "^15.5.25",
-    "nodemailer": "^10.0.0",
+    "nodemailer": "10.0.12",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "rss-parser": "^3.13.0",

@@ -81,6 +81,25 @@ test('AI calls use the personal key, bounded tokens, and private responses', asy
   assert.equal(result.status,200); assert.equal(auth,'Bearer '+key); assert.equal(body.max_tokens,4000);
   assert.equal(result.headers.get('cache-control'),'no-store'); assert.doesNotMatch((await result.json()).report,/private/);
 });
+test('AI prompt separates receipt price from ordinary-share valuation and currency', async t => {
+  let prompt = '';
+  t.mock.method(globalThis,'fetch',async (_url: unknown, options?: RequestInit) => {
+    const payload = JSON.parse(String(options?.body));
+    prompt = payload.messages[1].content;
+    return Response.json({choices:[{message:{content:'### 1. Resultado'}}]});
+  });
+  const result = await analysis(request({
+    userApiKey:key, ticker:'TSM', model:DEFAULT_AI_MODEL, price:450, currency:'USD',
+    fundamentalTicker:'2330.TW', fundamentalCurrency:'TWD', fundamentalPrice:3000,
+    receiptRatio:5, dcfFairValue:3500, marginOfSafety:16,
+  }));
+  assert.equal(result.status,200);
+  assert.match(prompt,/450 USD por recibo/);
+  assert.match(prompt,/3000 TWD por acción ordinaria/);
+  assert.match(prompt,/Cada recibo representa 5 acciones ordinarias/);
+  assert.match(prompt,/3500 TWD por acción de 2330\.TW/);
+  assert.doesNotMatch(prompt,/3500 USD/);
+});
 test('provider failures do not expose raw errors or keys', async t => {
   t.mock.method(globalThis,'fetch',async () => new Response('secret upstream detail '+key,{status:500}));
   const result=await analysis(request({userApiKey:key,ticker:'AAPL',model:DEFAULT_AI_MODEL}));

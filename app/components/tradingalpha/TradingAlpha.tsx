@@ -44,6 +44,8 @@ const QUICK_TICKERS = [
   { symbol: 'SAN.MC', label: 'Santander' },
   { symbol: 'SMSN.IL', label: 'Samsung GDR Londres' },
   { symbol: '005930.KS', label: 'Samsung Corea' },
+  { symbol: 'TSM', label: 'TSMC ADR' },
+  { symbol: 'NVO', label: 'Novo Nordisk ADR' },
   { symbol: 'SPY', label: 'S&P 500' },
   { symbol: 'QQQ', label: 'Nasdaq' },
 ];
@@ -410,8 +412,13 @@ export default function TradingAlpha() {
         verdict: 'Neutral',
       };
     }
-    return computeSnowflake(safeQuoteData, technicalSummary.signals.technicalScore, dcfResult);
-  }, [safeQuoteData, technicalSummary, dcfResult]);
+    const scoreData = sameFinancialCurrency ? safeQuoteData : {
+      ...safeQuoteData,
+      summaryDetail: { ...safeQuoteData.summaryDetail, trailingPE: null },
+      defaultKeyStatistics: { ...safeQuoteData.defaultKeyStatistics, forwardPE: null, pegRatio: null },
+    };
+    return computeSnowflake(scoreData, technicalSummary.signals.technicalScore, dcfResult);
+  }, [safeQuoteData, technicalSummary, dcfResult, sameFinancialCurrency]);
 
   // AI Report Generator (Gemini 3.5 Flash Lite via OpenRouter)
   const generateAiReport = async () => {
@@ -432,13 +439,15 @@ export default function TradingAlpha() {
         dcfFairValue: dcfResult?.fairValue,
         fundamentalTicker: instrument.quoteTicker,
         fundamentalCurrency: financialCurrencyCode,
+        fundamentalPrice: valuationPrice,
         receiptRatio: instrument.receiptRatio,
+        valuationComparable: sameFinancialCurrency,
         marginOfSafety: dcfResult?.marginOfSafety,
         rsi: technicalSummary.rsi14,
         macdSignal: technicalSummary.signals.macdCross,
         trend50_200: technicalSummary.signals.trendPrimary,
-        pe: pick(sum.trailingPE)?.toFixed(1),
-        fwdPe: pick(stats.forwardPE)?.toFixed(1),
+        pe: measuredEarnings.trailingPE?.toFixed(1),
+        fwdPe: measuredEarnings.forwardPE?.toFixed(1),
         fcfYield: fcfBase && valuationPrice && sharesOutstanding && valuationReady ? ((fcfBase / (valuationPrice * sharesOutstanding)) * 100).toFixed(1) : null,
         netMargin: pick(fin.profitMargins) ? (pick(fin.profitMargins)! * 100).toFixed(1) : null,
         roe: pick(fin.returnOnEquity) ? (pick(fin.returnOnEquity)! * 100).toFixed(1) : null,
@@ -760,7 +769,8 @@ export default function TradingAlpha() {
         </div>
       )}
 
-      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {ticker}.</div>}
+      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {ticker}. {instrument.sourceUrl && <a href={instrument.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-amber-100">Ver proporción y mercado en la fuente oficial ↗</a>}</div>}
+      {!instrument.warning && safeQuoteData && priceObj.currency && fin.financialCurrency && priceObj.currency !== fin.financialCurrency && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">La cotización de {ticker} está en {priceObj.currency} y sus estados financieros en {fin.financialCurrency}. Sin una correspondencia verificada entre precio, moneda y número de acciones, se omiten el PER inferido y el DCF. Si se trata de un ADR o GDR, analiza también la acción ordinaria correspondiente.</div>}
 
       {/* 2. Real-Time Hero Header & Quote Strip */}
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl">
@@ -906,14 +916,16 @@ export default function TradingAlpha() {
               <div className="mt-2">
                 <span
                   className={`text-xs font-extrabold px-3 py-1 rounded-full ${
-                    snowflakeScores.verdict.includes('Compra')
+                    !sameFinancialCurrency
+                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                      : snowflakeScores.verdict.includes('Compra')
                       ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                       : snowflakeScores.verdict === 'Sobrevalorada'
                       ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
                       : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                   }`}
                 >
-                  Veredicto Cuantitativo: {snowflakeScores.verdict}
+                  {sameFinancialCurrency ? `Veredicto Cuantitativo: ${snowflakeScores.verdict}` : 'Puntuación parcial: valoración no comparable'}
                 </span>
               </div>
             </div>

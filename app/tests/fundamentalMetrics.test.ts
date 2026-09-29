@@ -1,7 +1,19 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { dcfGrowthAssumption, earningsMetrics } from '../components/tradingalpha/fundamentalMetrics';
+import { getInstrumentConfig } from '../components/tradingalpha/instruments';
 import { dailyPriceChange } from '../components/tradingalpha/marketChange';
+
+test('verified receipts use ordinary-share fundamentals and keep their documented ratios', () => {
+  assert.deepEqual(
+    ['SMSN.IL', 'TSM', 'NVO'].map(symbol => {
+      const instrument = getInstrumentConfig(symbol);
+      return [instrument.quoteTicker, instrument.receiptRatio, Boolean(instrument.sourceUrl)];
+    }),
+    [['005930.KS', 25, true], ['2330.TW', 5, true], ['NOVO-B.CO', 1, true]],
+  );
+  assert.deepEqual(getInstrumentConfig('UNKNOWN'), { quoteTicker: 'UNKNOWN' });
+});
 
 test('Samsung ordinary share shows labeled TTM approximation and dated forward estimates', () => {
   const result = earningsMetrics({

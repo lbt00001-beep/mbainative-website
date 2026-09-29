@@ -449,6 +449,8 @@ export default function HelpGuide() {
             <p className="text-xs text-slate-300"><strong>SMSN.IL</strong> es un GDR de Londres que representa 25 acciones ordinarias. Su gráfico y su cotización se muestran en USD. Los estados financieros y múltiplos de la empresa se consultan con <strong>005930.KS</strong>, la acción ordinaria coreana, en KRW. Las cifras por acción y el DCF pertenecen a 005930.KS; no debes comparar directamente su PER o su valor estimado con el precio en USD del GDR.</p>
             <p className="text-xs text-slate-400">SMSN.L es un símbolo alternativo cuya cotización en Yahoo puede estar desactualizada. Cuando precio y datos contables usan monedas incompatibles, la app omite los ratios que las mezclarían.</p>
           </div>
+          <p>El mismo tratamiento se aplica a <strong>TSM → 2330.TW</strong> (5 acciones ordinarias por ADR) y <strong>NVO → NOVO-B.CO</strong> (1 acción B por ADR), con enlaces a la documentación del emisor. La cobertura de recibos es una lista de correspondencias verificadas, no una conversión automática de todos los ADR/GDR.</p>
+          <p>Para un ticker sin correspondencia verificada cuya divisa de cotización difiera de la divisa contable, se muestra una advertencia y se omiten el PER inferido y el DCF. Consultar directamente el ticker de la acción ordinaria permite ver sus fundamentales en su propia moneda.</p>
           <p>La variación diaria del GDR compara su precio con el cierre de la sesión anterior. El inicio del intervalo elegido para el gráfico no es el cierre anterior.</p>
         </div>
       ),

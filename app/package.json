@@ -12,6 +12,7 @@
     "assistant:prepare": "node scripts/prepare-assistant.mjs"
   },
   "dependencies": {
+    "fast-xml-parser": "4.5.3",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "mammoth": "^1.12.2",

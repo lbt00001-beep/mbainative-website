@@ -30,6 +30,7 @@ export default function DCFSimulator({
   );
   const [terminalRate, setTerminalRate] = useState<number>(0.025);
   const [wacc, setWacc] = useState<number>(0.09);
+  const [earningsGrowth, setEarningsGrowth] = useState<string>('');
 
   // Recalculate DCF
   const dcfResult = useMemo(() => {
@@ -45,8 +46,8 @@ export default function DCFSimulator({
   }, [fcfBase, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
 
   const peterLynchValue = useMemo(() => {
-    return calculatePeterLynchFairValue(eps, growthRate5Y);
-  }, [eps, growthRate5Y]);
+    return calculatePeterLynchFairValue(eps, earningsGrowth === '' ? null : Number(earningsGrowth) / 100);
+  }, [eps, earningsGrowth]);
 
   const grahamNumber = useMemo(() => {
     return calculateGrahamNumber(eps, bookValuePerShare);
@@ -159,7 +160,7 @@ export default function DCFSimulator({
         {/* Peter Lynch Fair Value */}
         <div className="bg-[#141d30] border border-[#223048] rounded-2xl p-5">
           <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
-            Línea Peter Lynch (15-25x EPS)
+            Escenario Peter Lynch (PER = crecimiento BPA)
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-amber-400">
@@ -172,8 +173,11 @@ export default function DCFSimulator({
             )}
           </div>
           <p className="text-xs text-slate-400 mt-3">
-            Precio justo estimado cuando el PER se iguala a la tasa sostenible de crecimiento del BPA.
+            Regla orientativa, no valoración intrínseca. Introduce tu hipótesis de crecimiento anual sostenible del BPA.
           </p>
+          <label className="block text-xs text-slate-300 mt-3">Crecimiento BPA esperado (%)
+            <input type="number" min="0" max="50" step="0.5" value={earningsGrowth} onChange={e => setEarningsGrowth(e.target.value)} placeholder="Sin estimación" className="mt-1 w-full rounded-lg bg-[#0e1626] border border-[#334155] px-3 py-2 text-white" />
+          </label>
         </div>
 
         {/* Benjamin Graham Number */}

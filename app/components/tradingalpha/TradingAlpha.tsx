@@ -8,6 +8,10 @@ import StatementsDuPont from './StatementsDuPont';
 import SentimentPulse, { SentimentData } from './SentimentPulse';
 import HelpGuide from './HelpGuide';
 import SettingsPanel, { AVAILABLE_MODELS } from './SettingsPanel';
+import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
+import FundamentalLens from './FundamentalLens';
+import InstitutionalRanking from './InstitutionalRanking';
+import { getInstrumentConfig } from './instruments';
 import {
   CandleBar,
   TechnicalSummary,
@@ -23,7 +27,6 @@ import {
   AltmanZResult,
   DuPontBreakdown,
 } from './financialEngine';
-import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
 import { SP500_SECTORS } from './sp500Data';
 
 const QUICK_TICKERS = [
@@ -37,6 +40,8 @@ const QUICK_TICKERS = [
   { symbol: 'ASML', label: 'ASML' },
   { symbol: 'ITX.MC', label: 'Inditex' },
   { symbol: 'SAN.MC', label: 'Santander' },
+  { symbol: 'SMSN.IL', label: 'Samsung GDR Londres' },
+  { symbol: '005930.KS', label: 'Samsung Corea' },
   { symbol: 'SPY', label: 'S&P 500' },
   { symbol: 'QQQ', label: 'Nasdaq' },
 ];
@@ -65,10 +70,12 @@ export default function TradingAlpha() {
   const [ticker, setTicker] = useState<string>('AAPL');
   const [searchInput, setSearchInput] = useState<string>('');
   const [range, setRange] = useState<string>('1y');
-  const [activeTab, setActiveTab] = useState<'summary' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
+  const [reloadNonce, setReloadNonce] = useState(0);
+  const [activeTab, setActiveTab] = useState<'summary' | 'fundamentals' | 'institutional' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
 
   // Ref para cancelar respuestas obsoletas o fuera de orden
   const activeTickerRef = useRef<string>('AAPL');
+  const chartRequestIdRef = useRef(0);
 
   // Settings & Custom OpenRouter Key
   const [userApiKey, setUserApiKey] = useState<string>('');
@@ -91,6 +98,7 @@ export default function TradingAlpha() {
   const [isLoadingChart, setIsLoadingChart] = useState(false);
   const [quoteData, setQuoteData] = useState<any>(null);
   const [chartBars, setChartBars] = useState<CandleBar[]>([]);
+  const [chartMeta, setChartMeta] = useState<any>(null);
   const [currency, setCurrency] = useState<string>('$');
   const [statusMsg, setStatusMsg] = useState<{ type: 'ok' | 'warn' | 'error'; text: string } | null>(null);
 
@@ -177,12 +185,15 @@ export default function TradingAlpha() {
     setStatusMsg(null);
     setQuoteData(null); // Borrar datos de inmediato para evitar mezclar nombres de empresas
     setChartBars([]);
+    setChartMeta(null);
     setSentimentData(null);
     setAiReport(null);
+    setReloadNonce(value => value + 1);
   }, []);
 
   // 1. Fetch Chart Data (OHLCV)
   const loadChartData = useCallback(async (t: string, r: string) => {
+    const requestId = ++chartRequestIdRef.current;
     try {
       setIsLoadingChart(true);
       const res = await fetch(`/api/stockChart?t=${encodeURIComponent(t)}&range=${r}`);
@@ -191,17 +202,18 @@ export default function TradingAlpha() {
       }
       const data = await res.json();
       // Descartar si el usuario ya cambió a otro ticker
-      if (activeTickerRef.current !== t) return;
+      if (activeTickerRef.current !== t || requestId !== chartRequestIdRef.current) return;
       if (data.bars && Array.isArray(data.bars)) {
         setChartBars(data.bars);
-        if (data.currency) setCurrency(data.currency === 'EUR' ? '€' : '$');
+        setChartMeta(data);
+        if (data.currency) setCurrency(data.currency === 'EUR' ? '€' : data.currency === 'USD' ? '$' : `${data.currency} `);
       }
     } catch (e: any) {
-      if (activeTickerRef.current === t) {
+      if (activeTickerRef.current === t && requestId === chartRequestIdRef.current) {
         console.error('Error fetching chart:', e);
       }
     } finally {
-      if (activeTickerRef.current === t) {
+      if (activeTickerRef.current === t && requestId === chartRequestIdRef.current) {
         setIsLoadingChart(false);
       }
     }
@@ -223,7 +235,8 @@ export default function TradingAlpha() {
         'cashflowStatementHistory',
         'recommendationTrend',
       ];
-      const res = await fetch(`/api/quoteSummary?t=${encodeURIComponent(t)}&modules=${modules.join(',')}`);
+      const fundamentalsTicker = getInstrumentConfig(t).quoteTicker;
+      const res = await fetch(`/api/quoteSummary?t=${encodeURIComponent(fundamentalsTicker)}&modules=${modules.join(',')}`);
       if (!res.ok) {
         throw new Error(`Quote HTTP ${res.status}`);
       }
@@ -232,7 +245,7 @@ export default function TradingAlpha() {
       if (activeTickerRef.current !== t) return;
       if (json.data) {
         setQuoteData(json.data);
-        setStatusMsg({ type: 'ok', text: `Datos de ${t} cargados con éxito.` });
+        setStatusMsg({ type: 'ok', text: `Fundamentales de ${fundamentalsTicker} cargados.` });
       } else {
         throw new Error('No se recibieron datos de Yahoo Finance.');
       }
@@ -276,14 +289,16 @@ export default function TradingAlpha() {
   useEffect(() => {
     activeTickerRef.current = ticker;
     loadQuoteSummary(ticker);
-    loadChartData(ticker, range);
     loadSentimentData(ticker);
-  }, [ticker, range, loadQuoteSummary, loadChartData, loadSentimentData]);
+  }, [ticker, reloadNonce, loadQuoteSummary, loadSentimentData]);
+
+  useEffect(() => {
+    loadChartData(ticker, range);
+  }, [ticker, range, reloadNonce, loadChartData]);
 
   // On range change
   const handleRangeChange = (newRange: string) => {
     setRange(newRange);
-    loadChartData(ticker, newRange);
   };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -297,8 +312,9 @@ export default function TradingAlpha() {
   }, [chartBars]);
 
   // Blindaje de concordancia: verificar que quoteData corresponde exactamente al ticker actual
+  const instrument = getInstrumentConfig(ticker);
   const quoteSymbol = (quoteData?.price?.symbol || quoteData?.symbol || '').toUpperCase();
-  const isDataMatching = quoteData && (!quoteSymbol || quoteSymbol === ticker.toUpperCase());
+  const isDataMatching = quoteData && quoteSymbol === instrument.quoteTicker;
   const safeQuoteData = isDataMatching ? quoteData : null;
 
   const profile = safeQuoteData?.assetProfile || {};
@@ -307,9 +323,15 @@ export default function TradingAlpha() {
   const sum = safeQuoteData?.summaryDetail || {};
   const priceObj = safeQuoteData?.price || {};
 
-  const currentPrice = pick(priceObj.regularMarketPrice) || pick(fin.currentPrice) || (chartBars.length > 0 ? chartBars[chartBars.length - 1].close : 0);
-  const regularMarketChange = pick(priceObj.regularMarketChange) ?? 0;
-  const regularMarketChangePercent = (pick(priceObj.regularMarketChangePercent) ?? 0) * 100;
+  const quoteCurrencyCode = chartMeta?.currency || priceObj.currency || 'USD';
+  const financialCurrencyCode = fin.financialCurrency || priceObj.currency || '';
+  const sameFinancialCurrency = !!priceObj.currency && priceObj.currency === financialCurrencyCode;
+  const currentPrice = instrument.quoteTicker !== ticker
+    ? (pick(chartMeta?.regularMarketPrice) ?? (chartBars.length ? chartBars[chartBars.length - 1].close : 0))
+    : (pick(priceObj.regularMarketPrice) ?? pick(chartMeta?.regularMarketPrice) ?? 0);
+  const previousClose = pick(chartMeta?.chartPreviousClose);
+  const regularMarketChange = instrument.quoteTicker !== ticker && previousClose != null ? currentPrice - previousClose : (pick(priceObj.regularMarketChange) ?? 0);
+  const regularMarketChangePercent = instrument.quoteTicker !== ticker && previousClose ? regularMarketChange / previousClose * 100 : (pick(priceObj.regularMarketChangePercent) ?? 0) * 100;
 
   // Nombre de empresa protegido: nunca usa nombres obsoletos de otros tickers
   const quickInfo = QUICK_TICKERS.find((q) => q.symbol.toUpperCase() === ticker.toUpperCase());
@@ -317,44 +339,47 @@ export default function TradingAlpha() {
   const sector = profile.sector || (quickInfo ? 'Equities' : 'N/D');
   const industry = profile.industry || 'N/D';
 
-  const fcfBase = pick(fin.freeCashflow) ?? (pick(fin.totalRevenue) ? (pick(fin.totalRevenue)! * 0.15) : 1e9);
-  const sharesOutstanding = pick(stats.sharesOutstanding) ?? 1e9;
-  const totalDebt = pick(fin.totalDebt) ?? 0;
-  const totalCash = pick(fin.totalCash) ?? 0;
-  const netDebt = totalDebt - totalCash;
-  const eps = pick(stats.trailingEps) ?? pick(stats.forwardEps);
+  const fcfBase = pick(fin.freeCashflow);
+  const sharesOutstanding = pick(stats.sharesOutstanding);
+  const totalDebt = pick(fin.totalDebt);
+  const totalCash = pick(fin.totalCash);
+  const netDebt = totalDebt != null && totalCash != null ? totalDebt - totalCash : null;
+  const valuationPrice = pick(priceObj.regularMarketPrice);
+  const valuationCurrency = priceObj.currency === 'EUR' ? '€' : priceObj.currency === 'USD' ? '$' : `${priceObj.currency || 'N/D'} `;
+  const valuationReady = sameFinancialCurrency && fcfBase != null && sharesOutstanding != null && netDebt != null && valuationPrice != null;
+  const eps = sameFinancialCurrency ? (pick(stats.trailingEps) ?? pick(stats.forwardEps)) : null;
   const bookValue = pick(stats.bookValue);
 
   const dcfResult: DCFResult | null = React.useMemo(() => {
-    if (!currentPrice || currentPrice <= 0) return null;
+    if (!valuationReady || valuationPrice! <= 0) return null;
     return calculateDCF(
-      fcfBase,
+      fcfBase!,
       pick(fin.revenueGrowth) ?? 0.10,
       0.025,
       0.09,
-      sharesOutstanding,
-      netDebt,
-      currentPrice
+      sharesOutstanding!,
+      netDebt!,
+      valuationPrice!
     );
-  }, [fcfBase, currentPrice, sharesOutstanding, netDebt, fin.revenueGrowth]);
+  }, [fcfBase, valuationPrice, sharesOutstanding, netDebt, fin.revenueGrowth, valuationReady]);
 
   const piotroski: PiotroskiBreakdown = React.useMemo(() => {
-    if (!quoteData) return { score: 5, details: [], quality: 'Aceptable' };
-    return calculatePiotroskiScore(quoteData);
-  }, [quoteData]);
+    if (!safeQuoteData) return { score: 0, details: [], quality: 'Débil' };
+    return calculatePiotroskiScore(safeQuoteData);
+  }, [safeQuoteData]);
 
   const altmanZ: AltmanZResult | null = React.useMemo(() => {
-    if (!quoteData) return null;
-    return calculateAltmanZScore(quoteData);
-  }, [quoteData]);
+    if (!safeQuoteData || !sameFinancialCurrency) return null;
+    return calculateAltmanZScore(safeQuoteData);
+  }, [safeQuoteData, sameFinancialCurrency]);
 
   const dupont: DuPontBreakdown | null = React.useMemo(() => {
-    if (!quoteData) return null;
-    return calculateDuPont(quoteData);
-  }, [quoteData]);
+    if (!safeQuoteData) return null;
+    return calculateDuPont(safeQuoteData);
+  }, [safeQuoteData]);
 
   const snowflakeScores: SnowflakeScores = React.useMemo(() => {
-    if (!quoteData) {
+    if (!safeQuoteData) {
       return {
         value: 50,
         growth: 50,
@@ -365,8 +390,8 @@ export default function TradingAlpha() {
         verdict: 'Neutral',
       };
     }
-    return computeSnowflake(quoteData, technicalSummary.signals.technicalScore, dcfResult);
-  }, [quoteData, technicalSummary, dcfResult]);
+    return computeSnowflake(safeQuoteData, technicalSummary.signals.technicalScore, dcfResult);
+  }, [safeQuoteData, technicalSummary, dcfResult]);
 
   // AI Report Generator (Gemini 3.5 Flash Lite via OpenRouter)
   const generateAiReport = async () => {
@@ -378,20 +403,23 @@ export default function TradingAlpha() {
         sector,
         price: currentPrice.toFixed(2),
         currency,
-        marketCap: pick(sum.marketCap) ? `$${(pick(sum.marketCap)! / 1e9).toFixed(2)}B` : 'N/D',
+        marketCap: pick(sum.marketCap) ? `${(pick(sum.marketCap)! / 1e9).toFixed(2)} mil millones ${priceObj.currency || ''}` : 'N/D',
         alphaScore: snowflakeScores.alphaScore,
         fundamentalScore: Math.round((snowflakeScores.value + snowflakeScores.health + snowflakeScores.performance) / 3),
         technicalScore: technicalSummary.signals.technicalScore,
-        piotroski: piotroski.score,
+        piotroski: piotroski.details.length ? piotroski.score : null,
         altmanZ: altmanZ?.score,
         dcfFairValue: dcfResult?.fairValue,
+        fundamentalTicker: instrument.quoteTicker,
+        fundamentalCurrency: financialCurrencyCode,
+        receiptRatio: instrument.receiptRatio,
         marginOfSafety: dcfResult?.marginOfSafety,
         rsi: technicalSummary.rsi14,
         macdSignal: technicalSummary.signals.macdCross,
         trend50_200: technicalSummary.signals.trendPrimary,
         pe: pick(sum.trailingPE)?.toFixed(1),
         fwdPe: pick(stats.forwardPE)?.toFixed(1),
-        fcfYield: fcfBase && currentPrice && sharesOutstanding ? ((fcfBase / (currentPrice * sharesOutstanding)) * 100).toFixed(1) : null,
+        fcfYield: fcfBase && valuationPrice && sharesOutstanding && valuationReady ? ((fcfBase / (valuationPrice * sharesOutstanding)) * 100).toFixed(1) : null,
         netMargin: pick(fin.profitMargins) ? (pick(fin.profitMargins)! * 100).toFixed(1) : null,
         roe: pick(fin.returnOnEquity) ? (pick(fin.returnOnEquity)! * 100).toFixed(1) : null,
         debtToEquity: pick(fin.debtToEquity)?.toFixed(1),
@@ -428,9 +456,10 @@ export default function TradingAlpha() {
   };
 
   // Helper 52-Week Progress
-  const high52 = pick(sum.fiftyTwoWeekHigh);
-  const low52 = pick(sum.fiftyTwoWeekLow);
+  const high52 = instrument.quoteTicker !== ticker ? pick(chartMeta?.fiftyTwoWeekHigh) : (pick(sum.fiftyTwoWeekHigh) ?? pick(chartMeta?.fiftyTwoWeekHigh));
+  const low52 = instrument.quoteTicker !== ticker ? pick(chartMeta?.fiftyTwoWeekLow) : (pick(sum.fiftyTwoWeekLow) ?? pick(chartMeta?.fiftyTwoWeekLow));
   const pos52 = high52 && low52 && high52 > low52 ? Math.min(100, Math.max(0, ((currentPrice - low52) / (high52 - low52)) * 100)) : 50;
+  const quoteAgeDays = chartMeta?.regularMarketTime ? Math.max(0, Math.floor((Date.now() - chartMeta.regularMarketTime * 1000) / 86400000)) : null;
 
   return (
     <div className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 sm:p-6 lg:p-8 space-y-6 print:p-0 print:m-0 print:bg-white print:text-slate-900 print:min-h-0">
@@ -495,7 +524,7 @@ export default function TradingAlpha() {
                       <span className="text-base">🏛️</span>
                       <div>
                         <div className="text-xs font-bold text-white flex items-center gap-2">
-                          Directorio Oficial S&P 500 por Sectores (GICS)
+                          Selección de empresas del S&P 500 por sectores (GICS)
                           <span className="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2 py-0.2 rounded-full font-normal">
                             11 Sectores
                           </span>
@@ -646,7 +675,7 @@ export default function TradingAlpha() {
                   <div className="bg-[#0e1626] border-t border-[#1e293b] px-4 py-2 flex items-center justify-between text-[11px] text-slate-400">
                     <span className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                      Directorio institucional sincronizado en tiempo real con Yahoo Finance
+                      Selección orientativa de símbolos; las cotizaciones se consultan a Yahoo Finance
                     </span>
                     <span className="text-slate-500 hidden sm:inline">
                       Tip: Haz clic en un ticker o presiona Enter para consultar
@@ -711,6 +740,8 @@ export default function TradingAlpha() {
         </div>
       )}
 
+      {instrument.warning && <div className="text-xs px-4 py-3 rounded-xl border border-amber-500/40 bg-amber-950/30 text-amber-200">{instrument.warning} Los modelos fundamentales usan {instrument.quoteTicker}; el gráfico y el precio mostrado usan {ticker}.</div>}
+
       {/* 2. Real-Time Hero Header & Quote Strip */}
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6 shadow-2xl">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -749,6 +780,10 @@ export default function TradingAlpha() {
                 {regularMarketChangePercent.toFixed(2)}%)
               </span>
             </div>
+            <div className="text-[11px] text-slate-400 mt-2">
+              Yahoo Finance · {chartMeta?.exchangeName || 'mercado N/D'} · {quoteCurrencyCode} · {quoteAgeDays == null ? 'fecha N/D' : `última sesión hace ${quoteAgeDays} día(s)`}
+              {quoteAgeDays != null && quoteAgeDays > 7 && <span className="text-amber-300 ml-2">Cotización posiblemente desactualizada</span>}
+            </div>
           </div>
 
           {/* 52-Week Range Bar */}
@@ -771,22 +806,22 @@ export default function TradingAlpha() {
           {/* Key Metric Chips */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">Cap. Bursátil</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">Cap. Bursátil {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
               <div className="font-bold text-white mt-0.5">
-                {pick(sum.marketCap) ? `$${(pick(sum.marketCap)! / 1e9).toFixed(2)}B` : '—'}
+                {pick(sum.marketCap) ? `${(pick(sum.marketCap)! / 1e9).toFixed(2)}B ${priceObj.currency || ''}` : '—'}
               </div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">PER (TTM)</div>
-              <div className="font-bold text-white mt-0.5">{pick(sum.trailingPE)?.toFixed(1) ?? '—'}</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">PER (TTM) {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
+              <div className="font-bold text-white mt-0.5">{sameFinancialCurrency ? (pick(sum.trailingPE)?.toFixed(1) ?? '—') : '—'}</div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">Beta (1Y)</div>
-              <div className="font-bold text-white mt-0.5">{pick(sum.beta)?.toFixed(2) ?? '1.00'}</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">Beta Yahoo</div>
+              <div className="font-bold text-white mt-0.5">{pick(sum.beta)?.toFixed(2) ?? '—'}</div>
             </div>
             <div className="bg-[#141d30] p-2.5 rounded-xl border border-[#223048]">
-              <div className="text-slate-400 text-[10px] uppercase font-sans">BPA / EPS</div>
-              <div className="font-bold text-emerald-400 mt-0.5">{eps ? `${currency}${eps.toFixed(2)}` : '—'}</div>
+              <div className="text-slate-400 text-[10px] uppercase font-sans">BPA / EPS {instrument.quoteTicker !== ticker ? instrument.quoteTicker : ''}</div>
+              <div className="font-bold text-emerald-400 mt-0.5">{eps ? `${valuationCurrency}${eps.toFixed(2)}` : '—'}</div>
             </div>
           </div>
         </div>
@@ -795,6 +830,8 @@ export default function TradingAlpha() {
         <div data-assistant-target="trading-tabs" className="flex flex-wrap items-center gap-2 border-t border-[#1e293b] pt-4 mt-6 print:hidden">
           {[
             { id: 'summary', label: '📊 Resumen & Radar Cuantitativo', icon: '📊' },
+            { id: 'fundamentals', label: '🧮 Decisión Fundamental', icon: '🧮' },
+            { id: 'institutional', label: '🏦 Grandes Gestores', icon: '🏦' },
             { id: 'technical', label: '📈 Terminal Técnico & Velas', icon: '📈' },
             { id: 'valuation', label: '💎 Valoración Intrínseca (DCF)', icon: '💎' },
             { id: 'statements', label: '📑 Estados Financieros & DuPont', icon: '📑' },
@@ -934,7 +971,7 @@ export default function TradingAlpha() {
                       {dcfResult ? `${dcfResult.marginOfSafety > 0 ? '+' : ''}${dcfResult.marginOfSafety}%` : 'N/D'}
                     </span>
                     <span className="text-[11px] text-slate-400 font-mono">
-                      (Valor justo: {currency}{dcfResult?.fairValue ?? '—'})
+                      (Valor justo de {instrument.quoteTicker}: {valuationCurrency}{dcfResult?.fairValue ?? '—'})
                     </span>
                   </div>
                 </div>
@@ -986,12 +1023,12 @@ export default function TradingAlpha() {
                       piotroski.score >= 5 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
                       'bg-rose-500/20 text-rose-400 border border-rose-500/30'
                     }`}>
-                      {piotroski.quality}
+                      {piotroski.details.length ? piotroski.quality : 'N/D'}
                     </span>
                   </div>
                   <div className="flex items-baseline gap-2 mt-1">
                     <span className="text-2xl font-bold text-emerald-400 font-mono">
-                      {piotroski.score}/9
+                      {piotroski.details.length ? `${piotroski.score}/9` : 'N/D'}
                     </span>
                     <span className="text-[11px] text-slate-400">pruebas superadas</span>
                   </div>
@@ -1002,7 +1039,7 @@ export default function TradingAlpha() {
                   <div className="text-[10px] text-slate-400 font-medium flex justify-between">
                     <span>Baremo Chicago:</span>
                     <span className="text-slate-200 font-semibold">
-                      {piotroski.score >= 7 ? '⭐ 7-9 Salud contable élite' : piotroski.score >= 5 ? '⚖️ 5-6 Calidad estándar' : '⚠️ 0-4 Debilidad contable'}
+                      {piotroski.details.length ? (piotroski.score >= 7 ? '⭐ 7-9 Salud contable élite' : piotroski.score >= 5 ? '⚖️ 5-6 Calidad estándar' : '⚠️ 0-4 Debilidad contable') : 'Faltan datos contables'}
                     </span>
                   </div>
                   <div className="h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex gap-0.5">
@@ -1216,6 +1253,19 @@ export default function TradingAlpha() {
       )}
 
       {/* TAB 2: TERMINAL TÉCNICO & VELAS */}
+      {activeTab === 'fundamentals' && safeQuoteData && (
+        <FundamentalLens
+          ticker={ticker}
+          quoteTicker={instrument.quoteTicker}
+          data={safeQuoteData}
+          selectedCurrency={quoteCurrencyCode}
+          quoteCurrency={priceObj.currency || 'N/D'}
+          financialCurrency={financialCurrencyCode || 'N/D'}
+        />
+      )}
+
+      {activeTab === 'institutional' && <InstitutionalRanking onSelectTicker={(symbol) => { selectTicker(symbol); setActiveTab('fundamentals'); }} />}
+
       {activeTab === 'technical' && (
         <CandleChart
           bars={chartBars}
@@ -1229,25 +1279,25 @@ export default function TradingAlpha() {
 
       {/* TAB 3: VALORACIÓN INTRÍNSECA (DCF) */}
       {activeTab === 'valuation' && (
-        <DCFSimulator
-          currentPrice={currentPrice}
-          currency={currency}
-          fcfBase={fcfBase}
-          sharesOutstanding={sharesOutstanding}
-          netDebt={netDebt}
+        valuationReady ? <DCFSimulator
+          currentPrice={valuationPrice!}
+          currency={valuationCurrency}
+          fcfBase={fcfBase!}
+          sharesOutstanding={sharesOutstanding!}
+          netDebt={netDebt!}
           defaultGrowthRate={pick(fin.revenueGrowth) ?? 0.10}
           eps={eps}
           bookValuePerShare={bookValue}
-        />
+        /> : <div className="bg-[#0e1626] border border-amber-500/30 rounded-2xl p-6 text-amber-200 text-sm">Valoración no disponible: faltan flujo de caja libre, acciones, caja, deuda o moneda financiera compatible. No se estiman datos ausentes.</div>
       )}
 
       {/* TAB 4: ESTADOS FINANCIEROS & DUPONT */}
       {activeTab === 'statements' && (
         <StatementsDuPont
-          incomeHistory={quoteData?.incomeStatementHistory?.incomeStatementHistory || []}
-          balanceHistory={quoteData?.balanceSheetHistory?.balanceSheetStatements || []}
-          cashflowHistory={quoteData?.cashflowStatementHistory?.cashflowStatementHistory || []}
-          currency={currency}
+          incomeHistory={safeQuoteData?.incomeStatementHistory?.incomeStatementHistory || []}
+          balanceHistory={safeQuoteData?.balanceSheetHistory?.balanceSheetStatements || []}
+          cashflowHistory={safeQuoteData?.cashflowStatementHistory?.cashflowStatementHistory || []}
+          currency={valuationCurrency}
           piotroski={piotroski}
           altmanZ={altmanZ}
           dupont={dupont}
@@ -1322,7 +1372,7 @@ export default function TradingAlpha() {
                     {companyName} <span className="font-mono text-slate-500 text-lg font-normal">({ticker})</span>
                   </h1>
                   <div className="text-xs text-slate-600 mt-1">
-                    Sector: <strong>{sector || 'Renta Variable'}</strong> • Cotización de Cierre: <strong>{currency}{currentPrice.toFixed(2)}</strong> • Cap: <strong>${(pick(sum.marketCap) ? (pick(sum.marketCap)! / 1e9).toFixed(2) + 'B' : 'N/D')}</strong>
+                    Sector: <strong>{sector || 'Renta Variable'}</strong> • Cotización de {ticker}: <strong>{currency}{currentPrice.toFixed(2)}</strong> • Cap. de {instrument.quoteTicker}: <strong>{pick(sum.marketCap) ? (pick(sum.marketCap)! / 1e9).toFixed(2) + 'B ' + (priceObj.currency || '') : 'N/D'}</strong>
                   </div>
                 </div>
                 <div className="text-right text-[11px] text-slate-600 font-mono space-y-0.5">
@@ -1341,12 +1391,12 @@ export default function TradingAlpha() {
                 </div>
                 <div className="border border-slate-300 bg-slate-50 p-2 rounded">
                   <div className="text-[9px] uppercase text-slate-500">Valor Justo DCF</div>
-                  <div className="font-bold text-slate-900 text-sm mt-0.5">{dcfResult ? `${currency}${dcfResult.fairValue}` : 'N/D'}</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">{dcfResult ? `${valuationCurrency}${dcfResult.fairValue} (${instrument.quoteTicker})` : 'N/D'}</div>
                   <div className="text-[9px] text-slate-600">Margen Seguridad: {dcfResult ? `${dcfResult.marginOfSafety}%` : 'N/D'}</div>
                 </div>
                 <div className="border border-slate-300 bg-slate-50 p-2 rounded">
                   <div className="text-[9px] uppercase text-slate-500">Auditoría Piotroski / Z</div>
-                  <div className="font-bold text-slate-900 text-sm mt-0.5">{piotroski.score}/9 • {piotroski.quality}</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">{piotroski.details.length ? `${piotroski.score}/9 • ${piotroski.quality}` : 'N/D'}</div>
                   <div className="text-[9px] text-slate-600">Altman Z: {altmanZ?.notApplicable ? 'N/A Banca' : (altmanZ?.score ?? 'N/D')}</div>
                 </div>
                 <div className="border border-slate-300 bg-slate-50 p-2 rounded">

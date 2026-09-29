@@ -25,6 +25,7 @@ const ALLOWED_MODULES = new Set([
   "cashflowStatementHistory",
   "recommendationTrend",
   "earnings",
+  "earningsTrend",
 ]);
 
 function sanitizeModules(modStr: string | null): string[] {

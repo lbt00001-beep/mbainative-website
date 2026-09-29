@@ -129,7 +129,7 @@ export default function StatementsDuPont({
                     altmanZ.score >= 3.0 ? '🛡️ Zona Segura (Quiebra improbable)' :
                     altmanZ.score >= 1.8 ? '⚠️ Zona Gris (Vulnerable a recesión)' :
                     '🚨 Zona Peligro (Estrés severo de balance)'
-                  ) : 'Calculando...'}
+                  ) : 'N/D: faltan partidas contables'}
                 </span>
               </div>
 
@@ -191,12 +191,12 @@ export default function StatementsDuPont({
                     : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                 }`}
               >
-                {piotroski.score}/9 ({piotroski.quality})
+                {piotroski.details.length ? `${piotroski.score}/9 (${piotroski.quality})` : 'N/D'}
               </span>
             </div>
 
             <p className="text-xs text-slate-400 mb-3">
-              Auditoría de 9 pruebas contables rigurosas sobre rentabilidad, apalancamiento y eficiencia operativa.
+              {piotroski.details.length ? 'Auditoría de 9 pruebas contables sobre rentabilidad, apalancamiento y eficiencia.' : 'Yahoo no ofrece todas las partidas necesarias para el F-Score canónico.'}
             </p>
 
             <div className="grid grid-cols-3 gap-2 text-center text-xs">

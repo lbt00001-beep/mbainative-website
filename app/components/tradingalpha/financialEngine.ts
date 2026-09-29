@@ -386,9 +386,9 @@ export function calculateDCF(
 }
 
 export function calculatePeterLynchFairValue(eps: number | null, growthRate: number | null): number | null {
-  if (eps == null || eps <= 0) return null;
-  // Crecimiento normalizado entre 12% y 25% para evitar múltiplos extremos
-  const g = growthRate != null ? Math.min(30, Math.max(12, growthRate * 100)) : 15;
+  if (eps == null || eps <= 0 || growthRate == null || growthRate <= 0 || growthRate > 0.50) return null;
+  // Regla orientativa: PER igual al crecimiento anual esperado del BPA, expresado en %.
+  const g = growthRate * 100;
   return Number((eps * g).toFixed(2));
 }
 
@@ -421,6 +421,22 @@ export function calculatePiotroskiScore(data: any): PiotroskiBreakdown {
   const incomeHist = data.incomeStatementHistory?.incomeStatementHistory || [];
   const cashflowHist = data.cashflowStatementHistory?.cashflowStatementHistory || [];
   const balanceHist = data.balanceSheetHistory?.balanceSheetStatements || [];
+  // Yahoo's quote summary often omits prior share count and full balance data.
+  // A partial checklist must not be presented as a canonical 0–9 F-Score.
+  const required = [
+    fin.returnOnAssets, stats.sharesOutstanding, stats.sharesOutstandingPrevYear,
+    incomeHist[0]?.netIncome, incomeHist[1]?.netIncome,
+    incomeHist[0]?.grossProfit, incomeHist[1]?.grossProfit,
+    incomeHist[0]?.totalRevenue, incomeHist[1]?.totalRevenue,
+    cashflowHist[0]?.totalCashFromOperatingActivities,
+    balanceHist[0]?.totalAssets, balanceHist[1]?.totalAssets,
+    balanceHist[0]?.longTermDebt, balanceHist[1]?.longTermDebt,
+    balanceHist[0]?.totalCurrentAssets, balanceHist[1]?.totalCurrentAssets,
+    balanceHist[0]?.totalCurrentLiabilities, balanceHist[1]?.totalCurrentLiabilities,
+  ];
+  if (required.some(v => v == null || (typeof v !== 'number' && typeof v.raw !== 'number'))) {
+    return { score: 0, details: [], quality: 'Débil' };
+  }
 
   const details: PiotroskiBreakdown['details'] = [];
   let score = 0;
@@ -510,12 +526,13 @@ export function calculatePiotroskiScore(data: any): PiotroskiBreakdown {
   });
 
   // 6. Liquidez: Mejora de Current Ratio
-  const curRatio = pick(fin.currentRatio);
-  const p6 = curRatio != null && curRatio >= 1.2;
+  const curRatio = pick(balanceHist[0]?.totalCurrentAssets)! / pick(balanceHist[0]?.totalCurrentLiabilities)!;
+  const previousRatio = pick(balanceHist[1]?.totalCurrentAssets)! / pick(balanceHist[1]?.totalCurrentLiabilities)!;
+  const p6 = curRatio > previousRatio;
   if (p6) score++;
   details.push({
     category: 'Apalancamiento/Liquidez',
-    name: 'Current Ratio solvente (> 1.2x)',
+    name: 'Mejora interanual del Current Ratio',
     passed: p6,
     explanation: `Ratio de liquidez corriente actual: ${curRatio != null ? curRatio.toFixed(2) : 'N/D'}x.`,
   });
@@ -588,95 +605,28 @@ export interface AltmanZResult {
 }
 
 export function calculateAltmanZScore(data: any): AltmanZResult | null {
-  const profile = data.assetProfile || {};
-  const sector = profile.sector || '';
-
-  // 1. Altman Z-Score NO es aplicable a Bancos ni Entidades Financieras
-  if (sector.toLowerCase().includes('financial') || sector.toLowerCase().includes('financier')) {
-    return {
-      score: 0,
-      zone: 'Gris',
-      explanation: 'El Altman Z-Score no es metodológicamente aplicable a entidades bancarias/financieras por su regulación y estructura de reservas/depósitos.',
-      notApplicable: true,
-    };
+  const sector = String(data.assetProfile?.sector || '').toLowerCase();
+  if (sector.includes('financial') || sector.includes('financier')) {
+    return { score: 0, zone: 'Gris', explanation: 'No aplicable a bancos y aseguradoras.', notApplicable: true };
   }
-
-  const fin = data.financialData || {};
-  const stats = data.defaultKeyStatistics || {};
-  const sum = data.summaryDetail || {};
-  const balanceHist = data.balanceSheetHistory?.balanceSheetStatements || [];
-  const incomeHist = data.incomeStatementHistory?.incomeStatementHistory || [];
-
+  const balance = data.balanceSheetHistory?.balanceSheetStatements?.[0] || {};
+  const income = data.incomeStatementHistory?.incomeStatementHistory?.[0] || {};
   const pick = (obj: any): number | null => {
-    if (obj == null) return null;
-    if (typeof obj === 'number') return obj;
-    if (typeof obj?.raw === 'number') return obj.raw;
-    return null;
+    const n = typeof obj === 'number' ? obj : obj?.raw;
+    return typeof n === 'number' && Number.isFinite(n) ? n : null;
   };
-
-  // Determinar Activos Totales (Total Assets)
-  // 1. Intento directo desde balanceHist si estuviera informado
-  const rawAssets = pick(balanceHist[0]?.totalAssets);
-  // 2. Cálculo contable exacto desde ROA: Activos = Beneficio Neto / ROA
-  const roa = pick(fin.returnOnAssets);
-  const netIncome = pick(stats.netIncomeToCommon) ?? pick(incomeHist[0]?.netIncome);
-  const totalAssetsFromROA = (roa && netIncome && roa > 0) ? netIncome / roa : null;
-  // 3. Estimación por Ecuación Fundamental: Activos = Fondos Propios (Equity) + Deuda Total
-  const bookValue = pick(stats.bookValue);
-  const shares = pick(stats.sharesOutstanding);
-  const equity = (bookValue && shares && bookValue > 0) ? bookValue * shares : null;
-  const debt = pick(fin.totalDebt) ?? 0;
-  const totalAssetsFromEq = (equity && equity > 0) ? equity + debt : null;
-
-  const totalAssets = rawAssets || totalAssetsFromROA || totalAssetsFromEq || (pick(fin.totalRevenue) ? pick(fin.totalRevenue)! * 1.2 : null);
-
-  if (!totalAssets || totalAssets <= 1000) {
-    return null;
-  }
-
-  // X1: Fondo de Maniobra / Activos Totales
-  const currentRatio = pick(fin.currentRatio) || 1.1;
-  const currentLiabEst = (debt > 0 ? debt * 0.4 : totalAssets * 0.25);
-  const currentAssetsEst = currentLiabEst * currentRatio;
-  const workingCapital = currentAssetsEst - currentLiabEst;
-  const X1 = workingCapital / totalAssets;
-
-  // X2: Reservas y Beneficios Acumulados / Activos Totales
-  const X2 = Math.min(0.5, Math.max(-0.2, (netIncome ? (netIncome * 2.0) / totalAssets : 0.2)));
-
-  // X3: EBIT (Beneficio Operativo) / Activos Totales
-  const ebit = pick(incomeHist[0]?.operatingIncome) ?? (pick(fin.ebitda) ? pick(fin.ebitda)! * 0.85 : (pick(fin.totalRevenue) && pick(fin.operatingMargins) ? pick(fin.totalRevenue)! * pick(fin.operatingMargins)! : (netIncome || 0)));
-  const X3 = ebit / totalAssets;
-
-  // X4: Capitalización Bursátil / Pasivo Total
-  const marketCap = pick(sum.marketCap) ?? ((pick(data.price?.regularMarketPrice) || 1) * (shares || 1));
-  const totalLiab = (debt > 0) ? debt * 1.4 : (totalAssets * 0.4);
-  const X4 = totalLiab > 0 ? marketCap / totalLiab : 1;
-
-  // X5: Ventas (Ingresos) / Activos Totales
-  const sales = pick(incomeHist[0]?.totalRevenue) ?? pick(fin.totalRevenue) ?? totalAssets;
-  const X5 = sales / totalAssets;
-
-  const rawZ = 1.2 * X1 + 1.4 * X2 + 3.3 * X3 + 0.6 * X4 + 0.999 * X5;
-  // Acotar matemáticamente para evitar artefactos
-  const clampedZ = Math.max(-5, Math.min(40, rawZ));
-  const score = Number(clampedZ.toFixed(2));
-
-  let zone: AltmanZResult['zone'] = 'Gris';
-  let explanation = '';
-
-  if (score >= 2.99) {
-    zone = 'Segura';
-    explanation = 'Solvencia financiera óptima. Riesgo de insolvencia o quiebra insignificante.';
-  } else if (score >= 1.81) {
-    zone = 'Gris';
-    explanation = 'Rango intermedio. Solvencia aceptable pero sensible a contracciones del ciclo macroeconómico.';
-  } else {
-    zone = 'Dificultad';
-    explanation = 'Zona de peligro. Estructura de capital muy apalancada con riesgo financiero relevante.';
-  }
-
-  return { score, zone, explanation, notApplicable: false };
+  const assets = pick(balance.totalAssets);
+  const currentAssets = pick(balance.totalCurrentAssets);
+  const currentLiabilities = pick(balance.totalCurrentLiabilities);
+  const retained = pick(balance.retainedEarnings);
+  const ebit = pick(income.operatingIncome);
+  const liabilities = pick(balance.totalLiab);
+  const sales = pick(income.totalRevenue);
+  const marketCap = pick(data.summaryDetail?.marketCap);
+  if ([assets, currentAssets, currentLiabilities, retained, ebit, liabilities, sales, marketCap].some(v => v == null) || !assets || !liabilities || assets <= 0 || liabilities <= 0) return null;
+  const score = Number((1.2 * (currentAssets! - currentLiabilities!) / assets + 1.4 * retained! / assets + 3.3 * ebit! / assets + 0.6 * marketCap! / liabilities + 0.999 * sales! / assets).toFixed(2));
+  const zone: AltmanZResult['zone'] = score >= 2.99 ? 'Segura' : score >= 1.81 ? 'Gris' : 'Dificultad';
+  return { score, zone, explanation: 'Altman Z calculado solo con partidas contables reportadas. Es un indicador histórico, no una probabilidad de quiebra.', notApplicable: false };
 }
 
 // ----------------------------------------------------------------------------
@@ -703,23 +653,15 @@ export function calculateDuPont(data: any): DuPontBreakdown | null {
     return null;
   };
 
-  const netIncome = pick(incomeHist[0]?.netIncome) ?? pick(fin.profitMargins) != null ? (pick(fin.profitMargins)! * (pick(fin.totalRevenue) ?? 1)) : null;
+  const reportedIncome = pick(incomeHist[0]?.netIncome);
+  const reportedMargin = pick(fin.profitMargins);
+  const reportedRevenue = pick(fin.totalRevenue);
+  const netIncome = reportedIncome ?? (reportedMargin != null && reportedRevenue != null ? reportedMargin * reportedRevenue : null);
   const sales = pick(incomeHist[0]?.totalRevenue) ?? pick(fin.totalRevenue);
   const totalAssets = pick(balanceHist[0]?.totalAssets);
   const equity = pick(balanceHist[0]?.totalStockholderEquity);
 
   if (!netIncome || !sales || !totalAssets || !equity || sales <= 0 || totalAssets <= 0 || equity <= 0) {
-    const rawRoe = pick(fin.returnOnEquity);
-    const rawMargin = pick(fin.profitMargins);
-    if (rawRoe != null && rawMargin != null) {
-      return {
-        roe: Number((rawRoe * 100).toFixed(1)),
-        netMargin: Number((rawMargin * 100).toFixed(1)),
-        assetTurnover: 0.8,
-        equityMultiplier: Number((rawRoe / (rawMargin * 0.8)).toFixed(2)),
-        narrative: 'Estimación basada en márgenes y apalancamiento directo.',
-      };
-    }
     return null;
   }
 

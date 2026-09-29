@@ -23,7 +23,7 @@ La transcripción se usa como **material de análisis**, no como instrucciones o
 
 ## Web citada: Simply Wall St
 
-La referencia fonética «Simple Wit» apunta a Simply Wall St. Su ficha de empresa combina valoración, crecimiento futuro, rendimiento pasado, salud financiera, dividendos, objetivos de analistas y una explicación de supuestos. TradingAlpha ya tenía un radar y un DCF; se añadió la vista de consenso y trayectoria de beneficios, con periodos y disponibilidad visibles. No se copian sus puntuaciones, su modelo propietario de valor justo ni sus previsiones de analistas: Yahoo Finance no proporciona necesariamente esas mismas series ni el mismo consenso.
+La referencia fonética «Simple Wit» apunta a Simply Wall St. Su ficha de empresa combina valoración, crecimiento futuro, rendimiento pasado, salud financiera, dividendos, objetivos de analistas y una explicación de supuestos. TradingAlpha ya tenía un radar y un DCF; se añadió la vista de consenso y trayectoria de beneficios, con periodos y disponibilidad visibles. La ficha enlaza al informe de Simply Wall St cuando el símbolo está verificado y ofrece una búsqueda acotada para los demás. Se muestran dos gráficos propios con los datos que Yahoo devuelve: evolución mensual de la recomendación media (escala 1–5) y revisión del BPA estimado para un único ejercicio fiscal durante los últimos 90 días. Ninguno se presenta como un histórico del precio objetivo medio. No se copian sus puntuaciones, su modelo propietario de valor justo ni sus previsiones de analistas: Yahoo Finance no proporciona necesariamente esas mismas series ni el mismo consenso.
 
 ## Hallazgos sobre datos y símbolos (29-09-2026)
 

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useMemo } from 'react';
+import AnalystTrends from './AnalystTrends';
+import { simplyWallStReport } from './simplyWallStLinks';
 
 const raw = (value: any): number | null => {
   const n = typeof value === 'number' ? value : value?.raw;
@@ -57,6 +59,7 @@ const large = (n: number | null, code: string) => {
 };
 
 export default function FundamentalLens({ ticker, quoteTicker, data, selectedCurrency, quoteCurrency, financialCurrency }: Props) {
+  const externalReport = simplyWallStReport(ticker, quoteTicker);
   const rows = useMemo(() => yearlyHistory(data), [data]);
   const { cagr, volatility, years } = useMemo(() => annualMetrics(rows), [rows]);
   const price = data?.price || {};
@@ -87,6 +90,10 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-6">
         <h3 className="text-lg font-bold text-white">Análisis fundamental para decidir</h3>
         <p className="text-xs text-slate-400 mt-2">Sector → beneficio estimado → crecimiento de largo plazo → calidad y ciclicidad → precio. Los objetivos de analistas son opiniones, no valores intrínsecos.</p>
+        <a href={externalReport.url} target="_blank" rel="noopener noreferrer" className="inline-flex mt-3 text-sm font-semibold text-sky-300 hover:text-sky-200 underline underline-offset-2">
+          {externalReport.direct ? `Ver informe de ${quoteTicker} en Simply Wall St ↗` : `Buscar ${quoteTicker} en Simply Wall St ↗`}
+        </a>
+        {!externalReport.direct && <p className="text-xs text-slate-500 mt-1">La ficha exacta aún no está verificada; se abre una búsqueda limitada a Simply Wall St.</p>}
         {ticker !== quoteTicker && <p className="text-xs text-amber-300 mt-3">Cotización seleccionada: {ticker} ({selectedCurrency}). Fundamentales de la acción ordinaria {quoteTicker} ({financialCurrency}). Las cifras por acción y las valoraciones corresponden a {quoteTicker}.</p>}
         {!sameCurrency && <p className="text-xs text-amber-300 mt-2">Monedas distintas: se omiten múltiplos y porcentajes que mezclen {quoteCurrency} con {financialCurrency}.</p>}
       </div>
@@ -127,6 +134,8 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
           <p className="text-xs text-slate-400 mt-3">Basado en {rows.length} ejercicios ({years} años entre extremos). La variación es la desviación típica muestral de cambios anuales; con menos de 4 ejercicios se omite. Yahoo solo proporciona aquí un historial corto: no extrapolarlo a 10–20 años.</p>
         </div>
       </div>
+
+      <AnalystTrends data={data} />
 
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 overflow-x-auto">
         <h4 className="font-semibold text-white mb-3">Beneficios anuales y reinversión</h4>

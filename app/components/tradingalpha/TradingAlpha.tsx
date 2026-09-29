@@ -234,6 +234,7 @@ export default function TradingAlpha() {
         'balanceSheetHistory',
         'cashflowStatementHistory',
         'recommendationTrend',
+        'earningsTrend',
       ];
       const fundamentalsTicker = getInstrumentConfig(t).quoteTicker;
       const res = await fetch(`/api/quoteSummary?t=${encodeURIComponent(fundamentalsTicker)}&modules=${modules.join(',')}`);

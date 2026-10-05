@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-05T12:06:56.860Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-05T19:27:30.991Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 19,
     "title": "La empresa como plataforma",
     "icon": "🏢"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"In 1976, artificial intelligence was deep in its first AI winter.\"\n\n▶️ youtube.com/watch?v=a-NUlP7NKLo",
+    "type": "recent_video",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=a-NUlP7NKLo",
-    "imageUrl": "https://i.ytimg.com/vi/a-NUlP7NKLo/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

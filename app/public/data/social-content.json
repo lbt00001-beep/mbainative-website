@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-05T23:04:49.878Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-10-06T11:51:16.429Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 19,
-    "title": "La empresa como plataforma",
-    "icon": "🏢"
+    "id": 20,
+    "title": "Transformación o extinción",
+    "icon": "🚀"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🏢 Principio #19: La empresa como plataforma\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
+    "type": "guru_quote",
+    "content": "🚀 Principio #20: Transformación o extinción\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Microsoft Strikes Back: Homegrown MAI AI Models Challenge Claude Code at Build 2026\"\n\n▶️ youtube.com/watch?v=15aaC5m5LIY",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "GurusIA",
+      "mustafasuleyman"
     ],
-    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
-    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=15aaC5m5LIY",
+    "imageUrl": "https://i.ytimg.com/vi/15aaC5m5LIY/mqdefault.jpg"
   }
 }

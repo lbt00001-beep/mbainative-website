@@ -58,7 +58,7 @@ function renderObservatory(){
   renderEstimateTrend();
   put('official-bars',['pp','psoe','vox','sumar'].map(id=>bar(partyLabel(id),actual.counts[id],160,`${actual.counts[id]} esc.`,color(id))),bar('Otras candidaturas',350-['pp','psoe','vox','sumar'].reduce((s,id)=>s+(actual.counts[id]||0),0),160,`${350-['pp','psoe','vox','sumar'].reduce((s,id)=>s+(actual.counts[id]||0),0)} esc.`,'#8b97ac'));
   $('official-check').textContent='Proyección propia: 52 circunscripciones; 350 escaños. Consulta supuestos y evaluación.';
-  $('data-date').textContent=`Revisión de fuentes: ${state.catalog.asOf.split('-').reverse().join('/')}`;
+  $('data-date').textContent=`Corte del catálogo: ${state.catalog.asOf.split('-').reverse().join('/')}`;
   const sources=[
     [ref.title,ref.url,'Referencia publicada el 3 de octubre de 2026; cifras aproximadas.'],
     [state.official.source.name,state.official.source.url,'Votos, blancos, censo y escaños definitivos de 2023.'],
@@ -78,7 +78,7 @@ function renderObservatory(){
     [node('a',{href:ref.url,target:'_blank',rel:'noopener noreferrer'},ref.title),dateLabel(ref.date),'Contexto editorial; sus cifras no alimentan la estimación propia.'],
     [node('a',{href:'https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672#a163',target:'_blank',rel:'noopener noreferrer'},'LOREG · texto consolidado'),'Consulta la versión y fecha en el BOE','Barrera, cocientes y desempates electorales.']
   ],'Consulta los originales para conocer el alcance de cada dato.'));
-  $('help-data-date').textContent=`Cálculo: ${dateLabel(state.estimate.calculatedAt)}. Último sondeo publicado: ${dateLabel(state.estimate.lastPublication)}. Último campo conocido: ${state.estimate.lastFieldwork?dateLabel(state.estimate.lastFieldwork):'No publicado'}. Catálogo revisado: ${dateLabel(state.catalog.asOf)}. Base histórica descargada: ${dateLabel(state.official.retrievedAt)}. Estas fechas no implican actualización automática.`;
+  $('help-data-date').textContent=`Cálculo: ${dateLabel(state.estimate.calculatedAt)}. Último sondeo publicado: ${dateLabel(state.estimate.lastPublication)}. Último campo conocido: ${state.estimate.lastFieldwork?dateLabel(state.estimate.lastFieldwork):'No publicado'}. Corte del catálogo: ${dateLabel(state.catalog.asOf)}. Base histórica descargada: ${dateLabel(state.official.retrievedAt)}. Estas fechas no implican actualización automática.`;
 }
 function createNationalControls(){
   put('national-controls',controlled.map(id=>{

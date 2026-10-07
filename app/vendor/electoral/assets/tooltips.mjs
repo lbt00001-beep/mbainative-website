@@ -1,4 +1,12 @@
 export const PARAMETER_HELP={
+ 'micro-basis':'PESO es la ponderación publicada del CIS, un ajuste de muestra que no equivale a su estimación electoral. Pesos iguales sirven para comparar su efecto, pero no garantizan mayor representatividad.',
+ 'micro-recall':'Compara el recuerdo declarado con el resultado de 2023 entre candidaturas comparables y cambia su influencia. La referencia no representa exactamente la población actual. Los factores se limitan entre 0,25 y 4 para evitar pesos extremos; no ajusta quienes no recuerdan partido.',
+ 'micro-participation':'La alternativa declarada multiplica el peso por la probabilidad de votar que responde cada persona, dividida por diez. Un 5 aporta la mitad que un 10. Es una regla exploratoria sin calibración; las respuestas sin número válido quedan fuera de esta opción.',
+ 'micro-undecided':'Solo modifica no sabe y no contesta. Puede dejarlos sin asignar, repartirlos como el voto declarado nacional o como el de su mismo grupo de recuerdo. Un grupo sin respuestas válidas usa la distribución nacional. Abstención y nulos nunca se redistribuyen.',
+ 'micro-dimension':'Variable por la que se divide la muestra. Muestra distribución de intención dentro de cada grupo, no el peso de ese grupo en toda España. Los grupos pequeños tienen más incertidumbre y se ocultan porcentajes con base insuficiente.',
+ 'micro-view':'La alternativa sin imponer el promedio calcula su resultado con las reglas elegidas, todavía sin validación predictiva. Perfiles ajustados impone el total del promedio entre cinco partidos para describir sus apoyos: no es una estimación nacional independiente.',
+ 'Tamaño efectivo de pesos':'Equivale a la información que conservarían los pesos si todas las entrevistas influyeran igual, según la fórmula de Kish: cuadrado de la suma de pesos dividido por suma de pesos al cuadrado. No incluye todos los errores del diseño ni es un margen de error electoral.',
+
  'national-sigma':'Escala de las variaciones nacionales, en puntos porcentuales. Pasar del 32 % al 34 % son dos puntos. Aumentar σ genera escenarios más diferentes del central; no equivale al margen de error publicado por una encuesta ni fija un límite máximo.',
  'local-sigma':'Añade variaciones propias de cada provincia, además del cambio nacional. Dos simulaciones pueden tener un apoyo nacional parecido y repartirlo territorialmente de forma distinta. Un valor mayor puede cambiar más escaños; no es una encuesta provincial.',
  runs:'Cantidad de elecciones hipotéticas que calcula el programa. Más ensayos estabilizan las frecuencias dentro de los mismos supuestos, pero no mejoran las encuestas ni convierten el modelo en una predicción validada.',
@@ -74,8 +82,9 @@ export function enhanceParameterHelp(root=document){
   if(input.id.startsWith('pct-'))text='Porcentaje nacional sobre voto válido de esta candidatura. Cambiarlo crea un escenario manual. Se distribuye por provincias mediante patrones históricos, por lo que no se impone ese mismo porcentaje a Madrid ni a las demás provincias.';
   if(input.id.startsWith('local-')&&input.id!=='local-sigma')text='Votos absolutos de esta candidatura en la provincia elegida. Puedes editarlos para estudiar un escenario local. El porcentaje se obtiene dividiéndolos por el total válido de esa provincia; el cambio no altera la estimación nacional.';
   const holder=input.closest('label')||root.querySelector(`label[for="${input.id}"]`)||(input.id.startsWith('pct-')?input.closest('.range-heading'):null);
-  if(text&&holder&&!input.hasAttribute('aria-label'))input.setAttribute('aria-label',holder.textContent.trim().slice(0,100));
-  if(text&&holder&&!holder.querySelector('.help-question'))holder.prepend(helpButton(text,input.getAttribute('aria-label')||holder.textContent.trim().slice(0,80),root.ownerDocument||root));
+  const labelCopy=holder?.cloneNode(true);labelCopy?.querySelectorAll('input,select,textarea,.help-question').forEach(n=>n.remove());const controlLabel=labelCopy?.textContent.trim()||input.id;
+  if(text&&holder&&!input.hasAttribute('aria-label'))input.setAttribute('aria-label',controlLabel.slice(0,100));
+  if(text&&holder&&!holder.querySelector('.help-question'))holder.prepend(helpButton(text,input.getAttribute('aria-label')||controlLabel.slice(0,80),root.ownerDocument||root));
  }
  for(const heading of root.querySelectorAll('h3,.metric small')){const text=parameterHelp(heading.textContent);if(text&&!heading.querySelector('.help-question'))heading.append(helpButton(text,heading.textContent,root.ownerDocument||root));}
 }

@@ -6,6 +6,7 @@ const BASE='/aplicaciones/observatorio-electoral';
 const CSP="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://openrouter.ai; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'";
 const MIME={'.html':'text/html; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml'};
 const DATA=['polls.json','update-status.json','official-2023.json','territory.json','references.json','evaluation.json','polls-example.json'];
+const BUNDLED_DATA=['microdata-3577.json','microdata-validation.json'];
 export function createNextHandler({packageRoot,storageRoot,origin,searchOverride,updateTtl=120000}){
  const publicUrl=new URL(origin);
  if(publicUrl.origin!==origin||!(publicUrl.protocol==='https:'||(publicUrl.protocol==='http:'&&['localhost','127.0.0.1'].includes(publicUrl.hostname))))throw Error('Origen HTTPS obligatorio, salvo pruebas locales.');
@@ -33,10 +34,10 @@ export function createNextHandler({packageRoot,storageRoot,origin,searchOverride
     const result=await service({method:'POST',origin:request.headers.get('origin'),bytes});return json(result.body,result.status,result.headers);
    }
    if(!['GET','HEAD'].includes(request.method))return json({error:'Método no permitido.'},405,{Allow:'GET, HEAD'});
-   if(route==='/health')return json({app:'observatorio-electoral',version:'3.2.0',sourceSearch:true});
+   if(route==='/health')return json({app:'observatorio-electoral',version:'3.3.0',sourceSearch:true});
    if(route==='/')route='/index.html';
    if(!/^\/(index\.html|assets\/[a-zA-Z0-9_-]+\.(mjs|css|svg)|data\/[a-zA-Z0-9_-]+\.json)$/.test(route))return json({error:'Archivo no disponible.'},404);
-   let root=packageRoot;if(route.startsWith('/data/')){initialized??=initialize();await initialized;root=storageRoot;if(!DATA.includes(path.basename(route)))return json({error:'Datos no disponibles.'},404);}
+   let root=packageRoot;if(route.startsWith('/data/')&&!BUNDLED_DATA.includes(path.basename(route))){initialized??=initialize();await initialized;root=storageRoot;if(!DATA.includes(path.basename(route)))return json({error:'Datos no disponibles.'},404);}
    let file;try{file=await realpath(path.join(root,route));}catch{return json({error:'Archivo no encontrado.'},404);}
    const relative=path.relative(root,file);if(relative.startsWith('..')||path.isAbsolute(relative))return json({error:'Acceso denegado.'},403);
    let bytes=await readFile(file);if(route==='/index.html')bytes=Buffer.from(bytes.toString('utf8').replace('<head>','<head>\n  <base href="'+BASE+'/">'));

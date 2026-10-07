@@ -67,3 +67,11 @@ La integración se prepara con `node scripts/prepare-hostinger.mjs RUTA_A_COPIA_
 `PUBLIC_ORIGIN` y `BASE_PATH` configuran el servidor independiente. En la integración Next.js se utilizan `ELECTORAL_PUBLIC_ORIGIN` y `ELECTORAL_DATA_DIR`. **La conservación entre redespliegues requiere una carpeta persistente de Hostinger confirmada o almacenamiento externo.** La copia local prueba reinicios con la misma carpeta; no certifica la persistencia del alojamiento. No se ha desplegado ni cambiado el sitio publicado.
 
 OpenRouter es opcional; clave solo en memoria. La pregunta y el contexto se transmiten a OpenRouter y al proveedor elegido; las respuestas no modifican los cálculos. La aplicación no necesita IA para funcionar.
+
+## Laboratorio de microdatos CIS (octubre de 2026)
+
+La sección usa agregados reproducibles de las 4.042 entrevistas del estudio 3577. No publica identificadores ni registros individuales. Lee PESO, INTENCIONGR, RECUERDO y PROBVOTO; los cruces de edad, sexo, sexo y edad, ingresos e ideología conservan todas las respuestas y las categorías no identificadas. El tamaño efectivo de Kish no sustituye la incertidumbre del diseño.
+
+Se comparan pesos publicados o iguales, ajuste por recuerdo (factores 0,25–4), participación declarada y reglas de indecisos. La vista de perfiles ajusta solo cinco candidaturas al promedio renormalizado entre ellas. Las alternativas no alimentan el promedio ni los escaños. No hay ponderación demográfica nueva ni importación automática de nuevos microdatos.
+
+Reproducción: descarga MD3577.zip desde la fuente indicada en data/microdata-3577.json a research/microdata/MD3577.zip y ejecuta Python scripts/import-microdata.py (solo biblioteca estándar). Para regenerar la comprobación histórica, scripts/evaluate-microdata.mjs lee calibration/microdata-3411.json y resultados oficiales de 2023. El agregado histórico procede de MD3411.zip; scripts/import-historical-microdata.py lo reconstruye con el fichero histórico de territorio de la carpeta calibration. El recuerdo utiliza resultados de 2019. La comparación retrospectiva de 2023 no se describe como una validación prospectiva ni permite seleccionar una receta definitiva.

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-05",
+  "references": [
+    {
+      "id": "elpais-2026-10-03",
+      "kind": "published-aggregate",
+      "title": "Promedio publicado por Kiko Llaneras · EL PAÍS",
+      "date": "2026-10-03",
+      "url": "https://elpais.com/actualidad/newsletter-kiko-llaneras/2026-10-03/que-dicen-las-encuestas-si-hay-elecciones-la-ventaja-pp-vox-y-las-opciones-de-sanchez.html",
+      "values": { "pp": 33, "psoe": 26, "vox": 18, "sumar": 6, "podemos": 3 },
+      "denominator": "Porcentajes nacionales aproximados; el texto no detalla el denominador.",
+      "note": "Referencia externa con cifras redondeadas. No es una encuesta individual ni un promedio calculado por esta app. El resto de candidaturas no está desglosado en estos datos.",
+      "modelReproduced": false
+    }
+  ],
+  "polls": []
+}

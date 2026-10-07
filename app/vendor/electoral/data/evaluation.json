@@ -1,0 +1,3079 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-06",
+  "polling": {
+    "rows": [
+      {
+        "date": "2023-07-23",
+        "polls": 3,
+        "parties": 4,
+        "simpleMAE": 1.4104188466148333,
+        "weightedMAE": 1.4184394437669123,
+        "simple": {
+          "pp": 35.03333333333333,
+          "psoe": 28.5,
+          "vox": 12.333333333333334,
+          "sumar": 12.766666666666666
+        },
+        "weighted": {
+          "pp": 35.08182996727613,
+          "psoe": 28.5,
+          "vox": 12.319157394180822,
+          "sumar": 12.736076482179673
+        },
+        "actual": {
+          "pp": 33.05576896257697,
+          "psoe": 31.68215504101229,
+          "vox": 12.382490388988018,
+          "sumar": 12.333867747630668
+        }
+      }
+    ],
+    "individualRMSE": 2.0431487547271434,
+    "status": "partial",
+    "note": "La comparación conjunta solo es posible en 2023. Este historial de sondeos no valida probabilidades ni error provincial; el diagnóstico territorial separado se muestra debajo."
+  },
+  "territorial": [
+    {
+      "from": "2019-04-28",
+      "to": "2019-11-10",
+      "source": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201911_1.zip",
+      "observations": 207,
+      "mae": 1.662959410585899,
+      "rmse": 2.279503166970837,
+      "alternative": {
+        "name": "Cambio aditivo uniforme, con recorte y normalización",
+        "mae": 1.3499729384191648,
+        "rmse": 1.8301261684856445,
+        "maxNationalTargetError": 0.000007345706421801879,
+        "note": "Referencia sencilla que puede incumplir objetivos nacionales tras recorte. No se sustituye automáticamente el ajuste exacto por un modelo seleccionado a posteriori."
+      },
+      "seatErrors": {
+        "pp": 0,
+        "psoe": -4,
+        "vox": -1,
+        "left": 0
+      },
+      "errors": [
+        {
+          "province": "04",
+          "party": "pp",
+          "predicted": 26.427348118865364,
+          "observed": 26.044575214419392,
+          "error": 0.38277290444597156
+        },
+        {
+          "province": "04",
+          "party": "psoe",
+          "predicted": 26.888347339279466,
+          "observed": 29.78853294102341,
+          "error": -2.9001856017439422
+        },
+        {
+          "province": "04",
+          "party": "vox",
+          "predicted": 26.39512114273788,
+          "observed": 26.925938157811338,
+          "error": -0.5308170150734561
+        },
+        {
+          "province": "04",
+          "party": "left",
+          "predicted": 7.093310907450263,
+          "observed": 8.139763746693221,
+          "error": -1.0464528392429582
+        },
+        {
+          "province": "11",
+          "party": "pp",
+          "predicted": 18.767403345082172,
+          "observed": 18.305600321656797,
+          "error": 0.46180302342537516
+        },
+        {
+          "province": "11",
+          "party": "psoe",
+          "predicted": 30.17823451974351,
+          "observed": 31.02389685890274,
+          "error": -0.8456623391592331
+        },
+        {
+          "province": "11",
+          "party": "vox",
+          "predicted": 19.465053779748725,
+          "observed": 21.620379067261204,
+          "error": -2.155325287512479
+        },
+        {
+          "province": "11",
+          "party": "left",
+          "predicted": 14.353247714436511,
+          "observed": 15.4139848201721,
+          "error": -1.0607371057355888
+        },
+        {
+          "province": "14",
+          "party": "pp",
+          "predicted": 23.324967321376405,
+          "observed": 22.780320340068023,
+          "error": 0.5446469813083823
+        },
+        {
+          "province": "14",
+          "party": "psoe",
+          "predicted": 32.41804755619337,
+          "observed": 33.43296026388987,
+          "error": -1.0149127076964959
+        },
+        {
+          "province": "14",
+          "party": "vox",
+          "predicted": 17.547301374741185,
+          "observed": 18.801697606447807,
+          "error": -1.2543962317066217
+        },
+        {
+          "province": "14",
+          "party": "left",
+          "predicted": 12.63324668789089,
+          "observed": 14.754733228390942,
+          "error": -2.121486540500051
+        },
+        {
+          "province": "18",
+          "party": "pp",
+          "predicted": 22.548090326177864,
+          "observed": 21.99514480889742,
+          "error": 0.5529455172804418
+        },
+        {
+          "province": "18",
+          "party": "psoe",
+          "predicted": 31.512838506868672,
+          "observed": 33.49496394152861,
+          "error": -1.9821254346599382
+        },
+        {
+          "province": "18",
+          "party": "vox",
+          "predicted": 20.343385597415956,
+          "observed": 20.894467549466704,
+          "error": -0.5510819520507475
+        },
+        {
+          "province": "18",
+          "party": "left",
+          "predicted": 11.445161166280535,
+          "observed": 12.405828738465784,
+          "error": -0.9606675721852493
+        },
+        {
+          "province": "21",
+          "party": "pp",
+          "predicted": 21.047160437208593,
+          "observed": 19.993854513697965,
+          "error": 1.053305923510628
+        },
+        {
+          "province": "21",
+          "party": "psoe",
+          "predicted": 34.85056944125965,
+          "observed": 37.05728240126791,
+          "error": -2.206712960008261
+        },
+        {
+          "province": "21",
+          "party": "vox",
+          "predicted": 18.742643124665598,
+          "observed": 21.22012161593945,
+          "error": -2.4774784912738532
+        },
+        {
+          "province": "21",
+          "party": "left",
+          "predicted": 11.05862569747,
+          "observed": 12.28652521266617,
+          "error": -1.227899515196171
+        },
+        {
+          "province": "23",
+          "party": "pp",
+          "predicted": 23.982288913400904,
+          "observed": 22.68310550249485,
+          "error": 1.2991834109060534
+        },
+        {
+          "province": "23",
+          "party": "psoe",
+          "predicted": 36.76169119024329,
+          "observed": 39.18146760839818,
+          "error": -2.419776418154889
+        },
+        {
+          "province": "23",
+          "party": "vox",
+          "predicted": 17.48787695893775,
+          "observed": 19.889701308933088,
+          "error": -2.401824349995337
+        },
+        {
+          "province": "23",
+          "party": "left",
+          "predicted": 8.863087681325315,
+          "observed": 9.941256962777647,
+          "error": -1.0781692814523325
+        },
+        {
+          "province": "29",
+          "party": "pp",
+          "predicted": 21.883939820647743,
+          "observed": 21.804525343984135,
+          "error": 0.07941447666360801
+        },
+        {
+          "province": "29",
+          "party": "psoe",
+          "predicted": 29.00491612935102,
+          "observed": 30.310290594270427,
+          "error": -1.3053744649194066
+        },
+        {
+          "province": "29",
+          "party": "vox",
+          "predicted": 20.38192643098891,
+          "observed": 21.684663726026006,
+          "error": -1.3027372950370975
+        },
+        {
+          "province": "29",
+          "party": "left",
+          "predicted": 12.310086711628252,
+          "observed": 13.068657857216351,
+          "error": -0.7585711455880997
+        },
+        {
+          "province": "41",
+          "party": "pp",
+          "predicted": 18.222309821836784,
+          "observed": 18.09767005698622,
+          "error": 0.1246397648505635
+        },
+        {
+          "province": "41",
+          "party": "psoe",
+          "predicted": 35.44247405311417,
+          "observed": 36.58515472841376,
+          "error": -1.1426806752995944
+        },
+        {
+          "province": "41",
+          "party": "vox",
+          "predicted": 18.06247052512969,
+          "observed": 18.159898049965136,
+          "error": -0.09742752483544592
+        },
+        {
+          "province": "41",
+          "party": "left",
+          "predicted": 13.775249388902688,
+          "observed": 14.757267546707062,
+          "error": -0.9820181578043741
+        },
+        {
+          "province": "22",
+          "party": "pp",
+          "predicted": 25.04454100594149,
+          "observed": 26.555232817149882,
+          "error": -1.5106918112083925
+        },
+        {
+          "province": "22",
+          "party": "psoe",
+          "predicted": 31.32381512862475,
+          "observed": 33.94782329775291,
+          "error": -2.6240081691281603
+        },
+        {
+          "province": "22",
+          "party": "vox",
+          "predicted": 15.720355038172247,
+          "observed": 15.358091131029813,
+          "error": 0.3622639071424345
+        },
+        {
+          "province": "22",
+          "party": "left",
+          "predicted": 11.717710793837622,
+          "observed": 12.50512322469127,
+          "error": -0.7874124308536476
+        },
+        {
+          "province": "44",
+          "party": "pp",
+          "predicted": 29.249288118042973,
+          "observed": 23.76334314430263,
+          "error": 5.485944973740342
+        },
+        {
+          "province": "44",
+          "party": "psoe",
+          "predicted": 30.710587626197256,
+          "observed": 25.681229400355367,
+          "error": 5.029358225841889
+        },
+        {
+          "province": "44",
+          "party": "vox",
+          "predicted": 15.484079730779188,
+          "observed": 12.676495720699338,
+          "error": 2.80758401007985
+        },
+        {
+          "province": "44",
+          "party": "left",
+          "predicted": 8.888169816205021,
+          "observed": 5.401006415560107,
+          "error": 3.4871634006449144
+        },
+        {
+          "province": "50",
+          "party": "pp",
+          "predicted": 22.352632900612505,
+          "observed": 23.590434688517494,
+          "error": -1.2378017879049885
+        },
+        {
+          "province": "50",
+          "party": "psoe",
+          "predicted": 29.647563625247024,
+          "observed": 31.148447259957308,
+          "error": -1.5008836347102843
+        },
+        {
+          "province": "50",
+          "party": "vox",
+          "predicted": 18.71071757414302,
+          "observed": 18.16917341307705,
+          "error": 0.5415441610659677
+        },
+        {
+          "province": "50",
+          "party": "left",
+          "predicted": 11.94913619606002,
+          "observed": 11.38610452591507,
+          "error": 0.5630316701449516
+        },
+        {
+          "province": "33",
+          "party": "pp",
+          "predicted": 22.37694880470085,
+          "observed": 23.510776111625752,
+          "error": -1.1338273069249034
+        },
+        {
+          "province": "33",
+          "party": "psoe",
+          "predicted": 31.495168626160247,
+          "observed": 33.690908696155624,
+          "error": -2.1957400699953773
+        },
+        {
+          "province": "33",
+          "party": "vox",
+          "predicted": 16.937155838226015,
+          "observed": 16.064294812413156,
+          "error": 0.8728610258128597
+        },
+        {
+          "province": "33",
+          "party": "left",
+          "predicted": 14.700477409757617,
+          "observed": 16.15711122047244,
+          "error": -1.4566338107148233
+        },
+        {
+          "province": "07",
+          "party": "pp",
+          "predicted": 21.440080955902385,
+          "observed": 23.073380923673785,
+          "error": -1.6332999677714
+        },
+        {
+          "province": "07",
+          "party": "psoe",
+          "predicted": 25.519596777332346,
+          "observed": 25.708349368564125,
+          "error": -0.18875259123177912
+        },
+        {
+          "province": "07",
+          "party": "vox",
+          "predicted": 16.94800140115985,
+          "observed": 17.244639413077184,
+          "error": -0.2966380119173344
+        },
+        {
+          "province": "07",
+          "party": "left",
+          "predicted": 15.571361849531,
+          "observed": 18.29128580676305,
+          "error": -2.7199239572320497
+        },
+        {
+          "province": "35",
+          "party": "pp",
+          "predicted": 21.374616071643203,
+          "observed": 21.538567318049893,
+          "error": -0.16395124640668968
+        },
+        {
+          "province": "35",
+          "party": "psoe",
+          "predicted": 28.413009831894392,
+          "observed": 29.394128175050472,
+          "error": -0.9811183431560799
+        },
+        {
+          "province": "35",
+          "party": "vox",
+          "predicted": 10.908835391121524,
+          "observed": 13.44194119007486,
+          "error": -2.5331057989533363
+        },
+        {
+          "province": "35",
+          "party": "left",
+          "predicted": 15.145407375492566,
+          "observed": 15.553189583146683,
+          "error": -0.4077822076541171
+        },
+        {
+          "province": "38",
+          "party": "pp",
+          "predicted": 19.963089419486604,
+          "observed": 20.30295589516709,
+          "error": -0.33986647568048767
+        },
+        {
+          "province": "38",
+          "party": "psoe",
+          "predicted": 28.01579320720594,
+          "observed": 28.795803554549227,
+          "error": -0.7800103473432856
+        },
+        {
+          "province": "38",
+          "party": "vox",
+          "predicted": 9.65716423844157,
+          "observed": 11.623449855388648,
+          "error": -1.9662856169470775
+        },
+        {
+          "province": "38",
+          "party": "left",
+          "predicted": 13.552653118495826,
+          "observed": 14.040230422056545,
+          "error": -0.4875773035607196
+        },
+        {
+          "province": "39",
+          "party": "pp",
+          "predicted": 27.13529390332426,
+          "observed": 25.991789123046384,
+          "error": 1.1435047802778762
+        },
+        {
+          "province": "39",
+          "party": "psoe",
+          "predicted": 23.985919321974993,
+          "observed": 23.36289494871275,
+          "error": 0.6230243732622434
+        },
+        {
+          "province": "39",
+          "party": "vox",
+          "predicted": 16.48425873245871,
+          "observed": 15.004209918198523,
+          "error": 1.4800488142601864
+        },
+        {
+          "province": "39",
+          "party": "left",
+          "predicted": 8.789773571262412,
+          "observed": 8.719754657029949,
+          "error": 0.0700189142324632
+        },
+        {
+          "province": "02",
+          "party": "pp",
+          "predicted": 26.672224633539464,
+          "observed": 27.689404278950686,
+          "error": -1.0171796454112219
+        },
+        {
+          "province": "02",
+          "party": "psoe",
+          "predicted": 29.364973635468996,
+          "observed": 32.87243154714282,
+          "error": -3.5074579116738214
+        },
+        {
+          "province": "02",
+          "party": "vox",
+          "predicted": 20.60215127697154,
+          "observed": 20.85164861023522,
+          "error": -0.24949733326367962
+        },
+        {
+          "province": "02",
+          "party": "left",
+          "predicted": 8.776574029110568,
+          "observed": 9.775416270554683,
+          "error": -0.9988422414441143
+        },
+        {
+          "province": "13",
+          "party": "pp",
+          "predicted": 28.433004052250354,
+          "observed": 28.108414683158237,
+          "error": 0.32458936909211644
+        },
+        {
+          "province": "13",
+          "party": "psoe",
+          "predicted": 31.31452805522864,
+          "observed": 34.57295567483107,
+          "error": -3.2584276196024327
+        },
+        {
+          "province": "13",
+          "party": "vox",
+          "predicted": 19.428155762876447,
+          "observed": 21.052671116336196,
+          "error": -1.6245153534597492
+        },
+        {
+          "province": "13",
+          "party": "left",
+          "predicted": 7.55791012307724,
+          "observed": 8.357215563576814,
+          "error": -0.7993054404995741
+        },
+        {
+          "province": "16",
+          "party": "pp",
+          "predicted": 31.583343880521454,
+          "observed": 31.189359675166717,
+          "error": 0.3939842053547373
+        },
+        {
+          "province": "16",
+          "party": "psoe",
+          "predicted": 32.02379445639792,
+          "observed": 37.616656030041526,
+          "error": -5.592861573643603
+        },
+        {
+          "province": "16",
+          "party": "vox",
+          "predicted": 19.49879762055436,
+          "observed": 18.598370284044137,
+          "error": 0.9004273365102229
+        },
+        {
+          "province": "16",
+          "party": "left",
+          "predicted": 6.4211281272412775,
+          "observed": 6.963752231378969,
+          "error": -0.5426241041376914
+        },
+        {
+          "province": "19",
+          "party": "pp",
+          "predicted": 24.156910896119566,
+          "observed": 23.237866967925132,
+          "error": 0.9190439281944336
+        },
+        {
+          "province": "19",
+          "party": "psoe",
+          "predicted": 27.299927316863194,
+          "observed": 31.42375158389692,
+          "error": -4.123824267033726
+        },
+        {
+          "province": "19",
+          "party": "vox",
+          "predicted": 23.38844549823232,
+          "observed": 24.184388501290016,
+          "error": -0.7959430030576975
+        },
+        {
+          "province": "19",
+          "party": "left",
+          "predicted": 10.147412692028142,
+          "observed": 11.371234905271514,
+          "error": -1.2238222132433716
+        },
+        {
+          "province": "45",
+          "party": "pp",
+          "predicted": 26.10039373572296,
+          "observed": 26.15703979623794,
+          "error": -0.05664606051497856
+        },
+        {
+          "province": "45",
+          "party": "psoe",
+          "predicted": 28.151470360801873,
+          "observed": 32.22777449814724,
+          "error": -4.0763041373453675
+        },
+        {
+          "province": "45",
+          "party": "vox",
+          "predicted": 23.635805865217137,
+          "observed": 23.848641817229424,
+          "error": -0.21283595201228778
+        },
+        {
+          "province": "45",
+          "party": "left",
+          "predicted": 8.617057148724605,
+          "observed": 9.65513992012483,
+          "error": -1.0380827714002248
+        },
+        {
+          "province": "05",
+          "party": "pp",
+          "predicted": 36.75917795514863,
+          "observed": 35.07294508361998,
+          "error": 1.6862328715286523
+        },
+        {
+          "province": "05",
+          "party": "psoe",
+          "predicted": 23.155776118077686,
+          "observed": 26.389622712716058,
+          "error": -3.233846594638372
+        },
+        {
+          "province": "05",
+          "party": "vox",
+          "predicted": 19.804256242785403,
+          "observed": 18.668118739284676,
+          "error": 1.136137503500727
+        },
+        {
+          "province": "05",
+          "party": "left",
+          "predicted": 6.0913405092889485,
+          "observed": 6.533248509289311,
+          "error": -0.4419080000003621
+        },
+        {
+          "province": "09",
+          "party": "pp",
+          "predicted": 30.15675770211434,
+          "observed": 31.183885507652345,
+          "error": -1.0271278055380044
+        },
+        {
+          "province": "09",
+          "party": "psoe",
+          "predicted": 27.34469205349828,
+          "observed": 32.688380147189896,
+          "error": -5.343688093691615
+        },
+        {
+          "province": "09",
+          "party": "vox",
+          "predicted": 16.075718664567972,
+          "observed": 15.064809391632076,
+          "error": 1.010909272935896
+        },
+        {
+          "province": "09",
+          "party": "left",
+          "predicted": 10.525685987536704,
+          "observed": 11.234306959688304,
+          "error": -0.7086209721515999
+        },
+        {
+          "province": "24",
+          "party": "pp",
+          "predicted": 28.7176005625197,
+          "observed": 28.723424716023832,
+          "error": -0.005824153504132568
+        },
+        {
+          "province": "24",
+          "party": "psoe",
+          "predicted": 30.45018894981313,
+          "observed": 33.81018506052645,
+          "error": -3.359996110713322
+        },
+        {
+          "province": "24",
+          "party": "vox",
+          "predicted": 16.6265444179272,
+          "observed": 15.726490466170967,
+          "error": 0.9000539517562327
+        },
+        {
+          "province": "24",
+          "party": "left",
+          "predicted": 10.091409451300827,
+          "observed": 10.56972177451927,
+          "error": -0.47831232321844297
+        },
+        {
+          "province": "34",
+          "party": "pp",
+          "predicted": 35.22607180600383,
+          "observed": 36.08095132579954,
+          "error": -0.8548795197957091
+        },
+        {
+          "province": "34",
+          "party": "psoe",
+          "predicted": 28.397741662144277,
+          "observed": 33.603452460088846,
+          "error": -5.205710797944569
+        },
+        {
+          "province": "34",
+          "party": "vox",
+          "predicted": 16.446259746936676,
+          "observed": 14.57799162208646,
+          "error": 1.868268124850216
+        },
+        {
+          "province": "34",
+          "party": "left",
+          "predicted": 7.548103929241286,
+          "observed": 8.17321389003197,
+          "error": -0.6251099607906845
+        },
+        {
+          "province": "37",
+          "party": "pp",
+          "predicted": 34.21115644694749,
+          "observed": 35.05134894506905,
+          "error": -0.84019249812156
+        },
+        {
+          "province": "37",
+          "party": "psoe",
+          "predicted": 25.665191655651974,
+          "observed": 29.75391846284448,
+          "error": -4.088726807192508
+        },
+        {
+          "province": "37",
+          "party": "vox",
+          "predicted": 17.856732371702776,
+          "observed": 18.08031554754954,
+          "error": -0.22358317584676257
+        },
+        {
+          "province": "37",
+          "party": "left",
+          "predicted": 6.467061280003065,
+          "observed": 7.043915771165911,
+          "error": -0.5768544911628455
+        },
+        {
+          "province": "40",
+          "party": "pp",
+          "predicted": 32.42595035375945,
+          "observed": 33.387676416688485,
+          "error": -0.9617260629290385
+        },
+        {
+          "province": "40",
+          "party": "psoe",
+          "predicted": 25.889304363941612,
+          "observed": 30.027131875193373,
+          "error": -4.137827511251761
+        },
+        {
+          "province": "40",
+          "party": "vox",
+          "predicted": 17.641094964515037,
+          "observed": 17.337030249660852,
+          "error": 0.30406471485418507
+        },
+        {
+          "province": "40",
+          "party": "left",
+          "predicted": 7.994200307427313,
+          "observed": 9.402146750124949,
+          "error": -1.4079464426976358
+        },
+        {
+          "province": "42",
+          "party": "pp",
+          "predicted": 32.77729172742296,
+          "observed": 33.37127098426317,
+          "error": -0.5939792568402069
+        },
+        {
+          "province": "42",
+          "party": "psoe",
+          "predicted": 29.645183240983766,
+          "observed": 35.11348464619493,
+          "error": -5.468301405211161
+        },
+        {
+          "province": "42",
+          "party": "vox",
+          "predicted": 13.541362885194907,
+          "observed": 13.710083389875024,
+          "error": -0.1687205046801168
+        },
+        {
+          "province": "42",
+          "party": "left",
+          "predicted": 7.255759696704579,
+          "observed": 7.697695287706012,
+          "error": -0.44193559100143354
+        },
+        {
+          "province": "47",
+          "party": "pp",
+          "predicted": 28.273303910376836,
+          "observed": 29.79400402845216,
+          "error": -1.5207001180753252
+        },
+        {
+          "province": "47",
+          "party": "psoe",
+          "predicted": 26.662232249597757,
+          "observed": 30.613641597498596,
+          "error": -3.9514093479008388
+        },
+        {
+          "province": "47",
+          "party": "vox",
+          "predicted": 19.53510530242425,
+          "observed": 18.278209706558723,
+          "error": 1.256895595865526
+        },
+        {
+          "province": "47",
+          "party": "left",
+          "predicted": 9.719762818611368,
+          "observed": 11.129491059236411,
+          "error": -1.4097282406250429
+        },
+        {
+          "province": "49",
+          "party": "pp",
+          "predicted": 35.32375085557837,
+          "observed": 33.975756960998126,
+          "error": 1.3479938945802417
+        },
+        {
+          "province": "49",
+          "party": "psoe",
+          "predicted": 28.407939767282684,
+          "observed": 33.21702084495613,
+          "error": -4.809081077673447
+        },
+        {
+          "province": "49",
+          "party": "vox",
+          "predicted": 16.387862194843713,
+          "observed": 17.28051934878531,
+          "error": -0.8926571539415988
+        },
+        {
+          "province": "49",
+          "party": "left",
+          "predicted": 6.798083504449007,
+          "observed": 7.101486027286098,
+          "error": -0.3034025228370911
+        },
+        {
+          "province": "08",
+          "party": "pp",
+          "predicted": 7.658970246422489,
+          "observed": 7.761330279868111,
+          "error": -0.10236003344562228
+        },
+        {
+          "province": "08",
+          "party": "psoe",
+          "predicted": 28.74887150601831,
+          "observed": 21.95574722646251,
+          "error": 6.793124279555801
+        },
+        {
+          "province": "08",
+          "party": "vox",
+          "predicted": 6.486818610339808,
+          "observed": 6.353493862686247,
+          "error": 0.1333247476535604
+        },
+        {
+          "province": "08",
+          "party": "left",
+          "predicted": 17.151239780725806,
+          "observed": 15.563660828714497,
+          "error": 1.5875789520113095
+        },
+        {
+          "province": "17",
+          "party": "pp",
+          "predicted": 5.384823655897019,
+          "observed": 4.937534486905587,
+          "error": 0.447289168991432
+        },
+        {
+          "province": "17",
+          "party": "psoe",
+          "predicted": 21.649172890034986,
+          "observed": 14.918999985851526,
+          "error": 6.73017290418346
+        },
+        {
+          "province": "17",
+          "party": "vox",
+          "predicted": 5.496279122340775,
+          "observed": 5.231822747916637,
+          "error": 0.26445637442413794
+        },
+        {
+          "province": "17",
+          "party": "left",
+          "predicted": 11.027519511278294,
+          "observed": 9.538901229502398,
+          "error": 1.4886182817758957
+        },
+        {
+          "province": "25",
+          "party": "pp",
+          "predicted": 8.189101420312612,
+          "observed": 7.140844249232324,
+          "error": 1.0482571710802882
+        },
+        {
+          "province": "25",
+          "party": "psoe",
+          "predicted": 21.01875312254657,
+          "observed": 14.567866443813893,
+          "error": 6.450886678732678
+        },
+        {
+          "province": "25",
+          "party": "vox",
+          "predicted": 5.198147883805581,
+          "observed": 4.524429587592802,
+          "error": 0.6737182962127797
+        },
+        {
+          "province": "25",
+          "party": "left",
+          "predicted": 9.430982799229177,
+          "observed": 7.937672484160609,
+          "error": 1.4933103150685678
+        },
+        {
+          "province": "43",
+          "party": "pp",
+          "predicted": 7.920863482295247,
+          "observed": 7.818836489819809,
+          "error": 0.10202699247543823
+        },
+        {
+          "province": "43",
+          "party": "psoe",
+          "predicted": 25.26695353253684,
+          "observed": 19.242286466825536,
+          "error": 6.024667065711302
+        },
+        {
+          "province": "43",
+          "party": "vox",
+          "predicted": 8.78338421596673,
+          "observed": 8.132656047493624,
+          "error": 0.6507281684731065
+        },
+        {
+          "province": "43",
+          "party": "left",
+          "predicted": 12.958965359744225,
+          "observed": 12.188009532171078,
+          "error": 0.7709558275731467
+        },
+        {
+          "province": "06",
+          "party": "pp",
+          "predicted": 25.15723425743699,
+          "observed": 25.300632911392405,
+          "error": -0.1433986539554155
+        },
+        {
+          "province": "06",
+          "party": "psoe",
+          "predicted": 36.111159125760246,
+          "observed": 38.82365779135748,
+          "error": -2.712498665597238
+        },
+        {
+          "province": "06",
+          "party": "vox",
+          "predicted": 15.98789043111942,
+          "observed": 17.46398952422523,
+          "error": -1.4760990931058107
+        },
+        {
+          "province": "06",
+          "party": "left",
+          "predicted": 7.927273445621764,
+          "observed": 9.267514185945002,
+          "error": -1.340240740323238
+        },
+        {
+          "province": "10",
+          "party": "pp",
+          "predicted": 28.14400596043116,
+          "observed": 27.79461789007196,
+          "error": 0.34938807035919694
+        },
+        {
+          "province": "10",
+          "party": "psoe",
+          "predicted": 34.813453081850646,
+          "observed": 38.45945347686831,
+          "error": -3.6460003950176656
+        },
+        {
+          "province": "10",
+          "party": "vox",
+          "predicted": 15.027413124286328,
+          "observed": 16.17569331821488,
+          "error": -1.1482801939285512
+        },
+        {
+          "province": "10",
+          "party": "left",
+          "predicted": 8.2004518913841,
+          "observed": 9.08055998518271,
+          "error": -0.8801080937986097
+        },
+        {
+          "province": "15",
+          "party": "pp",
+          "predicted": 32.199252809433546,
+          "observed": 30.869517162195823,
+          "error": 1.3297356472377224
+        },
+        {
+          "province": "15",
+          "party": "psoe",
+          "predicted": 30.14126711689305,
+          "observed": 30.383033618338896,
+          "error": -0.241766501445845
+        },
+        {
+          "province": "15",
+          "party": "vox",
+          "predicted": 8.389387563653855,
+          "observed": 8.301893640081362,
+          "error": 0.08749392357249342
+        },
+        {
+          "province": "15",
+          "party": "left",
+          "predicted": 12.785742134108906,
+          "observed": 12.713733550867966,
+          "error": 0.07200858324094028
+        },
+        {
+          "province": "27",
+          "party": "pp",
+          "predicted": 40.78400226631188,
+          "observed": 38.488972260756746,
+          "error": 2.295030005555134
+        },
+        {
+          "province": "27",
+          "party": "psoe",
+          "predicted": 30.67412660994142,
+          "observed": 32.31489854030587,
+          "error": -1.6407719303644477
+        },
+        {
+          "province": "27",
+          "party": "vox",
+          "predicted": 8.194133894515323,
+          "observed": 8.22910289748443,
+          "error": -0.0349690029691061
+        },
+        {
+          "province": "27",
+          "party": "left",
+          "predicted": 8.445552868806848,
+          "observed": 9.293966335488147,
+          "error": -0.8484134666812988
+        },
+        {
+          "province": "32",
+          "party": "pp",
+          "predicted": 42.18405088113927,
+          "observed": 39.798592503165395,
+          "error": 2.385458377973876
+        },
+        {
+          "province": "32",
+          "party": "psoe",
+          "predicted": 30.306366958719373,
+          "observed": 33.52904802567651,
+          "error": -3.2226810669571364
+        },
+        {
+          "province": "32",
+          "party": "vox",
+          "predicted": 7.408805625029494,
+          "observed": 7.823680103648303,
+          "error": -0.4148744786188088
+        },
+        {
+          "province": "32",
+          "party": "left",
+          "predicted": 7.4324005474021995,
+          "observed": 7.99328641677218,
+          "error": -0.5608858693699803
+        },
+        {
+          "province": "36",
+          "party": "pp",
+          "predicted": 31.688122887219098,
+          "observed": 29.344314528198048,
+          "error": 2.3438083590210503
+        },
+        {
+          "province": "36",
+          "party": "psoe",
+          "predicted": 31.03340164293346,
+          "observed": 32.12810535767734,
+          "error": -1.0947037147438827
+        },
+        {
+          "province": "36",
+          "party": "vox",
+          "predicted": 7.101220815161228,
+          "observed": 7.360940803892982,
+          "error": -0.25971998873175384
+        },
+        {
+          "province": "36",
+          "party": "left",
+          "predicted": 15.148442015658663,
+          "observed": 15.649361307701962,
+          "error": -0.5009192920432994
+        },
+        {
+          "province": "28",
+          "party": "pp",
+          "predicted": 23.03974115503021,
+          "observed": 25.1098641792413,
+          "error": -2.070123024211089
+        },
+        {
+          "province": "28",
+          "party": "psoe",
+          "predicted": 25.636440764569876,
+          "observed": 27.088353095493275,
+          "error": -1.451912330923399
+        },
+        {
+          "province": "28",
+          "party": "vox",
+          "predicted": 20.19317567308634,
+          "observed": 18.489210505765676,
+          "error": 1.7039651673206642
+        },
+        {
+          "province": "28",
+          "party": "left",
+          "predicted": 13.761251814980563,
+          "observed": 13.117749049050975,
+          "error": 0.643502765929588
+        },
+        {
+          "province": "31",
+          "party": "psoe",
+          "predicted": 31.533927445620005,
+          "observed": 25.25676331926728,
+          "error": 6.2771641263527265
+        },
+        {
+          "province": "31",
+          "party": "vox",
+          "predicted": 9.18699119843846,
+          "observed": 5.863705053222776,
+          "error": 3.3232861452156834
+        },
+        {
+          "province": "31",
+          "party": "left",
+          "predicted": 20.573133901016156,
+          "observed": 16.739912708012223,
+          "error": 3.833221193003933
+        },
+        {
+          "province": "01",
+          "party": "pp",
+          "predicted": 20.29144993221435,
+          "observed": 15.008473379466176,
+          "error": 5.282976552748172
+        },
+        {
+          "province": "01",
+          "party": "psoe",
+          "predicted": 25.14138555002808,
+          "observed": 22.059031210281034,
+          "error": 3.082354339747045
+        },
+        {
+          "province": "01",
+          "party": "vox",
+          "predicted": 5.501698895576064,
+          "observed": 3.77830344113355,
+          "error": 1.7233954544425143
+        },
+        {
+          "province": "01",
+          "party": "left",
+          "predicted": 17.96461532352758,
+          "observed": 16.58546344678247,
+          "error": 1.3791518767451088
+        },
+        {
+          "province": "20",
+          "party": "pp",
+          "predicted": 8.280368265869994,
+          "observed": 6.1998472284564565,
+          "error": 2.080521037413537
+        },
+        {
+          "province": "20",
+          "party": "psoe",
+          "predicted": 23.536748481830784,
+          "observed": 18.20186318284549,
+          "error": 5.334885298985295
+        },
+        {
+          "province": "20",
+          "party": "vox",
+          "predicted": 3.184006014097983,
+          "observed": 1.9093818002367697,
+          "error": 1.2746242138612132
+        },
+        {
+          "province": "20",
+          "party": "left",
+          "predicted": 19.474059320875558,
+          "observed": 15.057446825265579,
+          "error": 4.416612495609979
+        },
+        {
+          "province": "48",
+          "party": "pp",
+          "predicted": 11.53424003118392,
+          "observed": 8.877967649152602,
+          "error": 2.656272382031318
+        },
+        {
+          "province": "48",
+          "party": "psoe",
+          "predicted": 24.02612532477143,
+          "observed": 19.244189201699584,
+          "error": 4.781936123071848
+        },
+        {
+          "province": "48",
+          "party": "vox",
+          "predicted": 4.320027901401371,
+          "observed": 2.439561632290832,
+          "error": 1.880466269110539
+        },
+        {
+          "province": "48",
+          "party": "left",
+          "predicted": 19.320401580884024,
+          "observed": 15.5026448270248,
+          "error": 3.817756753859223
+        },
+        {
+          "province": "30",
+          "party": "pp",
+          "predicted": 27.649928759552697,
+          "observed": 26.70240138429758,
+          "error": 0.9475273752551168
+        },
+        {
+          "province": "30",
+          "party": "psoe",
+          "predicted": 22.24193491409933,
+          "observed": 24.962729365877856,
+          "error": -2.720794451778527
+        },
+        {
+          "province": "30",
+          "party": "vox",
+          "predicted": 25.917130808974857,
+          "observed": 28.157858396954094,
+          "error": -2.2407275879792365
+        },
+        {
+          "province": "30",
+          "party": "left",
+          "predicted": 8.428353305517504,
+          "observed": 8.942274903688173,
+          "error": -0.5139215981706684
+        },
+        {
+          "province": "26",
+          "party": "pp",
+          "predicted": 32.53294828624311,
+          "observed": 34.594336211598446,
+          "error": -2.0613879253553336
+        },
+        {
+          "province": "26",
+          "party": "psoe",
+          "predicted": 29.574850032335036,
+          "observed": 35.228616778099855,
+          "error": -5.65376674576482
+        },
+        {
+          "province": "26",
+          "party": "vox",
+          "predicted": 13.003701804071984,
+          "observed": 11.587417344356128,
+          "error": 1.4162844597158557
+        },
+        {
+          "province": "26",
+          "party": "left",
+          "predicted": 9.929085921994513,
+          "observed": 9.972606433504723,
+          "error": -0.0435205115102093
+        },
+        {
+          "province": "03",
+          "party": "pp",
+          "predicted": 24.24512441894662,
+          "observed": 24.535528050578858,
+          "error": -0.2904036316322376
+        },
+        {
+          "province": "03",
+          "party": "psoe",
+          "predicted": 26.716055289506144,
+          "observed": 28.42835805704087,
+          "error": -1.7123027675347267
+        },
+        {
+          "province": "03",
+          "party": "vox",
+          "predicted": 18.39870686817166,
+          "observed": 19.811512797388684,
+          "error": -1.412805929217022
+        },
+        {
+          "province": "03",
+          "party": "left",
+          "predicted": 11.854257107616133,
+          "observed": 12.84508449140647,
+          "error": -0.9908273837903359
+        },
+        {
+          "province": "12",
+          "party": "pp",
+          "predicted": 25.218584855926863,
+          "observed": 24.01387943099808,
+          "error": 1.2047054249287825
+        },
+        {
+          "province": "12",
+          "party": "psoe",
+          "predicted": 27.792742982783228,
+          "observed": 28.77107493729276,
+          "error": -0.9783319545095317
+        },
+        {
+          "province": "12",
+          "party": "vox",
+          "predicted": 17.51186144291721,
+          "observed": 18.769055986531203,
+          "error": -1.2571945436139949
+        },
+        {
+          "province": "12",
+          "party": "left",
+          "predicted": 11.846013397965875,
+          "observed": 13.431497685050525,
+          "error": -1.5854842870846504
+        },
+        {
+          "province": "46",
+          "party": "pp",
+          "predicted": 22.194171363112844,
+          "observed": 22.24993838168559,
+          "error": -0.055767018572744576
+        },
+        {
+          "province": "46",
+          "party": "psoe",
+          "predicted": 26.040662691182842,
+          "observed": 27.24827106258971,
+          "error": -1.2076083714068666
+        },
+        {
+          "province": "46",
+          "party": "vox",
+          "predicted": 17.392499918818327,
+          "observed": 17.82509097762893,
+          "error": -0.4325910588106012
+        },
+        {
+          "province": "46",
+          "party": "left",
+          "predicted": 12.58709757208069,
+          "observed": 13.904861322546504,
+          "error": -1.3177637504658133
+        },
+        {
+          "province": "51",
+          "party": "pp",
+          "predicted": 24.313059176467466,
+          "observed": 22.494028000362857,
+          "error": 1.819031176104609
+        },
+        {
+          "province": "51",
+          "party": "psoe",
+          "predicted": 31.3245015530836,
+          "observed": 31.61380061080705,
+          "error": -0.28929905772345066
+        },
+        {
+          "province": "51",
+          "party": "vox",
+          "predicted": 31.99086733745719,
+          "observed": 35.53566568897221,
+          "error": -3.54479835151502
+        },
+        {
+          "province": "51",
+          "party": "left",
+          "predicted": 3.76191361138397,
+          "observed": 3.93093647001905,
+          "error": -0.16902285863507993
+        },
+        {
+          "province": "52",
+          "party": "pp",
+          "predicted": 28.61788132812267,
+          "observed": 29.713467980615995,
+          "error": -1.0955866524933242
+        },
+        {
+          "province": "52",
+          "party": "psoe",
+          "predicted": 18.809104740312044,
+          "observed": 16.544703548313656,
+          "error": 2.264401191998388
+        },
+        {
+          "province": "52",
+          "party": "vox",
+          "predicted": 24.226604218251246,
+          "observed": 18.512375191075552,
+          "error": 5.714229027175694
+        },
+        {
+          "province": "52",
+          "party": "left",
+          "predicted": 3.13534799081173,
+          "observed": 2.6311510066022703,
+          "error": 0.5041969842094596
+        }
+      ]
+    },
+    {
+      "from": "2019-11-10",
+      "to": "2023-07-23",
+      "source": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_202307_1.zip",
+      "observations": 207,
+      "mae": 2.3098086860082256,
+      "rmse": 3.459288866236015,
+      "alternative": {
+        "name": "Cambio aditivo uniforme, con recorte y normalización",
+        "mae": 2.394489077053951,
+        "rmse": 3.3856487055161852,
+        "maxNationalTargetError": 0.3221224484790639,
+        "note": "Referencia sencilla que puede incumplir objetivos nacionales tras recorte. No se sustituye automáticamente el ajuste exacto por un modelo seleccionado a posteriori."
+      },
+      "seatErrors": {
+        "pp": 7,
+        "psoe": 6,
+        "vox": 1,
+        "left": 0
+      },
+      "errors": [
+        {
+          "province": "04",
+          "party": "pp",
+          "predicted": 38.92875371543519,
+          "observed": 41.25880706949664,
+          "error": -2.330053354061448
+        },
+        {
+          "province": "04",
+          "party": "psoe",
+          "predicted": 30.204861840854274,
+          "observed": 29.262370678026713,
+          "error": 0.9424911628275616
+        },
+        {
+          "province": "04",
+          "party": "vox",
+          "predicted": 20.63330030724272,
+          "observed": 21.44564555897835,
+          "error": -0.8123452517356284
+        },
+        {
+          "province": "04",
+          "party": "left",
+          "predicted": 6.662930381668184,
+          "observed": 6.739800111676464,
+          "error": -0.0768697300082799
+        },
+        {
+          "province": "11",
+          "party": "pp",
+          "predicted": 29.293508530825992,
+          "observed": 35.19123167644187,
+          "error": -5.897723145615881
+        },
+        {
+          "province": "11",
+          "party": "psoe",
+          "predicted": 33.67888369272548,
+          "observed": 33.52407558790149,
+          "error": 0.1548081048239851
+        },
+        {
+          "province": "11",
+          "party": "vox",
+          "predicted": 17.737757432545997,
+          "observed": 15.35250279764125,
+          "error": 2.385254634904747
+        },
+        {
+          "province": "11",
+          "party": "left",
+          "predicted": 13.508267172880641,
+          "observed": 13.03423043040024,
+          "error": 0.4740367424804006
+        },
+        {
+          "province": "14",
+          "party": "pp",
+          "predicted": 34.583150139758665,
+          "observed": 38.26099483628735,
+          "error": -3.6778446965286875
+        },
+        {
+          "province": "14",
+          "party": "psoe",
+          "predicted": 34.431203883627845,
+          "observed": 32.431897067893594,
+          "error": 1.9993068157342506
+        },
+        {
+          "province": "14",
+          "party": "vox",
+          "predicted": 14.633540712256618,
+          "observed": 14.07438087220374,
+          "error": 0.5591598400528781
+        },
+        {
+          "province": "14",
+          "party": "left",
+          "predicted": 12.266869565415483,
+          "observed": 13.864590977233744,
+          "error": -1.5977214118182612
+        },
+        {
+          "province": "18",
+          "party": "pp",
+          "predicted": 33.73835078232978,
+          "observed": 37.28958996607777,
+          "error": -3.551239183747988
+        },
+        {
+          "province": "18",
+          "party": "psoe",
+          "predicted": 34.853873802668474,
+          "observed": 33.25300528481038,
+          "error": 1.6008685178580961
+        },
+        {
+          "province": "18",
+          "party": "vox",
+          "predicted": 16.431329991991653,
+          "observed": 16.25540309710739,
+          "error": 0.17592689488426316
+        },
+        {
+          "province": "18",
+          "party": "left",
+          "predicted": 10.421305966950408,
+          "observed": 11.741862274152545,
+          "error": -1.3205563072021373
+        },
+        {
+          "province": "21",
+          "party": "pp",
+          "predicted": 30.655060322799756,
+          "observed": 36.779562411063154,
+          "error": -6.124502088263398
+        },
+        {
+          "province": "21",
+          "party": "psoe",
+          "predicted": 38.54392405472717,
+          "observed": 36.292522622388894,
+          "error": 2.2514014323382767
+        },
+        {
+          "province": "21",
+          "party": "vox",
+          "predicted": 16.68014361031148,
+          "observed": 14.769216255100357,
+          "error": 1.910927355211122
+        },
+        {
+          "province": "21",
+          "party": "left",
+          "predicted": 10.316735129540382,
+          "observed": 10.515971288631022,
+          "error": -0.19923615909064019
+        },
+        {
+          "province": "23",
+          "party": "pp",
+          "predicted": 33.812215787364025,
+          "observed": 37.57624906480556,
+          "error": -3.764033277441534
+        },
+        {
+          "province": "23",
+          "party": "psoe",
+          "predicted": 39.621003745732494,
+          "observed": 36.5392071735557,
+          "error": 3.081796572176792
+        },
+        {
+          "province": "23",
+          "party": "vox",
+          "predicted": 15.199933654922667,
+          "observed": 14.85389122801269,
+          "error": 0.34604242690997644
+        },
+        {
+          "province": "23",
+          "party": "left",
+          "predicted": 8.115385146995813,
+          "observed": 8.044310468170623,
+          "error": 0.07107467882518925
+        },
+        {
+          "province": "29",
+          "party": "pp",
+          "predicted": 34.01036662689096,
+          "observed": 38.676842176712185,
+          "error": -4.666475549821222
+        },
+        {
+          "province": "29",
+          "party": "psoe",
+          "predicted": 32.07213611576201,
+          "observed": 30.63052217579009,
+          "error": 1.4416139399719157
+        },
+        {
+          "province": "29",
+          "party": "vox",
+          "predicted": 17.34051523124473,
+          "observed": 16.617979096575564,
+          "error": 0.7225361346691663
+        },
+        {
+          "province": "29",
+          "party": "left",
+          "predicted": 11.163299094156178,
+          "observed": 12.378126324713861,
+          "error": -1.2148272305576828
+        },
+        {
+          "province": "41",
+          "party": "pp",
+          "predicted": 28.456563033494433,
+          "observed": 33.73336881573664,
+          "error": -5.2768057822422065
+        },
+        {
+          "province": "41",
+          "party": "psoe",
+          "predicted": 39.02464594003222,
+          "observed": 36.985636303458485,
+          "error": 2.039009636573738
+        },
+        {
+          "province": "41",
+          "party": "vox",
+          "predicted": 14.63925557238693,
+          "observed": 13.457273749602969,
+          "error": 1.1819818227839605
+        },
+        {
+          "province": "41",
+          "party": "left",
+          "predicted": 12.707590949529925,
+          "observed": 14.187715267067084,
+          "error": -1.4801243175371592
+        },
+        {
+          "province": "22",
+          "party": "pp",
+          "predicted": 39.38913341768092,
+          "observed": 38.57749540774196,
+          "error": 0.8116380099389602
+        },
+        {
+          "province": "22",
+          "party": "psoe",
+          "predicted": 34.15898925459308,
+          "observed": 33.9633293449502,
+          "error": 0.1956599096428775
+        },
+        {
+          "province": "22",
+          "party": "vox",
+          "predicted": 11.679170304898694,
+          "observed": 12.769847823522472,
+          "error": -1.090677518623778
+        },
+        {
+          "province": "22",
+          "party": "left",
+          "predicted": 10.158240818290357,
+          "observed": 11.60619491396889,
+          "error": -1.4479540956785328
+        },
+        {
+          "province": "44",
+          "party": "pp",
+          "predicted": 40.266116890691336,
+          "observed": 35.211845886918404,
+          "error": 5.054271003772932
+        },
+        {
+          "province": "44",
+          "party": "psoe",
+          "predicted": 29.521070978067737,
+          "observed": 29.437240904334928,
+          "error": 0.08383007373280904
+        },
+        {
+          "province": "44",
+          "party": "vox",
+          "predicted": 11.012247887476773,
+          "observed": 13.154444194270427,
+          "error": -2.142196306793654
+        },
+        {
+          "province": "44",
+          "party": "left",
+          "predicted": 5.011732472499898,
+          "observed": 5.4646835225090395,
+          "error": -0.4529510500091414
+        },
+        {
+          "province": "50",
+          "party": "pp",
+          "predicted": 36.583283329562555,
+          "observed": 36.33689485848579,
+          "error": 0.24638847107676298
+        },
+        {
+          "province": "50",
+          "party": "psoe",
+          "predicted": 32.768569433104794,
+          "observed": 31.100052138860573,
+          "error": 1.6685172942442215
+        },
+        {
+          "province": "50",
+          "party": "vox",
+          "predicted": 14.445351616679291,
+          "observed": 15.442441032505078,
+          "error": -0.997089415825787
+        },
+        {
+          "province": "50",
+          "party": "left",
+          "predicted": 9.669778376730049,
+          "observed": 13.603768005416216,
+          "error": -3.9339896286861666
+        },
+        {
+          "province": "33",
+          "party": "pp",
+          "predicted": 35.483188107920334,
+          "observed": 36.01233939078065,
+          "error": -0.5291512828603189
+        },
+        {
+          "province": "33",
+          "party": "psoe",
+          "predicted": 34.493870136637334,
+          "observed": 34.698021670082056,
+          "error": -0.2041515334447226
+        },
+        {
+          "province": "33",
+          "party": "vox",
+          "predicted": 12.429799675775822,
+          "observed": 12.618770020627698,
+          "error": -0.18897034485187625
+        },
+        {
+          "province": "33",
+          "party": "left",
+          "predicted": 13.354164254284392,
+          "observed": 14.997808624374528,
+          "error": -1.6436443700901364
+        },
+        {
+          "province": "07",
+          "party": "pp",
+          "predicted": 36.3977122823565,
+          "observed": 35.96302268861718,
+          "error": 0.43468959373932137
+        },
+        {
+          "province": "07",
+          "party": "psoe",
+          "predicted": 27.511117142088086,
+          "observed": 30.44390423927345,
+          "error": -2.932787097185365
+        },
+        {
+          "province": "07",
+          "party": "vox",
+          "predicted": 13.946312935036739,
+          "observed": 15.353125701999295,
+          "error": -1.406812766962556
+        },
+        {
+          "province": "07",
+          "party": "left",
+          "predicted": 15.80157986879659,
+          "observed": 16.74509001636661,
+          "error": -0.94351014757002
+        },
+        {
+          "province": "35",
+          "party": "pp",
+          "predicted": 34.6258904517734,
+          "observed": 26.004845375516602,
+          "error": 8.621045076256799
+        },
+        {
+          "province": "35",
+          "party": "psoe",
+          "predicted": 32.056680549970515,
+          "observed": 33.380076955964086,
+          "error": -1.3233964059935701
+        },
+        {
+          "province": "35",
+          "party": "vox",
+          "predicted": 11.078793131827492,
+          "observed": 14.696308963944706,
+          "error": -3.6175158321172134
+        },
+        {
+          "province": "35",
+          "party": "left",
+          "predicted": 13.693007440311863,
+          "observed": 10.330910645575033,
+          "error": 3.3620967947368303
+        },
+        {
+          "province": "38",
+          "party": "pp",
+          "predicted": 33.74692252699376,
+          "observed": 35.71946820360321,
+          "error": -1.9725456766094567
+        },
+        {
+          "province": "38",
+          "party": "psoe",
+          "predicted": 32.46964899967188,
+          "observed": 33.84326108505268,
+          "error": -1.373612085380799
+        },
+        {
+          "province": "38",
+          "party": "vox",
+          "predicted": 9.905062809784463,
+          "observed": 0,
+          "error": 9.905062809784463
+        },
+        {
+          "province": "38",
+          "party": "left",
+          "predicted": 12.780340678706386,
+          "observed": 10.96130067343164,
+          "error": 1.8190400052747453
+        },
+        {
+          "province": "39",
+          "party": "pp",
+          "predicted": 42.280485031743396,
+          "observed": 42.470768663084336,
+          "error": -0.1902836313409395
+        },
+        {
+          "province": "39",
+          "party": "psoe",
+          "predicted": 25.781293213120193,
+          "observed": 33.612001568229516,
+          "error": -7.830708355109323
+        },
+        {
+          "province": "39",
+          "party": "vox",
+          "predicted": 12.512983141889608,
+          "observed": 14.19564816309587,
+          "error": -1.6826650212062617
+        },
+        {
+          "province": "39",
+          "party": "left",
+          "predicted": 7.768067309524248,
+          "observed": 8.565588893245081,
+          "error": -0.7975215837208331
+        },
+        {
+          "province": "02",
+          "party": "pp",
+          "predicted": 40.51449063920708,
+          "observed": 40.253559266401346,
+          "error": 0.26093137280573586
+        },
+        {
+          "province": "02",
+          "party": "psoe",
+          "predicted": 32.628646191206784,
+          "observed": 34.793510122767906,
+          "error": -2.164863931561122
+        },
+        {
+          "province": "02",
+          "party": "vox",
+          "predicted": 15.641795540328122,
+          "observed": 16.753511399225918,
+          "error": -1.1117158588977958
+        },
+        {
+          "province": "02",
+          "party": "left",
+          "predicted": 7.833134100770889,
+          "observed": 7.218370054295053,
+          "error": 0.6147640464758357
+        },
+        {
+          "province": "13",
+          "party": "pp",
+          "predicted": 40.73325645947032,
+          "observed": 40.87611269091246,
+          "error": -0.14285623144213844
+        },
+        {
+          "province": "13",
+          "party": "psoe",
+          "predicted": 33.98776278278376,
+          "observed": 35.67096420146387,
+          "error": -1.683201418680106
+        },
+        {
+          "province": "13",
+          "party": "vox",
+          "predicted": 15.640951483077108,
+          "observed": 16.40831569419797,
+          "error": -0.7673642111208618
+        },
+        {
+          "province": "13",
+          "party": "left",
+          "predicted": 6.632436513332106,
+          "observed": 6.202205070093291,
+          "error": 0.43023144323881457
+        },
+        {
+          "province": "16",
+          "party": "pp",
+          "predicted": 43.601838748762916,
+          "observed": 40.1058144790365,
+          "error": 3.496024269726412
+        },
+        {
+          "province": "16",
+          "party": "psoe",
+          "predicted": 35.67339086360147,
+          "observed": 37.689096854810835,
+          "error": -2.0157059912093658
+        },
+        {
+          "province": "16",
+          "party": "vox",
+          "predicted": 13.3290786832783,
+          "observed": 15.686065987823358,
+          "error": -2.356987304545058
+        },
+        {
+          "province": "16",
+          "party": "left",
+          "predicted": 5.331261503741318,
+          "observed": 5.605331489999025,
+          "error": -0.2740699862577074
+        },
+        {
+          "province": "19",
+          "party": "pp",
+          "predicted": 35.34112941391997,
+          "observed": 36.62803176647349,
+          "error": -1.2869023525535184
+        },
+        {
+          "province": "19",
+          "party": "psoe",
+          "predicted": 32.41988916538174,
+          "observed": 33.25391714960292,
+          "error": -0.83402798422118
+        },
+        {
+          "province": "19",
+          "party": "vox",
+          "predicted": 18.856388257026396,
+          "observed": 19.40759819703799,
+          "error": -0.5512099400115957
+        },
+        {
+          "province": "19",
+          "party": "left",
+          "predicted": 9.470558600369449,
+          "observed": 9.234456607283395,
+          "error": 0.23610199308605395
+        },
+        {
+          "province": "45",
+          "party": "pp",
+          "predicted": 38.65991524695618,
+          "observed": 38.1011937418907,
+          "error": 0.5587215050654848
+        },
+        {
+          "province": "45",
+          "party": "psoe",
+          "predicted": 32.31286012421947,
+          "observed": 32.780968774457925,
+          "error": -0.46810865023845594
+        },
+        {
+          "province": "45",
+          "party": "vox",
+          "predicted": 18.07085664873494,
+          "observed": 19.77279641383399,
+          "error": -1.701939765099052
+        },
+        {
+          "province": "45",
+          "party": "left",
+          "predicted": 7.814851460451813,
+          "observed": 8.288328579340543,
+          "error": -0.4734771188887308
+        },
+        {
+          "province": "05",
+          "party": "pp",
+          "predicted": 50.19894113714538,
+          "observed": 43.533969010727056,
+          "error": 6.664972126418327
+        },
+        {
+          "province": "05",
+          "party": "psoe",
+          "predicted": 25.622971501277753,
+          "observed": 27.565656980806377,
+          "error": -1.942685479528624
+        },
+        {
+          "province": "05",
+          "party": "vox",
+          "predicted": 13.698364261761249,
+          "observed": 15.482306522543258,
+          "error": -1.783942260782009
+        },
+        {
+          "province": "05",
+          "party": "left",
+          "predicted": 5.120712521969787,
+          "observed": 5.165221322592577,
+          "error": -0.04450880062279072
+        },
+        {
+          "province": "09",
+          "party": "pp",
+          "predicted": 44.67035065828007,
+          "observed": 41.017248079394975,
+          "error": 3.653102578885097
+        },
+        {
+          "province": "09",
+          "party": "psoe",
+          "predicted": 31.765514782652982,
+          "observed": 34.76270190017836,
+          "error": -2.9971871175253746
+        },
+        {
+          "province": "09",
+          "party": "vox",
+          "predicted": 11.063688914920165,
+          "observed": 12.882750924182186,
+          "error": -1.819062009262021
+        },
+        {
+          "province": "09",
+          "party": "left",
+          "predicted": 8.813058646769717,
+          "observed": 8.72268555884375,
+          "error": 0.09037308792596654
+        },
+        {
+          "province": "24",
+          "party": "pp",
+          "predicted": 41.882686012563035,
+          "observed": 37.12778124920066,
+          "error": 4.754904763362376
+        },
+        {
+          "province": "24",
+          "party": "psoe",
+          "predicted": 33.44398755236201,
+          "observed": 33.829198685975086,
+          "error": -0.38521113361307613
+        },
+        {
+          "province": "24",
+          "party": "vox",
+          "predicted": 11.756401724821036,
+          "observed": 12.954253954681487,
+          "error": -1.1978522298604517
+        },
+        {
+          "province": "24",
+          "party": "left",
+          "predicted": 8.440237105193312,
+          "observed": 6.788276091397083,
+          "error": 1.6519610137962282
+        },
+        {
+          "province": "34",
+          "party": "pp",
+          "predicted": 49.555253078408406,
+          "observed": 42.34830280144389,
+          "error": 7.206950276964513
+        },
+        {
+          "province": "34",
+          "party": "psoe",
+          "predicted": 31.308495035505892,
+          "observed": 34.96655535790448,
+          "error": -3.6580603223985904
+        },
+        {
+          "province": "34",
+          "party": "vox",
+          "predicted": 10.2645268167094,
+          "observed": 13.007521143463471,
+          "error": -2.7429943267540704
+        },
+        {
+          "province": "34",
+          "party": "left",
+          "predicted": 6.147320439365642,
+          "observed": 6.113659769684486,
+          "error": 0.03366066968115611
+        },
+        {
+          "province": "37",
+          "party": "pp",
+          "predicted": 49.352961881690376,
+          "observed": 47.25895240072723,
+          "error": 2.0940094809631447
+        },
+        {
+          "province": "37",
+          "party": "psoe",
+          "predicted": 28.419984678137357,
+          "observed": 30.74936316538456,
+          "error": -2.329378487247201
+        },
+        {
+          "province": "37",
+          "party": "vox",
+          "predicted": 13.051535292047125,
+          "observed": 14.789249522690557,
+          "error": -1.737714230643432
+        },
+        {
+          "province": "37",
+          "party": "left",
+          "predicted": 5.431496780338323,
+          "observed": 5.576797443545814,
+          "error": -0.14530066320749135
+        },
+        {
+          "province": "40",
+          "party": "pp",
+          "predicted": 47.42723183473356,
+          "observed": 45.46946590986801,
+          "error": 1.957765924865548
+        },
+        {
+          "province": "40",
+          "party": "psoe",
+          "predicted": 28.93471690030226,
+          "observed": 30.902231644213455,
+          "error": -1.9675147439111953
+        },
+        {
+          "province": "40",
+          "party": "vox",
+          "predicted": 12.625841921127163,
+          "observed": 14.258360117622923,
+          "error": -1.6325181964957594
+        },
+        {
+          "province": "40",
+          "party": "left",
+          "predicted": 7.313706356950758,
+          "observed": 8.134445736169049,
+          "error": -0.8207393792182911
+        },
+        {
+          "province": "42",
+          "party": "pp",
+          "predicted": 46.844973626036904,
+          "observed": 37.42769986530386,
+          "error": 9.417273760733046
+        },
+        {
+          "province": "42",
+          "party": "psoe",
+          "predicted": 33.43912101381076,
+          "observed": 29.645036051026068,
+          "error": 3.7940849627846944
+        },
+        {
+          "province": "42",
+          "party": "vox",
+          "predicted": 9.866707522598437,
+          "observed": 9.860549877188813,
+          "error": 0.006157645409624379
+        },
+        {
+          "province": "42",
+          "party": "left",
+          "predicted": 5.918273545054609,
+          "observed": 3.389192615482133,
+          "error": 2.529080929572476
+        },
+        {
+          "province": "47",
+          "party": "pp",
+          "predicted": 43.36359537733493,
+          "observed": 41.15135875625219,
+          "error": 2.212236621082738
+        },
+        {
+          "province": "47",
+          "party": "psoe",
+          "predicted": 30.226365278764348,
+          "observed": 33.00391857019975,
+          "error": -2.777553291435403
+        },
+        {
+          "province": "47",
+          "party": "vox",
+          "predicted": 13.638678330365511,
+          "observed": 15.275414954283347,
+          "error": -1.6367366239178356
+        },
+        {
+          "province": "47",
+          "party": "left",
+          "predicted": 8.871027904004775,
+          "observed": 8.935932970148778,
+          "error": -0.0649050661440036
+        },
+        {
+          "province": "49",
+          "party": "pp",
+          "predicted": 47.52142820915961,
+          "observed": 45.074545312621964,
+          "error": 2.4468828965376446
+        },
+        {
+          "province": "49",
+          "party": "psoe",
+          "predicted": 31.517979408632144,
+          "observed": 32.785301693856844,
+          "error": -1.2673222852247008
+        },
+        {
+          "province": "49",
+          "party": "vox",
+          "predicted": 12.391337424557488,
+          "observed": 13.32058387323394,
+          "error": -0.9292464486764516
+        },
+        {
+          "province": "49",
+          "party": "left",
+          "predicted": 5.439975655525688,
+          "observed": 5.697252361252049,
+          "error": -0.25727670572636097
+        },
+        {
+          "province": "08",
+          "party": "pp",
+          "predicted": 17.70884855972797,
+          "observed": 13.887407851893446,
+          "error": 3.8214407078345225
+        },
+        {
+          "province": "08",
+          "party": "psoe",
+          "predicted": 33.98406355316861,
+          "observed": 35.986251610194756,
+          "error": -2.002188057026146
+        },
+        {
+          "province": "08",
+          "party": "vox",
+          "predicted": 7.432089864884852,
+          "observed": 7.62445402636544,
+          "error": -0.19236416148058755
+        },
+        {
+          "province": "08",
+          "party": "left",
+          "predicted": 19.44743882464061,
+          "observed": 15.341221477022346,
+          "error": 4.106217347618264
+        },
+        {
+          "province": "17",
+          "party": "pp",
+          "predicted": 14.023684545621755,
+          "observed": 9.793848259569321,
+          "error": 4.229836286052434
+        },
+        {
+          "province": "17",
+          "party": "psoe",
+          "predicted": 28.74517183321779,
+          "observed": 29.201861209286047,
+          "error": -0.4566893760682582
+        },
+        {
+          "province": "17",
+          "party": "vox",
+          "predicted": 7.618104387441814,
+          "observed": 7.095469786598418,
+          "error": 0.5226346008433964
+        },
+        {
+          "province": "17",
+          "party": "left",
+          "predicted": 14.83693883614652,
+          "observed": 11.04475839591009,
+          "error": 3.7921804402364305
+        },
+        {
+          "province": "25",
+          "party": "pp",
+          "predicted": 19.859972013837602,
+          "observed": 12.987176676896098,
+          "error": 6.872795336941504
+        },
+        {
+          "province": "25",
+          "party": "psoe",
+          "predicted": 27.48522952540133,
+          "observed": 29.819158263919334,
+          "error": -2.3339287385180043
+        },
+        {
+          "province": "25",
+          "party": "vox",
+          "predicted": 6.451393477669375,
+          "observed": 6.882946076282332,
+          "error": -0.43155259861295736
+        },
+        {
+          "province": "25",
+          "party": "left",
+          "predicted": 12.089924981536907,
+          "observed": 7.979504603244191,
+          "error": 4.110420378292716
+        },
+        {
+          "province": "43",
+          "party": "pp",
+          "predicted": 18.685459258330198,
+          "observed": 13.99483631898612,
+          "error": 4.6906229393440775
+        },
+        {
+          "province": "43",
+          "party": "psoe",
+          "predicted": 31.195649901751747,
+          "observed": 33.198302892099896,
+          "error": -2.0026529903481496
+        },
+        {
+          "province": "43",
+          "party": "vox",
+          "predicted": 9.96409757933024,
+          "observed": 10.425757010985155,
+          "error": -0.4616594316549154
+        },
+        {
+          "province": "43",
+          "party": "left",
+          "predicted": 15.951231238764162,
+          "observed": 11.434374109237616,
+          "error": 4.516857129526546
+        },
+        {
+          "province": "06",
+          "party": "pp",
+          "predicted": 37.17044958533391,
+          "observed": 38.138657929712856,
+          "error": -0.9682083443789438
+        },
+        {
+          "province": "06",
+          "party": "psoe",
+          "predicted": 38.693529026625924,
+          "observed": 39.53085236814721,
+          "error": -0.8373233415212837
+        },
+        {
+          "province": "06",
+          "party": "vox",
+          "predicted": 13.15391750327368,
+          "observed": 13.77821737293811,
+          "error": -0.62429986966443
+        },
+        {
+          "province": "06",
+          "party": "left",
+          "predicted": 7.456350938454824,
+          "observed": 6.897351095725281,
+          "error": 0.5589998427295431
+        },
+        {
+          "province": "10",
+          "party": "pp",
+          "predicted": 40.048246545267276,
+          "observed": 38.28343228121129,
+          "error": 1.7648142640559854
+        },
+        {
+          "province": "10",
+          "party": "psoe",
+          "predicted": 37.59255160076435,
+          "observed": 39.16285824114808,
+          "error": -1.570306640383727
+        },
+        {
+          "province": "10",
+          "party": "vox",
+          "predicted": 11.949151393864376,
+          "observed": 13.70008115149703,
+          "error": -1.7509297576326546
+        },
+        {
+          "province": "10",
+          "party": "left",
+          "predicted": 7.165154068204713,
+          "observed": 6.985008328706274,
+          "error": 0.18014573949843893
+        },
+        {
+          "province": "15",
+          "party": "pp",
+          "predicted": 45.57422049631549,
+          "observed": 43.460197321953,
+          "error": 2.1140231743624938
+        },
+        {
+          "province": "15",
+          "party": "psoe",
+          "predicted": 30.429388950934282,
+          "observed": 28.38595995568806,
+          "error": 2.04342899524622
+        },
+        {
+          "province": "15",
+          "party": "vox",
+          "predicted": 6.28353956782313,
+          "observed": 5.116690582226155,
+          "error": 1.1668489855969755
+        },
+        {
+          "province": "15",
+          "party": "left",
+          "predicted": 10.2791712788298,
+          "observed": 12.285113121835526,
+          "error": -2.0059418430057256
+        },
+        {
+          "province": "27",
+          "party": "pp",
+          "predicted": 52.690521255145995,
+          "observed": 50.563312469908524,
+          "error": 2.127208785237471
+        },
+        {
+          "province": "27",
+          "party": "psoe",
+          "predicted": 30.010502608803098,
+          "observed": 30.490839520563565,
+          "error": -0.48033691176046744
+        },
+        {
+          "province": "27",
+          "party": "vox",
+          "predicted": 5.775311568033878,
+          "observed": 4.380305602716469,
+          "error": 1.3950059653174094
+        },
+        {
+          "province": "27",
+          "party": "left",
+          "predicted": 6.96766656744416,
+          "observed": 5.213491118262676,
+          "error": 1.7541754491814832
+        },
+        {
+          "province": "32",
+          "party": "pp",
+          "predicted": 53.78404640617178,
+          "observed": 50.324580637495814,
+          "error": 3.459465768675969
+        },
+        {
+          "province": "32",
+          "party": "psoe",
+          "predicted": 30.73819969965549,
+          "observed": 30.26268888864886,
+          "error": 0.47551081100662884
+        },
+        {
+          "province": "32",
+          "party": "vox",
+          "predicted": 5.420335090250582,
+          "observed": 4.90381395750748,
+          "error": 0.5165211327431019
+        },
+        {
+          "province": "32",
+          "party": "left",
+          "predicted": 5.915609081004682,
+          "observed": 5.493027727071429,
+          "error": 0.4225813539332526
+        },
+        {
+          "province": "36",
+          "party": "pp",
+          "predicted": 43.246275501829665,
+          "observed": 39.9919895864624,
+          "error": 3.2542859153672623
+        },
+        {
+          "province": "36",
+          "party": "psoe",
+          "predicted": 32.120574292031556,
+          "observed": 31.573853026478282,
+          "error": 0.5467212655532734
+        },
+        {
+          "province": "36",
+          "party": "vox",
+          "predicted": 5.561595427291423,
+          "observed": 4.8376925090336735,
+          "error": 0.7239029182577497
+        },
+        {
+          "province": "36",
+          "party": "left",
+          "predicted": 12.630369504977262,
+          "observed": 13.283057448367087,
+          "error": -0.6526879433898252
+        },
+        {
+          "province": "28",
+          "party": "pp",
+          "predicted": 38.9422538255822,
+          "observed": 40.87431031482133,
+          "error": -1.9320564892391303
+        },
+        {
+          "province": "28",
+          "party": "psoe",
+          "predicted": 28.499215134604132,
+          "observed": 28.06367437836497,
+          "error": 0.43554075623916333
+        },
+        {
+          "province": "28",
+          "party": "vox",
+          "predicted": 14.700777848574736,
+          "observed": 14.139792771096454,
+          "error": 0.5609850774782821
+        },
+        {
+          "province": "28",
+          "party": "left",
+          "predicted": 11.14121239351691,
+          "observed": 15.581696074517705,
+          "error": -4.440483681000796
+        },
+        {
+          "province": "31",
+          "party": "psoe",
+          "predicted": 44.80485987735687,
+          "observed": 27.6005003628811,
+          "error": 17.20435951447577
+        },
+        {
+          "province": "31",
+          "party": "vox",
+          "predicted": 7.8614066256247535,
+          "observed": 5.750337803949798,
+          "error": 2.111068821674955
+        },
+        {
+          "province": "31",
+          "party": "left",
+          "predicted": 23.973022130660482,
+          "observed": 12.95810050921364,
+          "error": 11.014921621446842
+        },
+        {
+          "province": "01",
+          "party": "pp",
+          "predicted": 30.781904627406675,
+          "observed": 17.942215755560174,
+          "error": 12.839688871846501
+        },
+        {
+          "province": "01",
+          "party": "psoe",
+          "predicted": 30.69128654144895,
+          "observed": 27.778602607120586,
+          "error": 2.9126839343283635
+        },
+        {
+          "province": "01",
+          "party": "vox",
+          "predicted": 3.973073483029704,
+          "observed": 3.9035543546040326,
+          "error": 0.06951912842567154
+        },
+        {
+          "province": "01",
+          "party": "left",
+          "predicted": 18.6284893847385,
+          "observed": 12.80458473141907,
+          "error": 5.823904653319431
+        },
+        {
+          "province": "20",
+          "party": "pp",
+          "predicted": 16.181183900714245,
+          "observed": 8.734544173233392,
+          "error": 7.446639727480854
+        },
+        {
+          "province": "20",
+          "party": "psoe",
+          "predicted": 32.226658371854334,
+          "observed": 23.413041621286865,
+          "error": 8.81361675056747
+        },
+        {
+          "province": "20",
+          "party": "vox",
+          "predicted": 2.5548546964124936,
+          "observed": 2.10268648429325,
+          "error": 0.45216821211924385
+        },
+        {
+          "province": "20",
+          "party": "left",
+          "predicted": 21.521625573221407,
+          "observed": 10.699222670681445,
+          "error": 10.822402902539961
+        },
+        {
+          "province": "48",
+          "party": "pp",
+          "predicted": 21.36707389873361,
+          "observed": 11.633311452048648,
+          "error": 9.733762446684963
+        },
+        {
+          "province": "48",
+          "party": "psoe",
+          "predicted": 31.419810823838876,
+          "observed": 25.96857671589406,
+          "error": 5.451234107944817
+        },
+        {
+          "province": "48",
+          "party": "vox",
+          "predicted": 3.0101866542379483,
+          "observed": 2.6503293738104112,
+          "error": 0.35985728042753706
+        },
+        {
+          "province": "48",
+          "party": "left",
+          "predicted": 20.43300463203864,
+          "observed": 10.983305349479302,
+          "error": 9.449699282559337
+        },
+        {
+          "province": "30",
+          "party": "pp",
+          "predicted": 40.48929508478541,
+          "observed": 41.46302387167912,
+          "error": -0.9737287868937088
+        },
+        {
+          "province": "30",
+          "party": "psoe",
+          "predicted": 25.677705538035774,
+          "observed": 25.47380523800997,
+          "error": 0.20390030002580417
+        },
+        {
+          "province": "30",
+          "party": "vox",
+          "predicted": 21.889487285711468,
+          "observed": 21.961783233682883,
+          "error": -0.07229594797141559
+        },
+        {
+          "province": "30",
+          "party": "left",
+          "predicted": 7.4256630509219725,
+          "observed": 9.636721269099295,
+          "error": -2.211058218177323
+        },
+        {
+          "province": "26",
+          "party": "pp",
+          "predicted": 47.94548251285414,
+          "observed": 46.0633902516541,
+          "error": 1.882092261200043
+        },
+        {
+          "province": "26",
+          "party": "psoe",
+          "predicted": 33.12170220067779,
+          "observed": 36.0128282915836,
+          "error": -2.8911260909058143
+        },
+        {
+          "province": "26",
+          "party": "vox",
+          "predicted": 8.23339073521391,
+          "observed": 9.855826182427553,
+          "error": -1.6224354472136433
+        },
+        {
+          "province": "26",
+          "party": "left",
+          "predicted": 7.569081426916783,
+          "observed": 6.627950651526971,
+          "error": 0.9411307753898122
+        },
+        {
+          "province": "03",
+          "party": "pp",
+          "predicted": 37.839462777150516,
+          "observed": 37.00276826455244,
+          "error": 0.8366945125980791
+        },
+        {
+          "province": "03",
+          "party": "psoe",
+          "predicted": 29.74230061850692,
+          "observed": 32.23521398315291,
+          "error": -2.4929133646459896
+        },
+        {
+          "province": "03",
+          "party": "vox",
+          "predicted": 15.66434460279926,
+          "observed": 16.371299224639458,
+          "error": -0.7069546218401985
+        },
+        {
+          "province": "03",
+          "party": "left",
+          "predicted": 10.848843347085822,
+          "observed": 12.971632850371435,
+          "error": -2.122789503285613
+        },
+        {
+          "province": "12",
+          "party": "pp",
+          "predicted": 37.210289120592954,
+          "observed": 35.47686512161166,
+          "error": 1.7334239989812943
+        },
+        {
+          "province": "12",
+          "party": "psoe",
+          "predicted": 30.243540213050636,
+          "observed": 32.930963885021704,
+          "error": -2.687423671971068
+        },
+        {
+          "province": "12",
+          "party": "vox",
+          "predicted": 14.910464666650698,
+          "observed": 16.02260257145197,
+          "error": -1.112137904801271
+        },
+        {
+          "province": "12",
+          "party": "left",
+          "predicted": 11.397832536589204,
+          "observed": 14.474490213741708,
+          "error": -3.076657677152504
+        },
+        {
+          "province": "46",
+          "party": "pp",
+          "predicted": 35.583851652095746,
+          "observed": 33.89551379709482,
+          "error": 1.688337855000924
+        },
+        {
+          "province": "46",
+          "party": "psoe",
+          "predicted": 29.56214750699549,
+          "observed": 32.34498380833329,
+          "error": -2.782836301337799
+        },
+        {
+          "province": "46",
+          "party": "vox",
+          "predicted": 14.61506676525597,
+          "observed": 15.329817134772577,
+          "error": -0.714750369516608
+        },
+        {
+          "province": "46",
+          "party": "left",
+          "predicted": 12.178316152697432,
+          "observed": 17.025192256324004,
+          "error": -4.846876103626572
+        },
+        {
+          "province": "51",
+          "party": "pp",
+          "predicted": 34.050981222218866,
+          "observed": 39.15375988846119,
+          "error": -5.1027786662423225
+        },
+        {
+          "province": "51",
+          "party": "psoe",
+          "predicted": 32.46651144507272,
+          "observed": 34.34667959870276,
+          "error": -1.8801681536300379
+        },
+        {
+          "province": "51",
+          "party": "vox",
+          "predicted": 27.58005503311058,
+          "observed": 23.495893068226593,
+          "error": 4.084161964883986
+        },
+        {
+          "province": "51",
+          "party": "left",
+          "predicted": 3.2596534728311815,
+          "observed": 2.4884066317097564,
+          "error": 0.771246841121425
+        },
+        {
+          "province": "52",
+          "party": "pp",
+          "predicted": 49.162519920642666,
+          "observed": 49.62356067316209,
+          "error": -0.46104075251942334
+        },
+        {
+          "province": "52",
+          "party": "psoe",
+          "predicted": 18.570917487884998,
+          "observed": 25.623708296427516,
+          "error": -7.052790808542518
+        },
+        {
+          "province": "52",
+          "party": "vox",
+          "predicted": 15.702344944222201,
+          "observed": 16.08724534986714,
+          "error": -0.3849004056449381
+        },
+        {
+          "province": "52",
+          "party": "left",
+          "predicted": 2.383972420073503,
+          "observed": 3.052111012695601,
+          "error": -0.668138592622098
+        }
+      ]
+    }
+  ],
+  "territorialValidation": {
+    "trainingElection": "2019-11-10",
+    "reservedElection": "2023-07-23",
+    "trainingRMSE": 2.279503166970837,
+    "reservedCoverage80": 0.7536231884057971,
+    "status": "conditional-diagnostic",
+    "note": "Diagnóstico territorial con porcentajes nacionales reales conocidos. No mide la precisión de una predicción electoral ni valida frecuencias de mayorías. Cuatro espacios comparables; PP Navarra excluido por cambio de coalición. La banda normal aproximada no equivale a los intervalos del simulador."
+  },
+  "recommendedSensitivity": {
+    "nationalSigma": 2,
+    "localSigma": 2.3,
+    "note": "Escalas exploratorias: nacional 2 puntos, provincial RMS de 2019 redondeado (2,3). La normalización y correlación del simulador alteran la dispersión final; esta escala no garantiza cobertura."
+  },
+  "weights": [
+    {
+      "id": "40db-202610",
+      "institute": "40dB",
+      "weightPercent": 11.378661948492699
+    },
+    {
+      "id": "sigma-202610",
+      "institute": "Sigma Dos",
+      "weightPercent": 11.486227508086873
+    },
+    {
+      "id": "gad3-202609",
+      "institute": "GAD3",
+      "weightPercent": 3.272858256487965
+    },
+    {
+      "id": "ateneo-202610",
+      "institute": "Ateneo del Dato",
+      "weightPercent": 9.045404162618413
+    },
+    {
+      "id": "socio-202610",
+      "institute": "SocioMétrica",
+      "weightPercent": 11.131630922515706
+    },
+    {
+      "id": "mic-202609",
+      "institute": "More in Common",
+      "weightPercent": 4.5443426771635185
+    },
+    {
+      "id": "dym-202609",
+      "institute": "DYM",
+      "weightPercent": 5.354207604244772
+    },
+    {
+      "id": "target-202609",
+      "institute": "Target Point",
+      "weightPercent": 3.7148613366381937
+    },
+    {
+      "id": "hamalgama-202609",
+      "institute": "Hamalgama Métrica",
+      "weightPercent": 3.4568682515362195
+    },
+    {
+      "id": "data10-202610",
+      "institute": "Data10",
+      "weightPercent": 5.7803621736848445
+    },
+    {
+      "id": "invymark-202609",
+      "institute": "InvyMark",
+      "weightPercent": 2.796342047208763
+    },
+    {
+      "id": "celeste-202609",
+      "institute": "Celeste-Tel",
+      "weightPercent": 4.020431543301038
+    },
+    {
+      "id": "ncreport-202609",
+      "institute": "NC Report",
+      "weightPercent": 2.2939382488161275
+    },
+    {
+      "id": "ep-202610",
+      "institute": "ElectoPanel",
+      "weightPercent": 13.633407882575133
+    },
+    {
+      "id": "winston-202610",
+      "institute": "Winston",
+      "weightPercent": 8.090455436629732
+    }
+  ],
+  "limitations": [
+    "Historial de sondeos incompleto y comparación conjunta disponible solo en 2023.",
+    "Fechas de publicación históricas próximas a elección, sin ajustar exactamente diferencias del trabajo de campo.",
+    "No hay verificación retrospectiva de SALF, AC ni AA en unas generales.",
+    "Participación, blanco y volumen provincial fijos: deben explorarse por separado.",
+    "La cobertura de fuentes y candidaturas sigue siendo parcial y explícita."
+  ]
+}

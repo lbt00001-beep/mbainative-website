@@ -78,6 +78,13 @@ export const categorias = [
     descripcion: "Herramientas de análisis electoral y estimación de voto",
     apps: [
       {
+        nombre: "Observatorio Electoral",
+        descripcion: "Sondeos contrastados, estimación ponderada, evolución del voto, proyección provincial y simulaciones de escaños. Incluye datos directos del CIS, fuentes y ayuda detallada.",
+        url: "/aplicaciones/observatorio-electoral/",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Estimador CIS",
         descripcion: "Monitor de cocina electoral del CIS. Compara Voto Directo, Estimación CIS y el modelo Aldabón-Gemini 3.0 para elecciones generales y autonómicas.",
         url: "https://cis-estimador-mbai.web.app",

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "note": "PLANTILLA SINTÉTICA. Sustituye todos los campos con un estudio real comprobado. Mantén verified=false hasta verificar la fuente y el denominador.",
+  "polls": [
+    {
+      "id": "ejemplo-no-real",
+      "institute": "Encuestadora de ejemplo",
+      "publishedAt": "2026-10-03",
+      "fieldworkEnd": "2026-10-01",
+      "sample": 1000,
+      "url": "https://example.com/estudio-no-real",
+      "verified": false,
+      "denominator": "candidateVotes",
+      "values": { "pp": 33, "psoe": 26, "vox": 18, "sumar": 6, "podemos": 3 }
+    }
+  ]
+}

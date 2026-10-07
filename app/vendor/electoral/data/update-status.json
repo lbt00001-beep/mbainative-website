@@ -1,0 +1,645 @@
+{
+  "checkedAt": "2026-10-07T09:34:07.912Z",
+  "sources": [
+    {
+      "name": "40dB / EL PAÍS",
+      "url": "https://elpais.com/espana/",
+      "status": "error",
+      "error": "HTTP 403"
+    },
+    {
+      "name": "Ateneo / elDiario",
+      "url": "https://www.eldiario.es/politica/",
+      "status": "ok",
+      "found": 0
+    },
+    {
+      "name": "Celeste-Tel / Onda Cero",
+      "url": "https://www.ondacero.es/noticias/espana/",
+      "status": "ok",
+      "found": 1
+    },
+    {
+      "name": "CIS",
+      "url": "https://www.cis.es/es/",
+      "status": "ok",
+      "found": 2
+    },
+    {
+      "name": "Data10 / OKDIARIO",
+      "url": "https://okdiario.com/espana",
+      "status": "ok",
+      "found": 0
+    },
+    {
+      "name": "DYM / 20minutos",
+      "url": "https://www.20minutos.es/nacional/",
+      "status": "ok",
+      "found": 4
+    },
+    {
+      "name": "ElectoPanel",
+      "url": "https://electomania.es/feed/",
+      "status": "ok",
+      "found": 0
+    },
+    {
+      "name": "GAD3",
+      "url": "https://www.gad3.com/feed/",
+      "status": "ok",
+      "found": 2
+    },
+    {
+      "name": "Hamalgama / Vozpópuli",
+      "url": "https://www.vozpopuli.com/espana",
+      "status": "ok",
+      "found": 1
+    },
+    {
+      "name": "InvyMark / laSexta",
+      "url": "https://www.lasexta.com/noticias/nacional/",
+      "status": "ok",
+      "found": 2
+    },
+    {
+      "name": "More in Common",
+      "url": "https://moreincommon.es/",
+      "status": "ok",
+      "found": 1
+    },
+    {
+      "name": "NC Report / La Razón",
+      "url": "https://www.larazon.es/espana/",
+      "status": "ok",
+      "found": 0
+    },
+    {
+      "name": "Sigma Dos",
+      "url": "https://www.sigmados.com/feed/",
+      "status": "ok",
+      "found": 3
+    },
+    {
+      "name": "SocioMétrica / EL ESPAÑOL",
+      "url": "https://www.elespanol.com/espana/politica/",
+      "status": "ok",
+      "found": 1
+    },
+    {
+      "name": "Target Point / El Debate",
+      "url": "https://www.eldebate.com/espana/",
+      "status": "ok",
+      "found": 1
+    },
+    {
+      "name": "Winston / Artículo14",
+      "url": "https://www.articulo14.es/politica/",
+      "status": "ok",
+      "found": 1
+    }
+  ],
+  "candidates": [
+    {
+      "institute": "CIS",
+      "url": "https://www.cis.es/es/estudios/barometro-de-septiembre-2026",
+      "title": "Resultados directos CIS",
+      "status": "retained",
+      "reason": "Etiqueta numérica sin partido: revisión necesaria. Se conserva el original revisado disponible."
+    }
+  ],
+  "processed": [
+    {
+      "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/10-barometro/2026_10_informe_voto.pdf",
+      "institute": "40dB",
+      "title": "40db-202610",
+      "status": "known",
+      "verification": "full",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "reason": "Vector y ficha técnica contrastados.",
+      "sha256": "efce382da05aebb01cb46841c5a0302740703bd85ade366346218f24673f772d"
+    },
+    {
+      "url": "https://www.sigmados.com/barometro-de-octubre-estimacion-de-voto-para-las-elecciones-generales/",
+      "institute": "Sigma Dos",
+      "title": "sigma-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "erc",
+        "aa"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "erc",
+        "bildu",
+        "pnv",
+        "junts",
+        "ac",
+        "aa",
+        "bng",
+        "cc",
+        "upn"
+      ],
+      "reason": "Contraste parcial: 7/14 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "4401bf619c9124620221fa43ef4b099c74a9b94ca901884ed4f6102d855c7c01"
+    },
+    {
+      "url": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-septiembre-2026/",
+      "institute": "GAD3",
+      "title": "gad3-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "sumar"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar"
+      ],
+      "reason": "Contraste parcial: 3/4 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "c03e2baf04a26b4cec2353fbcd85db3f737f0f90b20bfadfb1c46ca6c5092f2a"
+    },
+    {
+      "url": "https://www.eldiario.es/politica/suma-pp-vox-supera-holgura-mayoria-absoluta-aventaja-izquierda-15-puntos_1_13559749.html",
+      "institute": "Ateneo del Dato",
+      "title": "ateneo-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "podemos"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos"
+      ],
+      "reason": "Contraste parcial: 4/5 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "81edff373ba7d679009d0adc2bbf6a3d5945980680d5b18c46069d96082cfb63"
+    },
+    {
+      "url": "https://www.elespanol.com/espana/politica/20261004/sondeo-expres-sanchez-disuelve-congreso-pp-hoy-diputados-psoe-vox-sumar/1003744408026_0.html",
+      "institute": "SocioMétrica",
+      "title": "socio-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "salf"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "salf"
+      ],
+      "reason": "Contraste parcial: 5/5 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "e6c02a6a93de0a24c80e683ebe8ad91579f472cbee19b072a400b40404afa0f1"
+    },
+    {
+      "url": "https://moreincommon.es/pdfs/pulso-electoral/pulso-electoral-septiembre-2026.pdf",
+      "institute": "More in Common",
+      "title": "mic-202609",
+      "status": "known",
+      "verification": "full",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "reason": "Vector y ficha técnica contrastados.",
+      "sha256": "f1826ed0fc6de1a951000172437a731e04bfa034012e28cbd4911a117d6242d3"
+    },
+    {
+      "url": "https://www.20minutos.es/nacional/crisis-ceuta-pasa-factura-psoe-mientras-vox-capitaliza-descontento_7040042_0.html",
+      "institute": "DYM",
+      "title": "dym-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "sumar"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos"
+      ],
+      "reason": "Contraste parcial: 2/5 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "6879f2686d4c99ffb933d468ee241260d10392fdff1ec629740a711370c4c362"
+    },
+    {
+      "url": "https://www.eldebate.com/espana/20260913/sanchez-paga-errores-ceuta-cayendo-otro-medio-punto-abascal-sube-fuerza-costa-pp_457920.html",
+      "institute": "Target Point",
+      "title": "target-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar"
+      ],
+      "reason": "Contraste parcial: 4/4 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "f742d690d0994074cad471b90f1d3f442f7499bbee477fc3b3a5acd188176966"
+    },
+    {
+      "url": "https://www.vozpopuli.com/espana/politica/ceuta-descalabra-a-la-izquierda-pp-y-vox-sumarian-ya-212-escanos-en-las-elecciones.html",
+      "institute": "Hamalgama Métrica",
+      "title": "hamalgama-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos"
+      ],
+      "reason": "Contraste parcial: 5/5 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "fddb27034a19f05cce3eacd77bdf06ead9d34f85ec69d440b0e67b8b0206f82e"
+    },
+    {
+      "url": "https://okdiario.com/espana/efecto-maricarmen-resucita-sanchez-hasta-110-escanos-pero-ni-todos-sus-socios-alcanzan-pp-vox-que-suman-203-20469916",
+      "institute": "Data10",
+      "title": "data10-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "salf"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "reason": "Contraste parcial: 5/6 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "645daecf232ac49e0d3e56bd7c1336e7979abb6c37a7d95615df2f6efeeaccfa"
+    },
+    {
+      "url": "https://www.lasexta.com/noticias/nacional/barometro-lasexta-intencion-voto-situa-como-primera-fuerza-feijoo-como-politico-mejor-valorado_202609136aa6943d7486a40f2c9c4e90.html",
+      "institute": "InvyMark",
+      "title": "invymark-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "vox",
+        "sumar",
+        "salf"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf"
+      ],
+      "reason": "Contraste parcial: 4/6 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "9123ca409694cd3199a4a92462d00444071dc1053b2d69409e342fa096ae45b7"
+    },
+    {
+      "url": "https://www.ondacero.es/noticias/espana/gestion-crisis-ceuta-casos-corrupcion-siguen-desgastando-gobierno-sanchez_202609246ab530d7a520494aafd5d597.html",
+      "institute": "Celeste-Tel",
+      "title": "celeste-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox"
+      ],
+      "reason": "Contraste parcial: 1/3 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "452c564b5e0304295ea1a2fa1eb303d00ae66fea5c1118858b56413521ffa143"
+    },
+    {
+      "url": "https://www.larazon.es/espana/sanchez-lleva-psoe-suelo-electoral-vox-podrian-reformar-constitucion_202609076a9d3ff03bfe5d1eff4557b2.html",
+      "institute": "NC Report",
+      "title": "ncreport-202609",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "podemos"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos"
+      ],
+      "reason": "Contraste parcial: 4/5 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "cec29cecbbe7459eb19e86f030ea8ed5dfe51f1c06acc095cd3d1339f32fb899"
+    },
+    {
+      "url": "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/",
+      "institute": "ElectoPanel",
+      "title": "ep-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf",
+        "erc",
+        "bildu",
+        "aa",
+        "junts",
+        "pnv",
+        "bng",
+        "cc",
+        "upn"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "salf",
+        "erc",
+        "bildu",
+        "aa",
+        "junts",
+        "pnv",
+        "bng",
+        "cc",
+        "upn"
+      ],
+      "reason": "Contraste parcial: 14/14 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "2941b6f0fa6bbc3c599f87b5ccaba3647ce45b0dbc0a95b7310c00799bfde608"
+    },
+    {
+      "url": "https://www.articulo14.es/politica/encuesta-articulo14-sanchez-divide-a-los-electores-del-psoe-solo-el-53-aprueba-su-candidatura-20261005.html",
+      "institute": "Winston",
+      "title": "winston-202610",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "psoe"
+      ],
+      "expected": [
+        "psoe"
+      ],
+      "reason": "Contraste parcial: 1/1 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "def385426bdd6f2dbad8acccfe85a1805ec061e275f6d90d52da4384246cfd6f"
+    },
+    {
+      "url": "https://www.sigmados.com/barometro-de-septiembre-estimacion-de-voto-para-las-elecciones-generales/",
+      "institute": "Sigma Dos",
+      "title": "sigmados-20260826",
+      "status": "known",
+      "verification": "partial",
+      "matched": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "erc",
+        "junts",
+        "bng",
+        "aa"
+      ],
+      "expected": [
+        "pp",
+        "psoe",
+        "vox",
+        "sumar",
+        "podemos",
+        "erc",
+        "junts",
+        "bng",
+        "aa"
+      ],
+      "reason": "Contraste parcial: 9/9 cifras del catálogo; ficha o denominador sin reconstruir por completo.",
+      "sha256": "214045e60110c7cc1d5d5dbd8bdd1f5f645e4135d7c4f622762c60a144661d79"
+    },
+    {
+      "url": "https://www.eldebate.com/espana/20261006/casi-9000-encuestados-enfrian-adelanto-sanchez-no-hay-efecto-maricarmen-pp-vox-superan-51_466254.html",
+      "title": "Casi 9.000 encuestados enfrían el adelanto de Sánchez: no hay 'efecto Maricarmen' y PP y Vox superan el 51 %",
+      "institute": "Target Point / El Debate",
+      "status": "context",
+      "reason": "No identifica un estudio original del instituto correspondiente.",
+      "sha256": "9c9e87868e2d11efb08499936fe91c29eda94e646d0b59b4ef8ec200571aed29"
+    },
+    {
+      "url": "https://www.20minutos.es/nacional/quien-ganara-elecciones-generales-segun-ultimas-encuestas_7044112_0.html",
+      "title": "Encuestas elecciones",
+      "institute": "DYM / 20minutos",
+      "status": "context",
+      "reason": "Guía, agregado o pregunta no electoral; no es una encuesta independiente.",
+      "sha256": "7ff1420cae824477985c374764e9c6913673cd8164df95d91d97eafbeb597379"
+    },
+    {
+      "url": "https://www.20minutos.es/nacional/quien-ganara-las-elecciones-generales-segun-las-ultimas-encuestas_7044112_0.html",
+      "title": "Ganador elecciones generales encuestas",
+      "institute": "DYM / 20minutos",
+      "status": "duplicate",
+      "reason": "Mismo documento que https://www.20minutos.es/nacional/quien-ganara-elecciones-generales-segun-ultimas-encuestas_7044112_0.html"
+    },
+    {
+      "url": "https://www.20minutos.es/nacional/psoe-sumar-se-disputan-bandera-vivienda-primer-pulso-electoral-coalicion_7043857_0.html",
+      "title": "PSOE y Sumar se disputan la bandera de la vivienda en el primer pulso electoral de la coalición",
+      "institute": "DYM / 20minutos",
+      "status": "context",
+      "reason": "No identifica un estudio original del instituto correspondiente.",
+      "sha256": "6701d6467b16a06bd58e5162a41c4342a6d5699b0cc44f8e8a9f2f21d517b76a"
+    },
+    {
+      "url": "https://www.20minutos.es/nacional/guia-elecciones-generales-29-noviembre-sondeos-fechas-clave-calendario-encuesta_7045112_0.html",
+      "title": "Guía de las elecciones generales del 29 de noviembre en España: sondeos, fechas clave, voto por correo y calculadora de pactos",
+      "institute": "DYM / 20minutos",
+      "status": "context",
+      "reason": "Guía, agregado o pregunta no electoral; no es una encuesta independiente.",
+      "sha256": "78b727ee1f889311dec04c22018d5ae2415326a52c9b4cb99628a14569ea3d60"
+    },
+    {
+      "url": "https://www.vozpopuli.com/espana/quien-ganara-las-elecciones-generales-del-29-n-esto-dicen-las-ultimas-encuestas-y-sondeos.html",
+      "title": "¿Quién ganará las elecciones generales del 29-N? Esto dicen las últimas encuestas y sondeos",
+      "institute": "Hamalgama / Vozpópuli",
+      "status": "context",
+      "reason": "Guía, agregado o pregunta no electoral; no es una encuesta independiente.",
+      "sha256": "67efc79cbe0ed647ffe25ce1b86216d4fe316e5dfc450a4e8d02f81ec6f8e115"
+    },
+    {
+      "url": "https://www.ondacero.es/elecciones/generales/quien-ganaria-elecciones-generales-29-noviembre-esto-dicen-encuestas_202610056ac36fbc375d34226274315e.html",
+      "title": "Quién ganaría las elecciones generales del 29 de noviembre: esto dicen las encuestas",
+      "institute": "Celeste-Tel / Onda Cero",
+      "status": "context",
+      "reason": "No identifica un estudio original del instituto correspondiente.",
+      "sha256": "30ba97c1c953e0e6ac649c0c1248da1f0130091b2e134ebe012d2ac492a70719"
+    },
+    {
+      "url": "https://www.lasexta.com/elecciones/generales/encuestas-elecciones-generales_202610056ac365161c30184d44b52907.html",
+      "title": "Encuestas elecciones",
+      "institute": "InvyMark / laSexta",
+      "status": "context",
+      "reason": "No acredita el ámbito electoral nacional.",
+      "sha256": "af0ebbbe7f6f9f65ae25dc87fe2314f0d5354c84f4a75486a8c489c98080bc80"
+    },
+    {
+      "url": "https://www.lasexta.com/temas/barometro_lasexta-1",
+      "title": "Barómetro laSexta",
+      "institute": "InvyMark / laSexta",
+      "status": "landing",
+      "reason": "Página de navegación o sin artículo legible.",
+      "sha256": "bed5b1da83039e92fe80707ee8ba343faaabb82a703a6446ee5295151c268784"
+    },
+    {
+      "url": "https://moreincommon.es/pulso-electoral.html",
+      "title": "Pulso electoral",
+      "institute": "More in Common",
+      "status": "landing",
+      "reason": "Página de navegación o sin artículo legible.",
+      "sha256": "19e89ef6b74f53d04555b58e63636fef45db3ecf21e717bd5e32edd58a142801"
+    },
+    {
+      "url": "https://www.sigmados.com/barometro-de-julio-estimacion-de-voto-para-elecciones-generales/",
+      "title": "Barómetro de julio &#8211; Estimación de voto para Elecciones Generales",
+      "institute": "Sigma Dos",
+      "status": "old",
+      "reason": "Publicación anterior a la ventana de 60 días; no entra en la estimación actual.",
+      "sha256": "5fe5e79d1054d982b99987982a193c67d04d4dce591e09ade0d06efae1611f24"
+    },
+    {
+      "url": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-mayo-2026/",
+      "title": "Barómetro ABC &#124; Estimación de voto nacional. Mayo 2026",
+      "institute": "GAD3",
+      "status": "old",
+      "reason": "Publicación anterior a la ventana de 60 días; no entra en la estimación actual.",
+      "sha256": "12ce60aa302d766e674cc72760237834cd3304b65f0979fdc1a60187f093106d"
+    },
+    {
+      "url": "https://www.articulo14.es/politica/sanchez-decidio-convocar-con-sondeos-que-le-dan-ganador-y-dicen-que-el-53-ve-una-persecucion-judicial-al-psoe-20261006.html",
+      "title": "Sánchez decidió convocar con sondeos que le dan ganador y dicen que el 53% ve una &#8220;persecución judicial&#8221; al PSOE",
+      "institute": "Winston / Artículo14",
+      "status": "context",
+      "reason": "No identifica un estudio original del instituto correspondiente.",
+      "sha256": "c575c1b7ec59b6fc9cafd13b29fe2fe4682047f09052e099f40af0c1d3d01d0d"
+    },
+    {
+      "institute": "CIS",
+      "url": "https://www.cis.es/es/estudios/barometro-de-julio-2026",
+      "title": "Estudio \"Barómetro de julio 2026\" | CIS",
+      "status": "known",
+      "verification": "full",
+      "reason": "Pregunta directa y ficha técnica contrastadas; no se utiliza la estimación electoral.",
+      "sha256": "28b65af43f663331d41b792aa27563e71f26456fcdaef88b9ed604aa2010aaf3"
+    },
+    {
+      "institute": "CIS",
+      "url": "https://www.cis.es/es/estudios/barometro-de-septiembre-2026",
+      "title": "Resultados directos CIS",
+      "status": "retained",
+      "reason": "Etiqueta numérica sin partido: revisión necesaria. Se conserva el original revisado disponible."
+    },
+    {
+      "institute": "CIS",
+      "url": "https://www.cis.es/es/estudios/opinion-publica-y-politica-fiscal-xliii-",
+      "title": "Estudio \"Opinión pública y política fiscal (XLIII)\" | CIS",
+      "status": "known",
+      "verification": "full",
+      "reason": "Pregunta directa y ficha técnica contrastadas; no se utiliza la estimación electoral.",
+      "sha256": "7353012b58826b7dceddc828dc82f1740ce8921076b94fa5daf8cffdaa94ec67"
+    }
+  ],
+  "incorporated": [],
+  "note": "Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.",
+  "summary": {
+    "newPolls": 0,
+    "newCis": 0,
+    "known": 18,
+    "fullyVerified": 4,
+    "partiallyVerified": 14,
+    "accessOnly": 0,
+    "duplicates": 1,
+    "context": 10,
+    "old": 2,
+    "pending": 1,
+    "activePolls": 15,
+    "calculatedAt": "2026-10-07",
+    "lastPublication": "2026-10-05",
+    "lastFieldwork": "2026-10-03",
+    "expired": false
+  }
+}

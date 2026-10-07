@@ -37,3 +37,10 @@ test('Microdatos: evaluación histórica usa recuerdo 2019 y no acredita superio
  assert.equal(check.referenceElection,'2019-11-10');assert.equal(check.election,'2023-07-23');assert.equal(check.sample,29201);
  assert.ok(check.rows.find(r=>r.name==='PESO + recuerdo 2019').mae>check.rows.find(r=>r.name==='PESO publicado').mae);
 });
+
+test('Microdatos: una muestra amplia con pocos votos declarados no justifica un perfil',()=>{
+ const cells=[{intent:'pp',n:5,w:5,w2:5},{intent:'undecided',n:35,w:35,w2:35}].flatMap(c=>['total','age'].map(dimension=>({...c,dimension,group:'Grupo',recall:'norecall',turnout:'10'})));
+ const fixture={schemaVersion:1,sample:40,dimensions:{total:'Total',age:'Edad'},cells};validateMicrodata(fixture);
+ const r=analyzeMicrodata(fixture,{dimension:'age',profileTarget:{pp:100},undecided:'overall'});
+ assert.equal(r.profiles[0].n,40);assert.equal(r.profiles[0].analysisN,5);assert.equal(r.profiles[0].analysisEffectiveN,5);
+});

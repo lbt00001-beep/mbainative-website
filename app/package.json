@@ -18,12 +18,13 @@
     "mammoth": "^1.12.2",
     "next": "^15.5.25",
     "nodemailer": "10.0.12",
+    "parse5": "^8.0.0",
+    "pdfjs-dist": "^6.4.299",
+    "proper-lockfile": "^4.1.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "rss-parser": "^3.13.0",
-    "sharp": "^0.35.4",
-    "parse5": "^8.0.0",
-    "pdfjs-dist": "^6.4.299"
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.7",

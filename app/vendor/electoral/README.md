@@ -44,7 +44,7 @@ La verificación completa no certifica representatividad ni precisión. Los camp
 
 El servicio comparte consultas simultáneas, conserva resultados dos minutos y pausa reintentos tras fallos. Se limita tamaño de solicitud, destinos, documentos, páginas PDF, memoria del lector y tiempo de extracción. Un bloqueo de archivo protege también frente al actualizador manual. Se escribe mediante renombrado y se conserva copia anterior. Una evaluación manual fallida restaura el catálogo.
 
-`npm run data:search` ejecuta la consulta; `npm run data:update -- fichero.json` incorpora una revisión manual. Si un proceso se interrumpe abruptamente y deja `.run/catalog.lock`, comprobar que el PID registrado ya no existe antes de retirar el bloqueo. No se rompe automáticamente un bloqueo que podría corresponder a una actualización activa.
+`npm run data:search` ejecuta la consulta; `npm run data:update -- fichero.json` incorpora una revisión manual. Si un despliegue interrumpe una actualización, el bloqueo renovable `.run/catalog.lease` se recupera tras dos minutos sin señal de actividad. Un bloqueo reciente se respeta.
 
 ## Proyección y evaluación
 

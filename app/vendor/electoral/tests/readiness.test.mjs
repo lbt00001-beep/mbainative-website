@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,mkdtemp,mkdir,writeFile,rm} from 'node:fs/promises';
+import {readFile,mkdtemp,mkdir,writeFile,rm,utimes} from 'node:fs/promises';
 import path from 'node:path';
 import {tmpdir} from 'node:os';
 import {fileURLToPath} from 'node:url';
@@ -33,6 +33,10 @@ test('Catálogo: exclusión mutua, fallo de escritura y evaluación fallida cons
   await assert.rejects(commitCatalog(dir,original,{asOf:'2026-10-07'},{verify:async()=>{throw Error('Evaluación fallida');}}),/Evaluación/);assert.equal(await readFile(file,'utf8'),original);
   await atomicWrite(file,'{"manual":true}');await assert.rejects(commitCatalog(dir,original,{asOf:'2026-10-07'}),/cambió/);assert.equal(await readFile(file,'utf8'),' {"manual":true}'.trim());
  }finally{await rm(dir,{recursive:true,force:true});}
+});
+test('El bloqueo abandonado por un reinicio se recupera sin abrir un bloqueo reciente',async()=>{
+ const dir=await mkdtemp(path.join(tmpdir(),'electoral-orphan-')),lease=path.join(dir,'.run/catalog.lease');
+ try{await mkdir(lease,{recursive:true});await assert.rejects(withCatalogLock(dir,async()=>{}),/otra actualización/);const old=new Date(Date.now()-180000);await utimes(lease,old,old);let completed=false;await withCatalogLock(dir,async()=>{completed=true;});assert.equal(completed,true);}finally{await rm(dir,{recursive:true,force:true});}
 });
 test('Servicio: consultas concurrentes comparten trabajo; errores tienen pausa y permiten recuperación',async()=>{
  let count=0,release,time=100;const origin='https://mbainative.com',request={method:'POST',origin,bytes:2};

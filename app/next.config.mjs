@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'standalone',
   outputFileTracingRoot: process.cwd(),
   outputFileTracingIncludes: {
-    '/aplicaciones/observatorio-electoral/**': ['vendor/electoral/**', 'node_modules/parse5/**', 'node_modules/entities/**', 'node_modules/pdfjs-dist/**', 'node_modules/@napi-rs/canvas*/**'],
+    '/aplicaciones/observatorio-electoral/**': ['vendor/electoral/**', 'node_modules/parse5/**', 'node_modules/entities/**', 'node_modules/proper-lockfile/**', 'node_modules/graceful-fs/**', 'node_modules/retry/**', 'node_modules/signal-exit/**', 'node_modules/pdfjs-dist/**', 'node_modules/@napi-rs/canvas*/**'],
   },
   poweredByHeader: false,
   distDir: process.env.MBAI_DEV === '1' ? '.next-dev' : '.next',

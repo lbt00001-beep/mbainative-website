@@ -7,13 +7,17 @@ const label=(data,id,kind='intent')=>id==='abstention'?(kind==='recall'?'No vot�
 function table(headers,rows){const wrap=el('div',null,'table-scroll'),t=el('table'),head=el('thead'),hr=el('tr');for(const h of headers){const th=el('th',h),help=parameterHelp(h)||(/N efectivo/.test(h)?'Tamaño efectivo con los pesos elegidos antes del ajuste de perfiles. Se calcula con la concentración de pesos; no es un margen de error.':/Directa PESO/.test(h)?'Intención directa ponderada con PESO publicado, sobre todos los entrevistados. No es la estimación final del CIS.':/Ajustada/.test(h)?'Porcentaje sobre la base con los pesos y participación elegidos, antes de asignar indecisos.':/Voto válido exploratorio/.test(h)?'Porcentaje sobre candidaturas y blanco después de la regla de indecisos. Excluye abstención, nulos e indecisos sin asignar.':'');if(help)th.append(helpButton(help,h));hr.append(th);}head.append(hr);t.append(head);const body=el('tbody');for(const row of rows){const tr=el('tr');for(const value of row)tr.append(el('td',value));body.append(tr);}t.append(body);wrap.append(t);return wrap;}
 function link(text,url){const a=el('a',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
 export async function initializeMicrodata({official,getEstimate}){
- const root=document.getElementById('microdata'),out=document.getElementById('micro-output'),status=document.getElementById('micro-status');let data;
+ const root=document.getElementById('microdata'),out=document.getElementById('micro-output'),status=document.getElementById('micro-status');let data,library={studies:[],candidates:[]};
  try{const r=await fetch('./data/microdata-3577.json');if(!r.ok)throw Error('No se ha podido cargar el estudio ('+r.status+').');data=validateMicrodata(await r.json());}catch(e){status.textContent=e.message;status.className='notice error';return;}
- const $=id=>document.getElementById(id),reference=nationalVotes(official.provinces).shares;
- const baseline=analyzeMicrodata(data,{dimension:'total'});
- const source=el('div',null,'notice'),audit=el('details');audit.append(el('summary','Consultar variables y huella del archivo'),el('p',Object.entries(data.variables).map(([k,v])=>({intent:'Intención',recall:'Recuerdo',turnout:'Probabilidad de votar',sex:'Sexo',age:'Edad',income:'Ingresos del hogar',ideology:'Ideología'}[k])+': '+v).join(' · ')),el('p','SHA-256 del ZIP: '+data.sha256,'small'));
+ const seed=data,$=id=>document.getElementById(id),reference=nationalVotes(official.provinces).shares;
+ let baseline;
+ function setupStudy(){baseline=analyzeMicrodata(data,{dimension:'total'});
+
+ const source=el('div',null,'notice'),audit=el('details');audit.append(el('summary','Consultar variables y huella del archivo'),el('p',Object.entries(data.variables).map(([k,v])=>({intent:'Intención',recall:'Recuerdo',turnout:'Probabilidad de votar',sex:'Sexo',age:'Edad',income:'Ingresos del hogar',ideology:'Ideología',weight:'Ponderación'}[k])+': '+v).join(' · ')),el('p','SHA-256 del ZIP: '+data.sha256,'small'));
  source.append(el('strong',data.title+' · '+fmt(data.sample,0)+' entrevistas'),el('p','Entrevistas del '+data.fieldworkStart+' al '+data.fieldworkEnd+'. '+data.note),link('Microdatos y libro de códigos ↗',data.sourceUrl),' · ',link('Ficha técnica ↗',data.technicalUrl),' · ',link('Cuestionario ↗',data.questionnaireUrl),audit);$('micro-source').replaceChildren(source);
- for(const [id,text]of Object.entries(data.dimensions))if(id!=='total')$('micro-dimension').append(new Option(text,id));
+ $('micro-dimension').replaceChildren();
+ for(const [id,text]of Object.entries(data.dimensions))if(id!=='total')$('micro-dimension').append(new Option(text,id));$('micro-dimension').value='age';
+ }
  function render(){try{
   const dimension=$('micro-dimension').value,basis=$('micro-basis').value,recallStrength=Number($('micro-recall').value),participation=$('micro-participation').value,undecided=$('micro-undecided').value;
   const estimate=getEstimate(),profileTarget=$('micro-view').value==='profile'?Object.fromEntries(ids.map(id=>[id,estimate.values[id]])):null;
@@ -34,5 +38,23 @@ export async function initializeMicrodata({official,getEstimate}){
  }catch(e){status.textContent=e.message;status.className='notice error';}}
  try{const response=await fetch('./data/microdata-validation.json');if(!response.ok)throw Error('La comprobación histórica no está disponible.');const check=await response.json(),box=$('micro-validation');box.replaceChildren(el('p','Estudio '+check.study+' · '+fmt(check.sample,0)+' entrevistas · campo '+check.fieldworkStart+' → '+check.fieldworkEnd+' · elección '+check.election+'.'),table(['Método','PP','PSOE','Vox','Sumar','Error absoluto medio · puntos'],[...check.rows.map(row=>[row.name,...['pp','psoe','vox','sumar'].map(id=>fmt(row.values[id],2)+' %'),fmt(row.mae,3)]),['Resultado oficial',...['pp','psoe','vox','sumar'].map(id=>fmt(check.actual[id],2)+' %'),'—']]),el('p',check.note,'notice'),link('Microdatos preelectorales 2023 ↗',check.sourceUrl),' · ',link('Ficha técnica 2023 ↗',check.technicalUrl),' · ',link('Referencia de recuerdo: resultado 2019 ↗',check.referenceSource),' · ',link('Resultado oficial 2023 ↗',check.actualSource.verificationUrl),el('p','SHA-256 del fichero histórico: '+check.sha256,'small'));
  }catch(e){$('micro-validation').textContent=e.message;}
+ function showLibrary(){
+  const select=$('micro-study');select.replaceChildren(new Option((library.studies.find(x=>x.study===seed.study)||seed).title+' · '+seed.study,seed.study));for(const study of library.studies||[])if(study.study!==seed.study)select.append(new Option(study.title+' · '+study.study,study.study));select.value=data.study;
+  const box=$('micro-candidates');box.replaceChildren();
+  if(library.checkedAt)box.append(el('p','Última búsqueda: '+new Date(library.checkedAt).toLocaleString('es-ES')+'. '+(library.cached?'Consulta reciente reutilizada. ':'')+'Los formatos se comprueban al incorporar.','small muted'));
+  for(const candidate of library.candidates||[]){const row=el('div',null,'card-actions'),button=el('button',(library.studies||[]).some(x=>x.study===candidate.study)?'Comprobar e incorporar de nuevo':'Incorporar al laboratorio','secondary');button.type='button';button.onclick=()=>requestMicrodata('import',candidate.study);row.append(el('span',candidate.title+' · estudio '+candidate.study),link('Original ↗',candidate.studyUrl),button);box.append(row);}
+  if(library.issues?.length)box.append(el('p',library.issues.length+' estudios o páginas pendientes: '+library.issues.map(x=>x.error).join(' · '),'notice'));
+  enhanceParameterHelp(root);
+ }
+ async function requestMicrodata(action,study){
+  const report=$('micro-update-status');report.className='small muted';report.textContent=action==='search'?'Consultando estudios y enlaces del CIS…':'Descargando y contrastando variables, muestra y ficha técnica…';root.querySelectorAll('#micro-library button').forEach(b=>b.disabled=true);
+  try{const response=await fetch('./api/microdata',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,study}),signal:AbortSignal.timeout(180000)}),body=await response.json();if(!response.ok)throw Error(body.error||'No se ha completado la consulta.');library=body;
+   if(action==='import'){data=validateMicrodata(library.studies.find(x=>x.study===study));try{sessionStorage.setItem('electoral-micro-study',study);}catch{}setupStudy();render();report.textContent=body.unchanged?'El fichero no ha cambiado. Estudio seleccionado.':'Estudio incorporado y seleccionado. Los anteriores se conservan.';}else report.textContent='Búsqueda completada: '+body.candidates.length+' ficheros localizados. Elige cuál incorporar.';showLibrary();
+  }catch(e){report.textContent=(e.name==='TimeoutError'?'La consulta ha agotado el tiempo. Puedes comprobar la biblioteca y reintentar.':e.message)+' El estudio mostrado se conserva.';report.className='notice error';}finally{root.querySelectorAll('#micro-library button').forEach(b=>b.disabled=false);}
+ }
+ $('micro-search').onclick=()=>requestMicrodata('search');$('micro-study').onchange=()=>{const selected=$('micro-study').value;data=validateMicrodata(library.studies.find(x=>x.study===selected)||seed);try{sessionStorage.setItem('electoral-micro-study',selected);}catch{}setupStudy();render();};
+ try{const response=await fetch('./api/microdata');if(response.ok)library=await response.json();else $('micro-update-status').textContent='Biblioteca no disponible; se mantiene el estudio incluido.';}catch{$('micro-update-status').textContent='Biblioteca no disponible; se mantiene el estudio incluido.';}
+ let selectedStudy=seed.study;try{selectedStudy=sessionStorage.getItem('electoral-micro-study')||seed.study;}catch{}data=validateMicrodata(library.studies.find(x=>x.study===selectedStudy)||library.studies.find(x=>x.study===seed.study)||seed);
+ setupStudy();showLibrary();
  root.querySelectorAll('select,input').forEach(input=>input.addEventListener('change',render));$('micro-reset').addEventListener('click',()=>{$('micro-basis').value='published';$('micro-recall').value='0';$('micro-participation').value='none';$('micro-undecided').value='none';$('micro-view').value='independent';$('micro-dimension').value='age';render();});render();return render;
 }

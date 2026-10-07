@@ -1,4 +1,5 @@
 export const PARAMETER_HELP={
+ 'micro-study':'Selecciona uno de los estudios incorporados. Cada fichero tiene sus propias entrevistas y fechas. Cambiar de estudio recalcula el laboratorio; no cambia el promedio de sondeos ni los escaños.',
  'micro-basis':'PESO es la ponderación publicada del CIS, un ajuste de muestra que no equivale a su estimación electoral. Pesos iguales sirven para comparar su efecto, pero no garantizan mayor representatividad.',
  'micro-recall':'Compara el recuerdo declarado con el resultado de 2023 entre candidaturas comparables y cambia su influencia. La referencia no representa exactamente la población actual. Los factores se limitan entre 0,25 y 4 para evitar pesos extremos; no ajusta quienes no recuerdan partido.',
  'micro-participation':'La alternativa declarada multiplica el peso por la probabilidad de votar que responde cada persona, dividida por diez. Un 5 aporta la mitad que un 10. Es una regla exploratoria sin calibración; las respuestas sin número válido quedan fuera de esta opción.',

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "study": "3411",
+  "sample": 29201,
+  "fieldworkStart": "2023-06-08",
+  "fieldworkEnd": "2023-06-27",
+  "election": "2023-07-23",
+  "referenceElection": "2019-11-10",
+  "reference": {
+    "pp": 5047040,
+    "psoe": 6792199,
+    "vox": 3656979,
+    "left": 3119364,
+    "cs": 1650318
+  },
+  "referenceSource": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201911_1.zip",
+  "sourceUrl": "https://www.cis.es/documents/20117/1557956/MD3411.zip",
+  "technicalUrl": "https://www.cis.es/documents/20117/1557956/FT3411.pdf",
+  "sha256": "bfb6de07d89c58e3266c6a5ca1ad8b44d1f795dc4424200faafaf0e01c2bd681",
+  "actualSource": {
+    "name": "Ministerio del Interior · resultados definitivos 23J",
+    "url": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_202307_1.zip",
+    "verificationUrl": "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-18907",
+    "sha256": "344059322482549cc673acb0747b10e054ee51caad7e1cfcc4b874988b61619c"
+  },
+  "actual": {
+    "pp": 33.05576896257697,
+    "psoe": 31.68215504101229,
+    "vox": 12.382490388988018,
+    "sumar": 12.333867747630668
+  },
+  "rows": [
+    {
+      "name": "Pesos iguales",
+      "options": {
+        "basis": "equal"
+      },
+      "values": {
+        "pp": 32.404285287464255,
+        "psoe": 30.731145161978745,
+        "vox": 11.319305134662171,
+        "sumar": 15.032651841734602
+      },
+      "mae": 1.34111572564401,
+      "effectiveN": 29201
+    },
+    {
+      "name": "PESO publicado",
+      "options": {},
+      "values": {
+        "pp": 31.71494227324809,
+        "psoe": 30.80593752999808,
+        "vox": 11.010436663764036,
+        "sumar": 15.826228744937419
+      },
+      "mae": 1.7703647307184553,
+      "effectiveN": 23672.533388017237
+    },
+    {
+      "name": "PESO × participación declarada",
+      "options": {
+        "participation": "declared"
+      },
+      "values": {
+        "pp": 32.11225704043902,
+        "psoe": 31.06105003472251,
+        "vox": 11.053066630580672,
+        "sumar": 15.886059003082334
+      },
+      "mae": 1.611557985571686,
+      "effectiveN": 22273.409997036244
+    },
+    {
+      "name": "PESO + recuerdo 2019",
+      "options": {
+        "recallStrength": 1
+      },
+      "values": {
+        "pp": 32.403190251571864,
+        "psoe": 26.046102546207006,
+        "vox": 16.33437975457754,
+        "sumar": 14.786067176402558
+      },
+      "mae": 3.1731800000429504,
+      "effectiveN": 22179.45884551238
+    },
+    {
+      "name": "PESO + recuerdo 2019 + indecisos por recuerdo",
+      "options": {
+        "recallStrength": 1,
+        "undecided": "recall"
+      },
+      "values": {
+        "pp": 32.130449563554336,
+        "psoe": 26.276611814760418,
+        "vox": 15.475809573702504,
+        "sumar": 14.909046748585764
+      },
+      "mae": 2.999840202736022,
+      "effectiveN": 22179.45884551238
+    }
+  ],
+  "note": "Comprobación retrospectiva de una elección. Las reglas no se han optimizado para minimizar este error, pero se diseñan con los resultados históricos ya conocidos: no es una validación prospectiva ni acredita superioridad. MAE solo sobre PP, PSOE, Vox y Sumar, con denominador voto válido incluido blanco. El recuerdo utiliza 2019, no el resultado de 2023 que se compara. Falta evaluar varias elecciones reservadas y otros contextos."
+}

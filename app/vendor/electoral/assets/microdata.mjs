@@ -29,15 +29,15 @@ export function analyzeMicrodata(data,{basis='published',recallStrength=0,partic
  const initial={},adjusted={},raw={};let wsum=0,w2sum=0,unknownTurnout=0;
  for(const c of totals){add(initial,c.intent,base(c));add(raw,c.intent,c.n);const w=weight(c);add(adjusted,c.intent,w);wsum+=w;w2sum+=base2(c)*factor(c)**2;if(c.turnout==='No disponible')unknownTurnout+=c.n;}
  const calculate=cells=>{
-  const values={};let weightSum=0,weightSquareSum=0,n=0;
-  for(const c of cells){const w=weight(c);n+=c.n;weightSum+=w;weightSquareSum+=base2(c)*factor(c)**2;for(const [id,v]of Object.entries(distribution(c,w)))add(values,id,v);}
+  const values={};let weightSum=0,weightSquareSum=0,n=0,validN=0,validWeight=0,validSquares=0;
+  for(const c of cells){const w=weight(c);n+=c.n;if(!NON_VALID.has(c.intent)){validN+=c.n;validWeight+=w;validSquares+=base2(c)*factor(c)**2;}weightSum+=w;weightSquareSum+=base2(c)*factor(c)**2;for(const [id,v]of Object.entries(distribution(c,w)))add(values,id,v);}
   const valid=Object.fromEntries(Object.entries(values).filter(([id])=>!NON_VALID.has(id))),validSum=sum(valid);
-  return {n,weightSum,effectiveN:weightSquareSum?weightSum**2/weightSquareSum:0,values,validPercent:Object.fromEntries(Object.entries(valid).map(([id,v])=>[id,validSum?100*v/validSum:0])),validSum};
+  return {n,validN,validEffectiveN:validSquares?validWeight**2/validSquares:0,weightSum,effectiveN:weightSquareSum?weightSum**2/weightSquareSum:0,values,validPercent:Object.fromEntries(Object.entries(valid).map(([id,v])=>[id,validSum?100*v/validSum:0])),validSum};
  };
  const national=calculate(totals),groups=new Map();for(const c of data.cells.filter(c=>c.dimension===dimension)){if(!groups.has(c.group))groups.set(c.group,[]);groups.get(c.group).push(c);}
  // This view fixes the national vote by construction. It does not estimate that vote independently.
  const profileFactors={};if(profileTarget){const targetTotal=sum(profileTarget);if(targetTotal<=0)throw Error('Referencia de perfiles vacía.');for(const [id,v]of Object.entries(profileTarget)){if(v>0&&!national.validPercent[id])throw Error('La muestra no permite ajustar la categoría '+id);profileFactors[id]=v?100*v/(targetTotal*national.validPercent[id]):0;}}
- const profiles=[...groups].map(([group,cells])=>{const r=calculate(cells);if(profileTarget){const valid=Object.fromEntries(Object.keys(profileTarget).map(id=>[id,(r.values[id]||0)*(profileFactors[id]||0)])),total=sum(valid);r.profilePercent=Object.fromEntries(Object.entries(valid).map(([id,v])=>[id,total?100*v/total:0]));}return {group,...r};});
+ const profiles=[...groups].map(([group,cells])=>{const r=calculate(cells);r.analysisN=r.validN;r.analysisEffectiveN=r.validEffectiveN;if(profileTarget){let obs=0,obsW=0,obsW2=0;for(const c of cells)if(Object.hasOwn(profileTarget,c.intent)){obs+=c.n;obsW+=weight(c);obsW2+=base2(c)*factor(c)**2;}r.analysisN=obs;r.analysisEffectiveN=obsW2?obsW**2/obsW2:0;const valid=Object.fromEntries(Object.keys(profileTarget).map(id=>[id,(r.values[id]||0)*(profileFactors[id]||0)])),total=sum(valid);r.profilePercent=Object.fromEntries(Object.entries(valid).map(([id,v])=>[id,total?100*v/total:0]));}return {group,...r};});
  const transitions=[];for(const group of new Set(totals.map(c=>c.recall))){const cells=totals.filter(c=>c.recall===group),values={};let n=0,total=0,squares=0;for(const c of cells){n+=c.n;squares+=base2(c)*factor(c)**2;add(values,c.intent,weight(c));total+=weight(c);}transitions.push({group,n,effectiveN:squares?total**2/squares:0,percent:Object.fromEntries(Object.entries(values).map(([id,w])=>[id,total?100*w/total:0]))});}
  return {initial,initialTotal:sum(initial),raw,adjusted,total:wsum,effectiveN:w2sum?wsum**2/w2sum:0,unknownTurnout,recallFactors:factors,clipped:clips,national,profiles,transitions,options:{basis,recallStrength,participation,undecided,dimension},profileTarget};
 }

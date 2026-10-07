@@ -1,5 +1,7 @@
 // Pure electoral functions shared by the browser, worker and Node tests.
 export const MAJORITY = 176;
+export const INVESTITURE_IDS = ['psoe','sumar','podemos','erc','junts','bildu','pnv','bng','cc'];
+export const INVESTITURE_SOURCE = 'https://www.congreso.es/es/notas-de-prensa?_notasprensa_mvcPath=detalle&_notasprensa_notaId=45970';
 export const MAIN_IDS = ['pp', 'psoe', 'vox', 'sumar', 'podemos', 'salf', 'erc', 'junts', 'bildu', 'pnv', 'bng', 'cc', 'upn', 'ac', 'aa'];
 export const NAMES = {ac:'Aliança Catalana (hipótesis)',aa:'Adelante Andalucía (hipótesis)',pp:'PP',psoe:'PSOE / PSC',vox:'Vox',sumar:'Sumar',podemos:'Podemos',salf:'SALF',erc:'ERC',junts:'Junts',bildu:'EH Bildu',pnv:'PNV',bng:'BNG',cc:'Coalición Canaria',upn:'UPN'};
 export const COLORS = {pp:'#65a5ff',psoe:'#ff667a',vox:'#8ccc55',sumar:'#f394bb',podemos:'#ba95f7',salf:'#b4bac8',erc:'#f5bb52',junts:'#54c8bc',bildu:'#bccb64',pnv:'#73bc97',bng:'#81c5e7',cc:'#ded17e',upn:'#969fe0'};

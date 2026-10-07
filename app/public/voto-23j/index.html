@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOTO-23J | Radiografía Electoral, Brújula Política y Análisis de Promesas</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            },
+            pp: '#0bb2ff',
+            psoe: '#ef1c27',
+            vox: '#63be21',
+            sumar: '#e51c55',
+            erc: '#ffb232',
+            junts: '#00c3b2',
+            bildu: '#00b093',
+            pnv: '#008040',
+            bng: '#73b2d9',
+            cc: '#ffd500',
+            upn: '#002f6c'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col selection:bg-sky-500 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Brand -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('balance')">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-500/20">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-display font-bold text-lg text-slate-900 tracking-tight">VOTO <span class="text-sky-600">23J</span></span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full border border-slate-200">XV Legislatura</span>
+            </div>
+            <p class="text-xs text-slate-500 hidden sm:block">Radiografía electoral, promesas y brújula política</p>
+          </div>
+        </div>
+
+        <!-- Tab Buttons Navigation -->
+        <nav class="flex space-x-1 sm:space-x-2">
+          <button onclick="switchTab('balance')" id="tab-btn-balance" class="nav-tab active flex items-center space-x-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all text-sky-700 bg-sky-50 border border-sky-200">
+            <i data-lucide="book-check" class="w-4 h-4"></i>
+            <span class="hidden md:inline">Balance 23J</span>
+            <span class="md:hidden">Balance</span>
+          </button>
+          <button onclick="switchTab('test')" id="tab-btn-test" class="nav-tab flex items-center space-x-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span class="hidden md:inline">Test de Afinidad (21)</span>
+            <span class="md:hidden">Test</span>
+          </button>
+          <button onclick="switchTab('reasons')" id="tab-btn-reasons" class="nav-tab flex items-center space-x-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="award" class="w-4 h-4"></i>
+            <span class="hidden md:inline">10 Razones para Votar</span>
+            <span class="md:hidden">10 Razones</span>
+          </button>
+          <button onclick="switchTab('matrix')" id="tab-btn-matrix" class="nav-tab flex items-center space-x-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="grid-3x3" class="w-4 h-4"></i>
+            <span class="hidden md:inline">Matriz Comparativa</span>
+            <span class="md:hidden">Matriz</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Headline -->
+  <section class="bg-gradient-to-b from-slate-100/80 to-slate-50 border-b border-slate-200 py-6 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold font-display text-slate-900">
+          Auditoría de Compromisos Electorales y Test Político Cualificado
+        </h1>
+        <p class="text-sm text-slate-600 mt-1 max-w-3xl">
+          Análisis de los programas electorales de julio 2023, contraste objetivo de promesas cumplidas vs. virajes e incumplimientos, test con ponderación algorítmica para usuarios formados y argumentario de voto.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-slate-500 bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-sm whitespace-nowrap">
+        <i data-lucide="info" class="w-4 h-4 text-sky-600"></i>
+        <span>Partidos con escaños: <strong>11 fuerzas parlamentarias</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: BALANCE Y AUDITORÍA 23J            -->
+    <!-- ========================================== -->
+    <div id="tab-balance" class="space-y-8">
+      
+      <!-- Party Selector Pills -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Selecciona una fuerza política (Orden por escaños 23J):</label>
+          <span class="text-xs text-slate-400">Total: 350 diputados</span>
+        </div>
+        <div class="flex flex-wrap gap-2" id="party-pills-container">
+          <!-- Dynamically populated party pills -->
+        </div>
+      </div>
+
+      <!-- Active Party Detailed Card -->
+      <div id="party-detail-card" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-8 transition-all">
+        <!-- Loaded via JavaScript -->
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: TEST DE AFINIDAD (21 PREGUNTAS)     -->
+    <!-- ========================================== -->
+    <div id="tab-test" class="hidden space-y-8">
+      
+      <!-- Test Introduction Card -->
+      <div class="bg-gradient-to-r from-sky-900 via-indigo-900 to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl"></div>
+        <div class="relative z-10 max-w-3xl space-y-3">
+          <div class="inline-flex items-center space-x-2 bg-sky-500/20 border border-sky-400/30 px-3 py-1 rounded-full text-xs font-medium text-sky-200">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Diseñado para votantes formados e informados</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold">Test de Afinidad y Brújula Parlamentaria (21 Preguntas)</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Este test no recurre a preguntas simplistas o maniqueas. Aborda los verdaderos dilemas de gobernabilidad, fiscalidad, soberanía territorial, modelo socioeconómico, derecho a la vida/aborto y marcos regulatorios que dividen al Congreso de los Diputados. Responde con sinceridad para obtener tu puntuación de afinidad (de 0.0 a 10.0) respecto a cada uno de los 11 partidos.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-400">
+            <div class="flex items-center space-x-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i><span>21 dilemas normativos, morales y socioeconómicos</span></div>
+            <div class="flex items-center space-x-1.5"><i data-lucide="calculator" class="w-4 h-4 text-sky-400"></i><span>Distancia euclídea normalizada (Escala 0 a 10)</span></div>
+            <div class="flex items-center space-x-1.5"><i data-lucide="pie-chart" class="w-4 h-4 text-purple-400"></i><span>Gráficos de barras y radar ideológico</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test Progress Bar & Question Controls -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 sticky top-20 z-40">
+        <div class="w-full sm:w-1/2 space-y-1.5">
+          <div class="flex justify-between text-xs font-semibold text-slate-600">
+            <span>Progreso del test: <strong id="progress-answered">0</strong> de 21 respondidas</span>
+            <span id="progress-percent" class="text-sky-600 font-bold">0%</span>
+          </div>
+          <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+            <div id="progress-bar" class="bg-gradient-to-r from-sky-500 to-indigo-600 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+          <button onclick="resetTest()" class="px-3 py-2 text-xs font-semibold text-slate-600 hover:text-rose-600 hover:bg-rose-50 rounded-lg border border-slate-200 transition-all">
+            Reiniciar respuestas
+          </button>
+          <button onclick="calculateTestResults()" id="btn-calc-affinity" class="px-5 py-2 text-xs sm:text-sm font-bold text-white bg-sky-600 hover:bg-sky-700 shadow-md shadow-sky-600/20 rounded-lg transition-all flex items-center space-x-2">
+            <i data-lucide="calculator" class="w-4 h-4"></i>
+            <span>Calcular Resultados</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Questions List Container -->
+      <div id="questions-container" class="space-y-6">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Results Modal / View -->
+      <div id="test-results-section" class="hidden bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xl space-y-8 animate-fade-in">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Resultado Oficial del Test</span>
+            <h3 class="text-2xl font-bold font-display text-slate-900 mt-1">Tu Afinidad con los Partidos del 23J</h3>
+            <p class="text-sm text-slate-500">Puntuación ponderada de 0.0 (antípoda ideológica) a 10.0 (coincidencia plena).</p>
+          </div>
+          <button onclick="window.scrollTo({ top: document.getElementById('test-results-section').offsetTop - 80, behavior: 'smooth' })" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg flex items-center space-x-2">
+            <i data-lucide="share-2" class="w-4 h-4"></i>
+            <span>Ver Gráficos y Desglose</span>
+          </button>
+        </div>
+
+        <!-- Affinity Podium Top 3 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="podium-container">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Scores Breakdown & Chart -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Scores List -->
+          <div class="lg:col-span-7 space-y-3">
+            <h4 class="text-sm font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center space-x-2">
+              <i data-lucide="list-ordered" class="w-4 h-4 text-sky-600"></i>
+              <span>Puntuación detallada de 0 a 10 por fuerza política</span>
+            </h4>
+            <div id="affinity-scores-list" class="space-y-2.5">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Radar / Visual Chart -->
+          <div class="lg:col-span-5 bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col items-center">
+            <h4 class="text-sm font-bold text-slate-800 mb-3 w-full text-center">Comparativa en Ejes Clave</h4>
+            <div class="w-full h-72 relative flex items-center justify-center">
+              <canvas id="radarChart"></canvas>
+            </div>
+            <p class="text-[11px] text-slate-500 text-center mt-3">Ejes calculados: Fiscalidad/Gasto, Modelo Territorial, Derechos/Social, e Institucional/Gobernabilidad.</p>
+          </div>
+        </div>
+
+        <!-- Coincidences and Discrepancies Breakdown -->
+        <div class="pt-6 border-t border-slate-100">
+          <h4 class="text-base font-bold font-display text-slate-900 mb-4 flex items-center space-x-2">
+            <i data-lucide="git-compare" class="w-5 h-5 text-indigo-600"></i>
+            <span>Desglose Analítico: ¿Por qué coincide o discrepa tu perfil?</span>
+          </h4>
+          <div id="detailed-breakdown-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 10 RAZONES PARA VOTAR A...          -->
+    <!-- ========================================== -->
+    <div id="tab-reasons" class="hidden space-y-8">
+      
+      <!-- Section Header -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <div class="flex items-center space-x-2 text-amber-600 font-bold text-xs uppercase tracking-wider">
+          <i data-lucide="award" class="w-4 h-4"></i>
+          <span>Argumentario Electoral Oficial y Analítico</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900">
+          10 Razones para votar a...
+        </h2>
+        <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">
+          Selecciona cualquiera de los 11 partidos representados en las elecciones de julio 2023. Esta sección desglosa las diez razones de mayor peso y solidez ideológica, económica y estratégica que articulan el voto hacia dicha formación, redactadas con rigor conceptual y desde la mejor perspectiva de sus propios electores y portavoces.
+        </p>
+
+        <!-- Party Selectors Grid -->
+        <div class="pt-4">
+          <label class="block text-xs font-bold uppercase text-slate-500 mb-3">Elige un partido para ver sus 10 razones:</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5" id="reasons-party-grid">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Reasons Display Card -->
+      <div id="reasons-display-card" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-8">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: MATRIZ COMPARATIVA GLOBAL           -->
+    <!-- ========================================== -->
+    <div id="tab-matrix" class="hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-display font-bold text-slate-900">Matriz Cruzada de Posición Política</h2>
+            <p class="text-sm text-slate-600 mt-1">Comparativa directa de las 20 cuestiones evaluadas en el test frente a la posición oficial de cada uno de los 11 partidos.</p>
+          </div>
+          <div class="hidden sm:flex items-center space-x-3 text-xs text-slate-500">
+            <span class="inline-flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> <span>A favor</span></span>
+            <span class="inline-flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span> <span>En contra</span></span>
+            <span class="inline-flex items-center space-x-1"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> <span>Matizado / Neutro</span></span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto scrollbar-thin border border-slate-200 rounded-xl">
+          <table class="w-full text-xs text-left text-slate-700">
+            <thead class="text-[11px] uppercase bg-slate-100 text-slate-600 border-b border-slate-200 font-bold sticky top-0">
+              <tr>
+                <th scope="col" class="py-3 px-4 min-w-[280px]">Pregunta / Dilema Político</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-pp">PP</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-psoe">PSOE</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-vox">VOX</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-sumar">SUMAR</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-erc">ERC</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-junts">JUNTS</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-bildu">BILDU</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-pnv">PNV</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-bng">BNG</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-cc">CC</th>
+                <th scope="col" class="py-3 px-2 text-center min-w-[65px] text-upn">UPN</th>
+              </tr>
+            </thead>
+            <tbody id="matrix-table-body" class="divide-y divide-slate-100">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p><strong>VOTO-23J: Análisis y Brújula Parlamentaria</strong> | Elecciones Generales de España (23 de Julio de 2023) y XV Legislatura.</p>
+      <p class="text-slate-400">Datos obtenidos de los programas electorales oficiales, del Diario de Sesiones del Congreso de los Diputados y de la hemeroteca legislativa.</p>
+    </div>
+  </footer>
+
+  <!-- DATA & APP LOGIC SCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>

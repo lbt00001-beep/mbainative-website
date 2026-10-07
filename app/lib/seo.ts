@@ -16,6 +16,7 @@ export const pages: Record<string, [string, string]> = {
   '/aplicaciones/corrector-rae': ['Corrector ortotipográfico RAE', 'Herramienta de revisión ortotipográfica de documentos Word basada en normas del español.'],
   '/aplicaciones/futuros': ['Monitor de futuros', 'Explora futuros financieros, gráficos y escenarios de simulación con el monitor de MBAI Native.'],
   '/aplicaciones/buscador-segundamano': ['Buscador Wallapop, Milanuncios y Vinted', 'Buscador de segunda mano con coincidencia exacta sin aproximaciones, ordenación por precio, cercanía a Madrid y fecha.'],
+  '/aplicaciones/voto-23j': ['Voto 23J: Radiografía Electoral y Brújula Política', 'Auditoría de programas y promesas cumplidas e incumplidas del 23J, test de afinidad de 21 preguntas con nota de 0 a 10 y 10 razones para votar a cada partido.'],
   '/mejores-practicas': ['Aprender a gestionar una empresa con IA', 'Principios, guías, fuentes y aplicaciones de la inteligencia artificial a la organización empresarial.'],
   '/mejores-practicas/ia-en-la-practica': ['De usar IA a trabajar con agentes: guía práctica', 'Contexto, conocimiento documentado, evaluación y coste por resultado. Guía empresarial de MBAI a partir de la charla de Carlos Santana, DotCSV, en Holded.'],
   '/mejores-practicas/doctrinas': ['20 principios de la empresa nativa en IA', 'Explora los principios de MBAI para organizar tareas, configurar autonomía y supervisar equipos de agentes de inteligencia artificial.'],

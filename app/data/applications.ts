@@ -85,6 +85,13 @@ export const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Voto 23J — Radiografía Electoral y Brújula Parlamentaria",
+        descripcion: "Auditoría de programas, promesas cumplidas e incumplimientos de las elecciones de julio 2023. Test de afinidad de 21 preguntas con puntuación de 0 a 10 para los 11 partidos (incluyendo economía, modelo territorial, aborto y derechos), y 10 razones para votar a cada fuerza política.",
+        url: "/aplicaciones/voto-23j",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Estimador CIS",
         descripcion: "Monitor de cocina electoral del CIS. Compara Voto Directo, Estimación CIS y el modelo Aldabón-Gemini 3.0 para elecciones generales y autonómicas.",
         url: "https://cis-estimador-mbai.web.app",

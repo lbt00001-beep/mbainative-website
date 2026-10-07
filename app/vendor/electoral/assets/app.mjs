@@ -2,7 +2,9 @@ import {estimate,estimateEvolution,projectEstimate,validateCatalog,evaluateHisto
 import {estimateForDate,madridDate} from './freshness.mjs';
 import {methodologyLabels} from './methodology.mjs';
 import {cisDiagnostics} from './cis.mjs';
-import {allocate,validateOfficial,MAIN_IDS,NAMES,COLORS,GROUPS,MAJORITY,nationalAllocation,nationalVotes,project,transfer,votesToGain,groupSeats,validatePolls,aggregatePolls} from './electoral.mjs';
+import {consultAI} from './ai-client.mjs';
+import {helpButton,parameterHelp,enhanceParameterHelp,installTooltips} from './tooltips.mjs';
+import {allocate,validateOfficial,MAIN_IDS,NAMES,COLORS,GROUPS,MAJORITY,INVESTITURE_IDS,INVESTITURE_SOURCE,nationalAllocation,nationalVotes,project,transfer,votesToGain,groupSeats,validatePolls,aggregatePolls} from './electoral.mjs';
 
 const $=id=>document.getElementById(id), fmt=(n,d=0)=>Number(n).toLocaleString('es-ES',{maximumFractionDigits:d,minimumFractionDigits:d});
 const state={official:null,references:null,targets:null,provinces:null,central:null,local:null,localResult:null,simulation:null,worker:null,valid:false};
@@ -13,7 +15,7 @@ const color=id=>COLORS[id]||'#8b97ac';
 function node(tag,attrs={},...children){const el=document.createElement(tag);for(const [k,v]of Object.entries(attrs)){if(k==='class')el.className=v;else if(k==='text')el.textContent=v;else if(k==='style')Object.assign(el.style,v);else if(k.startsWith('on'))el.addEventListener(k.slice(2),v);else el.setAttribute(k,String(v));}for(const c of children.flat())if(c!=null)el.append(c instanceof Node?c:document.createTextNode(String(c)));return el;}
 function put(id,...children){$(id).replaceChildren(...children.flat());}
 function partyLabel(id){return node('span',{class:'party-label'},node('span',{class:'dot',style:{background:color(id)},'aria-hidden':'true'}),name(id));}
-function table(headers,rows,caption){const t=node('table',{},caption?node('caption',{},caption):null,node('thead',{},node('tr',{},headers.map((h,i)=>node('th',{scope:'col',class:i?'number':''},h)))),node('tbody',{},rows.map(row=>node('tr',{},row.map((c,i)=>node('td',{class:i?'number':''},c))))));return node('div',{class:'table-scroll',tabindex:0,'aria-label':caption||'Tabla de resultados desplazable'},t);}
+function table(headers,rows,caption){const t=node('table',{},caption?node('caption',{},caption):null,node('thead',{},node('tr',{},headers.map((h,i)=>node('th',{scope:'col',class:i?'number':''},h,parameterHelp(h)?helpButton(parameterHelp(h),h):null)))),node('tbody',{},rows.map(row=>node('tr',{},row.map((c,i)=>node('td',{class:i?'number':''},c))))));return node('div',{class:'table-scroll',tabindex:0,'aria-label':caption||'Tabla de resultados desplazable'},t);}
 function bar(label,value,max,display,barColor){return node('div',{class:'vote-row'},node('span',{class:'bar-label'},label),node('div',{class:'bar-track'},node('div',{class:'bar-fill',style:{width:`${Math.max(0,Math.min(100,value/max*100))}%`,background:barColor}})),node('strong',{},display));}
 function download(filename,data,type='application/json'){const blob=new Blob([type==='application/json'?JSON.stringify(data,null,2):data],{type});const u=URL.createObjectURL(blob),a=node('a',{href:u,download:filename});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000);}
 function switchTab(id){document.querySelectorAll('.tab-panel').forEach(el=>el.hidden=el.id!==id);document.querySelectorAll('[data-tab]').forEach(el=>el.dataset.tab===id?el.setAttribute('aria-current','page'):el.removeAttribute('aria-current'));if(id==='help'){$('help-title').focus({preventScroll:true});$('help').scrollIntoView({block:'start'});}}
@@ -25,7 +27,7 @@ function renderEstimateTrend(){
   if(!points.length){put('estimate-trend',node('p',{},'No hay sondeos disponibles para reconstruir la evolución.'));return;}
   const ids=[...new Set(points.flatMap(p=>Object.keys(p.coverage).filter(id=>p.coverage[id]>0)))];
   const ns='http://www.w3.org/2000/svg',svg=(tag,attrs={},text)=>{const el=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))el.setAttribute(k,String(v));if(text!==undefined)el.textContent=text;return el;};
-  const chart=svg('svg',{viewBox:'0 0 1000 650',class:'trend-svg',role:'img','aria-labelledby':'trend-title trend-desc'});
+  const chart=svg('svg',{viewBox:'0 0 1100 650',class:'trend-svg',role:'img','aria-labelledby':'trend-title trend-desc'});
   chart.append(svg('title',{id:'trend-title'},'Evolución de la estimación ponderada por partido'),svg('desc',{id:'trend-desc'},'Eje horizontal: fecha de publicación. Eje vertical: porcentaje de voto válido. Las cifras y cobertura están disponibles en la tabla inferior.'));
   const start=Date.parse(points[0].date),end=Date.parse(points.at(-1).date),top=Math.max(10,Math.ceil(Math.max(...points.flatMap(p=>ids.map(id=>p.coverage[id]?p.values[id]:0)))/5)*5);
   const ranges={all:[0,top],upper:[25,Math.max(40,top)],middle:[10,25],lower:[0,10]},[low,high]=ranges[state.trendRange||'all'];
@@ -36,14 +38,19 @@ function renderEstimateTrend(){
   const ticks=[...new Set([0,Math.floor((points.length-1)/2),points.length-1])];
   for(const i of ticks)chart.append(svg('text',{x:x(points[i].date),y:607,fill:'#a4b1c7','font-size':14,'text-anchor':i===0?'start':i===points.length-1?'end':'middle'},dateLabel(points[i].date)));
   const legend=node('div',{class:'trend-legend','aria-label':'Partidos visibles en la gráfica'});
+  const latest=points.at(-1),topFive=ids.filter(id=>latest.coverage[id]).sort((a,b)=>latest.values[b]-latest.values[a]).slice(0,5);
+  const labels={pp:'PP',psoe:'PSOE',vox:'VOX',sumar:'SUMAR',podemos:'PODEMOS'};
   for(const id of ids){
     const group=svg('g',{'clip-path':'url(#trend-clip)'});let path='',previous=false;
     for(const p of points){if(!p.coverage[id]){previous=false;continue;}path+=`${previous?'L':'M'}${x(p.date)},${y(p.values[id])} `;previous=true;const dot=svg('circle',{cx:x(p.date),cy:y(p.values[id]),r:3,fill:color(id)});dot.append(svg('title',{},`${name(id)} · ${dateLabel(p.date)}: ${fmt(p.values[id],2)} % · ${p.coverage[id]} sondeos`));group.append(dot);}
     group.prepend(svg('path',{d:path,fill:'none',stroke:color(id),'stroke-width':2.5}));chart.append(group);
-    const input=node('input',{type:'checkbox',checked:'checked',onchange:()=>{group.style.display=input.checked?'':'none';}});legend.append(node('label',{},input,partyLabel(id)));
+    let endLabel;
+    if(topFive.includes(id)&&latest.values[id]>=low&&latest.values[id]<=high){endLabel=svg('text',{x:x(latest.date)+12,y:y(latest.values[id])+5,fill:color(id),'font-size':14,'font-weight':700},labels[id]||name(id));chart.append(endLabel);}
+    const input=node('input',{type:'checkbox',checked:'checked',onchange:()=>{group.style.display=input.checked?'':'none';if(endLabel)endLabel.style.display=input.checked?'':'none';}});legend.append(node('label',{},input,partyLabel(id)));
   }
   const scale=node('select',{'aria-label':'Escala vertical de la evolución',onchange:event=>{state.trendRange=event.target.value;renderEstimateTrend();}},[['all','Todos los porcentajes'],['upper','Ampliar: 25 % o más'],['middle','Ampliar: 10–25 %'],['lower','Ampliar: 0–10 %']].map(([value,label])=>node('option',{value},label)));scale.value=state.trendRange||'all';
   put('estimate-trend',node('label',{class:'trend-scale'},'Escala vertical ',scale),node('p',{class:'small muted'},state.trendRange&&state.trendRange!=='all'?`Vista ampliada: ${low}–${high} %. Las series fuera de este intervalo quedan fuera de la gráfica; sus cifras siguen disponibles en la tabla.`:'Escala completa. Puedes ampliar un intervalo para apreciar variaciones pequeñas.'),chart,legend,node('details',{},node('summary',{},'Ver cifras y cobertura por fecha'),node('p',{class:'small muted'},'Cada celda indica porcentaje y número de sondeos con cifra para ese partido. — significa sin cobertura.'),table(['Fecha','Institutos',...ids.map(name)],points.map(p=>[dateLabel(p.date),p.count,...ids.map(id=>p.coverage[id]?`${fmt(p.values[id],2)} % (${p.coverage[id]})`:'—')]),'Evolución reconstruida con el catálogo disponible')));
+  enhanceParameterHelp($('estimate-trend'));
 }
 
 function renderObservatory(){
@@ -88,6 +95,7 @@ function createNationalControls(){
     number.addEventListener('input',()=>update(number,range));range.addEventListener('input',()=>update(range,number));
     return node('div',{class:'range-row'},node('div',{class:'range-heading'},partyLabel(id),number),range);
   }));
+  enhanceParameterHelp($('national-controls'));
 }
 let centralTimer;
 function scheduleCentral(){clearTimeout(centralTimer);state.valid=false;$('run-simulation').disabled=true;$('export-scenario').disabled=true;$('central-total').textContent='Recalculando…';centralTimer=setTimeout(updateCentral,120);}
@@ -100,6 +108,8 @@ function updateCentral(){
     put('central-coalitions',[
       ['PP + Vox',state.central.groups.right],['PSOE + Sumar + Podemos',state.central.groups.left],['Resto de candidaturas',350-state.central.groups.right-state.central.groups.left]
     ].map(([label,v],i)=>node('div',{class:'metric'},node('small',{},label),node('strong',{},v),node('span',{},i===2?'Fuera de las dos sumas':v>=176?'Alcanza 176':`${176-v} hasta 176`))));
+    const supportingSeats=INVESTITURE_IDS.reduce((sum,id)=>sum+(state.central.counts[id]||0),0);
+    put('investiture-total',node('div',{class:'metric investiture-metric'},node('small',{},'PSOE y apoyos de la investidura de 2023'),node('strong',{},supportingSeats+' escaños'),node('span',{},supportingSeats>=176?'Alcanza 176':`${176-supportingSeats} hasta 176`)),node('p',{class:'small muted'},'Suma en este escenario: '+INVESTITURE_IDS.map(id=>`${name(id)} (${state.central.counts[id]||0})`).join(' + ')+'. Podemos se cuenta por separado porque concurre como candidatura distinta en el escenario, aunque sus diputados formaban parte de Sumar en la investidura.'),node('p',{class:'small muted'},'Es una comparación aritmética con quienes apoyaron el inicio de la legislatura, no una previsión de acuerdos futuros ni de apoyo a todas las leyes. '),node('a',{href:INVESTITURE_SOURCE,target:'_blank',rel:'noopener noreferrer'},'Consultar la votación del Congreso del 16/11/2023 ↗'));
     const counts=state.central.counts,others=Object.entries(counts).filter(([id])=>!MAIN_IDS.includes(id)).reduce((s,[,v])=>s+v,0);
     const rows=MAIN_IDS.filter(id=>(counts[id]||0)>0||(state.central.shares[id]||0)>0.01).map(id=>[partyLabel(id),`${fmt((state.central.shares[id]||0)*(100-state.estimate.blank)/100,1)} %`,fmt(counts[id]||0)]);
     rows.push(['Otras candidaturas (separadas en el cálculo)',`${fmt(Object.entries(state.central.shares).filter(([id])=>!MAIN_IDS.includes(id)).reduce((s,[,v])=>s+v,0)*(100-state.estimate.blank)/100,1)} %`,fmt(others)]);
@@ -110,7 +120,8 @@ function updateCentral(){
     if(state.lastTargets!==fingerprint&&$('province-basis').value==='scenario'&&state.local)resetProvince();
     state.lastTargets=fingerprint;
     $('run-simulation').disabled=false;$('export-scenario').disabled=false;
-  }catch(error){state.valid=false;status('remaining',error.message,true);$('central-total').textContent='Escenario inválido';put('central-coalitions');put('seat-strip');put('central-table',node('p',{class:'notice error'},'Corrige los porcentajes nacionales para obtener un reparto.'));$('fit-status').textContent='';$('run-simulation').disabled=true;$('export-scenario').disabled=true;}
+    enhanceParameterHelp(document);
+  }catch(error){state.valid=false;status('remaining',error.message,true);$('central-total').textContent='Escenario inválido';put('central-coalitions');put('investiture-total');put('seat-strip');put('central-table',node('p',{class:'notice error'},'Corrige los porcentajes nacionales para obtener un reparto.'));$('fit-status').textContent='';$('run-simulation').disabled=true;$('export-scenario').disabled=true;}
 }
 function applyPreset(){
   const ref=state.references.references[0].values;
@@ -138,7 +149,7 @@ function renderSimulation(){
   $('simulation-caption').textContent=`${fmt(r.runs)} simulaciones · σ nacional ${fmt(r.nationalSigma,1)} · σ local ${fmt(r.localSigma,1)} · semilla ${r.seed}`;
   put('frequency-bars',bar('PP en solitario',r.ppAlone,1,`${fmt(r.ppAlone*100,1)} %`,color('pp')),Object.entries(GROUPS).map(([id,g])=>bar(g.name,r.groups[id].frequency,1,`${fmt(r.groups[id].frequency*100,1)} %`,id==='right'?color('pp'):id==='ppPartners'?color('pnv'):color('psoe'))));
   put('interval-table',table(['Candidatura','Mediana','P10','P90'],MAIN_IDS.filter(id=>r.parties[id]).map(id=>[partyLabel(id),fmt(r.parties[id].median,1),fmt(r.parties[id].low,1),fmt(r.parties[id].high,1)]),'Intervalos bajo los parámetros elegidos.'));
-  renderScatter(r.points);
+  renderScatter(r.points);enhanceParameterHelp(document);
 }
 function renderScatter(points){
   const ns='http://www.w3.org/2000/svg',svg=(tag,a={},text)=>{const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(a))n.setAttribute(k,String(v));if(text)n.textContent=text;return n;};
@@ -162,6 +173,7 @@ function renderProvinceInputs(){
   $('province-blank').value=state.local.blankVotes;$('province-seats').value=state.local.seats;
   for(const select of ['transfer-from','transfer-to'])put(select,ids.map(id=>node('option',{value:id},name(id))));
   $('transfer-from').value=ids.includes('vox')?'vox':ids[0];$('transfer-to').value=ids.includes('pp')?'pp':ids[1];
+  enhanceParameterHelp($('province-form'));
 }
 function readLocalInputs(){
   const votes={...state.local.votes};document.querySelectorAll('[data-party]').forEach(input=>{if(input.value==='')throw new Error('Completa todos los votos con un número, también si es cero.');votes[input.dataset.party]=Number(input.value);});
@@ -182,14 +194,18 @@ function renderProvince(){
   put('quotient-table',table(['Escaño','Candidatura','Divisor','Cociente'],r.winners.map((q,i)=>[i+1,partyLabel(q.id),q.divisor,fmt(q.value,2)])));
   status('province-status',`${fmt(r.candidateVotes)} votos a candidaturas + ${fmt(p.blankVotes)} blancos = ${fmt(r.validVotes)} válidos. ${p.seats} escaños asignados.`);
   $('export-province').disabled=false;
+  const nationalPP=state.targets.pp*(100-state.estimate.blank)/100,localPP=100*(p.votes.pp||0)/r.validVotes;
+  put('province-explanation',node('strong',{},'¿Por qué el porcentaje provincial difiere del nacional?'),node('p',{},$('province-basis').value==='official'?`Esta pantalla usa resultados oficiales de 2023: no son la estimación actual. El porcentaje del PP en ${p.name} es ${fmt(localPP,2)} % del voto válido de esa circunscripción.`:`El PP tiene ${fmt(nationalPP,2)} % en el escenario nacional elegido y ${fmt(localPP,2)} % en este escenario de ${p.name}. El primero corresponde a toda España; el segundo se calcula con los votos y blancos de esta provincia. No se exige que todas las provincias tengan el mismo porcentaje.`),node('p',{},'El modelo parte de la distribución provincial de las elecciones de 2023, incorpora las huellas de las nuevas candidaturas y ajusta los votos hasta alcanzar los objetivos nacionales. Si el PP tenía más apoyo relativo en Madrid que en el conjunto de España, ese patrón orienta la proyección madrileña. La media nacional se reconstruye ponderando cada provincia por su volumen de votos, no haciendo una media simple de 52 porcentajes.'),node('p',{},'El porcentaje provincial es una hipótesis del modelo, no una encuesta actual de esa provincia. Los totales y blancos históricos se mantienen como supuesto. Si editas los votos o aplicas una transferencia, cambiarás este escenario local y su porcentaje, sin modificar la estimación nacional.'));
 }
 const fmtOrDash=n=>n===null?'—':fmt(n);
 function compareTransfer(event){event.preventDefault();try{
   readLocalInputs();renderProvince();const p=state.local,amount=Number($('transfer-amount').value);if(!$('transfer-amount').value)throw new Error('Introduce el número de votos.');
   const changed=transfer(p.votes,$('transfer-from').value,$('transfer-to').value,amount),after=allocate(changed,p.seats,{blank:p.blankVotes,singleMember:['51','52'].includes(p.id)&&p.seats===1}),before=state.localResult;
-  const rows=localIds().filter(id=>before.counts[id]||after.counts[id]).map(id=>[partyLabel(id),before.counts[id]||0,after.counts[id]||0,(after.counts[id]||0)-(before.counts[id]||0)]);
+  const rows=localIds().filter(id=>before.counts[id]||after.counts[id]||id===$('transfer-from').value||id===$('transfer-to').value).map(id=>[partyLabel(id),fmt(p.votes[id]||0),fmt(changed[id]||0),fmt(100*(p.votes[id]||0)/before.validVotes,2)+' %',fmt(100*(changed[id]||0)/after.validVotes,2)+' %',before.counts[id]||0,after.counts[id]||0,(after.counts[id]||0)-(before.counts[id]||0)]);
   const oldGroups=groupSeats(before.counts),newGroups=groupSeats(after.counts);
-  put('transfer-result',table(['Candidatura','Antes','Después','Cambio'],rows),node('p',{class:'small muted space-top'},`Cambio en PP + Vox: ${newGroups.right-oldGroups.right}. Cambio en PSOE + Sumar + Podemos: ${newGroups.left-oldGroups.left}. Se conservan ${fmt(before.candidateVotes)} votos a candidaturas.`),node('p',{class:'small'},'El resultado compara esta transferencia concreta. No es una recomendación automática de voto.'));
+  const noSeatChange=Object.keys(after.counts).every(id=>after.counts[id]===before.counts[id]);
+  const from=$('transfer-from').value,to=$('transfer-to').value;
+  put('transfer-result',node('p',{class:'notice'},`${fmt(amount)} votos pasan de ${name(from)} a ${name(to)}. ${noSeatChange?'Los votos y porcentajes cambian, pero esta cantidad todavía no cambia ningún escaño.':'Esta transferencia cambia el reparto de escaños.'} La comparación aún no se ha aplicado al laboratorio.`),table(['Candidatura','Votos antes','Votos después','% antes','% después','Escaños antes','Escaños después','Cambio'],rows),node('p',{class:'small muted space-top'},`Cambio en PP + Vox: ${newGroups.right-oldGroups.right}. Cambio en PSOE + Sumar + Podemos: ${newGroups.left-oldGroups.left}. Se conservan ${fmt(before.candidateVotes)} votos a candidaturas.`),node('button',{type:'button',class:'secondary',id:'apply-transfer',onclick:()=>{state.local={...state.local,votes:changed};renderProvinceInputs();$('transfer-from').value=from;$('transfer-to').value=to;renderProvince();put('transfer-result',node('p',{class:'notice success'},`Transferencia aplicada: ${fmt(amount)} votos de ${name(from)} a ${name(to)}. Se han actualizado los campos, porcentajes y cocientes del laboratorio. Restaurar base recupera los datos iniciales.`));}},'Aplicar esta transferencia al laboratorio'),node('p',{class:'small space-top'},'El resultado compara esta transferencia concreta. No es una recomendación automática de voto.'));
 }catch(error){put('transfer-result',node('p',{class:'notice error'},error.message));}}
 function csvProvince(){const p=state.local;const q=v=>`"${String(v).replaceAll('"','""')}"`;const rows=[['Circunscripción','Base','Candidatura','Votos','Escaños','Blancos','Escaños provinciales'],...localIds().map(id=>[p.name,$('province-basis').value,name(id),p.votes[id],state.localResult.counts[id]||0,p.blankVotes,p.seats])];download(`escenario-${p.id}.csv`,'\uFEFF'+rows.map(r=>r.map(q).join(';')).join('\r\n'),'text/csv;charset=utf-8');}
 function scenarioExport(){return {schemaVersion:1,modelVersion:'3.2.0',type:'sensitivity-not-calibrated',source:state.official.source,pollEstimate:state.estimate,catalog:state.catalog,territory:state.territory,officialBase:state.official,provincialProjection:state.provinces,seatBasis:{year:2026,url:state.territory.seatSource},evaluation:state.evaluation,territorialDiagnostics:state.diagnostics,scenarioMode:JSON.stringify(state.targets)===JSON.stringify(state.estimate.targets)?'poll-estimate':'manual',targets:state.targets,targetDenominator:'candidateVotes',assumptions:{podemosFootprint:'Resultado europeo 2024 por provincia',salfFootprint:'Resultado europeo 2024 por provincia',otherParties:'Territoriales estimados con sondeos; residuo entre listas históricas separadas',turnout:'Total de votos a candidaturas de 2023 fijo por provincia'},central:state.central,simulation:state.simulation};}
@@ -243,17 +259,22 @@ function renderPolls(polls){
 async function loadModels(){
   $('load-models').disabled=true;status('ai-status','Consultando el catálogo de OpenRouter…');
   try{const r=await fetch('https://openrouter.ai/api/v1/models',{signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error(`Catálogo no disponible (${r.status}).`);const data=await r.json();const models=data.data.filter(m=>m.architecture?.output_modalities?.includes('text')||m.architecture?.modality?.endsWith('text')).sort((a,b)=>a.id.localeCompare(b.id));
+    state.aiModels=new Map(models.map(m=>[m.id,m]));
     put('ai-model',node('option',{value:''},'Selecciona un modelo'),models.map(m=>node('option',{value:m.id},`${m.name} · ${m.id}`)));status('ai-status',`${models.length} modelos del catálogo. Consultar puede consumir saldo según el modelo.`);
   }catch(error){status('ai-status',error.message,true);}finally{$('load-models').disabled=false;}
 }
+let aiController;
 async function askAI(){
-  const key=$('api-key').value.trim(),model=$('ai-model').value,question=$('ai-question').value.trim();
-  if(!key||!model||!question){status('ai-status','Introduce la clave, selecciona un modelo y escribe una pregunta.',true);return;}
-  if(!state.valid){status('ai-status','Corrige primero el escenario nacional.',true);return;}
-  $('ask-ai').disabled=true;$('ai-answer').textContent='';status('ai-status','Enviando la consulta y el escenario seleccionado…');
-  const context={targets:state.targets,targetDenominator:'candidateVotes',seats:state.central.counts,groups:state.central.groups,seatBasis:'2026',assumptions:scenarioExport().assumptions};
-  try{const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${key}`},body:JSON.stringify({model,messages:[{role:'system',content:'Explica en español el escenario electoral adjunto. Usa solo los datos del contexto. Distingue datos oficiales, supuestos y resultados. No inventes encuestas, enlaces ni probabilidades, no afirmes acuerdos de investidura y no recomiendes un voto personalizado. Las simulaciones son sensibilidad no calibrada. Responde en dos párrafos.'},{role:'user',content:JSON.stringify(context)+'\nPregunta: '+question}],max_tokens:600}),signal:AbortSignal.timeout(45000)});const data=await r.json();if(!r.ok)throw new Error(data.error?.message||`OpenRouter respondió ${r.status}.`);const content=data.choices?.[0]?.message?.content;if(typeof content!=='string')throw new Error('La respuesta no contiene texto.');$('ai-answer').textContent=content;status('ai-status',`Respuesta de ${model}. Contrástala con los cálculos de la app.`);
-  }catch(error){status('ai-status',error.message,true);}finally{$('ask-ai').disabled=false;}
+ const key=$('api-key').value.trim(),model=$('ai-model').value,question=$('ai-question').value.trim();
+ if(!key||!model||!question){status('ai-status','Introduce la clave, selecciona un modelo y escribe una pregunta.',true);return;}
+ if(!state.valid){status('ai-status','Corrige primero el escenario nacional.',true);return;}
+ const maxTokens=Number($('ai-max-tokens').value);
+ aiController=new AbortController();$('ask-ai').disabled=true;$('cancel-ai').hidden=false;$('ai-answer').textContent='';
+ const started=Date.now(),timer=setInterval(()=>status('ai-status','El proveedor sigue procesando la consulta · '+Math.floor((Date.now()-started)/1000)+' segundos. Puedes cancelarla.'),1000);
+ status('ai-status','Enviando la consulta y el escenario seleccionado…');
+ const context={targets:state.targets,targetDenominator:'candidateVotes',seats:state.central.counts,groups:state.central.groups,seatBasis:'2026',assumptions:scenarioExport().assumptions,province:state.local?{name:state.local.name,votes:state.local.votes,blankVotes:state.local.blankVotes,basis:$('province-basis').value,denominator:'provincial valid votes',note:'Proyección territorial histórica ajustada; no encuesta provincial actual.'}:null};
+ try{const result=await consultAI({key,model,question,context,maxTokens,metadata:state.aiModels?.get(model)||{},signal:AbortSignal.any([aiController.signal,AbortSignal.timeout(120000)])});$('ai-answer').textContent=result.text;status('ai-status',result.truncated?'Respuesta incompleta: el modelo alcanzó el límite de tokens. Puedes ampliar el límite para otra consulta.':'Respuesta de '+model+'. Contrástala con los cálculos de la app.');
+ }catch(error){status('ai-status',error.message,true);}finally{clearInterval(timer);$('ask-ai').disabled=false;$('cancel-ai').hidden=true;aiController=null;}
 }
 async function initialize(){try{
   // Remove keys saved by the previous version when opening the same local origin.
@@ -268,11 +289,11 @@ async function initialize(){try{
   for(const id of ['national-sigma','local-sigma','runs','seed'])$(id).addEventListener('input',invalidateSimulation);
   for(const id of ['province-select','province-basis'])$(id).addEventListener('change',resetProvince);
   $('reset-province').addEventListener('click',resetProvince);$('province-form').addEventListener('submit',e=>{e.preventDefault();try{readLocalInputs();renderProvince();put('transfer-result');}catch(error){status('province-status',error.message,true);}});
-  $('transfer-form').addEventListener('submit',compareTransfer);$('export-province').addEventListener('click',csvProvince);
+  $('transfer-form').addEventListener('submit',compareTransfer);$('transfer-form').addEventListener('input',()=>put('transfer-result'));$('export-province').addEventListener('click',csvProvince);
   $('province-form').addEventListener('input',()=>{$('export-province').disabled=true;status('province-status','Hay cambios pendientes. Recalcula el reparto antes de exportar.');put('transfer-result');});
   $('export-scenario').addEventListener('click',()=>{clearTimeout(centralTimer);updateCentral();if(state.valid)download('escenario-electoral.json',scenarioExport());});$('export-simulation').addEventListener('click',()=>download('simulaciones-electorales.json',scenarioExport()));
   document.addEventListener('visibilitychange',()=>{if(!document.hidden&&state.estimate.calculatedAt!==madridDate()){refreshEstimate();renderObservatory();renderPolls(state.catalog.polls);}});$('update-polls').addEventListener('click',updatePublishedCatalog);$('poll-import').addEventListener('change',importPolls);renderPolls(state.catalog.polls);getJSON('./data/update-status.json').then(renderSearchReport).catch(()=>{});
-  $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);
+  $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);$('cancel-ai').addEventListener('click',()=>aiController?.abort());installTooltips();enhanceParameterHelp(document);
   $('loading').hidden=true;$('application').hidden=false;
 }catch(error){$('loading').hidden=true;$('app-error').hidden=false;$('app-error').textContent=`No se puede iniciar el observatorio: ${error.message}. Comprueba la conexión y vuelve a cargar. Si lo usas en local, arranca con EJECUTAR.bat o npm start.`;}}
 initialize();

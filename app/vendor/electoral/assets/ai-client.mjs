@@ -5,7 +5,7 @@ export function completionBody({model,question,context,maxTokens=4096,metadata={
  const body={model,max_tokens:Number.isInteger(providerMax)&&providerMax>0?Math.min(maxTokens,providerMax):maxTokens,messages:[{role:'system',content:'Explica en español, nivel bachillerato, el escenario electoral adjunto. Usa solo los datos del contexto. Distingue datos oficiales, supuestos y resultados. No inventes encuestas, enlaces ni probabilidades, no afirmes acuerdos de investidura y no recomiendes un voto personalizado. Las simulaciones son sensibilidad no calibrada. Responde con claridad en dos o tres párrafos.'},{role:'user',content:JSON.stringify(context)+'\nPregunta: '+question}]};
  const efforts=metadata.reasoning?.supported_efforts;
  if(metadata.reasoning||metadata.supported_parameters?.includes('reasoning')){
-  const effort=['minimal','low','medium','high'].find(value=>!Array.isArray(efforts)||efforts.includes(value));
+  const effort=Array.isArray(efforts)?['minimal','low','medium','high'].find(value=>efforts.includes(value)):'low';
   body.reasoning={exclude:true,...(effort?{effort}:{})};
  }
  return body;
@@ -21,8 +21,9 @@ export function completionText(data){
  return {text:text.trim(),truncated:choice.finish_reason==='length'};
 }
 export async function consultAI({key,signal,fetchImpl=fetch,...options}){
+ const body=JSON.stringify(completionBody(options));
  let response;
- try{response=await fetchImpl(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key},body:JSON.stringify(completionBody(options)),signal});}catch(error){
+ try{response=await fetchImpl(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key},body,signal});}catch(error){
   if(signal?.aborted)throw Error(signal.reason?.name==='TimeoutError'?'La consulta superó dos minutos. El proveedor puede haber consumido saldo aunque no se recibiera la respuesta.':'Consulta cancelada. El proveedor puede haber consumido saldo.');
   throw Error('No se pudo conectar con OpenRouter. Comprueba la conexión y vuelve a consultar.');
  }

@@ -10,7 +10,7 @@ const BUNDLED_DATA=['microdata-3577.json','microdata-validation.json'];
 export function createNextHandler({packageRoot,storageRoot,origin,searchOverride,updateTtl=120000}){
  const publicUrl=new URL(origin);
  if(publicUrl.origin!==origin||!(publicUrl.protocol==='https:'||(publicUrl.protocol==='http:'&&['localhost','127.0.0.1'].includes(publicUrl.hostname))))throw Error('Origen HTTPS obligatorio, salvo pruebas locales.');
- let initialized,service;
+ let initialized,service,microService;
  const headers={'Cache-Control':'no-store','Content-Security-Policy':CSP,'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'};
  const json=(body,status=200,extra={})=>Response.json(body,{status,headers:{...headers,...extra}});
  async function initialize(){
@@ -25,6 +25,14 @@ export function createNextHandler({packageRoot,storageRoot,origin,searchOverride
    const url=new URL(request.url);if((request.headers.get('host')||url.host).toLowerCase()!==publicUrl.host.toLowerCase())return json({error:'Host del sitio no permitido.'},403);
    let route;try{route=decodeURIComponent(url.pathname.slice(BASE.length))||'/';}catch{return json({error:'URL inválida.'},400);}
    if(!url.pathname.startsWith(BASE+'/')&&url.pathname!==BASE)return json({error:'Ruta no disponible.'},404);
+   if(route==='/api/microdata'){
+    if(!['GET','POST'].includes(request.method))return json({error:'Usa GET o POST.'},405);
+    if(request.method==='POST'&&request.headers.get('origin')!==origin)return json({error:'Origen no permitido.'},403);
+    let text='',bytes=0;const reader=request.body?.getReader();if(reader)while(true){const item=await reader.read();if(item.done)break;bytes+=item.value.length;if(bytes>1024){await reader.cancel();return json({error:'Solicitud demasiado grande.'},413);}text+=new TextDecoder().decode(item.value);}
+    let payload;try{payload=text?JSON.parse(text):{};}catch{return json({error:'JSON inválido.'},400);}
+    if(!microService){const {createMicrodataService}=await import(/* webpackIgnore: true */ pathToFileURL(path.join(packageRoot,'scripts/microdata-service.mjs')).href);microService=createMicrodataService({root:storageRoot,origin});}
+    const result=await microService({method:request.method,origin:request.headers.get('origin'),bytes,payload});return json(result.body,result.status);
+   }
    if(route==='/api/update'){
     if(request.method!=='POST')return json({error:'Usa POST.'},405,{Allow:'POST'});
     if(request.headers.get('origin')!==origin)return json({error:'Origen no permitido.'},403);
@@ -34,7 +42,7 @@ export function createNextHandler({packageRoot,storageRoot,origin,searchOverride
     const result=await service({method:'POST',origin:request.headers.get('origin'),bytes});return json(result.body,result.status,result.headers);
    }
    if(!['GET','HEAD'].includes(request.method))return json({error:'Método no permitido.'},405,{Allow:'GET, HEAD'});
-   if(route==='/health')return json({app:'observatorio-electoral',version:'3.3.0',sourceSearch:true});
+   if(route==='/health')return json({app:'observatorio-electoral',version:'3.4.0',sourceSearch:true});
    if(route==='/')route='/index.html';
    if(!/^\/(index\.html|assets\/[a-zA-Z0-9_-]+\.(mjs|css|svg)|data\/[a-zA-Z0-9_-]+\.json)$/.test(route))return json({error:'Archivo no disponible.'},404);
    let root=packageRoot;if(route.startsWith('/data/')&&!BUNDLED_DATA.includes(path.basename(route))){initialized??=initialize();await initialized;root=storageRoot;if(!DATA.includes(path.basename(route)))return json({error:'Datos no disponibles.'},404);}

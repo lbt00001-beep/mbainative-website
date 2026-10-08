@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-08T11:50:39.206Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-08T17:40:14.908Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Yoshua Bengio\n\n\"AI is moving fast | Yoshua Bengio, Vukosi Marivate, Joëlle Barral &amp; Yutaka Matsuo\"\n\n▶️ youtube.com/watch?v=O7_OaijiZeE",
+    "type": "recent_video",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "yoshuabengio"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=O7_OaijiZeE",
-    "imageUrl": "https://i.ytimg.com/vi/O7_OaijiZeE/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

@@ -78,3 +78,6 @@ Reproducción: descarga MD3577.zip desde la fuente indicada en data/microdata-35
 
 ## Microdatos a petición (v3.4)
 Buscar nuevos microdatos CIS descubre hasta ocho páginas de barómetros desde la portada oficial. Incorporar descarga el ZIP y la ficha, contrasta variables nacionales y recuerdo 2023, muestra y fechas, y guarda solo agregados en data/microdata-library.json. La biblioteca conserva hasta doce estudios en ELECTORAL_DATA_DIR y sobrevive a despliegues. No importa modelos electorales del CIS ni modifica el promedio. Cambios de etiquetas o formatos se rechazan para revisión; no se promete cobertura exhaustiva ni predicción de abstención. El endpoint GET/POST api/microdata comparte el bloqueo del catálogo, limita peticiones y documentos, y acepta solo destinos www.cis.es descubiertos en el servidor.
+
+## Actualizar 3.4.1
+Se añade Cadena SER, reconocimiento de PDF flash y dos saltos limitados para alcanzar originales. scripts/original-reports.mjs conserva enlaces y fechas comprobadas, sin porcentajes: se descargan y validan en cada consulta incluso con catálogo persistente. El flash del 9 de octubre usa el escenario separado, 800 entrevistas y campo 7–8 de octubre. Las noticias sin ficha/vector legibles siguen pendientes. Los originales no accesibles por navegación requieren revisar y ampliar el registro.

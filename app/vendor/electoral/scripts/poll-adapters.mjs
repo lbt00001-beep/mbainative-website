@@ -1,8 +1,10 @@
 import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 
-export const ADAPTER_VERSION='1.0';
+export const ADAPTER_VERSION='1.1';
 export const houses={
+ 'elpais.com':{institute:'40dB',identity:/40dB/i},
+ 'cadenaser.com':{institute:'40dB',identity:/40dB/i},
  'www.gad3.com':{institute:'GAD3',owned:true,identity:/GAD3/i},
  'www.sigmados.com':{institute:'Sigma Dos',owned:true,identity:/Sigma\s*Dos/i},
  'electomania.es':{institute:'ElectoPanel',owned:true,identity:/ElectoPanel/i},

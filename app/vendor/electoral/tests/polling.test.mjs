@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {estimate,estimateEvolution,validateCatalog,historicalScores,evaluateHistory,projectEstimate} from '../assets/polling.mjs';
 import {nationalVotes,nationalAllocation,simulationGenerator} from '../assets/electoral.mjs';
 const load=n=>JSON.parse(readFileSync(new URL(`../data/${n}.json`,import.meta.url),'utf8'));
-const catalog=load('polls'),official=load('official-2023'),territory=load('territory');
+const catalog=JSON.parse(readFileSync(new URL('fixtures/polls-baseline.json',import.meta.url),'utf8')),official=load('official-2023'),territory=load('territory');
 test('Catálogo real, fecha de corte y pesos reconstruibles',()=>{
   assert.ok(validateCatalog(catalog));const e=estimate(catalog,official);
   assert.equal(e.selected.length,15);assert.ok(Math.abs(e.selected.reduce((s,p)=>s+p.weightPercent,0)-100)<1e-9);

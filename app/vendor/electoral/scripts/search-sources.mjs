@@ -8,12 +8,13 @@ import {readPdf} from './pdf-reader.mjs';
 import {extractCis} from './cis-adapter.mjs';
 import {withCatalogLock,commitCatalog,atomicWrite} from './catalog-store.mjs';
 import {estimateForDate} from '../assets/freshness.mjs';
+import {originalReports} from './original-reports.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
 const feeds=[
  ['GAD3','https://www.gad3.com/feed/'],['Sigma Dos','https://www.sigmados.com/feed/'],
  ['ElectoPanel','https://electomania.es/feed/'],['More in Common','https://moreincommon.es/'],
- ['40dB / EL PAÍS','https://elpais.com/espana/'],['Ateneo / elDiario','https://www.eldiario.es/politica/'],
+ ['40dB / EL PAÍS','https://elpais.com/espana/'],['40dB / Cadena SER','https://cadenaser.com/tag/encuestas/a/'],['Ateneo / elDiario','https://www.eldiario.es/politica/'],
  ['SocioMétrica / EL ESPAÑOL','https://www.elespanol.com/espana/politica/'],
  ['DYM / 20minutos','https://www.20minutos.es/nacional/'],['Target Point / El Debate','https://www.eldebate.com/espana/'],
  ['Hamalgama / Vozpópuli','https://www.vozpopuli.com/espana'],['Data10 / OKDIARIO','https://okdiario.com/espana'],
@@ -23,6 +24,12 @@ const feeds=[
 ];
 const hosts=new Set([...feeds.map(([,u])=>new URL(u).hostname),'www.cis.es','ep00.epimg.net','cadenaser.com']);
 const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#8217;',"'").replaceAll('&quot;','"').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+export function isPollPublication(link,feedUrl){
+ const recognized=/sondeo|encuesta|bar[oó]metro|electopanel|pulso electoral/i.test(link.title);
+ const serElection=feedUrl==='https://cadenaser.com/tag/encuestas/a/'&&new URL(link.url).pathname.startsWith('/nacional/')&&/escaños|mayor[ií]a|voto|elecciones/i.test(link.title);
+ return (recognized||serElection)&&!/auton[oó]mic|municipal|alcald|asamblea|junta general|empresari|alemania|valència|valencia|andaluc|catalu|castilla|europea|internacional|argentin|francia|portugal|chile/i.test(link.title);
+}
+export function isOriginal40dbReport(url){const u=new URL(url);return u.hostname==='ep00.epimg.net'&&/^\/infografias\/encuestas40db\//.test(u.pathname)&&/informe_voto[^/]*\.pdf$/i.test(u.pathname);}
 export function links(html,base){
  const found=[];
  for(const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)){
@@ -61,7 +68,7 @@ export function incorporatePoll(catalog,result,{hash,today,url}){
  validateCatalog(candidate);
  catalog.polls=candidate.polls;catalog.asOf=candidate.asOf;return true;
 }
-async function processPublications(catalog,report,publications,today,root){
+async function processPublications(catalog,report,publications,today,root,depth=0){
  const deduped=[...new Map(publications.map(p=>[canonical(p.url),p])).values()],downloadedHashes=new Map();
  const fetched=await mapLimited(deduped,async p=>{
   try{const bytes=await retrieve(p.url,true),hash=createHash('sha256').update(bytes).digest('hex');const ext=bytes.subarray(0,5).toString()==='%PDF-'?'.pdf':'.html';
@@ -84,32 +91,22 @@ async function processPublications(catalog,report,publications,today,root){
   }catch(e){row.status='pending';row.reason='Validación rechazada: '+e.message;}
   report.processed.push(row);
   if(row.status==='pending')report.candidates.push(row);
-  if(document && ['landing','context'].includes(row.status)){
+  if(depth<2 && document && ['landing','context','pending'].includes(row.status)){
    // Resolve portals and summaries to original reports, not their quoted figures.
    for(const link of document.links){
     const host=new URL(link.url).hostname;
     if(/\/category\/|\/temas\/|cis|auton[oó]mic|andaluc|catalu/i.test(link.url+' '+link.title)||!hosts.has(host)||deduped.some(p=>canonical(p.url)===canonical(link.url)))continue;
-    if((host==='moreincommon.es'&&/\/pdfs\/pulso-electoral\/.*\.pdf/.test(link.url))||(host==='ep00.epimg.net'&&/informe_voto\.pdf/.test(link.url))||((['www.lasexta.com','www.20minutos.es','www.sigmados.com','www.gad3.com','electomania.es'].includes(host))&&/bar[oó]metro|estimaci[oó]n de voto|electopanel/i.test(link.title))){
+    if((host==='moreincommon.es'&&/\/pdfs\/pulso-electoral\/.*\.pdf/.test(link.url))||isOriginal40dbReport(link.url)||(host==='elpais.com'&&/consulte-todos-los-datos-internos-de-la-encuesta/.test(link.url))||((['www.lasexta.com','www.20minutos.es','www.sigmados.com','www.gad3.com','electomania.es'].includes(host))&&/bar[oó]metro|estimaci[oó]n de voto|electopanel/i.test(link.title))){
      follow.push({...link,institute:p.institute,publishedAt:document.publishedAt});
     }
    }
   }
  }
- // One bounded extra level reaches reports linked by a portal; avoid unbounded crawling.
+ // At most two link hops: publisher -> download page -> original report.
  if(follow.length){
-  const unique=[...new Map(follow.map(p=>[canonical(p.url),p])).values()].slice(0,20);
-  const extra=await mapLimited(unique,async p=>{
-   try{const bytes=await retrieve(p.url,true),hash=createHash('sha256').update(bytes).digest('hex'),pdf=bytes.subarray(0,5).toString()==='%PDF-';
-    const file=path.join(root,'research/automatic',hash+(pdf?'.pdf':'.html'));await writeFile(file,bytes);
-    const result=pdf?extractPdf((await readPdf(file)).pages,p.url,{today,catalog:catalog.polls,publishedAt:p.publishedAt}):extractArticle(bytes.toString('utf8'),p.url,{today,catalog:catalog.polls});
-    return {p,hash,result};
-   }catch(e){return {p,result:{status:'pending',reason:e.message}};}
-  });
-  for(const {p,hash,result} of extra){
-   const row={...p,status:result.status,reason:result.reason,sha256:hash};
-   if(result.status==='extracted')try{const before=structuredClone(catalog);incorporatePoll(catalog,result,{hash,today,url:p.url});try{estimate(catalog,JSON.parse(await readFile(path.join(root,'data/official-2023.json'),'utf8')));}catch(e){Object.assign(catalog,before);throw e;}row.status='incorporated';row.values=result.poll.values;report.incorporated.push({url:p.url,institute:result.poll.institute,measure:'voteEstimate',id:result.poll.id});}catch(e){row.status='pending';row.reason=e.message;}
-   report.processed.push(row);if(row.status==='pending')report.candidates.push(row);
-  }
+  const seen=new Set(report.processed.map(p=>canonical(p.url)));
+  const unique=[...new Map(follow.map(p=>[canonical(p.url),p])).values()].filter(p=>!seen.has(canonical(p.url))).slice(0,20);
+  if(unique.length)await processPublications(catalog,report,unique,today,root,depth+1);
  }
 }
 const partyIds={PP:'pp',PSOE:'psoe',VOX:'vox',Sumar:'sumar',Podemos:'podemos','Se Acabó la Fiesta':'salf',ERC:'erc',Junts:'junts','EAJ-PNV':'pnv','EH Bildu':'bildu',BNG:'bng',CCa:'cc',UPN:'upn','Adelante Andalucía':'aa','Aliança Catalana':'ac'};
@@ -118,10 +115,10 @@ async function searchUnlocked(root){
  const originalText=await readFile(path.join(root,'data/polls.json'),'utf8'),catalog=JSON.parse(originalText);
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date());
  const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],note:'Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
- const publications=catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id}));
+ const publications=[...catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id})),...originalReports.filter(p=>p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60)];
  const known=new Set(catalog.polls.map(p=>p.url.replace(/\/$/,'')));
  await Promise.allSettled(feeds.map(async([name,url])=>{
-  try{const html=await retrieve(url);const candidates=links(html,url).filter(x=>/sondeo|encuesta|bar[oó]metro|electopanel|pulso electoral/i.test(x.title)&&!/auton[oó]mic|municipal|alcald|asamblea|junta general|empresari|alemania|valència|valencia|andaluc|catalu|castilla|europea|internacional|argentin|francia|portugal|chile/i.test(x.title));
+  try{const html=await retrieve(url);const candidates=links(html,url).filter(x=>isPollPublication(x,url));
    report.sources.push({name,url,status:'ok',found:candidates.length});
    for(const c of candidates.slice(0,8))if(!known.has(c.url.replace(/\/$/,'')))publications.push({...c,institute:name});
   }catch(e){report.sources.push({name,url,status:'error',error:e.message});}

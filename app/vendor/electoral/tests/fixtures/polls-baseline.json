@@ -1,0 +1,1109 @@
+{
+  "schemaVersion": 2,
+  "asOf": "2026-10-06",
+  "polls": [
+    {
+      "id": "40db-202610",
+      "institute": "40dB",
+      "publishedAt": "2026-10-05",
+      "fieldworkStart": "2026-09-25",
+      "fieldworkEnd": "2026-09-28",
+      "sample": 2000,
+      "values": {
+        "pp": 31.6,
+        "psoe": 27.4,
+        "vox": 18.4,
+        "sumar": 5.6,
+        "podemos": 2.7,
+        "salf": 2
+      },
+      "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/10-barometro/2026_10_informe_voto.pdf",
+      "denominator": "validVotes",
+      "verified": true,
+      "note": "CAWI; excluye Ceuta y Melilla. Otros y blancos aparecen agrupados.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "unknown",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://ep00.epimg.net/infografias/encuestas40db/2026/10-barometro/2026_10_informe_voto.pdf",
+        "evidence": [
+          "Si mañana se celebraran unas nuevas elecciones generales, ¿cuál sería la probabilidad de que acudieras a votar?",
+          "generales del 23J de 2023Probabilidad de voto ",
+          "Probabilidad de votar",
+          "Y, ¿cuál sería la probabilidad de que votases a los siguientes partidos?",
+          "Probabilidad de voto a los principales partidos"
+        ]
+      }
+    },
+    {
+      "id": "sigma-202610",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-10-05",
+      "fieldworkStart": "2026-09-22",
+      "fieldworkEnd": "2026-10-01",
+      "sample": 2116,
+      "values": {
+        "pp": 32.6,
+        "psoe": 25.6,
+        "vox": 18.3,
+        "sumar": 6.6,
+        "podemos": 3.3,
+        "erc": 2.5,
+        "bildu": 1.3,
+        "pnv": 1,
+        "junts": 1.1,
+        "ac": 1,
+        "aa": 0.8,
+        "bng": 0.9,
+        "cc": 0.5,
+        "upn": 0.2
+      },
+      "url": "https://www.sigmados.com/barometro-de-octubre-estimacion-de-voto-para-las-elecciones-generales/",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "CATI + CAWI. La página no explicita el denominador: se asimila a voto válido, con factor de calidad 0,8. AC y AA son candidaturas hipotéticas, no proclamadas.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/barometro-de-octubre-estimacion-de-voto-para-las-elecciones-generales/",
+        "evidence": [
+          "Técnica de recogida de información: Metodología mixta: telefónica (CATI) y on line (CAWI) a través del Panel Sigma Dos by Trust Survey.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      }
+    },
+    {
+      "id": "gad3-202609",
+      "institute": "GAD3",
+      "publishedAt": "2026-09-07",
+      "fieldworkStart": "2026-09-01",
+      "fieldworkEnd": "2026-09-03",
+      "sample": 1010,
+      "values": {
+        "pp": 31.1,
+        "psoe": 26.1,
+        "vox": 19.2,
+        "sumar": 7
+      },
+      "url": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-septiembre-2026/",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "CATI + CAWI. Se toma Vox 19,2 de la fuente original; discrepancia con algunos agregadores. No se inventa el desglose de Otros.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "unknown",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-septiembre-2026/",
+        "evidence": [
+          "Procedimiento de la recogida de la información: Encuesta telefónica (514 entrevistas CATI) y online (496 entrevistas CAWI) asistidas por ordenador.",
+          "Cuotas: Por sexo, edad y ámbito geográfico en función del censo electoral (INE)."
+        ]
+      }
+    },
+    {
+      "id": "ateneo-202610",
+      "institute": "Ateneo del Dato",
+      "publishedAt": "2026-10-03",
+      "fieldworkStart": "2026-09-29",
+      "fieldworkEnd": "2026-10-01",
+      "sample": 1500,
+      "values": {
+        "pp": 33.2,
+        "psoe": 27.5,
+        "vox": 19.2,
+        "sumar": 7,
+        "podemos": 3.3
+      },
+      "url": "https://www.eldiario.es/politica/suma-pp-vox-supera-holgura-mayoria-absoluta-aventaja-izquierda-15-puntos_1_13559749.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "CAWI con cuotas. Porcentajes y ficha del medio que encargó el estudio. SALF no desglosado en el texto consultado.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.eldiario.es/politica/suma-pp-vox-supera-holgura-mayoria-absoluta-aventaja-izquierda-15-puntos_1_13559749.html",
+        "evidence": [
+          "CAWI con cuotas."
+        ]
+      }
+    },
+    {
+      "id": "socio-202610",
+      "institute": "SocioMétrica",
+      "publishedAt": "2026-10-04",
+      "fieldworkStart": "2026-10-01",
+      "fieldworkEnd": "2026-10-03",
+      "sample": 1000,
+      "values": {
+        "pp": 33.4,
+        "psoe": 26.5,
+        "vox": 18.1,
+        "sumar": 5.3,
+        "salf": 2.2
+      },
+      "url": "https://www.elespanol.com/espana/politica/20261004/sondeo-expres-sanchez-disuelve-congreso-pp-hoy-diputados-psoe-vox-sumar/1003744408026_0.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "La ficha dice CAWI-Panel aunque el cuerpo menciona teléfono. Podemos no se incorpora sin verificar su cifra en el original.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "documented",
+        "sourceUrl": "https://www.elespanol.com/espana/politica/20261004/sondeo-expres-sanchez-disuelve-congreso-pp-hoy-diputados-psoe-vox-sumar/1003744408026_0.html",
+        "evidence": [
+          "Ficha técnicaSe han realizado 1.000 encuestas a españoles con derecho a voto, con sistema CAWI-Panel entre los días 1-3 de octubre de 2026.",
+          "La muestra se ha equilibrado en fases sucesivas mediante cuotas de sexo, edad, provincia y recuerdo de voto.",
+          "Postponderacion por fecha creciente.",
+          "El ajuste de la convergencia por interacción para el total nacional es del 97% (no procede error muestral por tratarse de un muestreo no probabilístico, si bien puede estimarse el error de equilibraje en +-3%)."
+        ]
+      }
+    },
+    {
+      "id": "mic-202609",
+      "institute": "More in Common",
+      "publishedAt": "2026-09-30",
+      "fieldworkStart": "2026-08-24",
+      "fieldworkEnd": "2026-08-28",
+      "sample": 2144,
+      "values": {
+        "pp": 28.7,
+        "psoe": 27,
+        "vox": 20.3,
+        "sumar": 6.6,
+        "podemos": 3.6,
+        "salf": 2.3
+      },
+      "url": "https://moreincommon.es/pdfs/pulso-electoral/pulso-electoral-septiembre-2026.pdf",
+      "denominator": "validVotes",
+      "verified": true,
+      "note": "CAWI. Publicación con precisión mensual: 30/09 es el límite superior de septiembre, no un día de publicación confirmado. SALF = bloque 51,3 − PP 28,7 − Vox 20,3; puede acumular redondeo.",
+      "retrievedAt": "2026-10-06",
+      "publicationPrecision": "month",
+      "derived": [
+        "salf"
+      ],
+      "methodology": {
+        "mode": "online",
+        "recruitment": "unknown",
+        "quotas": "documented",
+        "weighting": "documented",
+        "sourceUrl": "https://moreincommon.es/pdfs/pulso-electoral/pulso-electoral-septiembre-2026.pdf",
+        "evidence": [
+          "cuotas, más educación y tamaño de",
+          "significa que tanto el cuestionario como la metodología con los que se calibran la muestra",
+          "Nuevos pesos: La ponderación demográfica incorpora dos mejoras.",
+          "CAWI."
+        ]
+      }
+    },
+    {
+      "id": "dym-202609",
+      "institute": "DYM",
+      "publishedAt": "2026-09-24",
+      "fieldworkStart": "2026-09-16",
+      "fieldworkEnd": "2026-09-21",
+      "sample": 1017,
+      "values": {
+        "pp": 34.7,
+        "psoe": 26.3,
+        "vox": 17.3,
+        "sumar": 4.5,
+        "podemos": 3.7
+      },
+      "url": "https://www.20minutos.es/nacional/crisis-ceuta-pasa-factura-psoe-mientras-vox-capitaliza-descontento_7040042_0.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "CAWI con cuotas. No se añade SALF sin cifra contrastada en el texto original.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.20minutos.es/nacional/crisis-ceuta-pasa-factura-psoe-mientras-vox-capitaliza-descontento_7040042_0.html",
+        "evidence": [
+          "CAWI con cuotas."
+        ]
+      }
+    },
+    {
+      "id": "target-202609",
+      "institute": "Target Point",
+      "publishedAt": "2026-09-13",
+      "fieldworkStart": "2026-09-09",
+      "fieldworkEnd": "2026-09-10",
+      "sample": 1012,
+      "values": {
+        "pp": 31.5,
+        "psoe": 25.6,
+        "vox": 18.9,
+        "sumar": 6.9
+      },
+      "url": "https://www.eldebate.com/espana/20260913/sanchez-paga-errores-ceuta-cayendo-otro-medio-punto-abascal-sube-fuerza-costa-pp_457920.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "Panel online propio: es una encuesta independiente, distinta de sus reestimaciones del CIS. Las fechas se deducen de miércoles y jueves expresados en el artículo.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.eldebate.com/espana/20260913/sanchez-paga-errores-ceuta-cayendo-otro-medio-punto-abascal-sube-fuerza-costa-pp_457920.html",
+        "evidence": [
+          "Panel online propio: es una encuesta independiente, distinta de sus reestimaciones del CIS."
+        ]
+      }
+    },
+    {
+      "id": "hamalgama-202609",
+      "institute": "Hamalgama Métrica",
+      "publishedAt": "2026-09-13",
+      "fieldworkStart": "2026-09-01",
+      "fieldworkEnd": "2026-09-08",
+      "sample": 1000,
+      "values": {
+        "pp": 33.6,
+        "psoe": 25.1,
+        "vox": 19.3,
+        "sumar": 5.6,
+        "podemos": 3.8
+      },
+      "url": "https://www.vozpopuli.com/espana/politica/ceuta-descalabra-a-la-izquierda-pp-y-vox-sumarian-ya-212-escanos-en-las-elecciones.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "Fechas y muestra expresas en el original. SALF no contrastado en el texto consultado.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.vozpopuli.com/espana/politica/ceuta-descalabra-a-la-izquierda-pp-y-vox-sumarian-ya-212-escanos-en-las-elecciones.html",
+        "evidence": []
+      }
+    },
+    {
+      "id": "data10-202610",
+      "institute": "Data10",
+      "publishedAt": "2026-10-05",
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "sample": null,
+      "values": {
+        "pp": 34,
+        "psoe": 26.1,
+        "vox": 18.6,
+        "sumar": 5.2,
+        "podemos": 4.3,
+        "salf": 1.4
+      },
+      "url": "https://okdiario.com/espana/efecto-maricarmen-resucita-sanchez-hasta-110-escanos-pero-ni-todos-sus-socios-alcanzan-pp-vox-que-suman-203-20469916",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "Cifras contrastadas en el texto original; fecha exacta de campo y muestra pendientes de ficha. Se usa publicación como fecha de referencia y se reduce el peso adicionalmente.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://okdiario.com/espana/efecto-maricarmen-resucita-sanchez-hasta-110-escanos-pero-ni-todos-sus-socios-alcanzan-pp-vox-que-suman-203-20469916",
+        "evidence": []
+      }
+    },
+    {
+      "id": "invymark-202609",
+      "institute": "InvyMark",
+      "publishedAt": "2026-09-13",
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "sample": null,
+      "values": {
+        "pp": 33.7,
+        "psoe": 26.8,
+        "vox": 18.6,
+        "sumar": 6.1,
+        "podemos": 3.3,
+        "salf": 1.9
+      },
+      "url": "https://www.lasexta.com/noticias/nacional/barometro-lasexta-intencion-voto-situa-como-primera-fuerza-feijoo-como-politico-mejor-valorado_202609136aa6943d7486a40f2c9c4e90.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "Porcentajes del original; muestra y fecha de campo no publicadas en el texto. No se toman como verificadas las fichas de agregadores.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.lasexta.com/noticias/nacional/barometro-lasexta-intencion-voto-situa-como-primera-fuerza-feijoo-como-politico-mejor-valorado_202609136aa6943d7486a40f2c9c4e90.html",
+        "evidence": []
+      }
+    },
+    {
+      "id": "celeste-202609",
+      "institute": "Celeste-Tel",
+      "publishedAt": "2026-09-24",
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "sample": null,
+      "values": {
+        "pp": 33.9,
+        "psoe": 25.4,
+        "vox": 17.8
+      },
+      "url": "https://www.ondacero.es/noticias/espana/gestion-crisis-ceuta-casos-corrupcion-siguen-desgastando-gobierno-sanchez_202609246ab530d7a520494aafd5d597.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "El original publica Sumar 5,1 y los agregadores 6,4: se deja esta cifra fuera hasta resolver la discrepancia. Solo se incorporan PP, PSOE y Vox. Muestra y campo pendientes de ficha.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.ondacero.es/noticias/espana/gestion-crisis-ceuta-casos-corrupcion-siguen-desgastando-gobierno-sanchez_202609246ab530d7a520494aafd5d597.html",
+        "evidence": []
+      }
+    },
+    {
+      "id": "ncreport-202609",
+      "institute": "NC Report",
+      "publishedAt": "2026-09-07",
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "sample": null,
+      "values": {
+        "pp": 34.4,
+        "psoe": 24.9,
+        "vox": 18.3,
+        "sumar": 5.7,
+        "podemos": 3.4
+      },
+      "url": "https://www.larazon.es/espana/sanchez-lleva-psoe-suelo-electoral-vox-podrian-reformar-constitucion_202609076a9d3ff03bfe5d1eff4557b2.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "El original publica PP 34,4, frente al 34,5 de algunos agregadores. Fechas y muestra pendientes de contrastar en ficha; no se inventan.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.larazon.es/espana/sanchez-lleva-psoe-suelo-electoral-vox-podrian-reformar-constitucion_202609076a9d3ff03bfe5d1eff4557b2.html",
+        "evidence": []
+      }
+    },
+    {
+      "id": "ep-202610",
+      "institute": "ElectoPanel",
+      "publishedAt": "2026-10-04",
+      "fieldworkStart": "2026-10-02",
+      "fieldworkEnd": "2026-10-03",
+      "sample": 8171,
+      "values": {
+        "pp": 31.3,
+        "psoe": 26.9,
+        "vox": 19.4,
+        "sumar": 6.3,
+        "podemos": 3.4,
+        "salf": 1.7,
+        "erc": 2,
+        "bildu": 1.4,
+        "aa": 1.1,
+        "junts": 1.1,
+        "pnv": 1.1,
+        "bng": 1,
+        "cc": 0.3,
+        "upn": 0.2
+      },
+      "url": "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "CAWI, tracking con 60 % de panelistas fijos y cuotas. Sumar armonizado = 5,2 + Compromís 1,1 para comparar el mismo espacio que los otros sondeos. No se incorporan las oleadas del mismo panel como muestras independientes adicionales.",
+      "retrievedAt": "2026-10-06",
+      "derived": [
+        "sumar"
+      ],
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "documented",
+        "sourceUrl": "https://electomania.es/electopanel-4-oct-adelanto-la-vivienda-agita-el-panorama-politico/",
+        "evidence": [
+          "Ficha técnica Encuestadora: ElectoPanel (Calle de Gran Vía, 6, 28013, Madrid · Santa Susana, 31, 33007, Oviedo).",
+          "Publicación: Electomanía.es Ámbito: Nacional Universo: personas con derecho a voto en España Tamaño muestral: 8.171 cuestionarios satisfactorios Error muestral: ±1,1% al 95,5% de confianza Trabajo de campo: del 02/10/2026 al 03/10/2026 Procedimiento: cuestionario online, asistido por ordenador (CAWI), tracking, incluyendo un 60% de panelistas fijos Duración: 4-5 min Cuotas: por territorio, sexo, edad, formación e interés político Cuestionario completo: electopanel.com/ep2oct26 "
+        ],
+        "weightingSourceUrl": "https://electomania.es/metodologia/",
+        "weightingEvidence": "Ponderación demográfica y por recuerdo de voto declarada por el instituto."
+      }
+    },
+    {
+      "id": "winston-202610",
+      "institute": "Winston",
+      "publishedAt": "2026-10-05",
+      "fieldworkStart": "2026-09-29",
+      "fieldworkEnd": "2026-10-01",
+      "sample": 1200,
+      "values": {
+        "psoe": 24.9
+      },
+      "url": "https://www.articulo14.es/politica/encuesta-articulo14-sanchez-divide-a-los-electores-del-psoe-solo-el-53-aprueba-su-candidatura-20261005.html",
+      "denominator": "unspecified",
+      "verified": true,
+      "note": "En el texto original se contrastan PSOE 24,9, campo y muestra 1.200 (no 1.201). Otros porcentajes siguen pendientes del gráfico original: no se copian del agregador.",
+      "retrievedAt": "2026-10-06",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.articulo14.es/politica/encuesta-articulo14-sanchez-divide-a-los-electores-del-psoe-solo-el-53-aprueba-su-candidatura-20261005.html",
+        "evidence": []
+      }
+    },
+    {
+      "id": "sigmados-20260826",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-08-31",
+      "sample": 2173,
+      "fieldworkStart": "2026-08-20",
+      "fieldworkEnd": "2026-08-26",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 33.1,
+        "psoe": 25.4,
+        "vox": 17.9,
+        "sumar": 6.6,
+        "podemos": 2.8,
+        "erc": 2.4,
+        "junts": 1.1,
+        "bng": 0.8,
+        "aa": 0.8
+      },
+      "url": "https://www.sigmados.com/barometro-de-septiembre-estimacion-de-voto-para-las-elecciones-generales/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-06",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. ",
+      "extraction": {
+        "adapter": "1.0",
+        "sha256": "b4d55093625bb1382a8f08cefb8b2e7091a29af0a09cf4e9217dbadbbdb75034",
+        "checkedAt": "2026-10-06",
+        "fragments": {
+          "pp": "para las Elecciones Generales en España. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 33,1 % de los sufragios , lo que le",
+          "psoe": "con un 33,1 % de los sufragios , lo que le otorgaría 143 escaños . El PSOE registraría el 25,4 % de la intención de voto y 101",
+          "vox": "straría el 25,4 % de la intención de voto y 101 escaños , seguido por Vox , que obtendría el 17,9 % de los apoyos y 61 representa",
+          "sumar": "obtendría el 17,9 % de los apoyos y 61 representantes . Por su parte, Sumar sumaría el 6,6 % de las papeletas logrando 10",
+          "podemos": "a el 6,6 % de las papeletas logrando 10 parlamentarios , mientras que Podemos cosecharía el 2,8 % de los votos, traduciéndose e",
+          "erc": "dose en 1 asiento en el Congreso . En cuanto al resto de formaciones, ERC obtendría 8 escaños (2,4 %) , seguida por EH Bildu con 6",
+          "junts": "n 6 diputados ( 1,2 % ) y el PNV con otros 6 representantes (1,0 %) . Junts alcanzaría 4 asientos (1,1 %) , al igual que AC (1,0 %) ,",
+          "bng": "l igual que AC (1,0 %) , mientras que Adelante Andalucía (0,8 %) y el BNG (0,8 %) conseguirían 2 diputados cad",
+          "aa": "lcanzaría 4 asientos (1,1 %) , al igual que AC (1,0 %) , mientras que Adelante Andalucía (0,8 %) y el BNG (0,8 %) conseguiría"
+        }
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/barometro-de-septiembre-estimacion-de-voto-para-las-elecciones-generales/",
+        "evidence": [
+          "Técnica de recogida de información: Metodología mixta: telefónica (CATI) y on line (CAWI) a través del Panel Sigma Dos by TrustSurvey .",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      }
+    }
+  ],
+  "history": [
+    {
+      "institute": "GAD3",
+      "electionDate": "2019-04-28",
+      "publishedAt": "2019-04-22",
+      "values": {
+        "pp": 20.1,
+        "psoe": 31.5,
+        "vox": 11.4,
+        "left": 12.1,
+        "cs": 13.9
+      },
+      "url": "https://www.gad3.com/ultimo-sondeo-de-elecciones-generales-28-de-abril-gad3-para-abc/"
+    },
+    {
+      "institute": "GAD3",
+      "electionDate": "2019-11-10",
+      "publishedAt": "2019-11-04",
+      "values": {
+        "pp": 21.6,
+        "psoe": 27.4,
+        "vox": 14.9,
+        "left": 11.2,
+        "cs": 8
+      },
+      "url": "https://www.gad3.com/ultima-encuesta-de-gad3-para-abc-4-nov-elecciones-generales-10n/"
+    },
+    {
+      "institute": "GAD3",
+      "electionDate": "2023-07-23",
+      "publishedAt": "2023-07-17",
+      "values": {
+        "pp": 37.2,
+        "psoe": 28.5,
+        "vox": 11.7,
+        "sumar": 11.4
+      },
+      "url": "https://www.gad3.com/abc-y-vocento-estimacion-elecciones-generales-por-provincias/"
+    },
+    {
+      "institute": "40dB",
+      "electionDate": "2023-07-23",
+      "publishedAt": "2023-07-17",
+      "values": {
+        "pp": 32.9,
+        "psoe": 28.7,
+        "vox": 13.5,
+        "sumar": 13.7
+      },
+      "url": "https://ep00.epimg.net/infografias/encuestas40db/2023-tracking/2023-tracking-11/202307_tracking_11.pdf"
+    },
+    {
+      "institute": "Sigma Dos",
+      "electionDate": "2023-07-23",
+      "publishedAt": "2023-07-17",
+      "values": {
+        "pp": 35,
+        "psoe": 28.3,
+        "vox": 11.8,
+        "sumar": 13.2
+      },
+      "url": "https://www.sigmados.com/el-pp-ganaria-las-elecciones-aunque-el-pacto-con-vox-no-aseguraria-la-mayoria-sigma-dos-el-mundo/"
+    }
+  ],
+  "results": [
+    {
+      "date": "2019-04-28",
+      "values": {
+        "pp": 16.692458574018893,
+        "psoe": 28.67461401161031,
+        "vox": 10.259356275669697,
+        "left": 14.31659816579827,
+        "cs": 15.86048684246332
+      },
+      "url": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201904_1.zip"
+    },
+    {
+      "date": "2019-11-10",
+      "values": {
+        "pp": 20.805476805643018,
+        "psoe": 27.999567816742427,
+        "vox": 15.075210769723164,
+        "left": 12.858993657739552,
+        "cs": 6.803126757651054
+      },
+      "url": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201911_1.zip"
+    },
+    {
+      "date": "2023-07-23",
+      "values": {
+        "pp": 33.05576896257697,
+        "psoe": 31.68215504101229,
+        "vox": 12.382490388988018,
+        "sumar": 12.333867747630668
+      },
+      "url": "https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_202307_1.zip"
+    }
+  ],
+  "pending": [
+    {
+      "institute": "Reestimaciones del CIS y agregados",
+      "status": "excluded",
+      "reason": "Usan muestras ya contabilizadas; no son sondeos adicionales independientes."
+    },
+    {
+      "institute": "Desgloses y fichas pendientes",
+      "status": "partial",
+      "reason": "Winston: porcentajes del gráfico; Celeste-Tel: discrepancia de Sumar; varios institutos: muestra, campo o denominador no explícitos. La ficha de cada estudio detalla qué se usa y qué falta."
+    }
+  ],
+  "historyNote": "Historial parcial: cinco estudios, tres elecciones; cuatro o cinco candidaturas comparables. No permite clasificar todos los institutos. El denominador histórico se asimila a voto válido cuando la página no lo declara.",
+  "directSurveys": [
+    {
+      "id": "cis-direct-3577",
+      "institute": "CIS",
+      "title": "Barómetro de septiembre 2026",
+      "study": "3577",
+      "publishedAt": "2026-09-14",
+      "metadataDate": "2026-09-23",
+      "fieldworkStart": "2026-09-01",
+      "fieldworkEnd": "2026-09-04",
+      "sample": 4042,
+      "verified": true,
+      "measure": "directVote",
+      "denominator": "surveyTotal",
+      "values": {
+        "psoe": 23.3,
+        "pp": 18.3,
+        "vox": 12,
+        "sumar": 4.6,
+        "podemos": 3,
+        "erc": 1.5,
+        "salf": 1.5,
+        "bildu": 1,
+        "bng": 0.6,
+        "junts": 0.5,
+        "aa": 0.5,
+        "pnv": 0.4,
+        "cc": 0.1,
+        "upn": 0
+      },
+      "responses": {
+        "PACMA": 0.8,
+        "Coalición de izquierdas": 0.5,
+        "Otro partido": 4.2,
+        "En blanco": 3.2,
+        "Voto nulo": 1.2,
+        "No votaría": 5.9,
+        "No sabe todavía": 14.3,
+        "N.C.": 2.6
+      },
+      "tables": {
+        "direct": {
+          "code": "22R",
+          "rows": {
+            "PSOE": 23.3,
+            "PP": 18.3,
+            "VOX": 12,
+            "Sumar": 4.6,
+            "Podemos": 3,
+            "ERC": 1.5,
+            "Se Acabó la Fiesta": 1.5,
+            "EH Bildu": 1,
+            "PACMA": 0.8,
+            "BNG": 0.6,
+            "Junts": 0.5,
+            "Adelante Andalucía": 0.5,
+            "Coalición de izquierdas": 0.5,
+            "EAJ-PNV": 0.4,
+            "CCa": 0.1,
+            "UPN": 0,
+            "Otro partido": 4.2,
+            "En blanco": 3.2,
+            "Voto nulo": 1.2,
+            "No votaría": 5.9,
+            "No sabe todavía": 14.3,
+            "N.C.": 2.6
+          },
+          "sample": 4042,
+          "wording": "Y en unas próximas elecciones al Parlamento español, ¿a qué partido votaría Ud.? (RESPUESTA ESPONTÁNEA).\n(RECODIFICADA)."
+        },
+        "rawDirect": null,
+        "recall": {
+          "code": "28aR",
+          "rows": {
+            "PP": 21.9,
+            "PSOE": 35,
+            "VOX": 9.3,
+            "Sumar": 12,
+            "ERC": 2,
+            "Junts": 1.1,
+            "EH Bildu": 1.1,
+            "EAJ-PNV": 0.7,
+            "BNG": 0.8,
+            "CCa": 0.4,
+            "UPN": 0,
+            "PACMA": 0.6,
+            "Otro partido": 2.4,
+            "En blanco": 2.1,
+            "Voto nulo": 1.2,
+            "N.R.": 2.9,
+            "N.C.": 6.6
+          },
+          "sample": 3298,
+          "wording": "¿Y podría decirme a qué partido o coalición votó? (RESPUESTA ESPONTÁNEA). (RECODIFICADA)."
+        },
+        "sympathy": {
+          "code": "24a",
+          "rows": {
+            "PSOE": 26.9,
+            "PP": 19.4,
+            "VOX": 12.8,
+            "Sumar": 5.6,
+            "Podemos": 3.3,
+            "ERC": 1.7,
+            "Se Acabó la Fiesta": 1.5,
+            "EH Bildu": 1,
+            "PACMA": 1,
+            "BNG": 0.6,
+            "Junts": 0.6,
+            "Adelante Andalucía": 0.5,
+            "EAJ-PNV": 0.5,
+            "Coalición de izquierdas": 0.5,
+            "CCa": 0.2,
+            "UPN": 0,
+            "Otro partido": 5.9,
+            "En blanco": 3.2,
+            "Voto nulo": 1.2,
+            "Ninguno": 9.8,
+            "N.S.": 1.7,
+            "N.C.": 2.1
+          },
+          "sample": 4042,
+          "wording": "VOTO+SIMPATÍA (ELECCIONES GENERALES)."
+        },
+        "fieldworkStart": "2026-09-01",
+        "fieldworkEnd": "2026-09-04",
+        "sample": 4042,
+        "theoreticalError": 1.6,
+        "method": "CATI; selección de teléfonos y cuotas de sexo y edad; ponderación PESO publicada."
+      },
+      "question": "22R · respuestas publicadas sobre el total de la encuesta",
+      "url": "https://www.rtve.es/contenidos/documentos/barometro_cis_septiembre_2026.pdf",
+      "technicalUrl": "https://www.cis.es/documents/20117/14250083/FT3577.pdf",
+      "studyUrl": "https://www.cis.es/es/estudios/barometro-de-septiembre-2026",
+      "note": "Respuestas directas publicadas y recodificadas, con ponderación de muestra. Sin estimación electoral ni redistribución de indecisos. No entran en la media de estimaciones.",
+      "sourceNote": "El PDF de distribuciones de septiembre del CIS muestra la etiqueta numérica 29 en una categoría. Se conserva el avance original alojado por RTVE, que la identifica como Coalición de izquierdas. No se corrige automáticamente una etiqueta desconocida.",
+      "sha256": "a6f008cb80b926ea133b138585a931adb3a5bef8a0348dc155329111c9c7286e",
+      "technicalSha256": "5c0015cc24443f663adec7783bfecc01b0cb558077732a534dc7e009ee254b2b"
+    },
+    {
+      "id": "cis-direct-3572",
+      "institute": "CIS",
+      "study": "3572",
+      "title": "Estudio \"Opinión pública y política fiscal (XLIII)\" | CIS",
+      "publishedAt": "2026-07-29",
+      "metadataDate": "2026-09-16",
+      "fieldworkStart": "2026-07-06",
+      "fieldworkEnd": "2026-07-13",
+      "sample": 6000,
+      "verified": true,
+      "measure": "directVote",
+      "denominator": "surveyTotal",
+      "values": {
+        "psoe": 24.2,
+        "pp": 16.7,
+        "vox": 10.4,
+        "podemos": 2,
+        "sumar": 4.4,
+        "salf": 1.3,
+        "aa": 0.5,
+        "cc": 0.1,
+        "erc": 1.5,
+        "junts": 0.5,
+        "bng": 0.7,
+        "upn": 0,
+        "pnv": 0.5,
+        "bildu": 1
+      },
+      "responses": {
+        "PACMA": 0.8,
+        "Coalición de izquierdas": 0.5,
+        "Otro partido": 3.9,
+        "En blanco": 4.5,
+        "Voto nulo": 2.2,
+        "No votaría": 7.3,
+        "No sabe todavía": 13.2,
+        "N.C.": 3.7
+      },
+      "tables": {
+        "direct": {
+          "code": "C2R",
+          "rows": {
+            "PSOE": 24.2,
+            "PP": 16.7,
+            "VOX": 10.4,
+            "PACMA": 0.8,
+            "Podemos": 2,
+            "Sumar": 4.4,
+            "Se Acabó la Fiesta": 1.3,
+            "Coalición de izquierdas": 0.5,
+            "Adelante Andalucía": 0.5,
+            "CCa": 0.1,
+            "ERC": 1.5,
+            "Junts": 0.5,
+            "BNG": 0.7,
+            "UPN": 0,
+            "EAJ-PNV": 0.5,
+            "EH Bildu": 1,
+            "Otro partido": 3.9,
+            "En blanco": 4.5,
+            "Voto nulo": 2.2,
+            "No votaría": 7.3,
+            "No sabe todavía": 13.2,
+            "N.C.": 3.7
+          },
+          "sample": 6000,
+          "wording": "Ahora le voy a hacer unas preguntas sobre el Parlamento español. Suponiendo que mañana se celebrasen elecciones generales, ¿a qué partido votaría Ud.? (RESPUESTA ESPONTÁNEA). (RECODIFICADA)."
+        },
+        "rawDirect": {
+          "code": "C2",
+          "rows": {
+            "PSOE": 24.2,
+            "PP": 16.7,
+            "VOX": 10.4,
+            "Unidas Podemos": 0.1,
+            "Ciudadanos": 0,
+            "PACMA": 0.8,
+            "Podemos": 1.9,
+            "IU": 0.2,
+            "Los Verdes": 0.1,
+            "Falange Española de las JONS": 0.1,
+            "Escaños en Blanco": 0.1,
+            "UPyD": 0,
+            "PCPE": 0,
+            "Sumar": 4,
+            "Por un Mundo más Justo (M+J)": 0,
+            "Frente Obrero": 0.2,
+            "Se Acabó la Fiesta": 1.3,
+            "Coalición de izquierdas": 0.5,
+            "Adelante Andalucía": 0.6,
+            "Por Andalucía": 0,
+            "PAR": 0,
+            "Teruel Existe": 0.1,
+            "CHA": 0,
+            "MÉS (PSM-Entesa)": 0,
+            "MXME (Més per Menorca)": 0,
+            "Nueva Canarias": 0,
+            "CCa": 0.1,
+            "UPL": 0.1,
+            "ERC": 1.8,
+            "Junts": 0.5,
+            "CUP": 0.1,
+            "Aliança Catalana": 0.2,
+            "Compromís": 0.1,
+            "BNG": 0.7,
+            "Más Madrid": 0.1,
+            "UPN": 0,
+            "Geroa Bai": 0,
+            "EAJ-PNV": 0.5,
+            "EH Bildu": 1.1,
+            "Otro partido": 2.3,
+            "En blanco": 4.5,
+            "Voto nulo": 2.2,
+            "No votaría": 7.3,
+            "No sabe todavía": 13.2,
+            "N.C.": 3.7
+          },
+          "sample": 6000,
+          "wording": "Ahora le voy a hacer unas preguntas sobre el Parlamento español. Suponiendo que mañana se celebrasen elecciones generales, ¿a qué partido votaría Ud.? (RESPUESTA ESPONTÁNEA)."
+        },
+        "recall": {
+          "code": "C4aR",
+          "rows": {
+            "PP": 20.2,
+            "PSOE": 36.6,
+            "VOX": 9,
+            "Sumar": 11.7,
+            "ERC": 2.3,
+            "Junts": 1.2,
+            "EH Bildu": 1.2,
+            "EAJ-PNV": 0.7,
+            "BNG": 0.7,
+            "CCa": 0.3,
+            "UPN": 0,
+            "PACMA": 0.9,
+            "Otro partido": 2.3,
+            "En blanco": 3.3,
+            "Voto nulo": 1.3,
+            "N.R.": 3.3,
+            "N.C.": 5
+          },
+          "sample": 5043,
+          "wording": "¿Y podría decirme a qué partido o coalición votó? (RESPUESTA ESPONTÁNEA). (RECODIFICADA)."
+        },
+        "sympathy": {
+          "code": "C3a",
+          "rows": {
+            "PSOE": 27.3,
+            "PP": 18.4,
+            "VOX": 11,
+            "PACMA": 0.9,
+            "Podemos": 2.3,
+            "Sumar": 5.5,
+            "Se Acabó la Fiesta": 1.5,
+            "Coalición de izquierdas": 0.6,
+            "Adelante Andalucía": 0.7,
+            "CCa": 0.1,
+            "ERC": 1.6,
+            "Junts": 0.6,
+            "BNG": 0.7,
+            "UPN": 0,
+            "EAJ-PNV": 0.7,
+            "EH Bildu": 1.1,
+            "Otro partido": 5.5,
+            "En blanco": 4.5,
+            "Voto nulo": 2.2,
+            "Ninguno": 10.4,
+            "N.S.": 1.5,
+            "N.C.": 2.7
+          },
+          "sample": 6000,
+          "wording": "VOTO+SIMPATÍA (ELECCIONES GENERALES)."
+        },
+        "fieldworkStart": "2026-07-06",
+        "fieldworkEnd": "2026-07-13",
+        "sample": 6000,
+        "theoreticalError": 1.3,
+        "method": "CATI; selección de teléfonos y cuotas de sexo y edad; ponderación PESO publicada."
+      },
+      "question": "C2R · respuestas sobre el total de la encuesta",
+      "url": "https://www.cis.es/documents/20117/14256393/es3572mar.pdf",
+      "technicalUrl": "https://www.cis.es/documents/20117/14256393/FT3572.pdf",
+      "studyUrl": "https://www.cis.es/es/estudios/opinion-publica-y-politica-fiscal-xliii-",
+      "sha256": "7353012b58826b7dceddc828dc82f1740ce8921076b94fa5daf8cffdaa94ec67",
+      "note": "Respuestas directas publicadas y recodificadas, con ponderación de muestra. Sin estimación electoral ni redistribución de indecisos. No entran en la media de estimaciones."
+    },
+    {
+      "id": "cis-direct-3571",
+      "institute": "CIS",
+      "study": "3571",
+      "title": "Estudio \"Barómetro de julio 2026\" | CIS",
+      "publishedAt": "2026-07-15",
+      "metadataDate": "2026-09-07",
+      "fieldworkStart": "2026-07-01",
+      "fieldworkEnd": "2026-07-06",
+      "sample": 4020,
+      "verified": true,
+      "measure": "directVote",
+      "denominator": "surveyTotal",
+      "values": {
+        "psoe": 25.4,
+        "pp": 18.6,
+        "vox": 11.5,
+        "sumar": 4.4,
+        "salf": 2,
+        "podemos": 1.8,
+        "erc": 1.8,
+        "pnv": 0.8,
+        "bng": 0.7,
+        "aa": 0.6,
+        "bildu": 0.5,
+        "junts": 0.5,
+        "cc": 0.1,
+        "upn": 0.1
+      },
+      "responses": {
+        "Coalición de izquierdas": 0.8,
+        "PACMA": 0.6,
+        "Otro partido": 4.3,
+        "En blanco": 2.5,
+        "Voto nulo": 0.9,
+        "No votaría": 5.7,
+        "No sabe todavía": 14.1,
+        "N.C.": 2.3
+      },
+      "tables": {
+        "direct": {
+          "code": "17R",
+          "rows": {
+            "PSOE": 25.4,
+            "PP": 18.6,
+            "VOX": 11.5,
+            "Sumar": 4.4,
+            "Se Acabó la Fiesta": 2,
+            "Podemos": 1.8,
+            "ERC": 1.8,
+            "Coalición de izquierdas": 0.8,
+            "EAJ-PNV": 0.8,
+            "BNG": 0.7,
+            "Adelante Andalucía": 0.6,
+            "PACMA": 0.6,
+            "EH Bildu": 0.5,
+            "Junts": 0.5,
+            "CCa": 0.1,
+            "UPN": 0.1,
+            "Otro partido": 4.3,
+            "En blanco": 2.5,
+            "Voto nulo": 0.9,
+            "No votaría": 5.7,
+            "No sabe todavía": 14.1,
+            "N.C.": 2.3
+          },
+          "sample": 4020,
+          "wording": "Y en unas próximas elecciones al Parlamento español, ¿a qué partido votaría Ud.? (RESPUESTA ESPONTÁNEA). (RECODIFICADA)."
+        },
+        "rawDirect": null,
+        "recall": {
+          "code": "24aR",
+          "rows": {
+            "PP": 22.2,
+            "PSOE": 37.4,
+            "VOX": 10.2,
+            "Sumar": 9.5,
+            "ERC": 2.1,
+            "Junts": 0.8,
+            "EH Bildu": 0.7,
+            "EAJ-PNV": 1.3,
+            "BNG": 0.9,
+            "CCa": 0.3,
+            "UPN": 0,
+            "PACMA": 0.5,
+            "Otro partido": 2.4,
+            "En blanco": 2.1,
+            "Voto nulo": 0.7,
+            "N.R.": 3.3,
+            "N.C.": 5.6
+          },
+          "sample": 3370,
+          "wording": "¿Y podría decirme a qué partido o coalición votó? (RESPUESTA ESPONTÁNEA). (RECODIFICADA)."
+        },
+        "sympathy": {
+          "code": "19a",
+          "rows": {
+            "PSOE": 28.3,
+            "PP": 19.8,
+            "VOX": 12.2,
+            "Sumar": 5.5,
+            "Se Acabó la Fiesta": 2.1,
+            "ERC": 2,
+            "Podemos": 2,
+            "EAJ-PNV": 1,
+            "PACMA": 0.9,
+            "Coalición de izquierdas": 0.8,
+            "BNG": 0.8,
+            "Adelante Andalucía": 0.7,
+            "EH Bildu": 0.6,
+            "Junts": 0.5,
+            "Aliança Catalana": 0.4,
+            "CCa": 0.2,
+            "UPN": 0.1,
+            "Otro partido": 5.5,
+            "En blanco": 2.5,
+            "Voto nulo": 0.9,
+            "Ninguno": 9.4,
+            "N.S.": 1.6,
+            "N.C.": 2.2
+          },
+          "sample": 4020,
+          "wording": "VOTO+SIMPATÍA (ELECCIONES GENERALES)."
+        },
+        "fieldworkStart": "2026-07-01",
+        "fieldworkEnd": "2026-07-06",
+        "sample": 4020,
+        "theoreticalError": 1.6,
+        "method": "CATI; selección de teléfonos y cuotas de sexo y edad; ponderación PESO publicada."
+      },
+      "question": "17R · respuestas sobre el total de la encuesta",
+      "url": "https://www.cis.es/documents/20117/14189298/es3571mar.pdf",
+      "technicalUrl": "https://www.cis.es/documents/20117/14189298/FT3571.pdf",
+      "studyUrl": "https://www.cis.es/es/estudios/barometro-de-julio-2026",
+      "sha256": "28b65af43f663331d41b792aa27563e71f26456fcdaef88b9ed604aa2010aaf3",
+      "note": "Respuestas directas publicadas y recodificadas, con ponderación de muestra. Sin estimación electoral ni redistribución de indecisos. No entran en la media de estimaciones."
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import {withCatalogLock,atomicWrite,commitCatalog} from '../scripts/catalog-stor
 import {createUpdateService} from '../scripts/update-service.mjs';
 import {createNextHandler} from '../deployment/next-handler.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-const catalog=JSON.parse(await readFile(path.join(root,'data/polls.json'),'utf8')),official=JSON.parse(await readFile(path.join(root,'data/official-2023.json'),'utf8'));
+const catalog=JSON.parse(await readFile(path.join(root,'tests/fixtures/polls-baseline.json'),'utf8')),official=JSON.parse(await readFile(path.join(root,'data/official-2023.json'),'utf8'));
 test('Metodología: estar en línea no acredita selección probabilística ni ponderación',()=>{
  const m=identifyMethodology('Procedimiento: CAWI. Tamaño: 8000 entrevistas.','https://example.com');assert.equal(m.mode,'online');assert.equal(m.recruitment,'unknown');assert.equal(m.weighting,'unknown');
  const panel=identifyMethodology('Ficha técnica Encuestadora: X. Panelistas fijos, cuotas por sexo y ponderación demográfica.','https://example.com');assert.equal(panel.recruitment,'panel');assert.equal(methodologyWeight({methodology:panel}).cap,1500);

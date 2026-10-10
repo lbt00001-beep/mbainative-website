@@ -9,6 +9,7 @@ import {extractCis} from './cis-adapter.mjs';
 import {withCatalogLock,commitCatalog,atomicWrite} from './catalog-store.mjs';
 import {estimateForDate} from '../assets/freshness.mjs';
 import {originalReports} from './original-reports.mjs';
+import {update40db} from './40db-microdata.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
 const feeds=[
@@ -96,6 +97,7 @@ async function processPublications(catalog,report,publications,today,root,depth=
    for(const link of document.links){
     const host=new URL(link.url).hostname;
     if(/\/category\/|\/temas\/|cis|auton[oó]mic|andaluc|catalu/i.test(link.url+' '+link.title)||!hosts.has(host)||deduped.some(p=>canonical(p.url)===canonical(link.url)))continue;
+    if(host==='ep00.epimg.net'&&/^\/infografias\/encuestas40db\//.test(new URL(link.url).pathname)&&/descargables\.zip$/i.test(new URL(link.url).pathname)&&document.publishedAt<=today){report.microdataTargets.push({sourceUrl:link.url,publishedAt:document.publishedAt,studyUrl:p.url,reportUrl:document.links.find(l=>isOriginal40dbReport(l.url))?.url});continue;}
     if((host==='moreincommon.es'&&/\/pdfs\/pulso-electoral\/.*\.pdf/.test(link.url))||isOriginal40dbReport(link.url)||(host==='elpais.com'&&/consulte-todos-los-datos-internos-de-la-encuesta/.test(link.url))||((['www.lasexta.com','www.20minutos.es','www.sigmados.com','www.gad3.com','electomania.es'].includes(host))&&/bar[oó]metro|estimaci[oó]n de voto|electopanel/i.test(link.title))){
      follow.push({...link,institute:p.institute,publishedAt:document.publishedAt});
     }
@@ -114,7 +116,7 @@ export function searchSources({root=defaultRoot}={}){return withCatalogLock(root
 async function searchUnlocked(root){
  const originalText=await readFile(path.join(root,'data/polls.json'),'utf8'),catalog=JSON.parse(originalText);
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date());
- const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],note:'Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
+ const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],microdataTargets:[],note:'Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
  const publications=[...catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id})),...originalReports.filter(p=>p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60)];
  const known=new Set(catalog.polls.map(p=>p.url.replace(/\/$/,'')));
  await Promise.allSettled(feeds.map(async([name,url])=>{
@@ -124,6 +126,10 @@ async function searchUnlocked(root){
   }catch(e){report.sources.push({name,url,status:'error',error:e.message});}
  }));
  await processPublications(catalog,report,publications,today,root);
+ const archives=[...originalReports.filter(p=>p.microdataUrl&&p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60).map(p=>({sourceUrl:p.microdataUrl,publishedAt:p.publishedAt,studyUrl:p.publicationUrl,reportUrl:p.url})),...report.microdataTargets.filter(p=>p.reportUrl)];
+ await update40db({root,catalog,report,archives,fetchDocument:retrieve});
+ delete report.microdataTargets;
+ for(const issue of report.microdata.filter(x=>x.status==='pending'))report.candidates.push({url:issue.sourceUrl,title:'Microdatos 40dB',institute:'40dB',reason:issue.reason});
  try{
   const home='https://www.cis.es/es/',html=await retrieve(home);
   const discovered=links(html,home).filter(x=>/\/estudios\//.test(x.url)&&/bar[oó]metro|pol[ií]tica fiscal|electoral/i.test(x.title));
@@ -154,10 +160,11 @@ async function searchUnlocked(root){
  validateCatalog(catalog);const official=JSON.parse(await readFile(path.join(root,'data/official-2023.json'),'utf8'));estimate(catalog,official);
  report.candidates=[...new Map(report.candidates.map(x=>[x.url,x])).values()];
  report.sources.sort((a,b)=>a.name.localeCompare(b.name));
- const current=estimateForDate(catalog,official,today);
- report.summary={newPolls:report.incorporated.filter(p=>p.measure==='voteEstimate').length,newCis:report.incorporated.filter(p=>p.measure==='directVote').length,known:report.processed.filter(p=>p.status==='known').length,fullyVerified:report.processed.filter(p=>p.verification==='full').length,partiallyVerified:report.processed.filter(p=>p.verification==='partial').length,accessOnly:report.processed.filter(p=>p.verification==='accessOnly').length,duplicates:report.processed.filter(p=>p.status==='duplicate').length,context:report.processed.filter(p=>['context','landing'].includes(p.status)).length,old:report.processed.filter(p=>p.status==='old').length,pending:report.candidates.length,activePolls:current.expired?0:current.selected.length,calculatedAt:today,lastPublication:current.lastPublication,lastFieldwork:current.lastFieldwork,expired:current.expired};
+ const current=estimateForDate(catalog,official,today),before=estimateForDate(JSON.parse(originalText),official,today);
+ report.estimateChange={calculatedAt:today,before:before.values,after:current.values,changed:JSON.stringify(before.values)!==JSON.stringify(current.values),note:'Mismo día de cálculo y método: compara el catálogo antes y después de consultar. Una nueva ola sustituye al estudio anterior del mismo instituto; los microdatos no se añaden como otra encuesta.'};
+ report.summary={newMicrodata:report.microdata.filter(p=>p.status==='incorporated').length,updatedMetadata:report.metadataUpdates.length,newPolls:report.incorporated.filter(p=>p.measure==='voteEstimate').length,newCis:report.incorporated.filter(p=>p.measure==='directVote').length,known:report.processed.filter(p=>p.status==='known').length,fullyVerified:report.processed.filter(p=>p.verification==='full').length,partiallyVerified:report.processed.filter(p=>p.verification==='partial').length,accessOnly:report.processed.filter(p=>p.verification==='accessOnly').length,duplicates:report.processed.filter(p=>p.status==='duplicate').length,context:report.processed.filter(p=>['context','landing'].includes(p.status)).length,old:report.processed.filter(p=>p.status==='old').length,pending:report.candidates.length,activePolls:current.expired?0:current.selected.length,calculatedAt:today,lastPublication:current.lastPublication,lastFieldwork:current.lastFieldwork,expired:current.expired};
  // Never overwrite a catalog changed by a concurrent manual review.
- if(report.incorporated.length)await commitCatalog(root,originalText,catalog);
+ if(report.incorporated.length||report.metadataUpdates.length)await commitCatalog(root,originalText,catalog);
  await atomicWrite(path.join(root,'data/update-status.json'),JSON.stringify(report,null,2)+'\n');
  return {catalog,report};
 }

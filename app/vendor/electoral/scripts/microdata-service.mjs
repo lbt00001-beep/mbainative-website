@@ -90,7 +90,7 @@ export function createMicrodataService({root,origin,fetchDocument=retrieve,pdfTe
   try{return await withCatalogLock(root,async()=>{
    const catalog=await library();await mkdir(path.dirname(file),{recursive:true});
    if(action==='search'){
-    const html=await fetchDocument(HOME),pages=[...new Set([...documentLinks(html,HOME).filter(x=>/\/estudios\//.test(x.url)&&/barometro/.test(normalize(x.title))).map(x=>x.url),'https://www.cis.es/es/estudios/barometro-de-septiembre-2026',...catalog.studies.map(x=>x.studyUrl)])].slice(0,8),candidates=[],issues=[];
+    const html=await fetchDocument(HOME),pages=[...new Set([...documentLinks(html,HOME).filter(x=>/\/estudios\//.test(x.url)&&/barometro/.test(normalize(x.title))).map(x=>x.url),'https://www.cis.es/es/estudios/barometro-de-septiembre-2026',...catalog.studies.filter(x=>x.institute!=='40dB').map(x=>x.studyUrl)])].slice(0,8),candidates=[],issues=[];
     for(const url of pages)try{const page=await fetchDocument(url),all=documentLinks(page,url),zip=all.find(x=>/\/MD\d{4}\.zip(?:\?|$)/i.test(x.url));if(!zip){issues.push({url,error:'Sin ZIP de microdatos reconocido.'});continue;}const id=zip.url.match(/MD(\d{4})\.zip/i)[1],technical=all.find(x=>new RegExp('/FT'+id+'\\.pdf(?:\\?|$)','i').test(x.url)),questionnaire=all.find(x=>new RegExp('/cues'+id+'\\.pdf(?:\\?|$)','i').test(x.url)),title=page.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1]?.replace(/\s*[-|]\s*CIS.*$/i,'').trim()||'Barómetro CIS '+id;
      if(!technical||!questionnaire)throw Error('Faltan ficha técnica o cuestionario.');candidates.push({study:id,title,studyUrl:url,sourceUrl:zip.url,technicalUrl:technical.url,questionnaireUrl:questionnaire.url});
     }catch(e){issues.push({url,error:e.message});}

@@ -42,7 +42,7 @@ export function createNextHandler({packageRoot,storageRoot,origin,searchOverride
     const result=await service({method:'POST',origin:request.headers.get('origin'),bytes});return json(result.body,result.status,result.headers);
    }
    if(!['GET','HEAD'].includes(request.method))return json({error:'Método no permitido.'},405,{Allow:'GET, HEAD'});
-   if(route==='/health')return json({app:'observatorio-electoral',version:'3.4.1',sourceSearch:true});
+   if(route==='/health')return json({app:'observatorio-electoral',version:'3.5.0',sourceSearch:true});
    if(route==='/')route='/index.html';
    if(!/^\/(index\.html|assets\/[a-zA-Z0-9_-]+\.(mjs|css|svg)|data\/[a-zA-Z0-9_-]+\.json)$/.test(route))return json({error:'Archivo no disponible.'},404);
    let root=packageRoot;if(route.startsWith('/data/')&&!BUNDLED_DATA.includes(path.basename(route))){initialized??=initialize();await initialized;root=storageRoot;if(!DATA.includes(path.basename(route)))return json({error:'Datos no disponibles.'},404);}

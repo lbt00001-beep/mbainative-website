@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-10T11:01:03.319Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-10T16:04:24.110Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Andrej Karpathy\n\n\"Stop Letting AI Overengineer\"\n\n▶️ youtube.com/watch?v=uZZrDdL01lQ",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"The A to Z of AI Podcast S2 Ep. 8 | How AI Fund Builds AI Companies with Ellen Li\"\n\n▶️ youtube.com/watch?v=A-WKnSx07cU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrejkarpathy"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=uZZrDdL01lQ",
-    "imageUrl": "https://i.ytimg.com/vi/uZZrDdL01lQ/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=A-WKnSx07cU",
+    "imageUrl": "https://i.ytimg.com/vi/A-WKnSx07cU/mqdefault.jpg"
   }
 }

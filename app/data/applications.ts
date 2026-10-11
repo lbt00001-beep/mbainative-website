@@ -136,9 +136,9 @@ export const categorias = [
     descripcion: "Herramientas de creación de contenido audiovisual con IA",
     apps: [
       {
-        nombre: "FotoAI Slides — Presentaciones con IA",
-        descripcion: "Sube tus fotos, elige música y efectos cinematográficos, y genera presentaciones animadas con frases personalizadas. Exporta como vídeo MP4.",
-        url: "https://fotos.mbainative.com",
+        nombre: "FotoAI Studio — Fotos y clips de vídeo",
+        descripcion: "Combina fotos y clips de vídeo, recorta las escenas, añade música y frases, y exporta tu montaje. Tus archivos se procesan en tu dispositivo.",
+        url: "https://fotoai-studio-mbai.web.app",
         tipo: "externo",
         estado: "disponible"
       },

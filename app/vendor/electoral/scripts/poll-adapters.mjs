@@ -1,7 +1,8 @@
 import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
+import {contextReason} from './source-policy.mjs';
 
-export const ADAPTER_VERSION='1.1';
+export const ADAPTER_VERSION='1.2';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -18,7 +19,12 @@ export const houses={
  'www.lasexta.com':{institute:'InvyMark',identity:/InvyMark|bar[oó]metro.{0,30}laSexta/i},
  'www.ondacero.es':{institute:'Celeste-Tel',identity:/Celeste[ -]?Tel/i},
  'www.larazon.es':{institute:'NC Report',identity:/NC[ -]?Report/i},
- 'www.articulo14.es':{institute:'Winston',identity:/Winston/i}
+ 'www.articulo14.es':{institute:'Winston',identity:/Winston/i},
+ 'www.elperiodico.com':{institute:'GESOP',identity:/\bGESOP\b/i},
+ 'gesop.net':{institute:'GESOP',owned:true,identity:/GESOP|Gabinet d.Estudi/i},
+ 'www.lavanguardia.com':{institute:'Ipsos',identity:/\bIpsos\b/i,alternatives:[{institute:'GAD3',identity:/\bGAD3\b/i}]},
+ 'www.ipsos.com':{institute:'Ipsos',owned:true,identity:/Ipsos/i},
+ 'www.abc.es':{institute:'GAD3',identity:/\bGAD3\b/i}
 };
 const aliases={pp:'Partido Popular|\\bPP\\b|Feij[oó]o|los populares',psoe:'Partido Socialista|\\bPSOE\\b|los socialistas',vox:'\\bVox\\b|partido de (?:Santiago )?Abascal',sumar:'\\bSumar\\b|Frente Amplio',podemos:'\\bPodemos\\b',salf:'Se Acab[oó] la Fiesta|\\bSALF\\b',erc:'\\bERC\\b|Esquerra Republicana',bildu:'EH Bildu|\\bBildu\\b',pnv:'EAJ[ -]PNV|\\bPNV\\b',junts:'\\bJunts\\b',bng:'\\bBNG\\b',cc:'Coalici[oó]n Canaria|\\bCCa?\\b',upn:'\\bUPN\\b',ac:'Alian[çz]a Catalana|\\bAC\\b',aa:'Adelante Andaluc[ií]a'};
 const number=s=>Number(s.replace(/\./g,'').replace(',','.'));
@@ -31,7 +37,7 @@ function text(n){
  return (n.childNodes||[]).map(text).join(['p','div','tr','td','th','li','h1','h2','h3','section'].includes(n.nodeName)?' ':'');
 }
 export function articleDocument(html,url){
- const root=parse(html),metadata=[],contents=[],tables=[],outlinks=[],times=[],headlines=[];
+ const root=parse(html),metadata=[],contents=[],tables=[],outlinks=[],times=[],headlines=[],articles=[];
  const walk=n=>{
   const attrs=Object.fromEntries((n.attrs||[]).map(a=>[a.name,a.value]));
   if(n.nodeName==='script'&&attrs.type==='application/ld+json')try{
@@ -43,6 +49,7 @@ export function articleDocument(html,url){
   if(n.nodeName==='time'&&!attrs.datetime){const date=clean(text(n)).match(/^(\d{2})\.(\d{2})\.(\d{2}|\d{4})$/);if(date)times.push(`${date[3].length===2?'20'+date[3]:date[3]}-${date[2]}-${date[1]}`);}
   if(n.nodeName==='meta'&&attrs.property==='article:published_time')times.push(attrs.content);
   if(n.nodeName==='h1')headlines.push(clean(text(n)));
+  if(n.nodeName==='article')articles.push(clean(text(n)));
   if(/(?:^| )(?:entry-content|content-inner|article-body|article-content|post-content|article__content|elementor-widget-theme-post-content)(?: |$)/.test(attrs.class||'')||attrs.itemprop==='articleBody')contents.push(clean(text(n)));
   if(n.nodeName==='table'){
    const rows=[];const rowwalk=x=>{if(x.nodeName==='tr')rows.push((x.childNodes||[]).filter(c=>['td','th'].includes(c.nodeName)).map(c=>clean(text(c))));else for(const c of x.childNodes||[])rowwalk(c);};rowwalk(n);tables.push(rows);
@@ -52,14 +59,15 @@ export function articleDocument(html,url){
  };walk(root);
  const same=m=>{try{return canonical(m.url||m.mainEntityOfPage?.['@id']||m['@id']?.split('#')[0]||url)===canonical(url);}catch{return false;}};
  const candidates=metadata.filter(same),m=candidates.find(m=>m.articleBody)||metadata.find(m=>m.articleBody&&clean(m.headline)===headlines[0])||candidates[0]||{};
- return {title:clean(m.headline||headlines[0]),publishedAt:(m.datePublished||times[0]||'').slice(0,10),text:clean(m.articleBody||contents.sort((a,b)=>b.length-a.length)[0]||''),tables,links:outlinks,canonicalUrl:m.url||url};
+ const body=clean(m.articleBody||contents.sort((a,b)=>b.length-a.length)[0]||articles.find(a=>a.includes(headlines[0]))||'');
+ return {title:clean(m.headline||headlines[0]),publishedAt:(m.datePublished||times[0]||'').slice(0,10),text:body.replace(/<[^>]+>/g,' '),tables,links:outlinks,canonicalUrl:m.url||url};
 }
 export function extractVoteValues(text){
  const observations={},evidence={};
  for(const [id,pattern] of Object.entries(aliases)){
   const rows=[];
   for(const match of text.matchAll(new RegExp(pattern,'gi'))){
-   if(/(?:PP|Vox|PSOE|Podemos|Sumar)\s*(?:y|junto a|,)\s*$/i.test(text.slice(Math.max(0,match.index-30),match.index)))continue;
+   if(/(?:PP|Vox|PSOE|Podemos|Sumar)\s*(?:y|junto a)\s*$/i.test(text.slice(Math.max(0,match.index-30),match.index)))continue;
    if(/votantes\s+(?:del?|a(?:l)?)\s*$/i.test(text.slice(Math.max(0,match.index-30),match.index)))continue;
    const after=text.slice(match.index+match[0].length,match.index+match[0].length+180);
    for(const pct of after.matchAll(/(?<![\d.,+−-])(\d{1,2}(?:[,.]\d{1,2})?)\s*%/g)){
@@ -68,11 +76,12 @@ export function extractVoteValues(text){
     // Never treat recall, vote transfers, leader approval or previous results as current intention.
     if(/fidelidad|transferencia|preferido|aprueba|aprobaci[oó]n|suspende|confianza|nota media|\bjuntos\b|bloque.{0,30}(?:concentra|suma)|Entre ambos/i.test(between))continue;
     if(/actuales\s*\(\s*$|en 2023\s*\(?\s*$/i.test(between)||/\ben 2023\b/i.test(after.slice(pct.index+pct[0].length,pct.index+pct[0].length+12)))continue;
+    if(/(?:no alcanz|menos de|m[aá]s de|por debajo de|por encima de|hasta un m[aá]ximo de)[^.!?;]{0,35}$/i.test(between))continue;
     if(/\b(?:en 2023|23J|en julio|en agosto|actuales|anteriores|anterior sondeo)\b/i.test(between)&&!/(?:hasta|ahora|hoy|quedar[ií]a|obtendr[ií]a)/i.test(between))continue;
     const beforePct=between.slice(-50);
     if(/(?:del|desde|pasar del|de)\s*$/.test(beforePct)&&/(?:al|a)\s*(?:un\s*)?\d+(?:[,.]\d+)?\s*%/.test(after.slice(pct.index+pct[0].length)))continue;
     const value=Number(pct[1].replace(',','.'));if(value>60)continue;
-    const current=/(?:votos?|sufragios|papeletas|apoyos|respaldo|obtendr[ií]a|conseguir[ií]a|quedar[ií]a|hasta|ahora|hoy|al |con el|en el)/i.test(between+after.slice(pct.index+pct[0].length,pct.index+pct[0].length+35));
+    const current=/(?:votos?|sufragios|papeletas|apoyos?|respaldo|obtendr[ií]a|conseguir[ií]a|lograr[ií]a|quedar[ií]a|hasta|ahora|hoy|al |con el|en el)/i.test(between+after.slice(pct.index+pct[0].length,pct.index+pct[0].length+35));
     if(!current)continue;
     rows.push({value,index:match.index,evidence:clean(context)});break;
    }
@@ -96,9 +105,12 @@ export function technicalMetadata(text,publishedAt){
  return {sample:sample&&sample<=1000000?sample:null,fieldworkStart,fieldworkEnd,denominator:/voto(?:s)? v[aá]lido(?:s)?/i.test(text)?'validVotes':'unspecified'};
 }
 export function extractArticle(html,url,{today,catalog=[]}={}){
- const config=houses[new URL(url).hostname];if(!config)return {status:'unsupported',reason:'Sin adaptador para este dominio.'};
+ let config=houses[new URL(url).hostname];if(!config)return {status:'unsupported',reason:'Sin adaptador para este dominio.'};
  const d=articleDocument(html,url),body=d.text;
  if(!body)return {status:'landing',reason:'Página de navegación o sin artículo legible.',document:d};
+ if(config.alternatives){const identified=[config,...config.alternatives].filter(c=>c.identity.test(body));if(identified.length!==1)return {status:'context',reason:'No identifica un único instituto de una encuesta original.',document:d};config=identified[0];}
+ const context=contextReason(d.title);
+ if(context&&!catalog.some(p=>canonical(p.url)===canonical(url)))return {status:'context',reason:context,document:d};
  const multiple=[/GAD3/i,/Sigma Dos/i,/40dB/i,/DYM/i,/SocioM[eé]trica/i,/Ateneo del Dato/i,/InvyMark/i,/Hamalgama/i,/NC[ -]?Report/i,/Winston/i,/Celeste[ -]?Tel/i,/Data10/i].filter(re=>re.test(body)).length;
  if(multiple>=3||/gu[ií]a de las elecciones|pueden las encuestas|confianza.{0,40}voto por correo|(?:lo|esto) dicen (?:las )?[uú]ltimas encuestas|qui[eé]n ganar[aá].{0,60}(?:encuestas|sondeos)/i.test(d.title))return {status:'context',reason:'Guía, agregado o pregunta no electoral; no es una encuesta independiente.',document:d};
  if(!config.identity.test(body))return {status:'context',reason:'No identifica un estudio original del instituto correspondiente.',document:d};
@@ -127,7 +139,7 @@ export function extractArticle(html,url,{today,catalog=[]}={}){
   const full=core.every(id=>matched.includes(id))&&matched.length===Object.keys(original.values).length&&original.sample&&meta.sample===original.sample&&original.fieldworkEnd&&meta.fieldworkEnd===original.fieldworkEnd&&original.fieldworkStart===meta.fieldworkStart&&original.denominator!=='unspecified'&&meta.denominator===original.denominator;
   return {status:'known',verification:full?'full':matched.length?'partial':'accessOnly',matched,expected:Object.keys(original.values),poll:original,evidence:extracted.evidence,reason:full?'Cifras del catálogo, muestra, campo y denominador contrastados en el original.':matched.length?'Contraste parcial: '+matched.length+'/'+Object.keys(original.values).length+' cifras del catálogo; ficha o denominador sin reconstruir por completo.':'Fuente accesible; el lector no reconstruye las cifras. Se conserva la revisión anterior.',document:d};
  }
- if(!core.every(id=>extracted.values[id]!=null))return {status:'pending',reason:'No se leen inequívocamente los cuatro partidos principales; se requiere el gráfico o documento original.',document:d};
+ if(!core.every(id=>extracted.values[id]!=null))return {status:'pending',kind:/Espacio Patr[oó]n|exclusiv[oa].{0,25}(?:patrones|suscriptores)/i.test(body)?'access':'extraction',relatedInstitute:config.institute,publishedAt:d.publishedAt,observedValues:extracted.values,reason:/Espacio Patr[oó]n|exclusiv[oa].{0,25}(?:patrones|suscriptores)/i.test(body)?'Los porcentajes completos están reservados a suscriptores. El adelanto público no permite incorporar el estudio.':'No se leen inequívocamente los cuatro partidos principales; se requiere el gráfico o documento original.',document:d};
  if(extracted.values.pp<10||extracted.values.psoe<10||extracted.values.vox>40||extracted.values.sumar>25)return {status:'pending',reason:'Cifras fuera del rango de control: comprobar que son intención nacional y no transferencias o valoración.',document:d};
  const duplicate=catalog.find(p=>p.institute===config.institute&&core.every(id=>Math.abs(p.values[id]-extracted.values[id])<.051)&&(!meta.fieldworkEnd||p.fieldworkEnd===meta.fieldworkEnd));
  if(duplicate)return {status:'duplicate',reason:'Reproduce un estudio ya incorporado.',original:duplicate.url,document:d};

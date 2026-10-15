@@ -3,6 +3,9 @@ import {MAIN_IDS,nationalVotes,roundPreservingTotal} from './electoral.mjs';
 import {methodologyWeight} from './methodology.mjs';
 const sum=a=>a.reduce((s,v)=>s+v,0);
 const days=(a,b)=>(Date.parse(a)-Date.parse(b))/86400000;
+export function sortPollsByFieldwork(polls){
+ return [...polls].sort((a,b)=>(b.fieldworkEnd||b.publishedAt).localeCompare(a.fieldworkEnd||a.publishedAt)||b.publishedAt.localeCompare(a.publishedAt)||a.institute.localeCompare(b.institute,'es'));
+}
 export function validateCatalog(catalog){
   if(!Array.isArray(catalog.polls)||!catalog.polls.length)throw Error('Catálogo vacío.');
   const ids=new Set();
@@ -18,6 +21,14 @@ export function validateCatalog(catalog){
     if(!p.values||!Object.keys(p.values).length||Object.entries(p.values).some(([id,v])=>![...MAIN_IDS,'ac','aa'].includes(id)||!Number.isFinite(v)||v<0||v>100)||sum(Object.values(p.values))>100.11)throw Error('Porcentajes inválidos.');
   }
   const directIds=new Set();
+  const comparisonIds=new Set();
+  for(const p of catalog.cisEstimates||[]){
+    if(!p.study||comparisonIds.has(p.study)||p.measure!=='cisComparisonOnly'||p.denominator!=='validVotes'||p.verified!==true||!Number.isInteger(p.sample)||p.sample<1)throw Error('Ficha de comparación CIS inválida.');
+    comparisonIds.add(p.study);
+    for(const date of [p.publishedAt,p.fieldworkStart,p.fieldworkEnd])if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)throw Error('Fecha de comparación CIS inválida.');
+    if(p.fieldworkStart>p.fieldworkEnd||p.fieldworkEnd>p.publishedAt||new URL(p.url).protocol!=='https:'||new URL(p.studyUrl).protocol!=='https:')throw Error('Fuente o campo de comparación CIS inválidos.');
+    if(!p.values||!['pp','psoe','vox','sumar'].every(id=>Number.isFinite(p.values[id]))||Object.entries(p.values).some(([id,v])=>![...MAIN_IDS,'ac','aa','others','blank'].includes(id)||!Number.isFinite(v)||v<0||v>100)||Math.abs(sum(Object.values(p.values))-100)>.8)throw Error('Vector de comparación CIS inválido.');
+  }
   for(const p of catalog.directSurveys||[]){
     if(!p.id||directIds.has(p.id)||p.measure!=='directVote'||p.denominator!=='surveyTotal'||!Number.isInteger(p.sample)||p.sample<1||p.verified!==true)throw Error('Ficha directa CIS inválida.');
     directIds.add(p.id);

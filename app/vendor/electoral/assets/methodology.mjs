@@ -1,7 +1,7 @@
 // Editorial safeguards, not an empirically calibrated ranking of polling houses.
 export const METHOD_POLICY='2026-10-v1';
 export function identifyMethodology(text,sourceUrl){
- const starts=[...text.matchAll(/Ficha t[eé]cnica\s+(?:Poblaci[oó]n|Encuestadora|[ÁA]mbito)|TAMAÑO DE LA MUESTRA/gi)];
+ const starts=[...text.matchAll(/Ficha t[eé]cnica\s+(?:Poblaci[oó]n|Encuestadora|[ÁA]mbito|Universo)|TAMAÑO DE LA MUESTRA/gi)];
  if(starts.length)text=text.slice(starts[0].index).split(/Accede a los|Más noticias|Artículos relacionados/i)[0].slice(0,6000);
  const mode=/CATI/i.test(text)&&/CAWI/i.test(text)?'mixed':/CAWI|online|on line/i.test(text)?'online':/CATI|telef[oó]nic/i.test(text)?'telephone':'unknown';
  const recruitment=/participaci[oó]n abierta|enlace abierto|autoselecci[oó]n|participantes voluntarios/i.test(text)?'open':/panelistas|panel\b/i.test(text)?'panel':/muestreo probabil[ií]stico/i.test(text)?'probability':'unknown';

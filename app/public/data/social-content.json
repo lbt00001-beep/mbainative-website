@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-10-14T20:30:44.119Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-10-15T09:40:13.874Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 8,
-    "title": "Cumplimiento normativo automatizado",
-    "icon": "⚖️"
+    "id": 9,
+    "title": "El conocimiento se democratiza",
+    "icon": "🧠"
   },
   "post": {
-    "type": "recent_video",
-    "content": "⚖️ Principio #8: Cumplimiento normativo automatizado\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
+    "type": "news",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 Learning to use local AI is exciting, overwhelming, and frustrating\n\nBaby’s first local AI agent. | Photo: Antonio G. Di Benedetto / The Verge\t\n\nI'm embarking on a j...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "NoticiasIA",
+      "TheVergeAI"
     ],
-    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
-    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress"
   }
 }

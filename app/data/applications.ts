@@ -107,6 +107,13 @@ export const categorias = [
     descripcion: "Herramientas de inteligencia informativa, monitorización de opinión pública y análisis periodístico",
     apps: [
       {
+        nombre: "Radar de Calidad Periodística",
+        descripcion: "Evalúa artículos en PDF o texto con ocho criterios editoriales. Obtén una puntuación de calidad, un diagnóstico razonado y un informe descargable usando tu clave de OpenRouter.",
+        url: "https://radar-calidad-periodistica-xcquloicja-ew.a.run.app",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "OpinionPulse AI — Inteligencia de Opinión & Polarización",
         descripcion: "Monitor en tiempo real de sentimiento y controversia en Reddit, Prensa y Redes. Ponderación contextual bayesiana, detección de polarización bimodal e informes ejecutivos con IA.",
         url: "https://opinionpulse-ai.vercel.app",

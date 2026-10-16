@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let modoMatriz = null;
     let flujosPonderados = null;
 
-    if (currentModel === 'aldabon' && typeof AldabonEngine !== 'undefined') {
+    if (typeof AldabonEngine !== 'undefined') {
       const res = AldabonEngine.calcular(
         activeStudy.votoDirecto,
         activeStudy.recuerdo,
@@ -170,32 +170,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         momentumState,
         activeStudy.transvases || {},
         undefined,
-        { nMuestra }
+        {
+          nMuestra,
+          matrizP19a: activeStudy.matrizP19a || null,
+          matrizP17R: activeStudy.matrizP17R || null,
+          perfilIdeologicoLideres: activeStudy.perfilIdeologicoLideres || null
+        }
       );
       estimacionTransparente = res.estimacion || {};
       factoresK = res.kFactors || {};
       recuerdoNormalizado = res.recuerdoNormalizado || {};
       intervalosConfianza = res.intervalosConfianza || {};
       metadatosCalculo = res.metadatosCalculo || {};
-    } else if (typeof TransferMatrixEngine !== 'undefined') {
-      const res = TransferMatrixEngine.calcular(
-        activeStudy.votoDirecto,
-        activeStudy.recuerdo,
-        refPartidos,
-        {},
-        {
-          nMuestra,
-          matrizP19a: activeStudy.matrizP19a || null,
-          matrizP17R: activeStudy.matrizP17R || null,
-          momentum: momentumState
-        }
-      );
-      estimacionTransparente = res.estimacion || {};
-      factoresK = res.factoresCalibracion || {};
-      recuerdoNormalizado = res.recuerdoNormalizado || {};
-      intervalosConfianza = res.intervalosConfianza || {};
-      metadatosCalculo = res.metadatosCalculo || {};
-      modoMatriz = res.modoMatriz;
+      modoMatriz = res.modoAtribucion;
       flujosPonderados = res.flujosPonderados;
     }
 
@@ -321,9 +308,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         : `A ${Math.abs(bloqDer.diferenciaMayoria)} escaños de la mayoría absoluta`;
     }
 
-    const modelLabel = currentModel === 'aldabon'
-      ? 'Aldabón-Gemini (Factor K)'
-      : (data.modoMatriz === 'empirica_rv_eg23' ? 'Matriz Empírica RV EG23' : 'Matriz Calibrada 23J');
+    const modelLabel = data.modoMatriz === 'hibrido_k_matriz_rv_eg23_lideres'
+      ? 'Aldabón-Gemini (K + RV EG23 + Líderes)'
+      : 'Aldabón-Gemini (Factor K + Fidelidad)';
 
     metricsRow.innerHTML = `
       <div class="metric-card card-success">
@@ -989,28 +976,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Selector de modelo en sidebar
+  // Motor unificado Aldabón-Gemini activo por defecto
   function setupModelSelector() {
-    const optAldabon = document.getElementById('model-aldabon');
-    const optTransfer = document.getElementById('model-transfer');
-
-    if (optAldabon) {
-      optAldabon.onclick = () => {
-        currentModel = 'aldabon';
-        optAldabon.classList.add('active');
-        optTransfer.classList.remove('active');
-        renderAllViews();
-      };
-    }
-
-    if (optTransfer) {
-      optTransfer.onclick = () => {
-        currentModel = 'transfer';
-        optTransfer.classList.add('active');
-        optAldabon.classList.remove('active');
-        renderAllViews();
-      };
-    }
+    currentModel = 'aldabon';
   }
 
   // Toggle de sidebar móvil

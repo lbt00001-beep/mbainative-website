@@ -256,10 +256,61 @@
                 En España no se reparten 350 diputados en una bolsa única nacional, sino en <strong>52 circunscripciones</strong> (las 50 provincias más Ceuta y Melilla): Madrid reparte 37 escaños, Barcelona 32, pero Soria solo 2 y Teruel 3.
               </p>
               <ul>
-                <li>La app proyecta la subida o bajada (<em>swing</em>) de cada partido sobre lo que obtuvo en cada una de las 52 provincias en el 23J.</li>
+                <li><strong>La aplicación proyecta la subida o bajada (<em>swing</em>)</strong> de cada partido sobre lo que obtuvo en cada una de las 52 provincias en el 23J.</li>
                 <li>Elimina en cada provincia a los partidos que no llegan al <strong>3% de votos</strong> (barrera legal).</li>
                 <li>Divide los votos de cada partido entre <strong>1, 2, 3, 4...</strong> (<em>Ley D'Hondt</em>) y asigna los escaños a los cocientes más altos hasta completar los <strong>350 diputados</strong> (la mayoría absoluta está en <strong>176</strong>).</li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nuevo Bloque Detallado: Cómo se atribuye el voto a Indecisos, Blancos y Abstencionistas con Líderes e Ideología -->
+        <div class="table-section">
+          <h2>🎯 ¿Cómo atribuimos el voto a los Indecisos, «En Blanco» y «No Votaría» mediante Simpatía, Líderes e Ideología (1–10)?</h2>
+          <p style="font-size:.88rem;color:var(--text2);margin-bottom:16px">
+            En el Barómetro de Octubre (Estudio 3582), cuando el CIS pregunta por el voto directo (`P17R`), un <strong>30,2% de la muestra (1.517 personas de 5.025)</strong> no menciona ningún partido político: un <strong>17,33% dice «No sabe todavía»</strong>, un <strong>5,14% «No votaría»</strong>, un <strong>3,23% «En blanco»</strong>, un <strong>2,59% «No contesta»</strong> y un <strong>1,89% «Voto nulo»</strong>. ¿Cómo se resuelve esa bolsa paso a paso?
+          </p>
+
+          <div class="help-steps-grid">
+            <!-- Nivel 1 -->
+            <div class="help-step-card">
+              <span class="step-badge">Nivel 1 · Abstención y «En Blanco»</span>
+              <h3>Separar a quien no votará del desencantado</h3>
+              <ul>
+                <li><strong>Los que dicen «No votaría» (5,14%) + Probabilidad de votar (`P16` de 0 a 10):</strong> Quienes declaran que no votarán y se sitúan en el <code>0</code> de la escala de participación (<em>«Con toda seguridad no iría a votar»</em>, 5,94%) se asignan directamente a la <strong>Abstención</strong> y quedan fuera del voto válido.</li>
+                <li><strong>Los que dicen «En blanco» (3,23% en encuesta vs. 0,81% real en urnas):</strong> En las encuestas a mitad de legislatura, cuatro veces más personas dicen «votaré en blanco» de las que luego meten un sobre vacío en la urna (0,81% en el 23J). El 75% de ese «voto en blanco» telefónico es en realidad <strong>voto desencantado temporal</strong> (concentrado en las posiciones ideológicas 4, 5 y 6) que en primera instancia pasa al filtro de simpatía.</li>
+              </ul>
+            </div>
+
+            <!-- Nivel 2 -->
+            <div class="help-step-card">
+              <span class="step-badge">Nivel 2 · La Pregunta de Simpatía (P19R)</span>
+              <h3>El primer rescate de indecisos y blancos</h3>
+              <p>
+                A esos <strong>1.517 entrevistados</strong> que no citaron partido en primera respuesta (`No sabe`, `En blanco`, `No votaría`, `N.C.`), el CIS les formula inmediatamente la <strong>Pregunta 19R</strong>: <em>«Sin ningún compromiso por su parte, ¿me podría decir por qué partido siente usted más simpatía?»</em>
+              </p>
+              <ul>
+                <li>Un <strong>35% de ellos revela un partido concreto</strong>, pasando a engrosar la matriz oficial de <strong>Voto + Simpatía (`P19a`)</strong>.</li>
+                <li>Sin embargo, aquí asoma de nuevo el <strong>voto oculto</strong>: entre los votantes del PSOE en 2023 que estaban indecisos hoy, el <strong>40,0% confiesa simpatía al PSOE</strong> y solo el 28,4% dice «Ninguno»; en cambio, entre los votantes de PP y VOX indecisos hoy, el <strong>42,6% (PP) y el 67,9% (VOX) responden «Ninguno»</strong>.</li>
+              </ul>
+            </div>
+
+            <!-- Nivel 3 -->
+            <div class="help-step-card">
+              <span class="step-badge">Nivel 3 · Escala Ideológica (1–10) y Nota a Líderes (P20a)</span>
+              <h3>Cómo se decantan los indecisos puros y el «No Contesta»</h3>
+              <p>
+                Tras la simpatía queda un <strong>13,8% de indecisos puros</strong> (`Ninguno`, `N.S.`, `N.C.`). Al cruzarlos con su <strong>Autoubicación Ideológica (de 1 Izquierda a 10 Derecha)</strong> y con la <strong>nota de 1 a 10 que dan a cada líder (`P20a`)</strong> en los microdatos del CIS, descubrimos dónde están y qué piensan:
+              </p>
+              <ul>
+                <li><strong>En la Izquierda (1 a 4):</strong> Apenas quedan indecisos puros (4%–12%) porque casi todos declararon ya su voto o simpatía. Puntúan alto a <strong>Sánchez (5,3 a 7,4)</strong> y a <strong>Yolanda Díaz (4,6 a 6,6)</strong>.</li>
+                <li><strong>En el Centro (casilla 5, con 1.105 personas) y Centro-Derecha (6):</strong> Se concentra la <strong>mayor bolsa de indecisos de toda la encuesta (28,3% en el 5 y 21,2% en el 6)</strong>. ¿Y a quién puntúan mejor en el Centro (casilla 5)? Su líder mejor valorado es <strong>Feijóo (3,59)</strong>, seguido de <strong>Abascal (2,98)</strong> y <strong>Yolanda Díaz (2,97)</strong>, mientras que <strong>Pedro Sánchez obtiene la nota más baja (2,87)</strong> y un <strong>64,7% declara no tener «ninguna confianza» en él</strong>.</li>
+                <li><strong>En los que ocultan su recuerdo (`N.C.` en 2023, N=261):</strong> Puntúan más alto a <strong>Feijóo (3,25)</strong> y <strong>Abascal (2,62)</strong> que a <strong>Sánchez (2,54)</strong> y <strong>Díaz (2,45)</strong>.</li>
+              </ul>
+              <div class="example-callout">
+                <strong>💡 Conclusión práctica en nuestros motores:</strong><br>
+                De esa bolsa final de indecisos puros de cada bloque, la mitad (50%) se estima que se quedará en la abstención, y la otra mitad movilizable se adjudica respetando el peso real de su cohorte de origen (`23J`), su ubicación ideológica (`1–10`) y su afinidad de liderazgo (`P20a`). Puedes inspeccionar la tabla completa casilla por casilla en la pestaña <strong>🔬 Cruces RV EG23 &amp; Factores K</strong>.
+              </div>
             </div>
           </div>
         </div>

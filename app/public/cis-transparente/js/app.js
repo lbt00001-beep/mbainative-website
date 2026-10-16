@@ -826,7 +826,101 @@ document.addEventListener('DOMContentLoaded', async () => {
         );
     }
 
-    // 3. Nota metodológica oficial del CIS
+    // 3. Cruce Oficial de Escala Ideológica (1-10), Bolsa de Indecisos/Blancos/Abstención y Valoración de Líderes (P20a)
+    let ideologiaLideresHtml = '';
+    if (activeStudy.perfilIdeologicoLideres) {
+      const pi = activeStudy.perfilIdeologicoLideres;
+      const cols = pi.columnas; // ["TOTAL", "1 Izq", "2", "3", "4", "5 Centro", "6", "7", "8", "9", "10 Der", "N.S.", "N.C."]
+
+      const renderRowSet = (objMap, unit = '%', highlightCentro = false) =>
+        Object.entries(objMap).map(([label, vals]) => `
+          <tr>
+            <td><strong>${label}</strong></td>
+            ${vals.map((v, idx) => {
+              const isCentroOrNC = highlightCentro && (idx === 5 || idx === 6 || idx === 11 || idx === 12);
+              const style = isCentroOrNC ? 'background:rgba(79,195,247,0.14);font-weight:700;color:#fff' : '';
+              return `<td style="text-align:right;${style}">${v.toFixed(2)}${unit}</td>`;
+            }).join('')}
+          </tr>
+        `).join('');
+
+      let recLideresHtml = '';
+      if (activeStudy.perfilLideresPorRecuerdo) {
+        const pr = activeStudy.perfilLideresPorRecuerdo;
+        const grupos = pr.grupos;
+        const lRows = ['Pedro Sánchez (PSOE)', 'Alberto Núñez Feijóo (PP)', 'Yolanda Díaz (SUMAR)', 'Santiago Abascal (VOX)'].map(lName => {
+          const vals = pr[lName] || [];
+          return `
+            <tr>
+              <td><strong>${lName}</strong></td>
+              ${vals.map((v, idx) => {
+                const isNC = idx >= 7;
+                const style = isNC ? 'background:rgba(255,213,79,0.14);font-weight:700;color:var(--yellow)' : '';
+                return `<td style="text-align:right;${style}">${v.toFixed(2)}</td>`;
+              }).join('')}
+            </tr>
+          `;
+        }).join('');
+
+        recLideresHtml = `
+          <div class="table-section" style="margin-top:24px">
+            <h2>⭐ Valoración Media de Líderes (1–10) según Recuerdo 23J y Voto Oculto (N.R. / N.C.)</h2>
+            <p style="font-size:.84rem;color:var(--text2);margin-bottom:14px">
+              Observa las dos últimas columnas resaltadas (quienes dicen <strong>«No recuerda»</strong> o <strong>«No contesta»</strong> a quién votaron en 2023): en <strong>No Contesta (N=261)</strong>, <strong>Alberto Núñez Feijóo (3,25)</strong> y <strong>Santiago Abascal (2,62)</strong> superan en valoración media a <strong>Pedro Sánchez (2,54)</strong> y <strong>Yolanda Díaz (2,45)</strong>, confirmando empíricamente la presencia de voto conservador oculto en la bolsa de no-respuesta.
+            </p>
+            <div class="table-wrap" style="overflow-x:auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Líder Político (Escala 1 a 10)</th>
+                    ${grupos.map(g => `<th style="text-align:right">${g}</th>`).join('')}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${lRows}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }
+
+      ideologiaLideresHtml = `
+        <div class="table-section" style="margin-top:24px">
+          <h2>🧭 Autoubicación Ideológica (1–10), Bolsa de Indecisos/Blancos y Nota a Líderes (Hoja 'Escala de ideología')</h2>
+          <p style="font-size:.84rem;color:var(--text2);margin-bottom:14px">
+            Esta tabla oficial del CIS muestra cómo se relacionan la <strong>indecisión («No sabe todavía»)</strong>, el <strong>voto en blanco</strong> y la <strong>abstención («No votaría»)</strong> con la posición ideológica (de <code>1 Izquierda</code> a <code>10 Derecha</code>) y la puntuación de 1 a 10 otorgada a cada líder (Pregunta 20a). En la casilla <strong>5 (Centro, N=1.105)</strong> se concentra la mayor bolsa de indecisos (<strong>28,34%</strong>) y voto en blanco (<strong>6,15%</strong>), donde <strong>Feijóo (3,59)</strong> y <strong>Abascal (2,98)</strong> superan la nota de <strong>Sánchez (2,87)</strong> y un <strong>64,66%</strong> declara tener «ninguna confianza» en el presidente del Gobierno.
+          </p>
+          <div class="table-wrap" style="overflow-x:auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable / Escala Ideológica →</th>
+                  ${cols.map(c => `<th style="text-align:right">${c}</th>`).join('')}
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:var(--surface3)"><td colspan="14"><strong>A. Intención Directa, Indecisos, En Blanco y Abstención (% vertical en cada casilla ideológica)</strong></td></tr>
+                ${renderRowSet(pi.comportamientoVotoDirecto, '%', true)}
+                <tr style="background:var(--surface3)"><td colspan="14"><strong>B. Puntuación Media a Líderes de 1 a 10 (Pregunta 20a) y Desconfianza (Pregunta 21)</strong></td></tr>
+                ${renderRowSet(pi.notaMediaLideres, ' ptos', true)}
+                <tr>
+                  <td><strong>% «Ninguna confianza» en P. Sánchez (P21)</strong></td>
+                  ${pi.ningunaConfianzaSanchez.map((v, idx) => `<td style="text-align:right;${idx===5||idx===6?'color:var(--red);font-weight:700':''}">${v.toFixed(1)}%</td>`).join('')}
+                </tr>
+                <tr style="border-top:2px solid var(--border)">
+                  <td><strong>Muestra por Casilla Ideológica (N)</strong></td>
+                  ${cols.map(c => `<td style="text-align:right;font-size:.76rem;color:var(--text3)">${Math.round(pi.nPorCasilla[c] || 0)}</td>`).join('')}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        ${recLideresHtml}
+      `;
+    }
+
+    // 4. Nota metodológica oficial del CIS
     const notaHtml = activeStudy.notaMetodologicaCIS
       ? `
         <div class="table-section" style="margin-top:24px">
@@ -851,7 +945,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <th>Recuerdo s/ Voto Válido</th>
                 <th>Resultado Oficial Urnas (BOE)</th>
                 <th>Factor K Calibración</th>
-                <th>Diagnóstico Muestral</th>
+                <th>Diagnóstico Muestral / Declarativo</th>
               </tr>
             </thead>
             <tbody>
@@ -861,6 +955,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
       </div>
       ${matrizHtml}
+      ${ideologiaLideresHtml}
       ${notaHtml}
     `;
   }

@@ -1,0 +1,123 @@
+{
+  "author": "Luis Benedicto Tuzón",
+  "updatedAt": "2026-10-16",
+  "apps": [
+    {
+      "id": "comparativa-ue",
+      "name": "España vs UE",
+      "route": "/aplicaciones/comparativa-ue",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "site-footer"
+    },
+    {
+      "id": "inversion-fundamentales",
+      "name": "Inversión con Fundamentales",
+      "route": "/aplicaciones/inversion-fundamentales",
+      "model": "Claude Opus 4.5 Thinking",
+      "version": "0.0.1",
+      "year": 2026,
+      "placement": "inline"
+    },
+    {
+      "id": "tradingalpha",
+      "name": "TradingAlpha",
+      "route": "/aplicaciones/tradingalpha",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "site-footer"
+    },
+    {
+      "id": "futuros",
+      "name": "Monitor de Futuros Líquidos",
+      "route": "/aplicaciones/futuros",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "site-footer"
+    },
+    {
+      "id": "corrector-rae",
+      "name": "Corrector RAE",
+      "route": "/aplicaciones/corrector-rae",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "site-footer"
+    },
+    {
+      "id": "buscador-segundamano",
+      "name": "Buscador Segunda Mano",
+      "route": "/aplicaciones/buscador-segundamano",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "site-footer"
+    },
+    {
+      "id": "voto-23j",
+      "name": "Voto 23J",
+      "route": "/aplicaciones/voto-23j",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "inline"
+    },
+    {
+      "id": "voto-23j-directo",
+      "name": "Voto 23J",
+      "route": "/voto-23j/index.html",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "static"
+    },
+    {
+      "id": "observatorio-electoral",
+      "name": "Observatorio Electoral",
+      "route": "/aplicaciones/observatorio-electoral",
+      "model": "modelo de IA desconocido",
+      "version": "3.6.1",
+      "year": 2026,
+      "placement": "inline"
+    },
+    {
+      "id": "benchmarks-ia",
+      "name": "Comparador de Benchmarks de IA",
+      "route": "/benchmarks-ia/index.html",
+      "model": "Gemini 3.5 Flash (High)",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "static"
+    },
+    {
+      "id": "plan-de-marketing",
+      "name": "PlanPro Marketing",
+      "route": "/plan-de-marketing/index.html",
+      "model": "GPT 5.5. medium",
+      "version": "1.0.1",
+      "year": 2026,
+      "placement": "inline"
+    },
+    {
+      "id": "restaurador-super8",
+      "name": "Restaurador Super 8",
+      "route": "/restaurador-super8/index.html",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "static"
+    },
+    {
+      "id": "evolucion",
+      "name": "Evolución Demográfica Humana",
+      "route": "/evolucion/index.html",
+      "model": "modelo de IA desconocido",
+      "version": "2.0.0",
+      "year": 2026,
+      "placement": "static"
+    }
+  ]
+}

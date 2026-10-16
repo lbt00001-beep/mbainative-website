@@ -1,6 +1,6 @@
 const STORAGE_KEY = "planpro_marketing_plans_v1";
 const APP_NAME = "PlanPro Marketing";
-const APP_VERSION = "v1.0.0";
+const APP_VERSION = "v1.0.1";
 
 const sections = [
   { id: "context", title: "Diagnóstico", summary: "Empresa, mercado, competencia, FODA y propuesta de valor." },
@@ -404,7 +404,7 @@ function render() {
           <strong>${done}% completado</strong>
           <div class="progress-line"><div class="progress-fill" style="width:${done}%"></div></div>
         </div>
-        <div class="sidebar-credit">By Luis Benedicto Tuzón with GPT 5.5. medium</div>
+        <div class="sidebar-credit" data-app-credit>By Luis Benedicto Tuzón with GPT 5.5. medium · versión ${APP_VERSION.replace(/^v/, "")} · 2026</div>
       </aside>
       <main class="main">
         <div class="topbar">

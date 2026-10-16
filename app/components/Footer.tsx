@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AppAttribution from "./AppAttribution";
 
 const SocialIcon = ({ href, label, children }: { href: string, label: string, children: React.ReactNode }) => (
   <a href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[--accent] transition-colors">
@@ -56,6 +57,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container mx-auto border-t border-gray-700 pt-8 mt-8">
+        <AppAttribution location="site-footer" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500">&copy; {new Date().getFullYear()} MBAI Native. Todos los derechos reservados.</p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">

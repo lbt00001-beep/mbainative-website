@@ -114,13 +114,6 @@ export const categorias = [
         estado: "disponible"
       },
       {
-        nombre: "Radar de Calidad Periodística",
-        descripcion: "Sube un PDF, selecciona un modelo de IA y obtén un diagnóstico profesional con puntuación 0-100. Funciona 100% en tu navegador.",
-        url: "https://radar-prensa-mbai.web.app",
-        tipo: "externo",
-        estado: "disponible"
-      },
-      {
         nombre: "Prensa Resumen MBAI",
         descripcion: "Unidad de inteligencia que escanea 50 medios internacionales en tiempo real, filtra noticias por tema y genera informes estratégicos con análisis de narrativa, sesgos y silencios.",
         url: "https://prensa-resumen-mbai-2266.web.app/",

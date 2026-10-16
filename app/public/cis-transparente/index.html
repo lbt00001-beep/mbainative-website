@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIS Abierto & Transparente — Auditoría Demoscópica y Estimación Electoral Reproducible</title>
+  <meta name="description" content="Plataforma de auditoría demoscópica sobre ficheros oficiales del CIS, calibración por recuerdo válido 23J (BOE), matrices de transferencia empíricas y proyección D'Hondt en 52 circunscripciones con intervalos de confianza.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1.2.0">
+</head>
+<body>
+
+  <!-- Mobile Overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-layout">
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">⚖️</div>
+        <div>
+          <h2>CIS Transparente</h2>
+          <div class="brand-sub">Auditoría Demoscópica Abierta</div>
+        </div>
+      </div>
+
+      <!-- Selector de Modelo de Estimación -->
+      <div class="sidebar-section">
+        <h3>🔬 Metodología de Estimación</h3>
+        <div class="model-selector">
+          <div class="model-option active" id="model-aldabon">
+            <span>🛡️</span>
+            <div>
+              <strong>Aldabón-Gemini (Factor K)</strong>
+              <div style="font-size:.7rem;color:var(--text3)">Reponderación Recuerdo Válido + IC 95%</div>
+            </div>
+          </div>
+          <div class="model-option" id="model-transfer">
+            <span>📐</span>
+            <div>
+              <strong>Matriz Empírica RV EG23</strong>
+              <div style="font-size:.7rem;color:var(--text3)">Cruce P19a × Urnas 23J (BOE)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selector de Estudios -->
+      <div class="sidebar-section">
+        <h3>🗄️ Estudios Oficiales CIS</h3>
+        <div class="study-list" id="study-list">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Ficha Técnica (Art. 69 LOREG) -->
+      <div class="sidebar-section" id="ficha-section" style="display:none">
+        <h3>📋 Ficha Técnica (Art. 69 LOREG)</h3>
+        <div class="ficha-card" id="ficha-card">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Contenido Principal ── -->
+    <main class="main-content">
+      <!-- Botón móvil -->
+      <button class="mobile-toggle" id="mobile-toggle">
+        ☰ Seleccionar Estudio CIS
+      </button>
+
+      <!-- Encabezado -->
+      <div class="main-header">
+        <div class="header-top-bar">
+          <div>
+            <h1>⚖️ CIS Abierto & Transparente</h1>
+            <p class="description">
+              Análisis reproducible de los ficheros de avance y cruces del CIS (<code>multi_a.xlsx</code>), calibración por recuerdo de voto válido respecto a la Junta Electoral Central (BOE) y simulación D'Hondt en las 52 circunscripciones con intervalos de confianza al 95%.
+            </p>
+          </div>
+          <button class="help-btn-header" id="btn-open-help" title="Abrir guía didáctica y glosario estadístico">
+            <span>📖</span> ¿Cómo funciona? · Ayuda y Glosario
+          </button>
+        </div>
+      </div>
+
+      <!-- Banner de Diagnóstico Demoscópico Dinámico -->
+      <div id="forensic-banner" style="display:none;margin-bottom:20px;padding:16px 20px;border-radius:var(--radius);background:rgba(239,83,80,0.12);border:1px solid var(--red);color:var(--text)">
+      </div>
+
+      <!-- Métricas Resumen -->
+      <div class="metrics-row" id="metrics-row">
+        <!-- Generado dinámicamente -->
+      </div>
+
+      <!-- Pestañas de Navegación -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="tab-cocinas">
+          <span>📊</span> Estimación & IC 95%
+        </button>
+        <button class="nav-tab" data-tab="tab-hemiciclo">
+          <span>🏛️</span> Congreso D'Hondt (350 Escaños)
+        </button>
+        <button class="nav-tab" data-tab="tab-momentum">
+          <span>🎚️</span> Simulador de Coyuntura (Λ)
+        </button>
+        <button class="nav-tab" data-tab="tab-auditoria">
+          <span>📉</span> Evaluación de Sesgo Sistemático
+        </button>
+        <button class="nav-tab" data-tab="tab-microdatos">
+          <span>🔬</span> Cruces RV EG23 & Factores K
+        </button>
+        <button class="nav-tab" data-tab="tab-ayuda" id="nav-tab-ayuda">
+          <span>📖</span> Ayuda & Glosario (95% IC)
+        </button>
+      </nav>
+
+      <!-- Panel 1: Comparativa de Estimaciones -->
+      <div class="tab-panel active" id="tab-cocinas">
+        <div class="table-section">
+          <h2>📊 Comparativa Metodológica: Voto Directo vs. Estimación Oficial CIS vs. Estimación Calibrada (IC 95%)</h2>
+          <div class="table-wrap">
+            <table id="comparison-table">
+              <thead>
+                <tr>
+                  <th>Candidatura</th>
+                  <th>Voto Directo (% Censo ± ME)</th>
+                  <th>Estimación Oficial CIS</th>
+                  <th>Estimación Calibrada (Central)</th>
+                  <th>Horquilla IC 95%</th>
+                  <th>Diferencial (Calibrada − CIS)</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                <!-- Generado dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Gráfico de barras -->
+        <div class="table-section">
+          <h2>📈 Distribución Comparada de Voto Válido (%)</h2>
+          <div style="height: 380px; position: relative;">
+            <canvas id="comparison-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Hemiciclo D'Hondt & Mayorías -->
+      <div class="tab-panel" id="tab-hemiciclo">
+        <div id="congress-container">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Panel 3: Laboratorio de Momentum -->
+      <div class="tab-panel" id="tab-momentum">
+        <div class="table-section">
+          <h2>🎚️ Simulador de Coyuntura y Elasticidad Electoral (Λ)</h2>
+          <p style="font-size:.85rem;color:var(--text2);margin-bottom:14px">
+            Permite evaluar análisis de sensibilidad modificando el multiplicador coyuntural de cada candidatura. Valores <strong>&lt; 1.00x</strong> simulan desgaste (redistribuyendo hacia abstención y partidos adyacentes del mismo bloque ideológico); valores <strong>&gt; 1.00x</strong> simulan movilización adicional.
+          </p>
+          <div class="momentum-grid" id="momentum-grid">
+            <!-- Generado dinámicamente -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Auditoría Demoscópica -->
+      <div class="tab-panel" id="tab-auditoria">
+        <div id="audit-container">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Panel 5: Microdatos y Matrices de Transferencia -->
+      <div class="tab-panel" id="tab-microdatos">
+        <div id="microdata-container">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Panel 6: Ayuda Didáctica (Nivel Bachillerato) y Glosario Estadístico -->
+      <div class="tab-panel" id="tab-ayuda">
+        <!-- Hero Introducción -->
+        <div class="help-hero">
+          <h2>📖 Guía Didáctica: ¿Cómo funciona esta aplicación y qué es la «Cocina Electoral»?</h2>
+          <p>
+            Imagina que quieres saber si una olla de sopa de 37 millones de litros está bien de sal. No necesitas beberte la olla entera: basta con <strong>removerla muy bien</strong> y probar una cucharada de 5.000 gotas (la <strong>muestra</strong>).<br><br>
+            El problema en sociología electoral es que las personas no son gotas idénticas: cuando un encuestador llama por teléfono, los votantes de unos partidos contestan con más entusiasmo que los de otros, y alrededor de un 25% no sabe aún a quién votará o prefiere no decirlo. Si publicas los datos en bruto sin corregir quién falta al teléfono, es como probar la sopa sin haberla removido antes. La <strong>cocina electoral</strong> no es «inventar datos»: es aplicar reglas matemáticas transparentes para equilibrar la muestra con la realidad de las urnas.
+          </p>
+        </div>
+
+        <!-- Los 4 Pasos del Funcionamiento de la App -->
+        <div class="table-section">
+          <h2>🧭 El Funcionamiento de la App en 4 Pasos (Nivel Bachillerato)</h2>
+          <div class="help-steps-grid">
+            <!-- Paso 1 -->
+            <div class="help-step-card">
+              <span class="step-badge">Paso 1 · El Problema en los Datos Crudos</span>
+              <h3>¿Por qué engaña el Voto Directo sin calibrar?</h3>
+              <p>
+                Cuando el CIS pregunta <em>«¿A quién votaría hoy?»</em> obtiene el <strong>Voto Directo</strong>. Pero también hace una pregunta clave de control: <strong>«¿A quién votó usted en las últimas elecciones generales del 23J de 2023?»</strong> (el llamado <em>Recuerdo de Voto</em>).
+              </p>
+              <div class="example-callout">
+                <strong>🔎 Caso Real (Barómetro Octubre 2026, N=5.025):</strong><br>
+                En las urnas reales de julio de 2023 (certificadas en el BOE), el <strong>PP ganó con el 33,06%</strong> y el <strong>PSOE obtuvo el 31,68%</strong> (casi empatados).<br>
+                Sin embargo, entre los encuestados de este barómetro que recuerdan su voto válido, ¡el <strong>42,58% dice haber votado al PSOE</strong> y solo el <strong>21,76% al PP</strong>! Es decir, en la muestra telefónica hay <strong>casi el doble de votantes socialistas que populares</strong>.
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="help-step-card">
+              <span class="step-badge">Paso 2 · La Báscula Matemática (Factor K)</span>
+              <h3>Cómo corregimos el desequilibrio de la muestra</h3>
+              <p>
+                Para que cada grupo de votantes pese en la encuesta exactamente lo mismo que pesó en la realidad de las urnas, calculamos el <strong>Factor de Calibración ($K$)</strong> sobre voto válido:
+              </p>
+              <div class="formula-box">
+                K = (% Real en Urnas 23J) / (% Recuerdo Válido en Encuesta)
+              </div>
+              <ul>
+                <li><strong>Para el PP:</strong> <code>K = 33,06% / 21,76% = 1,52x</code>. Como faltan votantes del PP al teléfono (<em>voto oculto o menor respuesta</em>), cada encuestado del PP debe valer por <strong>1,52</strong>.</li>
+                <li><strong>Para el PSOE:</strong> <code>K = 31,68% / 42,58% = 0,74x</code>. Como hay exceso de votantes del PSOE en la muestra, cada respuesta se pondera por <strong>0,74</strong>.</li>
+              </ul>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="help-step-card">
+              <span class="step-badge">Paso 3 · Dos Motores para Elegir</span>
+              <h3>Aldabón-Gemini vs. Matriz Empírica RV EG23</h3>
+              <p>
+                En la barra lateral izquierda puedes alternar en vivo entre dos métodos científicos independientes:
+              </p>
+              <ul>
+                <li><strong>🛡️ Motor Aldabón-Gemini (Factor K):</strong> Multiplica el Voto Directo de cada partido por su Factor $K$ y su tasa de fidelidad ($\Phi$), repartiendo las fugas entre partidos vecinos y normalizando el resultado sobre el 100% de voto válido.</li>
+                <li><strong>📐 Matriz Empírica RV EG23:</strong> Utiliza directamente la tabla oficial de doble entrada del CIS (<em>Hoja RV EG23, Pregunta 19a</em>). Toma el porcentaje real que sacó cada partido en 2023 (33,06% PP, 31,68% PSOE, 12,38% VOX, 12,33% Sumar) y le aplica los porcentajes exactos de fidelidad y trasvase que declaran sus propios votantes hoy.</li>
+              </ul>
+            </div>
+
+            <!-- Paso 4 -->
+            <div class="help-step-card">
+              <span class="step-badge">Paso 4 · De Votos a Escaños</span>
+              <h3>Simulación en las 52 Provincias (Ley D'Hondt)</h3>
+              <p>
+                En España no se reparten 350 diputados en una bolsa única nacional, sino en <strong>52 circunscripciones</strong> (las 50 provincias más Ceuta y Melilla): Madrid reparte 37 escaños, Barcelona 32, pero Soria solo 2 y Teruel 3.
+              </p>
+              <ul>
+                <li>La app proyecta la subida o bajada (<em>swing</em>) de cada partido sobre lo que obtuvo en cada una de las 52 provincias en el 23J.</li>
+                <li>Elimina en cada provincia a los partidos que no llegan al <strong>3% de votos</strong> (barrera legal).</li>
+                <li>Divide los votos de cada partido entre <strong>1, 2, 3, 4...</strong> (<em>Ley D'Hondt</em>) y asigna los escaños a los cocientes más altos hasta completar los <strong>350 diputados</strong> (la mayoría absoluta está en <strong>176</strong>).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guía rápida de las pestañas -->
+        <div class="table-section">
+          <h2>🗂️ ¿Qué encontrarás en cada pestaña de la aplicación?</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pestaña</th>
+                  <th>Qué muestra</th>
+                  <th>Para qué sirve</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>📊 Estimación &amp; IC 95%</strong></td>
+                  <td>Tabla y gráfico comparando Voto Directo, Estimación Oficial del CIS y Estimación Calibrada con su horquilla de error.</td>
+                  <td>Ver de un vistazo quién ganaría hoy corrigiendo el sesgo muestral y entre qué valores mínimo y máximo se mueve cada partido.</td>
+                </tr>
+                <tr>
+                  <td><strong>🏛️ Congreso D'Hondt (350 Escaños)</strong></td>
+                  <td>Barra de mayoría absoluta (176 escaños), tarjetas con horquillas de diputados por partido y tabla provincia a provincia.</td>
+                  <td>Comprobar si el bloque de centro-derecha (PP+VOX+UPN) o el bloque de investidura suman los 176 diputados necesarios para gobernar.</td>
+                </tr>
+                <tr>
+                  <td><strong>🎚️ Simulador de Coyuntura (Λ)</strong></td>
+                  <td>Controles deslizantes interactivos (de <code>0.70x</code> a <code>1.30x</code>) para cada partido político.</td>
+                  <td>Hacer experimentos tipo <em>«¿Qué pasaría si...?»</em> (por ejemplo, simular un desgaste del 10% en un partido y ver a quién van sus escaños).</td>
+                </tr>
+                <tr>
+                  <td><strong>📉 Evaluación de Sesgo Sistemático</strong></td>
+                  <td>Comparativa del CIS frente a los resultados reales del BOE en elecciones pasadas y análisis de retención de voto.</td>
+                  <td>Constatar con datos oficiales por qué una retención idéntica del 63% en PP y PSOE no puede producir 12 puntos de ventaja salvo por desequilibrio muestral.</td>
+                </tr>
+                <tr>
+                  <td><strong>🔬 Cruces RV EG23 &amp; Factores K</strong></td>
+                  <td>Tabla completa de Factores $K$, matrices de transferencia oficiales (`P19a` y `P17R`) y nota metodológica literal del CIS.</td>
+                  <td>Auditar hasta el último decimal directamente sobre los cuadros originales publicados por el CIS en su fichero Excel.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Glosario Estadístico y Demoscópico -->
+        <div class="table-section">
+          <h2>📚 Glosario Estadístico y Demoscópico: ¿Qué significa un «95% de fiabilidad estadística»?</h2>
+          <p style="font-size:.88rem;color:var(--text2);margin-bottom:18px">
+            Cuando lees en la ficha técnica de un sondeo que tiene un <strong>«Nivel de confianza del 95% y un margen de error de ±1,4%»</strong>, estamos ante conceptos fundamentales de la estadística inferencial de Bachillerato (distribución normal o campana de Gauss). Aquí tienes todos los términos explicados de forma clara:
+          </p>
+
+          <div class="glossary-grid">
+            <!-- 1. Población vs Muestra -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>1. Población (Censo) vs. Muestra (N)</span>
+                <span class="glossary-tag">Muestreo</span>
+              </div>
+              <div class="glossary-def">
+                La <strong>Población (o Censo Electoral)</strong> es el conjunto total de ciudadanos con derecho a voto (~37,5 millones en España). La <strong>Muestra ($N$)</strong> es el subconjunto de personas a las que realmente entrevistamos (por ejemplo, $N = 5.025$ en el Barómetro de Octubre). Gracias a las leyes de la probabilidad, una muestra bien seleccionada de 4.000 o 5.000 personas basta para representar a millones con gran precisión.
+              </div>
+            </div>
+
+            <!-- 2. Nivel de Confianza del 95% -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>2. Nivel de Confianza del 95% (Fiabilidad)</span>
+                <span class="glossary-tag">Probabilidad</span>
+              </div>
+              <div class="glossary-def">
+                Como no preguntamos a los 37 millones de españoles, nunca tenemos una certeza del 100%. Elegir un <strong>95% de nivel de confianza</strong> significa que, si repitiéramos esta misma encuesta <strong>100 veces</strong> el mismo día llamando a 100 grupos distintos de 5.000 personas al azar, en <strong>95 de esas 100 encuestas</strong> el resultado real de toda España estaría dentro de la horquilla calculada (y en 5 de cada 100 podría salirse ligeramente por puro azar). En la campana de Gauss, abarcar el 95% central equivale a avanzar <strong>$z = 1,96$ desviaciones típicas</strong> a cada lado de la media.
+              </div>
+            </div>
+
+            <!-- 3. Margen de Error -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>3. Margen de Error Muestral (±e)</span>
+                <span class="glossary-tag">Fórmula Clave</span>
+              </div>
+              <div class="glossary-def">
+                Es el «radio de incertidumbre» que rodea al porcentaje estimado debido al azar de elegir una muestra. Se calcula con la fórmula de Bachillerato para proporciones:<br>
+                <code>e = 1,96 × √[ p · (1 − p) / N_efectivo ]</code><br>
+                Donde $p$ es la proporción de voto del partido (en tanto por uno) y $1,96$ es la constante del 95% de confianza. Cuanto mayor es el número de entrevistados ($N$), más pequeño es el margen de error (para reducir el error a la mitad hay que multiplicar la muestra por 4).
+              </div>
+            </div>
+
+            <!-- 4. Intervalo de Confianza (Horquilla IC 95%) -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>4. Intervalo de Confianza (Horquilla IC 95%)</span>
+                <span class="glossary-tag">Interpretación</span>
+              </div>
+              <div class="glossary-def">
+                Un sondeo serio no predice un número mágico exacto, sino un <strong>rango u horquilla</strong>: <code>[Estimación − Margen, Estimación + Margen]</code>.<br>
+                Por ejemplo, si la estimación calibrada del PP es <strong>31,7%</strong> con un margen de <strong>±1,9%</strong>, su Intervalo de Confianza al 95% es <strong>[29,8% – 33,6%]</strong>. Significa que tenemos un 95% de seguridad estadística de que el apoyo real del PP se encuentra dentro de esa franja.
+              </div>
+            </div>
+
+            <!-- 5. Error Muestral vs Sesgo Sistemático -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>5. Error Muestral (Azar) vs. Sesgo Sistemático</span>
+                <span class="glossary-tag">Concepto Crítico</span>
+              </div>
+              <div class="glossary-def">
+                ¡No deben confundirse nunca! El <strong>Error Muestral (±1,4%)</strong> mide solo la variación por puro azar (como lanzar una moneda limpia 5.000 veces). En cambio, el <strong>Sesgo Sistemático</strong> ocurre cuando la muestra está descompensada desde el origen (por ejemplo, entrevistar al doble de votantes de un partido que de otro y no corregirlo). <strong>Aumentar el número de encuestas reduce el error por azar, pero jamás corrige un sesgo sistemático</strong>: una báscula trucada con 3 kilos de más se equivocará igual aunque te peses 10.000 veces.
+              </div>
+            </div>
+
+            <!-- 6. Efecto de Diseño (deff) y Muestra Efectiva -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>6. Efecto de Diseño (deff) y N Efectivo</span>
+                <span class="glossary-tag">Estadística Avanzada</span>
+              </div>
+              <div class="glossary-def">
+                Cuando una muestra viene desequilibrada y debemos aplicar pesos de calibración ($K$) para corregirla, perdemos algo de eficiencia estadística (igual que al enderezar o hacer zoom digital en una fotografía). El <strong>Efecto de Diseño (<code>deff</code>)</strong> mide esa pérdida (suele valer entre <code>1,20</code> y <code>1,35</code>). La <strong>Muestra Efectiva ($N_{\text{ef}}$)</strong> es el número de votantes válidos dividido entre <code>deff</code>, y es la cifra real con la que esta aplicación calcula honestamente los márgenes de error.
+              </div>
+            </div>
+
+            <!-- 7. Voto Directo vs Voto Válido -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>7. Voto Directo (% Censo) vs. Voto Válido (% Urnas)</span>
+                <span class="glossary-tag">Bases de Cálculo</span>
+              </div>
+              <div class="glossary-def">
+                El <strong>Voto Directo</strong> se calcula sobre el 100% de las personas entrevistadas, incluyendo a quienes dicen <em>«No votaría (Abstención)»</em>, <em>«No sabe todavía»</em>, <em>«No contesta»</em> o <em>«Voto nulo»</em>. En cambio, la noche electoral los resultados oficiales se calculan sobre el <strong>Voto Válido</strong> (la suma exclusiva de votos a candidaturas más el voto en blanco, dejando fuera la abstención y los nulos). Por eso las estimaciones siempre tienen porcentajes más altos que el voto directo crudo.
+              </div>
+            </div>
+
+            <!-- 8. Voto + Simpatía (Pregunta 19a) -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>8. Voto + Simpatía (Variable P19a del CIS)</span>
+                <span class="glossary-tag">Cuestionario CIS</span>
+              </div>
+              <div class="glossary-def">
+                A los entrevistados que en la pregunta de intención directa (`P17R`) responden que «no saben todavía» o «en blanco», el CIS les hace una segunda pregunta (`P19R`): <em>«Sin ningún compromiso por su parte, ¿por qué partido siente usted más simpatía?»</em>. La suma de quienes ya tenían decidido su voto más la simpatía de los indecisos forma la variable oficial <strong>Voto + Simpatía (`P19a`)</strong>.
+              </div>
+            </div>
+
+            <!-- 9. Recuerdo de Voto y Voto Oculto -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>9. Recuerdo de Voto y No-Respuesta Diferencial</span>
+                <span class="glossary-tag">Sociología</span>
+              </div>
+              <div class="glossary-def">
+                El <strong>Recuerdo de Voto</strong> es la respuesta a qué partido votó el entrevistado en las anteriores elecciones generales (23J). Suele sufrir dos distorsiones sociológicas clásicas: el <em>efecto ganador / sobredeclaración</em> del partido en el Gobierno y la <strong>no-respuesta diferencial o voto oculto</strong> (votantes de oposición que rechazan contestar la encuesta telefónica o se refugian en «No recuerda / No contesta»).
+              </div>
+            </div>
+
+            <!-- 10. Matriz de Transferencia (Tabla de Contingencia) -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>10. Matriz de Transferencia de Voto (RV EG23)</span>
+                <span class="glossary-tag">Álgebra Electoral</span>
+              </div>
+              <div class="glossary-def">
+                Es una tabla estadística de doble entrada que cruza el pasado con el presente: cada <strong>columna</strong> representa a los votantes de un partido en 2023 y cada <strong>fila</strong> muestra a qué partido dicen que votarían hoy. La diagonal principal de la tabla mide la <strong>fidelidad o retención</strong> (qué porcentaje repite voto) y el resto de casillas mide las <strong>fugas o trasvases</strong> entre partidos.
+              </div>
+            </div>
+
+            <!-- 11. RMSE / Índice de Distorsión (IDT) -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>11. RMSE / Índice de Distorsión (IDT)</span>
+                <span class="glossary-tag">Métrica de Auditoría</span>
+              </div>
+              <div class="glossary-def">
+                Siglas en inglés de <em>Root Mean Square Error</em> (Raíz del Error Cuadrático Medio). Para evitar que un error de +6 puntos en un partido se anule con un error de −6 puntos en otro al hacer la media, se elevan las diferencias al cuadrado, se promedian y se extrae la raíz cuadrada. Valores por encima de <strong>2,5 – 3,0 puntos</strong> indican una desviación metodológica severa entre dos estimaciones.
+              </div>
+            </div>
+
+            <!-- 12. Ley D'Hondt y Circunscripción -->
+            <div class="glossary-card">
+              <div class="glossary-term">
+                <span>12. Ley D'Hondt, Barrera del 3% y Mayoría (176)</span>
+                <span class="glossary-tag">Sistema Electoral</span>
+              </div>
+              <div class="glossary-def">
+                Regulada en el Artículo 163 de la LOREG. En cada provincia se descartan primero las listas con menos del 3% de los votos válidos. Después se dividen los votos de cada partido entre $1, 2, 3, \dots$ hasta el número de escaños de la provincia, adjudicando los asientos a los números más altos. Como el Congreso tiene <strong>350 diputados</strong> en total, la mitad más uno necesaria para lograr la investidura en primera votación (<strong>mayoría absoluta</strong>) es de <strong>176 escaños</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie de página -->
+      <footer class="footer">
+        CIS Abierto & Transparente · Fuentes primarias verificadas: Centro de Investigaciones Sociológicas (<code>cis.es</code>) y Junta Electoral Central (BOE) · Cumplimiento Art. 69 LOREG
+      </footer>
+    </main>
+  </div>
+
+  <!-- Librerías Externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Módulos del Core (Única Fuente de Verdad servida desde /core) -->
+  <script src="core/models/aldabon.js?v=1.2.0"></script>
+  <script src="core/models/transfer_matrix.js?v=1.2.0"></script>
+  <script src="core/models/dhondt.js?v=1.2.0"></script>
+  <script src="core/audit/tezanos_bias.js?v=1.2.0"></script>
+
+  <!-- Aplicación -->
+  <script src="js/app.js?v=1.2.0"></script>
+</body>
+</html>

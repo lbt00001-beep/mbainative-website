@@ -75,7 +75,7 @@ export const categorias = [
     id: "sondeos",
     nombre: "Sondeos",
     icono: "🗳️",
-    descripcion: "Herramientas de análisis electoral y estimación de voto",
+    descripcion: "Herramientas de auditoría demoscópica, análisis electoral y estimación reproducible de voto",
     apps: [
       {
         nombre: "Observatorio Electoral",
@@ -92,9 +92,9 @@ export const categorias = [
         estado: "disponible"
       },
       {
-        nombre: "Estimador CIS",
-        descripcion: "Monitor de cocina electoral del CIS. Compara Voto Directo, Estimación CIS y el modelo Aldabón-Gemini 3.0 para elecciones generales y autonómicas.",
-        url: "https://cis-estimador-mbai.web.app",
+        nombre: "CIS Abierto & Transparente — Auditoría Demoscópica y D'Hondt",
+        descripcion: "Plataforma de auditoría sobre ficheros oficiales del CIS (multi_a.xlsx). Calibración por recuerdo válido 23J (BOE) con Factor K, matrices de transferencia empíricas (RV EG23), proyección D'Hondt de 350 escaños en las 52 circunscripciones con horquillas IC 95% y guía didáctica.",
+        url: "/cis-transparente/index.html",
         tipo: "externo",
         estado: "disponible"
       }

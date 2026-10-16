@@ -114,6 +114,13 @@ export const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Escrutador de Artículos — Verificación de datos",
+        descripcion: "Pega el enlace de un artículo, sube un PDF o pega su texto. Identifica los datos en que se apoya el autor, los contrasta con fuentes externas, califica cada idea principal y secundaria, detecta falacias y omisiones y le pone una nota de 0 a 10. Usa tu clave de OpenRouter y elige la IA por coste.",
+        url: "https://escrutador.mbainative.com",
+        tipo: "externo",
+        estado: "disponible"
+      },
+      {
         nombre: "OpinionPulse AI — Inteligencia de Opinión & Polarización",
         descripcion: "Monitor en tiempo real de sentimiento y controversia en Reddit, Prensa y Redes. Ponderación contextual bayesiana, detección de polarización bimodal e informes ejecutivos con IA.",
         url: "https://opinionpulse-ai.vercel.app",

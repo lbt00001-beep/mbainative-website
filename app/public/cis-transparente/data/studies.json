@@ -112,10 +112,10 @@
     },
     "fidelidad": {
       "PP": 1.0,
-      "PSOE": 1.0,
-      "VOX": 1.0,
-      "SUMAR": 0.9,
-      "PODEMOS": 0.95,
+      "PSOE": 0.94,
+      "VOX": 0.965,
+      "SUMAR": 0.87,
+      "PODEMOS": 0.99,
       "SALF": 1.0,
       "ERC": 1.0,
       "JUNTS": 1.0,
@@ -127,8 +127,13 @@
     },
     "transvases": {
       "SUMAR": {
-        "PODEMOS": 0.45,
-        "PSOE": 0.45,
+        "PODEMOS": 0.25,
+        "Abstención": 0.65,
+        "En Blanco": 0.1
+      },
+      "PSOE": {
+        "Abstención": 0.7,
+        "PP": 0.2,
         "En Blanco": 0.1
       }
     },

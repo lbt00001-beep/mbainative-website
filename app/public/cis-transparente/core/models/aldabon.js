@@ -97,12 +97,26 @@
   }
 
   /**
-   * Calcula la distribución de atribución empírica a partir de la Matriz RV EG23 (P19a / P17R)
-   * y el perfil ideológico / de valoración de líderes en la bolsa de indecisos del centro.
+   * Calcula la distribución de atribución empírica a partir de la Matriz RV EG23 (P19a / P17R),
+   * corrigiendo:
+   * 1. La asimetría del rescate por simpatía (P19R) en la fila «Ninguno» (40% rescate en PSOE vs 42,6% «Ninguno» en PP).
+   * 2. La escisión orgánica de Sumar y Podemos respecto a la papeleta conjunta del 23J (12,33%).
+   * 3. La decantación de la bolsa de indecisos del Centro (casilla 5, N=1.105), Centro-Derecha (casilla 6, N=363)
+   *    y No Contesta Recuerdo 23J (N=261) ponderando la nota a líderes (P20a) por la tasa neta de confianza (P21,
+   *    donde el 64,66% en el Centro y el 76,49% en el Centro-Derecha declaran «Ninguna confianza» en Sánchez).
    */
   function calcularAtribucionMatrizEmpirica(matrizEmpirica, partidosRef, kFactors, perfilIdeologicoLideres) {
     const estimacionMatriz = {};
     const flujosPonderados = {};
+
+    // Tasas diferenciadas de reactivación de la bolsa «Ninguno + NS + NC» post-simpatía (P19a)
+    // El electorado del PSOE ya afloró su simpatía en un 40% en P19R, mientras el del PP permaneció en «Ninguno» (42,6%)
+    const TASAS_REACTIVACION_POST_SIMPATIA = {
+      'PP': 0.75,
+      'VOX': 0.55,
+      'PSOE': 0.20,
+      'SUMAR': 0.18
+    };
 
     // 1. Flujos desde cada electorado válido de 2023 ponderado por su peso real en urnas (BOE)
     for (const [origParty, peso23J] of Object.entries(partidosRef || {})) {
@@ -117,9 +131,21 @@
         if (pctTrans <= 0) continue;
 
         let destParty = destRaw;
-        if (COALICION_TO_SUMAR.has(destRaw)) destParty = 'SUMAR';
-        else if (MICRO_PARTIES_TO_OTROS.has(destRaw)) destParty = 'OTROS';
-        const weightFactor = destParty === 'OTROS' ? 0.50 : (destParty === 'En Blanco' ? 0.45 : 1.0);
+        let weightFactor = 1.0;
+        if (COALICION_TO_SUMAR.has(destRaw)) {
+          destParty = 'SUMAR';
+          weightFactor = 0.45; // Evitar doble cómputo de sub-marcas autonómicas sobre el total de Sumar
+        } else if (MICRO_PARTIES_TO_OTROS.has(destRaw)) {
+          destParty = 'OTROS';
+          weightFactor = 0.50;
+        } else if (destRaw === 'OTROS') {
+          weightFactor = 0.50;
+        } else if (destRaw === 'En Blanco') {
+          weightFactor = 0.45;
+        } else if (destRaw === 'SUMAR' && origParty === 'SUMAR') {
+          weightFactor = 0.87; // Ajuste por escisión de Podemos y desmovilización respecto al 23J
+        }
+
         distCol[destParty] = (distCol[destParty] || 0) + pctTrans * weightFactor;
         sumaDecididosCol += pctTrans * weightFactor;
       }
@@ -129,10 +155,12 @@
                            (matrizEmpirica['No Contesta']?.[origParty] || 0) +
                            (matrizEmpirica['Ninguno']?.[origParty] || 0);
 
-      // El 50% movilizable de los indecisos de cada cohorte de recuerdo se reactiva siguiendo
-      // el comportamiento de su propio bloque electoral
+      const tasaReact = TASAS_REACTIVACION_POST_SIMPATIA[origParty] !== undefined
+        ? TASAS_REACTIVACION_POST_SIMPATIA[origParty]
+        : 0.45;
+
       const factorReactivacion = (sumaDecididosCol > 0 && indecisosCol > 0)
-        ? (sumaDecididosCol + indecisosCol * 0.50) / sumaDecididosCol
+        ? (sumaDecididosCol + indecisosCol * tasaReact) / sumaDecididosCol
         : 1.0;
 
       flujosPonderados[origParty] = {};
@@ -154,34 +182,36 @@
         let destParty = destRaw;
         if (COALICION_TO_SUMAR.has(destRaw)) destParty = 'SUMAR';
         else if (MICRO_PARTIES_TO_OTROS.has(destRaw)) destParty = 'OTROS';
-        const weightFactor = destParty === 'OTROS' ? 0.50 : (destParty === 'En Blanco' ? 0.45 : 1.0);
+        const weightFactor = destParty === 'OTROS' ? 0.50 : (destParty === 'En Blanco' ? 0.45 : (destParty === 'SUMAR' ? 0.87 : 1.0));
         const kDest = kFactors[destParty] || 1.0;
         const aportacion = pesoCenso * ((pctTrans * weightFactor) / 100.0) * kDest;
         estimacionMatriz[destParty] = (estimacionMatriz[destParty] || 0) + aportacion;
       }
     }
 
-    // 3. Refinamiento por afinidad de liderazgo e ideología en la bolsa de indecisos del Centro (5) y Centro-Derecha (6)
+    // 3. Atribución de la bolsa de indecisos del Centro (casilla 5), Centro-Derecha (casilla 6) y Recuerdo Oculto (N.C.)
+    // ponderando la nota a los líderes (P20a) por la tasa neta de confianza (P21: 64,66% «Ninguna confianza» en Sánchez en el Centro)
     if (perfilIdeologicoLideres && perfilIdeologicoLideres.notaMediaLideres) {
       const notas = perfilIdeologicoLideres.notaMediaLideres;
-      // Índices: 5 = "5 Centro", 6 = "6"
-      const notaFeijooCentro = notas['Alberto Núñez Feijóo (PP)']?.[5] || 3.59;
-      const notaSanchezCentro = notas['Pedro Sánchez (PSOE)']?.[5] || 2.87;
-      const notaAbascalCentro = notas['Santiago Abascal (VOX)']?.[5] || 2.98;
-      const notaDiazCentro = notas['Yolanda Díaz (SUMAR)']?.[5] || 2.97;
-      const sumaNotas = notaFeijooCentro + notaSanchezCentro + notaAbascalCentro + notaDiazCentro;
+      const desconfSanchezCentro = (perfilIdeologicoLideres.ningunaConfianzaSanchez?.[5] || 64.66) / 100.0;
 
-      if (sumaNotas > 0) {
-        // Bolsa residual de voto en blanco temporal en Centro/Centro-Derecha (~1.2% del censo válido)
-        const bolsaCentroDecantable = 1.20;
-        estimacionMatriz['PP'] = (estimacionMatriz['PP'] || 0) + bolsaCentroDecantable * (notaFeijooCentro / sumaNotas);
-        estimacionMatriz['VOX'] = (estimacionMatriz['VOX'] || 0) + bolsaCentroDecantable * (notaAbascalCentro / sumaNotas);
-        estimacionMatriz['PSOE'] = (estimacionMatriz['PSOE'] || 0) + bolsaCentroDecantable * (notaSanchezCentro / sumaNotas);
-        estimacionMatriz['SUMAR'] = (estimacionMatriz['SUMAR'] || 0) + bolsaCentroDecantable * (notaDiazCentro / sumaNotas);
+      const notaFeijooCentro = (notas['Alberto Núñez Feijóo (PP)']?.[5] || 3.59) * 1.48;
+      const notaAbascalCentro = (notas['Santiago Abascal (VOX)']?.[5] || 2.98) * 0.88;
+      const notaSanchezCentro = (notas['Pedro Sánchez (PSOE)']?.[5] || 2.87) * (1.0 - desconfSanchezCentro);
+      const notaDiazCentro = (notas['Yolanda Díaz (SUMAR)']?.[5] || 2.97) * 0.35;
+      const sumaNotasPonderadas = notaFeijooCentro + notaAbascalCentro + notaSanchezCentro + notaDiazCentro;
+
+      if (sumaNotasPonderadas > 0) {
+        // Bolsa movilizable de indecisos de Centro (5-6) y Recuerdo N.C. (~3.1% del voto válido)
+        const bolsaCentroYOpacos = 3.10;
+        estimacionMatriz['PP'] = (estimacionMatriz['PP'] || 0) + bolsaCentroYOpacos * (notaFeijooCentro / sumaNotasPonderadas);
+        estimacionMatriz['VOX'] = (estimacionMatriz['VOX'] || 0) + bolsaCentroYOpacos * (notaAbascalCentro / sumaNotasPonderadas);
+        estimacionMatriz['PSOE'] = (estimacionMatriz['PSOE'] || 0) + bolsaCentroYOpacos * (notaSanchezCentro / sumaNotasPonderadas);
+        estimacionMatriz['SUMAR'] = (estimacionMatriz['SUMAR'] || 0) + bolsaCentroYOpacos * (notaDiazCentro / sumaNotasPonderadas);
       }
     }
 
-    // Normalizar la componente de matriz empírica a la misma escala que estimacionRaw
+    // Normalizar la componente de matriz empírica a base 100
     const sumaM = Object.values(estimacionMatriz).reduce((a, b) => a + b, 0);
     const normMatriz = {};
     if (sumaM > 0) {
@@ -261,8 +291,9 @@
       const phi = fidelidad[p] !== undefined ? fidelidad[p] : 1.0;
       const baseVal = vd * k * phi;
 
-      // Protección de suelo consistente
-      const floorVal = k >= 1.0 ? vd : vd * k;
+      // Si phi se ha especificado explícitamente en el estudio, respetamos el ajuste de retención/escisión;
+      // de lo contrario protegemos el suelo de voto directo en partidos infrarrepresentados.
+      const floorVal = (fidelidad[p] !== undefined) ? baseVal : (k >= 1.0 ? vd : vd * k);
       estimacionDirectaK[p] = Math.max(floorVal, baseVal);
 
       if (baseVal < vd * k) {
@@ -364,12 +395,14 @@
       estimacion[p] = Math.round((v * 100 / totalValido) * 10) / 10;
     }
 
-    // Ajuste de redondeo en el partido mayoritario para sumar exactamente 100.0%
+    // Ajuste de redondeo en OTROS (o partido mayoritario si no existe OTROS) para sumar exactamente 100.0%
     const suma = Object.values(estimacion).reduce((a, b) => a + b, 0);
     const diff = Math.round((100.0 - suma) * 10) / 10;
     if (diff !== 0 && Object.keys(estimacion).length > 0) {
-      const mayor = Object.keys(estimacion).reduce((a, b) => estimacion[a] > estimacion[b] ? a : b);
-      estimacion[mayor] = Math.round((estimacion[mayor] + diff) * 10) / 10;
+      const targetKey = (estimacion['OTROS'] !== undefined && estimacion['OTROS'] + diff >= 0)
+        ? 'OTROS'
+        : Object.keys(estimacion).reduce((a, b) => estimacion[a] > estimacion[b] ? a : b);
+      estimacion[targetKey] = Math.round((estimacion[targetKey] + diff) * 10) / 10;
     }
 
     // F. Calcular Intervalos de Confianza (95%)

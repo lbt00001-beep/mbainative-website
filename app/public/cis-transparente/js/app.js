@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             <span style="font-size:1.6rem">📐</span>
             <div>
               <strong style="color:var(--red);font-size:.98rem;display:block;margin-bottom:4px">
-                DIAGNÓSTICO METODOLÓGICO (${activeStudy.name} — Estudio ${activeStudy.id}): Desequilibrio de Recuerdo Muestral (${recValPSOE}% PSOE vs ${recValPP}% PP sobre voto válido)
+                DIAGNÓSTICO METODOLÓGICO (${activeStudy.name} — Estudio ${activeStudy.id}): Desequilibrio de Recuerdo Declarado (${recValPSOE}% PSOE vs ${recValPP}% PP sobre voto válido)
               </strong>
               <div style="font-size:.85rem;line-height:1.55;color:var(--text)">
                 En los ficheros oficiales de este estudio, el recuerdo de voto válido de las elecciones de referencia presenta un <strong>${recValPSOE}%</strong> para el PSOE frente a un <strong>${recValPP}%</strong> para el PP${muestraTotalNote}, cuando el resultado real certificado por la Junta Electoral fue de <strong>${refPP}% PP</strong> y <strong>${refPSOE}% PSOE</strong>.
-                La ausencia de ponderación por recuerdo (<strong>K_PP = ${kPP}x</strong>, <strong>K_PSOE = ${kPSOE}x</strong>) explica que la estimación oficial del CIS otorgue un diferencial de <strong>${brechaCIS > 0 ? '+' + brechaCIS : brechaCIS} puntos al PSOE (${cisPSOE}% vs ${cisPP}%)</strong>, mientras que la reponderación sobre bases homogéneas sitúa a <strong>PP en ${estPP}%</strong> y a <strong>PSOE en ${estPSOE}%</strong>.${escañosNote}
+                Ya se deba a sobrerrepresentación muestral o a <strong>voto oculto / pudor declarativo</strong> del electorado conservador (o a la combinación de ambos), no aplicar el factor corrector (<strong>K_PP = ${kPP}x</strong>, <strong>K_PSOE = ${kPSOE}x</strong>) hace que la estimación oficial del CIS otorgue <strong>${brechaCIS > 0 ? '+' + brechaCIS : brechaCIS} puntos al PSOE (${cisPSOE}% vs ${cisPP}%)</strong>, mientras que la calibración sitúa a <strong>PP en ${estPP}%</strong> y a <strong>PSOE en ${estPSOE}%</strong>.${escañosNote}
               </div>
             </div>
           </div>
@@ -739,10 +739,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         ? `${activeStudy.partidosReferencia[p]}%`
         : '-';
 
-      let interp = 'Equilibrio muestral (0,90 ≤ K ≤ 1,10)';
-      if (kRounded > 1.15) interp = '<span style="color:var(--green)">Infrarrepresentado en muestra (requiere ponderación K > 1)</span>';
-      else if (kRounded > 1.05) interp = '<span style="color:var(--accent)">Ligera infrarrepresentación muestral</span>';
-      else if (kRounded < 0.90) interp = '<span style="color:var(--red)">Sobrerrepresentado en muestra (requiere ajuste K < 1)</span>';
+      let interp = 'Equilibrio declarativo (0,90 ≤ K ≤ 1,10)';
+      if (kRounded > 1.15) interp = '<span style="color:var(--green)">Infrarrepresentado o voto oculto por pudor (requiere K > 1)</span>';
+      else if (kRounded > 1.05) interp = '<span style="color:var(--accent)">Ligera infrarrepresentación / voto oculto leve</span>';
+      else if (kRounded < 0.90) interp = '<span style="color:var(--red)">Sobrerrepresentado o sobredeclarado por deseabilidad social (requiere K < 1)</span>';
 
       return `
         <tr>

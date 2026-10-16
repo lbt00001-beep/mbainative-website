@@ -191,7 +191,10 @@
           <h2>📖 Guía Didáctica: ¿Cómo funciona esta aplicación y qué es la «Cocina Electoral»?</h2>
           <p>
             Imagina que quieres saber si una olla de sopa de 37 millones de litros está bien de sal. No necesitas beberte la olla entera: basta con <strong>removerla muy bien</strong> y probar una cucharada de 5.000 gotas (la <strong>muestra</strong>).<br><br>
-            El problema en sociología electoral es que las personas no son gotas idénticas: cuando un encuestador llama por teléfono, los votantes de unos partidos contestan con más entusiasmo que los de otros, y alrededor de un 25% no sabe aún a quién votará o prefiere no decirlo. Si publicas los datos en bruto sin corregir quién falta al teléfono, es como probar la sopa sin haberla removido antes. La <strong>cocina electoral</strong> no es «inventar datos»: es aplicar reglas matemáticas transparentes para equilibrar la muestra con la realidad de las urnas.
+            El problema en sociología electoral es que las personas no son gotas de agua: cuando un encuestador llama por teléfono, ocurren <strong>dos fenómenos humanos a la vez</strong>:<br>
+            1) <strong>Desequilibrio de participación (quién contesta):</strong> Los votantes de unos partidos están más dispuestos a responder una encuesta oficial que los de otros.<br>
+            2) <strong>Voto oculto y deseabilidad social (qué se declara):</strong> Hay ciudadanos —históricamente más frecuentes en el electorado conservador de PP o VOX— a quienes les da pudor, vergüenza o reparo confesar su voto por teléfono ante un organismo público. Una parte se refugia en el <em>«No sabe / No contesta»</em> y otra parte llega incluso a declarar que votó o votará al partido del Gobierno (PSOE) por conformidad social, mientras que el votante de izquierda suele declarar su voto sin ese freno (habiendo de todo, por supuesto, en distintos márgenes).<br><br>
+            La <strong>cocina electoral</strong> no es «inventar datos»: es aplicar reglas matemáticas transparentes para corregir tanto el desequilibrio de quién responde como el efecto del voto oculto, contrastando lo que dice la encuesta con la realidad verificada de las urnas.
           </p>
         </div>
 
@@ -202,30 +205,33 @@
             <!-- Paso 1 -->
             <div class="help-step-card">
               <span class="step-badge">Paso 1 · El Problema en los Datos Crudos</span>
-              <h3>¿Por qué engaña el Voto Directo sin calibrar?</h3>
+              <h3>¿Por qué difiere lo que la gente declara de lo que salió en las urnas?</h3>
               <p>
-                Cuando el CIS pregunta <em>«¿A quién votaría hoy?»</em> obtiene el <strong>Voto Directo</strong>. Pero también hace una pregunta clave de control: <strong>«¿A quién votó usted en las últimas elecciones generales del 23J de 2023?»</strong> (el llamado <em>Recuerdo de Voto</em>).
+                Cuando el CIS pregunta <em>«¿A quién votaría hoy?»</em> obtiene el <strong>Voto Directo</strong>, y cuando pregunta <em>«¿A quién votó en las generales de 2023?»</em> obtiene el <strong>Recuerdo de Voto</strong>. Entre ambos datos y la realidad caben dos explicaciones complementarias:
               </p>
+              <ul>
+                <li><strong>Hipótesis A (Muestra descompensada):</strong> Se ha entrevistado a más votantes reales de izquierdas que de derechas.</li>
+                <li><strong>Hipótesis B (Voto oculto / «Espiral del silencio»):</strong> La muestra tiene votantes conservadores, pero por pudor o recelo ocultan que votan a PP o VOX (refugiándose en <em>No sabe / No contesta</em> o diciendo incluso que votan al PSOE), mientras el votante progresista dice la verdad con mayor frecuencia.</li>
+              </ul>
               <div class="example-callout">
-                <strong>🔎 Caso Real (Barómetro Octubre 2026, N=5.025):</strong><br>
-                En las urnas reales de julio de 2023 (certificadas en el BOE), el <strong>PP ganó con el 33,06%</strong> y el <strong>PSOE obtuvo el 31,68%</strong> (casi empatados).<br>
-                Sin embargo, entre los encuestados de este barómetro que recuerdan su voto válido, ¡el <strong>42,58% dice haber votado al PSOE</strong> y solo el <strong>21,76% al PP</strong>! Es decir, en la muestra telefónica hay <strong>casi el doble de votantes socialistas que populares</strong>.
+                <strong>🔎 El dato real (Barómetro Octubre 2026, N=5.025):</strong><br>
+                En las urnas de 2023 (BOE), el <strong>PP obtuvo el 33,06%</strong> y el <strong>PSOE el 31,68%</strong>. Sin embargo, en la encuesta un <strong>42,58% declara haber votado al PSOE</strong> y solo un <strong>21,76% al PP</strong>. Sea por exceso de entrevistados socialistas o por voto oculto conservador (en la práctica es una mezcla de ambos), el dato bruto arranca con una brecha artificial de 20 puntos.
               </div>
             </div>
 
             <!-- Paso 2 -->
             <div class="help-step-card">
               <span class="step-badge">Paso 2 · La Báscula Matemática (Factor K)</span>
-              <h3>Cómo corregimos el desequilibrio de la muestra</h3>
+              <h3>Cómo corrige el Factor K tanto la muestra como el voto oculto</h3>
               <p>
-                Para que cada grupo de votantes pese en la encuesta exactamente lo mismo que pesó en la realidad de las urnas, calculamos el <strong>Factor de Calibración ($K$)</strong> sobre voto válido:
+                Lo extraordinario de las matemáticas electorales es que el <strong>Factor de Calibración ($K$)</strong> corrige ambos fenómenos simultáneamente al comparar el voto real en las urnas con el voto declarado en la encuesta:
               </p>
               <div class="formula-box">
-                K = (% Real en Urnas 23J) / (% Recuerdo Válido en Encuesta)
+                K = (% Real en Urnas 23J) / (% Declarado Válido en Encuesta)
               </div>
               <ul>
-                <li><strong>Para el PP:</strong> <code>K = 33,06% / 21,76% = 1,52x</code>. Como faltan votantes del PP al teléfono (<em>voto oculto o menor respuesta</em>), cada encuestado del PP debe valer por <strong>1,52</strong>.</li>
-                <li><strong>Para el PSOE:</strong> <code>K = 31,68% / 42,58% = 0,74x</code>. Como hay exceso de votantes del PSOE en la muestra, cada respuesta se pondera por <strong>0,74</strong>.</li>
+                <li><strong>Para el PP (<code>K = 33,06 / 21,76 = 1,52x</code>) y VOX (<code>K = 1,16x</code>):</strong> Tanto si faltan en la llamada como si una parte ocultó su voto por pudor, el factor $K > 1$ restituye el peso real que ese electorado demostró tener cuando votó en secreto dentro de una cabina.</li>
+                <li><strong>Para el PSOE (<code>K = 31,68 / 42,58 = 0,74x</code>):</strong> Descuenta la sobredeclaración (ya provenga de haber entrevistado a más simpatizantes socialistas o de encuestados que dicen «PSOE» por deseabilidad social).</li>
               </ul>
             </div>
 
@@ -403,11 +409,13 @@
             <!-- 9. Recuerdo de Voto y Voto Oculto -->
             <div class="glossary-card">
               <div class="glossary-term">
-                <span>9. Recuerdo de Voto y No-Respuesta Diferencial</span>
-                <span class="glossary-tag">Sociología</span>
+                <span>9. Voto Oculto («Espiral del Silencio») y Sesgo Muestral</span>
+                <span class="glossary-tag">Sociología Electoral</span>
               </div>
               <div class="glossary-def">
-                El <strong>Recuerdo de Voto</strong> es la respuesta a qué partido votó el entrevistado en las anteriores elecciones generales (23J). Suele sufrir dos distorsiones sociológicas clásicas: el <em>efecto ganador / sobredeclaración</em> del partido en el Gobierno y la <strong>no-respuesta diferencial o voto oculto</strong> (votantes de oposición que rechazan contestar la encuesta telefónica o se refugian en «No recuerda / No contesta»).
+                Cuando el recuerdo o la intención de voto en una encuesta difieren mucho de las urnas, operan <strong>dos causas combinadas</strong> (siempre dentro de márgenes, pues hay de todo en ambos sentidos):<br>
+                • <strong>Sesgo de selección:</strong> Se entrevista a más simpatizantes de un bloque que de otro.<br>
+                • <strong>Voto oculto y deseabilidad social:</strong> Una parte de los votantes conservadores (PP o VOX) siente pudor o recelo al confesar su voto por teléfono ante un encuestador público y prefiere decir <em>«No sabe / No contesta»</em> o incluso declarar que vota al partido del Gobierno (PSOE), mientras que el votante de izquierda suele declarar su opción con mayor franqueza. El Factor $K$ corrige matemáticamente la suma neta de ambos efectos.
               </div>
             </div>
 

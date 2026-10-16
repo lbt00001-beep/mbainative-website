@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './InversionFundamentales.module.css';
+import AppAttribution from '../AppAttribution';
 
 // Type definitions
 interface Metric {
@@ -755,8 +756,7 @@ export default function InversionFundamentales() {
 
       {/* Copyright */}
       <footer className={styles.copyright}>
-        <p>Copyright © 2025. Versión 0.0</p>
-        <p>Luis Benedicto Tuzón <em>vibe coding</em> con Claude Opus 4.5 Thinking</p>
+        <AppAttribution />
       </footer>
     </div>
   );

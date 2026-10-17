@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-17T14:00:14.119Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-17T19:06:12.577Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"Geoffrey Hinton’s TERRIFYING AI Warning: “We May Lose Control”\"\n\n▶️ youtube.com/watch?v=BfKAXZCxCEc",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "geoffreyhinton"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=BfKAXZCxCEc",
-    "imageUrl": "https://i.ytimg.com/vi/BfKAXZCxCEc/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
+    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
   }
 }

@@ -107,15 +107,8 @@ export const categorias = [
     descripcion: "Herramientas de inteligencia informativa, monitorización de opinión pública y análisis periodístico",
     apps: [
       {
-        nombre: "Radar de Calidad Periodística",
-        descripcion: "Evalúa artículos en PDF o texto con ocho criterios editoriales. Obtén una puntuación de calidad, un diagnóstico razonado y un informe descargable usando tu clave de OpenRouter.",
-        url: "https://radar-calidad-periodistica-xcquloicja-ew.a.run.app",
-        tipo: "externo",
-        estado: "disponible"
-      },
-      {
-        nombre: "Escrutador de Artículos — Verificación de datos",
-        descripcion: "Pega el enlace de un artículo, sube un PDF o pega su texto. Identifica los datos en que se apoya el autor, los contrasta con fuentes externas, califica cada idea principal y secundaria, detecta falacias y omisiones y le pone una nota de 0 a 10. Usa tu clave de OpenRouter y elige la IA por coste.",
+        nombre: "Escrutador de Artículos — Verificación y calidad periodística",
+        descripcion: "Analiza un artículo por enlace, PDF (incluso escaneado) o texto: verifica sus hechos con fuentes externas y valora su calidad según su género, con nota de fiabilidad, nota de calidad y acciones editoriales para mejorarlo. Analiza lotes de artículos, compáralos y elige la IA por coste. Usa tu clave de OpenRouter.",
         url: "https://escrutador.mbainative.com",
         tipo: "externo",
         estado: "disponible"

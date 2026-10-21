@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-10-20T20:19:30.015Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-10-21T09:53:00.326Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 14,
-    "title": "Global desde el día uno",
-    "icon": "🌐"
+    "id": 15,
+    "title": "Mejora continua automatizada",
+    "icon": "🔄"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
+    "type": "news",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 Learning to use local AI is exciting, overwhelming, and frustrating\n\nBaby’s first local AI agent. | Photo: Antonio G. Di Benedetto / The Verge\t\n\nI'm embarking on a jo...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "NoticiasIA",
+      "TheVergeAI"
     ],
-    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
-    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress"
   }
 }

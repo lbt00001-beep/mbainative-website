@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import ai, config, ingest, keys, learning, reports
+from . import ai, cloudsync, config, ingest, keys, learning, reports
 from .db import (Activity, AiUsage, Answer, ChatMessage, Chunk, Document, Family, Flashcard, ReportLog,
                  SessionLocal, Student, Subject, Topic, init_db)
 
@@ -34,9 +34,31 @@ STATIC = config.BASE_DIR / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
 
+@app.middleware("http")
+async def _cloud_backup(request: Request, call_next):
+    response = await call_next(request)
+    if cloudsync.enabled():
+        from starlette.concurrency import run_in_threadpool
+        await run_in_threadpool(cloudsync.maybe_upload)
+    return response
+
+
+@app.on_event("shutdown")
+def _shutdown():
+    if cloudsync.enabled():
+        cloudsync.upload(force=True)
+        log.info("Copia final de la base de datos subida a Cloud Storage")
+
+
 @app.on_event("startup")
 def _startup():
+    from .db import SQLITE_PATH
+    if cloudsync.enabled():
+        if not SQLITE_PATH:
+            raise RuntimeError("GCS_BUCKET solo funciona con la base de datos SQLite integrada")
+        cloudsync.restore(SQLITE_PATH)
     init_db()
+    cloudsync.start_background()
     with SessionLocal() as db:  # documentos que se quedaron a medias por un reinicio
         limit = datetime.utcnow() - timedelta(minutes=30)
         for d in db.query(Document).filter(Document.status == "procesando", Document.created_at < limit):

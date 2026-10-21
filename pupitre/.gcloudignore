@@ -9,6 +9,6 @@ produccion.txt
 __pycache__/
 *.pyc
 *.bat
-desplegar.py
 run.py
 plantilla-*.txt
+cloudshell-desplegar.sh

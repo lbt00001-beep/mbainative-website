@@ -19,8 +19,20 @@ if _url.startswith("sqlite"):
     Path(_url.replace("sqlite:///", "")).parent.mkdir(parents=True, exist_ok=True)
     _kwargs["connect_args"] = {"check_same_thread": False}
 
+SQLITE_PATH = Path(_url.replace("sqlite:///", "")) if _url.startswith("sqlite") else None
+
 engine = create_engine(_url, **_kwargs)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
+
+
+def _after_commit(_session) -> None:
+    from . import cloudsync
+    cloudsync.mark_dirty()
+
+
+from sqlalchemy import event  # noqa: E402
+
+event.listen(SessionLocal, "after_commit", _after_commit)
 
 
 class Base(DeclarativeBase):

@@ -41,7 +41,7 @@ registro de uso de la IA. Antes ofrece descargar el progreso de cada alumno en C
 ## Arquitectura
 
 - **Backend**: Python 3.12 + FastAPI + SQLAlchemy. Sirve también la web (sin compilación).
-- **Base de datos**: SQLite en local; **PostgreSQL** en producción (`DATABASE_URL`).
+- **Base de datos**: SQLite (en Cloud Run, con copia continua en Cloud Storage); opcionalmente PostgreSQL.
 - **IA**: OpenRouter, con modelo de respaldo automático.
   - Principal y visión: `google/gemini-3.1-flash-lite` (0,25 $ / 1,50 $ por millón de tokens).
   - Respaldo: `deepseek/deepseek-v4.1-flash` (0,30 $ / 1,20 $ por millón de tokens).
@@ -82,26 +82,31 @@ conversación), **Ver** (inicio, asignaturas, progreso, tamaño de texto, pantal
 estado de la IA, bloquear zona familia) y **Ayuda** (guía rápida F1, cómo se mide el progreso, atajos,
 comprobar conexión con la IA, acerca de). `Alt+M` abre el menú; en el móvil se convierte en un botón «Menú».
 
-## Publicar en internet (Cloud Run) con DESPLEGAR.bat
+## Publicar en internet (Cloud Run, sin servicios externos)
 
 Pupitre necesita un servidor Python, así que no va dentro de la web de Hostinger: se publica en
-**Google Cloud Run** (como el Coach Comercial) y mbainative.com lo enlaza desde el catálogo.
+**Cloud Run** (proyecto `mbai-native-detector-2026`, como el Coach Comercial) y mbainative.com lo
+enlaza desde el catálogo.
 
-1. **Base de datos (gratis)**: crea un proyecto en [neon.tech](https://neon.tech) (región Frankfurt)
-   y copia la *connection string* `postgresql://...`. Las tablas se crean solas.
-2. Doble clic en **`DESPLEGAR.bat`**. La primera vez crea `produccion.txt` (no se sube a GitHub):
-   pon `DATABASE_URL`, un `SIGNUP_CODE` para tus amigos y, si quieres el informe por email, los datos `SMTP_*`.
-3. Vuelve a abrir **`DESPLEGAR.bat`**. Hace todo lo demás:
-   - genera `SECRET_KEY` y `CRON_TOKEN` (una sola vez) y despliega con `gcloud run deploy --source`;
-   - fija `APP_URL` con la dirección pública;
-   - programa en Cloud Scheduler el **informe semanal** (viernes, 18:00, hora de Madrid);
-   - guarda la dirección en `data/url-publicada.txt` y la abre en el navegador.
+**Datos**: SQLite dentro de la app, con copia automática en un bucket de Cloud Storage del mismo
+proyecto (`GCS_BUCKET`). Al arrancar se restaura la última copia; tras cada cambio se sube una copia
+(como mucho cada 4 s) y otra al apagarse. Una sola instancia (`--max-instances 1`). Coste: céntimos.
 
-Requisitos en el PC: `gcloud` instalado y con sesión iniciada (`gcloud auth login`), el mismo que se
-usó para el Coach Comercial. Para actualizar la versión publicada, basta con volver a ejecutar el `.bat`.
+**Publicar o actualizar** desde [Cloud Shell](https://shell.cloud.google.com):
 
-**IA en la versión publicada**: el servidor no lleva clave de OpenRouter. Cada familia pone la suya
-en Ajustes › Clave de OpenRouter y el uso se cobra en su cuenta; hasta entonces, la app se lo indica.
+```bash
+git clone --depth 1 https://github.com/lbt00001-beep/mbainative-website ~/mbainative-website  # la 1.ª vez
+cd ~/mbainative-website && git pull && bash pupitre/cloudshell-desplegar.sh
+```
+
+El script activa las APIs, crea el bucket, despliega con `gcloud run deploy --source`, genera
+`SECRET_KEY`, `CRON_TOKEN` y el código de invitación solo la primera vez, fija `APP_URL` y muestra la
+dirección y el código.
+
+**IA**: el servidor no lleva clave de OpenRouter; cada familia pone la suya en Ajustes.
+
+**Informe semanal por email** (opcional): añade al servicio las variables `SMTP_*` y crea en Cloud
+Scheduler una tarea `POST {URL}/api/cron/weekly-reports` con la cabecera `X-Cron-Token`.
 
 ## Variables de entorno
 
@@ -109,7 +114,8 @@ en Ajustes › Clave de OpenRouter y el uso se cobra en su cuenta; hasta entonce
 |---|---|
 | `OPENROUTER_API_KEY` | Clave de OpenRouter **opcional** del servidor (p. ej. en tu PC). Se usa solo para familias sin clave propia. En la versión publicada no se define. |
 | `SECRET_KEY` | Firma las sesiones y cifra las claves de las familias. No cambiarla después de publicar. |
-| `DATABASE_URL` | PostgreSQL en producción. |
+| `DATABASE_URL` | Opcional: PostgreSQL. Por defecto, SQLite en `data/`. |
+| `GCS_BUCKET` | Bucket de Cloud Storage donde se guarda la copia de la base de datos SQLite (Cloud Run). |
 | `APP_URL` | URL pública (cookies seguras y cabecera para OpenRouter). |
 | `PORT` | Puerto local (48620 por defecto). En Cloud Run lo fija la plataforma. |
 | `SIGNUP_CODE` | Si se define, hace falta para crear cuenta (evita gasto de desconocidos). |
@@ -130,11 +136,11 @@ app/
   learning.py   dominio por tema, misión del día, repaso espaciado, logros, estadísticas
   reports.py    informe para el profesor (HTML) y envío por SMTP
   keys.py       claves de OpenRouter por familia (cifradas)
+  cloudsync.py  copia de la base de datos en Cloud Storage
   db.py         modelo de datos
   config.py     configuración
 static/         web (HTML, CSS y JavaScript sin dependencias)
 run.py          arranque local: cierra ejecuciones anteriores, puerto libre, abre el navegador
-desplegar.py    publicación en Cloud Run (lo usa DESPLEGAR.bat)
-DESPLEGAR.bat   publicar en internet con doble clic
+cloudshell-desplegar.sh  publicar o actualizar en Cloud Run desde Cloud Shell
 EJECUTAR.bat    arranque con doble clic en Windows
 ```

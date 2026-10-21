@@ -225,6 +225,21 @@ export const categorias = [
     ]
   },
   {
+    id: "educacion",
+    nombre: "Educación",
+    icono: "🎒",
+    descripcion: "Estudio en casa con IA a partir del libro del alumno, con seguimiento para la familia y el profesorado",
+    apps: [
+      {
+        nombre: "Pupitre",
+        descripcion: "Los deberes, de otra manera: sube el libro de cada asignatura y Pupitre mide el nivel del alumno, le enseña con lecciones, tests, tarjetas y juegos, le ayuda con los deberes sin darle la solución y envía un informe semanal al profesor.",
+        url: "#",
+        tipo: "interno",
+        estado: "proximamente"
+      }
+    ]
+  },
+  {
     id: "ventas",
     nombre: "Ventas",
     icono: "🎯",

@@ -1,0 +1,23 @@
+# Pupitre en tu ordenador.
+# Clave de OpenRouter OPCIONAL para todo el PC. Si la dejas vacía, cada familia pone la suya
+# dentro de la app (Ajustes › Clave de OpenRouter). Sin ninguna clave, la app lo avisa en pantalla.
+OPENROUTER_API_KEY=
+
+# Los datos se guardan en la carpeta data\pupitre.db (SQLite). No hace falta tocar nada más.
+SECRET_KEY=pupitre-local-cambia-esto
+# Puerto local (poco habitual a propósito). Si está ocupado, Pupitre usa el siguiente libre.
+PORT=48620
+DAILY_AI_LIMIT=400
+
+# Opcional: para probar el envío del informe al profesor con Gmail
+# (necesitas una "contraseña de aplicación" de tu cuenta de Google)
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_USER=
+SMTP_PASSWORD=
+SMTP_FROM=
+
+# Modelos (valores por defecto)
+MODEL_MAIN=google/gemini-3.1-flash-lite
+MODEL_FALLBACK=deepseek/deepseek-v4.1-flash
+MODEL_VISION=google/gemini-3.1-flash-lite

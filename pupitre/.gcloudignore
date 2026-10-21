@@ -1,0 +1,14 @@
+# Lo que NO se sube a Google Cloud al desplegar
+.git/
+.gitignore
+.gcloudignore
+.venv/
+data/
+.env
+produccion.txt
+__pycache__/
+*.pyc
+*.bat
+desplegar.py
+run.py
+plantilla-*.txt

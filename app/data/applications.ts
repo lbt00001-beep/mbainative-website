@@ -233,9 +233,9 @@ export const categorias = [
       {
         nombre: "Pupitre",
         descripcion: "Los deberes, de otra manera: sube el libro de cada asignatura y Pupitre mide el nivel del alumno, le enseña con lecciones, tests, tarjetas y juegos, le ayuda con los deberes sin darle la solución y envía un informe semanal al profesor.",
-        url: "#",
-        tipo: "interno",
-        estado: "proximamente"
+        url: "https://pupitre-416251601036.europe-west1.run.app",
+        tipo: "externo",
+        estado: "disponible"
       }
     ]
   },

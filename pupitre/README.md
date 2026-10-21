@@ -19,6 +19,15 @@ El curso se configura por alumno (de Infantil 5 años a 2.º de Bachillerato) y 
 lenguaje, ejemplos y dificultad. Asignaturas por defecto: Matemáticas, Lengua, Conocimiento del
 medio e Historia; se pueden añadir más.
 
+## Libros escaneados: coste bajo control
+
+Las páginas con texto se leen gratis. Las escaneadas (imagen) se leen con IA, página a página (≈ 0,15 $
+por cada 100 páginas con el modelo por defecto). Si un documento tiene más de 15 páginas escaneadas
+(`OCR_CONFIRM_PAGES`), Pupitre **no gasta nada hasta que la familia confirma** (con PIN), viendo el coste
+estimado y eligiendo el rango de páginas. La lectura se puede **detener** en cualquier momento; cada página
+leída se guarda (`ocr_cache`), de modo que continuar, reiniciar la app o volver a subir el mismo archivo
+**no vuelve a pagar** lo ya leído. El progreso y el coste real se ven en la lista de documentos.
+
 ## Claves de OpenRouter por familia
 
 Cada familia pone su propia clave en **Ajustes › Clave de OpenRouter** (también se pide nada más crear

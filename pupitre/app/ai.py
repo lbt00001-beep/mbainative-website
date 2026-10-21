@@ -66,10 +66,22 @@ def _is_math(subject: str) -> bool:
 # Cliente OpenRouter
 # ---------------------------------------------------------------------------
 
-def _check_and_count(family_id: int | None, usage: dict | None) -> None:
+import threading as _threading
+
+_usage_lock = _threading.Lock()
+
+
+def _check_and_count(family_id: int | None, usage: dict | None, doc_id: int | None = None) -> None:
     if family_id is None:
         return
-    with SessionLocal() as db:
+    if usage is not None and doc_id:
+        from sqlalchemy import update
+        from .db import Document
+        with SessionLocal() as db:
+            db.execute(update(Document).where(Document.id == doc_id)
+                       .values(ai_cost=Document.ai_cost + float(usage.get("cost") or 0.0)))
+            db.commit()
+    with _usage_lock, SessionLocal() as db:
         row = db.query(AiUsage).filter_by(family_id=family_id, day=date.today()).first()
         if row is None:
             row = AiUsage(family_id=family_id, day=date.today(), calls=0, tokens_in=0, tokens_out=0, cost=0.0)
@@ -87,7 +99,7 @@ def _check_and_count(family_id: int | None, usage: dict | None) -> None:
 
 
 def chat(messages: list[dict], *, family_id: int | None, json_mode: bool = True, vision: bool = False,
-         max_tokens: int = 3000, temperature: float = 0.4) -> str:
+         max_tokens: int = 3000, temperature: float = 0.4, doc_id: int | None = None) -> str:
     """Llamada a OpenRouter con modelo de respaldo. Devuelve el texto de la respuesta."""
     from . import keys
     api_key = keys.key_for(family_id)
@@ -130,7 +142,7 @@ def chat(messages: list[dict], *, family_id: int | None, json_mode: bool = True,
                 continue
             data = r.json()
             content = (data.get("choices") or [{}])[0].get("message", {}).get("content") or ""
-            _check_and_count(family_id, data.get("usage") or {})
+            _check_and_count(family_id, data.get("usage") or {}, doc_id)
             if not content.strip():
                 last_err = "respuesta vacía"
                 continue
@@ -205,11 +217,12 @@ def parse_json(text: str) -> dict:
 
 
 def ask_json(system: str, user: str, *, family_id: int | None, max_tokens: int = 3000,
-             temperature: float = 0.4) -> dict:
+             temperature: float = 0.4, doc_id: int | None = None) -> dict:
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     for _ in range(2):
         try:
-            return parse_json(chat(msgs, family_id=family_id, max_tokens=max_tokens, temperature=temperature))
+            return parse_json(chat(msgs, family_id=family_id, max_tokens=max_tokens, temperature=temperature,
+                                   doc_id=doc_id))
         except AiError as e:
             err = e
             if "formato" not in str(e):
@@ -226,7 +239,7 @@ def _clip(s: str, n: int) -> str:
 # 1. Lectura de páginas escaneadas y fotos (OCR)
 # ---------------------------------------------------------------------------
 
-def ocr_image(image_bytes: bytes, mime: str, *, family_id: int | None) -> str:
+def ocr_image(image_bytes: bytes, mime: str, *, family_id: int | None, doc_id: int | None = None) -> str:
     b64 = base64.b64encode(image_bytes).decode()
     msgs = [
         {"role": "system", "content": "Transcribes páginas de libros de texto escolares con total fidelidad."},
@@ -239,7 +252,8 @@ def ocr_image(image_bytes: bytes, mime: str, *, family_id: int | None) -> str:
             {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{b64}"}},
         ]},
     ]
-    return chat(msgs, family_id=family_id, json_mode=False, vision=True, max_tokens=4000, temperature=0.0).strip()
+    return chat(msgs, family_id=family_id, json_mode=False, vision=True, max_tokens=4000, temperature=0.0,
+                doc_id=doc_id).strip()
 
 
 # ---------------------------------------------------------------------------
@@ -247,7 +261,7 @@ def ocr_image(image_bytes: bytes, mime: str, *, family_id: int | None) -> str:
 # ---------------------------------------------------------------------------
 
 def extract_topics(subject: str, course: str, material: str, existing: list[str], *,
-                   family_id: int | None) -> list[dict]:
+                   family_id: int | None, doc_id: int | None = None) -> list[dict]:
     system = BASE_RULES + " Eres además un experto en programación didáctica del currículo español."
     user = f"""Asignatura: {subject}
 Curso del alumno: {course}
@@ -262,7 +276,7 @@ Devuelve JSON: {{"topics": [{{"title": "título breve (máx. 8 palabras)", "summ
 
 MATERIAL:
 \"\"\"{material[:110000]}\"\"\""""
-    data = ask_json(system, user, family_id=family_id, max_tokens=3000, temperature=0.2)
+    data = ask_json(system, user, family_id=family_id, max_tokens=3000, temperature=0.2, doc_id=doc_id)
     out = []
     seen = {e.lower() for e in existing}
     for t in data.get("topics", [])[:12]:

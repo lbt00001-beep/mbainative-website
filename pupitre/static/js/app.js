@@ -450,11 +450,9 @@ function renderMaterial(box, sid, d) {
           <select class="input" id="kind" style="width:auto"><option value="libro">Libro de texto</option><option value="apuntes">Apuntes</option><option value="ejercicios">Ejercicios</option><option value="examen">Examen o control</option><option value="otro">Otro</option></select>
           <label class="btn">${ico("upload")} Elegir archivos<input type="file" id="file" class="sr" multiple accept=".pdf,.docx,.txt,.md,.csv,image/*"></label>
           <label class="btn ghost">${ico("camera")} Hacer foto<input type="file" id="cam" class="sr" accept="image/*" capture="environment"></label>
-        </div><p class="tiny muted" style="margin-top:10px">Consejo: si es un libro muy grande, sube solo los temas de este trimestre.</p></div>
+        </div><p class="tiny muted" style="margin-top:10px">Los libros escaneados se leen página a página con IA (≈ ${fmtUsd(0.0015 * 100)} por cada 100 páginas). Antes de gastar, Pupitre te dice el coste y te deja elegir las páginas.</p></div>
       <div id="docs">${d.documents_list.length ? d.documents_list.map((x) => `<div class="doc"><div class="ic">${kinds[x.kind] || "📎"}</div>
-          <div class="grow"><b class="small" style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(x.filename)}</b>
-          ${x.status === "procesando" ? `<span class="tiny muted">Leyendo… ${x.progress}%</span><div class="bar"><i style="width:${Math.max(5, x.progress)}%"></i></div>`
-            : x.status === "error" ? `<span class="tiny" style="color:var(--bad);font-weight:700">${esc(x.error)}</span>` : `<span class="tiny muted">${x.pages ? x.pages + " páginas · " : ""}listo</span>`}</div>
+          <div class="grow">${docRow(x)}</div>
           <button class="iconbtn" data-del="${x.id}" title="Eliminar">${ico("trash")}</button></div>`).join("") : `<p class="muted small center">Todavía no hay documentos.</p>`}</div>
     </div>
     <div class="card"><div class="row between"><h3>Temas</h3><button class="btn sm soft" id="addt">${ico("plus")} Añadir tema</button></div>
@@ -469,8 +467,10 @@ function renderMaterial(box, sid, d) {
       const fd = new FormData();
       fd.append("file", f);
       fd.append("kind", $("#kind").value);
-      try { await api(`/api/subjects/${d.id}/documents`, { method: "POST", body: fd }); toast(`Subido: ${f.name}`); }
-      catch (e) { fail(e); }
+      try {
+        const r = await api(`/api/subjects/${d.id}/documents`, { method: "POST", body: fd });
+        if (r.status === "pendiente") await pagesModal(r); else toast(`Subido: ${f.name}`);
+      } catch (e) { fail(e); }
     }
     viewSubject(sid, d.id, "material");
   };
@@ -481,8 +481,20 @@ function renderMaterial(box, sid, d) {
   ["dragleave", "drop"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove("drag"); }));
   dz.addEventListener("drop", (e) => upload(Array.from(e.dataTransfer.files)));
   $$("[data-del]").forEach((b) => b.addEventListener("click", async () => {
-    if (!(await confirmModal("Eliminar documento", "Se borrará el texto guardado de este documento. Los temas y el progreso se mantienen.", "Eliminar", true))) return;
+    if (!(await confirmModal("Eliminar documento", "Se borrará el texto guardado de este documento (también lo ya leído con IA, que habría que volver a pagar). Los temas y el progreso se mantienen.", "Eliminar", true))) return;
     try { await api(`/api/documents/${b.dataset.del}`, { method: "DELETE" }); viewSubject(sid, d.id, "material"); } catch (e) { fail(e); }
+  }));
+  $$("[data-pages]").forEach((b) => b.addEventListener("click", async () => {
+    const x = d.documents_list.find((y) => y.id === +b.dataset.pages);
+    if (await pagesModal(x)) viewSubject(sid, d.id, "material");
+  }));
+  $$("[data-resume]").forEach((b) => b.addEventListener("click", async () => {
+    const x = d.documents_list.find((y) => y.id === +b.dataset.resume);
+    try { await api(`/api/documents/${x.id}/start`, { method: "POST", body: { page_from: x.page_from || 1, page_to: x.page_to || x.pages } }); viewSubject(sid, d.id, "material"); } catch (e) { fail(e); }
+  }));
+  $$("[data-stop]").forEach((b) => b.addEventListener("click", async () => {
+    b.disabled = true;
+    try { await api(`/api/documents/${b.dataset.stop}/stop`, { method: "POST" }); toast("Deteniendo… las páginas ya leídas se conservan."); viewSubject(sid, d.id, "material"); } catch (e) { fail(e); }
   }));
   $$("[data-focus]").forEach((c) => c.addEventListener("change", async () => {
     const t = d.topics_list.find((x) => x.id === +c.dataset.focus);
@@ -490,7 +502,7 @@ function renderMaterial(box, sid, d) {
   }));
   $("#addt").addEventListener("click", () => topicForm(d.id, null).then((r) => r && viewSubject(sid, d.id, "material")));
   $$("[data-edit]").forEach((b) => b.addEventListener("click", () => topicForm(d.id, d.topics_list.find((x) => x.id === +b.dataset.edit)).then((r) => r && viewSubject(sid, d.id, "material"))));
-  if (d.documents_list.some((x) => x.status === "procesando")) pollTimer = setTimeout(() => location.hash.endsWith("/material") && viewSubject(sid, d.id, "material"), 2500);
+  if (d.documents_list.some((x) => x.status === "procesando" || x.status === "cancelando")) pollTimer = setTimeout(() => location.hash.endsWith("/material") && viewSubject(sid, d.id, "material"), 2500);
 }
 
 function topicForm(subId, t) {
@@ -1508,7 +1520,7 @@ function helpModal(topic) {
       <h4>Qué se guarda</h4><ul>
         <li>La cuenta: nombre de la familia, email, contraseña y PIN (cifrados).</li>
         <li>Lo que la familia escribe del alumno: nombre, curso, notas y datos del profesor.</li>
-        <li>El <b>texto</b> de los libros y documentos subidos (no los archivos) y las fotos de ejercicios no se guardan.</li>
+        <li>El <b>texto</b> de los libros y documentos subidos. El archivo original se guarda solo mientras se procesa y después se borra. Las fotos de ejercicios enviadas al tutor no se guardan.</li>
         <li>Las respuestas, el progreso, las tarjetas y las conversaciones con el tutor.</li>
         <li>La clave de OpenRouter de la familia, cifrada.</li></ul>
       <h4>Con quién se comparte</h4><ul>
@@ -1527,7 +1539,7 @@ function helpModal(topic) {
       <tr><td>Modelo de respaldo</td><td><code>${esc(me.models?.fallback || "")}</code></td></tr>
       <tr><td>Lectura de imágenes</td><td><code>${esc(me.models?.vision || "")}</code></td></tr>
       <tr><td>Dirección</td><td><code>${esc(location.origin)}</code></td></tr></tbody></table>
-      <p class="tiny muted" style="margin-top:12px">Los archivos subidos no se guardan: solo su texto. Las fotos enviadas al tutor tampoco se guardan.</p>
+      <p class="tiny muted" style="margin-top:12px">El archivo original de cada documento se borra al terminar de procesarlo; se conserva su texto. Las fotos enviadas al tutor no se guardan.</p>
       <p class="tiny muted" style="margin-top:6px">${esc(me.credit || "")}</p>`],
   };
   const [title, body] = T[topic] || T.guia;
@@ -1617,6 +1629,78 @@ async function keyModal(welcome) {
       del && del.addEventListener("click", async () => {
         if (!(await confirmModal("Quitar la clave", "La IA dejará de funcionar para tu familia hasta que pongas otra clave.", "Quitar", true))) return;
         try { await api("/api/family/openrouter-key", { method: "POST", body: { key: "" } }); done("Clave quitada"); } catch (e) { fail(e); }
+      });
+    },
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Documentos: estado, coste y elección de páginas
+// ---------------------------------------------------------------------------
+function fmtUsd(v) { return (v < 0.01 && v > 0 ? "< 0,01" : Number(v || 0).toFixed(2).replace(".", ",")) + " $"; }
+
+function docRow(x) {
+  const name = `<b class="small" style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(x.filename)}</b>`;
+  const cost = x.ai_cost > 0 ? ` · ${fmtUsd(x.ai_cost)}` : "";
+  if (x.status === "procesando" || x.status === "cancelando") {
+    const reading = x.ocr_total > 0 && x.ocr_done < x.ocr_total;
+    const pct = reading ? Math.round((100 * x.ocr_done) / x.ocr_total) : Math.min(100, x.progress);
+    const label = x.status === "cancelando" ? "Deteniendo… (se terminan las páginas en curso)"
+      : reading ? `Leyendo páginas escaneadas con IA: ${x.ocr_done} de ${x.ocr_total}${cost}`
+      : x.progress < 90 ? "Leyendo el texto…" : `Preparando los temas…${cost}`;
+    return `${name}<div class="row between" style="gap:8px"><span class="tiny muted">${label}</span>
+      ${x.status === "procesando" ? `<button class="btn soft sm" data-stop="${x.id}">Detener</button>` : `<span class="spinner sm"></span>`}</div>
+      <div class="bar"><i style="width:${Math.max(3, pct)}%"></i></div>`;
+  }
+  if (x.status === "pendiente") {
+    return `${name}<span class="tiny" style="color:var(--warn);font-weight:700">${esc(x.note)}</span>
+      <div style="margin-top:6px"><button class="btn sm" data-pages="${x.id}">Elegir páginas y leer</button></div>`;
+  }
+  if (x.status === "detenido") {
+    return `${name}<span class="tiny" style="color:var(--warn);font-weight:700">${esc(x.note)}${cost}</span>
+      <div class="row" style="margin-top:6px;gap:6px">${x.can_resume ? `<button class="btn sm" data-resume="${x.id}">Continuar</button><button class="btn soft sm" data-pages="${x.id}">Cambiar páginas</button>` : ""}</div>`;
+  }
+  if (x.status === "error") return `${name}<span class="tiny" style="color:var(--bad);font-weight:700">${esc(x.error)}</span>
+      ${x.can_resume ? `<div style="margin-top:6px"><button class="btn sm" data-resume="${x.id}">Reintentar</button></div>` : ""}`;
+  return `${name}<span class="tiny muted">${x.pages ? x.pages + " páginas · " : ""}${x.note ? esc(x.note) : "listo"}</span>`;
+}
+
+function pagesModal(doc) {
+  const scanned = doc.scanned || [];
+  const cached = new Set(doc.cached || []);
+  const per = doc.price_per_page || 0.0015, workers = doc.workers || 4;
+  const calc = (a, b) => {
+    const n = scanned.filter((p) => p >= a && p <= b && !cached.has(p)).length;
+    const textPages = (b - a + 1) - scanned.filter((p) => p >= a && p <= b).length;
+    return { n, textPages, cost: n * per, min: Math.max(1, Math.round((n * 2.5) / workers / 60)) };
+  };
+  return modal(`<h3>¿Qué páginas leemos?</h3>
+    <p class="small" style="margin-top:6px"><b>${esc(doc.filename)}</b> tiene ${doc.pages} páginas; <b>${scanned.length}</b> son escaneadas (imagen) y hay que leerlas con IA, página a página, con la clave de OpenRouter de tu familia.${cached.size ? ` ${cached.size} ya estaban leídas y no se vuelven a pagar.` : ""}</p>
+    <p class="small muted" style="margin-top:6px">Consejo: elige solo las páginas de los temas que estáis dando (por ejemplo, las del trimestre). Siempre podrás leer más después.</p>
+    <div class="grid2" style="margin-top:12px"><div class="field"><label for="pf">Desde la página</label><input class="input" id="pf" type="number" min="1" max="${doc.pages}" value="${doc.page_from || 1}"></div>
+      <div class="field"><label for="pt">Hasta la página</label><input class="input" id="pt" type="number" min="1" max="${doc.pages}" value="${doc.page_to || doc.pages}"></div></div>
+    <div class="notice" id="pest" style="margin-top:12px"></div>
+    <p class="error-msg" id="perr"></p>
+    <div class="actions"><button class="btn ghost" data-close>Ahora no</button><button class="btn" id="pgo">Leer</button></div>`, {
+    onMount: (m, close) => {
+      const upd = () => {
+        const a = +$("#pf", m).value || 1, b = +$("#pt", m).value || doc.pages;
+        const ok = a >= 1 && b <= doc.pages && a <= b;
+        $("#pgo", m).disabled = !ok;
+        if (!ok) { $("#pest", m).innerHTML = `${ico("info")}<span>Elige un rango entre 1 y ${doc.pages}.</span>`; return; }
+        const e = calc(a, b);
+        $("#pest", m).innerHTML = `${ico("info")}<span>Páginas ${a}-${b}: <b>${e.n}</b> por leer con IA${e.textPages ? ` y ${e.textPages} con texto (gratis)` : ""}. Coste aproximado: <b>${fmtUsd(e.cost)}</b> · ${e.min <= 1 ? "alrededor de 1 minuto" : `unos ${e.min} minutos`}. Podrás detenerlo cuando quieras.</span>`;
+        $("#pgo", m).textContent = e.n ? `Leer ${e.n} páginas (≈ ${fmtUsd(e.cost)})` : "Procesar";
+      };
+      $("#pf", m).addEventListener("input", upd);
+      $("#pt", m).addEventListener("input", upd);
+      upd();
+      $("#pgo", m).addEventListener("click", async () => {
+        $("#pgo", m).disabled = true;
+        try {
+          await api(`/api/documents/${doc.id}/start`, { method: "POST", body: { page_from: +$("#pf", m).value, page_to: +$("#pt", m).value } });
+          close(true); toast("Leyendo… puedes detenerlo cuando quieras.");
+        } catch (e) { if (e.message !== "cancelado") $("#perr", m).textContent = e.message; $("#pgo", m).disabled = false; }
       });
     },
   });

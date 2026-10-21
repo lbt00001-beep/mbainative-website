@@ -59,7 +59,15 @@ DAILY_AI_LIMIT = _env_int("DAILY_AI_LIMIT", 400)  # llamadas IA por familia y d�
 
 # --- Documentos ---
 MAX_UPLOAD_MB = _env_int("MAX_UPLOAD_MB", 60)
-MAX_OCR_PAGES = _env_int("MAX_OCR_PAGES", 300)
+MAX_OCR_PAGES = _env_int("MAX_OCR_PAGES", 600)
+# A partir de cuántas páginas escaneadas se pide confirmación (y elegir páginas) antes de gastar.
+OCR_CONFIRM_PAGES = _env_int("OCR_CONFIRM_PAGES", 15)
+# Coste orientativo por página escaneada leída con IA (en $), medido con el modelo por defecto.
+try:
+    OCR_COST_PER_PAGE = float(os.environ.get("OCR_COST_PER_PAGE", "0.0015"))
+except ValueError:
+    OCR_COST_PER_PAGE = 0.0015
+UPLOAD_DIR = BASE_DIR / "data" / "subidas"
 OCR_WORKERS = _env_int("OCR_WORKERS", 4)
 
 # --- Email (SMTP) ---

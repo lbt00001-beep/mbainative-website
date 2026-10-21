@@ -9,6 +9,7 @@ import random
 import secrets
 import threading
 import time
+from pathlib import Path
 from datetime import date, datetime, timedelta
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
@@ -26,7 +27,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 log = logging.getLogger("pupitre")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
-VERSION = "1.3.0"
+VERSION = "1.4.0"
 app = FastAPI(title=config.APP_NAME, docs_url=None, redoc_url=None)
 app.add_middleware(SessionMiddleware, secret_key=config.SECRET_KEY, max_age=60 * 60 * 24 * 60,
                    same_site="lax", https_only=config.APP_URL.startswith("https"), session_cookie="pupitre")
@@ -59,10 +60,11 @@ def _startup():
         cloudsync.restore(SQLITE_PATH)
     init_db()
     cloudsync.start_background()
-    with SessionLocal() as db:  # documentos que se quedaron a medias por un reinicio
-        limit = datetime.utcnow() - timedelta(minutes=30)
-        for d in db.query(Document).filter(Document.status == "procesando", Document.created_at < limit):
-            d.status, d.error = "error", "El procesamiento se interrumpió. Vuelve a subir el archivo."
+    with SessionLocal() as db:  # lecturas que se cortaron por un reinicio (hay un solo proceso)
+        for d in db.query(Document).filter(Document.status.in_(["procesando", "cancelando"])):
+            d.status = "detenido"
+            d.note = (f"Interrumpido por un reinicio: {d.ocr_done} de {d.ocr_total} páginas escaneadas leídas. "
+                      "Lo ya leído no se vuelve a pagar.")
         db.commit()
     log.info("Pupitre listo. IA: %s (respaldo %s). Clave del servidor: %s", config.MODEL_MAIN,
              config.MODEL_FALLBACK, "sí" if config.AI_READY else "no (cada familia pone la suya)")
@@ -155,7 +157,7 @@ def subject_summary(s: Subject) -> dict:
     ev = [t for t in s.topics if t.evaluated]
     return {"id": s.id, "name": s.name, "icon": s.icon, "color": s.color, "diagnosed": s.diagnosed,
             "topics": len(s.topics), "documents": len(s.documents),
-            "processing": any(d.status == "procesando" for d in s.documents),
+            "processing": any(d.status in ("procesando", "cancelando") for d in s.documents),
             "mastery": round(sum(t.mastery for t in ev) / len(ev)) if ev else None,
             "mastered": sum(1 for t in s.topics if learning.status_of(t) == "dominado")}
 
@@ -335,11 +337,30 @@ def delete_family(body: DeleteFamilyIn, request: Request, db: Session = Depends(
     return {"ok": True}
 
 
+def _purge_documents(db: Session, docs: list[Document]) -> None:
+    """Detiene lecturas en curso y borra las copias temporales y la caché de texto de esos documentos
+    (si ningún otro documento usa el mismo archivo)."""
+    from .db import OcrCache
+    hashes = set()
+    for d in docs:
+        ingest.request_stop(d.id)
+        if d.stored_file:
+            Path(d.stored_file).unlink(missing_ok=True)
+        if d.file_hash:
+            hashes.add(d.file_hash)
+    ids = [d.id for d in docs]
+    for h in hashes:
+        others = db.query(Document).filter(Document.file_hash == h, ~Document.id.in_(ids or [-1])).count()
+        if not others:
+            db.query(OcrCache).filter(OcrCache.file_hash == h).delete()
+
+
 def _delete_student_data(db: Session, s: Student, delete_row: bool = True) -> None:
     from .db import MasteryLog
     for model in (Activity, Answer, ChatMessage, ReportLog, MasteryLog):
         db.query(model).filter(model.student_id == s.id).delete()
     for sub in s.subjects:
+        _purge_documents(db, list(sub.documents))
         db.query(Flashcard).filter(Flashcard.subject_id == sub.id).delete()
         db.query(Chunk).filter(Chunk.subject_id == sub.id).delete()
     if delete_row:
@@ -420,6 +441,7 @@ def edit_subject(sub_id: int, body: SubjectIn, request: Request, db: Session = D
 @app.delete("/api/subjects/{sub_id}")
 def delete_subject(sub_id: int, request: Request, db: Session = Depends(get_db)):
     sub = own_subject(db, parent_family(request), sub_id)
+    _purge_documents(db, list(sub.documents))
     from .db import MasteryLog
     for model in (Flashcard, Chunk, Activity, Answer, ChatMessage, MasteryLog):
         db.query(model).filter(model.subject_id == sub_id).delete()
@@ -480,11 +502,99 @@ async def upload_document(sub_id: int, request: Request, file: UploadFile = File
         raise HTTPException(400, f"El archivo supera {config.MAX_UPLOAD_MB} MB.")
     if not data:
         raise HTTPException(400, "El archivo está vacío.")
-    doc = Document(subject_id=sub.id, filename=(file.filename or "documento")[:240], kind=kind[:20])
-    db.add(doc)
+    fhash = ingest.file_hash(data)
+    dup = db.query(Document).filter(Document.subject_id == sub.id, Document.file_hash == fhash,
+                                    Document.status == "listo").first()
+    if dup:
+        raise HTTPException(400, f"Este archivo ya está en {sub.name} («{dup.filename}»).")
+    try:
+        info = ingest.analyze(file.filename or "", data)
+    except Exception:  # noqa: BLE001
+        raise HTTPException(400, "No se ha podido abrir el archivo. ¿Está dañado o protegido con contraseña?")
+    # Si ya existe un documento igual detenido o pendiente, se reutiliza (no se vuelve a pagar nada)
+    doc = db.query(Document).filter(Document.subject_id == sub.id, Document.file_hash == fhash,
+                                    Document.status.in_(["pendiente", "detenido", "error"])).first()
+    if doc is None:
+        doc = Document(subject_id=sub.id, filename=(file.filename or "documento")[:240], kind=kind[:20])
+        db.add(doc)
+        db.flush()
+    path = ingest.stored_path(doc.id, doc.filename)
+    path.write_bytes(data)
+    doc.file_hash, doc.stored_file, doc.pages = fhash, str(path), info["pages"]
+    doc.scanned_pages = ",".join(map(str, info["scanned"]))
+    doc.page_from, doc.page_to, doc.error = 1, info["pages"], ""
+    cached = ingest.cached_pages(fhash)
+    est = ingest.estimate(info["scanned"], cached, 1, info["pages"])
+    if est["to_read"] > config.OCR_CONFIRM_PAGES:
+        doc.status = "pendiente"
+        doc.note = (f"{est['to_read']} páginas escaneadas por leer con IA (≈ {_usd(est['cost'])}). "
+                    "Elige qué páginas quieres procesar.")
+        db.commit()
+    else:
+        db.commit()
+        ingest.start(doc.id, fid)
+    return document_dict(doc, cached)
+
+
+def _usd(v: float) -> str:
+    return f"{v:.2f}".replace(".", ",") + " $"
+
+
+def document_dict(d: Document, cached: set[int] | None = None) -> dict:
+    scanned = ingest.parse_pages(d.scanned_pages)
+    cached = ingest.cached_pages(d.file_hash) if cached is None and d.file_hash else (cached or set())
+    can_resume = bool(d.stored_file) and Path(d.stored_file).exists()
+    return {"id": d.id, "filename": d.filename, "kind": d.kind, "status": d.status,
+            "progress": max(0, min(100, d.progress)), "pages": d.pages, "error": d.error, "note": d.note,
+            "page_from": d.page_from, "page_to": d.page_to, "ocr_total": d.ocr_total, "ocr_done": d.ocr_done,
+            "ai_cost": round(d.ai_cost, 4), "scanned": scanned if d.status in ("pendiente", "detenido") else [],
+            "scanned_count": len(scanned), "cached": sorted(p for p in cached if p in set(scanned))
+            if d.status in ("pendiente", "detenido") else [], "cached_count": len(cached),
+            "can_resume": can_resume, "price_per_page": config.OCR_COST_PER_PAGE,
+            "workers": config.OCR_WORKERS, "confirm_pages": config.OCR_CONFIRM_PAGES,
+            "created_at": d.created_at.isoformat()}
+
+
+class StartIn(BaseModel):
+    page_from: int = Field(ge=1)
+    page_to: int = Field(ge=1)
+
+
+@app.post("/api/documents/{doc_id}/start")
+def start_document(doc_id: int, body: StartIn, request: Request, db: Session = Depends(get_db)):
+    """Confirma la lectura (con el rango de páginas elegido) o continúa una detenida. Gasta IA: requiere PIN."""
+    fid = parent_family(request)
+    d = db.get(Document, doc_id)
+    if not d:
+        raise HTTPException(404, "Documento no encontrado")
+    own_subject(db, fid, d.subject_id)
+    if d.status not in ("pendiente", "detenido", "error"):
+        raise HTTPException(400, "Este documento no está esperando confirmación.")
+    if not d.stored_file or not Path(d.stored_file).exists():
+        raise HTTPException(400, "El archivo ya no está en el servidor. Vuelve a subirlo: las páginas ya leídas "
+                                 "no se vuelven a pagar.")
+    if not keys.ready(fid):
+        raise HTTPException(503, keys.MISSING_MESSAGE)
+    if body.page_from > body.page_to or body.page_to > max(1, d.pages):
+        raise HTTPException(400, f"Rango no válido: el documento tiene {d.pages} páginas.")
+    d.page_from, d.page_to = body.page_from, body.page_to
     db.commit()
-    threading.Thread(target=ingest.process_document, args=(doc.id, doc.filename, data, fid), daemon=True).start()
-    return {"id": doc.id, "status": doc.status}
+    ingest.start(d.id, fid)
+    return document_dict(d)
+
+
+@app.post("/api/documents/{doc_id}/stop")
+def stop_document(doc_id: int, request: Request, db: Session = Depends(get_db)):
+    fid = family_id(request)
+    d = db.get(Document, doc_id)
+    if not d:
+        raise HTTPException(404, "Documento no encontrado")
+    own_subject(db, fid, d.subject_id)
+    if d.status == "procesando":
+        ingest.request_stop(d.id)
+        d.status = "cancelando"
+        db.commit()
+    return document_dict(d)
 
 
 @app.delete("/api/documents/{doc_id}")
@@ -494,6 +604,7 @@ def delete_document(doc_id: int, request: Request, db: Session = Depends(get_db)
     if not d:
         raise HTTPException(404, "Documento no encontrado")
     own_subject(db, fid, d.subject_id)
+    _purge_documents(db, [d])
     db.delete(d)
     db.commit()
     return {"ok": True}
@@ -506,9 +617,7 @@ def subject_detail(sub_id: int, request: Request, db: Session = Depends(get_db))
     cards = db.query(Flashcard).filter(Flashcard.subject_id == sub.id).count()
     return {**subject_summary(sub), "student_id": sub.student_id, "due_cards": due, "cards": cards,
             "topics_list": [topic_dict(t) for t in sub.topics],
-            "documents_list": [{"id": d.id, "filename": d.filename, "kind": d.kind, "status": d.status,
-                                "progress": d.progress, "pages": d.pages, "error": d.error,
-                                "created_at": d.created_at.isoformat()} for d in sub.documents]}
+            "documents_list": [document_dict(d) for d in sub.documents]}
 
 
 # ---------------------------------------------------------------------------

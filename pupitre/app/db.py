@@ -3,7 +3,7 @@ from datetime import datetime, date
 from pathlib import Path
 
 from sqlalchemy import (Boolean, Date, DateTime, Float, ForeignKey, Integer, String, Text,
-                        create_engine, JSON)
+                        UniqueConstraint, create_engine, JSON)
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
 
 from . import config
@@ -103,9 +103,30 @@ class Document(Base):
     pages: Mapped[int] = mapped_column(Integer, default=0)
     chars: Mapped[int] = mapped_column(Integer, default=0)
     error: Mapped[str] = mapped_column(Text, default="")
+    file_hash: Mapped[str] = mapped_column(String(64), default="", index=True)
+    stored_file: Mapped[str] = mapped_column(Text, default="")  # copia temporal mientras se procesa
+    scanned_pages: Mapped[str] = mapped_column(Text, default="")  # páginas sin texto (a leer con IA), "1,2,5"
+    page_from: Mapped[int] = mapped_column(Integer, default=0)
+    page_to: Mapped[int] = mapped_column(Integer, default=0)
+    ocr_total: Mapped[int] = mapped_column(Integer, default=0)
+    ocr_done: Mapped[int] = mapped_column(Integer, default=0)
+    ai_cost: Mapped[float] = mapped_column(Float, default=0.0)
+    note: Mapped[str] = mapped_column(Text, default="")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
     subject: Mapped[Subject] = relationship(back_populates="documents")
     chunks: Mapped[list["Chunk"]] = relationship(back_populates="document", cascade="all, delete-orphan")
+
+
+class OcrCache(Base):
+    """Texto ya leído con IA de cada página de un archivo (por su huella SHA-256). Evita pagar dos veces
+    la misma página si se detiene, se reinicia la app o se vuelve a subir el mismo archivo."""
+    __tablename__ = "ocr_cache"
+    __table_args__ = (UniqueConstraint("file_hash", "page", name="uq_ocr_page"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    file_hash: Mapped[str] = mapped_column(String(64), index=True)
+    page: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 
 
 class Chunk(Base):

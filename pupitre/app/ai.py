@@ -46,6 +46,12 @@ def level_guide(course: str) -> str:
     if "bachillerato" in c:
         return ("Alumno de 16 a 18 años de Bachillerato. Rigor académico, terminología exacta, "
                 "análisis y relación de conceptos, nivel preuniversitario.")
+    if "especializ" in c:
+        return ("Estudiante adulto de nivel universitario o de posgrado (grado, máster, doctorado) que estudia "
+                "un libro especializado de forma tutorizada. Rigor académico de posgrado: terminología exacta "
+                "de la disciplina, matices, relación entre autores, escuelas y conceptos, análisis crítico y "
+                "aplicación. Preguntas exigentes de comprensión profunda, no solo de memoria. Tono de "
+                "colega experto, directo y sin infantilizar; nada de emojis ni frases de ánimo infantiles.")
     return "Adapta el lenguaje a un alumno de primaria."
 
 
@@ -521,17 +527,27 @@ Entre 6 y 8 diapositivas. Cada una enseña UNA idea:
 - "text": explicación de 2-4 frases cortas. Puedes usar **negrita** para el término clave.
 - "example": un ejemplo concreto o una situación cotidiana (1-2 frases).
 - "emoji": un emoji que represente la idea.
+- "svg": OPCIONAL. Un diagrama sencillo en SVG cuando un dibujo ayude de verdad a entender la idea
+  (recta numérica, fracción en barra o tarta, esquema con flechas, línea del tiempo, ciclo, partes con
+  etiquetas, tabla de valores, gráfico simple). Si no aporta, null. Como mucho en 3 diapositivas.
+  Reglas: <svg viewBox="0 0 400 240"> sin width/height; solo rect, circle, ellipse, line, polyline,
+  polygon, path, text, tspan, g y marker para flechas; colores planos; texto en español con
+  font-size 14-20; máximo 40 elementos; nada de script, image, style ni enlaces.
+  Interacción opcional: data-paso="1", "2"... en elementos que deban aparecer por pasos (el alumno pulsa
+  «Siguiente paso»), y data-info="explicación breve" en elementos que muestran esa explicación al tocarlos.
+  Las cantidades, proporciones, fechas y etiquetas del dibujo deben ser exactas y coincidir con el texto.
 - "check": en las diapositivas 2, 4 y 6 (y en la última), una pregunta rápida de comprobación tipo test
   {{"question": "...", "options": ["3 opciones"], "answer_index": 0, "explanation": "..."}}; en las demás null.
 La última diapositiva es un resumen de 3 ideas clave ("text" con las tres ideas separadas por " · ").
 Basado en el material del alumno; si es escaso, usa los contenidos estándar del curso.
 {'Matemáticas: resuelve los ejemplos con todos los pasos y comprueba los resultados.' if _is_math(subject) else ''}
 
-Devuelve JSON: {{"title": "...", "intro": "1 frase motivadora", "slides": [{{"title":"","text":"","example":"","emoji":"","check":null}}]}}
+Devuelve JSON: {{"title": "...", "intro": "1 frase motivadora", "slides": [{{"title":"","text":"","example":"","emoji":"","svg":null,"check":null}}]}}
 
 Material:
 \"\"\"{context[:9000]}\"\"\""""
-    data = ask_json(system, user, family_id=family_id, max_tokens=4000, temperature=0.5)
+    data = ask_json(system, user, family_id=family_id, max_tokens=7000, temperature=0.5)
+    from .svgsafe import sanitize_svg
     slides = []
     for s in data.get("slides", [])[:9]:
         chk = s.get("check")
@@ -548,7 +564,7 @@ Material:
             chk = None
         slides.append({"title": _clip(str(s.get("title", "")), 80), "text": _clip(str(s.get("text", "")), 700),
                        "example": _clip(str(s.get("example", "")), 400), "emoji": str(s.get("emoji", "📘"))[:4],
-                       "check": chk})
+                       "svg": sanitize_svg(s.get("svg")), "check": chk})
     if len(slides) < 3:
         raise AiError("No se pudo preparar la lección. Inténtalo de nuevo.")
     return {"title": _clip(str(data.get("title") or topic["title"]), 100),

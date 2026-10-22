@@ -15,9 +15,18 @@ App web para el estudio en casa. La familia o el alumno sube el libro de cada as
 5. **Informa**: panel de la familia (protegido con PIN) y **informe semanal por email al profesor**
    con dominio por tema, evolución, dificultades concretas con ejemplos de errores y sugerencias.
 
-El curso se configura por alumno (de Infantil 5 años a 2.º de Bachillerato) y la IA adapta
-lenguaje, ejemplos y dificultad. Asignaturas por defecto: Matemáticas, Lengua, Conocimiento del
+El curso se configura por alumno (de Infantil 5 años a 2.º de Bachillerato, y **Especialización** para
+universitarios, máster o doctorado que estudian un libro de forma tutorizada) y la IA adapta lenguaje,
+ejemplos y dificultad. Asignaturas por defecto: Matemáticas, Lengua, Conocimiento del
 medio e Historia; se pueden añadir más.
+
+## Diagramas SVG en las lecciones
+
+La IA puede acompañar hasta 3 diapositivas de cada lección con un diagrama SVG (recta numérica, fracciones,
+esquemas, líneas del tiempo...). Por seguridad, `app/svgsafe.py` reconstruye cada dibujo con una lista
+cerrada de formas y atributos y descarta todo lo demás (scripts, eventos, enlaces, HTML incrustado, estilos,
+imágenes externas). La interacción la añade la app, no la IA: elementos con `data-paso` aparecen por pasos
+(«Siguiente paso») y los que llevan `data-info` muestran una explicación al tocarlos.
 
 ## Libros escaneados: coste bajo control
 
@@ -145,6 +154,7 @@ app/
   learning.py   dominio por tema, misión del día, repaso espaciado, logros, estadísticas
   reports.py    informe para el profesor (HTML) y envío por SMTP
   keys.py       claves de OpenRouter por familia (cifradas)
+  svgsafe.py    filtro de seguridad de los diagramas SVG
   cloudsync.py  copia de la base de datos en Cloud Storage
   db.py         modelo de datos
   config.py     configuración

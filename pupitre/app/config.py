@@ -86,7 +86,11 @@ COURSES = [
     "1º Primaria", "2º Primaria", "3º Primaria", "4º Primaria", "5º Primaria", "6º Primaria",
     "1º ESO", "2º ESO", "3º ESO", "4º ESO",
     "1º Bachillerato", "2º Bachillerato",
+    "Especialización (universidad y posgrado)",
 ]
+
+# Para «Especialización» se crea una sola materia genérica; el estudiante la renombra y añade las suyas.
+ADULT_SUBJECTS = [("Mi materia", "book", "#7c3aed")]
 
 DEFAULT_SUBJECTS = [
     ("Matemáticas", "calc", "#2563eb"),

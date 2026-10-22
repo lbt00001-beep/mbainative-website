@@ -27,7 +27,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 log = logging.getLogger("pupitre")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
-VERSION = "1.4.0"
+VERSION = "1.5.0"
 app = FastAPI(title=config.APP_NAME, docs_url=None, redoc_url=None)
 app.add_middleware(SessionMiddleware, secret_key=config.SECRET_KEY, max_age=60 * 60 * 24 * 60,
                    same_site="lax", https_only=config.APP_URL.startswith("https"), session_cookie="pupitre")
@@ -389,7 +389,8 @@ def create_student(body: StudentIn, request: Request, db: Session = Depends(get_
     s = Student(family_id=fid, **body.model_dump())
     db.add(s)
     db.flush()
-    for i, (name, icon, color) in enumerate(config.DEFAULT_SUBJECTS):
+    defaults = config.ADULT_SUBJECTS if body.course.startswith("Especialización") else config.DEFAULT_SUBJECTS
+    for i, (name, icon, color) in enumerate(defaults):
         db.add(Subject(student_id=s.id, name=name, icon=icon, color=color, position=i))
     db.commit()
     return student_dict(s)

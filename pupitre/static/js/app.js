@@ -224,7 +224,7 @@ function viewAuth(mode) {
         <div class="grid2"><div class="field"><label for="pin">PIN familiar (4 cifras)</label><input class="input" id="pin" type="password" inputmode="numeric" maxlength="4" pattern="\\d{4}" required autocomplete="off"></div>
           <div class="field"><label for="pin2">Repite el PIN</label><input class="input" id="pin2" type="password" inputmode="numeric" maxlength="4" pattern="\\d{4}" required autocomplete="off"></div></div>
         <span class="hint match" id="pinmatch" style="margin-top:-6px">El PIN protege la zona de la familia para que el alumno no cambie la configuración ni los informes.</span>` : ""}
-        ${reg ? `<label class="check small" style="align-items:flex-start;font-weight:600"><input type="checkbox" id="privacy" style="margin-top:3px"><span>Soy el padre, la madre o el tutor legal del alumno y acepto el <a href="#" data-help="privacidad">aviso de privacidad</a>.</span></label>` : ""}
+        ${reg ? `<label class="check small" style="align-items:flex-start;font-weight:600"><input type="checkbox" id="privacy" style="margin-top:3px"><span>Soy el padre, la madre o el tutor legal del alumno (o el propio estudiante, si soy mayor de edad) y acepto el <a href="#" data-help="privacidad">aviso de privacidad</a>.</span></label>` : ""}
         ${reg && state.me.signup_code ? `<div class="field"><label for="code">Código de invitación</label><input class="input" id="code" required></div>` : ""}
         <p class="error-msg" id="err"></p>
         <button class="btn lg block" type="submit">${reg ? "Crear cuenta" : "Entrar"}</button>
@@ -836,6 +836,7 @@ function runLesson(sid, sub, topic, d) {
       <h2>${esc(s.title)}</h2>
       ${i === 0 && d.intro ? `<p class="muted" style="margin:-6px 0 12px;font-weight:700">${esc(d.intro)}</p>` : ""}
       ${keys ? `<div class="keys">${keys.map((k, n) => `<div><span>${n + 1}</span>${md(k)}</div>`).join("")}</div>` : `<div class="text">${md(s.text)}</div>`}
+      ${s.svg ? `<figure class="diagram" id="lessonfig">${s.svg}<figcaption id="diagcap"></figcaption><div class="diag-ctrl hidden" id="diagctrl"><button class="btn soft sm" id="diagprev">← Paso anterior</button><span class="tiny muted" id="diagstep"></span><button class="btn sm" id="diagnext">Siguiente paso →</button></div></figure>` : ""}
       ${s.example ? `<div class="example">${md(s.example)}</div>` : ""}
       ${s.check ? `<div class="check-box"><div class="qlabel">Comprueba</div><div class="q">${esc(s.check.question)}</div>
         <div class="opts">${s.check.options.map((o, k) => `<button class="opt" data-k="${k}"><span class="k">${"ABC"[k] || k + 1}</span><span>${esc(o)}</span></button>`).join("")}</div><div id="cfb"></div></div>` : ""}
@@ -843,6 +844,7 @@ function runLesson(sid, sub, topic, d) {
         <button class="btn sun lg" id="nx" ${s.check && answered[i] === undefined ? "disabled" : ""}>${last ? "Terminar" : "Siguiente →"}</button></div>
       <div class="dots">${slides.map((_, n) => `<i class="${n === i ? "on" : ""}"></i>`).join("")}</div></div>`;
     $("#spk").addEventListener("click", () => speak(`${s.title}. ${s.text}. ${s.example ? "Por ejemplo: " + s.example : ""}`));
+    if (s.svg) initDiagram($("#lessonfig", pbody()));
     $("#prev") && $("#prev").addEventListener("click", () => { i--; show(); });
     const markCheck = (k) => {
       const ok = k === s.check.answer_index;
@@ -1516,7 +1518,7 @@ function helpModal(topic) {
         <li>Copia la clave (empieza por <code>sk-or-</code>) y pégala en Pupitre: <b>Ajustes › Clave de OpenRouter</b>.</li></ol>
       <p>Pupitre comprueba la clave con OpenRouter antes de guardarla y la guarda cifrada. Puedes cambiarla o quitarla cuando quieras.</p>`],
     privacidad: ["Privacidad y datos", `
-      <p>Pupitre lo usan menores, por eso la cuenta la crea y la gestiona siempre un <b>adulto responsable</b> (padre, madre o tutor legal).</p>
+      <p>Pupitre lo usan menores, por eso la cuenta la crea y la gestiona siempre un <b>adulto responsable</b> (padre, madre o tutor legal). Los estudiantes adultos (curso «Especialización») gestionan su propia cuenta.</p>
       <h4>Qué se guarda</h4><ul>
         <li>La cuenta: nombre de la familia, email, contraseña y PIN (cifrados).</li>
         <li>Lo que la familia escribe del alumno: nombre, curso, notas y datos del profesor.</li>
@@ -1704,4 +1706,43 @@ function pagesModal(doc) {
       });
     },
   });
+}
+
+// ---------------------------------------------------------------------------
+// Diagramas SVG de las lecciones: pasos y explicaciones al tocar.
+// El SVG llega ya filtrado por el servidor (solo formas y texto); la interacción la añade la app.
+// ---------------------------------------------------------------------------
+function initDiagram(fig) {
+  if (!fig) return;
+  const svg = fig.querySelector("svg");
+  const cap = $("#diagcap", fig);
+  const stepped = $$("[data-paso]", svg);
+  const total = stepped.reduce((m, el) => Math.max(m, +el.getAttribute("data-paso") || 0), 0);
+  let cur = 0;
+  const show = () => {
+    stepped.forEach((el) => el.classList.toggle("diag-hidden", +el.getAttribute("data-paso") > cur));
+    $("#diagstep", fig).textContent = `Paso ${cur} de ${total}`;
+    $("#diagprev", fig).disabled = cur === 0;
+    $("#diagnext", fig).disabled = cur >= total;
+  };
+  if (total > 0) {
+    $("#diagctrl", fig).classList.remove("hidden");
+    $("#diagnext", fig).addEventListener("click", () => { if (cur < total) { cur++; show(); } });
+    $("#diagprev", fig).addEventListener("click", () => { if (cur > 0) { cur--; show(); } });
+    show();
+  }
+  const infos = $$("[data-info]", svg);
+  infos.forEach((el) => {
+    el.classList.add("diag-info");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "button");
+    const tell = () => {
+      infos.forEach((x) => x.classList.remove("diag-active"));
+      el.classList.add("diag-active");
+      cap.textContent = el.getAttribute("data-info");
+    };
+    el.addEventListener("click", tell);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tell(); } });
+  });
+  if (infos.length) cap.textContent = "Toca las partes resaltadas del dibujo para ver su explicación.";
 }

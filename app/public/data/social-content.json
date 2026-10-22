@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-10-22T09:53:19.835Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-10-22T15:45:08.574Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "news",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n📰 Learning to use local AI is exciting, overwhelming, and frustrating\n\nBaby’s first local AI agent. | Photo: Antonio G. Di Benedetto / The Verge\t\n\nI'm embarking on a journey I've ...",
+    "type": "recent_video",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "TheVergeAI"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress"
+    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
+    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
   }
 }

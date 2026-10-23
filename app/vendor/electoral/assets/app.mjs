@@ -1,3 +1,4 @@
+import {compareBlocs} from './blocs.mjs';
 import {initializeMicrodata} from './microdata-ui.mjs';
 import {estimate,sortPollsByFieldwork,estimateEvolution,projectEstimate,validateCatalog,evaluateHistory} from './polling.mjs';
 import {estimateForDate,madridDate} from './freshness.mjs';
@@ -20,7 +21,7 @@ function partyLabel(id){return node('span',{class:'party-label'},node('span',{cl
 function table(headers,rows,caption){const t=node('table',{},caption?node('caption',{},caption):null,node('thead',{},node('tr',{},headers.map((h,i)=>node('th',{scope:'col',class:i?'number':''},h,parameterHelp(h)?helpButton(parameterHelp(h),h):null)))),node('tbody',{},rows.map(row=>node('tr',{},row.map((c,i)=>node('td',{class:i?'number':''},c))))));return node('div',{class:'table-scroll',tabindex:0,'aria-label':caption||'Tabla de resultados desplazable'},t);}
 function bar(label,value,max,display,barColor){return node('div',{class:'vote-row'},node('span',{class:'bar-label'},label),node('div',{class:'bar-track'},node('div',{class:'bar-fill',style:{width:`${Math.max(0,Math.min(100,value/max*100))}%`,background:barColor}})),node('strong',{},display));}
 function download(filename,data,type='application/json'){const blob=new Blob([type==='application/json'?JSON.stringify(data,null,2):data],{type});const u=URL.createObjectURL(blob),a=node('a',{href:u,download:filename});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000);}
-function switchTab(id){document.querySelectorAll('.tab-panel').forEach(el=>el.hidden=el.id!==id);document.querySelectorAll('[data-tab]').forEach(el=>el.dataset.tab===id?el.setAttribute('aria-current','page'):el.removeAttribute('aria-current'));if(id==='help'){$('help-title').focus({preventScroll:true});$('help').scrollIntoView({block:'start'});}}
+function switchTab(id){if(id==='blocs')renderBlocs();document.querySelectorAll('.tab-panel').forEach(el=>el.hidden=el.id!==id);document.querySelectorAll('[data-tab]').forEach(el=>el.dataset.tab===id?el.setAttribute('aria-current','page'):el.removeAttribute('aria-current'));if(id==='help'){$('help-title').focus({preventScroll:true});$('help').scrollIntoView({block:'start'});}}
 function status(id,text,error=false){$(id).textContent=text;$(id).classList.toggle('error',error);}
 async function getJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw new Error(`No se puede cargar ${path} (${r.status}).`);return r.json();}
 
@@ -53,6 +54,22 @@ function renderEstimateTrend(){
   const scale=node('select',{'aria-label':'Escala vertical de la evolución',onchange:event=>{state.trendRange=event.target.value;renderEstimateTrend();}},[['all','Todos los porcentajes'],['upper','Ampliar: 25 % o más'],['middle','Ampliar: 10–25 %'],['lower','Ampliar: 0–10 %']].map(([value,label])=>node('option',{value},label)));scale.value=state.trendRange||'all';
   put('estimate-trend',node('label',{class:'trend-scale'},'Escala vertical ',scale),node('p',{class:'small muted'},state.trendRange&&state.trendRange!=='all'?`Vista ampliada: ${low}–${high} %. Las series fuera de este intervalo quedan fuera de la gráfica; sus cifras siguen disponibles en la tabla.`:'Escala completa. Puedes ampliar un intervalo para apreciar variaciones pequeñas.'),chart,legend,node('details',{},node('summary',{},'Ver cifras y cobertura por fecha'),node('p',{class:'small muted'},'Cada celda indica porcentaje y número de sondeos con cifra para ese partido. — significa sin cobertura.'),table(['Fecha','Institutos',...ids.map(name)],points.map(p=>[dateLabel(p.date),p.count,...ids.map(id=>p.coverage[id]?`${fmt(p.values[id],2)} % (${p.coverage[id]})`:'—')]),'Evolución reconstruida con el catálogo disponible')));
   enhanceParameterHelp($('estimate-trend'));
+}
+
+function renderBlocs(){
+ if(!state.estimate)return;
+ const manual=$('bloc-basis').value==='scenario';
+ if(manual&&!state.valid){put('bloc-output',node('p',{class:'notice'},'El escenario tiene cambios pendientes o porcentajes inválidos. Recalcula en Simulaciones para comparar los bloques.'));return;}
+ if(state.blocEstimate!==state.estimate){state.blocBaseline=compareBlocs(projectEstimate(state.official,state.estimate.targets,state.territory));state.blocEstimate=state.estimate;}
+ const result=manual?compareBlocs(state.provinces):state.blocBaseline;
+ const rows=result.rows,day=dateLabel(state.estimate.calculatedAt);
+ $('bloc-origin').textContent=(manual?'Escenario de Simulaciones. ':'Estimación de sondeos. ')+(state.estimate.expired?'Archivo sin sondeos vigentes. ':'')+'Cálculo: '+day+' · último sondeo: '+dateLabel(state.estimate.lastPublication)+'.';
+ const cards=node('div',{class:'bloc-cards'},rows.slice(0,2).map((b,i)=>node('article',{class:'card'},node('h3',{},b.label),node('p',{class:'bloc-seat-number'},b.seats+' escaños'),node('p',{class:'bloc-majority'},b.hasMajority?'Alcanza la mayoría absoluta'+(b.aboveMajority?' · '+b.aboveMajority+' por encima de 176':' · justo 176'):b.toMajority+' escaños hasta 176'),bar('Voto válido',b.share,100,fmt(b.share,2)+' %',i?'#e8a568':'#65a5ff'),node('p',{class:'small muted'},b.ids.map(name).join(' + ')))));
+ const strip=node('div',{class:'bloc-seat-bar',role:'img','aria-label':rows.map(b=>b.label+': '+b.seats+' escaños').join('. ')+'. Mayoría absoluta: 176.'},rows.map((b,i)=>node('span',{style:{width:b.seats/350*100+'%',background:['#65a5ff','#e8a568','#8994aa'][i]},title:b.label+': '+b.seats})),node('span',{class:'bloc-majority-mark',style:{left:176/350*100+'%'}}));
+ const gap=result.seatGap;
+ const lead=gap===0?'Empate en escaños entre los dos bloques.':(gap>0?'PP + Vox':'El bloque de apoyos de la investidura de 2023')+' tiene '+Math.abs(gap)+' escaños más que el otro bloque.';
+ const voteGap=result.voteGap===0?'Empate en porcentaje de voto.':(result.voteGap>0?'PP + Vox':'El bloque de apoyos de la investidura de 2023')+' suma '+fmt(Math.abs(result.voteGap),2)+' puntos más de voto válido.';
+ put('bloc-output',cards,node('article',{class:'card space-top'},node('h3',{},'Comparación del Congreso · 350 escaños'),strip,node('p',{class:'small muted'},'La marca señala los 176 escaños de la mayoría absoluta. El resto de candidaturas aparece en gris.'),node('p',{},lead+' '+voteGap),table(['Bloque','Voto válido estimado','Escaños','Hasta 176'],rows.map(b=>[b.label,fmt(b.share,2)+' %',b.seats,b.id==='other'?'—':b.hasMajority?'Mayoría alcanzada':b.toMajority]),'Los dos bloques y el resto completan los 350 escaños.'),node('p',{class:'small muted'},'Voto en blanco: '+fmt(result.blankShare,2)+' % del voto válido, fuera de los bloques. Los porcentajes proceden de los votos del modelo territorial; los escaños se suman después de aplicar D’Hondt en cada provincia.')),node('details',{class:'card space-top'},node('summary',{},'Ver los partidos de cada bloque'),rows.map(b=>node('div',{},node('h3',{},b.label),table(['Candidatura','Voto válido estimado','Escaños'],b.members.filter(p=>p.votes||p.seats).map(p=>[partyLabel(p.id),fmt(p.share,2)+' %',p.seats]))))));
 }
 
 function renderObservatory(){
@@ -101,7 +118,7 @@ function createNationalControls(){
   enhanceParameterHelp($('national-controls'));
 }
 let centralTimer;
-function scheduleCentral(){clearTimeout(centralTimer);state.valid=false;$('run-simulation').disabled=true;$('export-scenario').disabled=true;$('central-total').textContent='Recalculando…';centralTimer=setTimeout(updateCentral,120);}
+function scheduleCentral(){clearTimeout(centralTimer);state.valid=false;renderBlocs();$('run-simulation').disabled=true;$('export-scenario').disabled=true;$('central-total').textContent='Recalculando…';centralTimer=setTimeout(updateCentral,120);}
 function invalidateSimulation(){if(state.worker)cancelSimulation();state.simulation=null;$('simulation-results').hidden=true;status('simulation-status','Los parámetros han cambiado. Ejecuta una nueva simulación.');}
 function updateCentral(){
   try {
@@ -123,8 +140,8 @@ function updateCentral(){
     if(state.lastTargets!==fingerprint&&$('province-basis').value==='scenario'&&state.local)resetProvince();
     state.lastTargets=fingerprint;
     $('run-simulation').disabled=false;$('export-scenario').disabled=false;
-    enhanceParameterHelp(document);
-  }catch(error){state.valid=false;status('remaining',error.message,true);$('central-total').textContent='Escenario inválido';put('central-coalitions');put('investiture-total');put('seat-strip');put('central-table',node('p',{class:'notice error'},'Corrige los porcentajes nacionales para obtener un reparto.'));$('fit-status').textContent='';$('run-simulation').disabled=true;$('export-scenario').disabled=true;}
+    renderBlocs();enhanceParameterHelp(document);
+  }catch(error){state.valid=false;renderBlocs();status('remaining',error.message,true);$('central-total').textContent='Escenario inválido';put('central-coalitions');put('investiture-total');put('seat-strip');put('central-table',node('p',{class:'notice error'},'Corrige los porcentajes nacionales para obtener un reparto.'));$('fit-status').textContent='';$('run-simulation').disabled=true;$('export-scenario').disabled=true;}
 }
 function applyPreset(){
   const ref=state.references.references[0].values;
@@ -318,6 +335,7 @@ async function initialize(){try{
   refreshEstimate();$('local-sigma').value=state.diagnostics.recommendedSensitivity.localSigma;renderObservatory();renderPolls(state.catalog.polls);
   put('province-select',state.official.provinces.toSorted((a,b)=>a.name.localeCompare(b.name,'es')).map(p=>node('option',{value:p.id},p.name)));$('province-select').value='28';resetProvince();
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+  $('bloc-basis').addEventListener('change',renderBlocs);
   $('use-reference').addEventListener('click',()=>{$('preset').value='base';applyPreset();switchTab('scenarios');});
   $('use-official').addEventListener('click',()=>{$('province-basis').value='official';resetProvince();switchTab('province');});
   $('apply-preset').addEventListener('click',applyPreset);$('run-simulation').addEventListener('click',startSimulation);$('cancel-simulation').addEventListener('click',cancelSimulation);

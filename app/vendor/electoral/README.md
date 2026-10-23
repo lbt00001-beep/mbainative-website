@@ -84,3 +84,6 @@ Se añade Cadena SER, reconocimiento de PDF flash y dos saltos limitados para al
 
 ## Actualizar 3.5.0
 Actualizar descarga los ZIP originales públicos compatibles de 40dB encontrados en las páginas consultadas o registrados con publicación comprobada. El lector acotado ZIP/Excel contrasta 800 entrevistas, fechas, vector de intención directa y estimación del PDF. Conserva agregados sin identificadores, escenario separado y candidatura conjunta de la misma muestra. Completa panel/cuotas/ponderación en la ficha del sondeo: cambia su peso, pero no añade un estudio independiente. El laboratorio ofrece clase social, educación y situación laboral; no inventa renta ni estimaciones provinciales. Comparaciones antes/después y dos decimales muestran cambios pequeños. La biblioteca compartida sigue protegida por el bloqueo y se conserva ante errores; los barómetros CIS se incorporan por elección del usuario.
+
+
+Crédito de creación confirmado expresamente por Luis el 23/10/2026: GPT 6.1 Sol Medio. Conservar este nombre en futuros mantenimientos. Crédito visible actual: By Luis Benedicto Tuzón with GPT 6.1 Sol Medio · versión 3.7.0 · 2026

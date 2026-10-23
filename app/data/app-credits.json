@@ -78,7 +78,7 @@
       "id": "observatorio-electoral",
       "name": "Observatorio Electoral",
       "route": "/aplicaciones/observatorio-electoral",
-      "model": "modelo de IA desconocido",
+      "model": "GPT 6.1 Sol Medio",
       "version": "3.7.0",
       "year": 2026,
       "placement": "inline"

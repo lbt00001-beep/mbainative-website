@@ -7,3 +7,4 @@ Se añade el original IMOP del 9 de octubre, campo del 5 al 7, 900 entrevistas C
 Se excluyen servicios de investigación y barómetros financieros del descubrimiento electoral de IMOP. Ayuda y crédito visibles actualizados, manteniendo el modelo original desconocido. Datos persistentes conservados: el original registrado en código permite incorporarlo al pulsar Actualizar sin sustituir el catálogo del servidor.
 
 Validación: lector contra el HTML y PNG originales, pruebas de ficha/gráfico modificados y duplicación del medio, 67 pruebas electorales y 106 de la web, comprobación de datos y compilaciones.
+`nLa validación detectó dependencias vulnerables preexistentes. Se actualizan Next.js a15.5.28 y DOMPurify a3.4.17, conservando Sharp0.35.5. Auditoría de dependencias de producción: cero vulnerabilidades notificadas.

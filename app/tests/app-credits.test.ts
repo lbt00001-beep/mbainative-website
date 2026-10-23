@@ -22,7 +22,8 @@ test('Conserva los modelos de creación documentados y no usa los modelos del se
   assert.equal(findAppCredit('/benchmarks-ia/index.html')?.model,'Gemini 3.5 Flash (High)');
   assert.equal(findAppCredit('/aplicaciones/inversion-fundamentales')?.model,'Claude Opus 4.5 Thinking');
   assert.equal(findAppCredit('/plan-de-marketing/index.html')?.model,'GPT 5.5. medium');
-  for(const route of ['/aplicaciones/tradingalpha','/aplicaciones/observatorio-electoral'])assert.equal(findAppCredit(route)?.model,'modelo de IA desconocido');
+  assert.equal(findAppCredit('/aplicaciones/tradingalpha')?.model,'modelo de IA desconocido');
+  assert.equal(findAppCredit('/aplicaciones/observatorio-electoral')?.model,'GPT 6.1 Sol Medio');
 });
 
 test('Los accesos independientes incluyen su crédito y la versión electoral coincide con health',async()=>{

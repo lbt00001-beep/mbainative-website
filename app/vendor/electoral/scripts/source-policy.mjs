@@ -12,7 +12,9 @@ export const feeds=[
  ['NC Report / La Razón','https://www.larazon.es/espana/'],['Winston / Artículo14','https://www.articulo14.es/politica/'],
  ['GESOP / El Periódico','https://www.elperiodico.com/es/politica/'],['GESOP · originales','https://gesop.net/es/feed/'],
  ['Ipsos / La Vanguardia','https://www.lavanguardia.com/politica'],['Ipsos · originales','https://www.ipsos.com/es-es/news-and-events/news'],
- ['GAD3 / ABC','https://www.abc.es/espana/']
+ ['GAD3 / ABC','https://www.abc.es/espana/'],
+ ['IMOP · originales','https://www.imop.es/noticias/'],
+ ['IMOP / El Confidencial','https://www.elconfidencial.com/espana/']
 ];
 
 export function contextReason(title){

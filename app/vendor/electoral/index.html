@@ -14,7 +14,7 @@
   <a class="skip-link" href="#main">Saltar al contenido</a>
   <header class="site-header">
     <div class="brand"><span class="brand-icon" aria-hidden="true">◫</span><div><strong>OBSERVATORIO ELECTORAL</strong><span>España · Congreso de los Diputados</span></div></div>
-    <div class="header-tools"><a class="quiet" href="/aplicaciones">MBAI Native</a><span class="badge">Observatorio electoral · v3.6.2</span><button data-tab="help" class="secondary" aria-controls="help">Ayuda</button><button id="open-ai" class="quiet">Consultor IA</button></div>
+    <div class="header-tools"><a class="quiet" href="/aplicaciones">MBAI Native</a><span class="badge">Observatorio electoral · v3.6.3</span><button data-tab="help" class="secondary" aria-controls="help">Ayuda</button><button id="open-ai" class="quiet">Consultor IA</button></div>
   </header>
   <main id="main" tabindex="-1">
     <section class="hero">
@@ -99,7 +99,7 @@
       </section>
     </div>
   </main>
-  <footer><span data-app-credit>By Luis Benedicto Tuzón with modelo de IA desconocido · versión 3.6.2 · 2026</span><span>Datos oficiales y escenarios con supuestos explícitos</span></footer>
+  <footer><span data-app-credit>By Luis Benedicto Tuzón with modelo de IA desconocido · versión 3.6.3 · 2026</span><span>Datos oficiales y escenarios con supuestos explícitos</span></footer>
   <dialog id="ai-dialog"><form method="dialog"><button class="dialog-close quiet" aria-label="Cerrar consultor">✕</button></form><p class="eyebrow">CONSULTOR OPCIONAL</p><h2>Explicar el escenario</h2><p class="small muted">La IA recibe los porcentajes, los escaños y los supuestos del escenario central. Puede cometer errores: el reparto matemático se calcula en la app. La consulta y el contexto se envían a OpenRouter y al proveedor del modelo.</p><label for="api-key">Tu clave de OpenRouter (solo en memoria)</label><input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-…"><div class="card-actions"><button id="load-models" type="button" class="secondary">Cargar modelos disponibles</button><button id="clear-key" type="button" class="quiet">Borrar clave</button></div><label for="ai-model">Modelo</label><select id="ai-model"><option value="">Carga y selecciona un modelo</option></select><label for="ai-question">Pregunta sobre el escenario</label><textarea id="ai-question" rows="3" maxlength="1500" placeholder="¿Por qué cambiar un punto de voto puede mover varios escaños?"></textarea><label for="ai-max-tokens">Límite de respuesta y razonamiento (tokens)</label><input id="ai-max-tokens" type="number" min="512" max="16384" step="512" value="4096"><button id="ask-ai" type="button">Consultar</button><button id="cancel-ai" type="button" class="secondary" hidden>Cancelar consulta</button><p id="ai-status" role="status" class="small muted"></p><div id="ai-answer" class="ai-answer" aria-live="polite"></div></dialog>
 </body>
 </html>

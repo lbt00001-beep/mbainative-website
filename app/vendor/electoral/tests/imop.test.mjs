@@ -6,7 +6,7 @@ import {reviewedCharts,verifyReviewedChart} from '../scripts/original-reports.mj
 import {isPollPublication} from '../scripts/search-sources.mjs';
 import {feeds} from '../scripts/source-policy.mjs';
 const d=JSON.parse(readFileSync(new URL('./fixtures/imop-20261009.json',import.meta.url)));
-const chart=reviewedCharts[0],bytes=readFileSync(new URL('./fixtures/imop-20261009.png',import.meta.url));
+const chart=reviewedCharts.find(c=>c.sample===900),bytes=readFileSync(new URL('./fixtures/imop-20261009.png',import.meta.url));
 const html=(text=d.text)=>`<h1>${d.title}</h1><meta property="article:published_time" content="${d.publishedAt}"><article class="entry-content">${text}<img src="${chart.imageUrl}"></article>`;
 const options={today:'2026-10-23',reviewedChart:verifyReviewedChart(chart,html(),bytes)};
 test('IMOP: contrasta gráfico original y ficha; conserva decimales y ausencias',()=>{
@@ -37,4 +37,16 @@ test('IMOP: noticias electorales sin convertir servicios o barómetros financier
  const feed='https://www.imop.es/noticias/';
  assert.equal(isPollPublication({title:'Encuesta pre-electoral para El Confidencial 2026'},feed),true);
  for(const title of ['Encuesta telefónica','Encuestas online con panel propio','Barómetro de Innovación Financiera','Encuesta sobre la imagen de la Corona'])assert.equal(isPollPublication({title},feed),false);
+});
+
+test('IMOP 23 octubre: serie actual, ficha de 1000 y conservación de primera ola',()=>{
+ const chart=reviewedCharts.find(c=>c.sample===1000),d=JSON.parse(readFileSync(new URL('./fixtures/imop-20261023.json',import.meta.url)));
+ const html='<h1>'+d.title+'</h1><meta property="article:published_time" content="'+d.publishedAt+'"><section class="explodedView">'+d.text+'</section><iframe src="'+chart.imageUrl+'"></iframe>';
+ const bytes=readFileSync(new URL('./fixtures/imop-20261023.js',import.meta.url));
+ const r=extractArticle(html,chart.url,{today:'2026-10-23',reviewedChart:verifyReviewedChart(chart,html,bytes)});
+ assert.equal(r.status,'extracted',r.reason);assert.equal(r.poll.values.pp,28.5);assert.equal(r.poll.values.sumar,8.9);assert.equal(r.poll.values.aa,1);assert.equal(r.poll.values.salf,undefined);
+ assert.equal(r.poll.sample,1000);assert.equal(r.poll.fieldworkEnd,'2026-10-16');assert.equal(r.poll.denominator,'unspecified');
+ assert.equal(isPollPublication({title:d.title,url:chart.url},'https://www.elconfidencial.com/espana/'),true);
+ assert.throws(()=>verifyReviewedChart(chart,html,Buffer.from('otra serie')),/ha cambiado/);
+ const known=extractArticle(html,chart.url,{today:'2026-10-23',reviewedChart:chart,catalog:[r.poll]});assert.equal(known.status,'known');
 });

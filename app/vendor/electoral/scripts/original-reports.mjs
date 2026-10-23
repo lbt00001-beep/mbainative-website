@@ -10,11 +10,22 @@ export const originalReports=[{
 },{
  institute:'IMOP',publishedAt:'2026-10-09',title:'IMOP · encuesta preelectoral para El Confidencial',
  url:'https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/'
+},{
+ institute:'IMOP',publishedAt:'2026-10-23',title:'IMOP · segunda oleada para El Confidencial',
+ url:'https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/'
 }];
 
 // Manual transcription of the original graph, guarded by its exact bytes.
 // The article rounds PP and PSOE; never substitute those rounded figures.
 export const reviewedCharts=[{
+ url:'https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/',
+ imageUrl:'https://datos.elconfidencial.com/encuestas_IMOP-231026/',
+ dataUrl:'https://datos.elconfidencial.com/encuestas_IMOP-231026/datos.js',
+ sha256:'868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794',
+ publishedAt:'2026-10-23',fieldworkStart:'2026-10-13',fieldworkEnd:'2026-10-16',sample:1000,
+ values:{pp:28.5,psoe:27.1,vox:20,sumar:8.9,podemos:1.9,erc:2.2,bildu:1.3,bng:1.1,aa:1,cc:.6,junts:1.2,pnv:1},
+ note:'Datos de la serie IMOP (23 oct.) del gráfico público original, no resultado 2023 ni IMOP (9 oct.). Frente Amplio (Sumar) se armoniza con Sumar; PP incluye la agrupación con UPN del gráfico, sin desglose independiente. SALF no aparece: no se añade ni se deduce. No se importan los escaños de la casa. Denominador no explícito, con reducción de peso; margen general orientativo no utilizado como intervalo por partido.'
+},{
  url:'https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/',
  imageUrl:'https://www.imop.es/wp-content/uploads/2026/10/estimacion-voto-2.png',
  sha256:'c70e7402fee0544f9295b25a81b035c169a5ce0a05b67bc42d7683bc63115bdf',
@@ -26,3 +37,4 @@ export function verifyReviewedChart(chart,html,bytes){
  if(!html.includes(chart.imageUrl)||createHash('sha256').update(bytes).digest('hex')!==chart.sha256)throw Error('El gráfico original revisado ha cambiado; se requiere una nueva revisión.');
  return chart;
 }
+

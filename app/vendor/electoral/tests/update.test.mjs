@@ -9,7 +9,7 @@ const load=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const catalog=load('tests/fixtures/polls-baseline.json'),official=load('data/official-2023.json'),fixtures=load('tests/fixtures/poll-articles.json');
 const html=f=>`<html><body><h1>${f.title}</h1><script type="application/ld+json">${JSON.stringify({'@type':'NewsArticle',url:f.url,headline:f.title,datePublished:f.publishedAt,articleBody:f.body})}</script>${f.table?'<table>'+f.table.map(row=>'<tr>'+row.map(cell=>'<td>'+cell+'</td>').join('')+'</tr>').join('')+'</table>':''}</body></html>`;
 test('40dB flash: incorpora el original en instalaciones existentes y excluye candidatura unitaria',()=>{
- const report=originalReports[0],pages=load('tests/fixtures/40db-flash-pages.json');
+ const report=originalReports.find(r=>r.institute==='40dB'),pages=load('tests/fixtures/40db-flash-pages.json');
  const result=extractPdf(pages,report.url,{today:'2026-10-09',publishedAt:report.publishedAt,catalog:catalog.polls});
  assert.equal(result.status,'extracted',result.reason);
  assert.deepEqual(result.poll.values,{pp:31.9,psoe:28.1,vox:18.9,sumar:5.3,podemos:2.3,salf:1.8});
@@ -23,7 +23,7 @@ test('Descubre noticias electorales SER sin la palabra encuesta y reconoce PDF f
  const feed='https://cadenaser.com/tag/encuestas/a/';
  assert.ok(isPollPublication({url:'https://cadenaser.com/nacional/2026/10/09/pp-y-vox/',title:'PP y Vox lograrían una amplia mayoría absoluta con más de 40 escaños de ventaja'},feed));
  assert.equal(isPollPublication({url:'https://cadenaser.com/nacional/2026/10/09/andalucia/',title:'Encuesta autonómica de Andalucía'},feed),false);
- assert.ok(isOriginal40dbReport(originalReports[0].url));assert.equal(isOriginal40dbReport('https://example.com/informe_voto.pdf'),false);
+ assert.ok(isOriginal40dbReport(originalReports.find(r=>r.institute==='40dB').url));assert.equal(isOriginal40dbReport('https://example.com/informe_voto.pdf'),false);
  const article={url:'https://cadenaser.com/nacional/2026/10/09/pp-y-vox/',publishedAt:'2026-10-09',title:'PP y Vox lograrían una amplia mayoría absoluta',body:'La encuesta flash de 40dB da 132 escaños al PP, 112 al PSOE y 66 a Vox en el Congreso. Sumar tendría 5 escaños y Podemos 2.'};
  assert.equal(extractArticle(html(article),article.url,{today:'2026-10-09'}).status,'pending');
 });

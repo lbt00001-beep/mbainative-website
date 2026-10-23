@@ -30,6 +30,6 @@ test('Los accesos independientes incluyen su crédito y la versión electoral co
     const html=await readFile(new URL('../public/'+file,import.meta.url),'utf8');assert.ok(html.includes(formatAppCredit(findAppCredit(route)!)),file);
   }
   const electoral=await readFile(new URL('../vendor/electoral/index.html',import.meta.url),'utf8');assert.ok(electoral.includes(formatAppCredit(findAppCredit('/aplicaciones/observatorio-electoral')!)));
-  const handler=await readFile(new URL('../vendor/electoral/deployment/next-handler.mjs',import.meta.url),'utf8');assert.ok(handler.includes("version:'3.6.2'"));
+  const handler=await readFile(new URL('../vendor/electoral/deployment/next-handler.mjs',import.meta.url),'utf8');assert.ok(handler.includes("version:'3.6.3'"));
   const evolution=await readFile(new URL('../public/evolucion/index.html',import.meta.url),'utf8');assert.ok(evolution.includes('/app-credits/widget.mjs'));
 });

@@ -79,7 +79,7 @@
       "name": "Observatorio Electoral",
       "route": "/aplicaciones/observatorio-electoral",
       "model": "modelo de IA desconocido",
-      "version": "3.6.2",
+      "version": "3.6.3",
       "year": 2026,
       "placement": "inline"
     },

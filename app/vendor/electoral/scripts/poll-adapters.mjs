@@ -53,6 +53,7 @@ export function articleDocument(html,url){
   if(n.nodeName==='h1')headlines.push(clean(text(n)));
   if(n.nodeName==='article')articles.push(clean(text(n)));
   if(/(?:^| )(?:entry-content|content-inner|article-body|article-content|post-content|article__content|elementor-widget-theme-post-content)(?: |$)/.test(attrs.class||'')||attrs.itemprop==='articleBody')contents.push(clean(text(n)));
+  if(new URL(url).hostname==='www.elconfidencial.com'&&(attrs.class||'').split(' ').includes('explodedView')&&/Fechas de campo/i.test(text(n)))contents.push(clean(text(n)));
   if(n.nodeName==='table'){
    const rows=[];const rowwalk=x=>{if(x.nodeName==='tr')rows.push((x.childNodes||[]).filter(c=>['td','th'].includes(c.nodeName)).map(c=>clean(text(c))));else for(const c of x.childNodes||[])rowwalk(c);};rowwalk(n);tables.push(rows);
   }
@@ -115,7 +116,7 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
  if(context&&!catalog.some(p=>canonical(p.url)===canonical(url)))return {status:'context',reason:context,document:d};
  const multiple=[/GAD3/i,/Sigma Dos/i,/40dB/i,/DYM/i,/SocioM[eé]trica/i,/Ateneo del Dato/i,/InvyMark/i,/Hamalgama/i,/NC[ -]?Report/i,/Winston/i,/Celeste[ -]?Tel/i,/Data10/i].filter(re=>re.test(body)).length;
  if(multiple>=3||/gu[ií]a de las elecciones|pueden las encuestas|confianza.{0,40}voto por correo|(?:lo|esto) dicen (?:las )?[uú]ltimas encuestas|qui[eé]n ganar[aá].{0,60}(?:encuestas|sondeos)/i.test(d.title))return {status:'context',reason:'Guía, agregado o pregunta no electoral; no es una encuesta independiente.',document:d};
- if(!config.identity.test(body))return {status:'context',reason:'No identifica un estudio original del instituto correspondiente.',document:d};
+ if(!config.identity.test(body)&&!reviewedChart)return {status:'context',reason:'No identifica un estudio original del instituto correspondiente.',document:d};
  if(!validDate(d.publishedAt))return {status:'pending',reason:'Publicación sin fecha inequívoca.',document:d};
  if(d.publishedAt>today)return {status:'rejected',reason:'Publicación futura.',document:d};
  if((Date.parse(today)-Date.parse(d.publishedAt))/86400000>60&&!catalog.some(p=>canonical(p.url)===canonical(url)))return {status:'old',reason:'Publicación anterior a la ventana de 60 días; no entra en la estimación actual.',document:d};
@@ -132,7 +133,7 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
    if(Object.keys(values).length>=4){if(compromís&&values.sumar!=null){values.sumar=Math.round((values.sumar+compromís)*100)/100;evidence.sumar+=' + Compromís '+compromís+' (armonización explícita del espacio 2023)';}extracted.values=values;extracted.evidence=evidence;break;}
   }
  }
- if(config.institute==='IMOP'&&new URL(url).hostname==='www.imop.es'){
+ if(config.institute==='IMOP'&&(new URL(url).hostname==='www.imop.es'||reviewedChart)){
   // The publisher uses rounded prose alongside a more precise image.
   if(!reviewedChart)return {status:'pending',relatedInstitute:'IMOP',publishedAt:d.publishedAt,reason:'El gráfico IMOP necesita revisión; no se incorporan los porcentajes redondeados del texto.',document:d};
   if(reviewedChart.url!==url||reviewedChart.publishedAt!==d.publishedAt||['sample','fieldworkStart','fieldworkEnd'].some(k=>reviewedChart[k]!==meta[k]))return {status:'pending',reason:'La ficha IMOP ha cambiado respecto al gráfico revisado.',document:d};
@@ -201,3 +202,4 @@ export function extractPdf(pages,url,{today,catalog=[],publishedAt}={}){
  if(duplicate)return {status:'duplicate',reason:'Misma encuesta y campo que el original ya incorporado.',original:duplicate.url};
  return {status:'extracted',poll:{id:institute.toLowerCase().replace(/[^a-z0-9]/g,'')+'-'+metadata.fieldworkEnd.replaceAll('-',''),institute,publishedAt:publication,...metadata,methodology:identifyMethodology(all,url),values,url,verified:true,measure:'voteEstimate',retrievedAt:today,note:'Vector nacional extraído del PDF original con ficha técnica verificada.'},evidence};
 }
+

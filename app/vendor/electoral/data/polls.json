@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "asOf": "2026-10-06",
+  "asOf": "2026-10-09",
   "polls": [
     {
       "id": "40db-202610",
@@ -528,6 +528,51 @@
           "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
           "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
         ]
+      }
+    },
+    {
+      "id": "imop-20261007",
+      "institute": "IMOP",
+      "publishedAt": "2026-10-09",
+      "sample": 900,
+      "fieldworkStart": "2026-10-05",
+      "fieldworkEnd": "2026-10-07",
+      "denominator": "validVotes",
+      "values": {
+        "pp": 30.4,
+        "psoe": 26.5,
+        "vox": 19,
+        "sumar": 7.6
+      },
+      "url": "https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-23",
+      "note": "Transcripción revisada del gráfico original, con comprobación automática de su huella y ficha técnica. Cifras del gráfico original revisado: PP 30,4 y PSOE 26,5; el texto redondea a 30 y 26. No se desglosan Podemos ni SALF. El gráfico parcial no suma 100: no se normaliza ni se completa el residuo. Estudio presentado como fotografía inicial de alcance reducido. La parte online no es probabilística; el ±3,3 orientativo no se utiliza como intervalo de confianza.",
+      "reviewedChart": {
+        "url": "https://www.imop.es/wp-content/uploads/2026/10/estimacion-voto-2.png",
+        "sha256": "c70e7402fee0544f9295b25a81b035c169a5ce0a05b67bc42d7683bc63115bdf"
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/",
+        "evidence": [
+          "Control de cuotas por sexo-edad y nivel estudios.",
+          "Técnica de entrevista Metodología híbrida: telefónica (CATI) y online (CAWI).",
+          "Las entrevistas online se realizaron a través de EMOP, panel propio de IMOP.",
+          "z × δ√n Margen de error de muestreo Al no apoyarse la parte online en un muestreo probabilístico, no procede calcular el margen de error muestral en sentido estricto."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.3",
+        "checkedAt": "2026-10-23",
+        "sha256": "c70e7402fee0544f9295b25a81b035c169a5ce0a05b67bc42d7683bc63115bdf",
+        "fragments": {
+          "source": "https://www.imop.es/wp-content/uploads/2026/10/estimacion-voto-2.png"
+        }
       }
     }
   ],

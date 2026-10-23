@@ -1,0 +1,427 @@
+{
+  "title": "Encuesta pre-electoral para El Confidencial 2026",
+  "publishedAt": "2026-10-09",
+  "text": "Estimación electoral · Gráfico editable Datos del gráfico Edita la tabla. Los arcos se actualizan con una transición animada. Título del gráfico Fecha de la estimación Datos editables en escaños. El orden de las formaciones corresponde al orden de izquierda a derecha de los arcos. Formación Estimación actual Resultados 2023 Cambio Color Total representado Escaños enteros ≥ 0. «Cambio» se calcula automáticamente. Títulos de las series y total de escaños Serie exterior Serie interior Total de escaños La mayoría absoluta se calcula como la mitad del total, redondeada hacia abajo, más un escaño.  Este gráfico necesita JavaScript para mostrar la tabla editable y las animaciones. Los datos están incluidos al principio del archivo, en el bloque «chart-data».  ESTIMACIÓN DE VOTO (Encuesta pre-electoral El Confidencial 09-10-26) Se trata de una encuesta de alcance reducido, concebida principalmente para captar el estado de ánimo de la ciudadanía y su primera reacción ante una situación política especialmente convulsa. A este respecto cabe señalar que el campo se cerró antes de tener conocimiento de la muerte de Maricarmen. Por otra parte, hay que tener en cuenta la incertidumbre que todavía rodea al espacio político de Sumar, actualmente integrado en el Gobierno, cuya configuración futura sigue sin estar definida. No solo se desconoce quién encabezará su candidatura, sino también qué formaciones políticas acabarán integrándose en este espacio, tanto en el ámbito nacional como en el autonómico. Todo ello aconseja evitar conclusiones precipitadas en un escenario político y electoral todavía abierto. En este sentido, los resultados deben interpretarse como una fotografía inmediata del momento, más orientada a identificar tendencias y percepciones iniciales que a anticipar de forma definitiva el comportamiento electoral. Predomina una visión negativa de la situación general de España La percepción de la situación general de España presenta un claro predominio de las valoraciones negativas. Prácticamente la mitad de los encuestados (48%) la califica como mala o muy mala, frente a un 19% que la considera buena o muy buena. Por su parte, un 33,0% la define como regular. Las opiniones negativas presentan, además, una intensidad elevada: un 24% considera que la situación es muy mala, porcentaje idéntico al de quienes la califican como mala. En contraste, únicamente un 2% la califica como muy buena. En conjunto, las valoraciones negativas superan a las positivas en 30 puntos porcentuales, reflejando un clima de opinión predominantemente desfavorable sobre la situación general del país. ESTIMACIÓN DE VOTO (Encuesta pre-electoral El Confidencial 09-10-26) Si las elecciones fuesen mañana: ✓ El PP se situaría como primera fuerza política, con el 30% de los votos válidos, seguido del PSOE, con un 26%. ✓ Vox consolidaría su tercera posición, alcanzando el 19% de los sufragios y ampliando considerablemente la distancia respecto a Sumar, con quien prácticamente empató en 2023. ✓ Sumar retrocedería hasta el 7,6%. Universo Personas de 18 años y más censadas y con derecho a voto en las elecciones generales. Fechas de campo Del 5 al 7 de octubre de 2026. Diseño muestral Aleatorio estratificado proporcional por CCAA y tamaño de municipio. Control de cuotas por sexo-edad y nivel estudios. Tamaño muestral 900 entrevistas. Técnica de entrevista Metodología híbrida: telefónica (CATI) y online (CAWI). Las entrevistas online se realizaron a través de EMOP, panel propio de IMOP. z × δ√n Margen de error de muestreo Al no apoyarse la parte online en un muestreo probabilístico, no procede calcular el margen de error muestral en sentido estricto. Aun así, y solo con carácter orientativo, puede estimarse una desviación aproximada de ±3,3 puntos porcentuales en las estimaciones.",
+  "tables": [
+    [
+      [
+        "Formación",
+        "Estimación actual",
+        "Resultados 2023",
+        "Cambio",
+        "Color"
+      ],
+      [
+        "Total representado",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    [
+      [
+        "Cookie",
+        "Duración",
+        "Descripción"
+      ],
+      [
+        "cookielawinfo-checkbox-analytics",
+        "11 months",
+        "This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category \"Analytics\"."
+      ],
+      [
+        "cookielawinfo-checkbox-functional",
+        "11 months",
+        "The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category \"Functional\"."
+      ],
+      [
+        "cookielawinfo-checkbox-necessary",
+        "11 months",
+        "This cookie is set by GDPR Cookie Consent plugin. The cookies is used to store the user consent for the cookies in the category \"Necessary\"."
+      ],
+      [
+        "cookielawinfo-checkbox-others",
+        "11 months",
+        "This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category \"Other."
+      ],
+      [
+        "cookielawinfo-checkbox-performance",
+        "11 months",
+        "This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category \"Performance\"."
+      ],
+      [
+        "viewed_cookie_policy",
+        "11 months",
+        "The cookie is set by the GDPR Cookie Consent plugin and is used to store whether or not user has consented to the use of cookies. It does not store any personal data."
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "url": "https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/#content",
+      "title": "Ir al contenido"
+    },
+    {
+      "url": "https://www.imop.es/",
+      "title": ""
+    },
+    {
+      "url": "https://www.imop.es/quienes-somos/",
+      "title": "¿Quiénes somos?"
+    },
+    {
+      "url": "https://www.imop.es/politica-de-privacidad/",
+      "title": "Privacidad"
+    },
+    {
+      "url": "https://www.imop.es/politicas-de-calidad/",
+      "title": "Políticas de calidad"
+    },
+    {
+      "url": "https://www.imop.es/cookies/",
+      "title": "Cookies"
+    },
+    {
+      "url": "https://denuncias.imop.es/",
+      "title": "Canal de denuncias"
+    },
+    {
+      "url": "https://www.imop.es/panel-emop/",
+      "title": "Panel Emop"
+    },
+    {
+      "url": "https://www.imop.es/encuesta-telefonica/",
+      "title": "Encuesta telefónica"
+    },
+    {
+      "url": "https://www.imop.es/encuestas-online/",
+      "title": "Encuestas online con panel propio"
+    },
+    {
+      "url": "https://www.imop.es/estudio-punto-venta/",
+      "title": "Estudios de punto de venta"
+    },
+    {
+      "url": "https://www.imop.es/estudios-de-calidad/",
+      "title": "Estudios de calidad"
+    },
+    {
+      "url": "https://www.imop.es/ux/",
+      "title": "UX"
+    },
+    {
+      "url": "https://www.imop.es/talleres-co-creativos/",
+      "title": "Talleres co-creativos"
+    },
+    {
+      "url": "https://www.imop.es/focusgroupsyentrevistas/",
+      "title": "Focus Groups y entrevistas"
+    },
+    {
+      "url": "https://www.imop.es/economia-del-comportamiento/",
+      "title": "Economía del comportamiento"
+    },
+    {
+      "url": "https://www.imop.es/focus-group-de-profesionales/",
+      "title": "Round Robin"
+    },
+    {
+      "url": "https://www.imop.es/design-thinking/",
+      "title": "Design thinking"
+    },
+    {
+      "url": "https://www.imop.es/eyetracking/",
+      "title": "Eyetracking"
+    },
+    {
+      "url": "https://www.imop.es/etnographic-home-y-safaris/",
+      "title": "Etnographic home y safaris"
+    },
+    {
+      "url": "https://www.imop.es/sectores/",
+      "title": "Sectores"
+    },
+    {
+      "url": "https://www.imop.es/noticias/",
+      "title": "Noticias"
+    },
+    {
+      "url": "https://www.imop.es/contacto/",
+      "title": "Contacto"
+    },
+    {
+      "url": "https://www.imop.es/empleo/",
+      "title": "Empleo"
+    },
+    {
+      "url": "https://www.imop.es/fiesta-40-aniversario/",
+      "title": "Fiesta 40 aniversario"
+    },
+    {
+      "url": "https://www.imop.es/escuchas/index.cgi",
+      "title": "Acceso Clientes"
+    },
+    {
+      "url": "https://panelistas.imop.es/",
+      "title": "Portal Panelista"
+    },
+    {
+      "url": "https://www.imop.es/escuchas/index.cgi",
+      "title": "Acceso Clientes"
+    },
+    {
+      "url": "https://www.imop.es/escuchas/index.cgi",
+      "title": "Acceso Clientes"
+    },
+    {
+      "url": "https://panelistas.imop.es/",
+      "title": "Portal Panelista"
+    },
+    {
+      "url": "https://www.imop.es/",
+      "title": ""
+    },
+    {
+      "url": "https://panelistas.imop.es/",
+      "title": ""
+    },
+    {
+      "url": "https://www.imop.es/quienes-somos/",
+      "title": "¿Quiénes somos?"
+    },
+    {
+      "url": "https://www.imop.es/politica-de-privacidad/",
+      "title": "Privacidad"
+    },
+    {
+      "url": "https://www.imop.es/politicas-de-calidad/",
+      "title": "Políticas de calidad"
+    },
+    {
+      "url": "https://www.imop.es/cookies/",
+      "title": "Cookies"
+    },
+    {
+      "url": "https://denuncias.imop.es/",
+      "title": "Canal de denuncias"
+    },
+    {
+      "url": "https://www.imop.es/panel-emop/",
+      "title": "Panel Emop"
+    },
+    {
+      "url": "https://www.imop.es/encuesta-telefonica/",
+      "title": "Encuesta telefónica"
+    },
+    {
+      "url": "https://www.imop.es/encuestas-online/",
+      "title": "Encuestas online con panel propio"
+    },
+    {
+      "url": "https://www.imop.es/estudio-punto-venta/",
+      "title": "Estudios de punto de venta"
+    },
+    {
+      "url": "https://www.imop.es/estudios-de-calidad/",
+      "title": "Estudios de calidad"
+    },
+    {
+      "url": "https://www.imop.es/ux/",
+      "title": "UX"
+    },
+    {
+      "url": "https://www.imop.es/talleres-co-creativos/",
+      "title": "Talleres co-creativos"
+    },
+    {
+      "url": "https://www.imop.es/focusgroupsyentrevistas/",
+      "title": "Focus Groups y entrevistas"
+    },
+    {
+      "url": "https://www.imop.es/economia-del-comportamiento/",
+      "title": "Economía del comportamiento"
+    },
+    {
+      "url": "https://www.imop.es/focus-group-de-profesionales/",
+      "title": "Round Robin"
+    },
+    {
+      "url": "https://www.imop.es/design-thinking/",
+      "title": "Design thinking"
+    },
+    {
+      "url": "https://www.imop.es/eyetracking/",
+      "title": "Eyetracking"
+    },
+    {
+      "url": "https://www.imop.es/etnographic-home-y-safaris/",
+      "title": "Etnographic home y safaris"
+    },
+    {
+      "url": "https://www.imop.es/sectores/",
+      "title": "Sectores"
+    },
+    {
+      "url": "https://www.imop.es/noticias/",
+      "title": "Noticias"
+    },
+    {
+      "url": "https://www.imop.es/contacto/",
+      "title": "Contacto"
+    },
+    {
+      "url": "https://www.imop.es/empleo/",
+      "title": "Empleo"
+    },
+    {
+      "url": "https://www.imop.es/fiesta-40-aniversario/",
+      "title": "Fiesta 40 aniversario"
+    },
+    {
+      "url": "https://www.imop.es/author/manuel/",
+      "title": "Manuel"
+    },
+    {
+      "url": "https://www.imop.es/enric-mas-ganador-de-la-vuelta-a-espana-2026/",
+      "title": "← Entrada anterior"
+    },
+    {
+      "url": "https://www.imop.es/ia-data-beers/",
+      "title": "Entrada siguiente →"
+    },
+    {
+      "url": "https://www.imop.es/ia-data-beers/",
+      "title": "I+A – DATA BEERS"
+    },
+    {
+      "url": "https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/",
+      "title": "Encuesta pre-electoral para El Confidencial 2026"
+    },
+    {
+      "url": "https://www.imop.es/enric-mas-ganador-de-la-vuelta-a-espana-2026/",
+      "title": "ENRIC MAS GANADOR DE LA VUELTA A ESPAÑA 2026"
+    },
+    {
+      "url": "https://www.imop.es/patrocinio-de-baloncesto-copy/",
+      "title": "PATROCINIO MUSICAL"
+    },
+    {
+      "url": "https://www.imop.es/patrocinio-de-baloncesto/",
+      "title": "PATROCINIO DE BALONCESTO"
+    },
+    {
+      "url": "https://www.imop.es/valor-e-impacto-de-la-radio-en-el-dia-mundial-de-la-radio-2026/",
+      "title": "VALOR E IMPACTO DE LA RADIO en el Día Mundial de la Radio 2026"
+    },
+    {
+      "url": "https://www.imop.es/ii-ola-meaningful-women/",
+      "title": "II Ola – MEANINGFUL WOMEN"
+    },
+    {
+      "url": "https://www.imop.es/alex-marquez-repite-en-jerez/",
+      "title": "ÁLEX MÁRQUEZ REPITE EN JEREZ"
+    },
+    {
+      "url": "https://www.imop.es/aedemo-tv-2026/",
+      "title": "AEDEMO TV 2026"
+    },
+    {
+      "url": "https://x.com/IMOPInsights?ref_src=twsrc%5Etfw",
+      "title": "Posts by IMOPInsights"
+    },
+    {
+      "url": "https://goo.gl/maps/cTTKRPAFc3AyVLcM8",
+      "title": "MADRID C/Antracita N° 7 Planta 4ª, 28045"
+    },
+    {
+      "url": "https://goo.gl/maps/RoK9a9r3KjYwYnZMA",
+      "title": "BARCELONA Carrer de Balcells Nº 29, 08024"
+    },
+    {
+      "url": "https://es-es.facebook.com/IMOP.es/",
+      "title": "Facebook-f"
+    },
+    {
+      "url": "https://www.linkedin.com/company/imop/?originalSubdomain=es",
+      "title": "Linkedin-in"
+    },
+    {
+      "url": "https://twitter.com/imopinsights",
+      "title": "Twitter"
+    },
+    {
+      "url": "https://www.imop.es/quienes-somos",
+      "title": "¿Quiénes somos?"
+    },
+    {
+      "url": "https://www.imop.es/noticias",
+      "title": "Últimas noticias"
+    },
+    {
+      "url": "https://www.imop.es/panel-emop",
+      "title": "Panel Emop"
+    },
+    {
+      "url": "https://www.imop.es/sectores",
+      "title": "Sectores"
+    },
+    {
+      "url": "https://www.imop.es/empleo",
+      "title": "Empleo"
+    },
+    {
+      "url": "https://www.imop.es/cookies",
+      "title": "Cookies"
+    },
+    {
+      "url": "https://www.imop.es/politica-de-privacidad",
+      "title": "Privacidad"
+    },
+    {
+      "url": "https://www.imop.es/politicas-de-calidad",
+      "title": "Políticas de calidad"
+    },
+    {
+      "url": "https://denuncias.imop.es/",
+      "title": "Canal denuncias"
+    },
+    {
+      "url": "https://es-es.facebook.com/IMOP.es/",
+      "title": "Facebook-f"
+    },
+    {
+      "url": "https://www.linkedin.com/company/imop/?originalSubdomain=es",
+      "title": "Linkedin-in"
+    },
+    {
+      "url": "https://twitter.com/imopinsights",
+      "title": "Twitter"
+    },
+    {
+      "url": "https://www.imop.es/wp-content/uploads/2023/02/URS_ISO-9001-172x300.jpg",
+      "title": ""
+    },
+    {
+      "url": "https://www.imop.es/wp-content/uploads/2023/02/URS_ISO-20252-171x300.jpg",
+      "title": ""
+    },
+    {
+      "url": "https://itera.es/?_ga=2.203989715.2109728789.1667678330-1379435057.1667678330",
+      "title": "Itera.es"
+    },
+    {
+      "url": "https://www.imop.es/cookies/",
+      "title": "Leer más"
+    },
+    {
+      "url": "https://navegantes.aimc.es/",
+      "title": ""
+    },
+    {
+      "url": "https://navegantes.aimc.es/",
+      "title": ""
+    }
+  ],
+  "canonicalUrl": "https://www.imop.es/encuesta-pre-electoral-para-el-confidencial-2026/"
+}

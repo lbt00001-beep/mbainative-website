@@ -9,7 +9,7 @@ import {updateCis} from './cis-update.mjs';
 import {feeds,contextReason,issueKind,reconcileRelatedArticles} from './source-policy.mjs';
 import {withCatalogLock,commitCatalog,atomicWrite} from './catalog-store.mjs';
 import {estimateForDate} from '../assets/freshness.mjs';
-import {originalReports} from './original-reports.mjs';
+import {originalReports,reviewedCharts,verifyReviewedChart} from './original-reports.mjs';
 import {update40db} from './40db-microdata.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
@@ -17,6 +17,7 @@ const hosts=new Set([...feeds.map(([,u])=>new URL(u).hostname),'www.cis.es','ep0
 const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#8217;',"'").replaceAll('&quot;','"').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/&#(x[0-9a-f]+|[0-9]+);/gi,(whole,code)=>{const n=code[0].toLowerCase()==='x'?parseInt(code.slice(1),16):Number(code);return n>0&&n<=0x10ffff?String.fromCodePoint(n):whole;}).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 export function isPollPublication(link,feedUrl){
  if(contextReason(link.title))return false;
+ if(new URL(feedUrl).hostname==='www.imop.es'&&!/electoral|elecciones|voto|sondeo/i.test(link.title))return false;
  const recognized=/sondeo|encuesta|bar[oó]metro|electopanel|pulso electoral/i.test(link.title);
  const serElection=feedUrl==='https://cadenaser.com/tag/encuestas/a/'&&new URL(link.url).pathname.startsWith('/nacional/')&&/escaños|mayor[ií]a|voto|elecciones/i.test(link.title);
  return (recognized||serElection)&&!/auton[oó]mic|municipal|alcald|asamblea|junta general|empresari|alemania|valència|valencia|andaluc|catalu|castilla|europea|internacional|argentin|francia|portugal|chile/i.test(link.title);
@@ -65,7 +66,9 @@ async function processPublications(catalog,report,publications,today,root,depth=
   try{const bytes=await retrieve(p.url,true),hash=createHash('sha256').update(bytes).digest('hex');const ext=bytes.subarray(0,5).toString()==='%PDF-'?'.pdf':'.html';
    const dir=path.join(root,'research/automatic');await mkdir(dir,{recursive:true});const file=path.join(dir,hash+ext);await writeFile(file,bytes);
    if(ext==='.pdf'){const {pages}=await readPdf(file);return {p,hash,result:extractPdf(pages,p.url,{today,catalog:catalog.polls,publishedAt:p.publishedAt})};}
-   const html=bytes.toString('utf8'),result=extractArticle(html,p.url,{today,catalog:catalog.polls});return {p,hash,result,document:result.document||articleDocument(html,p.url)};
+   const html=bytes.toString('utf8'),chart=reviewedCharts.find(c=>canonical(c.url)===canonical(p.url));
+   const reviewedChart=chart?verifyReviewedChart(chart,html,await retrieve(chart.imageUrl,true)):undefined;
+   const result=extractArticle(html,p.url,{today,catalog:catalog.polls,reviewedChart});return {p,hash,result,document:result.document||articleDocument(html,p.url)};
   }catch(e){return {p,result:{status:'pending',reason:e.message}};}
  });
  const follow=[];
@@ -89,7 +92,7 @@ async function processPublications(catalog,report,publications,today,root,depth=
     if(/\/category\/|\/temas\/|cis|auton[oó]mic|andaluc|catalu/i.test(link.url+' '+link.title)||!hosts.has(host)||deduped.some(p=>canonical(p.url)===canonical(link.url))||contextReason(link.title))continue;
     if(document.publishedAt&&(Date.parse(today)-Date.parse(document.publishedAt))/86400000>60)continue;
     if(host==='ep00.epimg.net'&&/^\/infografias\/encuestas40db\//.test(new URL(link.url).pathname)&&/descargables\.zip$/i.test(new URL(link.url).pathname)&&document.publishedAt<=today){report.microdataTargets.push({sourceUrl:link.url,publishedAt:document.publishedAt,studyUrl:p.url,reportUrl:document.links.find(l=>isOriginal40dbReport(l.url))?.url});continue;}
-    if((host==='moreincommon.es'&&/\/pdfs\/pulso-electoral\/.*\.pdf/.test(link.url))||isOriginal40dbReport(link.url)||(host==='elpais.com'&&/consulte-todos-los-datos-internos-de-la-encuesta/.test(link.url))||((['www.lasexta.com','www.20minutos.es','www.sigmados.com','www.gad3.com','electomania.es','www.elperiodico.com','gesop.net','www.lavanguardia.com','www.ipsos.com','www.abc.es'].includes(host))&&/bar[oó]metro|estimaci[oó]n de voto|electopanel|encuesta.{0,50}generales|sondeo.{0,50}generales/i.test(link.title))){
+    if((host==='moreincommon.es'&&/\/pdfs\/pulso-electoral\/.*\.pdf/.test(link.url))||isOriginal40dbReport(link.url)||(host==='elpais.com'&&/consulte-todos-los-datos-internos-de-la-encuesta/.test(link.url))||((['www.lasexta.com','www.20minutos.es','www.sigmados.com','www.gad3.com','electomania.es','www.elperiodico.com','gesop.net','www.lavanguardia.com','www.ipsos.com','www.abc.es','www.imop.es','www.elconfidencial.com'].includes(host))&&/bar[oó]metro|estimaci[oó]n de voto|electopanel|encuesta.{0,50}generales|sondeo.{0,50}generales/i.test(link.title))){
      follow.push({...link,institute:p.institute,publishedAt:document.publishedAt});
     }
    }

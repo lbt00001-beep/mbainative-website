@@ -2,7 +2,7 @@ import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 import {contextReason} from './source-policy.mjs';
 
-export const ADAPTER_VERSION='1.2';
+export const ADAPTER_VERSION='1.3';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -24,6 +24,8 @@ export const houses={
  'gesop.net':{institute:'GESOP',owned:true,identity:/GESOP|Gabinet d.Estudi/i},
  'www.lavanguardia.com':{institute:'Ipsos',identity:/\bIpsos\b/i,alternatives:[{institute:'GAD3',identity:/\bGAD3\b/i}]},
  'www.ipsos.com':{institute:'Ipsos',owned:true,identity:/Ipsos/i},
+ 'www.imop.es':{institute:'IMOP',owned:true,identity:/IMOP/i},
+ 'www.elconfidencial.com':{institute:'IMOP',identity:/IMOP/i},
  'www.abc.es':{institute:'GAD3',identity:/\bGAD3\b/i}
 };
 const aliases={pp:'Partido Popular|\\bPP\\b|Feij[oó]o|los populares',psoe:'Partido Socialista|\\bPSOE\\b|los socialistas',vox:'\\bVox\\b|partido de (?:Santiago )?Abascal',sumar:'\\bSumar\\b|Frente Amplio',podemos:'\\bPodemos\\b',salf:'Se Acab[oó] la Fiesta|\\bSALF\\b',erc:'\\bERC\\b|Esquerra Republicana',bildu:'EH Bildu|\\bBildu\\b',pnv:'EAJ[ -]PNV|\\bPNV\\b',junts:'\\bJunts\\b',bng:'\\bBNG\\b',cc:'Coalici[oó]n Canaria|\\bCCa?\\b',upn:'\\bUPN\\b',ac:'Alian[çz]a Catalana|\\bAC\\b',aa:'Adelante Andaluc[ií]a'};
@@ -104,7 +106,7 @@ export function technicalMetadata(text,publishedAt){
  if(fieldworkStart&&(!validDate(fieldworkStart)||!validDate(fieldworkEnd)||fieldworkStart>fieldworkEnd||fieldworkEnd>publishedAt))throw Error('Fechas de campo incompatibles con publicación.');
  return {sample:sample&&sample<=1000000?sample:null,fieldworkStart,fieldworkEnd,denominator:/voto(?:s)? v[aá]lido(?:s)?/i.test(text)?'validVotes':'unspecified'};
 }
-export function extractArticle(html,url,{today,catalog=[]}={}){
+export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
  let config=houses[new URL(url).hostname];if(!config)return {status:'unsupported',reason:'Sin adaptador para este dominio.'};
  const d=articleDocument(html,url),body=d.text;
  if(!body)return {status:'landing',reason:'Página de navegación o sin artículo legible.',document:d};
@@ -130,6 +132,13 @@ export function extractArticle(html,url,{today,catalog=[]}={}){
    if(Object.keys(values).length>=4){if(compromís&&values.sumar!=null){values.sumar=Math.round((values.sumar+compromís)*100)/100;evidence.sumar+=' + Compromís '+compromís+' (armonización explícita del espacio 2023)';}extracted.values=values;extracted.evidence=evidence;break;}
   }
  }
+ if(config.institute==='IMOP'&&new URL(url).hostname==='www.imop.es'){
+  // The publisher uses rounded prose alongside a more precise image.
+  if(!reviewedChart)return {status:'pending',relatedInstitute:'IMOP',publishedAt:d.publishedAt,reason:'El gráfico IMOP necesita revisión; no se incorporan los porcentajes redondeados del texto.',document:d};
+  if(reviewedChart.url!==url||reviewedChart.publishedAt!==d.publishedAt||['sample','fieldworkStart','fieldworkEnd'].some(k=>reviewedChart[k]!==meta[k]))return {status:'pending',reason:'La ficha IMOP ha cambiado respecto al gráfico revisado.',document:d};
+  extracted.values={...reviewedChart.values};
+  extracted.evidence=Object.fromEntries(Object.entries(extracted.values).map(([id,value])=>[id,'Gráfico original revisado: '+value+'; '+reviewedChart.imageUrl+'; SHA256 '+reviewedChart.sha256]));
+ }
  const core=['pp','psoe','vox','sumar'];
  const original=catalog.find(p=>canonical(p.url)===canonical(url));
  if(original){
@@ -144,6 +153,7 @@ export function extractArticle(html,url,{today,catalog=[]}={}){
  const duplicate=catalog.find(p=>p.institute===config.institute&&core.every(id=>Math.abs(p.values[id]-extracted.values[id])<.051)&&(!meta.fieldworkEnd||p.fieldworkEnd===meta.fieldworkEnd));
  if(duplicate)return {status:'duplicate',reason:'Reproduce un estudio ya incorporado.',original:duplicate.url,document:d};
  const poll={id:config.institute.toLowerCase().replace(/[^a-z0-9]/g,'')+'-'+(meta.fieldworkEnd||d.publishedAt).replaceAll('-',''),institute:config.institute,publishedAt:d.publishedAt,...meta,values:extracted.values,url,verified:true,measure:'voteEstimate',retrievedAt:today,note:'Extracción automática de porcentajes explícitos del original. '+(meta.denominator==='unspecified'?'Denominador no declarado: se asume voto válido con reducción de peso. ':'')+(!meta.fieldworkEnd?'Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. ':'')+(!meta.sample?'Muestra no publicada de forma interpretable; se reduce el peso. ':'')};
+ if(reviewedChart){poll.note='Transcripción revisada del gráfico original, con comprobación automática de su huella y ficha técnica. '+reviewedChart.note;poll.reviewedChart={url:reviewedChart.imageUrl,sha256:reviewedChart.sha256};}
  poll.methodology=identifyMethodology(body,url);
  return {status:'extracted',poll,evidence:extracted.evidence,document:d};
 }

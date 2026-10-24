@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-10-24T09:20:19.092Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-10-24T14:11:08.164Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 18,
     "title": "Formación continua obligatoria",
     "icon": "🎓"
   },
   "post": {
-    "type": "news",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n📰 Learning to use local AI is exciting, overwhelming, and frustrating\n\nBaby’s first local AI agent. | Photo: Antonio G. Di Benedetto / The Verge\t\n\nI'm embarking on a ...",
+    "type": "guru_quote",
+    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🧠 Dario Amodei (Anthropic)\n\n\"Dreamforce 2026 Day 1 Recap: Agentic Identity &amp; Guardian Explained ☁️ #salesforce\"\n\n▶️ youtube.com/watch?v=lhEX25FlvU0",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "TheVergeAI"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress"
+    "url": "https://youtube.com/watch?v=lhEX25FlvU0",
+    "imageUrl": "https://i.ytimg.com/vi/lhEX25FlvU0/mqdefault.jpg"
   }
 }

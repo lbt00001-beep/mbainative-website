@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-10-24T19:19:06.889Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-10-25T09:37:25.825Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 18,
-    "title": "Formación continua obligatoria",
-    "icon": "🎓"
+    "id": 19,
+    "title": "La empresa como plataforma",
+    "icon": "🏢"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🎓 Principio #18: Formación continua obligatoria\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
+    "type": "news",
+    "content": "🏢 Principio #19: La empresa como plataforma\n\n📰 Learning to use local AI is exciting, overwhelming, and frustrating\n\nBaby’s first local AI agent. | Photo: Antonio G. Di Benedetto / The Verge\t\n\nI'm embarking on a jour...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "andrewng"
+      "NoticiasIA",
+      "TheVergeAI"
     ],
-    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
-    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress"
   }
 }

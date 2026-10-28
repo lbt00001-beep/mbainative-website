@@ -59,3 +59,9 @@ Se conserva el renderizado dinámico del layout y la revalidación inmediata del
 Antes del push ejecuta lint, tipos, pruebas, build y auditoría. `validate.yml` repite las comprobaciones en GitHub. Comprueba después el título de la portada, la guía, `/robots.txt` y `/sitemap.xml`. Si Hostinger conserva contenido anterior, revisa su despliegue y caché.
 
 Las pruebas de correo y OpenRouter utilizan dobles locales: no envían correos ni consumen créditos. La recepción real del formulario depende de la configuración SMTP del alojamiento.
+
+## Observatorio CCAA
+
+Dashboard público en `/observatorio-ccaa/index.html`, enlazado desde el catálogo. Versión 1.2.0, modelo de creación GPT-6 (Codex). Sus fuentes, datos y ayuda se distribuyen como archivos estáticos, sin depender del acceso al Site privado.
+
+Para actualizarlo, compilar el proyecto original y ejecutar `node scripts/sync-observatorio-ccaa.mjs <ruta-absoluta-a-dist>`. Revisar el manifiesto SHA-256 en `data/observatorio-ccaa-publication.json`, ejecutar las comprobaciones y publicar por el despliegue habitual de Hostinger desde master.

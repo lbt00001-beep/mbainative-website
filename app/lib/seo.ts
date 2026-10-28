@@ -9,6 +9,7 @@ export const pages: Record<string, [string, string]> = {
   '/about': ['El proyecto MBAI Native', 'Conoce el enfoque de MBAI Native: principios de gestión, aprendizaje y aplicaciones para trabajar con agentes de inteligencia artificial.'],
   '/services': ['Formación, consultoría y desarrollo con IA', 'Servicios de formación ejecutiva, estrategia, talleres y desarrollo de soluciones para aplicar inteligencia artificial a procesos empresariales.'],
   '/contact': ['Contacta con MBAI Native', 'Cuéntanos qué proceso quieres mejorar con inteligencia artificial. Contacto para formación, consultoría, talleres y desarrollo de aplicaciones.'],
+  '/observatorio-ccaa/index.html': ['Observatorio CCAA: España en perspectiva', 'Compara las comunidades autónomas con datos públicos oficiales, gasto por habitante, contexto territorial, series históricas e Índice General con pesos editables.'],
   '/aplicaciones': ['Aplicaciones de inteligencia artificial', 'Encuentra herramientas de IA para análisis, marketing, finanzas, comunicación y productividad. Explora el catálogo de MBAI Native.'],
   '/aplicaciones/tradingalpha': ['TradingAlpha: análisis y escenarios de inversión', 'Explora datos fundamentales, gráficos, valoraciones y escenarios con TradingAlpha. Herramienta de análisis con informes asistidos por IA.'],
   '/aplicaciones/inversion-fundamentales': ['Análisis de inversión con fundamentales', 'Consulta métricas fundamentales y escenarios de valoración para contrastar tus hipótesis de inversión.'],

@@ -1,0 +1,93 @@
+export const contextIndicators=[
+  {
+    "id": "access_surgical_wait_days",
+    "name": "Espera quirúrgica media",
+    "unit": "días",
+    "direction": -1,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Tiempo ya transcurrido de pacientes pendientes de cirugía programada en espera estructural a la fecha de corte; no demora final de los pacientes operados. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_surgical_over_6_months_pct",
+    "name": "Espera quirúrgica superior a seis meses",
+    "unit": "%",
+    "direction": -1,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Porcentaje de pacientes en espera estructural que llevan más de seis meses a la fecha de corte. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_surgical_rate_per_1000",
+    "name": "Pacientes en espera quirúrgica por 1.000 tarjetas",
+    "unit": "/1.000 tarjetas",
+    "direction": 0,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Tasa de pacientes quirúrgicos pendientes sobre población de tarjeta sanitaria. No es población residente ni mide por sí sola la calidad del acceso. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_surgical_patients",
+    "name": "Pacientes en espera quirúrgica",
+    "unit": "personas",
+    "direction": 0,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Recuento de pacientes en espera estructural. Usar también tasas y composición de especialidades. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_consultation_wait_days",
+    "name": "Espera media de primera consulta",
+    "unit": "días",
+    "direction": -1,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Demora media de primera consulta según SISLE-SNS; el registro y pacientes pendientes de fecha condicionan la comparación. No sumar a la media de espera quirúrgica. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_consultation_over_60_days_pct",
+    "name": "Primera consulta con espera superior a 60 días",
+    "unit": "%",
+    "direction": -1,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Porcentaje con cita superior a 60 días; incluye pacientes pendientes de fecha que superan 60 días en registro, según el informe. No es equivalente al tiempo medio de espera. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  },
+  {
+    "id": "access_consultation_rate_per_1000",
+    "name": "Pacientes en primera consulta por 1.000 tarjetas",
+    "unit": "/1.000 tarjetas",
+    "direction": 0,
+    "category": "Acceso sanitario",
+    "manual": true,
+    "dataset": "Sanidad · SISLE-SNS · corte semestral",
+    "provider": "Ministerio de Sanidad · SISLE-SNS",
+    "sourceUrl": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/docs/LISTAS_PUBLICACION_dic2024.pdf",
+    "nationalName": "SNS (incluye INGESA)",
+    "description": "Tasa de pacientes pendientes de primera consulta por 1.000 tarjetas sanitarias; no por 1.000 residentes. Corte 2024-12, no media anual ni última publicación declarada. Fuente oficial SISLE-SNS; el valor SNS pondera pacientes y conserva la cobertura oficial."
+  }
+];

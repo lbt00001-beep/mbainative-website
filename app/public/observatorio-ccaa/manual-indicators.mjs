@@ -1,0 +1,110 @@
+export const manualIndicators=[
+  {
+    "id": "saad_beneficiarios_efectivos",
+    "name": "Personas con prestación efectiva",
+    "unit": "personas",
+    "description": "Beneficiarios efectivos del SAAD. Recuento absoluto: no equivale a cobertura de la población potencialmente dependiente.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_resoluciones_pia",
+    "name": "Personas con resolución PIA",
+    "unit": "personas",
+    "description": "Personas con resolución de Programa Individual de Atención. No equivale a prestación efectiva.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_pia_sin_prestacion_efectiva",
+    "name": "PIA sin prestación efectiva",
+    "unit": "personas",
+    "description": "Personas con PIA sin prestación efectiva; incluye motivos no imputables a la Administración.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_pendientes_pia",
+    "name": "Pendientes de resolución PIA",
+    "unit": "personas",
+    "description": "Personas pendientes de resolución de Programa Individual de Atención. No equivale a pendientes de grado.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_pendientes_grado",
+    "name": "Pendientes de valoración de grado",
+    "unit": "personas",
+    "description": "La fuente advierte información incompleta de solicitudes en tramitación en algunas CCAA. Interpretar con cautela.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_dias_resolucion_prestacion",
+    "name": "Plazo medio de resolución de prestación",
+    "unit": "días",
+    "description": "Media de primeras resoluciones realizadas durante los últimos 12 meses del informe. No mide la espera actual de los expedientes pendientes.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "saad_coverage_effective_pct",
+    "name": "Prestación efectiva sobre personas con PIA",
+    "unit": "%",
+    "description": "Beneficiarios efectivos / personas con resolución PIA × 100. Indicador calculado a partir del informe SAAD; no mide cobertura de toda la población dependiente.",
+    "category": "Dependencia",
+    "provider": "Imserso / SAAD",
+    "dataset": "SAAD informe mensual",
+    "manual": true,
+    "sourceUrl": "https://imserso.es/documents/20123/11151734/estsisaad_20260930.xlsx/a91e2644-75da-33a6-b586-8928728f6815",
+    "nationalName": "España"
+  },
+  {
+    "id": "budget_gasto_total_millones",
+    "name": "Presupuesto de gasto total",
+    "unit": "M€",
+    "description": "Informe de marzo de 2026: presupuesto consolidado inicial de las CCAA, capítulos I–IX. Incluye operaciones financieras: no es gasto ejecutado ni gasto por habitante. Regímenes competenciales distintos; revisar presupuestos prorrogados en la fuente.",
+    "category": "Presupuestos",
+    "provider": "Ministerio de Hacienda",
+    "dataset": "Presupuestos CCAA",
+    "manual": true,
+    "sourceUrl": "https://serviciostelematicosext.hacienda.gob.es/SGCIEF/PublicacionPresupuestos/aspx/MenuRep.aspx?ejerRE=2026",
+    "nationalName": "Total CCAA"
+  },
+  {
+    "id": "budget_gasto_no_financiero_millones",
+    "name": "Presupuesto de gasto no financiero",
+    "unit": "M€",
+    "description": "Informe de marzo de 2026: presupuesto consolidado inicial de gasto no financiero, capítulos I–VII. No es liquidación. Comparar competencias, perímetro y prórrogas. La referencia es el total de CCAA, no el gasto de todas las administraciones españolas.",
+    "category": "Presupuestos",
+    "provider": "Ministerio de Hacienda",
+    "dataset": "Presupuestos CCAA",
+    "manual": true,
+    "sourceUrl": "https://serviciostelematicosext.hacienda.gob.es/SGCIEF/PublicacionPresupuestos/aspx/MenuRep.aspx?ejerRE=2026",
+    "nationalName": "Total CCAA"
+  }
+];

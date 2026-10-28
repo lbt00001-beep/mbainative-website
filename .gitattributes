@@ -1,0 +1,3 @@
+# Preserve exact reviewed bytes on Windows.
+app/vendor/electoral/tests/fixtures/imop-20261023.js -text
+app/public/observatorio-ccaa/** -text

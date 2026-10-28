@@ -1,6 +1,6 @@
 {
   "author": "Luis Benedicto Tuzón",
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-10-28",
   "apps": [
     {
       "id": "comparativa-ue",
@@ -116,6 +116,15 @@
       "route": "/evolucion/index.html",
       "model": "modelo de IA desconocido",
       "version": "2.0.0",
+      "year": 2026,
+      "placement": "static"
+    },
+    {
+      "id": "observatorio-ccaa",
+      "name": "Observatorio CCAA",
+      "route": "/observatorio-ccaa/index.html",
+      "model": "GPT-6 (Codex)",
+      "version": "1.2.0",
       "year": 2026,
       "placement": "static"
     }

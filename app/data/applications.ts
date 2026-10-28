@@ -6,6 +6,13 @@ export const categorias = [
     descripcion: "Herramientas de análisis financiero y estimación de inversiones",
     apps: [
       {
+        nombre: "Observatorio CCAA — España en perspectiva",
+        descripcion: "Compara las 17 comunidades autónomas con fuentes oficiales: gasto por habitante, sanidad, educación, protección social, contexto territorial e Índice General con pesos editables. Incluye medias, series históricas, descargas y Ayuda detallada.",
+        url: "/observatorio-ccaa/index.html",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "España vs UE — Dashboard",
         descripcion: "Comparativa macro y microeconómica de los 27 países de la Unión Europea. Evolución histórica de 25 años e índice ISCB.",
         url: "/aplicaciones/comparativa-ue",

@@ -4,8 +4,8 @@ import {readFile} from 'node:fs/promises';
 import {findAppCredit, formatAppCredit, appCredits} from '../lib/app-credits';
 
 test('Todas las rutas alojadas tienen autor, modelo, versión y año explícitos', async () => {
-  assert.equal(appCredits.length,13);
-  assert.equal(new Set(appCredits.map(c=>c.route)).size,13);
+  assert.equal(appCredits.length,14);
+  assert.equal(new Set(appCredits.map(c=>c.route)).size,14);
   for(const credit of appCredits){
     assert.ok(credit.model.trim());assert.match(credit.version,/^\d+\.\d+(?:\.\d+)?$/);
     assert.equal(credit.year,2026);assert.match(formatAppCredit(credit),/^By Luis Benedicto Tuzón with .+ · versión .+ · 2026$/);
@@ -23,11 +23,12 @@ test('Conserva los modelos de creación documentados y no usa los modelos del se
   assert.equal(findAppCredit('/aplicaciones/inversion-fundamentales')?.model,'Claude Opus 4.5 Thinking');
   assert.equal(findAppCredit('/plan-de-marketing/index.html')?.model,'GPT 5.5. medium');
   assert.equal(findAppCredit('/aplicaciones/tradingalpha')?.model,'modelo de IA desconocido');
+  assert.equal(findAppCredit('/observatorio-ccaa/index.html')?.model,'GPT-6 (Codex)');
   assert.equal(findAppCredit('/aplicaciones/observatorio-electoral')?.model,'GPT 6.1 Sol Medio');
 });
 
 test('Los accesos independientes incluyen su crédito y la versión electoral coincide con health',async()=>{
-  for(const [file,route] of [['benchmarks-ia/index.html','/benchmarks-ia/index.html'],['voto-23j/index.html','/voto-23j/index.html'],['restaurador-super8/index.html','/restaurador-super8/index.html']]){
+  for(const [file,route] of [['benchmarks-ia/index.html','/benchmarks-ia/index.html'],['voto-23j/index.html','/voto-23j/index.html'],['restaurador-super8/index.html','/restaurador-super8/index.html'],['observatorio-ccaa/index.html','/observatorio-ccaa/index.html']]){
     const html=await readFile(new URL('../public/'+file,import.meta.url),'utf8');assert.ok(html.includes(formatAppCredit(findAppCredit(route)!)),file);
   }
   const electoral=await readFile(new URL('../vendor/electoral/index.html',import.meta.url),'utf8');assert.ok(electoral.includes(formatAppCredit(findAppCredit('/aplicaciones/observatorio-electoral')!)));

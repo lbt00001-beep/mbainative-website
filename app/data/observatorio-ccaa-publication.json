@@ -1,19 +1,19 @@
 {
   "app": "Observatorio CCAA",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "creationModel": "GPT-6 (Codex)",
   "publishedRoute": "/observatorio-ccaa/index.html",
-  "sourceCommit": "dd5f3cba6d88e11273032fd022ef610924853102",
+  "sourceCommit": "287caaa8a879daea1562062a6ed160717f882d12",
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 26474,
-      "sha256": "45ac238483e6b133069c5bb2d28aea2ca5e1dd22e98556ac00daa6beef4352bd"
+      "bytes": 27820,
+      "sha256": "1b6da4a301a3fd5f7e41f22719da8bb8b417ae39e6431638e7e5d19b489b81a8"
     },
     {
       "path": "averages.mjs",
-      "bytes": 887,
-      "sha256": "d9480ebc20e25752a48855ba13fe2829ce9034b0e11bea9f9997d8fbbe91c387"
+      "bytes": 1664,
+      "sha256": "e07584f0bb91c646d7aec1e7ab3dd020b3cfb568f1593652cc9b272563701a17"
     },
     {
       "path": "catalog.mjs",
@@ -42,8 +42,8 @@
     },
     {
       "path": "help.mjs",
-      "bytes": 16218,
-      "sha256": "b88e8ca353ebbbd03cac1e12f30afb4379d5500279a1942a5278008e2fa30c58"
+      "bytes": 17092,
+      "sha256": "fc1f7fa5b23543d99f8d6003ddcf1eb914532f4bbbefffafce4b1c971678ea51"
     },
     {
       "path": "income-view.mjs",
@@ -52,13 +52,13 @@
     },
     {
       "path": "index-view.mjs",
-      "bytes": 13149,
-      "sha256": "b7ad114dd715906163ce0827cda8b46ee2858d3262883cb82458221400a155db"
+      "bytes": 13491,
+      "sha256": "7ba2f3bd8e2b0ff0bd6dba89e6dd29f9b3dbfc0cce3437f0e471dac538d06485"
     },
     {
       "path": "index.html",
       "bytes": 4796,
-      "sha256": "d3223ef34a1c4fcf592e9d162fc434fa21d8f460f8d52d9121c1376de1856490"
+      "sha256": "2fae36ef8ca75eac60f57cb0fe19074bec169dae7d91ed0998aa238068a9ed3e"
     },
     {
       "path": "manual-indicators.mjs",
@@ -67,13 +67,13 @@
     },
     {
       "path": "scatter.mjs",
-      "bytes": 4419,
-      "sha256": "29223546d604a54ed009b9b99b944302435ee4f3cb62a98f74abb05e530a69f9"
+      "bytes": 4950,
+      "sha256": "6e483e68e7b34d3d5c42f23beeba14c330f11eb1420ca0a113c2d31385b2240a"
     },
     {
       "path": "snapshot.json",
       "bytes": 3310516,
-      "sha256": "3bdd24eaafdf6bdd7720cc157de4c63f13cad1a03e470f269312b21e278cec87"
+      "sha256": "25ba9ac66e428bdf0134f809328140eb01520fcea69037006ad6b706aa83bff2"
     },
     {
       "path": "spending-indicators.mjs",
@@ -82,13 +82,13 @@
     },
     {
       "path": "spending.mjs",
-      "bytes": 7671,
-      "sha256": "475842433fa2e7a8b19bce85d123a7a0756448231b16386c7711503df43d6a2e"
+      "bytes": 8650,
+      "sha256": "0270da5e9a9920a3bc20ad261b9b94c4a1a4b0c0239912599c2b8bfc6a497b56"
     },
     {
       "path": "style.css",
-      "bytes": 14398,
-      "sha256": "78b25540d75fac74220be9179b6c5216b33049643f4bd692613bdd5981937276"
+      "bytes": 14816,
+      "sha256": "334a61541cfadbdf8de511b4ce12a69b514a4e9ef1f0f64f2237d46f7039f44f"
     }
   ]
 }

@@ -62,6 +62,6 @@ Las pruebas de correo y OpenRouter utilizan dobles locales: no envían correos n
 
 ## Observatorio CCAA
 
-Dashboard público en `/observatorio-ccaa/index.html`, enlazado desde el catálogo. Versión 1.3.0, modelo de creación GPT-6 (Codex). Incluye renta mediana, comparación con media por UC y variantes de renta del Índice General. Sus fuentes, datos y ayuda se distribuyen como archivos estáticos, sin depender del acceso al Site privado.
+Dashboard público en `/observatorio-ccaa/index.html`, enlazado desde el catálogo. Versión 1.3.1, modelo de creación GPT-6 (Codex). Incluye renta mediana, comparación con media por UC y variantes de renta del Índice General. Sus fuentes, datos y ayuda se distribuyen como archivos estáticos, sin depender del acceso al Site privado.
 
 Para actualizarlo, compilar el proyecto original y ejecutar `node scripts/sync-observatorio-ccaa.mjs <ruta-absoluta-a-dist>`. Revisar el manifiesto SHA-256 en `data/observatorio-ccaa-publication.json`, ejecutar las comprobaciones y publicar por el despliegue habitual de Hostinger desde master.

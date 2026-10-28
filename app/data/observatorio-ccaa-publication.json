@@ -1,14 +1,14 @@
 {
   "app": "Observatorio CCAA",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "creationModel": "GPT-6 (Codex)",
   "publishedRoute": "/observatorio-ccaa/index.html",
-  "sourceCommit": "897c62eb231c4e7cb98fcf28a5788355ae21aadb",
+  "sourceCommit": "dd5f3cba6d88e11273032fd022ef610924853102",
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 26096,
-      "sha256": "1c9dbc859929ffe53ab70acd6b9a2887e1bebf0f53ba0cab3139f1e5fe93d1c5"
+      "bytes": 26474,
+      "sha256": "45ac238483e6b133069c5bb2d28aea2ca5e1dd22e98556ac00daa6beef4352bd"
     },
     {
       "path": "averages.mjs",
@@ -17,13 +17,13 @@
     },
     {
       "path": "catalog.mjs",
-      "bytes": 4942,
-      "sha256": "e3f71c15b6ed75f4301fdf1beb8b865ed0ebf495a15fa494c965ab2f7d33ed05"
+      "bytes": 5350,
+      "sha256": "72c63526471399786e9a35f758a640b7b4689bf06f8bc340bab48eb9e7d3f65f"
     },
     {
       "path": "composite-engine.mjs",
-      "bytes": 4327,
-      "sha256": "aa4abc3384994f621f3777998a7fd95c58af1d02220ecb1c6c9a8bd40085ee12"
+      "bytes": 4770,
+      "sha256": "05feda7c17b649ce5dff7d39c9707e029b141b1b0914b240747f10d7f183411f"
     },
     {
       "path": "context-indicators.mjs",
@@ -37,23 +37,28 @@
     },
     {
       "path": "data-engine.mjs",
-      "bytes": 11606,
-      "sha256": "7e20c051bbeceb8d95f313d10e3d166124351ca29122ddb42c6d69b150e370d1"
+      "bytes": 12162,
+      "sha256": "4e3689654c682c95ad977e60e52139175af37a6763b203d8acd3cf41dc071214"
     },
     {
       "path": "help.mjs",
-      "bytes": 11598,
-      "sha256": "62cc843928bbbf6d4810d85f02c3e4a4b0fa783056d30e60af9b3ca1ffd8a173"
+      "bytes": 16218,
+      "sha256": "b88e8ca353ebbbd03cac1e12f30afb4379d5500279a1942a5278008e2fa30c58"
+    },
+    {
+      "path": "income-view.mjs",
+      "bytes": 4728,
+      "sha256": "e8d842e37313cb60ac8c259c2089b167eb2e00351ec32be65c28fc603a6e9f86"
     },
     {
       "path": "index-view.mjs",
-      "bytes": 11628,
-      "sha256": "cbc936f060d25212f70a8894ed3f1517b123b59d765aa7edd0145159e8a1fccb"
+      "bytes": 13149,
+      "sha256": "b7ad114dd715906163ce0827cda8b46ee2858d3262883cb82458221400a155db"
     },
     {
       "path": "index.html",
-      "bytes": 4690,
-      "sha256": "79cffc1658a62389e050e8f75f48359ab4d9ba63ec71fd7949e6157e00d84750"
+      "bytes": 4796,
+      "sha256": "d3223ef34a1c4fcf592e9d162fc434fa21d8f460f8d52d9121c1376de1856490"
     },
     {
       "path": "manual-indicators.mjs",
@@ -67,8 +72,8 @@
     },
     {
       "path": "snapshot.json",
-      "bytes": 3290749,
-      "sha256": "dc7c6b2eaee4689ce5ef54cc94bfa49e92e91c3b0efa1ec7382afe0d6d74c3a7"
+      "bytes": 3310516,
+      "sha256": "3bdd24eaafdf6bdd7720cc157de4c63f13cad1a03e470f269312b21e278cec87"
     },
     {
       "path": "spending-indicators.mjs",
@@ -82,8 +87,8 @@
     },
     {
       "path": "style.css",
-      "bytes": 13851,
-      "sha256": "d3ee70a296d029bda70ccaf6fe160270f355272d3e61da504d229d4d0d09a70f"
+      "bytes": 14398,
+      "sha256": "78b25540d75fac74220be9179b6c5216b33049643f4bd692613bdd5981937276"
     }
   ]
 }

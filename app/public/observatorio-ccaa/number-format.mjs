@@ -1,0 +1,5 @@
+const formats=new Map();
+export function formatNumber(value,digits=1){if(!Number.isFinite(value))return '—';if(!formats.has(digits))formats.set(digits,new Intl.NumberFormat('es-ES',{useGrouping:'always',minimumFractionDigits:digits,maximumFractionDigits:digits}));return formats.get(digits).format(value)}
+export const metricDigits=m=>['hab.','personas','prestaciones','€/hab.','€/persona','€/u. consumo'].includes(m?.unit)?0:2;
+const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function numericCell(value,{digits=2,unit='',flag='',prefix=''}={}){return '<span class="quantity"><span class="quantity-value">'+escape(Number.isFinite(value)?prefix+formatNumber(value,digits):'—')+(Number.isFinite(value)&&digits<2?'<span class="decimal-padding" aria-hidden="true">'+(digits===0?',00':'0')+'</span>':'')+'</span>'+(unit?'<span class="quantity-unit">'+escape(unit)+'</span>':'')+'<span class="quantity-flag">'+escape(flag)+'</span></span>'}

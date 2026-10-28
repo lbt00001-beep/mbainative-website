@@ -1,14 +1,14 @@
 {
   "app": "Observatorio CCAA",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "creationModel": "GPT-6 (Codex)",
   "publishedRoute": "/observatorio-ccaa/index.html",
-  "sourceCommit": "287caaa8a879daea1562062a6ed160717f882d12",
+  "sourceCommit": "c68a237ec66bc2fc6267560dcf9d26c1d3573762",
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 27820,
-      "sha256": "1b6da4a301a3fd5f7e41f22719da8bb8b417ae39e6431638e7e5d19b489b81a8"
+      "bytes": 27928,
+      "sha256": "fbbc540781059437ca254bed2c1941dce07cc32b742c0e68a40ccc4361e4f64f"
     },
     {
       "path": "averages.mjs",
@@ -32,8 +32,8 @@
     },
     {
       "path": "context-view.mjs",
-      "bytes": 6461,
-      "sha256": "fa6a612cbe37bb3e2370743ac1825f7fc88139711b68673cce60d63af90042d7"
+      "bytes": 6615,
+      "sha256": "d7dd0d1aae9e955bfd2d1797a515f56f8465a3e2d94511129170a156bba089d4"
     },
     {
       "path": "data-engine.mjs",
@@ -42,23 +42,23 @@
     },
     {
       "path": "help.mjs",
-      "bytes": 17092,
-      "sha256": "fc1f7fa5b23543d99f8d6003ddcf1eb914532f4bbbefffafce4b1c971678ea51"
+      "bytes": 17611,
+      "sha256": "c614df5fd8757c926706139cf64491ea9dfa955a3273eb2cccc23e6b782fd034"
     },
     {
       "path": "income-view.mjs",
-      "bytes": 4728,
-      "sha256": "e8d842e37313cb60ac8c259c2089b167eb2e00351ec32be65c28fc603a6e9f86"
+      "bytes": 4707,
+      "sha256": "da003a2d647f6cdba8e7ba78a17d3d65ea085b6ebb6e41dfcc0460d30229b131"
     },
     {
       "path": "index-view.mjs",
-      "bytes": 13491,
-      "sha256": "7ba2f3bd8e2b0ff0bd6dba89e6dd29f9b3dbfc0cce3437f0e471dac538d06485"
+      "bytes": 13595,
+      "sha256": "96d6c79948709d124e2a054cfecbf768851478cf1e5eccd000d61c1f62e03b2e"
     },
     {
       "path": "index.html",
       "bytes": 4796,
-      "sha256": "2fae36ef8ca75eac60f57cb0fe19074bec169dae7d91ed0998aa238068a9ed3e"
+      "sha256": "81591c628731fee50642b5968750a1b5cf4203560c5ffd05a421492f63c4a445"
     },
     {
       "path": "manual-indicators.mjs",
@@ -66,14 +66,19 @@
       "sha256": "81081348923982e890c36f01a5ac6b76a7c48ccf033ec0bd179fa74e7359d68d"
     },
     {
+      "path": "number-format.mjs",
+      "bytes": 1024,
+      "sha256": "bd6328ff20fe2ffb0dd9260df58f66044a7a1a103319274facee9805a4a59d0a"
+    },
+    {
       "path": "scatter.mjs",
-      "bytes": 4950,
-      "sha256": "6e483e68e7b34d3d5c42f23beeba14c330f11eb1420ca0a113c2d31385b2240a"
+      "bytes": 4963,
+      "sha256": "087039b65a1296d86549ae4a73e129910739a1d8920ca897a9b442751372b3fb"
     },
     {
       "path": "snapshot.json",
       "bytes": 3310516,
-      "sha256": "25ba9ac66e428bdf0134f809328140eb01520fcea69037006ad6b706aa83bff2"
+      "sha256": "d3102e2cea8619cde115d824ea863f1d8bd74f79c19cf3dd2485f9892f5352c4"
     },
     {
       "path": "spending-indicators.mjs",
@@ -82,13 +87,13 @@
     },
     {
       "path": "spending.mjs",
-      "bytes": 8650,
-      "sha256": "0270da5e9a9920a3bc20ad261b9b94c4a1a4b0c0239912599c2b8bfc6a497b56"
+      "bytes": 8702,
+      "sha256": "ed506e8eb7b93318aed0b043f172648e129e44cc71a031212192fdf82f6c9a7c"
     },
     {
       "path": "style.css",
-      "bytes": 14816,
-      "sha256": "334a61541cfadbdf8de511b4ce12a69b514a4e9ef1f0f64f2237d46f7039f44f"
+      "bytes": 16020,
+      "sha256": "785e9424f30eb7db8ac4895198948c93440c50053552eaedcf779fbb1d940656"
     }
   ]
 }

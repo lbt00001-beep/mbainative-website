@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-30T11:13:28.848Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-30T16:54:38.107Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Dario Amodei (Anthropic)\n\n\"Anthropic CEO tells CNN how AI &#39;agent swarms&#39; could threaten humanity\"\n\n▶️ youtube.com/watch?v=_JbDZ2Rj2SA",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=_JbDZ2Rj2SA",
-    "imageUrl": "https://i.ytimg.com/vi/_JbDZ2Rj2SA/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
+    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
   }
 }

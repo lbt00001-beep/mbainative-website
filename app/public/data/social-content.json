@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-31T10:46:19.522Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-10-31T15:55:59.289Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Jensen Huang (NVIDIA)\n\n\"The Digital Onboarding Playbook: How to Secure and Deploy Enterprise AI Agents\"\n\n▶️ youtube.com/watch?v=qqAp70hbNtw",
+    "type": "recent_video",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre Andrew Ng\n\n\"Andrew Ng: The AI Job Apocalypse Is Not Going to Happen\"\n\n▶️ youtube.com/watch?v=fLGO3Xivt9k",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "jensenhuang"
+      "UltimaHora",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=qqAp70hbNtw",
-    "imageUrl": "https://i.ytimg.com/vi/qqAp70hbNtw/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=fLGO3Xivt9k",
+    "imageUrl": "https://i.ytimg.com/vi/fLGO3Xivt9k/mqdefault.jpg"
   }
 }

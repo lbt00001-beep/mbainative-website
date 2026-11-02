@@ -1,3 +1,5 @@
+import {parse} from 'parse5';
+import {loadTargetVoteChart} from './target-point.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
@@ -13,7 +15,7 @@ import {originalReports,reviewedCharts,verifyReviewedChart} from './original-rep
 import {update40db} from './40db-microdata.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
-const hosts=new Set([...feeds.map(([,u])=>new URL(u).hostname),'www.cis.es','ep00.epimg.net','cadenaser.com','www.rtve.es','datos.elconfidencial.com']);
+const hosts=new Set([...feeds.map(([,u])=>new URL(u).hostname),'www.cis.es','ep00.epimg.net','cadenaser.com','www.rtve.es','datos.elconfidencial.com','datawrapper.dwcdn.net']);
 const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#8217;',"'").replaceAll('&quot;','"').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/&#(x[0-9a-f]+|[0-9]+);/gi,(whole,code)=>{const n=code[0].toLowerCase()==='x'?parseInt(code.slice(1),16):Number(code);return n>0&&n<=0x10ffff?String.fromCodePoint(n):whole;}).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 export function isPollPublication(link,feedUrl){
  if(contextReason(link.title))return false;
@@ -36,6 +38,18 @@ export function links(html,base){
  }
  // A card may link its title, image and generic "Leer más" to the same URL.
  // Keep the descriptive title instead of letting the last generic link hide it.
+ if(new URL(base).hostname==='www.eldebate.com'){
+  const nodeText=n=>['script','style'].includes(n.nodeName)?'':n.nodeName==='#text'?n.value:(n.childNodes||[]).map(nodeText).join(' ');
+  const walk=n=>{
+   const attrs=Object.fromEntries((n.attrs||[]).map(a=>[a.name,a.value]));
+   if(n.nodeName==='article'&&(attrs.class||'').split(' ').includes('c-article')){
+    let label='',headlines=[];
+    const cardWalk=c=>{const a=Object.fromEntries((c.attrs||[]).map(a=>[a.name,a.value]));if(c!==n&&(a.class||'').split(' ').includes('c-article'))return;if((a.class||'').split(' ').includes('c-article__epigraph'))label=nodeText(c).trim();if(c.nodeName==='h2'||c.nodeName==='h3'){const linksWalk=x=>{const attr=Object.fromEntries((x.attrs||[]).map(a=>[a.name,a.value]));if(x.nodeName==='a'&&attr.href)try{const u=new URL(attr.href,base);if(u.hostname===new URL(base).hostname&&u.protocol==='https:')headlines.push({url:u.href,title:nodeText(x).replace(/\s+/g,' ').trim()});}catch{}for(const child of x.childNodes||[])linksWalk(child);};linksWalk(c);}else for(const child of c.childNodes||[])cardWalk(child);};cardWalk(n);
+    if(/^encuesta(?: de)? target point$/i.test(label))for(const headline of headlines.slice(0,1))found.push({...headline,title:label+' · '+headline.title});
+   }
+   for(const c of n.childNodes||[])walk(c);
+  };walk(parse(html));
+ }
  const unique=new Map();
  for(const link of found.filter(x=>x.title)){
   const key=canonical(link.url),previous=unique.get(key);
@@ -76,7 +90,10 @@ async function processPublications(catalog,report,publications,today,root,depth=
    if(ext==='.pdf'){const {pages}=await readPdf(file);return {p,hash,result:extractPdf(pages,p.url,{today,catalog:catalog.polls,publishedAt:p.publishedAt})};}
    const html=bytes.toString('utf8'),chart=reviewedCharts.find(c=>canonical(c.url)===canonical(p.url));
    const reviewedChart=chart?verifyReviewedChart(chart,html,await retrieve(chart.dataUrl||chart.imageUrl,true)):undefined;
-   const result=extractArticle(html,p.url,{today,catalog:catalog.polls,reviewedChart});return {p,hash,result,document:result.document||articleDocument(html,p.url)};
+   const document=articleDocument(html,p.url);
+   const voteChart=new URL(p.url).hostname==='www.eldebate.com'&&document.voteCharts.length?await loadTargetVoteChart(document,retrieve):undefined;
+   if(voteChart){const dir=path.join(root,'research/automatic');await writeFile(path.join(dir,voteChart.sha256+'.csv'),voteChart.csv);}
+   const result=extractArticle(html,p.url,{today,catalog:catalog.polls,reviewedChart,voteChart});return {p,hash,result,document:result.document||articleDocument(html,p.url)};
   }catch(e){return {p,result:{status:'pending',reason:e.message}};}
  });
  const follow=[];

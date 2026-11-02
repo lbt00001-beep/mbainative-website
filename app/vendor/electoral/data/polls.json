@@ -679,6 +679,58 @@
           "fv": "Front Valencià (FV) obtendría entre 3 y 4 diputados (0,9 %)"
         }
       }
+    },
+    {
+      "id": "targetpoint-20261030",
+      "institute": "Target Point",
+      "publishedAt": "2026-11-02",
+      "sample": 1024,
+      "fieldworkStart": "2026-10-28",
+      "fieldworkEnd": "2026-10-30",
+      "denominator": "unspecified",
+      "values": {
+        "podemos": 2.4,
+        "sumar": 6.6,
+        "psoe": 25.5,
+        "pp": 31.8,
+        "vox": 19.9,
+        "salf": 2.6
+      },
+      "url": "https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso.  Porcentajes de la columna actual del gráfico original, sin sumar resultados de 2023, transferencias ni valoraciones. Frente Amplio se armoniza con Sumar.",
+      "voteChart": {
+        "url": "https://datawrapper.dwcdn.net/PsxzP/1/",
+        "dataUrl": "https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+        "sha256": "065f8dd989d4e5936c138c2b542147edc62fade7532901d4d36bc35bee6b9050"
+      },
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "unknown",
+        "weighting": "documented",
+        "sourceUrl": "https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html",
+        "evidence": [
+          "Universo: población empadronada y residente en España (excepto Ceuta y Melilla), desde 18 años y con derecho a voto.Tamaño de la muestra: 1.024 encuestas diseñadas y estratificadas previamente por sexo, rangos de edad y CC.AA., y ponderadas posteriormente mediante iteraciones (rake) por sexo, rangos de edad, CC.AA., hábitat (tamaño de municipio), nivel educativo y situación laboral/ocupación.",
+          "Adicionalmente, se implementa también ponderación por recuerdo de voto en elecciones generales de 2023.",
+          "Método de trabajo de campo: encuestas a panelistas online, por sistema CAWI."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.5",
+        "sha256": "bde0c3b18f8a9a0b87a9f383dfc9b2a857a9a8e6b353ab4eed94d00001804c82",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "podemos": "Podemos · columna Porcentaje: 2,4; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "sumar": "Frente Amplio · columna Porcentaje: 6,6; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "psoe": "PSOE · columna Porcentaje: 25,5; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "pp": "PP · columna Porcentaje: 31,8; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "vox": "Vox · columna Porcentaje: 19,9; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "salf": "Se acabó la fiesta · columna Porcentaje: 2,6; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv"
+        }
+      }
     }
   ],
   "history": [

@@ -79,7 +79,7 @@
       "name": "Observatorio Electoral",
       "route": "/aplicaciones/observatorio-electoral",
       "model": "GPT 6.1 Sol Medio",
-      "version": "3.7.1",
+      "version": "3.7.2",
       "year": 2026,
       "placement": "inline"
     },

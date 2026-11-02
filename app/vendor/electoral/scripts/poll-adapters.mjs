@@ -2,7 +2,7 @@ import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 import {contextReason} from './source-policy.mjs';
 
-export const ADAPTER_VERSION='1.4';
+export const ADAPTER_VERSION='1.5';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -39,7 +39,7 @@ function text(n){
  return (n.childNodes||[]).map(text).join(['p','div','tr','td','th','li','h1','h2','h3','section'].includes(n.nodeName)?' ':'');
 }
 export function articleDocument(html,url){
- const root=parse(html),metadata=[],contents=[],tables=[],outlinks=[],times=[],headlines=[],articles=[];
+ const root=parse(html),metadata=[],contents=[],tables=[],outlinks=[],times=[],headlines=[],articles=[],technical=[],voteCharts=[];
  const walk=n=>{
   const attrs=Object.fromEntries((n.attrs||[]).map(a=>[a.name,a.value]));
   if(n.nodeName==='script'&&attrs.type==='application/ld+json')try{
@@ -55,6 +55,8 @@ export function articleDocument(html,url){
   if(/(?:^| )(?:entry-content|content-inner|article-body|article-content|post-content|article__content|elementor-widget-theme-post-content)(?: |$)/.test(attrs.class||'')||attrs.itemprop==='articleBody')contents.push(clean(text(n)));
   if(new URL(url).hostname==='www.sigmados.com'&&(attrs.class||'').split(' ').includes('news-body'))contents.push(clean(text(n)));
   if(new URL(url).hostname==='www.elconfidencial.com'&&(attrs.class||'').split(' ').includes('explodedView')&&/Fechas de campo/i.test(text(n)))contents.push(clean(text(n)));
+  if(new URL(url).hostname==='www.eldebate.com'&&(attrs.class||'').split(' ').includes('c-detail__box')&&/ficha t[eé]cnica/i.test(text(n)))technical.push(clean(text(n)));
+  if(new URL(url).hostname==='www.eldebate.com'&&n.nodeName==='iframe'&&attrs.title==='Porcentaje de voto'&&attrs.src)voteCharts.push({url:attrs.src,title:attrs.title});
   if(n.nodeName==='table'){
    const rows=[];const rowwalk=x=>{if(x.nodeName==='tr')rows.push((x.childNodes||[]).filter(c=>['td','th'].includes(c.nodeName)).map(c=>clean(text(c))));else for(const c of x.childNodes||[])rowwalk(c);};rowwalk(n);tables.push(rows);
   }
@@ -64,7 +66,7 @@ export function articleDocument(html,url){
  const same=m=>{try{return canonical(m.url||m.mainEntityOfPage?.['@id']||m['@id']?.split('#')[0]||url)===canonical(url);}catch{return false;}};
  const candidates=metadata.filter(same),m=candidates.find(m=>m.articleBody)||metadata.find(m=>m.articleBody&&clean(m.headline)===headlines[0])||candidates[0]||{};
  const body=clean(m.articleBody||contents.sort((a,b)=>b.length-a.length)[0]||articles.find(a=>a.includes(headlines[0]))||'');
- return {title:clean(m.headline||headlines[0]),publishedAt:(m.datePublished||times[0]||'').slice(0,10),text:body.replace(/<[^>]+>/g,' '),tables,links:outlinks,canonicalUrl:m.url||url};
+ return {technicalText:technical.join(' '),voteCharts,title:clean(m.headline||headlines[0]),publishedAt:(m.datePublished||times[0]||'').slice(0,10),text:body.replace(/<[^>]+>/g,' '),tables,links:outlinks,canonicalUrl:m.url||url};
 }
 export function extractVoteValues(text){
  const observations={},evidence={};
@@ -103,13 +105,15 @@ export function technicalMetadata(text,publishedAt){
  const named=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,45}?(?:del\s*)?(\d{1,2})\s*(?:al|a|y|[-–])\s*(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
  const expanded=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,45}?(\d{1,2})\s+(?:de\s+)?(\w+)\s+(?:al|a)\s+(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
  let fieldworkStart=null,fieldworkEnd=null;
+ const timed=text.match(/(?:realizaci[oó]n del trabajo de campo|trabajo de campo)\s*:\s*del (\d{1,2}) de (\w+)(?:\s*\([^)]*\))?\s+a la ma[ñn]ana del (\d{1,2}) de (\w+) de (\d{4})/i);
+ if(timed&&months[timed[2].toLowerCase()]&&months[timed[4].toLowerCase()]){fieldworkStart=timed[5]+'-'+String(months[timed[2].toLowerCase()]).padStart(2,'0')+'-'+timed[1].padStart(2,'0');fieldworkEnd=timed[5]+'-'+String(months[timed[4].toLowerCase()]).padStart(2,'0')+'-'+timed[3].padStart(2,'0');}
  if(numeric){fieldworkStart=`${numeric[3]}-${numeric[2].padStart(2,'0')}-${numeric[1].padStart(2,'0')}`;fieldworkEnd=`${numeric[6]}-${numeric[5].padStart(2,'0')}-${numeric[4].padStart(2,'0')}`;}
  else if(named&&months[named[3].toLowerCase()]){const prefix=`${named[4]}-${String(months[named[3].toLowerCase()]).padStart(2,'0')}-`;fieldworkStart=prefix+named[1].padStart(2,'0');fieldworkEnd=prefix+named[2].padStart(2,'0');}
  else if(expanded&&months[expanded[2].toLowerCase()]&&months[expanded[4].toLowerCase()]){fieldworkStart=`${expanded[5]}-${String(months[expanded[2].toLowerCase()]).padStart(2,'0')}-${expanded[1].padStart(2,'0')}`;fieldworkEnd=`${expanded[5]}-${String(months[expanded[4].toLowerCase()]).padStart(2,'0')}-${expanded[3].padStart(2,'0')}`;}
  if(fieldworkStart&&(!validDate(fieldworkStart)||!validDate(fieldworkEnd)||fieldworkStart>fieldworkEnd||fieldworkEnd>publishedAt))throw Error('Fechas de campo incompatibles con publicación.');
  return {sample:sample&&sample<=1000000?sample:null,fieldworkStart,fieldworkEnd,denominator:/voto(?:s)? v[aá]lido(?:s)?/i.test(text)?'validVotes':'unspecified'};
 }
-export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
+export function extractArticle(html,url,{today,catalog=[],reviewedChart,voteChart}={}){
  let config=houses[new URL(url).hostname];if(!config)return {status:'unsupported',reason:'Sin adaptador para este dominio.'};
  const d=articleDocument(html,url),body=d.text;
  if(!body)return {status:'landing',reason:'Página de navegación o sin artículo legible.',document:d};
@@ -124,7 +128,12 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
  if((Date.parse(today)-Date.parse(d.publishedAt))/86400000>60&&!catalog.some(p=>canonical(p.url)===canonical(url)))return {status:'old',reason:'Publicación anterior a la ventana de 60 días; no entra en la estimación actual.',document:d};
  if(!/elecciones generales|Congreso|voto nacional|\bEspaña\b/i.test(body+' '+d.title)&&!catalog.some(p=>canonical(p.url)===canonical(url)))return {status:'context',reason:'No acredita el ámbito electoral nacional.',document:d};
  if(/auton[oó]mico|junta general|asamblea de Ceuta|alcald[ií]a/i.test(d.title))return {status:'context',reason:'Encuesta de otro ámbito.',document:d};
- const extracted=extractVoteValues(body),meta=technicalMetadata(body,d.publishedAt);
+ const methodologyText=body+' '+(d.technicalText||'');
+ const extracted=extractVoteValues(body),meta=technicalMetadata(d.technicalText||body,d.publishedAt);
+ if(config.institute==='Target Point'&&d.voteCharts.length){
+  if(!voteChart||voteChart.url!==d.voteCharts[0].url||voteChart.fieldworkEnd!==meta.fieldworkEnd)return {status:'pending',relatedInstitute:config.institute,publishedAt:d.publishedAt,reason:'Se necesita validar el gráfico original de porcentaje de voto y su ficha; no se usan transferencias ni valoraciones.',document:d};
+  extracted.values={...voteChart.values};extracted.evidence={...voteChart.evidence};
+ }
  if(config.institute==='ElectoPanel'){
   for(const rows of d.tables)if(rows.some(r=>r.includes('Voto (%)'))){
    const values={},evidence={};let compromís=0;
@@ -161,7 +170,8 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
   const fv=body.match(/Front Valenci[àa]\s*\(FV\)([^.!?%]{0,130})\((\d{1,2}(?:[,.]\d{1,2})?)\s*%\)/i);
   if(fv){poll.unmodeledValues={fv:Number(fv[2].replace(',','.'))};poll.note+=' Front Valencià se publica por separado ('+fv[2]+' %): se conserva en unmodeledValues, sin sumarlo a Sumar ni proyectarlo como candidatura independiente.';if(!Object.hasOwn(poll.values,'salf'))poll.note+=' No hay desglose SALF verificado en este artículo.';extracted.evidence.fv=fv[0];}
  }
- poll.methodology=identifyMethodology(body,url);
+ if(voteChart){poll.voteChart={url:voteChart.url,dataUrl:voteChart.dataUrl,sha256:voteChart.sha256};poll.note+=' Porcentajes de la columna actual del gráfico original, sin sumar resultados de 2023, transferencias ni valoraciones. Frente Amplio se armoniza con Sumar.';}
+ poll.methodology=identifyMethodology(methodologyText,url);
  return {status:'extracted',poll,evidence:extracted.evidence,document:d};
 }
 

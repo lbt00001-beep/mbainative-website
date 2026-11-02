@@ -32,7 +32,7 @@ export const PARAMETER_HELP={
  'Escenario central':'Reparto obtenido con los porcentajes elegidos, antes de añadir las variaciones aleatorias. Es el punto de partida de la simulación y suma 350 escaños; no significa que sea el resultado más probable.',
  'PSOE y apoyos de la investidura de 2023':'Suma los escaños proyectados del PSOE y de las candidaturas vinculadas a quienes votaron a favor de su investidura en 2023, incluida Coalición Canaria. Podemos se cuenta aparte en el escenario actual. Es una suma aritmética, no una promesa de acuerdo futuro.',
  'PP + Vox':'Suma de los escaños de estas dos candidaturas en el escenario. Compararla con 176 permite estudiar una mayoría absoluta. La suma no garantiza que exista un acuerdo político.',
- 'PSOE + Sumar + Podemos':'Suma de estas tres candidaturas estatales. No incluye los partidos territoriales; el recuadro de apoyos a la investidura los añade y explica cuáles son.',
+ 'PSOE + Frente Amplio + Podemos':'Suma de estas tres candidaturas estatales. No incluye los partidos territoriales; el recuadro de apoyos a la investidura los añade y explica cuáles son.',
  'Resto de candidaturas':'Escaños de las listas que no pertenecen a las dos sumas anteriores. No forman un bloque político único; cada candidatura se calcula por separado.',
  'Muestra':'Número de personas entrevistadas. Una muestra mayor puede reducir el error aleatorio, pero no elimina sesgos de selección, no respuesta o cuestionario. El modelo limita su influencia y considera también el método.',
  'Campo hasta':'Último día de las entrevistas. Indica cuándo se recogieron las respuestas; puede ser anterior a la publicación. Se utiliza para dar más peso a observaciones recientes.',

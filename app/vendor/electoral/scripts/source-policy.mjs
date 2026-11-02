@@ -2,7 +2,7 @@ import {issueKind} from '../assets/update-report.mjs';
 export {issueKind};
 // Publisher discovery is separate from the institute that produced a poll.
 export const feeds=[
- ['GAD3','https://www.gad3.com/feed/'],['Sigma Dos','https://www.sigmados.com/feed/'],
+ ['GAD3','https://www.gad3.com/feed/'],['Sigma Dos','https://www.sigmados.com/noticias.php?lang=es'],
  ['ElectoPanel','https://electomania.es/feed/'],['More in Common','https://moreincommon.es/'],
  ['40dB / EL PAÍS','https://elpais.com/espana/'],['40dB / Cadena SER','https://cadenaser.com/tag/encuestas/a/'],
  ['Ateneo / elDiario','https://www.eldiario.es/politica/'],['SocioMétrica / EL ESPAÑOL','https://www.elespanol.com/espana/politica/'],
@@ -20,7 +20,7 @@ export const feeds=[
 export function contextReason(title){
  if(/encuestas elecciones generales.{0,80}(?:resultados|ganador|ganar)|ganador seg[uú]n.{0,40}sondeos/i.test(title))return 'Recopilación de encuestas; se buscan los estudios originales y no se añade como una encuesta independiente.';
  if(/preservar el efectivo|pagar en efectivo|conf[ií]a.{0,40}sistema electoral|temas.{0,50}(?:preocupan|importantes)|(?:preferido|preferida) para liderar|qui[eé]n.{0,30}(?:liderar|encabezar)|sociólogos no se creen|solo para el CIS|sesgo en la muestra/i.test(title))return 'Artículo de opinión, valoración o preguntas temáticas; no publica una estimación de voto nacional independiente.';
- if(/por comunidad aut[oó]noma|reparto territorial/i.test(title))return 'Desglose territorial de un estudio; se busca su publicación nacional y no se cuenta como otra encuesta.';
+ if(/por comunidad aut[oó]noma|reparto territorial|mapa de escaños por provincia/i.test(title))return 'Desglose territorial de un estudio; se busca su publicación nacional y no se cuenta como otra encuesta.';
  return null;
 }
 

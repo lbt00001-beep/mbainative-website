@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "asOf": "2026-10-23",
+  "asOf": "2026-11-02",
   "polls": [
     {
       "id": "40db-202610",
@@ -615,6 +615,69 @@
         "evidence": [
           "Control de cuotas por sexo y edad y nivel de estudios Técnica de entrevista: Metodología híbrida, mediante la combinación de entrevista telefónica (CATI) y entrevista online (CAWI), con una distribución aproximada de 45%/55%."
         ]
+      }
+    },
+    {
+      "id": "sigmados-20261030",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-11-02",
+      "sample": 2505,
+      "fieldworkStart": "2026-10-29",
+      "fieldworkEnd": "2026-10-30",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31.1,
+        "psoe": 24.6,
+        "vox": 19.3,
+        "sumar": 7.1,
+        "podemos": 1.9,
+        "erc": 3,
+        "bildu": 1.3,
+        "pnv": 0.9,
+        "junts": 1.1,
+        "bng": 1,
+        "cc": 0.4,
+        "aa": 1.4
+      },
+      "url": "https://www.sigmados.com/noticia?id=sa0OT7jgxEjay6E",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso.  Front Valencià se publica por separado (0,9 %): se conserva en unmodeledValues, sin sumarlo a Sumar ni proyectarlo como candidatura independiente. No hay desglose SALF verificado en este artículo.",
+      "unmodeledValues": {
+        "fv": 0.9
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/noticia?id=sa0OT7jgxEjay6E",
+        "evidence": [
+          "Técnica de recogida de información: Metodología mixta: telefónica (CATI) y online (CAWI) a través del Panel Sigma Dos by Trust Survey.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.4",
+        "sha256": "8661f63e8ee52204b3b16c594d385c8fe3b19c3f34cdf264696f529ba2add190",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "pp": "do tras el accidente ferroviario de Urda. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 31,1 % de los sufragios, lo que le o",
+          "psoe": "1 % de los sufragios, lo que le otorgaría entre 133 y 139 escaños. El PSOE registraría el 24,6 % de la intención de voto y ent",
+          "vox": "24,6 % de la intención de voto y entre 97 y 103 escaños, seguido por Vox, que obtendría el 19,3 % de los apoyos y entre 63 y 69",
+          "sumar": "19,3 % de los apoyos y entre 63 y 69 representantes. Por su parte, el Frente Amplio sumaría el 7,1 % de las papeletas logrando ent",
+          "podemos": "% de las papeletas logrando entre 9 y 11 parlamentarios, mientras que Podemos cosecharía el 1,9 % de los votos, traduciéndose e",
+          "erc": "nseguir un asiento en el Congreso. En cuanto al resto de formaciones, ERC obtendría entre 9 y 11 escaños (3,0 %), seguida por Adelante Andalu",
+          "bildu": "por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,4 %) y EH Bildu con una estimación de entre 7 y 8 asientos (1,3 %). Junts lograría entre 6 dipu",
+          "pnv": "ía entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños (1,0 %), el PNV conseguiría entre 5 y 6 representantes (0,9 %) y Front Valencià (FV) obtend",
+          "junts": "1,4 %) y EH Bildu con una estimación de entre 7 y 8 asientos (1,3 %). Junts lograría entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños",
+          "bng": "7 y 8 asientos (1,3 %). Junts lograría entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños (1,0 %), el PNV conseguiría entre 5",
+          "cc": "nt Valencià (FV) obtendría entre 3 y 4 diputados (0,9 %). Finalmente, Coalición Canaria (CCA) cerraría la representación parlamentaria con un hipotético escaño en disputa (0,4 %). Ficha técnica Población de",
+          "aa": "formaciones, ERC obtendría entre 9 y 11 escaños (3,0 %), seguida por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,4 %) y EH Bildu con una estimació",
+          "fv": "Front Valencià (FV) obtendría entre 3 y 4 diputados (0,9 %)"
+        }
       }
     }
   ],

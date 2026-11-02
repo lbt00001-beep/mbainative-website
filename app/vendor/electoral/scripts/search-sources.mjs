@@ -34,7 +34,14 @@ export function links(html,base){
   const url=decode(item[0].match(/<link>([\s\S]*?)<\/link>/i)?.[1]||'');
   try{const u=new URL(url);if(u.protocol==='https:'&&u.hostname===new URL(base).hostname)found.push({url:u.href,title});}catch{}
  }
- return [...new Map(found.filter(x=>x.title).map(x=>[x.url,x])).values()];
+ // A card may link its title, image and generic "Leer más" to the same URL.
+ // Keep the descriptive title instead of letting the last generic link hide it.
+ const unique=new Map();
+ for(const link of found.filter(x=>x.title)){
+  const key=canonical(link.url),previous=unique.get(key);
+  if(!previous||link.title.length>previous.title.length)unique.set(key,{...link,url:key});
+ }
+ return [...unique.values()];
 }
 async function retrieve(url,binary=false){
  for(let redirects=0;redirects<4;redirects++){

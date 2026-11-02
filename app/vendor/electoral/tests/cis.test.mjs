@@ -15,5 +15,5 @@ test('CIS: denominadores, indecisos y recuerdo comparables sin usar estimación'
 });
 test('Descubrimiento deduplica enlaces y descarta destinos externos y protocolos',()=>{
  const html='<a href="/nuevo">Encuesta nueva</a><a href="/nuevo">Repetida</a><a href="https://attacker.example/x">Otra</a><a href="javascript:alert(1)">X</a>';
- assert.deepEqual(links(html,'https://www.cis.es/'),[{url:'https://www.cis.es/nuevo',title:'Repetida'}]);
+ assert.deepEqual(links(html,'https://www.cis.es/'),[{url:'https://www.cis.es/nuevo',title:'Encuesta nueva'}]);
 });

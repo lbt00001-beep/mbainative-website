@@ -2,7 +2,7 @@ import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 import {contextReason} from './source-policy.mjs';
 
-export const ADAPTER_VERSION='1.3';
+export const ADAPTER_VERSION='1.4';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -31,7 +31,7 @@ export const houses={
 const aliases={pp:'Partido Popular|\\bPP\\b|Feij[oó]o|los populares',psoe:'Partido Socialista|\\bPSOE\\b|los socialistas',vox:'\\bVox\\b|partido de (?:Santiago )?Abascal',sumar:'\\bSumar\\b|Frente Amplio',podemos:'\\bPodemos\\b',salf:'Se Acab[oó] la Fiesta|\\bSALF\\b',erc:'\\bERC\\b|Esquerra Republicana',bildu:'EH Bildu|\\bBildu\\b',pnv:'EAJ[ -]PNV|\\bPNV\\b',junts:'\\bJunts\\b',bng:'\\bBNG\\b',cc:'Coalici[oó]n Canaria|\\bCCa?\\b',upn:'\\bUPN\\b',ac:'Alian[çz]a Catalana|\\bAC\\b',aa:'Adelante Andaluc[ií]a'};
 const number=s=>Number(s.replace(/\./g,'').replace(',','.'));
 const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
-export const canonical=u=>{const x=new URL(u);x.hash='';for(const k of [...x.searchParams.keys()])if(/^utm_|^fbclid$|^gclid$/.test(k))x.searchParams.delete(k);return x.href.replace(/\/$/,'');};
+export const canonical=u=>{const x=new URL(u);x.hash='';for(const k of [...x.searchParams.keys()])if(/^utm_|^fbclid$|^gclid$/.test(k))x.searchParams.delete(k);if(x.hostname==='www.sigmados.com'&&/^\/noticia(?:\.php)?$/.test(x.pathname)){x.pathname='/noticia';if(x.searchParams.get('lang')==='es')x.searchParams.delete('lang');}return x.href.replace(/\/$/,'');};
 const validDate=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
 function text(n){
  if(['script','style','nav','header','footer','aside'].includes(n.nodeName))return '';
@@ -53,6 +53,7 @@ export function articleDocument(html,url){
   if(n.nodeName==='h1')headlines.push(clean(text(n)));
   if(n.nodeName==='article')articles.push(clean(text(n)));
   if(/(?:^| )(?:entry-content|content-inner|article-body|article-content|post-content|article__content|elementor-widget-theme-post-content)(?: |$)/.test(attrs.class||'')||attrs.itemprop==='articleBody')contents.push(clean(text(n)));
+  if(new URL(url).hostname==='www.sigmados.com'&&(attrs.class||'').split(' ').includes('news-body'))contents.push(clean(text(n)));
   if(new URL(url).hostname==='www.elconfidencial.com'&&(attrs.class||'').split(' ').includes('explodedView')&&/Fechas de campo/i.test(text(n)))contents.push(clean(text(n)));
   if(n.nodeName==='table'){
    const rows=[];const rowwalk=x=>{if(x.nodeName==='tr')rows.push((x.childNodes||[]).filter(c=>['td','th'].includes(c.nodeName)).map(c=>clean(text(c))));else for(const c of x.childNodes||[])rowwalk(c);};rowwalk(n);tables.push(rows);
@@ -85,7 +86,8 @@ export function extractVoteValues(text){
     if(/(?:del|desde|pasar del|de)\s*$/.test(beforePct)&&/(?:al|a)\s*(?:un\s*)?\d+(?:[,.]\d+)?\s*%/.test(after.slice(pct.index+pct[0].length)))continue;
     const value=Number(pct[1].replace(',','.'));if(value>60)continue;
     const current=/(?:votos?|sufragios|papeletas|apoyos?|respaldo|obtendr[ií]a|conseguir[ií]a|lograr[ií]a|quedar[ií]a|hasta|ahora|hoy|al |con el|en el)/i.test(between+after.slice(pct.index+pct[0].length,pct.index+pct[0].length+35));
-    if(!current)continue;
+    const seatPercentage=/(?:escaños?|diputados?|representantes|asientos)[^.!?;%]{0,35}\(\s*$/i.test(between);
+    if(!current&&!seatPercentage)continue;
     rows.push({value,index:match.index,evidence:clean(context)});break;
    }
   }
@@ -98,7 +100,7 @@ export function technicalMetadata(text,publishedAt){
  const sampleMatch=text.match(/(?:tama[ñn]o(?:s)? (?:de la muestra|muestral(?:es)?)\s*[:.]?\s*|[Mm]uestra:\s*|[Ss]e (?:han )?(?:realizado|realizaron)\s*|(?:con|a partir de)\s*)([\d.]+)\s*(?:entrevistas|encuestas|cuestionarios|encuestados)/i);
  const sample=sampleMatch?number(sampleMatch[1]):null;
  const numeric=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,35}?(?:del\s*)?(\d{1,2})\/(\d{1,2})\/(\d{4})\s*(?:al|a|[-–])\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i);
- const named=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,45}?(?:del\s*)?(\d{1,2})\s*(?:al|a|[-–])\s*(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
+ const named=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,45}?(?:del\s*)?(\d{1,2})\s*(?:al|a|y|[-–])\s*(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
  const expanded=text.match(/(?:campo|realizaci[oó]n)[\s\S]{0,45}?(\d{1,2})\s+(?:de\s+)?(\w+)\s+(?:al|a)\s+(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
  let fieldworkStart=null,fieldworkEnd=null;
  if(numeric){fieldworkStart=`${numeric[3]}-${numeric[2].padStart(2,'0')}-${numeric[1].padStart(2,'0')}`;fieldworkEnd=`${numeric[6]}-${numeric[5].padStart(2,'0')}-${numeric[4].padStart(2,'0')}`;}
@@ -155,6 +157,10 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart}={}){
  if(duplicate)return {status:'duplicate',reason:'Reproduce un estudio ya incorporado.',original:duplicate.url,document:d};
  const poll={id:config.institute.toLowerCase().replace(/[^a-z0-9]/g,'')+'-'+(meta.fieldworkEnd||d.publishedAt).replaceAll('-',''),institute:config.institute,publishedAt:d.publishedAt,...meta,values:extracted.values,url,verified:true,measure:'voteEstimate',retrievedAt:today,note:'Extracción automática de porcentajes explícitos del original. '+(meta.denominator==='unspecified'?'Denominador no declarado: se asume voto válido con reducción de peso. ':'')+(!meta.fieldworkEnd?'Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. ':'')+(!meta.sample?'Muestra no publicada de forma interpretable; se reduce el peso. ':'')};
  if(reviewedChart){poll.note='Transcripción revisada del gráfico original, con comprobación automática de su huella y ficha técnica. '+reviewedChart.note;poll.reviewedChart={url:reviewedChart.imageUrl,sha256:reviewedChart.sha256};}
+ if(config.institute==='Sigma Dos'){
+  const fv=body.match(/Front Valenci[àa]\s*\(FV\)([^.!?%]{0,130})\((\d{1,2}(?:[,.]\d{1,2})?)\s*%\)/i);
+  if(fv){poll.unmodeledValues={fv:Number(fv[2].replace(',','.'))};poll.note+=' Front Valencià se publica por separado ('+fv[2]+' %): se conserva en unmodeledValues, sin sumarlo a Sumar ni proyectarlo como candidatura independiente.';if(!Object.hasOwn(poll.values,'salf'))poll.note+=' No hay desglose SALF verificado en este artículo.';extracted.evidence.fv=fv[0];}
+ }
  poll.methodology=identifyMethodology(body,url);
  return {status:'extracted',poll,evidence:extracted.evidence,document:d};
 }

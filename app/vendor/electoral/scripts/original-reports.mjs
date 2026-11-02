@@ -3,6 +3,9 @@ import {createHash} from 'node:crypto';
 // targets, not poll values: every update downloads and validates the PDF again.
 // Keeping them in code also reaches persistent installations seeded previously.
 export const originalReports=[{
+ institute:'Target Point',publishedAt:'2026-11-02',title:'Target Point · encuesta nacional del 2 de noviembre',
+ url:'https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html'
+},{
  institute:'Sigma Dos',publishedAt:'2026-11-02',title:'Sigma Dos · Sondeo 2 de noviembre para El Mundo',
  url:'https://www.sigmados.com/noticia?id=sa0OT7jgxEjay6E'
 },{

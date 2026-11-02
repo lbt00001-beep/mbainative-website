@@ -19,7 +19,7 @@ export const feeds=[
 
 export function contextReason(title){
  if(/encuestas elecciones generales.{0,80}(?:resultados|ganador|ganar)|ganador seg[uú]n.{0,40}sondeos/i.test(title))return 'Recopilación de encuestas; se buscan los estudios originales y no se añade como una encuesta independiente.';
- if(/preservar el efectivo|pagar en efectivo|conf[ií]a.{0,40}sistema electoral|temas.{0,50}(?:preocupan|importantes)|(?:preferido|preferida) para liderar|qui[eé]n.{0,30}(?:liderar|encabezar)|sociólogos no se creen|solo para el CIS|sesgo en la muestra/i.test(title))return 'Artículo de opinión, valoración o preguntas temáticas; no publica una estimación de voto nacional independiente.';
+ if(/preservar el efectivo|pagar en efectivo|conf[ií]a.{0,40}sistema electoral|temas.{0,50}(?:preocupan|importantes)|(?:preferido|preferida) para liderar|qui[eé]n.{0,30}(?:liderar|encabezar)|l[ií]der pol[ií]tico mejor valorado|valoraci[oó]n de los l[ií]deres|sociólogos no se creen|solo para el CIS|sesgo en la muestra/i.test(title))return 'Artículo de opinión, valoración o preguntas temáticas; no publica una estimación de voto nacional independiente.';
  if(/por comunidad aut[oó]noma|reparto territorial|mapa de escaños por provincia/i.test(title))return 'Desglose territorial de un estudio; se busca su publicación nacional y no se cuenta como otra encuesta.';
  return null;
 }

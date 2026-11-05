@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-04T22:29:32.526Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-05T12:58:43.883Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 9,
-    "title": "El conocimiento se democratiza",
-    "icon": "🧠"
+    "id": 10,
+    "title": "Velocidad como ventaja competitiva",
+    "icon": "⚡"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "guru_quote",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🧠 Geoffrey Hinton (Godfather of AI)\n\n\"The &quot;Godfather of AI&quot; Issues Terrifying Warning on Massive Unemployment\"\n\n▶️ youtube.com/watch?v=O7dGVElXZP0",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "samaltman"
+      "GurusIA",
+      "geoffreyhinton"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=O7dGVElXZP0",
+    "imageUrl": "https://i.ytimg.com/vi/O7dGVElXZP0/mqdefault.jpg"
   }
 }

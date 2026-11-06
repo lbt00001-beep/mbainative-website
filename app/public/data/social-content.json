@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-06T12:46:07.372Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-06T17:46:43.095Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 11,
     "title": "Escalabilidad sin límites",
     "icon": "📐"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🧠 Jensen Huang (NVIDIA)\n\n\"Will AI Agents Really Replace Humans?\"\n\n▶️ youtube.com/watch?v=FYl2tqn4a-g",
+    "type": "recent_video",
+    "content": "📐 Principio #11: Escalabilidad sin límites\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "jensenhuang"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=FYl2tqn4a-g",
-    "imageUrl": "https://i.ytimg.com/vi/FYl2tqn4a-g/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-07T20:43:58.399Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-08T11:46:41.576Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 12,
-    "title": "Seguridad por diseño",
-    "icon": "🔒"
+    "id": 13,
+    "title": "Datos como activo estratégico",
+    "icon": "📊"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🔒 Principio #12: Seguridad por diseño\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "guru_quote",
+    "content": "📊 Principio #13: Datos como activo estratégico\n\n🧠 Demis Hassabis (DeepMind)\n\n\"What Happens When AI Becomes Cheaper Than You?\"\n\n▶️ youtube.com/watch?v=MiOh_vg7jf8",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "samaltman"
+      "GurusIA",
+      "demishassabis"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=MiOh_vg7jf8",
+    "imageUrl": "https://i.ytimg.com/vi/MiOh_vg7jf8/mqdefault.jpg"
   }
 }

@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-08T20:59:41.645Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-09T13:41:18.132Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 13,
-    "title": "Datos como activo estratégico",
-    "icon": "📊"
+    "id": 14,
+    "title": "Global desde el día uno",
+    "icon": "🌐"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📊 Principio #13: Datos como activo estratégico\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "guru_quote",
+    "content": "🌐 Principio #14: Global desde el día uno\n\n🧠 Fei-Fei Li (Stanford)\n\n\"The 2 Types of Workers AI Could Reward | Fei-Fei Li on the Future of Work\"\n\n▶️ youtube.com/watch?v=jDnu0moYN74",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "samaltman"
+      "GurusIA",
+      "feifeili"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=jDnu0moYN74",
+    "imageUrl": "https://i.ytimg.com/vi/jDnu0moYN74/mqdefault.jpg"
   }
 }

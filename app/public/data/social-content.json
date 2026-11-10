@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-10T13:18:54.437Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-10T18:24:05.292Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 15,
     "title": "Mejora continua automatizada",
     "icon": "🔄"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🧠 Dario Amodei (Anthropic)\n\n\"Why AI Should Enhance, Not Replace | Dario Amodei\"\n\n▶️ youtube.com/watch?v=lFzOTIvR6DE",
+    "type": "recent_video",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=lFzOTIvR6DE",
-    "imageUrl": "https://i.ytimg.com/vi/lFzOTIvR6DE/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

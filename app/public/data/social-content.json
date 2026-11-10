@@ -1,22 +1,21 @@
 {
-  "generatedAt": "2026-11-09T21:14:53.922Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-10T00:35:47.071Z",
+  "scheduleSlot": "morning",
   "principle": {
-    "id": 14,
-    "title": "Global desde el día uno",
-    "icon": "🌐"
+    "id": 15,
+    "title": "Mejora continua automatizada",
+    "icon": "🔄"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🌐 Principio #14: Global desde el día uno\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "news",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 The agentic web is here\n\nIn 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two coll...\n\n🔗 Más en mbaina...",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "samaltman"
+      "NoticiasIA",
+      "MITTechnologyReviewAI"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
   }
 }

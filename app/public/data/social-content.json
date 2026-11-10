@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-11-10T00:35:47.071Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-11-10T13:18:54.437Z",
+  "scheduleSlot": "noon",
   "principle": {
     "id": 15,
     "title": "Mejora continua automatizada",
     "icon": "🔄"
   },
   "post": {
-    "type": "news",
-    "content": "🔄 Principio #15: Mejora continua automatizada\n\n📰 The agentic web is here\n\nIn 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two coll...\n\n🔗 Más en mbaina...",
+    "type": "guru_quote",
+    "content": "🔄 Principio #15: Mejora continua automatizada\n\n🧠 Dario Amodei (Anthropic)\n\n\"Why AI Should Enhance, Not Replace | Dario Amodei\"\n\n▶️ youtube.com/watch?v=lFzOTIvR6DE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "MITTechnologyReviewAI"
+      "GurusIA",
+      "darioamodei"
     ],
-    "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
+    "url": "https://youtube.com/watch?v=lFzOTIvR6DE",
+    "imageUrl": "https://i.ytimg.com/vi/lFzOTIvR6DE/mqdefault.jpg"
   }
 }

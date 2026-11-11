@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-11T12:29:49.955Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-11T18:15:57.384Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 16,
     "title": "Human-in-the-loop",
     "icon": "👤"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "👤 Principio #16: Human-in-the-loop\n\n🧠 Dario Amodei (Anthropic)\n\n\"Dreamforce 2026 Day 1 Recap: Agentic Identity &amp; Guardian Explained ☁️ #salesforce\"\n\n▶️ youtube.com/watch?v=lhEX25FlvU0",
+    "type": "recent_video",
+    "content": "👤 Principio #16: Human-in-the-loop\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "darioamodei"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=lhEX25FlvU0",
-    "imageUrl": "https://i.ytimg.com/vi/lhEX25FlvU0/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

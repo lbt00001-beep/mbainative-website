@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Huelga General por Provincias</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: cabecera compacta, fila de indicadores, mapa grande con panel lateral de provincia, tabla y diario debajo. */
+:root {
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --surface-2: #f6f8fb;
+  --fg: #1b2230;
+  --muted: #5c687a;
+  --line: #d7dde6;
+  --accent: #8c1030;
+  --accent-ink: #ffffff;
+  --accent-soft: #f6e3e8;
+  --focus: #2d6cdf;
+  --good: #1f7a45;
+  --warn: #b26a00;
+  --crit: #c4381c;
+  --nodata: #dfe4eb;
+  --nodata-hatch: #c3cad4;
+  --c1: #fbe3e0;
+  --c2: #f3aaa4;
+  --c3: #df6b66;
+  --c4: #bb2e39;
+  --c5: #6e0b1d;
+  --map-bg: #e3e8ef;
+  --map-border: #ffffff;
+  --sel: #1b2230;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Roboto, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10151d; --surface: #182030; --surface-2: #1f2838; --fg: #e8edf4; --muted: #9aa6b8; --line: #2b3648;
+    --accent: #ff7187; --accent-ink: #1b0a10; --accent-soft: #3a1b25; --focus: #7aa7ff;
+    --good: #4fc47f; --warn: #f0a93a; --crit: #ff7a5c;
+    --nodata: #253040; --nodata-hatch: #35425a;
+    --c1: #3d1b22; --c2: #6b2533; --c3: #a13343; --c4: #d84a58; --c5: #ff8b99;
+    --map-bg: #0c1118; --map-border: #10151d; --sel: #ffffff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10151d; --surface: #182030; --surface-2: #1f2838; --fg: #e8edf4; --muted: #9aa6b8; --line: #2b3648;
+  --accent: #ff7187; --accent-ink: #1b0a10; --accent-soft: #3a1b25; --focus: #7aa7ff;
+  --good: #4fc47f; --warn: #f0a93a; --crit: #ff7a5c;
+  --nodata: #253040; --nodata-hatch: #35425a;
+  --c1: #3d1b22; --c2: #6b2533; --c3: #a13343; --c4: #d84a58; --c5: #ff8b99;
+  --map-bg: #0c1118; --map-border: #10151d; --sel: #ffffff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 14px; line-height: 1.45;
+  padding-block: 0 24px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1480px; margin: 0 auto; display: grid; gap: 16px; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; line-height: 1.05; }
+h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: .01em; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { font-size: 18px; font-weight: 600; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Cabecera */
+.top { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: flex-end; padding-block: 20px 4px; border-bottom: 3px solid var(--accent); }
+.top .brand { flex: 1 1 320px; min-width: 0; }
+.top .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+.top .meta label { display: grid; gap: 3px; font-size: 12px; color: var(--muted); }
+.top .meta input { padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); min-width: 0; }
+.top .meta input[type="text"] { width: 240px; max-width: 100%; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 7px 12px; font-weight: 500; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.danger { color: var(--crit); }
+.btn.sm { padding: 4px 9px; font-size: 12px; }
+.banner { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--fg); border-radius: 8px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.banner strong { color: var(--accent); }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px; font-size: 13px; z-index: 50; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+
+/* Indicadores */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.kpi .label { font-size: 12px; color: var(--muted); font-weight: 500; }
+.kpi .value { font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi .value small { font-size: 18px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.kpi .sub { font-size: 12px; color: var(--muted); }
+.bar { height: 6px; background: var(--nodata); border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; border-radius: 3px; transition: width .3s; }
+
+/* Mapa y panel */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px); gap: 16px; align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.mapCard { display: grid; }
+.mapBar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.mapBar label { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.mapBar select, .mapBar input[type="search"] { padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); }
+.mapBar input[type="search"] { width: 200px; max-width: 100%; }
+.mapBar .spacer { flex: 1 1 auto; }
+.zoomBtns { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.zoomBtns button { background: var(--surface); border: 0; width: 34px; height: 32px; font-size: 16px; font-weight: 600; border-left: 1px solid var(--line); }
+.zoomBtns button:first-child { border-left: 0; }
+.zoomBtns button:hover { background: var(--surface-2); }
+.mapWrap { position: relative; background: var(--map-bg); border-radius: 0 0 10px 10px; overflow: hidden; }
+svg#map { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 74vh; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+svg#map.dragging { cursor: grabbing; }
+svg#map path.prov { stroke: var(--map-border); stroke-width: .9; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: fill .25s; }
+svg#map path.prov:hover { stroke: var(--sel); stroke-width: 1.6; }
+svg#map path.prov.sel { stroke: var(--sel); stroke-width: 2.4; }
+svg#map path.prov.nodata { fill: url(#hatch); }
+svg#map .canaryBox { fill: none; stroke: var(--muted); stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; opacity: .7; }
+svg#map .canaryLbl { fill: var(--muted); font-family: var(--font-body); font-weight: 500; }
+svg#map text.lbl { fill: var(--fg); font-family: var(--font-body); font-weight: 600; pointer-events: none; paint-order: stroke; stroke: var(--surface); stroke-width: .35em; stroke-linejoin: round; opacity: .95; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; box-shadow: 0 6px 20px rgba(0,0,0,.18); min-width: 150px; z-index: 5; }
+.tip b { font-family: var(--font-display); font-size: 16px; font-weight: 600; display: block; }
+.tip .row { display: flex; justify-content: space-between; gap: 12px; }
+.legend { position: absolute; left: 10px; bottom: 10px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 11.5px; display: grid; gap: 4px; max-width: calc(100% - 20px); }
+.legend .lt { font-weight: 600; margin-bottom: 2px; }
+.legend .sw { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend .sw i { width: 18px; height: 12px; border-radius: 2px; display: inline-block; border: 1px solid var(--line); flex: none; }
+.legend .sw i.hatch { background: repeating-linear-gradient(135deg, var(--nodata) 0 3px, var(--nodata-hatch) 3px 4px); }
+.hint { font-size: 12px; color: var(--muted); padding: 8px 12px 10px; margin: 0; }
+
+.panel { padding: 14px 16px 16px; display: grid; gap: 12px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+.panel .empty { color: var(--muted); display: grid; gap: 8px; padding: 12px 0; }
+.panel .head { display: grid; gap: 4px; }
+.panel .head h2 { font-size: 30px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; border-radius: 999px; padding: 2px 9px; border: 1px solid var(--line); background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+.chip.good { color: var(--good); border-color: var(--good); background: transparent; }
+.chip.warn { color: var(--warn); border-color: var(--warn); background: transparent; }
+.chip.crit { color: var(--crit); border-color: var(--crit); background: transparent; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); font-weight: 500; min-width: 0; }
+.form label.full { grid-column: 1 / -1; }
+.form input, .form select, .form textarea { padding: 7px 9px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); min-width: 0; width: 100%; }
+.form textarea { min-height: 64px; resize: vertical; }
+.form .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; }
+.segBig { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.segBig .v { white-space: nowrap; }
+.segBig .v { font-family: var(--font-display); font-size: 44px; font-weight: 700; line-height: 1; }
+.hist { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 10px; }
+.hist .h { display: grid; grid-template-columns: 56px 1fr; gap: 8px; font-size: 12.5px; align-items: baseline; }
+.hist .h time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.hist .h .d { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.hist .h .d span { white-space: nowrap; }
+.hist .h .n { grid-column: 2; color: var(--muted); font-size: 12px; }
+
+/* Tabla y diario */
+.lower { display: grid; grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px); gap: 16px; align-items: start; }
+.tableCard .bar2, .feedCard .bar2, .natCard .bar2 { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.tableCard .bar2 select { padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); }
+.tableWrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); cursor: pointer; user-select: none; position: sticky; top: 0; background: var(--surface); }
+th.sorted { color: var(--fg); }
+th.r, td.r { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--surface-2); }
+tbody tr.sel { background: var(--accent-soft); }
+td .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--line); }
+.feed { display: grid; gap: 0; max-height: 520px; overflow: auto; }
+.feed .f { display: grid; grid-template-columns: 62px 1fr; gap: 10px; padding: 8px 14px; border-bottom: 1px solid var(--line); font-size: 12.5px; cursor: pointer; }
+.feed .f:hover { background: var(--surface-2); }
+.feed .f time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.feed .f b { font-weight: 600; }
+.feed .f .d { color: var(--muted); }
+.feed .emptyF { padding: 14px; color: var(--muted); }
+
+.sideCol { display: grid; gap: 16px; min-width: 0; }
+.natList { display: grid; margin: 0; padding: 0; list-style: none; }
+.natList li { padding: 9px 14px; border-bottom: 1px solid var(--line); font-size: 12.5px; display: grid; gap: 2px; }
+.natList li:last-child { border-bottom: 0; }
+.natList li b { font-weight: 600; }
+.natList li .src { color: var(--muted); font-size: 11.5px; }
+.natList li.natEmpty { color: var(--muted); }
+.refs { display: grid; gap: 5px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12.5px; }
+.refs a { overflow-wrap: anywhere; }
+.ambNote { font-size: 12.5px; color: var(--warn); font-weight: 500; }
+.estNote { font-size: 12.5px; color: var(--text); border-left: 3px solid var(--c4); padding: 2px 0 2px 8px; }
+.estNote b { font-size: 15px; font-weight: 700; }
+.method { padding: 10px 14px 12px; font-size: 12.5px; display: grid; gap: 8px; }
+.method p { margin: 0; }
+.method b { font-weight: 600; }
+.provNote { font-size: 13.5px; line-height: 1.5; margin: 0; }
+.form { border-top: 1px solid var(--line); padding-top: 12px; }
+.form label.chk { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
+.form label.chk input { width: auto; flex: none; }
+.tag { font-size: 10px; font-weight: 600; letter-spacing: .04em; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; margin-left: 5px; color: var(--muted); vertical-align: 1px; }
+footer { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; padding-top: 6px; border-top: 1px solid var(--line); }
+footer .credit { font-weight: 500; }
+
+@media (max-width: 820px) {
+  .layout, .lower { grid-template-columns: 1fr; }
+  .panel { position: static; max-height: none; }
+}
+@media (max-width: 520px) {
+  .form { grid-template-columns: 1fr; }
+  .top .meta input[type="text"] { width: 100%; }
+  .kpi .value { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow">Seguimiento territorial · 52 provincias</div>
+      <h1>Huelga General por provincias</h1>
+    </div>
+    <div class="meta">
+      <label>Convocatoria <input type="text" id="metaTitulo" placeholder="Nombre de la convocatoria"></label>
+      <label>Fecha de la huelga <input type="date" id="metaFecha"></label>
+    </div>
+    <div class="toolbar">
+      <button class="btn" id="btnExportJson" type="button">Exportar JSON</button>
+      <button class="btn" id="btnExportCsv" type="button">Exportar CSV</button>
+      <button class="btn" id="btnCopy" type="button">Copiar JSON</button>
+      <label class="btn" for="fileImport">Importar JSON<input type="file" id="fileImport" accept="application/json,.json" hidden></label>
+      <button class="btn primary" id="btnReal" type="button">Cargar datos del 11N</button>
+      <button class="btn danger" id="btnClear" type="button">Vaciar todo</button>
+    </div>
+  </header>
+
+  <div class="banner" id="realBanner" hidden>
+    <span><strong>Datos publicados del 11N.</strong> Balance de cierre de la jornada, recopilado de prensa y fuentes oficiales el 12 de noviembre de 2026. Las cifras proceden de partes interesadas y todavía no hay estadística oficial. Los sindicatos solo publican el seguimiento por comunidad autónoma, así que cada provincia muestra la cifra de su comunidad y lo indica en su ficha. En manifestantes figura el recuento oficial cuando existe, y el de los convocantes se cita en la ficha. La estimación del seguimiento real es un cálculo propio del panel: el método se explica más abajo.</span>
+  </div>
+  <div class="banner" id="updBanner" hidden>
+    <span><strong>Hay una recopilación más reciente del 11N.</strong> Tu panel conserva la recopilación anterior porque tiene cortes registrados a mano. Exporta un JSON si quieres guardarlos antes de cargarla.</span>
+    <button class="btn sm primary" id="btnReal3" type="button">Cargar la recopilación nueva</button>
+  </div>
+  <div class="banner" id="emptyBanner" hidden>
+    <span><strong>El panel está vacío.</strong> Carga los datos publicados de la huelga del 11N o haz clic en una provincia para registrar los tuyos.</span>
+    <button class="btn sm primary" id="btnReal2" type="button">Cargar datos del 11N</button>
+  </div>
+  <div class="banner" id="confirmBox" hidden>
+    <span id="confirmText"></span>
+    <span><button class="btn sm primary" id="confirmYes" type="button">Sí, continuar</button> <button class="btn sm" id="confirmNo" type="button">Cancelar</button></span>
+  </div>
+
+  <section class="kpis" aria-label="Indicadores">
+    <div class="kpi"><span class="label">Provincias con información</span><span class="value num" id="kCob">0<small>/ 52</small></span><span class="sub" id="kCobSub">Sin registros todavía</span><div class="bar"><i id="kCobBar"></i></div></div>
+    <div class="kpi"><span class="label">Seguimiento según sindicatos</span><span class="value num" id="kSeg">—</span><span class="sub" id="kSegSub">Sin cifras sindicales</span></div>
+    <div class="kpi"><span class="label">Seguimiento según la patronal</span><span class="value num" id="kAlt">—</span><span class="sub" id="kAltSub">Sin cifras patronales</span></div>
+    <div class="kpi"><span class="label">Estimación del seguimiento real</span><span class="value num" id="kEst">—</span><span class="sub" id="kEstSub">Sin estimación</span></div>
+    <div class="kpi"><span class="label">Manifestantes contabilizados</span><span class="value num" id="kMan">—</span><span class="sub" id="kManSub">—</span></div>
+    <div class="kpi"><span class="label">Detenidos</span><span class="value num" id="kDet">—</span><span class="sub" id="kDetSub">—</span></div>
+  </section>
+
+  <main class="layout">
+    <section class="card mapCard" aria-label="Mapa de provincias">
+      <div class="mapBar">
+        <label>Colorear por
+          <select id="metric">
+            <option value="seg">Seguimiento según sindicatos</option>
+            <option value="segAlt">Seguimiento según la patronal</option>
+            <option value="est">Estimación del seguimiento real</option>
+            <option value="manif">Manifestantes</option>
+            <option value="det">Detenidos</option>
+            <option value="inc">Incidentes</option>
+          </select>
+        </label>
+        <input type="search" id="search" list="provList" placeholder="Buscar provincia…" autocomplete="off">
+        <datalist id="provList"></datalist>
+        <label><input type="checkbox" id="labelsChk"> Nombres siempre</label>
+        <span class="spacer"></span>
+        <div class="zoomBtns" role="group" aria-label="Zoom">
+          <button type="button" id="zIn" title="Acercar" aria-label="Acercar">+</button>
+          <button type="button" id="zOut" title="Alejar" aria-label="Alejar">−</button>
+          <button type="button" id="zReset" title="Ver toda España" aria-label="Ver toda España">⌂</button>
+        </div>
+      </div>
+      <div class="mapWrap">
+        <svg id="map" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de España por provincias">
+          <defs>
+            <pattern id="hatch" patternUnits="userSpaceOnUse" width="1.2" height="1.2" patternTransform="rotate(45)">
+              <rect id="hatchBg" width="1.2" height="1.2" fill="var(--nodata)"></rect>
+              <rect id="hatchFg" width="0.35" height="1.2" fill="var(--nodata-hatch)"></rect>
+            </pattern>
+          </defs>
+          <g id="gProv"></g>
+          <g id="gCanary"></g>
+          <g id="gLabels"></g>
+        </svg>
+        <div class="tip" id="tip" hidden></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <p class="hint">Un clic en una provincia abre su ficha. Rueda o pellizco para hacer zoom, arrastra para mover y doble clic para acercar. Límites provinciales: IGN (es-atlas 0.6.0). Canarias se muestra en recuadro.</p>
+    </section>
+
+    <aside class="card panel" id="panel" aria-live="polite"></aside>
+  </main>
+
+  <div class="lower">
+    <section class="card tableCard" aria-label="Tabla de provincias">
+      <div class="bar2">
+        <h2>Todas las provincias</h2>
+        <span class="spacer" style="flex:1"></span>
+        <label class="muted" style="font-size:13px">Comunidad <select id="ccaaFilter"><option value="">Todas</option></select></label>
+      </div>
+      <div class="tableWrap">
+        <table id="tbl">
+          <thead><tr>
+            <th data-k="name" class="sorted">Provincia</th>
+            <th data-k="ccaa">Comunidad</th>
+            <th data-k="seg" class="r">Sindicatos</th>
+            <th data-k="segAlt" class="r">Patronal</th>
+            <th data-k="est" class="r">Estimación</th>
+            <th data-k="manif" class="r">Manifestantes</th>
+            <th data-k="det" class="r">Detenidos</th>
+            <th data-k="fuente">Fuente</th>
+            <th data-k="updated">Actualizado</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="sideCol">
+    <section class="card natCard" aria-label="Balance nacional">
+      <div class="bar2"><h2>Balance nacional</h2></div>
+      <ul class="natList" id="natList"></ul>
+    </section>
+    <section class="card natCard" id="methodCard" aria-label="Método de la estimación" hidden>
+      <div class="bar2"><h2>Cómo se estima el seguimiento real</h2></div>
+      <div class="method">
+        <p><b>Nivel nacional.</b> La demanda eléctrica cayó un 4,87 % hasta las 18:00, un tercio de la caída de la huelga general de marzo de 2012. Al ponderar por empleo el paro probable de cada sector sale entre el 7,5 % y el 15 %. Los dos caminos coinciden en un rango del 10 % al 15 % de los asalariados, con centro en el 12 %.</p>
+        <p><b>Por comunidad.</b> Se usan hasta cinco indicadores publicados: la cifra sindical, la cifra patronal y el paro oficial en la administración autonómica, la educación y la sanidad. Cada indicador se reescala para que su media nacional, ponderada por población, coincida con el 12 %. La estimación de la comunidad es la media de sus indicadores reescalados, con un ajuste final para que el conjunto mantenga esa media nacional. Cada ficha dice qué indicadores se han usado.</p>
+        <p><b>Límites.</b> Es un cálculo propio con datos de parte, no una medición. Con un solo indicador la estimación es poco fiable y sin ninguno no se estima. Las provincias heredan la cifra de su comunidad.</p>
+      </div>
+    </section>
+    <section class="card feedCard" aria-label="Diario de actualizaciones">
+      <div class="bar2"><h2>Diario de actualizaciones</h2></div>
+      <div class="feed" id="feed"></div>
+    </section>
+    </div>
+  </div>
+
+  <footer>
+    <span class="credit">By Luis Benedicto Tuzón with Claude Fable 5.1 · versión 1.3.0 · 2026</span>
+    <span>Los datos se guardan en este navegador; exporta un JSON para conservarlos. Las cifras del 11N proceden de las fuentes enlazadas en cada ficha.</span>
+  </footer>
+</div>
+
+<script id="topo" type="application/json">{"type":"Topology","bbox":[-18.16118085,27.637723150000003,4.32778473,43.792379568],"transform":{"scale":[0.002249121470147015,0.001615627204520452],"translate":[-18.16118085,27.637723150000003]},"objects":{"provinces":{"type":"GeometryCollection","geometries":[{"type":"Polygon","arcs":[[0,1,2,3,4,5,6]],"id":"02","properties":{"name":"Albacete"}},{"type":"MultiPolygon","arcs":[[[7,-4,8,9]]],"id":"03","properties":{"name":"Alacant/Alicante"}},{"type":"MultiPolygon","arcs":[[[10,11,12]]],"id":"04","properties":{"name":"Almería"}},{"type":"Polygon","arcs":[[13,14,15,16,17,18,19,20]],"id":"05","properties":{"name":"Ávila"}},{"type":"Polygon","arcs":[[21,22,23,24,25,26,27,28,29]],"id":"06","properties":{"name":"Badajoz"}},{"type":"MultiPolygon","arcs":[[[30]],[[31]],[[32]],[[33]],[[34]],[[35]],[[36]]],"id":"07","properties":{"name":"Illes Balears"}},{"type":"MultiPolygon","arcs":[[[37,38,39,40],[41],[42],[43]],[[44]],[[45]]],"id":"08","properties":{"name":"Barcelona"}},{"type":"MultiPolygon","arcs":[[[46,47,48,49,50,51,52,53,54,55,56,57],[58],[59]],[[60]],[[61]],[[62]],[[63]]],"id":"09","properties":{"name":"Burgos"}},{"type":"Polygon","arcs":[[64,65,-21,66,-23]],"id":"10","properties":{"name":"Cáceres"}},{"type":"MultiPolygon","arcs":[[[67,68,69,70,71,72]]],"id":"11","properties":{"name":"Cádiz"}},{"type":"MultiPolygon","arcs":[[[73,74,75,76]]],"id":"12","properties":{"name":"Castelló/Castellón"}},{"type":"MultiPolygon","arcs":[[[77,-27,78,79,-1,80]],[[-25,81]]],"id":"13","properties":{"name":"Ciudad Real"}},{"type":"MultiPolygon","arcs":[[[82]],[[-28,-78,83,84,85,86]]],"id":"14","properties":{"name":"Córdoba"}},{"type":"MultiPolygon","arcs":[[[87,88,89]],[[90]]],"id":"15","properties":{"name":"A Coruña"}},{"type":"Polygon","arcs":[[-80,91,92,93,94,95,96,97,-2]],"id":"16","properties":{"name":"Cuenca"}},{"type":"MultiPolygon","arcs":[[[98,99,-40]],[[-44]],[[100]]],"id":"17","properties":{"name":"Girona"}},{"type":"MultiPolygon","arcs":[[[101,-85,102,-6,103,-11,104]]],"id":"18","properties":{"name":"Granada"}},{"type":"MultiPolygon","arcs":[[[105,106,107,108,-94,109]],[[110]]],"id":"19","properties":{"name":"Guadalajara"}},{"type":"MultiPolygon","arcs":[[[111,112,113,114]]],"id":"20","properties":{"name":"Gipuzkoa"}},{"type":"Polygon","arcs":[[-30,115,-68,116]],"id":"21","properties":{"name":"Huelva"}},{"type":"Polygon","arcs":[[117,118,119,120]],"id":"22","properties":{"name":"Huesca"}},{"type":"Polygon","arcs":[[-81,-7,-103,-84]],"id":"23","properties":{"name":"Jaén"}},{"type":"Polygon","arcs":[[121,122,123,124,125,126,127,128,129],[130]],"id":"24","properties":{"name":"León"}},{"type":"MultiPolygon","arcs":[[[131,-120,132,-99,-39,133],[-46],[-45]],[[-42]]],"id":"25","properties":{"name":"Lleida"}},{"type":"Polygon","arcs":[[-56,134,135,136,137],[-63],[-62]],"id":"26","properties":{"name":"La Rioja"}},{"type":"MultiPolygon","arcs":[[[138,-88,139,140,-122,141]]],"id":"27","properties":{"name":"Lugo"}},{"type":"MultiPolygon","arcs":[[[142,-110,-93,143,-19],[-111]],[[-17,144]]],"id":"28","properties":{"name":"Madrid"}},{"type":"Polygon","arcs":[[-70,145,-86,-102,146]],"id":"29","properties":{"name":"Málaga"}},{"type":"MultiPolygon","arcs":[[[-12,-104,-5,-8,147]]],"id":"30","properties":{"name":"Murcia"}},{"type":"MultiPolygon","arcs":[[[148,-115,149,-118,150,-136]],[[151]],[[152]]],"id":"31","properties":{"name":"Navarra"}},{"type":"Polygon","arcs":[[153,-142,-130,154,155]],"id":"32","properties":{"name":"Ourense"}},{"type":"MultiPolygon","arcs":[[[156,157,-123,-141]]],"id":"33","properties":{"name":"Asturias"}},{"type":"MultiPolygon","arcs":[[[-125,158,-48,159],[-61]],[[-59]],[[-60]],[[-50,160]],[[161]],[[162]]],"id":"34","properties":{"name":"Palencia"}},{"type":"MultiPolygon","arcs":[[[163]],[[164]],[[-89,-139,-154,165]],[[166]]],"id":"36","properties":{"name":"Pontevedra"}},{"type":"Polygon","arcs":[[167,168,-14,-66,169]],"id":"37","properties":{"name":"Salamanca"}},{"type":"MultiPolygon","arcs":[[[-124,-158,170,171,-51,-161,-49,-159],[-163],[-162]],[[172]]],"id":"39","properties":{"name":"Cantabria"}},{"type":"Polygon","arcs":[[173,-58,174,-106,-143,-18,-145,-16]],"id":"40","properties":{"name":"Segovia"}},{"type":"Polygon","arcs":[[-116,-29,-87,-146,-69],[-83]],"id":"41","properties":{"name":"Sevilla"}},{"type":"Polygon","arcs":[[-175,-57,-138,175,-107]],"id":"42","properties":{"name":"Soria"}},{"type":"MultiPolygon","arcs":[[[-75,176,177,-134,-38,178]],[[-43]]],"id":"43","properties":{"name":"Tarragona"}},{"type":"Polygon","arcs":[[-109,179,-177,-74,180,-97,181,-95]],"id":"44","properties":{"name":"Teruel"}},{"type":"Polygon","arcs":[[-24,-67,-20,-144,-92,-79,-26,-82]],"id":"45","properties":{"name":"Toledo"}},{"type":"MultiPolygon","arcs":[[[-3,-98,-181,-77,182,-9]],[[-182,-96]]],"id":"46","properties":{"name":"València/Valencia"}},{"type":"MultiPolygon","arcs":[[[-169,183,-126,-160,-47,-174,-15]],[[-128,184]],[[-131]]],"id":"47","properties":{"name":"Valladolid"}},{"type":"MultiPolygon","arcs":[[[-54,185]],[[-52,-172,186,-113,187],[-173]]],"id":"48","properties":{"name":"Bizkaia"}},{"type":"Polygon","arcs":[[188,-155,-129,-185,-127,-184,-168]],"id":"49","properties":{"name":"Zamora"}},{"type":"Polygon","arcs":[[-176,-137,-151,-121,-132,-178,-180,-108],[-153],[-152]],"id":"50","properties":{"name":"Zaragoza"}},{"type":"Polygon","arcs":[[189]],"id":"51","properties":{"name":"Ceuta"}},{"type":"Polygon","arcs":[[190]],"id":"52","properties":{"name":"Melilla"}},{"type":"Polygon","arcs":[[-55,-186,-53,-188,-112,-149,-135],[-64]],"id":"01","properties":{"name":"Araba/Álava"}},{"type":"MultiPolygon","arcs":[[[192]],[[193]],[[194]],[[195]],[[196]],[[197]]],"id":"35","properties":{"name":"Las Palmas"}},{"type":"MultiPolygon","arcs":[[[198]],[[199]],[[200]],[[201]]],"id":"38","properties":{"name":"Santa Cruz de Tenerife"}}]},"autonomous_regions":{"type":"GeometryCollection","geometries":[{"type":"MultiPolygon","arcs":[[[77,-27,-26,-25,-24,-67,-20,-144,92,109,105,106,107,108,94,95,96,97,2,3,4,5,6,80]],[[110]]],"id":"08","properties":{"name":"Castilla-La Mancha"}},{"type":"MultiPolygon","arcs":[[[182,9,7,-4,-3,-98,-181,73,74,75]],[[-182,-96]]],"id":"10","properties":{"name":"Comunitat Valenciana"}},{"type":"MultiPolygon","arcs":[[[70,71,72,116,-30,-29,-28,-78,-81,-7,-6,103,11,12,104,146]]],"id":"01","properties":{"name":"Andalucía"}},{"type":"MultiPolygon","arcs":[[[188,-155,129,121,122,123,158,48,160,50,51,52,53,54,55,-138,175,-107,-106,-143,18,19,20,-66,169],[16,-145]],[[61]],[[62]],[[63]],[[161]],[[162]]],"id":"07","properties":{"name":"Castilla y León"}},{"type":"MultiPolygon","arcs":[[[23,24,25,26,27,28,29,21,64,65,-21,66]]],"id":"11","properties":{"name":"Extremadura"}},{"type":"MultiPolygon","arcs":[[[30]],[[31]],[[32]],[[33]],[[34]],[[35]],[[36]]],"id":"04","properties":{"name":"Illes Balears"}},{"type":"MultiPolygon","arcs":[[[-75,176,177,131,-120,132,99,40,178]],[[100]]],"id":"09","properties":{"name":"Cataluña/Catalunya"}},{"type":"MultiPolygon","arcs":[[[-130,154,155,165,89,139,140,-122]],[[90]],[[163]],[[164]],[[166]]],"id":"12","properties":{"name":"Galicia"}},{"type":"MultiPolygon","arcs":[[[-53,-52,-172,186,113,114,-149,-135,-55,-54],[-173],[-64]]],"id":"16","properties":{"name":"País Vasco/Euskadi"}},{"type":"MultiPolygon","arcs":[[[-109,-108,-176,-137,-151,117,118,119,-132,-178,-177,-74,180,-97,181,-95],[-152],[-153]]],"id":"02","properties":{"name":"Aragón"}},{"type":"MultiPolygon","arcs":[[[134,135,136,137,-56],[-63],[-62]]],"id":"17","properties":{"name":"La Rioja"}},{"type":"MultiPolygon","arcs":[[[-110,-93,143,-19,142],[-111]],[[-17,144]]],"id":"13","properties":{"name":"Comunidad de Madrid"}},{"type":"MultiPolygon","arcs":[[[-12,-104,-5,-8,147]]],"id":"14","properties":{"name":"Región de Murcia"}},{"type":"MultiPolygon","arcs":[[[148,-115,149,-118,150,-136]],[[151]],[[152]]],"id":"15","properties":{"name":"Comunidad Foral de Navarra"}},{"type":"MultiPolygon","arcs":[[[156,157,-123,-141]]],"id":"03","properties":{"name":"Principado de Asturias"}},{"type":"MultiPolygon","arcs":[[[-158,170,171,-51,-161,-49,-159,-124],[-163],[-162]],[[172]]],"id":"06","properties":{"name":"Cantabria"}},{"type":"MultiPolygon","arcs":[[[189]]],"id":"18","properties":{"name":"Ciudad Autónoma de Ceuta"}},{"type":"MultiPolygon","arcs":[[[190]]],"id":"19","properties":{"name":"Ciudad Autónoma de Melilla"}},{"type":"MultiPolygon","arcs":[[[-72,191]]],"id":"20","properties":{"name":"Gibraltar. Territorio no asociado a ninguna autonomía"}},{"type":"MultiPolygon","arcs":[[[192]],[[193]],[[194]],[[195]],[[196]],[[197]],[[198]],[[199]],[[200]],[[201]]],"id":"05","properties":{"name":"Canarias"}}]},"border":{"type":"GeometryCollection","geometries":[{"type":"MultiPolygon","arcs":[[[72,116,21,64,169,188,155,165,89,139,156,170,186,113,149,118,132,99,40,178,75,182,9,147,12,104,146,70,191]],[[30]],[[31]],[[32]],[[33]],[[34]],[[35]],[[36]],[[100]],[[90]],[[163]],[[164]],[[166]],[[189]],[[190]],[[192]],[[193]],[[194]],[[195]],[[196]],[[197]],[[198]],[[199]],[[200]],[[201]]],"properties":{}}]}},"arcs":[[[6846,6743],[8,9],[-9,17],[7,26],[-6,7],[17,-6],[10,4],[15,16],[9,27],[5,25],[-27,31],[-15,-1],[-8,15],[0,15],[-5,31],[-13,7],[-4,10],[-16,-1],[-10,13],[-8,-1],[-1,18],[14,18],[7,24],[9,0],[2,35],[-11,16],[-5,18],[16,27],[11,11],[10,21],[16,23],[-9,32]],[[6855,7230],[38,3],[17,10],[9,0],[23,-10],[16,12],[12,-17],[49,-51],[6,8],[5,20],[13,3],[8,-12],[6,-23],[19,11],[12,11],[17,5],[6,7],[42,-10],[10,1],[-11,23],[1,8],[-10,26],[23,0],[10,-4],[-3,-9],[15,-18],[2,-9],[24,6],[22,0],[18,-11],[34,-4],[3,13],[10,13],[11,2],[8,8],[36,17],[27,22],[23,10]],[[7406,7291],[9,4],[-1,-14],[5,5],[10,-7],[3,-22],[11,12],[16,-17],[9,1],[13,-14],[7,6],[17,-9],[3,3],[23,-11],[6,7],[6,-8],[12,0],[3,-5],[-6,-16],[0,-31],[-8,-31],[-15,-17],[-6,-24],[-7,-5],[0,-13],[-4,-6],[1,-18],[16,-13],[30,-43],[6,-16],[17,0],[41,5],[7,8],[18,-4],[1,-14],[7,-13],[8,-5],[-5,-23],[5,-19],[-4,-8],[2,-17]],[[7662,6899],[-15,-6],[15,-42],[6,-6],[-21,-25],[-28,0]],[[7619,6820],[-8,3],[-32,31],[-2,16],[-29,11],[-29,-10],[-15,-20],[-26,-18],[-11,17],[-16,-9],[-20,-25],[2,-8],[-4,-34],[-15,-11],[-6,-20],[9,-32],[2,-44],[-2,-20],[-28,-21],[-7,-11],[-14,-9],[-34,0],[-11,16],[4,14],[-10,10],[-6,-5],[-12,8],[-12,-1],[1,-9],[-11,3],[5,-8],[-13,-3],[-6,-11],[-11,0],[-20,-19],[-39,-13],[-8,2],[-9,10],[-12,3],[-12,-14],[-3,-11],[-14,-17],[-27,-9],[-17,-13],[-8,-25],[-7,-8],[-9,-25],[-26,-24],[-6,-13],[-1,-14]],[[7034,6430],[-14,-2],[-23,6],[-4,6],[-21,7],[-11,9],[-9,1],[-12,9]],[[6940,6466],[16,17],[2,10],[7,4],[13,22],[9,9],[-3,22],[4,7],[0,12],[4,9],[-3,12],[-17,6],[-2,4],[2,30],[-6,14],[4,16],[-22,5],[-7,-2],[-10,7],[-2,13],[4,16],[-4,9],[5,9],[-14,14],[-9,0],[-25,-10],[-25,9],[-15,13]],[[7736,6319],[-12,1],[-7,7],[-11,3],[-12,13],[-29,36],[-20,43],[-25,39],[-6,38],[14,21],[7,17],[9,35],[-1,21],[-8,19],[-17,11],[-25,5],[-2,13],[3,46],[21,20],[9,14],[-5,16],[10,31],[-6,39],[-4,13]],[[7662,6899],[7,-9],[23,1],[14,-24],[16,4],[21,12],[11,-3],[7,-12],[8,5],[5,-8],[15,-1],[0,-14],[11,-11],[15,13],[14,5],[8,10],[12,7],[0,7],[-10,8],[-16,-8],[-8,8],[-5,17],[27,9],[27,-4],[15,13],[26,6],[12,10],[0,5],[14,3],[6,11],[22,-13],[13,-4],[16,4],[-1,4],[16,13],[6,-18],[35,17],[12,-17],[8,9],[-6,9]],[[8058,6963],[7,-7],[25,-10],[8,2],[19,-6],[13,-12],[10,-1],[23,-19],[-6,-10],[11,-16],[5,0],[5,-17],[-16,-2],[-22,-26],[-8,0],[-6,-8],[-7,-1],[-13,-21],[-9,2],[-9,-10],[-16,3],[-11,-9],[-12,-18],[-3,-9],[7,-5],[-21,-25],[-6,6],[-18,1],[-10,-12],[-8,0],[-19,-9],[-15,-4],[-16,-8],[-18,-16],[-14,-8],[-11,-19],[-4,-32],[3,-5],[-20,6],[-28,-23],[-4,-17],[0,-19],[5,-30],[-1,-10],[-12,-9],[-13,2],[-14,-3],[-6,-6],[-12,-27],[-5,-48],[-2,-43],[-19,-10],[-4,-18],[-5,-2],[-1,-16],[-10,-1],[-4,-8],[-5,-31]],[[6684,5641],[-5,22],[21,14],[8,9],[14,5],[6,8],[-6,21],[-12,14],[17,14],[4,18],[14,3],[6,10],[-2,20],[-8,3],[-7,25],[-6,38],[6,0],[5,-10],[8,-3],[17,3],[3,21],[6,16],[14,6],[8,16],[2,24],[13,30],[11,-1],[11,-9],[7,-1],[1,-8],[8,-14],[12,7],[12,-9],[20,-7],[1,11],[-4,12],[1,22],[6,15],[-1,20],[7,1],[-2,28],[20,20],[9,6],[4,10],[17,12],[12,11],[13,0],[7,5],[1,11],[9,0],[24,8],[10,0],[1,15],[-5,10],[0,18],[-10,25],[12,-7],[21,1],[3,8],[-5,8],[-1,29],[20,50],[-11,21],[6,13],[-3,18],[3,16],[10,-3],[7,10],[19,12]],[[7093,6362],[16,-17],[10,6],[12,1],[10,-14],[22,1],[14,-6],[11,7],[9,-8],[-9,-16],[-1,-14],[-5,-28],[5,-29],[-5,-5],[-2,-29],[15,-31],[10,-13],[1,-8],[35,-58],[13,-25],[17,-13],[-2,11],[33,-5],[32,-26],[16,-16]],[[7350,6027],[-9,-11],[-9,0],[-8,-11],[-8,-20],[-23,-27],[-7,-15],[-10,-6],[-12,-37],[-4,-31],[-5,-7],[-3,-25],[-12,-21],[0,-12],[-10,-17],[2,-24],[-8,-9],[-9,3],[-9,-9],[-6,-16],[-8,1],[-7,-10],[1,-27],[-10,-2],[-18,-21],[-1,-17],[-18,-8],[-9,-19],[-12,-1],[-18,-6],[-26,40],[-19,22],[-11,8],[-19,5],[-18,-9],[-11,-10],[-22,16],[-12,-8],[-26,-5],[-17,-26],[-9,-29],[-14,-17],[-22,-10],[-26,-2],[-17,12],[-10,4],[-11,-7],[-6,2],[-17,24],[-10,8],[-9,1],[-17,-8],[-20,5],[-22,-1],[-25,4]],[[5524,7834],[13,22],[15,11],[-5,5],[3,19],[-6,22],[21,15],[5,9],[19,4],[13,6],[1,-8],[-7,-12],[13,-13],[14,0],[2,22],[13,-2],[9,11],[6,29],[6,8],[3,14],[-2,7],[-36,-12],[-6,-5],[4,26],[7,9],[1,-9],[23,-2],[28,26],[3,14],[5,3],[-9,9],[3,8],[21,12],[2,6],[15,3],[20,21],[15,9],[-2,9],[18,13],[1,7],[9,12],[-5,10],[2,17],[11,16],[12,13],[-7,21],[10,7],[7,23],[-8,20],[-17,9],[-3,12],[2,18],[8,8],[2,16]],[[5796,8352],[11,10],[18,-6],[17,10],[4,6],[20,-7],[20,-18],[9,-4],[17,-14],[16,3],[7,19],[12,9],[28,3]],[[5975,8363],[-1,-16],[8,-21],[-4,-11],[6,-12],[10,-1],[18,-13],[5,-8],[10,-28],[18,-9],[3,-10],[0,-34],[10,-8],[2,-9],[-8,-3],[-4,-9],[5,-8],[22,5],[11,-21],[-1,-14],[9,-14],[10,-8],[-1,-16],[7,-38],[0,-13],[38,2],[6,7]],[[6154,8053],[14,3],[14,-1],[1,6],[-9,10]],[[6174,8071],[10,7],[29,4],[12,-3]],[[6225,8079],[-5,-6],[2,-17],[-3,-14],[6,-4],[-24,-11],[-21,-1],[-4,15],[-8,-1],[0,-13],[4,-1],[-4,-25],[-16,-9],[2,-11],[-1,-51],[-8,-8],[4,-18],[-37,1],[-12,-13],[1,-23],[-10,-7],[3,-13],[-22,-2],[-10,18],[-9,-3],[8,-29],[-18,-21],[5,-15],[-3,-10],[-6,-1]],[[6039,7786],[-17,-11],[-10,-1],[-21,8],[0,24],[-6,5],[1,15],[-14,-7],[-6,3],[-8,-9],[-19,9],[-6,-12],[5,-13],[-15,-16],[-15,-6],[-23,-18],[3,-11],[-3,-10],[-15,-4],[-5,-5],[-16,-7],[-5,30],[-22,-5],[-15,-15],[-19,-22],[-25,-6],[-5,15],[-25,4],[-22,-3],[-9,5]],[[5702,7723],[-14,30],[2,9],[-3,23],[5,6],[7,24],[-24,-8],[-14,1],[-5,-12],[-12,-6],[-2,-10],[-26,-8],[-29,14],[-7,-1],[-6,20],[-11,1],[-3,13],[-16,13],[-20,2]],[[4993,6543],[-2,7],[-9,-2],[-7,-9],[-4,6],[-13,-8],[-8,-10],[-13,2],[-13,-10],[-5,5],[-20,39],[0,13],[-6,10],[-9,6],[-11,25],[-30,39],[-9,21],[-12,9],[9,22],[-10,0],[2,24],[5,9],[0,10],[17,27],[3,15],[6,7],[-12,8],[2,40],[3,14],[26,16],[3,10],[15,9],[6,12],[10,10],[12,-1],[13,24],[7,3],[9,12],[-9,18],[12,11],[2,8],[15,24],[16,29],[-7,10],[4,9],[-10,21],[-21,17],[-11,2],[-23,-12],[-18,6],[2,26],[4,9],[-14,9],[-17,4],[-18,14],[-3,28],[8,15]],[[4860,7205],[12,-8],[23,35],[-12,6],[8,18],[16,13],[9,3],[14,-3],[4,-6],[-7,-13],[-8,5],[-2,-8],[9,-7],[2,-15],[12,7],[9,18],[-1,10],[10,13],[-13,5],[-12,11],[8,14],[24,-7],[-1,-3],[26,-14],[29,-10],[7,4],[24,1],[5,-14],[-2,-14],[11,-10],[10,-2],[-5,-30],[-8,-7],[-10,-16],[1,-12],[14,-20],[7,4],[31,-11],[10,14],[11,-1],[25,-11],[2,-13],[16,-2],[-1,16],[22,-8],[23,5],[11,-7],[16,-2],[16,14],[10,0],[4,-18],[-1,-28],[8,-8],[28,-5],[13,-20],[15,1],[7,-4],[5,-13],[23,33],[33,28],[0,-17],[4,-28],[11,8],[18,24],[7,-2],[1,-14],[23,13],[17,4],[7,6],[3,15],[19,-5],[15,-11],[20,-22],[8,-1],[11,13],[19,-1],[9,11],[-8,6],[11,14],[-16,23],[28,17],[10,-15],[6,12],[9,-17],[13,-14],[16,1],[7,-3],[13,10],[7,25],[9,16],[-3,14],[7,44],[16,-8],[9,0],[16,-11],[43,11],[14,14],[3,16],[-1,12],[11,1],[15,-16],[16,3],[5,6],[7,-5],[10,8],[-1,7],[9,0]],[[5873,7277],[5,0]],[[5878,7277],[14,-10],[17,-6],[29,18],[17,2],[5,9]],[[5960,7290],[31,21]],[[5991,7311],[8,-16],[-19,-48],[2,-11],[-24,-5],[13,-40],[8,-7],[2,-21],[20,-15],[7,-13],[-12,3],[-17,11],[-13,4],[-14,-3],[-16,6],[-9,-20],[-10,-9],[-2,-18],[-7,-17],[6,-11],[15,-9],[-3,-11],[-7,0],[-5,-9],[-11,2],[-22,14],[-13,1],[13,-51],[7,-12],[5,4],[13,-9],[12,-1],[6,-10],[-5,-31],[-8,4],[-21,0],[-13,-20],[-5,-16],[-3,-24],[-5,-18],[-8,-13],[-25,-7]],[[5831,6865],[-24,-13],[-8,5],[-23,-2],[-6,4],[7,-26],[-7,-1],[0,-10],[-11,5],[-1,-9],[-12,-7],[-7,-10],[-17,-9],[-8,-10],[1,-10],[-29,3],[-8,-13],[3,-12],[-10,0],[-2,-14],[-30,-22],[-3,-14],[-15,1],[-22,-19],[-7,-20],[0,-9],[11,-12],[-7,-24],[9,-7],[6,-24],[7,-9],[2,-35],[-8,-4],[1,-20],[-10,-12],[-7,1],[-4,-12]],[[5592,6495],[-22,4],[-27,-33],[-17,2],[-4,24],[12,5],[9,10],[-5,8],[8,11],[-18,10],[-12,-10],[-12,3],[-19,-10],[-6,3],[-17,-12],[-2,-14],[-14,-6],[-7,-22],[9,-12],[-5,-11],[-7,-2],[1,-9],[-9,-23],[-18,2],[-6,-5],[-11,4],[-28,-10],[-11,0],[-27,-25]],[[5327,6377],[-7,10],[-17,1],[-8,8],[-23,4],[-11,13],[-12,7],[-5,24],[-10,0],[-11,6],[-17,-2],[4,-5],[-14,-14],[4,-9],[-12,0],[-1,6],[-23,5],[-11,-5],[-7,4],[3,16],[-19,28],[-17,-3],[-30,5],[-8,-6],[-10,5],[0,8],[-18,0],[-3,5],[8,15],[2,21],[-13,-3],[-15,4],[-20,14],[-13,4]],[[8712,6893],[-7,7],[2,7],[5,-14]],[[8702,6965],[-3,-10],[1,-26],[-10,6],[-5,-7],[-5,18],[-8,7],[-17,-3],[-3,6],[-14,1],[-9,-13],[-15,25],[10,27],[-9,10],[8,7],[14,0],[19,3],[-10,16],[3,16],[9,12],[22,19],[6,-8],[5,10],[14,0],[4,9],[6,-7],[6,10],[19,1],[4,8],[12,4],[11,-15],[15,2],[8,-12],[-8,-2],[2,-14],[10,-9],[-15,-14],[-1,-16],[-13,2],[-9,-8],[-1,-21],[-9,1],[-2,-9],[-13,-12],[-16,2],[-1,-9],[-7,1],[-5,-8]],[[8692,6811],[-3,32],[3,0],[-4,16],[8,7],[9,-5],[8,23],[6,-17],[10,-8],[9,-18],[17,-11],[14,12],[9,-9],[-4,-16],[-21,1],[-22,18],[-15,1],[-6,-11],[-18,-15]],[[9100,7387],[1,6],[13,10],[-8,-13],[-6,-3]],[[9230,7372],[-4,-9],[-13,-1],[-10,-9],[0,-18],[-6,-19],[-10,2],[-20,27],[5,9],[-7,11],[-15,-8],[2,7],[-8,1],[-8,-10],[-9,21],[-9,6],[4,8],[-5,6],[5,12],[13,4],[16,14],[19,10],[16,20],[14,11],[11,-1],[13,10],[17,20],[6,10],[13,7],[2,10],[8,3],[6,9],[18,13],[3,-3],[12,8],[-1,7],[14,0],[22,14],[9,2],[14,13],[13,3],[7,10],[16,-7],[18,17],[15,-2],[-3,-6],[29,5],[12,14],[8,3],[7,-4],[15,6],[-5,-11],[-9,-3],[-13,-10],[-10,2],[-10,-13],[-8,4],[-5,-14],[5,-14],[9,-5],[10,7],[4,-3],[23,18],[4,-3],[-8,-11],[4,-9],[-7,-10],[-26,-5],[0,-18],[15,-22],[26,-16],[19,-8],[31,18],[5,16],[5,3],[14,-14],[11,-1],[13,-12],[11,0],[-2,-15],[10,0],[-8,-10],[-1,-31],[-7,0],[-2,-14],[-11,3],[-8,-12],[-3,-18],[7,-7],[-10,-1],[-5,-15],[-12,-6],[-20,-26],[-6,-19],[-3,-33],[-9,-9],[-2,-9],[-12,-18],[-5,4],[-11,-18],[-7,-5],[-11,2],[-12,-11],[-21,-27],[-10,-2],[-4,9],[-10,9],[-6,13],[-9,0],[3,13],[-12,14],[-15,3],[-10,-5],[-12,6],[-17,0],[-6,-6],[-11,7],[-7,-3],[-17,20],[-5,14],[4,12],[-12,24],[13,18],[-11,17],[-17,13],[-25,10],[-3,-14],[-12,1]],[[9385,7110],[-15,12],[5,7],[11,-4],[-1,9],[13,-3],[-8,-6],[0,-13],[-5,-2]],[[9923,7562],[-26,15],[-9,10],[-26,17],[-3,-2],[-25,12],[-27,-10],[-33,0],[1,18],[5,5],[-4,22],[-14,3],[-1,12],[8,6],[5,13],[14,3],[11,-2],[9,5],[5,-7],[5,5],[17,3],[4,-5],[24,3],[5,4],[7,-8],[17,10],[7,-15],[14,12],[-5,-16],[7,-3],[-1,21],[13,-5],[-3,-10],[10,-13],[3,8],[14,-23],[12,2],[5,-3],[-1,-20],[12,-12],[-3,-7],[4,-13],[9,-9],[2,-12],[-7,2],[6,-10],[0,-10],[-5,-16],[-11,-9],[-14,5],[-25,14],[-12,10]],[[8807,8391],[3,8],[-6,17],[-7,-7],[-19,8],[-5,15],[21,-5],[4,10],[1,16],[-12,-5],[-6,7],[4,6],[-11,6],[-6,17],[6,7],[-2,8],[-8,0],[-6,10],[-11,6],[-17,-8],[7,11],[-9,28],[8,12],[-6,14],[-10,0],[-6,7],[-15,5],[-2,14],[22,5],[-1,10],[-7,2],[10,8],[-15,8],[-12,-4]],[[8694,8627],[7,9],[-21,14],[15,14],[24,1],[-20,30],[-2,12],[-7,1],[16,19],[-7,5],[10,35],[20,-1],[-2,-18],[9,5],[-2,7],[10,-1],[1,-9],[17,-11],[1,9],[12,7],[8,-3],[3,7],[-5,10],[10,8],[0,11],[9,5],[-6,22],[-7,3],[-8,-7],[-7,4],[14,15],[7,1],[12,15],[3,9],[-2,17],[13,7],[4,-9],[15,9],[0,11],[-8,8],[-6,-11],[-15,-2],[0,13],[6,-2],[16,11],[-3,11],[-10,-1],[9,26],[11,-1],[3,10],[-8,3],[3,8],[-6,10],[7,12],[11,5],[0,17],[-14,0],[-12,10],[2,10],[9,10],[-9,14],[2,10],[-7,5],[45,4],[30,9]],[[8894,9079],[16,4],[11,6],[20,-4],[16,-11],[15,8],[23,-15],[-12,-11],[-7,-10],[1,-23],[9,0],[5,-13],[-1,-12],[-9,2],[-5,-7],[-10,-3],[-4,6],[2,13],[-16,4],[1,-13],[11,3],[6,-21],[9,2],[16,-11],[14,6],[4,-13],[11,-7],[8,12],[19,2],[8,-6],[4,10],[13,-2],[14,3],[11,-6],[2,-13],[19,6],[9,-1],[6,-10],[9,-1],[-3,-10],[15,-16],[14,12],[8,-2],[9,-11],[-7,-5],[11,-11],[-5,-8],[2,-11],[-14,-5],[9,-6],[-6,-9],[-10,-2],[-6,4],[2,-20],[8,2],[8,-8],[-4,-16],[-12,-11],[-16,5],[-11,-15],[-20,11],[-6,-9],[1,-12],[8,-11],[5,-19],[12,1],[10,-4],[14,1],[9,-12],[14,-11],[12,-3],[0,-8],[7,-6],[3,-11],[29,4],[16,4],[2,6],[10,2],[6,-4],[20,2],[9,-5],[14,0],[-4,-7],[3,-15],[-7,-13],[9,-18]],[[9310,8673],[-26,-13],[-76,-33],[-24,-14],[-11,-4],[-28,-23],[-12,-9],[-36,-13],[-14,-9],[-10,-14],[-9,-18],[-12,-13],[-5,-14],[-5,2],[-9,-32],[-6,-10],[-30,-14],[-23,-7],[-39,-2],[-29,-12],[-7,-5],[-17,1],[-12,-8],[-27,-5],[-24,-11],[-12,-2]],[[8839,8825],[0,0]],[[8805,8464],[0,0]],[[8972,8957],[6,11],[-13,-1],[2,-11],[5,1]],[[8826,8953],[0,0]],[[8806,8959],[21,0],[0,-5],[-21,5]],[[6305,8632],[-10,21],[-11,-2],[2,35],[-1,14],[-7,11],[-12,9],[6,9],[2,17],[4,0]],[[6278,8746],[1,14],[-23,25],[5,11],[-4,14],[12,3],[11,-2],[25,17],[0,19],[13,3],[7,13],[19,0],[1,25],[-9,0],[-20,-10],[-16,-13],[-18,-4],[1,14],[7,14],[9,4],[10,17],[-5,11],[-28,0],[-1,-7],[-14,-2],[-11,16],[1,15],[11,-2],[9,11],[-21,5],[-7,12],[-10,-5],[-5,7],[-15,-3],[-8,5],[0,12],[7,7],[-1,10],[-10,15],[-8,2],[2,12],[-2,17],[-4,8],[-5,25],[-4,0],[-4,21],[3,6],[-7,7],[3,13],[-9,2],[-13,-5],[-4,7],[-2,24],[8,18],[21,-4],[12,2],[-3,14],[2,9],[-12,16],[-2,16],[-10,5],[-2,10],[9,7],[-4,15],[9,7],[2,10],[-4,7],[1,18],[-8,11],[12,9],[4,-10],[17,10],[15,19],[18,11],[9,-1],[0,-10],[7,-1],[12,17]],[[6260,9361],[16,3]],[[6276,9364],[19,-2],[1,4]],[[6296,9366],[10,-7],[14,2],[7,8],[9,-4],[0,11],[7,12],[14,-12],[18,8],[3,23],[-8,10],[4,10],[-17,13],[-5,-9],[3,-11],[-5,-4],[-15,5],[9,18],[-3,10],[14,-3],[7,13],[6,-2],[4,8],[-17,16],[-9,-4],[-1,-15],[-15,-6],[-1,-7],[-21,5],[-7,12],[10,33],[10,14],[16,6],[9,16],[17,-1],[8,14],[-7,13],[17,1],[9,-5],[14,5],[1,9],[12,2],[11,9],[9,11],[3,11],[12,16],[17,-7],[4,-12],[8,3],[18,-4],[16,-7],[40,-2]],[[6555,9591],[21,11],[10,2],[3,8],[13,3],[15,14],[11,3],[14,-17],[6,5],[10,-7],[8,6],[9,-3],[3,-8]],[[6678,9608],[-9,-4],[0,-7],[-9,-14],[21,-14],[-10,-15],[7,-3],[-1,-25],[-12,1],[-3,-5],[15,-9],[24,-4]],[[6701,9509],[6,5],[17,-16]],[[6724,9498],[-3,-6],[13,-12],[9,-1],[6,-8],[-13,-11],[-3,-8],[-32,-6],[-7,7],[-9,-4],[-11,10],[3,9],[-16,6],[-20,3],[-11,-23],[-12,-6],[-3,-16],[21,-24],[12,4],[8,16],[8,-8],[10,3],[11,18],[9,-7],[-3,-11],[-21,-35],[13,-10],[-3,-15],[-5,-5],[14,2],[8,5],[16,-5],[7,3],[3,-16],[10,1],[5,-11],[8,-2],[4,-10],[10,4],[12,-1],[0,-5],[12,-4],[4,-9],[-1,-15],[17,-10]],[[6804,9285],[-11,-11],[-10,3],[-8,-3],[-5,8],[-16,4],[-4,-3],[-11,5],[-6,-7],[-10,5],[-19,0],[-1,-8],[7,-4],[4,-11],[-3,-9],[-17,-22],[-13,-7],[12,-8],[8,6],[8,-7],[-3,-17],[-7,-5],[9,-9],[12,-20],[-7,-12],[-1,-13],[5,-19],[-5,0],[-8,15],[2,11],[-10,1],[2,-8],[-4,-11],[9,-1],[10,-14],[-2,-5],[-19,-2],[0,-8],[6,-7],[-4,-8],[7,-25],[-4,-7],[5,-10],[-7,-9],[0,-12],[-11,-7],[6,-14],[11,-12],[2,-15],[9,-1],[14,-29],[32,-1],[12,3],[9,-32],[0,-9]],[[6779,8904],[-8,-3],[-15,-32],[3,-9],[-5,-14],[-12,2],[-6,-11],[-3,-17],[-18,2],[-15,-9],[-2,-7],[-18,-29],[-15,-16],[-8,6],[-3,17],[-17,7],[-4,14],[-16,3],[-5,-16],[4,-12],[-2,-21],[4,-13],[-14,-5],[-7,-11],[-14,-3],[-2,-10],[1,-17],[-16,-2],[-6,-9],[-4,-17],[-6,-1],[-3,-15],[-10,-21],[-10,5],[-12,0],[-9,10],[-10,-10],[4,-12]],[[6500,8628],[-11,2],[-3,-9],[-19,7],[-25,-10],[-9,-17],[-16,-10],[-2,-30],[2,-7],[-18,1],[-1,38],[2,11],[-17,-15],[8,-18],[-16,-3],[-18,30],[-10,2],[-4,12],[-13,10],[-8,1],[-10,10],[-7,-1]],[[6280,8952],[0,0]],[[6254,8977],[16,-3],[-8,19],[-15,-5],[0,-10],[7,-1]],[[6180,9347],[0,0]],[[6771,9269],[4,-8],[-7,-4],[3,12]],[[6743,9269],[0,0]],[[6801,9350],[5,2],[0,13],[8,17],[4,-7],[15,6],[27,0],[17,-10],[7,1],[20,-9],[13,3],[7,-12],[13,8],[-6,-24],[-16,-18],[6,-3],[7,-13],[14,0],[4,11],[7,-2],[3,-23],[-15,-6],[-15,9],[-23,-2],[-8,13],[-20,3],[-9,-8],[-22,3],[-7,20],[-18,6],[-2,7],[-16,15]],[[4860,7205],[-18,16],[1,3],[-19,20],[0,17],[-5,10],[10,20],[-4,8],[7,16],[-12,11],[-10,3],[-3,6],[-14,2],[-4,7],[0,17],[-16,1],[-9,10],[-9,18],[-15,8],[-4,18],[-8,10],[-3,20],[35,-3],[25,-10],[11,3],[19,-6],[20,11],[16,5],[44,-9],[11,6],[32,-2],[18,7],[4,19],[8,16],[-3,8],[8,20],[-5,23],[8,9],[5,0],[10,9],[1,7],[13,13],[2,19],[-3,11],[9,13],[0,25],[6,9],[-4,28],[-5,12],[-11,4],[-1,13],[-9,15],[-27,5],[-9,15],[2,20],[-6,5],[8,25],[15,10],[7,-2],[5,12],[20,-2],[17,6],[2,4]],[[5023,7819],[12,-13],[16,-4],[9,4],[11,-2],[17,14],[12,-16],[8,13],[38,4],[14,13],[-4,14],[2,9],[11,12],[32,15],[11,1],[9,16],[19,0],[5,14],[14,16],[17,2],[18,12],[6,9],[18,-1],[10,-13],[10,-3],[3,-13],[13,3],[-4,-13],[27,-14],[-9,-13],[1,-10],[-5,-3],[19,-9],[17,-1],[-2,-11],[7,-10],[30,-15],[7,0],[8,8],[4,15],[20,12],[1,-6],[14,14],[9,0],[6,-24],[-9,-9],[4,-7],[13,-4],[12,9]],[[5702,7723],[-14,-9],[-3,-26],[6,-28],[-2,-19],[-13,-40],[-5,-25],[16,7],[20,2],[14,-11],[5,-11],[-11,-13],[-4,-24],[3,-23],[25,-4],[4,8],[17,19],[17,1],[4,-24],[-7,-6],[16,-22],[-6,-11],[-4,-33],[-20,-27],[2,-5],[25,-26],[10,-17],[18,-20],[11,0],[22,-34],[25,-25]],[[5245,5665],[8,4],[-2,40],[2,17],[7,6]],[[5260,5732],[23,7],[9,-9],[12,2],[33,-8],[23,-17],[59,-9],[5,5],[16,1],[16,-7],[-2,6],[8,27],[14,12],[17,6],[19,1],[21,-4],[9,10],[1,13],[13,12],[7,-13],[10,0],[4,-9],[5,6],[9,-2],[1,-20],[22,-13],[-7,17],[11,10],[6,13],[14,9],[5,12],[-11,12],[-7,14],[22,5],[12,6],[6,-24],[-7,-14],[-7,-5],[-1,-13],[7,-16],[11,3],[1,10],[8,10],[21,15],[4,9],[15,16],[0,-11],[13,-18],[17,-31],[13,13],[19,12],[9,14]],[[5788,5797],[13,-9],[8,-13],[-6,-5],[10,-34],[-8,-4],[-3,-15],[-10,-22],[-16,-9],[-23,11],[-4,12],[-16,9],[-1,5],[-14,-9],[-14,-19],[-4,-12],[10,-20],[12,-7],[-15,-32],[1,-31],[-27,-27],[-24,-10],[-8,3],[-3,-19],[-12,-11],[-6,-14],[-15,-13],[-3,7],[-25,8],[-5,-4],[1,-20],[16,0],[6,-5],[16,-4],[14,24],[27,-1],[7,-8],[2,-16],[7,-16],[18,-23],[9,-24],[0,-15],[6,-15],[0,-13],[19,8],[11,-16]],[[5739,5369],[-6,-7],[-13,-34],[-9,-11],[-8,-29],[-2,-17]],[[5701,5271],[-6,-1]],[[5695,5270],[-10,7],[-5,10],[-18,-2],[-7,-11],[1,-19],[8,3],[0,-8],[-9,1],[5,-7],[-5,-13],[7,-4],[-2,-7],[-15,-13],[-10,2],[-13,-10],[-26,-14],[-14,-3],[-19,26],[-20,9],[-8,-5],[-17,8],[-14,10],[-6,-6],[-13,16],[-11,19],[-11,14],[-18,17],[-13,1],[-19,-5],[-11,5],[-10,-3],[-20,39],[-4,13],[-11,17],[-13,2],[-18,45],[-16,15],[-8,29],[-22,47],[-9,13],[12,-4],[9,-19],[-3,-6],[5,-13],[12,-4],[6,12],[9,3],[9,14],[0,8],[-12,4],[-4,-12],[-10,-3],[-11,10],[9,3],[6,27],[-8,10],[-11,-3],[-6,15],[-10,9],[-17,4],[-7,-6],[-17,11],[0,9],[-21,45],[-1,11],[12,6],[24,22],[-1,4]],[[7720,7578],[-14,16],[-7,25],[5,20],[19,6],[10,12],[3,19],[19,0],[7,5],[17,2],[8,10],[11,5],[4,-3],[-7,20],[10,16],[9,2],[7,15],[-1,16],[5,5],[8,38],[8,-8],[14,-6],[11,7],[8,-3],[30,18],[1,8],[-8,12],[16,13],[23,26],[13,5],[-3,14],[-8,12],[-11,10],[-6,11],[5,9],[27,10],[-1,14],[-11,16],[5,13],[-3,11],[1,32],[-12,-6],[-26,13],[4,17],[-5,6],[11,10],[13,2],[5,-11],[29,17],[7,0],[-2,17],[7,22],[13,18],[22,2],[-1,-7],[9,-13],[28,-16],[15,-3],[4,5],[17,-2],[6,-8],[-1,-12],[7,-3],[13,15],[19,8],[13,-6],[12,9]],[[8151,8105],[12,-5],[12,5],[6,-19],[10,3],[14,-12],[-11,-18],[-1,-8],[6,-9],[16,-10],[20,-5],[13,0],[18,-17],[3,-18],[10,-8],[25,-9]],[[8304,7975],[-17,-35],[-5,-4],[-21,-36],[-8,-27],[-16,-21],[-6,-14],[-9,-13],[-23,-22],[-7,-22],[-13,-6],[-14,-11],[-9,-13],[-15,-37],[-1,-11],[-12,-13],[-15,-3],[-16,-13],[-7,-16],[-4,-20],[-10,-17],[-3,-21],[-13,-13],[-15,-21],[-5,0],[-19,-29],[-7,-16],[-23,-41]],[[7991,7480],[-37,18],[-2,12],[-14,16],[-9,3],[-22,-1],[-6,-8],[2,-11],[-10,-15],[-13,-7],[-3,-10],[-7,-1],[-17,19],[-7,20],[-7,11],[-8,-1],[-13,-14],[-5,-19],[-19,3],[-9,4],[3,24],[-5,27],[-15,10],[-10,-22],[-11,3],[-16,30],[-11,7]],[[6177,6629],[-8,-3],[-15,12],[-44,21],[-15,3],[-16,25],[-11,14],[-10,4],[-2,7],[-8,-3],[-2,8],[-21,4],[-5,17],[-20,14],[-17,5],[-2,11],[-13,3],[-21,12],[-13,-1],[-21,14],[-2,26],[-5,16],[-29,-2],[-26,8],[0,8],[-10,11],[-10,2]],[[5991,7311],[30,3],[2,19],[11,9],[10,-1],[6,8],[-3,14],[13,14],[22,-11],[-9,-2],[1,-10],[7,-19],[10,-6],[4,24],[4,4],[10,-10],[25,-7],[20,-8],[10,1],[25,-4],[16,6],[6,6],[11,43],[4,6],[15,-8],[37,7],[5,-33],[-13,0],[-4,-12],[4,-19],[-9,-13],[-17,3],[-4,-30],[-10,-28],[9,2],[11,-15],[14,15],[30,-8],[15,0],[1,-18],[5,-8],[-4,-7],[17,-9],[12,-3],[11,-11],[16,-2],[14,18],[19,3],[20,-14],[11,6],[10,10],[39,7],[14,-5],[11,6],[24,21],[3,18],[27,20],[29,2],[16,-6],[-4,19],[10,26],[49,3],[0,8],[18,4],[21,-13],[12,-15],[21,5],[10,-10],[10,2],[20,17]],[[6771,7325],[13,-29],[15,-21],[-12,-16],[6,-10],[8,4],[8,-5],[13,12],[11,19],[7,-2],[2,-15],[13,-32]],[[6846,6743],[-3,-8],[-16,-10],[-1,-5],[-23,-12],[-13,-12],[-7,9],[-15,3],[-10,-3],[-15,-16],[2,-10],[-6,-8],[-27,39],[-29,-25],[-22,7],[-45,7],[-12,12],[-8,1],[-22,-4],[-1,-22],[-21,-20],[-21,-6],[-15,6],[-10,1],[-6,22],[-18,4],[-2,-28],[-15,-7],[-12,6],[-23,5],[-14,7],[-4,-6],[-11,6],[-19,-1],[-10,-6],[0,-12],[-13,-12],[-8,2],[-16,-6],[-41,0],[-29,8],[-38,0],[-30,11],[-14,2],[-9,-6],[3,-27]],[[5878,7277],[15,61],[12,28],[8,11],[23,-16],[21,-10],[9,-16],[-3,-12],[4,-8],[-11,-13],[4,-12]],[[5841,6162],[-3,11],[-8,-2],[4,11],[-20,11],[14,-1],[3,-6],[7,6],[-1,-11],[4,-19]],[[6177,6629],[14,-4],[-1,-13],[5,-12],[8,0],[-3,-34],[10,-9],[-3,-11],[15,-21],[3,-21],[-7,-9],[-8,-2],[-8,-20],[-9,-8],[-2,-13],[-5,5],[-1,-19],[-8,1],[4,-11],[-10,0],[-1,-12],[10,-25],[0,-30],[-5,-3],[-3,-21],[1,-12],[-4,-37],[12,-5],[15,-1],[8,-5],[-8,-11],[-6,-26],[25,-8],[8,-15],[-10,-7],[-18,-19],[3,-11],[17,-4],[9,-10],[1,-15],[20,-17],[7,-11],[0,-10],[18,-5],[-13,-12],[7,-8],[11,-4],[14,-31],[7,-9]],[[6296,6044],[-14,2],[-24,-1],[-18,-16],[-14,-22],[-23,6],[-13,-15],[1,-19],[-5,-18],[-7,-5],[4,-19],[-18,-19],[-15,-9]],[[6150,5909],[0,13],[-7,5],[-12,1],[-6,14],[3,2],[0,18],[-30,5],[-7,-15],[-22,-20],[-13,-6],[-9,5],[-4,-6],[-14,-1],[2,8],[-8,13],[0,8],[-14,-5],[-3,5]],[[6006,5953],[-4,17],[-8,4],[2,8],[-2,20],[-16,15],[-6,-14],[-8,-3],[-8,4],[-7,-6],[-18,19],[3,12],[-5,0],[-11,20],[5,15],[-20,2],[4,8],[-12,10],[-14,33],[-6,0],[7,16],[-1,25],[1,18],[-4,3],[-11,-6],[5,26],[-13,16],[-7,17],[-21,7],[-19,-14],[-2,-12],[-6,15],[-10,-1],[7,-6],[3,-16],[-13,3],[-6,-4],[-12,12],[-25,-18],[-19,-17],[-21,-6],[-15,-18],[-1,13],[-10,3],[-13,19],[8,9],[-7,2],[-2,9],[4,12],[6,3],[7,-12],[6,12],[11,5],[5,-9],[6,4],[3,14],[-3,20],[1,13],[-9,3],[-9,10],[5,24],[-5,6],[-24,12],[-7,19],[3,3],[-5,18],[4,9],[-16,15],[-8,3],[-11,17],[2,19],[-3,8],[-19,25],[0,7],[-8,9],[-11,4],[-1,10]],[[4651,9964],[3,-12],[-6,-4],[2,-15],[-7,1],[12,-18],[-1,-6],[-10,-1],[-7,-19],[4,-5],[2,-15],[-13,-4],[2,-4],[-6,-14],[6,-14],[-2,-11],[-9,-13],[-5,-24],[-12,-7],[0,-6],[-8,-16],[-26,4],[-7,-11],[6,-9],[-1,-24],[-27,-31],[12,-11],[-5,-16],[-13,-33],[5,-16],[6,-32],[8,-12],[-11,-16],[17,-50],[-1,-22],[-4,-11],[-12,-10],[4,-8],[-13,-15],[-6,-1],[-10,-18]],[[4518,9415],[-12,-1],[-8,-9],[-8,2],[-4,10],[-8,1],[-12,-8],[-2,6],[-8,-4],[-20,10],[-8,-9],[-8,0],[4,-14],[-19,8],[-10,-9],[1,-5],[-11,4],[-8,16],[-13,-8],[6,-2],[0,-21],[-10,-10],[-16,6],[-11,-15],[4,-5],[-11,-7],[-18,-1],[-10,8],[-10,-3],[-19,2],[-5,-8],[-13,1],[-2,-17],[-8,0],[-12,6],[-13,-9],[-17,-3],[-4,-11]],[[4195,9316],[-1,-7],[-12,-19],[-7,4],[-10,-10],[-13,6],[4,8],[-13,14],[-4,-11],[-1,-21],[-3,-15],[-11,5],[5,11],[-12,5],[-16,-21],[7,-13],[-15,-1],[-3,-9],[-12,-2],[1,-17],[-14,-13],[-10,0],[5,21],[-7,12],[-7,4],[-12,-5],[4,18],[5,0],[3,12],[7,7],[4,12],[5,37],[7,2],[0,10],[8,8],[17,5],[5,16],[9,10],[10,4],[-3,13],[-1,-13],[-15,3],[-5,-13],[-11,6],[-2,-8],[-15,4],[2,9],[-24,-8],[8,-10],[-12,-8],[-3,-12],[-9,11],[-5,-2],[-10,23],[-7,6],[16,7],[4,8],[-3,12],[-7,1],[-9,19],[4,13],[6,6],[-15,4],[-6,20],[-9,1],[5,-18],[-12,0],[-4,15],[-7,0],[0,-9],[-11,-2],[-5,-27],[-5,9],[3,7],[-10,10],[6,20],[7,7],[5,23],[-8,4],[-6,22],[12,3],[5,12],[-3,14],[6,-4],[12,12],[8,0],[2,-8],[11,8],[5,14],[-5,13],[-6,-15],[-10,4],[-3,18],[6,-3],[8,8],[3,15],[3,-5],[7,6],[16,1],[15,-8],[10,2],[25,27],[5,-7],[5,7],[18,-1],[-6,20],[-11,3],[-6,6],[15,12],[9,-2],[14,3],[-2,17],[16,0],[7,-3],[5,12],[7,5],[3,-10],[8,-1],[2,-8],[14,-9],[26,-6],[31,10],[10,7],[12,2],[18,-6],[10,4],[14,19],[-9,4],[15,4],[6,-4],[13,16],[17,-4],[-1,9],[9,-12],[-8,-3],[9,-7],[0,-7],[16,3],[4,22],[-7,-1],[2,10],[20,5],[4,-12],[13,0],[7,-14],[0,-8],[19,-13],[-5,35],[6,15],[13,1],[1,6],[-10,4],[-8,-6],[-10,7],[-9,-6],[-9,11],[-17,5],[2,5],[26,8],[10,-7],[13,3],[13,11],[10,23],[-7,-1],[-11,-19],[-26,-4],[1,11],[-9,-16],[-14,-4],[-8,6],[-11,-8],[-1,7],[7,8],[3,13],[-4,3],[3,11],[9,0],[3,6],[-13,15],[4,6],[7,-8],[18,1],[20,16],[0,5],[10,7],[2,11],[10,-5],[11,12],[21,13],[18,-3],[-1,7],[-9,0],[0,14],[6,14],[10,5],[15,-5],[19,10],[6,13],[9,-2],[12,18],[6,-3],[9,7],[4,-7],[-4,-20],[8,-8],[-1,-6],[-11,8],[3,-31],[-15,0],[9,-5],[17,3],[-9,19],[17,1],[2,9],[19,11],[25,11],[3,8],[14,8],[-1,8],[12,-7],[-12,-13],[-5,-13]],[[4068,9177],[-2,13],[8,-10],[-6,-3]],[[6771,7325],[-1,6],[3,42],[3,6],[-2,26],[8,25],[-5,3],[-14,19],[-9,8],[-13,20],[-7,26],[-11,14],[-9,31],[-16,20],[-14,3],[9,18],[5,19],[0,33],[-20,-2],[-4,16],[-7,11],[-2,12],[4,11]],[[6669,7692],[19,-2],[13,5],[13,13],[3,10],[-11,18],[-8,4],[3,13],[10,-4]],[[6711,7749],[2,7],[22,-8],[-3,23],[10,10],[23,-24],[15,-8],[16,11],[6,16],[16,1],[9,25],[2,13],[-3,39],[-4,13],[4,36],[10,13],[4,12],[8,-3],[-5,-12],[21,-16],[8,12],[6,-13],[5,5],[-10,12],[1,5],[16,4],[11,7],[17,-3],[5,4],[20,-9],[2,-6],[12,0],[4,14],[-8,12],[-8,4],[5,15],[-7,13],[8,16],[6,-18],[8,-4],[21,9],[10,10],[6,-9],[15,11],[-2,7],[-14,16],[1,13],[6,8],[12,-5],[8,-8],[-2,-8],[12,-8],[15,3],[5,10],[-3,22],[8,13],[10,-8],[17,-8],[11,7],[10,1],[5,16],[29,-7],[3,-7],[24,-22],[20,-9],[9,4],[-1,10],[18,-9],[12,-36],[8,-11],[-3,-7],[14,-50],[11,-4],[12,-13]],[[7272,7898],[13,-4],[15,-26],[9,-5],[11,-15],[-14,-10],[7,-15],[6,19],[5,1],[10,-9],[3,-8],[23,-24],[7,-4],[9,-14],[14,-14],[13,8],[16,-12],[16,8],[-2,-25],[-2,-7]],[[7431,7742],[-4,-7],[6,-10],[16,-11],[-6,-4],[17,-34],[3,-14],[18,0],[22,-5],[17,-8],[37,9]],[[7557,7658],[10,-24]],[[7567,7634],[-5,-5],[-23,-9],[-2,-13],[6,-9],[-2,-33],[-5,-13],[-1,-19],[-16,-22],[-11,-21],[6,-25],[-8,-13],[-15,-4],[-25,12],[-22,-22],[-8,-16],[-11,-32],[-19,-8],[2,-38],[-6,-12],[0,-16],[-5,0],[9,-25]],[[8894,9079],[-4,13],[1,17],[7,12],[-10,5],[-8,-7],[-5,5],[5,20],[-7,12],[-11,-1],[-17,7],[-3,14],[2,18]],[[8844,9194],[15,-3],[18,2],[17,-8],[2,-6],[15,-5],[1,-5],[15,-3],[7,5],[17,-50],[20,-17],[4,6],[28,5],[1,6],[12,6],[5,18],[18,8],[17,-5],[17,7],[5,6],[19,-9],[3,3],[25,-16],[23,-7],[8,2],[1,-11],[9,-4],[13,-19],[7,2],[19,-6],[9,15],[11,0],[10,-7],[29,-3],[0,11],[-6,4],[-3,14],[8,0],[3,11],[6,0],[11,9],[17,3],[7,-9],[12,5],[3,7],[10,5],[5,13],[10,-3],[4,8],[5,-4],[16,-3],[13,16],[9,-10],[10,5],[11,-5],[12,5],[3,-11],[17,-19],[15,8],[18,-6],[5,-8],[-8,-13],[6,-3],[-5,-7],[3,-11],[10,-6],[5,-10],[3,7],[11,3],[10,-13],[5,6],[20,-8],[2,-6],[-15,-23],[5,-8],[-4,-9],[-22,-1],[-6,-11],[-10,9],[-6,-1],[-5,11],[-15,-10],[-11,-26],[1,-30],[4,-16],[24,-12],[14,-26],[-5,-19],[-1,-12],[8,-27],[8,-4],[1,-12],[-7,-5],[0,-15],[-6,-17],[-9,-2],[-2,-12],[-12,-4],[-8,-10],[-13,0],[-15,-16],[-2,-12],[-10,-13],[-28,-12],[-20,-27],[-21,-9],[-15,-1],[-15,-7],[-12,-10],[-7,-14]],[[8952,9190],[2,6],[9,-6],[-5,-6],[12,-17],[-13,-1],[-12,7],[7,17]],[[6395,5633],[-2,16],[7,15],[-1,8],[-12,12],[0,7],[-14,14],[-21,-1],[-7,9],[-12,0],[-5,9],[-19,6],[-12,-1],[-17,9],[-24,17],[-4,13],[-5,-2],[-25,4],[-12,15],[-9,7],[-4,12],[-13,7],[-9,-5],[-6,65],[-19,40]],[[6296,6044],[9,-9],[13,-6],[17,0],[18,6],[14,-1],[22,49],[4,16],[3,-9],[21,7],[20,18],[25,7],[12,12],[18,11],[11,10],[-2,8],[15,14],[12,-10],[8,-2],[11,-15],[16,-6],[15,2],[4,6],[27,7],[16,28],[-1,3],[21,4],[19,-1],[21,-20],[16,-9],[14,6],[3,7],[30,-10],[4,19],[32,21],[8,10],[-6,2],[-4,26],[1,13],[11,7],[3,19],[12,15],[12,24],[0,14],[6,3],[9,22],[19,11],[9,18],[13,7],[10,-8],[13,12],[10,4],[10,11],[-1,33],[15,15],[6,1]],[[7034,6430],[19,-14],[1,-10],[9,-17],[17,-20],[13,-7]],[[6684,5641],[-7,-5],[-26,4],[-3,-3],[-16,6],[-27,-10],[-15,0],[-11,-15],[-22,-8],[-2,-4],[-29,1],[-19,17],[-12,-6],[-12,6],[-9,12],[-27,2],[-6,-10],[-20,1],[-7,-3],[-9,7],[-5,-6],[-5,6]],[[6501,8373],[9,-2],[9,10],[15,3],[10,20],[18,-1],[-2,12],[3,13],[14,4],[14,-5],[5,6],[15,-3],[7,11],[1,-9],[9,-1],[7,18],[14,10]],[[6649,8459],[44,-10],[20,-9],[20,10],[5,-3],[28,8],[1,10],[15,8],[14,-3],[4,-29],[21,-11],[20,-5],[6,15],[20,1],[3,-14],[18,-10],[10,2],[8,-15],[17,6],[-1,-14],[-12,-4],[0,-8],[8,3],[11,-6],[-8,-18],[9,-6],[16,9],[1,5],[8,-9],[4,-18],[12,-1],[6,-24],[17,-4],[5,-9],[8,3],[21,15],[14,-18],[13,9],[13,-3],[14,19],[26,-9],[3,8],[11,4],[6,9],[5,-9],[27,-20],[4,5],[-8,11],[7,18],[0,14]],[[7163,8362],[1,3],[18,2],[22,10],[5,-3],[7,-18],[16,-2],[16,-19],[25,-9],[15,-14],[5,-12],[19,-21],[24,-22],[12,-16],[8,-5]],[[7356,8236],[4,-10],[-8,-18],[2,-11],[23,-32],[11,-8],[2,-34],[-10,-13],[2,-13],[10,-20],[-1,-18],[-12,-27],[9,-12],[-24,-20],[-16,11],[-14,1],[-4,6],[-8,-9],[2,-7],[-6,-15],[4,-34],[-25,-15],[-16,-31],[-7,1],[-2,-10]],[[6711,7749],[-8,18],[3,14],[-8,37],[-7,10],[-18,-13],[-9,-18],[-10,8],[5,14],[2,27],[13,13],[4,10],[-5,10],[6,5],[-2,8],[6,10],[-5,5],[-6,17],[-19,1],[1,23],[-2,22],[-23,17],[-20,-3],[6,9],[-2,13],[-13,7],[-6,8],[4,9],[-7,9],[4,9],[-17,5],[-4,20],[-11,7],[-2,-14],[-9,8],[-1,-6],[-18,11],[14,20],[-6,6],[2,18],[-10,14],[-16,3],[12,23],[2,24],[12,7],[3,9],[-9,4],[10,30],[9,19],[-1,7],[11,8],[-20,26],[5,14],[0,11],[-9,-1],[-18,14],[-10,21],[-14,7],[1,10]],[[6572,8043],[0,0]],[[7074,9444],[-18,4],[-4,13],[-28,15],[-19,7],[-22,-1],[-9,6],[-11,-5],[-15,9],[-3,-14],[-4,5],[-14,3],[-9,12],[4,3],[-1,13],[7,0],[17,10],[5,19],[-8,12],[1,8]],[[6943,9563],[18,6],[4,16],[-5,26],[10,3],[-3,7],[2,12],[-6,5],[2,10],[15,-1],[11,12],[-1,5],[10,10],[-10,13],[1,7],[11,13]],[[7002,9707],[6,1],[19,-11],[33,-6],[24,10],[23,-14],[12,4],[9,-3],[8,6],[46,15],[8,-4],[1,6],[11,7],[21,-1],[16,11],[4,9],[10,7],[25,8],[-2,-7],[8,-11],[-5,-7],[14,-6],[9,-8],[-2,-8],[6,-14]],[[7306,9691],[-24,-5],[-5,-6],[0,-19],[-25,-13],[-4,-8],[-4,11],[-5,0],[2,-12],[-12,0],[-9,-20],[1,-17],[8,-10],[-20,-23],[-12,-4],[-2,-6],[-15,-5],[-9,-26],[-4,-1],[6,-19],[-4,-11],[-26,-6],[-3,-14],[-12,-6],[-12,2],[-11,-5],[-4,8],[-9,2],[-12,-18],[0,-16],[-6,0]],[[5327,6377],[-2,-8],[8,-12],[10,7],[8,-9],[-15,-20],[-1,-10],[8,0],[6,-15],[3,-17],[-4,-9],[-12,0],[-11,12],[-14,-11],[5,-16],[-5,-13],[-13,-3],[-3,14],[-12,-3],[-14,4],[-35,-10],[-27,-18],[-11,4],[1,-10],[-7,-7],[-6,-18],[-11,-3],[-4,-8],[-1,-15],[4,-7],[6,6],[9,-4],[23,3],[21,-8],[-3,-19],[6,-18],[6,-3],[9,-31],[7,-7],[3,-13],[12,-17],[-3,-11],[-19,-4],[-3,-23],[7,-6],[-17,-17],[18,-16],[5,-8],[-12,-39],[7,-11],[-3,-23],[7,-7],[-11,-19],[7,-12],[-17,-18],[-2,-10],[3,-16],[10,-29],[2,-10],[-5,-25],[-6,-7],[21,-22]],[[5245,5665],[-14,10],[-21,58],[-7,12],[-21,29],[-34,30],[-59,43],[-34,21],[-17,6],[-4,6],[-16,7],[-18,17],[0,-8],[12,-11],[-29,15],[-27,18],[-22,7],[-4,-3],[-32,2],[-56,-4],[-14,-4],[-31,-16],[-16,8],[-5,33],[-6,7],[5,16],[-9,21],[-1,25],[3,7],[-1,20],[-10,10],[7,8],[-5,5],[0,16],[-5,11],[2,9],[-8,6],[-5,17],[-7,0],[-6,18],[7,3],[-4,7],[6,5],[5,16],[16,27],[3,32],[13,28],[-2,7],[12,6],[8,11],[26,23],[18,35],[-1,13],[12,16],[3,20],[-6,14],[7,9],[9,-3],[11,10],[12,-7],[24,8],[-4,15],[14,9],[14,-6],[1,-9],[9,-4],[9,7],[10,-1],[0,16],[5,3],[1,31],[6,1],[7,28],[-5,6],[7,16],[10,14]],[[7674,9349],[0,11],[16,2],[8,14],[-6,10],[4,3],[-2,25],[4,0],[14,17],[-1,17],[16,12],[13,2],[11,-3]],[[7751,9459],[-2,-14],[15,-11],[9,3],[8,-13],[26,-19],[1,-17],[10,2],[6,-6],[-2,-11],[7,-2],[4,10],[6,-2],[2,12],[7,9],[30,-18],[15,8],[6,-6],[14,11],[8,13],[10,-2],[5,9],[16,-8],[17,-17],[26,-14],[9,8],[4,-18],[5,-2],[13,-20],[1,-8],[17,-2],[3,-14],[28,-6],[11,10],[10,-4],[19,13],[7,-4],[14,8],[11,1],[6,8],[13,-5],[10,-7],[14,-1],[5,-15],[11,-12],[13,9],[0,11],[16,12],[16,-15],[11,-6],[27,6],[16,-5],[6,6],[26,-4],[7,2],[24,-5]],[[8368,9317],[9,-15],[7,-5],[1,-18],[18,-10],[13,-1],[-5,-29],[-10,-15],[-6,-17],[6,-5],[-9,-11],[-10,0],[8,-17],[1,-15],[11,-13],[-4,-6],[9,-12],[-11,-12],[22,-9],[-14,-9],[1,-6],[10,-3],[-9,-13],[-4,-29],[-10,-19],[0,-9],[-7,-23],[7,-6],[-8,-7],[2,-28],[-7,-8],[-8,-32],[-6,-9],[5,-7],[-3,-8],[-15,-6],[-8,-20],[-6,6],[-13,-23],[18,-6],[-5,-24],[7,-8],[-12,-5],[0,-8],[-10,2],[-7,-21],[-14,1],[-12,-12],[-6,-22],[-31,-6],[-2,-15],[-5,5],[-7,-16],[-18,-20],[-1,-12],[14,-19],[-5,-6],[1,-14],[24,-4],[11,5],[4,-10],[-3,-13],[7,-14],[-13,-16],[-8,-16],[-26,-4],[2,-14],[5,-5],[-9,-28]],[[8224,8523],[-9,6],[-33,7],[-10,-16],[-16,-5],[-8,7],[-16,-11],[-10,-23],[-43,6],[-6,17],[-9,5],[-2,-12],[9,-18],[-27,15],[-7,27],[0,10],[-9,33],[-13,23],[-10,8],[0,20],[-5,8],[5,6],[-22,7],[-16,-18],[-9,10],[-18,12],[-2,8],[-21,7],[-6,31],[-19,12],[-16,3],[-19,16],[-12,-2],[6,10],[-6,57],[-5,10],[-12,11],[-21,7],[3,9],[-15,9],[-13,28],[-31,2],[-4,-4],[-18,2],[-48,29],[14,11],[-1,16],[13,22],[10,8],[0,-14],[5,-12],[8,1],[9,22],[-3,7],[6,32],[-5,10],[4,19],[-5,17],[1,22],[14,20],[-7,28],[3,18],[-18,13],[-1,-9],[4,-19],[-5,-19],[-14,-32],[-13,12],[-7,-5],[-8,4],[-6,-11],[2,-12],[-14,7],[13,19],[4,20],[10,13],[6,16],[0,13],[9,-1],[3,6],[-11,2],[-1,6],[-15,6],[-13,12],[4,15],[8,5],[-8,7],[2,18],[-18,-2],[7,19],[8,1],[0,13],[-9,-3],[-7,11],[5,10],[7,-1],[2,16],[-11,27],[12,0],[6,7],[3,16],[-18,4],[8,9],[1,17]],[[4928,9204],[8,14],[-5,5],[6,16],[11,12],[-8,9],[2,21],[13,8],[1,12],[-14,19],[14,17],[11,2],[3,-5],[12,23],[9,-9],[15,13],[5,10],[10,6],[1,10],[11,12],[-13,31],[13,3],[9,-6],[-6,22],[5,7]],[[5041,9456],[23,-10],[-1,-10],[8,0],[15,21],[14,3],[35,2],[2,-5],[12,1],[17,-4],[14,10],[9,-5],[6,9],[20,3],[-4,6],[3,9],[-15,2],[-4,16],[14,-6],[17,10],[-2,10],[8,1],[-1,13],[10,2],[7,10],[12,-9],[1,-7],[15,-3],[5,5],[9,-12],[16,-4],[-1,8],[6,16],[12,1],[17,-9],[6,-8],[18,6],[2,22],[5,6],[29,-14],[19,7],[5,-8],[-3,-7],[6,-15],[10,-4],[12,-12],[8,2],[0,-9],[12,1],[8,-11],[17,-1],[20,7],[-3,8],[14,22],[3,13],[18,9],[26,-15],[24,-1],[4,-6],[12,-2],[15,6],[5,-4],[6,20],[14,1],[26,-4],[3,24],[18,4],[1,-7],[13,1],[13,-5],[6,7],[22,-3],[14,10],[9,2],[9,8],[3,-8],[17,0],[4,26],[8,14],[0,7],[7,-3],[9,7],[8,-1],[11,-8],[0,9],[24,25],[10,1],[11,7],[11,-6],[5,-14],[9,-10],[-1,-6]],[[5922,9620],[-4,-5],[7,-9],[-7,-19],[8,-15],[29,-17],[1,-12],[14,-5],[-2,-16]],[[5968,9522],[-8,-4],[-5,-8],[-12,-10],[-6,-11],[2,-12],[-4,-15],[-19,-20],[-5,-20],[-14,2],[4,-14],[-6,-20],[3,-14],[-6,-4],[-12,-22],[8,-6],[1,-8],[11,1],[9,-9],[-9,-10],[-3,-11],[2,-31],[-5,-13],[1,-16],[-5,-20],[12,-5],[-1,-23],[-5,-30],[-11,-9],[9,-8],[-4,-6],[1,-20],[-10,2],[-5,-5],[-12,-2],[-3,-22],[16,5],[0,-12],[-5,-19],[-9,-5],[-12,1]],[[5851,9069],[-16,5],[-2,-19],[-12,-4],[3,11],[-14,19],[-11,-1],[-11,-16],[-24,-13],[-10,11],[-11,-9],[-4,-15],[12,-8],[-7,-8],[-10,-2],[-10,12],[-7,-5],[-2,-14],[-24,16],[-12,-2],[4,-15],[-4,-16],[4,-5],[4,-21],[-3,-19],[-6,-6],[9,-24],[-3,-6]],[[5684,8915],[-20,-6]],[[5664,8909],[-7,0],[-19,13],[-8,19],[-10,9]],[[5620,8950],[-10,1],[-3,-18],[-5,-9],[-6,6],[-5,-9],[-1,16],[-22,5],[8,14],[-13,17],[-7,4],[-10,-2],[5,-11],[-30,-4],[-5,14],[-15,-2],[-22,-9],[-3,-5],[-11,7],[-12,21],[-7,-9],[-16,0],[-2,-11],[-18,13],[-16,8],[-34,3],[-29,-2],[-18,-7],[-6,9],[-12,7],[-19,3],[-7,17],[-8,-4],[-44,2],[-7,-6],[-7,3],[-9,-10],[-13,2],[-3,9],[-19,5],[-25,-3],[-11,9],[-22,-1],[-7,-4],[-13,9],[-1,7],[-10,2],[-12,10]],[[5058,9047],[8,2],[1,9],[11,16],[3,38],[-15,4],[-3,8],[-21,4],[-10,13],[12,13],[-2,17],[6,9],[-13,16],[-5,-5],[-30,15],[-4,5],[-16,-1],[-6,-15],[-14,7],[-10,-4],[-11,6],[-11,0]],[[5712,9056],[-14,-1],[2,-21],[11,5],[7,15],[-6,2]],[[8246,8443],[-9,16],[2,7],[-9,8],[11,14],[-7,13],[-17,14],[7,8]],[[8368,9317],[7,0],[3,11],[-4,6],[-10,29],[7,7],[-7,6],[9,12],[0,12],[-5,8],[8,11],[14,4],[12,-8],[20,-8],[9,3],[14,-8],[11,-1],[22,-18],[11,-5],[13,10],[10,-11],[10,2],[30,-5],[16,-7],[10,-13],[1,-14],[14,-12],[23,7],[5,5],[11,-8],[28,3],[8,3],[10,-3],[-3,-10],[18,-11],[-1,-11],[11,-8],[3,-19],[9,-18],[-6,-8],[8,-6],[-8,-9],[-6,-14],[12,5],[6,-3],[7,-18],[-22,-17],[10,-4],[1,-21],[4,-3],[28,-5],[16,2],[2,14],[11,-3],[8,11],[14,-3],[12,3],[2,16],[18,-2],[10,9],[2,-8]],[[8694,8627],[5,-11],[-9,-1],[-5,6],[-30,3],[-5,-3],[-33,2],[-4,-13],[-13,-3],[-8,-19],[7,-15],[-21,-7],[-11,-6],[-30,21],[4,-9],[-5,-4],[17,-13],[-12,-14],[-9,-17],[-10,-2],[-6,-11],[-5,2],[-8,-15],[1,-7],[-24,-4],[-21,-7],[-9,15],[-6,-2],[-5,-19],[-25,4],[-5,-11],[-25,-2],[-36,-14],[-8,1],[-10,16],[-9,5],[-12,-23],[-11,0],[-10,20],[-8,8],[-12,-9],[-1,-27],[-21,1]],[[6804,9285],[7,-6],[0,-13],[10,4],[0,-14],[-9,-7],[7,-16],[4,9],[15,6],[8,27],[15,-3],[10,-11],[12,-4],[-5,-32],[-6,-16],[12,5],[0,-9],[10,-4],[3,-12],[19,12],[6,-7],[-4,-7],[11,2],[2,6],[8,-6],[11,0],[-4,6],[13,16],[-3,-18],[17,-2],[13,6],[13,-5]],[[6999,9192],[9,-11],[10,1],[13,-13],[10,10],[12,-6],[1,6],[10,-14],[15,-2],[2,-10],[12,-7],[10,3],[5,-7],[15,8],[16,-3],[-5,-10],[13,-10],[3,-11],[-4,-12],[8,-2],[11,10],[14,6],[18,-10],[4,-12],[11,1],[3,-8],[7,3],[11,-23],[10,0],[2,-9],[-4,-10],[9,-6],[1,6],[23,-23],[9,1],[18,-7],[15,-3],[1,-10],[11,-2],[-9,-9],[9,-14],[-18,-11],[-9,10],[-11,1],[-6,-8],[-19,10],[-7,-8],[-1,-8],[-23,-26],[-8,-17],[3,-18],[7,-1],[14,-16],[3,4]],[[7253,8895],[2,-13],[-10,-6],[4,-7]],[[7249,8869],[-9,-9],[-13,-4],[-4,-8],[-29,-9],[-21,22],[-4,-8],[-11,8],[-17,1],[-7,5],[-4,20],[8,4],[-4,12],[-17,16],[-3,12],[15,8],[0,11],[-20,5],[-29,-2],[-14,-9],[-6,14],[0,13],[-16,8],[-31,-1],[-22,-3],[-9,-14],[-12,-6],[-13,5],[-4,-19],[4,-9],[-17,-14],[-6,-20],[-6,-11],[-21,7],[-15,-1],[-6,-5],[-14,11],[-18,-4],[-5,15],[22,33],[0,12],[-12,12],[-7,-5],[-11,4],[-7,-9],[-3,-38],[-26,-12],[-12,-12],[-14,9]],[[4549,9248],[8,8],[9,23],[2,20],[-2,10],[13,18],[-5,8],[-13,9],[-10,1],[-12,11],[-13,21],[1,15],[10,17],[-5,6],[-7,-4],[-7,4]],[[4651,9964],[8,-4],[4,11],[10,-2],[6,6],[3,-19],[10,-2],[-3,-11],[1,-17],[7,0],[9,11],[-4,10],[12,2],[1,11],[14,5],[5,-9],[9,3],[12,-3],[-5,-6],[4,-6],[27,-9],[2,-4],[21,-7],[0,-7],[11,-21],[4,1],[13,-21],[21,-12],[-7,-10],[8,-4],[3,11],[26,-5],[5,-4],[23,4],[12,-4],[11,2],[14,-8]],[[4948,9846],[-6,-23],[0,-19],[-20,-14],[-3,-13],[-13,-6],[-7,4],[-13,0],[1,-14],[-3,-16],[8,-5],[9,6],[5,-7],[-2,-26],[7,-2],[6,-14],[17,-2],[-3,-21],[4,-14],[19,-19],[4,6],[4,-10],[13,-2],[3,-9],[-7,-14],[10,-20],[9,-1],[16,14],[7,1],[5,18],[16,-13],[8,-14],[-3,-12],[-17,-14],[-2,-6],[-11,0],[-9,-11],[-3,5],[-13,-4],[-8,-11],[-1,-17],[-5,7],[-6,-13],[15,-18],[-1,22],[8,4],[3,-13],[14,-14],[12,1],[20,-21],[-2,-18],[8,-8]],[[4928,9204],[-10,-31],[-6,-1],[-15,-12],[0,-9],[-8,-11],[-3,-16],[-6,-5],[-8,-28],[-12,21],[4,17],[-12,2],[-9,15],[-10,0],[-7,9],[-17,1],[-11,-6],[-8,8],[-33,-16],[-17,-11],[-16,-4],[-18,13],[-18,-13],[-7,15],[-13,9],[-9,0],[-8,6],[-5,12],[-12,3],[-6,-3],[-11,6],[-2,7],[15,5],[-11,9],[-12,-9],[-34,19],[-17,-2],[6,8],[-10,3],[15,8],[0,7],[-10,4],[-8,14]],[[6225,8079],[7,3],[4,14],[11,16],[6,3],[0,10],[12,18],[22,-8],[8,5],[10,-3],[0,9],[8,15],[-1,7],[8,18],[2,16],[-4,3],[13,22],[6,16],[13,12],[31,8],[13,8],[11,17],[7,16],[11,12],[16,7],[12,14],[8,17],[15,13],[27,6]],[[6669,7692],[-2,16],[-16,-15],[-18,-8],[-9,2],[-18,-2],[-11,16],[-22,-3],[0,-15],[-7,-9],[-14,7],[-10,-5],[-1,6],[-10,-2],[-15,2],[-11,-19],[-26,-3],[-2,-7],[-20,-9],[4,-12],[-21,-5],[-9,-8],[-6,5],[-15,-9],[-7,-13],[-8,-5],[-13,-15],[-12,8],[-18,6],[0,12],[16,8],[4,-6],[9,13],[10,-6],[0,6],[13,9],[10,-4],[-5,11],[9,6],[12,19],[9,-2],[7,12],[5,-3],[6,12],[7,2],[6,17],[1,17],[-22,10],[-5,11],[-7,-6],[-16,9],[-12,-10],[-11,5],[-13,22],[-15,-8],[-8,4],[-6,12],[-22,2],[-7,8],[-9,-9],[-1,14],[-17,-2],[-15,17],[1,8],[-13,1],[-12,10],[-11,-16],[-21,5],[3,9],[-10,6],[-6,12],[-10,-3],[0,-12],[-19,3],[-11,-23],[-11,-11],[-7,10],[-5,-5],[-9,9],[-6,18],[0,24],[-10,4],[-2,-16],[-23,-19],[0,-9],[-6,-7],[-11,-1],[-20,-10],[-8,-10],[-17,5],[-2,6]],[[6154,8053],[2,11],[14,9],[4,-2]],[[5788,5797],[9,15],[5,-5],[13,7],[12,1],[10,10],[24,12],[12,16],[10,4],[9,9],[3,14],[-18,12],[2,12],[15,-1],[3,-12],[10,2],[8,9],[2,16],[13,1],[-2,-9],[19,-19],[11,13],[23,13],[-8,8],[-2,10],[6,8],[-8,3],[7,10],[13,-5],[17,2]],[[6395,5633],[-6,5],[-19,5],[-14,-3],[-6,-5],[-18,-1],[-17,-9],[-16,8],[-32,6],[-8,-2],[-12,-12],[-28,-6],[-33,-3],[-15,2],[-26,-1],[-25,6],[-17,-14],[-9,-22],[-12,-15],[-14,-28],[-13,-10],[-19,-3],[-10,-9],[-14,-32],[-16,-2],[-7,-8],[-22,-4],[-51,14],[-19,0],[-16,-5],[-33,-25],[-11,1],[-12,-7],[-10,0],[-11,-9],[-12,-4],[-9,-8],[-10,0],[-19,-25],[-12,-40],[-3,1]],[[7736,6319],[4,-36],[-10,19],[-9,-6],[-2,-17],[-12,-17],[-10,-8],[-4,-15],[21,-34],[11,-7],[27,-10],[2,9],[-8,5],[3,10],[-5,23],[2,20],[-8,23],[6,-1],[0,-14],[7,-5],[-6,-23],[6,-25],[13,-23],[-15,-20],[-22,-4],[-18,-12],[-13,4],[-30,-17],[-23,3],[8,5],[-10,6],[0,13],[-6,0],[-10,-14],[-28,5],[-9,-9],[-6,0],[-8,-10],[9,-11],[-26,4],[-2,10],[-14,10],[-17,2],[-8,-12],[-30,4],[-18,-13],[-12,-11],[-4,-11],[-18,-6],[-8,-7],[-10,-21],[2,-15],[-6,-4],[-13,6],[-20,-17],[-12,-1],[-17,-17]],[[6999,9192],[-1,14],[13,4],[-3,16],[4,3],[-3,31],[-12,4],[-13,-23],[-4,12],[-13,0],[-4,18],[8,-3],[14,22],[16,10],[12,-3],[7,-9],[-4,-6],[16,0],[6,8],[19,5],[-2,14],[-7,-4],[-2,23],[-4,10],[7,7],[15,4],[3,7],[-6,20],[5,6],[1,11],[14,13],[-3,32],[-4,6]],[[7306,9691],[15,11],[12,1],[19,-5],[-2,-13],[6,-17],[18,-5],[9,18],[-4,6],[13,4],[13,-1],[20,-13],[15,-3],[6,4],[13,-12],[3,-15],[-4,-22],[-7,-10],[0,-14],[-5,-17],[-25,-23],[-1,-6],[14,-22],[39,-11],[5,16],[-2,23],[12,13],[22,4],[-8,-9],[-9,-22],[27,-16],[8,8],[22,-14],[3,3],[13,-9],[1,-10],[12,10],[13,-13],[35,-7],[3,-8],[25,-15],[13,6],[23,-8],[23,0],[11,8],[16,2],[9,-13],[1,-16]],[[7674,9349],[-10,1],[-11,-20],[-9,-5],[-26,-2],[-5,-5],[3,-10],[-3,-17],[-14,-4],[-10,3],[-27,0],[-2,-23],[-10,-1],[10,-5],[-20,-13],[0,-18],[-10,-5],[-18,9],[-12,-28],[8,-10],[1,-8],[-8,-15],[-11,-5],[-12,-16],[0,-10],[-8,-18],[10,-4],[4,-10],[-10,-10],[-21,-30],[4,-8],[-5,-20],[-7,-15],[1,-12],[10,-13],[-3,-34],[14,-12],[7,-21],[18,-1],[3,-18],[-16,-15],[-12,-22],[-7,-24],[-9,-6],[-8,-13],[-14,1],[-9,6],[-13,0],[-10,-9],[-15,2],[-17,8],[-8,15],[-18,9],[-8,1],[-6,-9],[-13,3],[-12,7],[-11,17],[-11,-4],[-8,5],[-11,-1],[-6,8]],[[7550,9153],[12,10],[-1,-17],[-13,-8],[2,15]],[[7573,9167],[12,23],[14,-12],[8,-13],[-4,-7],[-30,9]],[[4430,8985],[7,2],[9,15],[-6,2],[0,12],[-7,5],[11,5],[0,16],[-17,-1],[-13,-7],[-14,12],[-3,17],[4,22],[-10,2],[-12,15],[-5,16],[4,7],[-11,33],[-1,20],[-5,9],[5,7],[17,-1],[14,19],[15,11],[9,-3],[20,24],[12,-15],[4,4],[20,1],[14,-5],[5,4],[14,-8],[11,19],[14,-3],[14,7]],[[5058,9047],[-8,-9],[7,-15],[-19,7],[-11,0],[-14,-8],[-6,-15],[-17,-8],[-5,-25],[-18,-9],[-1,-14],[-5,-9],[-13,-6],[1,-7],[10,-7],[15,2],[6,-18],[-14,-25],[3,-9]],[[4969,8872],[-9,-13],[-32,1],[-4,13],[-24,11],[-8,-9],[-9,2],[-3,-6],[1,-23],[4,-8],[-10,-25],[-16,-8],[-11,0],[-26,-15],[-18,-1],[-3,8],[-12,-7],[-3,-10],[-14,-12],[1,15],[-10,9],[-2,12],[-14,-2],[-3,6],[-10,-6],[4,-7],[-7,-5],[-24,-8],[-18,1],[6,22],[7,9],[-30,0],[-23,16],[-13,-9],[-13,4],[-7,-7],[-29,-4],[1,-9],[-11,-5],[-3,-8],[-8,9],[3,18],[-1,23],[-9,0],[-6,-28],[-12,-6],[-10,3],[-8,-5],[-11,-24],[-12,0],[-8,-8],[-16,-5],[-16,0],[-16,6],[2,27],[-4,11],[-13,-4],[-8,25],[13,21],[6,5],[5,17],[10,4],[5,9],[20,8],[0,19],[-5,15],[-10,7],[-14,-2],[-14,-9],[-7,55]],[[4948,9846],[1,7],[25,0],[11,10],[16,0],[17,-6],[2,3],[19,-1],[8,-7],[11,1],[8,8],[4,-5],[11,2],[4,-5],[7,5],[11,-4],[11,6],[14,1],[17,-10],[4,2],[25,-4],[23,1],[1,12],[18,-11],[15,4],[11,-5],[17,6],[12,1],[28,17],[17,-10],[7,3],[-1,-8],[9,2],[26,-9],[20,7],[20,12],[5,-3],[23,-1],[8,6],[-3,5],[15,8],[0,9],[12,-1],[13,11],[0,10],[7,0],[7,-11],[19,-5],[-3,-10],[16,-20],[9,-5],[15,-4],[3,-13],[21,-3],[13,10],[8,-6],[36,2],[10,-4],[12,4],[25,2],[12,-12],[38,0],[15,-10],[-1,-6],[19,-14],[5,-8],[38,6],[6,-4],[13,-1],[7,-6],[26,-5],[17,3],[17,-2],[23,-7],[6,-4],[13,2],[8,-6],[26,-4],[10,-7],[28,-5],[12,-5],[33,-2],[5,-4],[10,5],[14,-4]],[[6068,9752],[1,-7],[-10,-9],[-1,-15],[6,-3],[0,-36],[-7,-7],[-5,10],[-26,7],[-13,-14],[2,-4],[-32,-1],[-11,-6],[4,-16],[-7,-13],[1,-13],[-9,-3],[-11,5],[-20,-8],[-8,1]],[[5968,9522],[10,-2],[14,5],[20,-6],[15,11],[21,-10],[17,18],[20,-6],[6,14],[13,-9],[15,-7],[11,-25],[12,-14],[38,-4],[10,-7],[1,-23],[6,-33],[11,-12],[22,17],[10,-9],[-8,-17],[-6,5],[-12,-13],[15,-17],[12,3],[12,-2],[7,-18]],[[6278,8746],[-26,4],[-10,20],[-13,-5],[-19,3],[-9,-2],[-10,7],[-10,-4],[-12,-19],[-9,1],[-5,-8],[-31,15],[-7,-3],[-18,-15],[-26,8],[4,6],[3,24],[7,13],[-17,-5],[-5,-6],[-13,5],[-7,-11],[-11,15],[-6,1],[-13,15],[-2,15],[-14,8],[-14,-8],[-12,-12],[0,-8],[-14,-18],[-14,-5],[-11,28],[-8,11],[-2,11],[-11,12],[-3,8],[-9,1],[-10,-11],[-7,0],[-10,12],[-16,-13],[-8,15],[4,15],[8,7],[5,21],[13,7],[-6,20],[10,14],[10,3],[-6,8],[-5,17],[1,20],[-17,0],[-10,-4],[-17,6],[-2,12],[8,10],[-5,19],[6,5],[-4,16],[8,22]],[[6276,9364],[1,14],[13,11],[-3,8],[8,7],[3,-28],[-2,-10]],[[6246,9395],[3,7],[8,-6],[-6,-15],[-5,14]],[[6224,9397],[0,0]],[[4100,9110],[-2,15],[8,6],[-6,-21]],[[4111,9021],[5,19],[2,-16],[-7,-3]],[[4430,8985],[-12,-13],[-9,4],[-6,-11],[-7,1],[-13,-12],[-9,-2],[-4,-11],[-17,3],[-5,-7],[-10,2],[-12,-4],[-5,6],[-36,-3],[0,-9],[-10,-6],[-21,2],[-16,-4],[-13,-13],[-1,-16],[-7,-7],[-17,-8],[-13,-9],[-5,-19],[-13,-11],[-15,-6],[-17,-20],[-7,-3],[-4,8],[3,10],[-5,11],[-1,38],[3,16],[-3,7],[1,22],[-5,10],[2,10],[-4,18],[9,-1],[8,7],[13,-6],[5,3],[0,16],[-12,4],[14,8],[1,16],[16,10],[7,16],[11,-2],[6,10],[6,-1],[4,11],[12,3],[4,9],[9,7],[8,-3],[7,8],[-4,7],[5,12],[0,11],[-7,3],[-8,-9],[4,-6],[-12,-10],[5,-8],[-17,-11],[-10,-1],[-3,7],[-21,-19],[-8,2],[-2,-9],[-12,7],[-4,-5],[-17,11],[2,22],[16,-18],[2,20],[-7,21],[15,-2],[4,-7],[17,11],[6,18],[15,15],[3,-2],[19,19],[-11,-3],[-4,11],[-10,-10],[-13,-5],[-13,-15],[-20,6],[-10,-10],[-12,17],[-7,3],[4,11],[-5,13],[-26,6],[4,9],[9,-2],[10,4],[4,11],[8,-1],[3,-16],[-7,-7],[2,-8],[16,6],[5,-4],[-5,19],[6,12],[2,17],[-7,-7],[1,14],[-4,7],[3,15],[9,0],[18,19],[-4,5],[22,32],[1,14]],[[4130,9215],[-4,5],[5,14],[-8,7],[5,4],[8,-10],[-6,-20]],[[5194,8453],[6,-5],[23,-7],[19,7],[11,-9],[13,-1],[8,-8],[14,-1],[19,-17],[40,-24],[11,14],[16,-1],[6,6],[6,-7],[17,-5],[-8,-16],[2,-12],[9,-2],[8,13],[5,-1],[4,-16],[6,-4],[7,7],[1,9],[8,9],[-3,24],[11,12],[27,-11],[12,3],[8,-6],[12,0],[6,6],[22,6],[10,-2],[10,8],[10,-10],[2,-9],[18,-7],[7,8],[7,-1],[27,-23],[4,2],[1,-21],[7,7],[-3,13],[15,4],[15,1],[5,-14],[-2,-10],[8,-8],[12,4],[12,-15],[14,6],[4,34]],[[5723,8383],[0,9],[16,2],[11,-6],[5,-19],[17,5],[24,-22]],[[5023,7819],[0,16],[20,18],[13,6],[-2,13],[6,5],[-18,20],[-8,11],[-5,23],[17,33],[7,4],[-4,18],[2,6],[-20,10],[3,17],[8,11],[12,31],[-9,29],[2,5],[-9,16],[2,27],[4,7],[-3,30],[10,2],[-4,21],[-13,5],[-4,7],[0,13],[-5,17],[-7,6],[-15,24],[-6,2],[-4,17],[5,5],[23,-7],[15,1],[11,5],[25,42],[-8,12],[2,7],[26,24],[7,12],[0,9],[20,25],[8,-3],[19,6],[1,-7],[15,3],[2,7],[13,11],[8,-6],[9,7],[-5,5],[5,6]],[[6068,9752],[10,2],[8,-4],[13,5],[32,-3],[15,7],[4,-8],[22,-2],[21,7],[7,-2],[47,14],[13,12],[2,-5],[24,7],[11,-1],[18,10],[6,8],[31,7],[5,-3],[23,12],[12,-2],[6,-15],[-17,-7],[-3,-12],[6,-7],[-6,-11],[16,10],[-5,4],[10,11],[11,0],[-14,7],[19,0],[12,12],[11,0],[16,12],[15,1],[7,8],[8,-4],[13,2],[4,-10],[12,-1],[0,-9],[18,-7],[18,-2],[3,-11],[-16,-4],[-2,-21],[7,19],[12,-14],[23,3],[2,-4],[18,3],[22,-8],[9,0],[16,-6],[4,-11],[7,-2],[15,-13],[4,1]],[[6673,9727],[1,-21],[-3,-11],[-16,-2],[-7,-9],[-25,8],[-12,-4],[-1,7],[-13,-5],[-9,1],[2,-10],[-19,-5],[-8,-15],[-22,-6],[7,-19],[0,-16],[7,-29]],[[6618,9672],[12,-3],[-1,-8],[-8,-8],[2,-17],[-9,-5],[-5,5],[1,23],[-4,9],[12,4]],[[5975,8363],[9,16],[10,7],[16,-11],[7,1],[-4,13],[-6,5],[0,14],[12,8],[11,18],[11,6],[-1,6],[-11,12],[2,11],[17,-11],[11,10],[13,-5],[2,-5],[13,-7],[0,16],[-10,6],[-4,10],[3,13],[5,2],[-14,17],[0,9],[13,0],[34,20],[20,-3],[1,8],[14,-3],[14,8],[17,-4],[6,7],[7,-4],[16,9],[17,7],[10,-3],[25,11],[10,1],[13,13],[12,-1],[3,25],[6,17]],[[6500,8628],[3,-18],[25,-17],[9,10],[17,-15],[-2,-19],[18,-10],[9,1],[6,-6],[9,2],[-7,-20],[0,-20],[8,-12],[25,-15],[1,-7],[15,-14],[13,-9]],[[7249,8869],[0,-35],[8,-13],[3,-16],[4,1],[2,-23],[-11,-14],[-4,-10],[12,-6],[10,-18],[-3,-9],[15,-7],[-5,-16],[-7,-2],[-4,-21],[-21,0],[-6,-14],[-11,-4],[-11,-21],[-16,4],[-15,-2],[-1,-15],[12,-20],[-5,-13],[-1,-23],[12,-15],[2,-20],[5,-14],[-7,1],[-21,-10],[-4,-5],[-14,2],[3,24],[-5,4],[-25,8],[-6,-13],[-2,-28],[-13,-15],[-6,0],[3,-12],[-6,-11],[-2,-19],[5,-3],[6,-40],[2,-21],[29,-9],[13,-14]],[[8151,8105],[2,14],[6,-3],[10,11],[8,0],[2,12],[10,8],[10,13],[-13,21],[2,11],[-7,7],[10,27],[6,5],[4,18],[-1,14],[-10,17],[9,2],[-12,9],[-15,17],[1,7]],[[8173,8315],[-1,7],[-8,1],[4,20],[-4,5],[6,7],[16,-4],[1,13],[9,-1],[14,9],[8,38],[8,4],[11,-3],[9,32]],[[8807,8391],[-19,-4],[-27,-3],[-38,-13],[-28,-19],[-9,1],[-14,-5],[-22,1],[-16,-8],[-15,-14],[-1,9],[-10,-7],[-12,-24],[-19,12],[-21,-7],[-16,0],[-19,-13],[-9,-2],[-13,-13],[-10,-16],[-14,-10],[-46,-62],[-23,-23],[-2,-10],[-13,-7],[-5,-7],[13,-19],[15,-5],[9,6],[-22,13],[15,0],[24,-32],[9,-6],[6,4],[8,-4],[-3,-22],[-8,-10],[-40,-24],[-23,-34],[-13,-13],[-24,-8],[-10,6],[-4,10],[11,0],[0,5],[14,-8],[5,12],[21,-1],[17,29],[-8,2],[-17,-3],[-11,-6],[-28,-2],[-28,-34],[-10,-28]],[[7356,8236],[12,-5],[14,2],[21,11],[2,4],[15,-9],[11,17],[-5,19],[-8,5],[29,12],[3,20],[12,4],[8,9],[3,-19],[9,-4],[28,3],[8,14],[-8,14],[7,14],[20,10],[16,-10],[23,7],[7,20],[9,-2],[21,-18],[17,0],[9,6],[-9,-18],[1,-12],[24,-13],[14,11],[-1,8],[14,15],[10,-14],[14,-7],[18,7],[6,28],[10,9],[11,-14],[6,-12],[9,-8],[10,11],[3,10],[12,17],[13,11],[-27,28],[12,1],[8,6],[-2,40],[11,6],[25,-34],[7,-24],[10,6],[2,8],[-10,23],[-22,17],[-2,20],[10,4],[4,-5],[21,5],[10,-5],[5,-17],[20,-3],[-2,-12],[10,-14],[17,-7],[11,-13],[15,8],[18,-23],[10,-2],[11,-14],[18,-1],[22,-16],[13,-8],[11,1],[30,-19],[4,-18],[17,-27],[7,5],[2,12],[10,3],[18,-2],[12,-8],[9,4],[24,1]],[[7720,7578],[-13,-6],[-18,-15],[-9,3],[-10,10],[5,15],[-7,16],[4,14],[-6,15],[-6,-5],[-15,11],[-16,4],[-10,-4],[-14,4],[-22,-4],[-9,-7],[-7,5]],[[7557,7658],[13,3],[23,13],[5,15],[-17,19],[-10,4],[-11,11],[-23,-3],[-12,2],[-6,6],[-1,12],[-14,18],[-6,17],[-6,3],[-5,-12],[1,-24],[-15,-10],[-5,5],[-12,-2],[-25,7]],[[7991,7480],[-10,-43],[-12,-10],[-10,-15],[-7,-25],[-14,-22],[-7,-22],[2,-25],[7,0],[-4,-11],[-5,9],[3,-21],[-6,3],[-1,-12],[5,-22],[14,-44],[31,-72],[-9,-12],[2,-19],[11,-36],[14,-30],[20,-37],[12,-17],[31,-34]],[[5723,8383],[-16,-2],[-7,10],[20,22],[-2,20],[2,19],[-4,16],[-8,5],[-4,19],[0,16],[11,19],[-14,7],[3,15],[-1,16],[15,15],[17,2],[15,16],[-8,11],[-12,2],[-9,15],[12,10],[-2,7],[-26,9],[5,13],[-4,27],[-6,11],[-8,1],[-1,18],[-6,-1],[-7,20],[22,18],[11,1],[16,14],[-3,9],[-19,2],[10,17],[-1,22],[7,16],[-18,13],[13,8],[11,15],[-9,8],[-11,18],[-10,2],[-13,11]],[[5664,8909],[-11,-11],[7,-7],[-3,-22],[-21,11],[-1,7],[7,6],[-9,17],[2,4],[-9,11],[3,6],[-9,19]],[[6701,9509],[0,5],[11,9],[7,14],[14,-5],[-7,-9],[21,-7],[0,-12],[9,5],[4,-4],[-21,-7],[-15,0]],[[6673,9727],[18,-1],[8,7],[21,-12],[6,2],[6,-13],[4,7],[-4,13],[-8,9],[14,7],[14,13],[10,4],[3,15],[29,1],[6,-3],[26,-1],[25,16],[7,-18],[18,-13],[15,2],[7,4],[12,-15],[18,-3],[7,3],[8,-11],[16,2],[10,-8],[12,-18],[11,0],[10,-9]],[[6943,9563],[-21,-4],[-18,3],[-12,-8],[12,-18],[0,-15],[-15,7],[-12,-6],[-4,6],[-12,-5],[-4,6],[-14,-4],[-5,5],[-18,1],[-19,10],[-11,-4],[-38,33],[4,3],[13,24],[-8,10],[4,7],[-12,10],[-4,10],[-11,-4],[-4,4],[-5,-26],[-17,-3],[-4,-6],[-9,3],[-8,-5],[-13,11]],[[5194,8453],[13,3],[15,30],[10,1],[8,7],[-8,6],[1,8],[11,6],[6,-9],[17,7],[-8,10],[17,18],[-5,9],[8,10],[2,8],[15,14],[-4,7],[10,5],[11,24],[10,9],[-9,15],[-12,5],[-8,16],[-21,18],[-24,9],[-8,-1],[-14,4],[-21,0],[-2,-9],[-14,-5],[-11,2],[-16,15],[3,11],[-6,22],[-6,3],[6,9],[4,22],[13,50],[-24,5],[11,30],[-1,8],[-17,15],[-5,-12],[-45,-10],[-23,7],[-8,25],[-19,5],[1,-14],[-5,-15],[-12,-2],[-10,4],[-6,-5],[-27,2],[-6,15],[-12,2]],[[5682,5122],[7,3],[14,-15],[9,-3],[12,11],[3,-8],[-18,-4],[-10,-10],[-13,6],[-4,20]],[[6762,4755],[9,-16],[2,-12],[-10,-6],[-9,15],[8,19]],[[5701,5271],[-1,-23],[-3,-4],[-6,21],[4,5]],[[1237,182],[-6,-29],[3,-17],[-12,-6],[-4,-23],[-8,-6],[-21,-5],[-34,-21],[-2,-12],[-14,-3],[-9,9],[-4,-3],[-14,8],[-6,-5],[-7,14],[-16,10],[-27,29],[-14,36],[-7,11],[2,24],[-2,16],[7,18],[-2,5],[14,4],[11,17],[12,5],[14,22],[-3,8],[8,30],[-6,9],[12,2],[8,-7],[12,9],[11,-15],[15,-3],[16,3],[6,4],[23,-11],[4,-7],[10,3],[7,9],[-5,11],[9,11],[8,-4],[-4,-28],[-7,11],[0,-13],[8,-17],[-4,-22],[2,-9],[12,-12],[9,-23],[-7,-15],[2,-13],[8,-6],[-8,-3]],[[1690,254],[-22,6],[-30,12],[-12,-3],[5,7],[-3,10],[31,1],[21,8],[30,19],[31,31],[10,13],[6,27],[-2,17],[5,26],[12,11],[6,16],[0,12],[5,23],[11,17],[11,12],[12,30],[3,16],[15,26],[-2,12],[13,40],[-4,11],[0,13],[19,12],[8,0],[14,10],[5,-4],[11,8],[10,-7],[0,-6],[10,-5],[6,-21],[-1,-12],[5,-51],[-3,-6],[1,-19],[-5,-6],[-2,-24],[-9,-6],[-2,-8],[5,-13],[-3,-13],[5,-9],[0,-19],[-5,-5],[-7,-30],[-7,-8],[-4,-17],[3,-5],[-13,-29],[-10,-9],[-18,0],[-9,-11],[-28,-5],[-36,-12],[-2,-4],[-19,-2],[-10,-6],[-12,-28],[-23,-27],[-11,-17],[-15,1]],[[1929,681],[-6,9],[10,8],[-4,-17]],[[1983,792],[-15,-6],[-8,-21],[-15,-22],[-3,10],[-16,5],[-21,-2],[-2,16],[23,28],[-2,37],[9,27],[27,28],[19,0],[21,21],[2,7],[12,-4],[12,11],[9,-1],[10,-10],[10,4],[7,11],[1,18],[11,29],[12,13],[22,-23],[-4,-29],[-8,-5],[-7,-19],[7,-15],[-10,-36],[3,-6],[-10,-20],[-4,1],[-25,-22],[-22,-6],[-7,-11],[-13,-7],[-25,-1]],[[2078,997],[-15,-18],[-10,0],[-1,8],[9,6],[1,15],[7,15],[11,-7],[5,-8],[-7,-11]],[[2062,1098],[8,3],[7,-8],[-8,-12],[-10,1],[3,16]],[[89,34],[-5,-13],[1,-14],[-7,-7],[-11,7],[-8,17],[-10,10],[-33,8],[-9,-1],[-7,8],[4,9],[0,18],[9,7],[12,-9],[18,-2],[11,5],[19,18],[5,10],[-3,9],[17,12],[16,4],[11,-10],[5,-12],[-19,-41],[-3,-11],[-11,-5],[-2,-17]],[[108,591],[-9,29],[-11,18],[-8,37],[-9,15],[-2,15],[5,12],[7,5],[5,13],[21,20],[11,-9],[17,-6],[22,6],[13,-3],[9,-21],[0,-11],[15,-27],[-3,-14],[-6,-5],[-11,-22],[9,-35],[-3,-4],[-2,-27],[-12,-16],[-4,-16],[-9,-15],[-7,-22],[-11,1],[-8,19],[-2,31],[-9,20],[-8,12]],[[370,274],[-9,11],[4,21],[-3,10],[13,34],[19,9],[7,0],[7,-11],[19,0],[11,-14],[26,-16],[6,-14],[2,-21],[-24,-25],[-6,-11],[-14,-8],[-13,2],[-7,-4],[-12,3],[-1,6],[-21,16],[-4,12]],[[677,229],[-12,0],[-6,-6],[-13,8],[-1,22],[-12,5],[-1,21],[-13,13],[-11,19],[-5,19],[-13,19],[-5,23],[3,10],[-10,20],[-9,10],[-10,22],[-7,2],[1,11],[21,7],[18,14],[9,-11],[24,-1],[33,10],[3,6],[10,-3],[22,-1],[21,15],[15,0],[8,4],[3,9],[9,1],[1,8],[20,22],[3,18],[20,18],[5,-1],[15,7],[1,12],[14,-5],[11,6],[22,-8],[14,4],[16,11],[10,-5],[6,-18],[-10,-19],[-5,1],[-29,-21],[-7,-2],[-8,-22],[-6,-1],[-23,-30],[-4,1],[-12,-12],[-6,-17],[4,-22],[-1,-8],[-10,-14],[-1,-12],[-17,-39],[2,-2],[-6,-26],[4,-3],[-17,-20],[-13,-23],[-22,-24],[-2,-11],[-6,4],[-16,-2],[-19,-13]]]}</script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const STORAGE_KEY = 'huelga_general_provincias_v3';
+  const PREV_KEY = 'huelga_general_provincias_v2'; // versiones 1.1 y 1.2
+  const N_PROV = 52;
+
+  // Nombres cortos para etiquetas del mapa y comunidad autónoma de cada provincia (código INE).
+  const SHORT = { '01': 'Álava', '03': 'Alicante', '07': 'Illes Balears', '12': 'Castellón', '46': 'València', '38': 'S. C. de Tenerife' };
+  const CCAA = {
+    '01': 'País Vasco', '20': 'País Vasco', '48': 'País Vasco',
+    '02': 'Castilla-La Mancha', '13': 'Castilla-La Mancha', '16': 'Castilla-La Mancha', '19': 'Castilla-La Mancha', '45': 'Castilla-La Mancha',
+    '03': 'Comunitat Valenciana', '12': 'Comunitat Valenciana', '46': 'Comunitat Valenciana',
+    '04': 'Andalucía', '11': 'Andalucía', '14': 'Andalucía', '18': 'Andalucía', '21': 'Andalucía', '23': 'Andalucía', '29': 'Andalucía', '41': 'Andalucía',
+    '05': 'Castilla y León', '09': 'Castilla y León', '24': 'Castilla y León', '34': 'Castilla y León', '37': 'Castilla y León', '40': 'Castilla y León', '42': 'Castilla y León', '47': 'Castilla y León', '49': 'Castilla y León',
+    '06': 'Extremadura', '10': 'Extremadura',
+    '07': 'Illes Balears',
+    '08': 'Cataluña', '17': 'Cataluña', '25': 'Cataluña', '43': 'Cataluña',
+    '15': 'Galicia', '27': 'Galicia', '32': 'Galicia', '36': 'Galicia',
+    '22': 'Aragón', '44': 'Aragón', '50': 'Aragón',
+    '26': 'La Rioja', '28': 'Comunidad de Madrid', '30': 'Región de Murcia', '31': 'Navarra', '33': 'Asturias', '39': 'Cantabria',
+    '35': 'Canarias', '38': 'Canarias', '51': 'Ceuta', '52': 'Melilla'
+  };
+  // Población aproximada en miles (INE, 1 de enero de 2023). Sirve de peso para la media; es editable en cada ficha.
+  const POB = {
+    '01': 338, '02': 386, '03': 1945, '04': 746, '05': 159, '06': 665, '07': 1210, '08': 5740, '09': 357, '10': 388, '11': 1256, '12': 600, '13': 492,
+    '14': 772, '15': 1122, '16': 197, '17': 804, '18': 932, '19': 277, '20': 731, '21': 532, '22': 226, '23': 620, '24': 449, '25': 443, '26': 324,
+    '27': 324, '28': 6872, '29': 1753, '30': 1551, '31': 672, '32': 304, '33': 1009, '34': 158, '35': 1140, '36': 949, '37': 326, '38': 1051, '39': 589,
+    '40': 155, '41': 1965, '42': 89, '43': 841, '44': 134, '45': 723, '46': 2655, '47': 522, '48': 1155, '49': 167, '50': 982, '51': 83, '52': 85
+  };
+  const MIN_LABEL = { cumplidos: 'Cumplidos', parcial: 'Cumplimiento parcial', incumplidos: 'Incumplidos' };
+  const MIN_CLASS = { cumplidos: 'good', parcial: 'warn', incumplidos: 'crit' };
+  const FUENTES = ['Sindicatos', 'Gobierno / Delegación', 'Patronal', 'Medios de comunicación', 'Observación propia', 'Otra'];
+
+  // ---------- Datos publicados de la huelga general del 11 de noviembre de 2026 ----------
+  // Balance de cierre de la jornada, recopilado de prensa y fuentes oficiales el 12 de noviembre de 2026.
+  // Son cifras de parte y sin estadística oficial todavía. «ver» sube con cada recopilación.
+  // Las cifras sindicales de seguimiento se publican por comunidad autónoma, no por provincia:
+  // se aplican a todas las provincias de la comunidad y se marcan como «cifra autonómica».
+  // Cuando la fuente da una horquilla, el panel guarda el punto medio y la nota lo dice.
+  // En manifestantes se guarda la cifra oficial si existe; la de los convocantes va en la nota.
+  // «ant» conserva los cortes anteriores de cada territorio para el historial.
+  const SRC = {
+    ep7: ['Europa Press: cifras de CCOO y UGT a las 7:00', 'https://www.infobae.com/america/agencias/2026/11/11/ccoo-y-ugt-cifran-el-seguimiento-de-la-huelga-entre-el-41-y-el-75-a-las-700-horas-y-la-ven-un-exito/'],
+    epDet: ['Europa Press: detenidos e incidencias hasta media mañana', 'https://www.infobae.com/espana/agencias/2026/11/11/la-huelga-deja-un-balance-de-40-detenidos-y-476-incidencias-por-las-actuacion-de-piquetes-hasta-media-manana/'],
+    inf: ['Infobae: directo de la jornada', 'https://www.infobae.com/espana/2026/11/11/huelga-general-en-espana-en-directo-piquetes-incidencia-en-transportes-y-empresas-reacciones-y-ultima-hora-de-las-elecciones-generales/'],
+    to: ['The Objective: directo de la jornada', 'https://theobjective.com/sociedad/2026-11-11/ultima-hora-huelga-general-11-n/directo/'],
+    ld: ['Libertad Digital: directo de la jornada', 'https://www.libertaddigital.com/espana/politica/2026-11-11/en-directo-huelga-general-11n-seguimiento-servicios-minimos-noticias-ultima-hora-7488896/'],
+    dem: ['Demócrata: los datos frente a otras huelgas', 'https://www.democrata.es/actualidad/huelga-general-11n-camino-fracaso-dicen-datos-por-ahora-frente-otros-paros/'],
+    tm: ['Telemadrid: balance de sindicatos y patronal', 'https://www.telemadrid.es/noticias/economia/sindicatos-califican-exito-huelga-patronal_1_2808233.html'],
+    mon: ['Moncloa.com: crónica de incidentes', 'https://www.moncloa.com/2026/11/11/huelga-general-11-n-3465865'],
+    eu: ['Euronews: la huelga en cifras, 12 de noviembre', 'https://es.euronews.com/2026/11/12/fuerza-en-la-calle-pero-seguimiento-escaso-en-el-trabajo-la-huelga-general-del-11n'],
+    ed: ['elDiario.es: directo de la jornada', 'https://www.eldiario.es/economia/huelga-general-11-noviembre-ultima-hora-directo-arranca-gran-paro-vivienda_133_13653845.html'],
+    lqs: ['LoQueSomos: crónicas y balance por territorios', 'https://loquesomos.es/cronicas-y-balance-huelga-general-del-11n-por-salarios-vivienda-y-precios-bajo-la-lluvia/'],
+    pd: ['Pressdigital: balance de Interior a las 20:00', 'https://www.pressdigital.es/articulo/politica/2026-11-11/6088186-huelga-deja-50-detenidos-millar-incidencias-toda-espana-segun-interior'],
+    t5: ['Telecinco y Europa Press: detenidos al cierre', 'https://www.telecinco.es/noticias/economia/20261111/huelga-general-11n-balance-detenidos-incidencias_18_020685052.html'],
+    mun: ['Mundiario: la lectura de sindicatos y patronal', 'https://www.mundiario.com/sociedad/doble-lectura-huelga-11-n-patronal-habla-fracaso-sindicatos-cantan-victoria/20261111204756452276.html'],
+    edm: ['El Diario de Madrid: los datos del seguimiento', 'https://www.eldiariodemadrid.es/articulo/madrid/huelga-general-11n-seguimiento-espana-madrid-datos/20261111233047146664.html'],
+    faro: ['El Faro de Melilla: la huelga en Melilla', 'https://elfarodemelilla.es/la-huelga-general-pasa-por-melilla-sin-pena-ni-gloria/'],
+    mn: ['Murcia Noticias: balance en la Región de Murcia', 'https://www.murcianoticias.es/laboral/huelga-general-11-noviembre-region-murcia-seguimiento-balance-manifestaciones-murcia-cartagena/'],
+    esp: ['El Español: la «no huelga» en Ceuta', 'https://www.elespanol.com/espana/20261112/no-huelga-ceuta-sindicatos-antepusieron-paro-circunstancias-excepcionales-ciudad/1003744454258_0.html'],
+    deb: ['El Debate: guerra de cifras en València', 'https://www.eldebate.com/espana/comunidad-valenciana/20261112/aprendices-toreros-huelguistas-guerra-cifras-manifestacion-11n-valencia_479952.html'],
+    sab: ['Diario Sabemos: la manifestación de Madrid', 'https://diariosabemos.com/analisis/cronica/huelga-general-11n-llena-madrid-120000-manifestantes_519875_102.html']
+  };
+  const REAL = {
+    fecha: '2026-11-11',
+    ver: 3, // 1: corte de las 18:15 del 11N · 2: balance de cierre recopilado el 12N · 3: añade la estimación propia
+    ccaa: {
+      'Andalucía': { seg: 70, t: '20:00', corte: 'CCOO: 70 % en Andalucía a última hora de la tarde.', nota: 'CCOO cifra el seguimiento en Andalucía en un 70 % a última hora de la tarde, tras el 75 % que dio con UGT a las 7:00. Otros balances sindicales lo sitúan por encima del 80 %. La Junta da un 12,5 % en museos y espacios culturales, y constan 4.214 docentes ausentes de 108.827, un 3,9 %. CCOO y UGT suspendieron por la borrasca Charles sus marchas de Sevilla, Córdoba, Cádiz y Huelva. Canal Sur Televisión emitió en negro unas siete horas.', refs: ['eu', 'ed', 'edm', 'ep7'], ant: [{ t: '07:00', seg: 75, corte: 'CCOO y UGT: 75 % en Andalucía al cierre del turno de noche.' }] },
+      'Aragón': { seg: 70, t: '20:00', corte: 'CCOO: 70 % en Aragón a última hora de la tarde.', nota: 'CCOO cifra el seguimiento en Aragón en un 70 % a última hora de la tarde, tras el 75 % de las 7:00. El Gobierno de Aragón da un 12,17 % en su sector público: 4.827 huelguistas entre 39.658 empleados sin servicios mínimos. En Zaragoza hubo dos marchas por la tarde, sin cifra de asistentes publicada.', refs: ['eu', 'edm', 'ed', 'ep7'], ant: [{ t: '07:00', seg: 75, corte: 'CCOO y UGT: 75 % en Aragón al cierre del turno de noche.' }] },
+      'Extremadura': { seg: 45, t: '20:00', corte: 'Sindicatos: entre el 40 % y el 50 % en Extremadura al cierre.', nota: 'Los sindicatos sitúan el seguimiento en Extremadura entre el 40 % y el 50 % al cierre, tras el 41 % de las 7:00. El panel usa el punto medio. Destacan un 80 % en el sector cárnico, la construcción y los servicios urbanos. No hay cifras de asistencia a las marchas de Badajoz, Cáceres, Mérida y Plasencia.', refs: ['lqs', 'ep7', 'tm'], ant: [{ t: '07:00', seg: 41, corte: 'CCOO y UGT: 41 % en Extremadura al cierre del turno de noche.' }] },
+      'Castilla-La Mancha': { seg: 60, segAlt: 5, t: '20:00', corte: 'CCOO: 60 % en Castilla-La Mancha a última hora de la tarde. La patronal regional: 5 %.', nota: 'CCOO cifra el seguimiento en Castilla-La Mancha en un 60 % a última hora de la tarde, frente al 41 % de las 7:00. La patronal regional lo deja en el 5 %. Algún medio recoge estimaciones sindicales por debajo del 40 %.', refs: ['eu', 'ed', 'mun', 'ep7'], ant: [{ t: '07:00', seg: 41, segAlt: 5, corte: 'CCOO y UGT: 41 % en Castilla-La Mancha. La patronal regional: 5 %.' }] },
+      'Cataluña': { seg: 84, segAlt: 8.9, t: '20:00', corte: 'CCOO mantiene el 84 % en Cataluña al cierre. Pimec: 8,9 %.', nota: 'CCOO mantiene un 84 % en Cataluña, descontados los servicios mínimos, y la patronal Pimec un 8,9 %. El Govern da un 12,6 % entre sus funcionarios, un 21,9 % en educación y un 6,9 % en sanidad. CCOO Catalunya habla del 100 % en universidades y del 92 % en automoción. Trànsit contó cerca de 80 carreteras cortadas por la mañana.', refs: ['eu', 'lqs', 'ed', 'dem'], ant: [{ t: '15:00', seg: 84, segAlt: 8.9, corte: 'CCOO y UGT: 84 % en Cataluña. Pimec: 8,9 %.' }] },
+      'Comunidad de Madrid': { seg: 70, segAlt: 10, t: '20:00', corte: 'CCOO: 70 % en Madrid a última hora de la tarde. UGT: más del 80 %. CEIM: menos del 10 %.', nota: 'CCOO cifra el seguimiento en un 70 % a última hora de la tarde, tras el 65 % del mediodía. UGT Madrid habla de más del 80 %, con un 55 % en servicios públicos. La patronal CEIM lo deja por debajo del 10 % en la empresa privada. La Comunidad da un 9,6 % en su sector público: 30 % en colegios públicos, 24,9 % en Metro, 5 % en hospitales y 8,5 % en Justicia. Cercanías suprimió el 22,4 % de los trenes.', refs: ['eu', 'edm', 'ed', 'tm'], ant: [{ t: '14:56', seg: 65, segAlt: 10, corte: 'CCOO Madrid: 65 %. UGT Madrid: más del 80 %. CEIM: 10 %.' }] },
+      'Comunitat Valenciana': { seg: 60, segAlt: 2.6, t: '20:00', corte: 'Sindicatos: 60 % de media en la Comunitat Valenciana al cierre. CEV: 2,57 %.', nota: 'Los sindicatos cifran en un 60 % la media de seguimiento y en un 54 % el de la educación. La patronal CEV da un 2,57 % y la Conselleria de Educación un 15,46 % del profesorado hasta las 13:00. Los balances de cierre elevan a diez los detenidos en la Comunitat, con tres policías heridos. Interior desglosaba siete a las 20:00.', refs: ['lqs', 'deb', 'eu', 'to'], ant: [{ t: '15:34', seg: 60, segAlt: 2.6, corte: 'Sindicatos: 60 % de media en la Comunitat Valenciana. CEV: 2,57 %.' }] },
+      'Illes Balears': { seg: 48, t: '12:00', corte: 'UGT y CCOO: 48 % en Baleares hasta el mediodía.', nota: 'UGT y CCOO cifran en un 48 % el seguimiento de la mañana entre quienes no tenían servicios mínimos, y en un 80 % el de la EMT de Palma. No publicaron cifra de cierre. Hubo marchas por la tarde en las cuatro islas, sin recuento de asistentes.', refs: ['lqs', 'to', 'ld'] },
+      'Cantabria': { seg: 47.5, t: '20:00', corte: 'Sindicatos: entre el 45 % y el 50 % en Cantabria al cierre.', nota: 'Los sindicatos sitúan la participación entre el 45 % y el 50 %, tras el 41 % de la mañana. El panel usa el punto medio. El Gobierno de Cantabria da un 21,7 % en educación hasta las 14:00 y CCOO un 35 % en el transporte público.', refs: ['lqs', 'ed', 'to'], ant: [{ t: '11:30', seg: 41, corte: 'Sindicatos: alrededor del 41 % en Cantabria en la jornada de mañana.' }] },
+      'Galicia': { seg: 80, segAlt: 11, t: '20:00', corte: 'Sindicatos: 80 % en Galicia. Patronal CEG: entre el 7 % y el 15 %.', nota: 'Los sindicatos hablan de un 80 % de participación y de hasta un 90 % en Ferrolterra. La patronal CEG acota los paros entre el 7 % y el 15 %, y el panel usa el punto medio. La patronal del metal Asime admite un 60 % en el naval y un 25 % en la automoción. La Xunta cifra en un 15,3 % el paro del profesorado público. La CIG cuenta unas 100.000 personas en 17 manifestaciones.', refs: ['lqs', 'eu', 'to'], ant: [{ t: '17:43', corte: 'Sin cifra general en Galicia. Profesorado público: 15,3 % según la Xunta.' }] },
+      'Canarias': { seg: 56, t: '12:00', corte: 'UGT: 56 % provisional en Canarias a las 12:00, hora canaria.', nota: 'UGT estima un 56 % a las 12:00, hora canaria, de forma provisional, y un 100 % en Aena. No publicó cifra de cierre. El Gobierno de Canarias da un 5,8 % provisional en su Administración General, sin Sanidad, Educación ni Justicia. Los convocantes cuentan más de 5.000 personas en las marchas de las capitales insulares.', refs: ['lqs', 'to'] },
+      'País Vasco': { t: '21:00', corte: 'Ertzaintza: 16 detenidos en Euskadi hasta las 21:00. Sin cifra sindical general.', nota: 'No hay cifra sindical general: UGT y CCOO califican la huelga de histórica y ELA y LAB hablan de un seguimiento muy amplio. La patronal SEA lo deja en un 7,91 % y el Gobierno Vasco da un 14,82 % en Osakidetza en el turno de mañana. La Ertzaintza suma 16 detenidos hasta las 21:00, tres investigados, más de 200 identificados y siete agentes atendidos. Hubo decenas de miles de manifestantes entre Bilbao, Vitoria y San Sebastián, sin cifra por ciudad.', refs: ['t5', 'eu', 'lqs', 'to'], ant: [{ t: '10:00', corte: 'Ertzaintza: 13 detenidos en Euskadi hasta las 10:00, sin desglose provincial.' }] },
+      'Castilla y León': { t: '20:00', corte: 'Sin porcentaje global de UGT y CCOO en Castilla y León.', nota: 'UGT y CCOO no han publicado un porcentaje global para Castilla y León. Interior cuenta dos detenidos en Zamora y uno en Valladolid.', refs: ['lqs', 'pd'], ant: [{ t: '07:00', corte: 'Sin cifra general en Castilla y León.' }] },
+      'Asturias': { seg: 72.5, segAlt: 10, t: '20:00', corte: 'UGT y CCOO: entre el 70 % y el 75 % en Asturias. FADE: asistencia al trabajo superior al 90 %.', nota: 'UGT y CCOO sitúan el seguimiento entre el 70 % y el 75 %, y el panel usa el punto medio. La patronal FADE cifra la asistencia al trabajo por encima del 90 %, lo que deja el paro por debajo del 10 %. CCOO destaca la práctica paralización de ArcelorMittal, Thyssenkrupp, Fertiberia y Rioglass.', refs: ['lqs', 'eu'] },
+      'Región de Murcia': { seg: 50, segAlt: 3, t: '20:00', corte: 'UGT: en torno al 50 % en la Región de Murcia. CROEM: por debajo del 3 %.', nota: 'UGT cifra el seguimiento en torno al 50 % y la patronal CROEM por debajo del 3 % en las empresas. El Gobierno regional da un 5,9 % en educación, un 2,4 % en el Servicio Murciano de Salud y un 2,5 % en el resto de su administración. Miles de personas se manifestaron por la tarde en Murcia y Cartagena, sin cifra oficial de asistentes.', refs: ['mn', 'lqs'] }
+    },
+    prov: {
+      '29': { det: 4, manif: 14000, t: '22:05', nota: 'La Delegación del Gobierno cuenta 14.000 manifestantes, 2.000 por la mañana y 12.000 por la tarde. CCOO eleva la cifra a más de 50.000. Cuatro detenidos por quema de contenedores y pintadas, según Interior.', refs: ['ed', 'eu', 'pd'], ant: [{ t: '14:00', det: 4, nota: 'Cuatro detenidos por quema de contenedores y pintadas, según Interior.' }] },
+      '04': { det: 4, manif: 3550, t: '22:05', nota: 'La Delegación del Gobierno cuenta 3.550 manifestantes, 550 por la mañana y 3.000 por la tarde. Cuatro detenidos, según Interior.', refs: ['ed', 'eu', 'pd'], ant: [{ t: '14:00', det: 4, nota: 'Cuatro detenidos, según el Ministerio del Interior.' }] },
+      '18': { det: 3, manif: 25000, t: '22:05', nota: 'La Delegación del Gobierno cuenta 25.000 manifestantes entre la mañana y la tarde, la mayor cifra de Andalucía. Tres detenidos según Interior, dos de ellos miembros de un piquete ante la Alhambra. Los sindicatos denuncian el uso de gas pimienta en el metro.', refs: ['ed', 'eu', 'pd', 'mon'], ant: [{ t: '14:00', det: 3, nota: 'Tres detenidos según Interior, dos de ellos miembros de un piquete ante la Alhambra.' }] },
+      '41': { manif: 8000, t: '22:05', nota: 'La Delegación del Gobierno cuenta 8.000 manifestantes, 3.000 por la mañana y 5.000 por la tarde. CCOO y UGT suspendieron su marcha por la borrasca Charles y solo la mantuvieron el Sindicato de Inquilinas y la CGT. Los sindicatos destacan el paro en Mercasevilla.', refs: ['ed', 'eu', 'to'], ant: [{ t: '17:36', nota: 'Manifestación sindical de las 18:00 suspendida por la borrasca Charles.' }] },
+      '11': { manif: 3300, t: '22:05', nota: 'La Delegación del Gobierno cuenta 3.300 manifestantes por la mañana. La marcha sindical de la tarde se aplazó al domingo 15 por la borrasca Charles. Los sindicatos dan un 90 % de paro en el puerto de Algeciras.', refs: ['ed', 'eu', 'lqs'], ant: [{ t: '17:36', nota: 'Manifestación de las 17:30 suspendida por la borrasca Charles.' }] },
+      '23': { manif: 2000, t: '22:05', nota: 'La Delegación del Gobierno cuenta 2.000 manifestantes en Jaén.', refs: ['ed', 'eu'] },
+      '14': { t: '22:05', nota: 'La manifestación sindical se aplazó al domingo 15 por la borrasca Charles. Por la mañana hubo tensión con un centenar de personas ante El Corte Inglés.', refs: ['ed', 'to'], ant: [{ t: '17:36', nota: 'Manifestación de las 17:30 suspendida por la borrasca Charles.' }] },
+      '21': { t: '17:36', nota: 'Manifestación suspendida por la borrasca Charles.', refs: ['ed', 'to'] },
+      '28': { det: 15, manif: 120000, t: '23:27', nota: 'La Delegación del Gobierno cifra en 120.000 los asistentes a la marcha de Atocha a plaza de España. El Sindicato de Inquilinas habló primero de 400.000 y después de 600.000. Interior suma 15 detenidos hasta las 20:00 y fuentes policiales cuentan cuatro tras los disturbios del final de la marcha. Hubo cargas y gas pimienta en Gran Vía y plaza de España. Los sindicatos cuentan una veintena de heridos según sus propios recuentos.', refs: ['ed', 'pd', 't5', 'sab', 'to'], ant: [{ t: '14:00', det: 9, nota: 'Nueve detenidos por Policía Nacional y Guardia Civil hasta las 14:00, según Interior.' }] },
+      '03': { det: 1, t: '20:00', nota: 'Un detenido según Interior. Fuentes de la Jefatura de Policía cuentan dos.', refs: ['pd', 'to'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido, según el Ministerio del Interior.' }] },
+      '12': { det: 1, t: '20:00', nota: 'Un detenido, según el Ministerio del Interior.', refs: ['pd'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido hasta las 14:00, según el Ministerio del Interior.' }] },
+      '46': { det: 5, manif: 40000, t: '20:00', nota: 'La Delegación del Gobierno calcula 40.000 asistentes a la marcha de la tarde y la Policía Local los rebaja a 13.000. Cinco detenidos hasta las 20:00, según Interior. El puerto paró salvo urgencias y CCOO denuncia que un conductor aceleró contra un piquete en Albuixech.', refs: ['deb', 'eu', 'pd', 'ed'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido, según Interior. Puerto de València parado salvo urgencias.' }] },
+      '49': { det: 2, t: '20:00', nota: 'Dos detenidos, según el Ministerio del Interior.', refs: ['pd'], ant: [{ t: '14:00', det: 2, nota: 'Dos detenidos hasta las 14:00, según el Ministerio del Interior.' }] },
+      '47': { det: 1, manif: 30000, f: 'Medios de comunicación', t: '21:32', nota: 'Cerca de 30.000 personas en las dos manifestaciones de la tarde, la de CCOO y UGT y la de CGT y CNT, cifra publicada sin fuente atribuida. Un detenido por atentado a la autoridad en el polígono de Argales y dos agentes heridos leves.', refs: ['ed', 'pd', 'ld'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido por atentado a la autoridad en el polígono de Argales y dos agentes heridos leves.' }] },
+      '09': { manif: 10000, f: 'Medios de comunicación', t: '21:32', nota: 'Unas 10.000 personas en la manifestación de Burgos, cifra publicada sin fuente atribuida.', refs: ['ed'] },
+      '37': { manif: 1000, f: 'Medios de comunicación', t: '14:40', nota: 'Un millar de personas en la concentración convocada por la Asamblea de Inquilinas y los sindicatos, según EFE.', refs: ['ed'] },
+      '24': { manif: 1050, t: '14:29', nota: 'La Subdelegación del Gobierno cuenta unas 1.050 personas entre León y Villablino y unos 80 integrantes de piquetes en la provincia.', refs: ['to'] },
+      '31': { det: 1, manif: 18000, t: '20:00', nota: 'La Delegación del Gobierno cifra en 18.000 los manifestantes de la mañana en Pamplona, según el directo de The Objective. Un detenido, según Interior. CCOO y UGT dan un 90 % de seguimiento en Volkswagen Navarra y LAB sitúa la producción del turno de noche en el 15 % de la habitual. No hay cifra general de seguimiento.', refs: ['to', 'pd', 'lqs', 'ld'], ant: [{ t: '14:14', det: 1, manif: 18000, nota: 'La Delegación del Gobierno cifra en 18.000 los manifestantes en Pamplona. Un detenido.' }] },
+      '26': { det: 1, t: '20:00', nota: 'Un detenido en el polígono La Portalada de Logroño por presunto atentado contra agentes. Los convocantes dan en torno al 65 % en el metal, el vino y las cárnicas, más del 60 % en el calzado y entre el 25 % y el 30 % en el resto de La Rioja Baja. No hay cifra general.', refs: ['pd', 'lqs', 'mon'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido en el polígono La Portalada de Logroño por presunto atentado contra agentes.' }] },
+      '08': { det: 20, manif: 55000, t: '22:03', nota: 'La Guardia Urbana cuenta 55.000 manifestantes y los organizadores 400.000. Los Mossos suman 20 detenidos: 18 tras los disturbios del paseo de Gràcia y dos de madrugada. El alcalde Jaume Collboni habla de 50. Hubo escaparates rotos, contenedores quemados y pirotecnia contra la policía. Seis mossos resultaron heridos leves en Molins de Rei. El metro y los autobuses de TMB pararon de 9:30 a 16:30.', refs: ['t5', 'to', 'ed', 'eu'], ant: [{ t: '14:00', det: 1, nota: 'Un detenido por los Mossos por quemar contenedores la víspera.' }] },
+      '17': { manif: 4500, f: 'Medios de comunicación', t: '20:00', nota: 'Unas 4.500 personas en la manifestación de Girona, cifra publicada sin fuente atribuida. Por la mañana concentró la mayoría de los cortes de carretera de Cataluña y los Mossos informaron de daños en bancos y comercios.', refs: ['lqs', 'ld'], ant: [{ t: '13:38', nota: 'A las 13:00 concentraba la mayoría de la docena de cortes de carretera activos en Cataluña.' }] },
+      '43': { t: '13:00', nota: 'Acceso al puerto bloqueado a primera hora y tráfico reabierto en toda la provincia a las 13:00. Los Mossos investigan el atropello de un manifestante en Reus.', refs: ['ld', 'to'] },
+      '45': { t: '11:59', nota: 'Los sindicatos dan un 80 % de paro en la logística de Illescas. Un piquete de unas 200 personas recorrió Toledo y ardieron contenedores en el barrio de Santa Bárbara.', refs: ['ep7', 'ed'] },
+      '19': { t: '07:00', nota: 'Los sindicatos dan un 80 % de paro en la logística de la provincia.', refs: ['ep7'] },
+      '13': { t: '09:54', nota: 'CCOO cifra en un 50 % el paro en los autobuses urbanos de Ciudad Real.', refs: ['to'] },
+      '48': { det: 9, t: '21:00', nota: 'Nueve de los detenidos por la Ertzaintza constan en Bizkaia: cinco en Portugalete, tres en Bilbao y un delegado de CCOO en Zamudio. El desglose publicado cubre 14 de los 16 arrestos de Euskadi. El PP denuncia agresiones a dos militantes y daños en su sede de Barakaldo. LAB da un 100 % de paro en la estiba de Santurtzi.', refs: ['to', 't5', 'lqs', 'ed'], ant: [{ t: '13:13', nota: 'Un delegado de CCOO detenido en un polígono de Zamudio. Piquetes cerraron grandes comercios en Bilbao.' }] },
+      '01': { det: 4, t: '21:00', nota: 'Cuatro de los detenidos por la Ertzaintza constan en Álava: tres en Vitoria y uno en Agurain. El desglose publicado cubre 14 de los 16 arrestos de Euskadi.', refs: ['to', 't5'] },
+      '20': { det: 1, t: '21:00', nota: 'Un detenido en San Sebastián y tres investigados en Errenteria, según la Ertzaintza. LAB da por parado el puerto de Pasaia. Por la mañana hubo un corte en la N-I sin intervención policial.', refs: ['to', 't5', 'lqs'], ant: [{ t: '09:05', nota: 'Corte en la N-I sin intervención policial, según el Departamento de Seguridad.' }] },
+      '35': { manif: 8000, f: 'Medios de comunicación', t: '20:54', nota: 'Más de 8.000 personas en la marcha de Las Palmas de Gran Canaria, según las primeras estimaciones presenciales de la prensa. Por la mañana hubo pinchazos de neumáticos en la GC-1 por objetos punzantes en la calzada, según la Guardia Civil de Tráfico.', refs: ['to', 'ld'], ant: [{ t: '14:37', nota: 'Pinchazos de neumáticos en la GC-1 desde las 6:00 por objetos punzantes en la calzada.' }] },
+      '33': { manif: 20000, f: 'Sindicatos', t: '20:30', nota: 'Unas 20.000 personas en la manifestación de Oviedo, según estimaciones sindicales difundidas por la Cadena SER. Por la mañana hubo barricadas de neumáticos ardiendo en Gijón.', refs: ['lqs', 'to'], ant: [{ t: '12:00', nota: 'Barricadas de neumáticos ardiendo en Gijón, según fotografías de EFE.' }] },
+      '39': { manif: 20000, t: '21:30', nota: 'La Delegación del Gobierno cifra en 20.000 los asistentes a la marcha de Santander, la Policía Local en 15.000 y los organizadores en 25.000. Hubo un momento de tensión frente a la sede de Vox.', refs: ['to'] },
+      '36': { manif: 25000, f: 'Sindicatos', t: '22:24', nota: 'La CIG cifra en más de 25.000 los asistentes a la manifestación de Vigo. Un artefacto de escasa potencia dañó la sede de UGT en la ciudad, sin heridos, según la Subdelegación del Gobierno. La CIG habla de paro casi total en la automoción de Vigo y O Porriño en el turno de noche.', refs: ['lqs', 'ed', 'to'] },
+      '15': { det: 1, manif: 23000, f: 'Medios de comunicación', t: '20:00', nota: 'La marcha de la tarde en A Coruña reunió a unas 23.000 personas, cifra publicada sin fuente atribuida. Un detenido, según Interior. Los sindicatos hablan de paro total en el puerto.', refs: ['lqs', 'pd', 'eu'] },
+      '27': { t: '20:00', nota: 'Los sindicatos hablan de paro total en la planta de Alcoa. La CIG califica de desproporcionada la actuación policial en Lugo.', refs: ['eu', 'lqs'] },
+      '51': { t: '20:00', nota: 'CCOO y UGT no llamaron a la huelga en Ceuta por la situación excepcional que vive la ciudad con la crisis migratoria. Solo la apoyó la sección de enseñanza de CCOO: pararon 22 de 1.863 docentes, un 1,2 %, según El Pueblo de Ceuta. El comercio, la sanidad y el puerto funcionaron con normalidad.', refs: ['esp'] },
+      '52': { manif: 100, inc: 0, f: 'Medios de comunicación', t: '18:00', nota: 'La huelga apenas tuvo seguimiento en la administración y en las empresas, según El Faro de Melilla, que no da porcentaje. Algo más de un centenar de personas se concentró a las 18:00 junto al Monolito de la Constitución. La Jefatura Superior de Policía no registró incidentes.', refs: ['faro'] }
+    },
+    nacional: [
+      ['Seguimiento', 'Sigue sin existir una tasa nacional. CCOO dice no tener dato estatal y UGT descarta promediar. Por comunidades, los sindicatos dan entre el 45 % y el 84 %. CEOE y Cepyme hablan de menos del 5 % de media.', 'CCOO, UGT, CEOE y Cepyme · balances de la tarde del 11N'],
+      ['Estimación del panel', 'Entre el 10 % y el 15 % de los asalariados secundó la huelga, con un valor central del 12 %: de dos a tres millones de personas. Es un cálculo propio a partir de la caída de la demanda eléctrica y del paro por sectores. No es un dato oficial.', 'Estimación propia · el método se explica en el panel'],
+      ['Manifestaciones', 'Madrid: 120.000 según la Delegación del Gobierno y hasta 600.000 según el Sindicato de Inquilinas. Barcelona: 55.000 según la Guardia Urbana y 400.000 según los organizadores. València: 40.000 según la Delegación y 13.000 según la Policía Local.', 'Delegaciones del Gobierno, policías locales y convocantes'],
+      ['Detenidos', 'Al menos 75 al cierre: 39 de Policía Nacional y Guardia Civil hasta las 20:00, 20 de los Mossos y 16 de la Ertzaintza hasta las 21:00. El desglose por provincias publicado cubre 73.', 'Ministerio del Interior, Mossos y Ertzaintza, vía Europa Press'],
+      ['Incidencias', '1.044 hasta las 20:00, frente a 919 a las 17:00 y 653 a las 14:00. No incluyen Cataluña ni el País Vasco.', 'Ministerio del Interior'],
+      ['Consumo eléctrico', 'Hasta las 18:00 fue un 4,87 % inferior al previsto sin huelga, con un máximo del 15,49 % entre las 10:00 y las 11:00. En la huelga general del 14N de 2012 la caída fue del 11,8 %.', 'Red Eléctrica, datos provisionales'],
+      ['Vuelos', '332 cancelados de 4.529 programados, un 7,33 %, hasta las 18:30.', 'Aena, vía Europa Press'],
+      ['Renfe', 'Seguimiento del 9,06 % en la plantilla hasta las 19:00. Suprimió el 15,7 % de la alta velocidad y larga distancia y el 10,54 % de los servicios públicos.', 'Renfe'],
+      ['Sectores', 'CCOO a las 17:30: comercio 68,7 %, hostelería y turismo 63,7 %, servicios técnicos 60,7 % y financiero 26,8 %. La patronal bancaria AEB da menos del 2 % y el sindicato Fetico entre el 4 % y el 6 % en el comercio.', 'CCOO, AEB y Fetico'],
+      ['Autónomos', 'UPTA dice que paró el 40 % de los negocios. ATA sostiene que el 92 % trabajó con normalidad.', 'UPTA y ATA'],
+      ['Sector público', 'Paro del 12,6 % en la Generalitat de Cataluña, 12,17 % en el Gobierno de Aragón, 9,6 % en la Comunidad de Madrid y 5,8 % en la Administración General de Canarias.', 'Gobiernos autonómicos']
+    ]
+  };
+
+  // ---------- Estimación propia del seguimiento real ----------
+  // EST: rango nacional estimado (% de asalariados), a partir de la caída de la demanda eléctrica
+  // (4,87 % hasta las 18:00, un tercio de la de marzo de 2012) y del paro probable por sectores ponderado por empleo.
+  // IND: indicadores publicados por comunidad que se suman a la cifra sindical y a la patronal (%).
+  //   pub: administración autonómica · edu: educación · san: sanidad (datos de los gobiernos autonómicos) · pat: patronal sin cifra en el mapa.
+  //   Madrid no usa «edu»: sus centros públicos estaban en huelga indefinida desde octubre y el dato no es comparable.
+  const EST = { central: 12, lo: 10, hi: 15 };
+  const IND = {
+    'Andalucía': { edu: 3.9 }, 'Aragón': { pub: 12.17 }, 'Canarias': { pub: 5.8 }, 'Cantabria': { edu: 21.7 },
+    'Cataluña': { pub: 12.6, edu: 21.9, san: 6.9 }, 'Comunidad de Madrid': { pub: 9.6, san: 5 },
+    'Comunitat Valenciana': { edu: 15.46, san: 4.95 }, 'Galicia': { edu: 15.3 },
+    'Región de Murcia': { pub: 2.5, edu: 5.9, san: 2.4 }, 'País Vasco': { pat: 7.91, san: 14.82 }, 'Ceuta': { edu: 1.2 }
+  };
+  const SIG = [['sind', 'cifra sindical'], ['pat', 'cifra patronal'], ['pub', 'paro en la administración autonómica'], ['edu', 'paro en la educación'], ['san', 'paro en la sanidad']];
+
+  // ---------- Geometría: decodificación del TopoJSON y proyección Mercator ----------
+  const topo = JSON.parse($('#topo').textContent);
+  const CANARY_IDS = new Set(['35', '38']);
+  const DLON = 17.0, DLAT = 6.5; // desplazamiento del archipiélago canario al recuadro
+  function project(lon, lat, canary) {
+    if (canary) { lon += DLON; lat += DLAT; }
+    const y = -Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360)) * (180 / Math.PI);
+    return [lon * 10, y * 10];
+  }
+  const arcsAbs = topo.arcs.map((arc) => {
+    let x = 0, y = 0;
+    return arc.map(([dx, dy]) => { x += dx; y += dy; return [x * topo.transform.scale[0] + topo.transform.translate[0], y * topo.transform.scale[1] + topo.transform.translate[1]]; });
+  });
+  function ringPoints(arcRefs, canary) {
+    const pts = [];
+    for (const ref of arcRefs) {
+      let a = ref < 0 ? arcsAbs[~ref].slice().reverse() : arcsAbs[ref];
+      if (pts.length) a = a.slice(1);
+      for (const p of a) pts.push(project(p[0], p[1], canary));
+    }
+    return pts;
+  }
+  function ringArea(r) { let s = 0; for (let i = 0, n = r.length; i < n; i++) { const [x1, y1] = r[i], [x2, y2] = r[(i + 1) % n]; s += x1 * y2 - x2 * y1; } return s / 2; }
+  function ringCentroid(r) {
+    let cx = 0, cy = 0, a = 0;
+    for (let i = 0, n = r.length; i < n; i++) { const [x1, y1] = r[i], [x2, y2] = r[(i + 1) % n]; const f = x1 * y2 - x2 * y1; cx += (x1 + x2) * f; cy += (y1 + y2) * f; a += f; }
+    a /= 2; return a ? [cx / (6 * a), cy / (6 * a)] : r[0];
+  }
+  const PROV = [];
+  for (const g of topo.objects.provinces.geometries) {
+    if (!CCAA[g.id]) continue; // descarta Gibraltar y cualquier geometría ajena
+    const canary = CANARY_IDS.has(g.id);
+    const polys = g.type === 'Polygon' ? [g.arcs] : g.arcs;
+    let d = '', bx = [Infinity, Infinity, -Infinity, -Infinity], best = null, bestA = 0;
+    for (const poly of polys) {
+      poly.forEach((ringRefs, idx) => {
+        const r = ringPoints(ringRefs, canary);
+        d += 'M' + r.map((p) => p[0].toFixed(2) + ',' + p[1].toFixed(2)).join('L') + 'Z';
+        for (const [x, y] of r) { if (x < bx[0]) bx[0] = x; if (y < bx[1]) bx[1] = y; if (x > bx[2]) bx[2] = x; if (y > bx[3]) bx[3] = y; }
+        if (idx === 0) { const a = Math.abs(ringArea(r)); if (a > bestA) { bestA = a; best = r; } }
+      });
+    }
+    PROV.push({ id: g.id, name: g.properties.name, short: SHORT[g.id] || g.properties.name, ccaa: CCAA[g.id], d, bbox: bx, centroid: ringCentroid(best), canary });
+  }
+  PROV.sort((a, b) => a.name.localeCompare(b.name, 'es'));
+  const byId = Object.fromEntries(PROV.map((p) => [p.id, p]));
+
+  // ---------- Estado ----------
+  const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+  // seg: seguimiento según sindicatos (%). segAlt: según la patronal (%). amb: 'ccaa' si la cifra es autonómica.
+  function blankProv() { return { seg: null, segAlt: null, est: null, estLo: null, estHi: null, estBase: '', manif: null, det: null, inc: null, min: '', fuente: '', sect: '', notas: '', amb: '', pob: null, updated: null, refs: [], hist: [] }; }
+  function freshState() { return { v: 2, meta: { titulo: 'Huelga general', fecha: todayISO(), preset: '' }, nacional: [], prov: {} }; }
+  function normalize(s) {
+    const out = Object.assign(freshState(), s); out.v = 2;
+    out.meta = Object.assign({ titulo: 'Huelga general', fecha: todayISO(), preset: '' }, s.meta || {});
+    if (!Array.isArray(out.nacional)) out.nacional = [];
+    const prov = {};
+    for (const id in (s.prov || {})) {
+      if (!CCAA[id]) continue;
+      const p = Object.assign(blankProv(), s.prov[id]);
+      if (!Array.isArray(p.hist)) p.hist = [];
+      if (!Array.isArray(p.refs)) p.refs = [];
+      prov[id] = p;
+    }
+    out.prov = prov; return out;
+  }
+  let state = freshState();
+  const getP = (id) => state.prov[id] || blankProv();
+  const hasData = (p) => p.seg != null || p.segAlt != null || p.est != null || p.manif != null || p.det != null || p.inc != null || !!p.min || !!p.notas || !!p.sect;
+  const anyData = (s) => Object.keys(s.prov).some((id) => hasData(s.prov[id]));
+  const pobOf = (id) => { const p = state.prov[id]; return p && p.pob != null ? p.pob : POB[id]; };
+  function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* modo privado o bloqueado */ } }
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) { const s = JSON.parse(raw); if (s && s.prov) { state = normalize(s); return true; } }
+      // De versiones anteriores solo se hereda un panel construido sobre los datos publicados del 11N.
+      // Cualquier otro pudo arrastrar cifras de prueba de la versión 1.0 y se ignora: se abre con los datos reales.
+      const prev = localStorage.getItem(PREV_KEY);
+      if (prev) { const s = JSON.parse(prev); if (s && s.prov && s.meta && s.meta.preset === '11n') { state = normalize(s); return true; } }
+    } catch (e) { /* almacenamiento no disponible */ }
+    return false;
+  }
+
+  // ---------- Carga de los datos publicados del 11N ----------
+  // Estimación por comunidad: cada indicador se reescala para que su media nacional ponderada por población
+  // coincida con EST.central, y la estimación es la media de los indicadores reescalados de esa comunidad.
+  function estimates() {
+    const terr = {};
+    for (const p of PROV) {
+      const t = terr[p.ccaa] || (terr[p.ccaa] = { pob: 0, sig: Object.assign({}, IND[p.ccaa]) });
+      t.pob += POB[p.id];
+      const c = REAL.ccaa[p.ccaa];
+      if (c && c.seg != null) t.sig.sind = c.seg;
+      if (c && c.segAlt != null) t.sig.pat = c.segAlt;
+    }
+    const k = {};
+    for (const [key] of SIG) {
+      let ws = 0, ps = 0;
+      for (const c in terr) { const v = terr[c].sig[key]; if (v != null) { ws += v * terr[c].pob; ps += terr[c].pob; } }
+      k[key] = ws ? EST.central * ps / ws : null;
+    }
+    const out = {};
+    for (const c in terr) {
+      const used = SIG.filter(([key]) => terr[c].sig[key] != null);
+      if (!used.length) continue;
+      const vals = used.map(([key]) => terr[c].sig[key] * k[key]);
+      out[c] = { mean: vals.reduce((a, b) => a + b, 0) / vals.length, min: Math.min(...vals), max: Math.max(...vals), pob: terr[c].pob, base: used.map(([key, label]) => label + ' ' + fmtPct(terr[c].sig[key])).join(', ') };
+    }
+    // Ajuste final: la media nacional ponderada de las comunidades estimadas se lleva a EST.central.
+    let ws = 0, ps = 0;
+    for (const c in out) { ws += out[c].mean * out[c].pob; ps += out[c].pob; }
+    const f = ws ? EST.central * ps / ws : 1;
+    for (const c in out) { const o = out[c]; out[c] = { est: Math.round(o.mean * f), lo: Math.round(o.min * f * EST.lo / EST.central), hi: Math.round(o.max * f * EST.hi / EST.central), base: o.base }; }
+    return out;
+  }
+
+  function realState() {
+    const s = freshState();
+    s.meta = { titulo: 'Huelga general 11N', fecha: REAL.fecha, preset: '11n', dataVer: REAL.ver };
+    s.nacional = REAL.nacional.map((r) => r.slice());
+    const D = REAL.fecha + 'T';
+    const N = (v) => v == null ? null : v;
+    const E = estimates();
+    for (const p of PROV) {
+      const c = REAL.ccaa[p.ccaa], x = REAL.prov[p.id];
+      if (!c && !x) continue;
+      const r = blankProv(), notes = [], refKeys = [];
+      if (c) {
+        if (c.seg != null) { r.seg = c.seg; r.amb = 'ccaa'; r.fuente = 'Sindicatos'; }
+        if (c.segAlt != null) r.segAlt = c.segAlt;
+        notes.push(c.nota); refKeys.push(...c.refs);
+        for (const h of (c.ant || []).concat([c])) r.hist.push({ t: D + h.t + ':00', seg: N(h.seg), segAlt: N(h.segAlt), manif: null, det: null, inc: null, min: '', fuente: h.seg != null ? 'Sindicatos' : 'Medios de comunicación', nota: h.corte, amb: 'ccaa' });
+      }
+      if (x) {
+        if (x.det != null) r.det = x.det;
+        if (x.manif != null) r.manif = x.manif;
+        if (x.inc != null) r.inc = x.inc;
+        notes.unshift(x.nota); refKeys.unshift(...x.refs);
+        const fx = (h) => x.f || (h.det != null || h.manif != null ? 'Gobierno / Delegación' : 'Medios de comunicación');
+        for (const h of (x.ant || []).concat([x])) r.hist.push({ t: D + h.t + ':00', seg: null, segAlt: null, manif: N(h.manif), det: N(h.det), inc: N(h.inc), min: '', fuente: fx(h), nota: h.nota, amb: '' });
+        if (!r.fuente) r.fuente = fx(x);
+      }
+      const e = E[p.ccaa];
+      if (e) { r.est = e.est; r.estLo = e.lo; r.estHi = e.hi; r.estBase = e.base; }
+      if (!r.fuente) r.fuente = 'Medios de comunicación';
+      r.hist.sort((a, b) => a.t.localeCompare(b.t));
+      r.updated = r.hist[r.hist.length - 1].t;
+      r.notas = notes.join(' ');
+      r.refs = [...new Set(refKeys)].map((k) => SRC[k].slice());
+      s.prov[p.id] = r;
+    }
+    return s;
+  }
+  // Un panel guardado con una recopilación anterior del 11N: ¿lo ha tocado el usuario?
+  const staleReal = () => state.meta.preset === '11n' && (state.meta.dataVer || 1) < REAL.ver;
+  const editedByHand = () => Object.keys(state.prov).some((id) => state.prov[id].hist.some((h) => h.nota === 'Corte registrado a mano.' || /Z$/.test(h.t)));
+
+  // ---------- Formato ----------
+  const fmtInt = (n) => n == null ? '—' : new Intl.NumberFormat('es-ES').format(n);
+  const fmtPct = (n) => n == null ? '—' : new Intl.NumberFormat('es-ES', { maximumFractionDigits: 1 }).format(n) + ' %';
+  const fmtTime = (iso) => { if (!iso) return '—'; const d = new Date(iso); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
+  const fmtDateTime = (iso) => { if (!iso) return '—'; const d = new Date(iso); return d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }) + ' ' + fmtTime(iso); };
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const plural = (n, one, many) => n === 1 ? one : many;
+
+  // ---------- Escala de color ----------
+  const RAMP = ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)'];
+  const METRIC = {
+    seg: { label: 'Seguimiento según sindicatos', pct: true },
+    segAlt: { label: 'Seguimiento según la patronal', pct: true },
+    est: { label: 'Estimación del seguimiento real', pct: true, th: [5, 10, 15, 20] },
+    manif: { label: 'Manifestantes' },
+    det: { label: 'Detenidos' },
+    inc: { label: 'Incidentes' }
+  };
+  let metric = 'seg';
+  function thresholds() {
+    if (METRIC[metric].pct) return METRIC[metric].th || [20, 40, 60, 80];
+    const vals = PROV.map((p) => getP(p.id)[metric]).filter((v) => v != null && v > 0).sort((a, b) => a - b);
+    if (!vals.length) return [1, 2, 3, 4];
+    const max = vals[vals.length - 1];
+    if (max <= 5) return [1, 2, 3, 4];
+    const nice = (x) => { if (x <= 0) return 0; const e = Math.pow(10, Math.floor(Math.log10(x))); const m = x / e; const r = m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10; return r * e; };
+    const step = nice(max / 5) || 1;
+    return [step, step * 2, step * 3, step * 4];
+  }
+  function binOf(v, th) { if (v == null) return -1; let i = 0; while (i < th.length && v >= th[i]) i++; return i; }
+  function renderLegend(th) {
+    const m = METRIC[metric];
+    const f = (v) => m.pct ? Math.round(v) + ' %' : fmtInt(v);
+    const ranges = [`< ${f(th[0])}`, `${f(th[0])} – ${f(th[1])}`, `${f(th[1])} – ${f(th[2])}`, `${f(th[2])} – ${f(th[3])}`, `≥ ${f(th[3])}`];
+    if (!m.pct && th[0] === 1) ranges[0] = '0';
+    $('#legend').innerHTML = `<div class="lt">${m.label}</div>` + ranges.map((r, i) => `<div class="sw"><i style="background:${RAMP[i]}"></i>${r}</div>`).join('') + `<div class="sw"><i class="hatch"></i>Sin dato</div>`;
+  }
+
+  // ---------- Mapa ----------
+  const svg = $('#map'), gProv = $('#gProv'), gLabels = $('#gLabels'), gCanary = $('#gCanary'), tip = $('#tip');
+  const NS = 'http://www.w3.org/2000/svg';
+  let full = null, vb = null, selected = null;
+  function buildMap() {
+    let bx = [Infinity, Infinity, -Infinity, -Infinity], cb = [Infinity, Infinity, -Infinity, -Infinity];
+    for (const p of PROV) {
+      const el = document.createElementNS(NS, 'path');
+      el.setAttribute('d', p.d); el.setAttribute('class', 'prov nodata'); el.dataset.id = p.id;
+      gProv.appendChild(el); p.el = el;
+      const t = document.createElementNS(NS, 'text');
+      t.setAttribute('class', 'lbl'); t.setAttribute('x', p.centroid[0].toFixed(2)); t.setAttribute('y', p.centroid[1].toFixed(2)); t.setAttribute('text-anchor', 'middle'); t.textContent = p.short;
+      gLabels.appendChild(t); p.lbl = t;
+      const b = p.bbox; bx = [Math.min(bx[0], b[0]), Math.min(bx[1], b[1]), Math.max(bx[2], b[2]), Math.max(bx[3], b[3])];
+      if (p.canary) cb = [Math.min(cb[0], b[0]), Math.min(cb[1], b[1]), Math.max(cb[2], b[2]), Math.max(cb[3], b[3])];
+    }
+    const pad = 1.5;
+    const rect = document.createElementNS(NS, 'rect');
+    rect.setAttribute('class', 'canaryBox'); rect.setAttribute('x', cb[0] - pad); rect.setAttribute('y', cb[1] - pad); rect.setAttribute('width', cb[2] - cb[0] + 2 * pad); rect.setAttribute('height', cb[3] - cb[1] + 2 * pad);
+    gCanary.appendChild(rect);
+    const cl = document.createElementNS(NS, 'text');
+    cl.setAttribute('class', 'canaryLbl'); cl.setAttribute('x', cb[0] - pad + 0.6); cl.setAttribute('y', cb[1] - pad - 0.7); cl.textContent = 'Canarias';
+    gCanary.appendChild(cl); gCanary.lbl = cl;
+    const w = bx[2] - bx[0], h = bx[3] - bx[1], m = 0.03;
+    full = { x: bx[0] - w * m, y: bx[1] - h * m, w: w * (1 + 2 * m), h: h * (1 + 2 * m) };
+    vb = Object.assign({}, full);
+    applyView();
+    $('#provList').innerHTML = PROV.map((p) => `<option value="${esc(p.name)}"></option>`).join('');
+  }
+  const zoomK = () => full.w / vb.w;
+  function applyView() {
+    svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    const rect = svg.getBoundingClientRect();
+    const pxW = rect.width || 800, pxH = rect.height || 600;
+    const unit = Math.max(vb.w / pxW, vb.h / pxH); // unidades SVG por píxel (preserveAspectRatio "meet")
+    const k = zoomK(), always = $('#labelsChk').checked;
+    const showLabels = always || k >= 2.2;
+    gLabels.style.display = showLabels ? '' : 'none';
+    gLabels.style.fontSize = (showLabels ? 11.5 : 0) * unit + 'px';
+    for (const p of PROV) {
+      // A poco zoom solo caben las provincias grandes; las pequeñas aparecen al acercar.
+      const area = (p.bbox[2] - p.bbox[0]) * (p.bbox[3] - p.bbox[1]);
+      p.lbl.style.display = always || k >= 4 || area > 2.2 * (vb.w * vb.h) / 1800 ? '' : 'none';
+    }
+    gCanary.lbl.style.fontSize = 11 * unit + 'px';
+    // El rayado de «sin dato» mantiene el mismo grosor en pantalla a cualquier zoom.
+    const hp = $('#hatch'), hs = 7 * unit;
+    hp.setAttribute('width', hs); hp.setAttribute('height', hs);
+    $('#hatchBg').setAttribute('width', hs); $('#hatchBg').setAttribute('height', hs);
+    $('#hatchFg').setAttribute('width', hs * 0.3); $('#hatchFg').setAttribute('height', hs);
+  }
+  function clampView() {
+    const maxK = 60;
+    const k = full.w / vb.w;
+    if (k < 1) { vb.w = full.w; vb.h = full.h; }
+    if (k > maxK) { vb.w = full.w / maxK; vb.h = full.h / maxK; }
+    const slack = 0.6;
+    vb.x = Math.min(Math.max(vb.x, full.x - full.w * slack), full.x + full.w * (1 + slack) - vb.w);
+    vb.y = Math.min(Math.max(vb.y, full.y - full.h * slack), full.y + full.h * (1 + slack) - vb.h);
+  }
+  function zoomAt(px, py, f) { // px,py en unidades SVG
+    vb.x = px - (px - vb.x) / f; vb.y = py - (py - vb.y) / f; vb.w /= f; vb.h /= f;
+    clampView(); applyView();
+  }
+  function svgPoint(clientX, clientY) {
+    const pt = svg.createSVGPoint(); pt.x = clientX; pt.y = clientY;
+    const m = svg.getScreenCTM(); if (!m) return [0, 0];
+    const r = pt.matrixTransform(m.inverse()); return [r.x, r.y];
+  }
+  const center = () => [vb.x + vb.w / 2, vb.y + vb.h / 2];
+  function resetView() { vb = Object.assign({}, full); applyView(); }
+  function zoomToProv(p) {
+    const b = p.bbox, bw = b[2] - b[0], bh = b[3] - b[1];
+    const aspect = full.w / full.h;
+    let w = Math.max(bw * 1.8, 6), h = w / aspect;
+    if (h < bh * 1.8) { h = bh * 1.8; w = h * aspect; }
+    vb = { x: (b[0] + b[2]) / 2 - w / 2, y: (b[1] + b[3]) / 2 - h / 2, w, h };
+    clampView(); applyView();
+  }
+
+  // Interacción: rueda, arrastre, pellizco, clic y doble clic.
+  svg.addEventListener('wheel', (e) => { e.preventDefault(); const [x, y] = svgPoint(e.clientX, e.clientY); zoomAt(x, y, Math.exp(-e.deltaY * 0.0016)); }, { passive: false });
+  const pointers = new Map(); let dragStart = null, moved = false, pinchDist = 0, downProv = null;
+  const provAt = (el) => (el && el.closest) ? el.closest('path.prov') : null;
+  svg.addEventListener('pointerdown', (e) => {
+    try { svg.setPointerCapture(e.pointerId); } catch (err) { /* puntero sintético */ }
+    pointers.set(e.pointerId, [e.clientX, e.clientY]);
+    if (pointers.size === 1) { downProv = provAt(e.target); dragStart = [e.clientX, e.clientY]; moved = false; svg.classList.add('dragging'); } // con captura, los eventos posteriores apuntan al SVG
+    if (pointers.size === 2) { const [a, b] = [...pointers.values()]; pinchDist = Math.hypot(a[0] - b[0], a[1] - b[1]); }
+  });
+  svg.addEventListener('pointermove', (e) => {
+    if (!pointers.has(e.pointerId)) { showTip(e); return; }
+    const prev = pointers.get(e.pointerId); pointers.set(e.pointerId, [e.clientX, e.clientY]);
+    if (pointers.size === 1) {
+      if (Math.hypot(e.clientX - dragStart[0], e.clientY - dragStart[1]) > 4) moved = true;
+      if (!moved) return;
+      const [x1, y1] = svgPoint(prev[0], prev[1]), [x2, y2] = svgPoint(e.clientX, e.clientY);
+      vb.x -= x2 - x1; vb.y -= y2 - y1; clampView(); applyView(); hideTip();
+    } else if (pointers.size === 2) {
+      moved = true;
+      const [a, b] = [...pointers.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      const mid = svgPoint((a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
+      if (pinchDist > 0) zoomAt(mid[0], mid[1], d / pinchDist);
+      pinchDist = d;
+    }
+  });
+  function endPointer(e) {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.delete(e.pointerId);
+    if (pointers.size === 0) {
+      svg.classList.remove('dragging');
+      if (!moved && e.type === 'pointerup') { select(downProv ? downProv.dataset.id : null); revealPanel(false); }
+    }
+  }
+  svg.addEventListener('pointerup', endPointer); svg.addEventListener('pointercancel', endPointer);
+  svg.addEventListener('dblclick', (e) => { e.preventDefault(); const t = downProv || provAt(e.target); if (t) zoomToProv(byId[t.dataset.id]); else { const [x, y] = svgPoint(e.clientX, e.clientY); zoomAt(x, y, 2); } });
+  svg.addEventListener('pointerleave', hideTip);
+  $('#zIn').addEventListener('click', () => { const [x, y] = center(); zoomAt(x, y, 1.6); });
+  $('#zOut').addEventListener('click', () => { const [x, y] = center(); zoomAt(x, y, 1 / 1.6); });
+  $('#zReset').addEventListener('click', resetView);
+  $('#labelsChk').addEventListener('change', applyView);
+  window.addEventListener('resize', applyView);
+  $('#search').addEventListener('change', (e) => {
+    const q = e.target.value.trim().toLowerCase(); if (!q) return;
+    const p = PROV.find((x) => x.name.toLowerCase() === q) || PROV.find((x) => x.name.toLowerCase().includes(q) || x.short.toLowerCase().includes(q));
+    if (p) { select(p.id); zoomToProv(p); e.target.value = ''; revealPanel(false); }
+  });
+
+  function showTip(e) {
+    const t = provAt(e.target); if (!t) { hideTip(); return; }
+    const p = byId[t.dataset.id], d = getP(p.id);
+    const row = (k, v) => `<div class="row"><span>${k}</span><span class="num">${v}</span></div>`;
+    let h = `<b>${esc(p.name)}</b><div class="muted" style="margin-bottom:4px">${esc(p.ccaa)}</div>`;
+    if (hasData(d)) {
+      if (d.seg != null) h += row('Sindicatos' + (d.amb === 'ccaa' ? ' (cifra autonómica)' : ''), fmtPct(d.seg));
+      if (d.segAlt != null) h += row('Patronal', fmtPct(d.segAlt));
+      if (d.est != null) h += row('Estimación del panel', fmtPct(d.est));
+      if (d.manif != null) h += row('Manifestantes', fmtInt(d.manif));
+      if (d.det != null) h += row('Detenidos', fmtInt(d.det));
+      if (d.inc != null) h += row('Incidentes', fmtInt(d.inc));
+      if (d.est == null && d.seg == null && d.segAlt == null && d.manif == null && d.det == null && d.inc == null) h += `<div class="muted">Hay información, sin cifras. Haz clic para leerla.</div>`;
+      h += `<div class="row muted"><span>Actualizado</span><span class="num">${fmtTime(d.updated)}</span></div>`;
+    } else h += `<div class="muted">Sin datos publicados. Haz clic para registrar.</div>`;
+    tip.innerHTML = h; tip.hidden = false;
+    const wrap = svg.parentElement.getBoundingClientRect();
+    let x = e.clientX - wrap.left + 14, y = e.clientY - wrap.top + 14;
+    if (x + tip.offsetWidth > wrap.width - 8) x = e.clientX - wrap.left - tip.offsetWidth - 14;
+    if (y + tip.offsetHeight > wrap.height - 8) y = e.clientY - wrap.top - tip.offsetHeight - 14;
+    tip.style.left = Math.max(4, x) + 'px'; tip.style.top = Math.max(4, y) + 'px';
+  }
+  function hideTip() { tip.hidden = true; }
+
+  function paintMap() {
+    const th = thresholds();
+    for (const p of PROV) {
+      const b = binOf(getP(p.id)[metric], th);
+      p.el.classList.toggle('nodata', b < 0);
+      p.el.style.fill = b < 0 ? '' : RAMP[b];
+      p.el.classList.toggle('sel', p.id === selected);
+    }
+    if (selected) gProv.appendChild(byId[selected].el); // la seleccionada se dibuja encima para que se vea su borde
+    renderLegend(th);
+  }
+  $('#metric').addEventListener('change', (e) => { metric = e.target.value; paintMap(); renderTable(); });
+
+  // ---------- Selección y ficha ----------
+  function select(id) {
+    selected = id; paintMap(); renderPanel(); renderTable();
+    if (id) $('#panel').scrollTop = 0;
+  }
+  // Si la ficha queda debajo del mapa (ventana estrecha), se lleva a la vista para que el clic tenga efecto visible.
+  function revealPanel(toTopIfSideBySide) {
+    if (!selected) return;
+    const panel = $('#panel'), map = $('.mapCard');
+    const stacked = panel.getBoundingClientRect().top >= map.getBoundingClientRect().bottom - 4;
+    if (stacked) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else if (toTopIfSideBySide) map.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function renderPanel() {
+    const panel = $('#panel');
+    if (!selected) {
+      panel.innerHTML = `<div class="head"><span class="eyebrow">Ficha de provincia</span><h2>Elige una provincia</h2></div><div class="empty"><p>Haz clic en una provincia del mapa, en una fila de la tabla o búscala por nombre. Aquí verás lo publicado sobre ella, con sus fuentes, y podrás añadir tus propios cortes.</p></div>`;
+      return;
+    }
+    const p = byId[selected], d = getP(selected), has = hasData(d);
+    const chips = [];
+    if (d.segAlt != null) chips.push(`<span class="chip">Patronal: ${fmtPct(d.segAlt)}</span>`);
+    if (d.manif != null) chips.push(`<span class="chip">${fmtInt(d.manif)} manifestantes</span>`);
+    if (d.det != null) chips.push(`<span class="chip ${d.det > 0 ? (d.det >= 3 ? 'crit' : 'warn') : 'good'}">${d.det > 0 ? d.det + ' ' + plural(d.det, 'detenido', 'detenidos') : 'Sin detenidos'}</span>`);
+    if (d.inc != null) chips.push(`<span class="chip ${d.inc > 0 ? 'warn' : 'good'}">${d.inc > 0 ? d.inc + ' ' + plural(d.inc, 'incidente', 'incidentes') : 'Sin incidentes'}</span>`);
+    if (d.min) chips.push(`<span class="chip ${MIN_CLASS[d.min]}">Servicios mínimos: ${MIN_LABEL[d.min]}</span>`);
+    if (d.fuente) chips.push(`<span class="chip">Fuente: ${esc(d.fuente)}</span>`);
+    const estLine = d.est != null
+      ? `<div class="estNote"><b class="num">${fmtPct(d.est)}</b> de seguimiento real estimado${d.estLo != null && d.estLo !== d.estHi ? `, entre el ${fmtPct(d.estLo)} y el ${fmtPct(d.estHi)}` : ''}. ${d.estBase ? `Cálculo del panel para ${esc(p.ccaa)} a partir de: ${esc(d.estBase)}. No es un dato oficial.` : 'Estimación registrada a mano.'}</div>`
+      : '';
+    const segLine = d.seg != null
+      ? `<div class="segBig"><span class="v num">${fmtPct(d.seg)}</span><span class="muted">seguimiento según sindicatos</span></div>${d.amb === 'ccaa' ? `<div class="ambNote">Cifra del conjunto de ${esc(p.ccaa)}. No hay dato propio de la provincia.</div>` : ''}`
+      : `<div class="segBig"><span class="v num">—</span><span class="muted">${has ? 'sin cifra de seguimiento publicada' : 'sin datos publicados'}</span></div>`;
+    panel.innerHTML = `
+      <div class="head">
+        <span class="eyebrow">${esc(p.ccaa)} · código INE ${p.id}</span>
+        <h2>${esc(p.name)}</h2>
+        ${segLine}
+        ${estLine}
+        <div class="chips">${chips.join('')}</div>
+        <span class="muted" style="font-size:12px">${d.updated ? 'Último corte: ' + fmtDateTime(d.updated) : ''}</span>
+      </div>
+      ${has ? (d.notas ? `<p class="provNote">${esc(d.notas)}</p>` : '') : `<p class="provNote muted">${state.meta.preset === '11n' ? 'Las fuentes consultadas no dan cifras ni incidencias de esta provincia. Si tienes información, regístrala abajo y quedará guardada en el panel.' : 'No hay nada registrado para esta provincia. Pulsa «Cargar datos del 11N» para ver lo publicado o registra tus propios datos abajo.'}</p>`}
+      ${d.refs.length ? `<div class="refs"><h3>Fuentes</h3>${d.refs.map((r) => `<a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a>`).join('')}</div>` : ''}
+      <form class="form" id="provForm" autocomplete="off">
+        <h3 style="grid-column:1/-1">Registrar un corte</h3>
+        <label>Seguimiento sindicatos (%)<input type="number" id="f_seg" min="0" max="100" step="0.1" inputmode="decimal" value="${d.seg ?? ''}" placeholder="0–100"></label>
+        <label>Seguimiento patronal (%)<input type="number" id="f_segAlt" min="0" max="100" step="0.1" inputmode="decimal" value="${d.segAlt ?? ''}" placeholder="0–100"></label>
+        <label>Estimación del seguimiento real (%)<input type="number" id="f_est" min="0" max="100" step="0.1" inputmode="decimal" value="${d.est ?? ''}" placeholder="0–100"></label>
+        <label>Manifestantes<input type="number" id="f_manif" min="0" step="1" inputmode="numeric" value="${d.manif ?? ''}" placeholder="Personas"></label>
+        <label>Detenidos<input type="number" id="f_det" min="0" step="1" inputmode="numeric" value="${d.det ?? ''}" placeholder="Número"></label>
+        <label>Incidentes<input type="number" id="f_inc" min="0" step="1" inputmode="numeric" value="${d.inc ?? ''}" placeholder="Número"></label>
+        <label>Servicios mínimos<select id="f_min"><option value="">Sin valorar</option>${Object.keys(MIN_LABEL).map((k) => `<option value="${k}"${d.min === k ? ' selected' : ''}>${MIN_LABEL[k]}</option>`).join('')}</select></label>
+        <label>Fuente del dato<select id="f_fuente"><option value="">Sin indicar</option>${FUENTES.map((f) => `<option${d.fuente === f ? ' selected' : ''}>${f}</option>`).join('')}</select></label>
+        <label>Población (miles, INE 2023 aprox.)<input type="number" id="f_pob" min="0" step="1" inputmode="numeric" value="${pobOf(p.id) ?? ''}"></label>
+        <label class="chk"><input type="checkbox" id="f_amb"${d.amb === 'ccaa' ? ' checked' : ''}> El seguimiento es la cifra de la comunidad, no de la provincia</label>
+        <label class="full">Sectores más afectados<input type="text" id="f_sect" value="${esc(d.sect)}" placeholder="Transporte, educación, industria…"></label>
+        <label class="full">Enlace de la fuente (opcional)<input type="url" id="f_url" placeholder="https://…"></label>
+        <label class="full">Resumen de la situación<textarea id="f_notas" placeholder="Qué ha pasado, quién lo informa, matices…">${esc(d.notas)}</textarea></label>
+        <div class="actions">
+          <button type="submit" class="btn primary">Guardar corte</button>
+          <button type="button" class="btn sm danger" id="btnClearProv">Borrar datos de la provincia</button>
+        </div>
+      </form>
+      <div class="hist">
+        <h3>Historial de cortes</h3>
+        ${d.hist.length ? d.hist.slice().reverse().map((h) => `<div class="h"><time>${fmtDateTime(h.t)}</time><div class="d">${histBits(h).join('')}</div>${h.nota ? `<div class="n">${esc(h.nota)}</div>` : ''}</div>`).join('') : '<div class="muted">Todavía no hay cortes registrados.</div>'}
+      </div>`;
+    $('#provForm').addEventListener('submit', (e) => { e.preventDefault(); saveProv(selected); });
+    $('#btnClearProv').addEventListener('click', () => askConfirm(`¿Borrar todos los datos y el historial de ${p.name}?`, () => { delete state.prov[selected]; commit(); renderPanel(); toast('Provincia vaciada'); }));
+  }
+  function histBits(h) {
+    const b = [];
+    if (h.seg != null) b.push(`<span class="num"><strong>${fmtPct(h.seg)}</strong>${h.amb === 'ccaa' ? ' aut.' : ''}</span>`);
+    if (h.segAlt != null) b.push(`<span class="num">patronal ${fmtPct(h.segAlt)}</span>`);
+    if (h.manif != null) b.push(`<span class="num">${fmtInt(h.manif)} manif.</span>`);
+    if (h.det != null) b.push(`<span class="num">${fmtInt(h.det)} det.</span>`);
+    if (h.inc != null) b.push(`<span class="num">${fmtInt(h.inc)} incid.</span>`);
+    if (h.min) b.push(`<span>${MIN_LABEL[h.min]}</span>`);
+    if (h.fuente) b.push(`<span class="muted">${esc(h.fuente)}</span>`);
+    return b;
+  }
+  const numOrNull = (id) => { const v = $(id).value.trim().replace(',', '.'); return v === '' || isNaN(Number(v)) ? null : Math.max(0, Number(v)); };
+  function saveProv(id) {
+    const d = state.prov[id] || blankProv();
+    d.seg = numOrNull('#f_seg'); if (d.seg != null) d.seg = Math.min(100, d.seg);
+    d.segAlt = numOrNull('#f_segAlt'); if (d.segAlt != null) d.segAlt = Math.min(100, d.segAlt);
+    const est0 = d.est; d.est = numOrNull('#f_est'); if (d.est != null) d.est = Math.min(100, d.est);
+    if (d.est !== est0) { d.estLo = null; d.estHi = null; d.estBase = ''; } // una estimación cambiada a mano deja de ser la del panel
+    d.manif = numOrNull('#f_manif'); d.det = numOrNull('#f_det'); d.inc = numOrNull('#f_inc');
+    d.min = $('#f_min').value; d.fuente = $('#f_fuente').value; d.sect = $('#f_sect').value.trim(); d.notas = $('#f_notas').value.trim();
+    d.amb = $('#f_amb').checked && d.seg != null ? 'ccaa' : '';
+    const pob = numOrNull('#f_pob'); d.pob = pob != null && pob !== POB[id] ? pob : null;
+    const url = $('#f_url').value.trim();
+    d.updated = new Date().toISOString();
+    if (/^https?:\/\//i.test(url) && !d.refs.some((r) => r[1] === url)) d.refs.push(['Fuente añadida el ' + fmtDateTime(d.updated), url]);
+    d.hist.push({ t: d.updated, seg: d.seg, segAlt: d.segAlt, manif: d.manif, det: d.det, inc: d.inc, min: d.min, fuente: d.fuente, nota: 'Corte registrado a mano.', amb: d.amb });
+    state.prov[id] = d;
+    commit(); renderPanel(); toast(`${byId[id].name} guardada`);
+  }
+
+  // ---------- Indicadores, balance nacional, tabla y diario ----------
+  function wavg(key) {
+    const xs = PROV.map((p) => ({ id: p.id, v: getP(p.id)[key] })).filter((x) => x.v != null);
+    let ws = 0, ps = 0; for (const x of xs) { const w = pobOf(x.id) || 0; ws += x.v * w; ps += w; }
+    return { n: xs.length, avg: ps ? ws / ps : null };
+  }
+  function renderKpis() {
+    const withData = PROV.filter((p) => hasData(getP(p.id)));
+    const s = wavg('seg'), a = wavg('segAlt');
+    $('#kCob').innerHTML = `${withData.length}<small>/ ${N_PROV}</small>`;
+    $('#kCobBar').style.width = (withData.length / N_PROV * 100) + '%';
+    $('#kCobSub').textContent = withData.length ? `${s.n} con cifra de seguimiento` : 'Sin registros todavía';
+    $('#kSeg').textContent = fmtPct(s.avg == null ? null : Math.round(s.avg));
+    $('#kSegSub').textContent = s.n ? `Media ponderada por población de ${s.n} ${plural(s.n, 'provincia', 'provincias')}. No es una tasa oficial.` : 'Sin cifras sindicales';
+    $('#kAlt').textContent = fmtPct(a.avg == null ? null : Math.round(a.avg * 10) / 10);
+    $('#kAltSub').textContent = a.n ? `Media ponderada de ${a.n} ${plural(a.n, 'provincia', 'provincias')} con cifra patronal` : 'Sin cifras patronales';
+    const es = wavg('est');
+    $('#kEst').textContent = fmtPct(es.avg == null ? null : Math.round(es.avg));
+    $('#kEstSub').textContent = es.n
+      ? (state.meta.preset === '11n' ? `Cálculo del panel, no oficial. Rango nacional: del ${EST.lo} % al ${EST.hi} %.` : `Media ponderada de ${es.n} ${plural(es.n, 'provincia', 'provincias')} con estimación`)
+      : 'Sin estimación';
+    const man = PROV.map((p) => getP(p.id).manif).filter((v) => v != null);
+    $('#kMan').textContent = man.length ? fmtInt(man.reduce((x, y) => x + y, 0)) : '—';
+    $('#kManSub').textContent = man.length ? `Suma de ${man.length} ${plural(man.length, 'provincia', 'provincias')} con recuento` : 'Sin recuentos';
+    const det = PROV.map((p) => getP(p.id).det).filter((v) => v != null);
+    $('#kDet').textContent = det.length ? fmtInt(det.reduce((x, y) => x + y, 0)) : '—';
+    $('#kDetSub').textContent = det.length ? `Con desglose provincial, en ${det.filter((v) => v > 0).length} provincias` : 'Sin registros';
+    $('#realBanner').hidden = state.meta.preset !== '11n';
+    $('#updBanner').hidden = !staleReal();
+    $('#methodCard').hidden = state.meta.preset !== '11n';
+    $('#emptyBanner').hidden = withData.length > 0;
+  }
+  function renderNacional() {
+    const el = $('#natList');
+    el.innerHTML = state.nacional.length
+      ? state.nacional.map((r) => `<li><b>${esc(r[0])}</b><span>${esc(r[1])}</span><span class="src">${esc(r[2])}</span></li>`).join('')
+      : '<li class="natEmpty">Aquí aparecen las cifras que solo existen para el conjunto de España cuando cargas los datos del 11N.</li>';
+  }
+  let sortKey = 'name', sortDir = 1;
+  $('#tbl thead').addEventListener('click', (e) => {
+    const th = e.target.closest('th'); if (!th) return;
+    const k = th.dataset.k; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === 'name' || k === 'ccaa' || k === 'fuente' ? 1 : -1; }
+    renderTable();
+  });
+  $('#ccaaFilter').addEventListener('change', renderTable);
+  function renderTable() {
+    const th = thresholds();
+    const filter = $('#ccaaFilter').value;
+    const rows = PROV.filter((p) => !filter || p.ccaa === filter).map((p) => Object.assign({ p }, getP(p.id), { name: p.name, ccaa: p.ccaa }));
+    rows.sort((a, b) => {
+      const va = a[sortKey], vb2 = b[sortKey];
+      const ea = va == null || va === '', eb = vb2 == null || vb2 === '';
+      if (ea || eb) return ea === eb ? a.name.localeCompare(b.name, 'es') : (ea ? 1 : -1);
+      if (typeof va === 'number') return (va - vb2) * sortDir || a.name.localeCompare(b.name, 'es');
+      return String(va).localeCompare(String(vb2), 'es') * sortDir;
+    });
+    document.querySelectorAll('#tbl th').forEach((h) => h.classList.toggle('sorted', h.dataset.k === sortKey));
+    $('#tbl tbody').innerHTML = rows.map((r) => {
+      const b = binOf(r[metric], th);
+      const sw = `<span class="sw" style="background:${b < 0 ? 'var(--nodata)' : RAMP[b]}"></span>`;
+      const tag = r.amb === 'ccaa' && r.seg != null ? '<span class="tag" title="Cifra de la comunidad autónoma">CA</span>' : '';
+      return `<tr data-id="${r.p.id}" class="${r.p.id === selected ? 'sel' : ''}"><td>${sw}${esc(r.name)}</td><td class="muted">${esc(r.ccaa)}</td><td class="r">${fmtPct(r.seg)}${tag}</td><td class="r">${fmtPct(r.segAlt)}</td><td class="r">${fmtPct(r.est)}</td><td class="r">${fmtInt(r.manif)}</td><td class="r">${fmtInt(r.det)}</td><td class="muted">${esc(r.fuente) || '—'}</td><td class="muted num">${fmtDateTime(r.updated)}</td></tr>`;
+    }).join('');
+  }
+  $('#tbl tbody').addEventListener('click', (e) => { const tr = e.target.closest('tr'); if (!tr) return; select(tr.dataset.id); zoomToProv(byId[tr.dataset.id]); revealPanel(true); });
+  function renderFeed() {
+    // Los cortes idénticos de varias provincias (cifras autonómicas) se agrupan en una sola entrada.
+    const groups = new Map();
+    for (const id in state.prov) for (const h of state.prov[id].hist) {
+      const key = h.t + '|' + (h.nota || '') + '|' + (h.amb || '');
+      if (!groups.has(key)) groups.set(key, { h, ids: [] });
+      groups.get(key).ids.push(id);
+    }
+    const items = [...groups.values()].sort((a, b) => b.h.t.localeCompare(a.h.t));
+    $('#feed').innerHTML = items.length ? items.slice(0, 60).map(({ h, ids }) => {
+      const first = byId[ids[0]];
+      const who = ids.length > 1 ? `${first.ccaa} · ${ids.length} provincias` : first.name;
+      const bits = [];
+      if (h.seg != null) bits.push(fmtPct(h.seg));
+      if (h.segAlt != null && ids.length > 1) bits.push('patronal ' + fmtPct(h.segAlt));
+      if (h.manif != null && ids.length === 1) bits.push(fmtInt(h.manif) + ' manif.');
+      if (h.det != null && ids.length === 1) bits.push(h.det + ' det.');
+      return `<div class="f" data-id="${ids[0]}"><time>${fmtDateTime(h.t)}</time><div><b>${esc(who)}</b>${bits.length ? ' · <span class="num">' + bits.join(' · ') + '</span>' : ''}${h.nota ? `<div class="d">${esc(h.nota)}</div>` : ''}</div></div>`;
+    }).join('') : '<div class="emptyF">Aquí aparecerá cada corte, el más reciente primero.</div>';
+  }
+  $('#feed').addEventListener('click', (e) => { const f = e.target.closest('.f'); if (f) { select(f.dataset.id); zoomToProv(byId[f.dataset.id]); revealPanel(true); } });
+
+  // ---------- Cabecera, confirmación, exportación ----------
+  $('#metaTitulo').addEventListener('input', (e) => { state.meta.titulo = e.target.value; save(); });
+  $('#metaFecha').addEventListener('change', (e) => { state.meta.fecha = e.target.value; save(); });
+  let confirmCb = null;
+  function askConfirm(text, cb) { $('#confirmText').textContent = text; $('#confirmBox').hidden = false; confirmCb = cb; $('#confirmBox').scrollIntoView({ block: 'nearest' }); $('#confirmYes').focus(); }
+  $('#confirmYes').addEventListener('click', () => { $('#confirmBox').hidden = true; const cb = confirmCb; confirmCb = null; if (cb) cb(); });
+  $('#confirmNo').addEventListener('click', () => { $('#confirmBox').hidden = true; confirmCb = null; });
+  let toastT = null;
+  function toast(msg) { let t = $('#toast'); if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2400); }
+  function replaceState(s, msg) { state = s; select(null); commit(); fillMeta(); resetView(); toast(msg); }
+  $('#btnClear').addEventListener('click', () => askConfirm('¿Vaciar todos los datos de todas las provincias? Podrás volver a cargar los datos publicados del 11N, pero lo que hayas registrado a mano se pierde si no lo has exportado.', () => { const s = freshState(); s.meta.titulo = state.meta.titulo; s.meta.fecha = state.meta.fecha; replaceState(s, 'Panel vaciado'); }));
+  function loadReal() { const go = () => replaceState(realState(), 'Datos publicados del 11N cargados'); if (anyData(state)) askConfirm('Cargar los datos publicados del 11N sustituirá lo que hay ahora en el panel. ¿Continuar?', go); else go(); }
+  $('#btnReal').addEventListener('click', loadReal); $('#btnReal2').addEventListener('click', loadReal); $('#btnReal3').addEventListener('click', loadReal);
+  function fillMeta() { $('#metaTitulo').value = state.meta.titulo || ''; $('#metaFecha').value = state.meta.fecha || ''; }
+  function download(name, text, type) {
+    const blob = new Blob([text], { type }); const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+  const fileStem = () => 'huelga_general_' + (state.meta.fecha || todayISO());
+  $('#btnExportJson').addEventListener('click', () => { download(fileStem() + '.json', JSON.stringify(state, null, 2), 'application/json'); toast('JSON generado'); });
+  $('#btnExportCsv').addEventListener('click', () => {
+    const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
+    const head = ['codigo_ine', 'provincia', 'comunidad', 'seguimiento_sindicatos_pct', 'cifra_autonomica', 'seguimiento_patronal_pct', 'estimacion_seguimiento_real_pct', 'manifestantes', 'detenidos', 'incidentes', 'servicios_minimos', 'fuente', 'sectores', 'resumen', 'enlaces', 'poblacion_miles', 'actualizado'];
+    const lines = [head.join(';')];
+    const n = (v) => v == null ? '' : String(v).replace('.', ',');
+    for (const p of PROV) { const d = getP(p.id); lines.push([p.id, p.name, p.ccaa, n(d.seg), d.amb === 'ccaa' ? 'sí' : '', n(d.segAlt), n(d.est), n(d.manif), n(d.det), n(d.inc), d.min ? MIN_LABEL[d.min] : '', d.fuente, d.sect, d.notas, d.refs.map((r) => r[1]).join(' '), n(pobOf(p.id)), d.updated || ''].map(q).join(';')); }
+    download(fileStem() + '.csv', '﻿' + lines.join('\r\n'), 'text/csv;charset=utf-8');
+    toast('CSV generado');
+  });
+  $('#btnCopy').addEventListener('click', async () => {
+    const txt = JSON.stringify(state);
+    try { await navigator.clipboard.writeText(txt); toast('JSON copiado al portapapeles'); }
+    catch (e) { const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast('JSON copiado'); } catch (e2) { toast('No se pudo copiar'); } ta.remove(); }
+  });
+  $('#fileImport').addEventListener('change', (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    const rd = new FileReader();
+    rd.onload = () => {
+      try {
+        const s = JSON.parse(rd.result);
+        if (!s || typeof s.prov !== 'object') throw new Error('formato');
+        const apply = () => replaceState(normalize(s), 'Datos importados');
+        if (anyData(state)) askConfirm(`Importar «${file.name}» sustituirá los datos actuales. ¿Continuar?`, apply); else apply();
+      } catch (err) { toast('El archivo no es un JSON de este panel'); }
+      e.target.value = '';
+    };
+    rd.readAsText(file);
+  });
+
+  function commit() { save(); paintMap(); renderKpis(); renderNacional(); renderTable(); renderFeed(); }
+
+  // ---------- Arranque ----------
+  buildMap();
+  const ccaaSel = $('#ccaaFilter');
+  [...new Set(PROV.map((p) => p.ccaa))].sort((a, b) => a.localeCompare(b, 'es')).forEach((c) => { const o = document.createElement('option'); o.value = c; o.textContent = c; ccaaSel.appendChild(o); });
+  let refreshed = false;
+  if (!load()) { state = realState(); save(); } // primera apertura: datos publicados del 11N
+  else if (staleReal() && !editedByHand()) { state = realState(); save(); refreshed = true; } // recopilación anterior sin tocar: se actualiza sola
+  fillMeta();
+  select(null);
+  renderKpis(); renderNacional(); renderFeed();
+  if (refreshed) toast('Datos del 11N actualizados con la última recopilación');
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(applyView);
+})();
+</script>
+</body>
+</html>

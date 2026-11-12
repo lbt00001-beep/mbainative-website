@@ -65,3 +65,9 @@ Las pruebas de correo y OpenRouter utilizan dobles locales: no envían correos n
 Dashboard público en `/observatorio-ccaa/index.html`, enlazado desde el catálogo. Versión 1.3.2, modelo de creación GPT-6 (Codex). Incluye renta mediana, comparación con media por UC y variantes de renta del Índice General. Sus fuentes, datos y ayuda se distribuyen como archivos estáticos, sin depender del acceso al Site privado.
 
 Para actualizarlo, compilar el proyecto original y ejecutar `node scripts/sync-observatorio-ccaa.mjs <ruta-absoluta-a-dist>`. Revisar el manifiesto SHA-256 en `data/observatorio-ccaa-publication.json`, ejecutar las comprobaciones y publicar por el despliegue habitual de Hostinger desde master.
+
+## Huelga General 11N
+
+Panel público en `/huelga-general-11n/index.html`, enlazado desde la sección Sondeos del catálogo. Versión 1.3.0, modelo de creación Claude Fable 5.1. Es un único archivo HTML autónomo con el mapa, los datos publicados del 11 de noviembre de 2026 y una estimación propia del seguimiento; guarda los cortes del visitante en su navegador.
+
+Para actualizarlo, reconstruir el proyecto original (`10_Opinión pública/huelga_general`, con `node src/build.js`) y copiar su `index.html` a `public/huelga-general-11n/`. Actualizar la versión en `data/app-credits.json` y en `public/app-credits/registry.json`, ejecutar las comprobaciones y publicar por el despliegue habitual desde master.

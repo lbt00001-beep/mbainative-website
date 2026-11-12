@@ -1,6 +1,6 @@
 {
   "author": "Luis Benedicto Tuzón",
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-12",
   "apps": [
     {
       "id": "comparativa-ue",
@@ -125,6 +125,15 @@
       "route": "/observatorio-ccaa/index.html",
       "model": "GPT-6 (Codex)",
       "version": "1.3.2",
+      "year": 2026,
+      "placement": "static"
+    },
+    {
+      "id": "huelga-general-11n",
+      "name": "Huelga General 11N",
+      "route": "/huelga-general-11n/index.html",
+      "model": "Claude Fable 5.1",
+      "version": "1.3.0",
       "year": 2026,
       "placement": "static"
     }

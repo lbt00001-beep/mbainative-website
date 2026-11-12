@@ -85,6 +85,13 @@ export const categorias = [
     descripcion: "Herramientas de auditoría demoscópica, análisis electoral y estimación reproducible de voto",
     apps: [
       {
+        nombre: "Huelga General 11N — Seguimiento por provincias",
+        descripcion: "Mapa interactivo de la huelga general del 11 de noviembre de 2026 en las 52 provincias: seguimiento según sindicatos y patronales, manifestaciones, detenidos y una estimación propia del seguimiento real. Cada ficha enlaza sus fuentes.",
+        url: "/huelga-general-11n/index.html",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Observatorio Electoral",
         descripcion: "Sondeos contrastados, estimación ponderada, evolución del voto, proyección provincial y simulaciones de escaños. Incluye datos directos del CIS, fuentes y ayuda detallada.",
         url: "/aplicaciones/observatorio-electoral/",

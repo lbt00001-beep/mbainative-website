@@ -26,6 +26,8 @@ test('Conserva los modelos de creación documentados y no usa los modelos del se
   assert.equal(findAppCredit('/observatorio-ccaa/index.html')?.model,'GPT-6 (Codex)');
   assert.equal(findAppCredit('/huelga-general-11n/index.html')?.model,'Claude Fable 5.1');
   assert.equal(findAppCredit('/aplicaciones/observatorio-electoral')?.model,'GPT 6.1 Sol Medio');
+  assert.equal(findAppCredit('/aplicaciones/elecciones-generales-2026')?.model,'Gemini 4 Hydrogen Extra');
+  assert.equal(findAppCredit('/elecciones-2026/index.html')?.model,'Gemini 4 Hydrogen Extra');
 });
 
 test('Los accesos independientes incluyen su crédito y la versión electoral coincide con health',async()=>{

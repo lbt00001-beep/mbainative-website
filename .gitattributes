@@ -2,3 +2,4 @@
 app/vendor/electoral/tests/fixtures/imop-20261023.js -text
 app/public/observatorio-ccaa/** -text
 app/public/huelga-general-11n/** -text
+app/public/elecciones-2026/**/*.html -text

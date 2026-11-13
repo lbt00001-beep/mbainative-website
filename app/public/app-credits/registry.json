@@ -136,6 +136,24 @@
       "version": "1.3.0",
       "year": 2026,
       "placement": "static"
+    },
+    {
+      "id": "elecciones-generales-2026",
+      "name": "Programas Electorales 2026",
+      "route": "/aplicaciones/elecciones-generales-2026",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "inline"
+    },
+    {
+      "id": "elecciones-generales-2026-static",
+      "name": "Programas Electorales 2026",
+      "route": "/elecciones-2026/index.html",
+      "model": "modelo de IA desconocido",
+      "version": "1.0.0",
+      "year": 2026,
+      "placement": "static"
     }
   ]
 }

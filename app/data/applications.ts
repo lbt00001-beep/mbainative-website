@@ -99,6 +99,13 @@ export const categorias = [
         estado: "disponible"
       },
       {
+        nombre: "Programas Electorales 2026 — Cuadro de Mandos",
+        descripcion: "Desglose temático cuantificado, comparativa artículo a artículo y buscador multiprograma de las medidas para las Generales 2026 (PP, PSOE, VOX, Sumar, Podemos, ERC, PNV, EH Bildu, Junts, BNG, CC, UPN, SALF) con exportación a PDF y Excel.",
+        url: "/aplicaciones/elecciones-generales-2026",
+        tipo: "interno",
+        estado: "disponible"
+      },
+      {
         nombre: "Voto 23J — Radiografía Electoral y Brújula Parlamentaria",
         descripcion: "Auditoría de programas, promesas cumplidas e incumplimientos de las elecciones de julio 2023. Test de afinidad de 21 preguntas con puntuación de 0 a 10 para los 11 partidos (incluyendo economía, modelo territorial, aborto y derechos), y 10 razones para votar a cada fuerza política.",
         url: "/aplicaciones/voto-23j",

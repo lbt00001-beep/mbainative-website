@@ -1,0 +1,753 @@
+{
+  "sourceUrl": "https://mbainative.com/aplicaciones/observatorio-electoral",
+  "pollsJsonUrl": "https://mbainative.com/aplicaciones/observatorio-electoral/data/polls.json",
+  "asOf": "2026-11-09",
+  "calculatedAt": "2026-11-13 11:01:17",
+  "projection2026": {
+    "majorityThreshold": 176,
+    "totalSeats": 350,
+    "parties": {
+      "pp": {
+        "pct": 31.72,
+        "seats": 134,
+        "label": "PP"
+      },
+      "psoe": {
+        "pct": 26.11,
+        "seats": 107,
+        "label": "PSOE / PSC"
+      },
+      "vox": {
+        "pct": 18.46,
+        "seats": 67,
+        "label": "Vox"
+      },
+      "sumar": {
+        "pct": 7.15,
+        "seats": 10,
+        "label": "Frente Amplio"
+      },
+      "erc": {
+        "pct": 2.25,
+        "seats": 8,
+        "label": "ERC"
+      },
+      "bildu": {
+        "pct": 1.38,
+        "seats": 7,
+        "label": "EH Bildu"
+      },
+      "junts": {
+        "pct": 1.24,
+        "seats": 4,
+        "label": "Junts"
+      },
+      "pnv": {
+        "pct": 0.91,
+        "seats": 4,
+        "label": "PNV"
+      },
+      "podemos": {
+        "pct": 2.24,
+        "seats": 2,
+        "label": "Podemos"
+      },
+      "bng": {
+        "pct": 0.99,
+        "seats": 2,
+        "label": "BNG"
+      },
+      "cc": {
+        "pct": 0.4,
+        "seats": 1,
+        "label": "Coalición Canaria"
+      },
+      "salf": {
+        "pct": 2.07,
+        "seats": 0,
+        "label": "SALF"
+      }
+    },
+    "otherSeats": {
+      "upn": 1,
+      "otros": 3
+    }
+  },
+  "recentPolls": [
+    {
+      "id": "gad3-20261109",
+      "institute": "GAD3",
+      "publishedAt": "2026-11-09",
+      "sample": null,
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "denominator": "unspecified",
+      "values": {
+        "pp": 32,
+        "psoe": 26,
+        "vox": 19,
+        "sumar": 12.3,
+        "erc": 2.7,
+        "bildu": 1.5,
+        "pnv": 0.9,
+        "bng": 0.9,
+        "cc": 0.4,
+        "aa": 0.3
+      },
+      "url": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-10",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. Muestra no publicada de forma interpretable; se reduce el peso. ",
+      "methodology": {
+        "mode": "telephone",
+        "recruitment": "unknown",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.gad3.com/barometro-abc-i-estimacion-de-voto-nacional-noviembre-2026",
+        "evidence": [
+          "Procedimiento de la recogida de la información : Encuesta telefónica (CATI) asistida por ordenador: 1.201 entrevistas a teléfonos móvil y 301 entrevistas a teléfonos fijos.",
+          "Cuotas : Por sexo, edad y ámbito geográfico en función del censo electoral (INE)."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.5",
+        "sha256": "6093ede906c93c53e1aedc684d6cdc18e26dd1f438a9f94e7c8bf42f4f6e5b04",
+        "checkedAt": "2026-11-10",
+        "fragments": {
+          "pp": "a realizada por GAD3 para ABC a principios de noviembre señala que el Partido Popular obtendría 136 escaños y el 32% de los votos. El PSOE alcanza",
+          "psoe": "ue el Partido Popular obtendría 136 escaños y el 32% de los votos. El PSOE alcanzaría 103 escaños con un 26% del respaldo, seguido de Vox,",
+          "vox": "s. El PSOE alcanzaría 103 escaños con un 26% del respaldo, seguido de Vox, que lograría 63 diputados y un 19% de apoyo. En 2023, Frente Amp",
+          "sumar": "Compromís, UPC, CHA, Ara Més, Podemos y A. Andalucía concurrieron en Sumar con un 12,3% de los votos y 31 diputados.",
+          "erc": "especto al resto de formaciones políticas, los resultados recogen que ERC obtendría 12 escaños y un 2,7% de los votos, JutsxCat 1,4% d",
+          "bildu": "at 1,4% de votos y 5 escaños, PNV 4 escaños con el 0,9% de los votos, Bildu 8 escaños con el 1,5% de votos, 2 escaños para BNG",
+          "pnv": "2 escaños y un 2,7% de los votos, JutsxCat 1,4% de votos y 5 escaños, PNV 4 escaños con el 0,9% de los votos, Bildu 8 escaños",
+          "bng": "9% de los votos, Bildu 8 escaños con el 1,5% de votos, 2 escaños para BNG con el 0,9% y 1 escaño para Coalición Can",
+          "cc": "con el 1,5% de votos, 2 escaños para BNG con el 0,9% y 1 escaño para Coalición Canaria con el 0,4% de votos. Frente Amplio: Suma",
+          "aa": "os y 6 escaños para Frente Amplio, Compromís con un 1,5% y 5 escaños, Adelante Andalucía con un 1,6% y 3 escaños y Ara Més con un 0,3% y 1 escaño. Respecto al resto"
+        }
+      }
+    },
+    {
+      "id": "sigmados-20261106",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-11-09",
+      "sample": null,
+      "fieldworkStart": "2026-10-30",
+      "fieldworkEnd": "2026-11-06",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31,
+        "psoe": 25.2,
+        "vox": 19.4,
+        "sumar": 6.5,
+        "podemos": 1.6,
+        "erc": 2.9,
+        "bildu": 1.3,
+        "pnv": 0.9,
+        "junts": 1.2,
+        "bng": 1,
+        "cc": 0.4,
+        "aa": 1.6
+      },
+      "url": "https://www.sigmados.com/noticia?id=Zr7XEKTN9GLN00s",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-10",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. Muestra no publicada de forma interpretable; se reduce el peso.  Front Valencià se publica por separado (1,2 %): se conserva en unmodeledValues, sin sumarlo a Sumar ni proyectarlo como candidatura independiente. No hay desglose SALF verificado en este artículo.",
+      "unmodeledValues": {
+        "fv": 1.2
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/noticia?id=Zr7XEKTN9GLN00s",
+        "evidence": [
+          "Ficha técnica Población de referencia y ámbito geográfico: Personas de 18 y más años residentes en España con derecho a voto.Técnica de recogida de información: Metodología mixta: telefónica (CATI) y On line (CAWI) a través del Panel Sigma Dos by Trust Survey.Tamaños m uestrales: 4.172 entrevistas.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.5",
+        "sha256": "9fc72a77e0ff93213cc92f9655c3372f66c1bb30766805f8cc2dc227d266ac02",
+        "checkedAt": "2026-11-10",
+        "fragments": {
+          "pp": "en una semana que da inicio a la campaña. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 31,0 % de los sufragios, lo que le o",
+          "psoe": "0 % de los sufragios, lo que le otorgaría entre 131 y 137 escaños. El PSOE registraría el 25,2 % de la intención de voto y ent",
+          "vox": "25,2 % de la intención de voto y entre 101 y 106 escaños, seguido por Vox, que obtendría el 19,4 % de los apoyos y entre 62 y 70",
+          "sumar": "19,4 % de los apoyos y entre 62 y 70 representantes. Por su parte, el Frente Amplio sumaría el 6,5 % de las papeletas logrando ent",
+          "podemos": "% de las papeletas logrando entre 9 y 11 parlamentarios, mientras que Podemos cosecharía el 1,6 % de los votos, quedándose sin",
+          "erc": "e sin representación (0 asientos). En cuanto al resto de formaciones, ERC obtendría entre 8 y 9 escaños (2,9 %), seguida por Adelante Andalu",
+          "bildu": "por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,6 %) y EH Bildu con una estimación de entre 6 y 8 asientos (1,3 %). Junts lograría entre 5 y 6",
+          "pnv": "entre 3 y 4 escaños (1,2 %) y el BNG alcanzaría 2 escaños (1,0 %). El PNV conseguiría entre 4 y 6 representantes (0,9 %), mientras que UPC y Coalició",
+          "junts": "1,6 %) y EH Bildu con una estimación de entre 6 y 8 asientos (1,3 %). Junts lograría entre 5 y 6 diputados (1,2 %), Front Valencià (FV) obtendr",
+          "bng": ",2 %), Front Valencià (FV) obtendría entre 3 y 4 escaños (1,2 %) y el BNG alcanzaría 2 escaños (1,0 %). El PNV conseguiría entre 4",
+          "cc": "NV conseguiría entre 4 y 6 representantes (0,9 %), mientras que UPC y Coalición Canaria (CCA) cerrarían la representación parlamentaria con 1 escaño (0,4 %) y la posibilidad de obtener",
+          "aa": "e formaciones, ERC obtendría entre 8 y 9 escaños (2,9 %), seguida por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,6 %) y EH Bildu con una estimació",
+          "fv": "Front Valencià (FV) obtendría entre 3 y 4 escaños (1,2 %)"
+        }
+      }
+    },
+    {
+      "id": "sigmados-20261030",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-11-02",
+      "sample": 2505,
+      "fieldworkStart": "2026-10-29",
+      "fieldworkEnd": "2026-10-30",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31.1,
+        "psoe": 24.6,
+        "vox": 19.3,
+        "sumar": 7.1,
+        "podemos": 1.9,
+        "erc": 3,
+        "bildu": 1.3,
+        "pnv": 0.9,
+        "junts": 1.1,
+        "bng": 1,
+        "cc": 0.4,
+        "aa": 1.4
+      },
+      "url": "https://www.sigmados.com/noticia?id=sa0OT7jgxEjay6E",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso.  Front Valencià se publica por separado (0,9 %): se conserva en unmodeledValues, sin sumarlo a Sumar ni proyectarlo como candidatura independiente. No hay desglose SALF verificado en este artículo.",
+      "unmodeledValues": {
+        "fv": 0.9
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/noticia?id=sa0OT7jgxEjay6E",
+        "evidence": [
+          "Técnica de recogida de información: Metodología mixta: telefónica (CATI) y online (CAWI) a través del Panel Sigma Dos by Trust Survey.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.4",
+        "sha256": "8661f63e8ee52204b3b16c594d385c8fe3b19c3f34cdf264696f529ba2add190",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "pp": "do tras el accidente ferroviario de Urda. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 31,1 % de los sufragios, lo que le o",
+          "psoe": "1 % de los sufragios, lo que le otorgaría entre 133 y 139 escaños. El PSOE registraría el 24,6 % de la intención de voto y ent",
+          "vox": "24,6 % de la intención de voto y entre 97 y 103 escaños, seguido por Vox, que obtendría el 19,3 % de los apoyos y entre 63 y 69",
+          "sumar": "19,3 % de los apoyos y entre 63 y 69 representantes. Por su parte, el Frente Amplio sumaría el 7,1 % de las papeletas logrando ent",
+          "podemos": "% de las papeletas logrando entre 9 y 11 parlamentarios, mientras que Podemos cosecharía el 1,9 % de los votos, traduciéndose e",
+          "erc": "nseguir un asiento en el Congreso. En cuanto al resto de formaciones, ERC obtendría entre 9 y 11 escaños (3,0 %), seguida por Adelante Andalu",
+          "bildu": "por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,4 %) y EH Bildu con una estimación de entre 7 y 8 asientos (1,3 %). Junts lograría entre 6 dipu",
+          "pnv": "ía entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños (1,0 %), el PNV conseguiría entre 5 y 6 representantes (0,9 %) y Front Valencià (FV) obtend",
+          "junts": "1,4 %) y EH Bildu con una estimación de entre 7 y 8 asientos (1,3 %). Junts lograría entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños",
+          "bng": "7 y 8 asientos (1,3 %). Junts lograría entre 6 diputados (1,1 %), el BNG alcanzaría 2 escaños (1,0 %), el PNV conseguiría entre 5",
+          "cc": "nt Valencià (FV) obtendría entre 3 y 4 diputados (0,9 %). Finalmente, Coalición Canaria (CCA) cerraría la representación parlamentaria con un hipotético escaño en disputa (0,4 %). Ficha técnica Población de",
+          "aa": "formaciones, ERC obtendría entre 9 y 11 escaños (3,0 %), seguida por Adelante Andalucía (AA) con entre 3 y 4 representantes (1,4 %) y EH Bildu con una estimació",
+          "fv": "Front Valencià (FV) obtendría entre 3 y 4 diputados (0,9 %)"
+        }
+      }
+    },
+    {
+      "id": "targetpoint-20261030",
+      "institute": "Target Point",
+      "publishedAt": "2026-11-02",
+      "sample": 1024,
+      "fieldworkStart": "2026-10-28",
+      "fieldworkEnd": "2026-10-30",
+      "denominator": "unspecified",
+      "values": {
+        "podemos": 2.4,
+        "sumar": 6.6,
+        "psoe": 25.5,
+        "pp": 31.8,
+        "vox": 19.9,
+        "salf": 2.6
+      },
+      "url": "https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso.  Porcentajes de la columna actual del gráfico original, sin sumar resultados de 2023, transferencias ni valoraciones. Frente Amplio se armoniza con Sumar.",
+      "voteChart": {
+        "url": "https://datawrapper.dwcdn.net/PsxzP/1/",
+        "dataUrl": "https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+        "sha256": "065f8dd989d4e5936c138c2b542147edc62fade7532901d4d36bc35bee6b9050"
+      },
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "unknown",
+        "weighting": "documented",
+        "sourceUrl": "https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html",
+        "evidence": [
+          "Universo: población empadronada y residente en España (excepto Ceuta y Melilla), desde 18 años y con derecho a voto.Tamaño de la muestra: 1.024 encuestas diseñadas y estratificadas previamente por sexo, rangos de edad y CC.AA., y ponderadas posteriormente mediante iteraciones (rake) por sexo, rangos de edad, CC.AA., hábitat (tamaño de municipio), nivel educativo y situación laboral/ocupación.",
+          "Adicionalmente, se implementa también ponderación por recuerdo de voto en elecciones generales de 2023.",
+          "Método de trabajo de campo: encuestas a panelistas online, por sistema CAWI."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.5",
+        "sha256": "358d96d9cd24af230dcfb034b560171f98e5b44f13f744fecc3a70d89e0f197c",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "podemos": "Podemos · columna Porcentaje: 2,4; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "sumar": "Frente Amplio · columna Porcentaje: 6,6; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "psoe": "PSOE · columna Porcentaje: 25,5; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "pp": "PP · columna Porcentaje: 31,8; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "vox": "Vox · columna Porcentaje: 19,9; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv",
+          "salf": "Se acabó la fiesta · columna Porcentaje: 2,6; https://datawrapper.dwcdn.net/PsxzP/1/dataset.csv"
+        }
+      }
+    },
+    {
+      "id": "electopanel-20261030",
+      "institute": "ElectoPanel",
+      "publishedAt": "2026-11-01",
+      "sample": 1527,
+      "fieldworkStart": "2026-10-28",
+      "fieldworkEnd": "2026-10-30",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31.5,
+        "psoe": 25.8,
+        "vox": 19.2,
+        "sumar": 7.6,
+        "erc": 2.2,
+        "podemos": 1.7,
+        "salf": 1.6,
+        "bildu": 1.4,
+        "junts": 1.2,
+        "bng": 1,
+        "aa": 1,
+        "pnv": 0.9,
+        "cc": 0.3
+      },
+      "url": "https://electomania.es/electopanel-1-nov-el-psoe-baja-y-vuelve-a-minimos/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-01",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. ",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://electomania.es/electopanel-1-nov-el-psoe-baja-y-vuelve-a-minimos/",
+        "evidence": [
+          "Ficha técnica Encuestadora: ElectoPanel (Calle de Gran Vía, 6, 28013, Madrid · Santa Susana, 31, 33007, Oviedo).",
+          "Publicación: Electomanía.es Ámbito: Nacional Universo: personas con derecho a voto en España Tamaño muestral: 1.527 cuestionarios satisfactorios Error muestral: ±2,6% al 95,5% de confianza Trabajo de campo: del 28/10/2026 al 30/10/2026 Procedimiento: cuestionario online, asistido por ordenador (CAWI), tracking, incluyendo un 60% de panelistas fijos Duración: 4-5 min Cuotas: por territorio, sexo, edad, formación e interés político Cuestionario completo: electopanel.com/ep16oct26 "
+        ]
+      },
+      "extraction": {
+        "adapter": "1.3",
+        "sha256": "7a3d53f8ca11a457085e0fc1c34cd73c57295680c3e4bc20b6485ddb4a160fc6",
+        "checkedAt": "2026-11-01",
+        "fragments": {
+          "pp": "PP | Conservadurismo · Liberalismo · Democracia cristiana · Recentralismo | 31,5% | 133",
+          "psoe": "PSOE | Socialdemocracia · Socioliberalismo · Progresismo · Europeísmo | 25,8% | 108",
+          "vox": "Vox | Nacionalismo español · Recentralismo · Anti-autonomismo · Conservadurismo | 19,2% | 64",
+          "sumar": "Frente Amplio | Socialismo · Anti-imperialismo · Progresismo | 6,2% | 12 + Compromís 1.4 (armonización explícita del espacio 2023)",
+          "erc": "ERC | Republicanismo · Indepentismo catalán · Pancatalanismo · Europeísmo | 2,2% | 8",
+          "podemos": "Podemos | Progresismo · Socialismo democrático · Feminismo · Republicanismo | 1,7% | 1",
+          "salf": "Se Acabó la Fiesta | Ultraconservador · Populismo | 1,6% | 0",
+          "bildu": "EH Bildu | Izquierdismo abertzale · Nacionalismo vasco · Independentismo vasco · Socialismo | 1,4% | 7",
+          "junts": "Junts | Independentismo catalán · Nacionalismo catalán · Unilateralismo · Transversalismo | 1,2% | 5",
+          "bng": "BNG | Nacionalismo gallego · Indepentismo gallego · Soberanismo · Socialismo | 1,0% | 2",
+          "aa": "Adelante Andalucía | Progresismo · Andalucismo · Feminismo · Republicanismo | 1,0% | 2",
+          "pnv": "PNV | Nacionalismo vasco · Democracia cristiana · Soberanismo · Europeísmo | 0,9% | 6",
+          "cc": "CC | Regionalismo · Nacionalismo canario · Liberalismo · Monarquismo | 0,3% | 0"
+        }
+      }
+    },
+    {
+      "id": "sociomtrica-20261101",
+      "institute": "SocioMétrica",
+      "publishedAt": "2026-11-01",
+      "sample": null,
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "denominator": "unspecified",
+      "values": {
+        "pp": 32.2,
+        "psoe": 26.6,
+        "vox": 12.3,
+        "sumar": 4.4,
+        "podemos": 2.5,
+        "salf": 2.5,
+        "erc": 0.9,
+        "bildu": 1.4,
+        "junts": 1.4
+      },
+      "url": "https://www.elespanol.com/espana/politica/20261101/primer-sondeo-tragedia-pp-vox-amplian-ventaja-sanchez-sigue-cayendo-pese-vaciar-frente-amplio/1003744442810_0.html",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-01",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. Muestra no publicada de forma interpretable; se reduce el peso. ",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "documented",
+        "sourceUrl": "https://www.elespanol.com/espana/politica/20261101/primer-sondeo-tragedia-pp-vox-amplian-ventaja-sanchez-sigue-cayendo-pese-vaciar-frente-amplio/1003744442810_0.html",
+        "evidence": [
+          "Ficha técnicaTracking electoral para EL ESPAÑOL: acumulado de 4.893 entrevistas CAWI (panel online) desde el 1 de septiembre, con cortes de estimación en decalaje de 3.000, 2.000 y 1.000 entrevistas y los correspondientes análisis de tendencias.",
+          "La muestra se ha equilibrado en fases sucesivas mediante cuotas de sexo, edad, provincia y recuerdo de voto, así como otras variables de fuerte influencia en el voto.",
+          "Postponderación por fecha creciente.",
+          "El ajuste de la convergencia por interacción para el total nacional es del 97 % (no procede error muestral por tratarse de un muestreo no probabilístico, si bien puede estimarse el error de equilibraje en ±3 %)."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.3",
+        "sha256": "c91cd346e73a2cae96a0d7f9012935efe904fe6cc90a9bdd9fe14a98b9cc626d",
+        "checkedAt": "2026-11-01",
+        "fragments": {
+          "pp": "OE de Pedro Sánchez había iniciado tras la convocatoria electoral. El PP de Alberto Núñez Feijóo ganaría hoy las elecciones generales con 137 escaños (32,2%), dos más de los que le otorg",
+          "psoe": "la Guerra Civil) que la Moncloa había diseñado para Pedro Sánchez. El PSOE hoy obtendría 106 diputados (26,6%). Retrocede dos en una semana",
+          "vox": "rar los dos que obtiene su coalición con UPN por Navarra. En cuanto a Vox, ya casi duplica sus resultados de las elecciones de 2023: si entonces sacó 33 escaños (12,3%), hoy obtendría 64 (19,1%). E",
+          "sumar": "o\". Mientras la candidata Ada Colau intenta afianzar su liderazgo, el Frente Amplio hoy se quedaría con sólo 5 escaños (4,4%), uno menos de los que le oto",
+          "podemos": "idos nacionalistas conservadores (Junts y PNV). La lista conjunta ERC-Podemos obtendría hoy 9 escaños (2,5%), dos más de los que el parti",
+          "salf": "iguen sin opciones de obtener escaño tanto la agrupación de electores Se Acabó la Fiesta (SALF) de Alvise Pérez, que se quedaría en el 2,5% del voto, como Iustitia Europ",
+          "erc": "nciana: el Front Valencià constituido por Compromís con Podemos, IU y ERC obtendría 3 (0,9%). Es decir, la izquierda naci",
+          "bildu": "Puigdemont a España. La misma tendencia se produce en el País Vasco: Bildu se impone con 7 diputados (1,4%), al arrebatar uno al PNV, qu",
+          "junts": "), dos más de los que el partido de Rufián sacó en 2023 en solitario. Junts perdería uno y se quedaría con 6 (1,4%), a la espera del regreso de"
+        }
+      }
+    },
+    {
+      "id": "sigmados-20261022",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-10-26",
+      "sample": 3122,
+      "fieldworkStart": "2026-10-08",
+      "fieldworkEnd": "2026-10-22",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 30.6,
+        "psoe": 26.1,
+        "vox": 19.9,
+        "sumar": 7.4,
+        "podemos": 2.8,
+        "erc": 2.5,
+        "bildu": 1.2,
+        "pnv": 0.9,
+        "junts": 1.2,
+        "bng": 0.9,
+        "cc": 0.4,
+        "aa": 1
+      },
+      "url": "https://www.sigmados.com/noticia?id=OUze2FxEIVfARtu3",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. ",
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/noticia?id=OUze2FxEIVfARtu3",
+        "evidence": [
+          "FICHA TÉCNICAPoblación de referencia y ámbito geográfico: Personas de 18 y más años residentes en España con derecho a voto.Técnica de recogida de información: Metodología mixta: telefónica (CATI) y online (CAWI) a través del Panel Sigma Dos by Trust Survey.Tamaños muestrales : 3122 entrevistas.Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.4",
+        "sha256": "1d3eda902378609344ae11584da0a6c83c38c3b6885293297bc948b9586e695d",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "pp": "lecciones Generales del 29 de noviembre . Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 30,6 % de los sufragios, lo que le o",
+          "psoe": "% de los sufragios, lo que le otorgaría entre 125 y 131 escaños . El PSOE registraría el 26,1 % de la intención de voto y ent",
+          "vox": "26,1 % de la intención de voto y entre 103 y 109 escaños, seguido por Vox, que obtendría el 19,9 % de los apoyos y entre 66 y 69",
+          "sumar": "9,9 % de los apoyos y entre 66 y 69 representantes . Por su parte, el Frente Amplio sumaría el 7,4 % de las papeletas logrando ent",
+          "podemos": "de las papeletas logrando entre 10 y 12 parlamentarios, mientras que Podemos cosecharía el 2,8 % de los votos, traduciéndose e",
+          "erc": "dose en 1 asiento en el Congreso . En cuanto al resto de formaciones, ERC obtendría entre 8 y 9 escaños (2,5 %), seguida por EH Bildu con un",
+          "bildu": "e formaciones, ERC obtendría entre 8 y 9 escaños (2,5 %), seguida por EH Bildu con una estimación de entre 7 y 8 asientos (1,2 %) y Junts con entre 6 y 7 dipu",
+          "pnv": "elante Andalucía (AA) lograría entre 2 y 3 representantes (1,0 %), el PNV conseguiría entre 4 y 5 escaños (0,9 %) y el BNG alcanzaría 2 diputa",
+          "junts": "ida por EH Bildu con una estimación de entre 7 y 8 asientos (1,2 %) y Junts con entre 6 y 7 diputados (1,2 %) . Adelante Andalucía (AA) lo",
+          "bng": "entantes (1,0 %), el PNV conseguiría entre 4 y 5 escaños (0,9 %) y el BNG alcanzaría 2 diputados (0,9 %) . Finalmente, Compromís obte",
+          "cc": ",9 %) . Finalmente, Compromís obtendría entre 2 y 3 escaños (0,8 %) y Coalición Canaria (CCA) cerraría la representación parlamentaria con 0-1 escaño (0,4 %) . FICHA TÉCNICAPoblación de",
+          "aa": "re 7 y 8 asientos (1,2 %) y Junts con entre 6 y 7 diputados (1,2 %) . Adelante Andalucía (AA) lograría entre 2 y 3 representantes (1,0 %), el PNV conseguiría entre 4"
+        }
+      }
+    },
+    {
+      "id": "electopanel-20261023",
+      "institute": "ElectoPanel",
+      "publishedAt": "2026-10-25",
+      "sample": 4309,
+      "fieldworkStart": "2026-10-17",
+      "fieldworkEnd": "2026-10-23",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 30.9,
+        "psoe": 26.7,
+        "vox": 19,
+        "sumar": 7,
+        "erc": 2.2,
+        "podemos": 1.7,
+        "salf": 1.7,
+        "bildu": 1.4,
+        "junts": 1.3,
+        "aa": 1.1,
+        "bng": 1,
+        "pnv": 1,
+        "cc": 0.3
+      },
+      "url": "https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-31",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. ",
+      "methodology": {
+        "mode": "online",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://electomania.es/electopanel-25-octubre-el-pp-baja-de-nuevo-frente-amplio-crece/",
+        "evidence": [
+          "Ficha técnica Encuestadora: ElectoPanel (Calle de Gran Vía, 6, 28013, Madrid · Santa Susana, 31, 33007, Oviedo).",
+          "Publicación: Electomanía.es Ámbito: Nacional Universo: personas con derecho a voto en España Tamaño muestral: 4.309 cuestionarios satisfactorios Error muestral: ±2,0% al 95,5% de confianza Trabajo de campo: del 17/10/2026 al 23/10/2026 Procedimiento: cuestionario online, asistido por ordenador (CAWI), tracking, incluyendo un 60% de panelistas fijos Duración: 4-5 min Cuotas: por territorio, sexo, edad, formación e interés político Cuestionario completo: electopanel.com/ep16oct26 "
+        ]
+      },
+      "extraction": {
+        "adapter": "1.3",
+        "sha256": "054064d5d26e54c0acf80a136f23f8e5ce21cc8b6a2c7b76d71fc8eac8e8928c",
+        "checkedAt": "2026-10-31",
+        "fragments": {
+          "pp": "PP | Conservadurismo · Liberalismo · Democracia cristiana · Recentralismo | 30,9% | 132",
+          "psoe": "PSOE | Socialdemocracia · Socioliberalismo · Progresismo · Europeísmo | 26,7% | 111",
+          "vox": "Vox | Nacionalismo español · Recentralismo · Anti-autonomismo · Conservadurismo | 19,0% | 62",
+          "sumar": "Frente Amplio | Socialismo · Anti-imperialismo · Progresismo | 5,8% | 11 + Compromís 1.2 (armonización explícita del espacio 2023)",
+          "erc": "ERC | Republicanismo · Indepentismo catalán · Pancatalanismo · Europeísmo | 2,2% | 8",
+          "podemos": "Podemos | Progresismo · Socialismo democrático · Feminismo · Republicanismo | 1,7% | 1",
+          "salf": "Se Acabó la Fiesta | Ultraconservador · Populismo | 1,7% | 0",
+          "bildu": "EH Bildu | Izquierdismo abertzale · Nacionalismo vasco · Independentismo vasco · Socialismo | 1,4% | 7",
+          "junts": "Junts | Independentismo catalán · Nacionalismo catalán · Unilateralismo · Transversalismo | 1,3% | 5",
+          "aa": "Adelante Andalucía | Progresismo · Andalucismo · Feminismo · Republicanismo | 1,1% | 2",
+          "bng": "BNG | Nacionalismo gallego · Indepentismo gallego · Soberanismo · Socialismo | 1,0% | 3",
+          "pnv": "PNV | Nacionalismo vasco · Democracia cristiana · Soberanismo · Europeísmo | 1,0% | 6",
+          "cc": "CC | Regionalismo · Nacionalismo canario · Liberalismo · Monarquismo | 0,3% | 0"
+        }
+      }
+    },
+    {
+      "id": "imop-20261016",
+      "institute": "IMOP",
+      "publishedAt": "2026-10-23",
+      "sample": 1000,
+      "fieldworkStart": "2026-10-13",
+      "fieldworkEnd": "2026-10-16",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 28.5,
+        "psoe": 27.1,
+        "vox": 20,
+        "sumar": 8.9,
+        "podemos": 1.9,
+        "erc": 2.2,
+        "bildu": 1.3,
+        "bng": 1.1,
+        "aa": 1,
+        "cc": 0.6,
+        "junts": 1.2,
+        "pnv": 1
+      },
+      "url": "https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-23",
+      "note": "Transcripción revisada del gráfico original, con comprobación automática de su huella y ficha técnica. Datos de la serie IMOP (23 oct.) del gráfico público original, no resultado 2023 ni IMOP (9 oct.). Frente Amplio (Sumar) se armoniza con Sumar; PP incluye la agrupación con UPN del gráfico, sin desglose independiente. SALF no aparece: no se añade ni se deduce. No se importan los escaños de la casa. Denominador no explícito, con reducción de peso; margen general orientativo no utilizado como intervalo por partido.",
+      "reviewedChart": {
+        "url": "https://datos.elconfidencial.com/encuestas_IMOP-231026/",
+        "sha256": "868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794"
+      },
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "unknown",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/",
+        "evidence": [
+          "Control de cuotas por sexo y edad y nivel de estudios Técnica de entrevista: Metodología híbrida, mediante la combinación de entrevista telefónica (CATI) y entrevista online (CAWI), con una distribución aproximada de 45%/55%."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.3",
+        "sha256": "f27b9c8d61dd03d026b7c6decc228f4b6f902010856a8b0ae88139037a23ad35",
+        "checkedAt": "2026-10-23",
+        "fragments": {
+          "pp": "Gráfico original revisado: 28.5; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "psoe": "Gráfico original revisado: 27.1; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "vox": "Gráfico original revisado: 20; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "sumar": "Gráfico original revisado: 8.9; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "podemos": "Gráfico original revisado: 1.9; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "erc": "Gráfico original revisado: 2.2; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "bildu": "Gráfico original revisado: 1.3; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "bng": "Gráfico original revisado: 1.1; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "aa": "Gráfico original revisado: 1; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "cc": "Gráfico original revisado: 0.6; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "junts": "Gráfico original revisado: 1.2; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794",
+          "pnv": "Gráfico original revisado: 1; https://datos.elconfidencial.com/encuestas_IMOP-231026/; SHA256 868b7c7f873c10cd69ecca69e417584f8750b342fc7f3b8986cc0399bf5f9794"
+        }
+      }
+    },
+    {
+      "id": "sociomtrica-20261020",
+      "institute": "SocioMétrica",
+      "publishedAt": "2026-10-20",
+      "sample": null,
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "denominator": "unspecified",
+      "values": {
+        "pp": 22.2,
+        "psoe": 34,
+        "vox": 33.6,
+        "sumar": 6,
+        "podemos": 4
+      },
+      "url": "https://www.elespanol.com/espana/20261020/simulaciones-sanchez-solo-opciones-derecha-no-consiga-mayoria-absoluta/1003744426927_0.html?utm_cmp_rs=trends",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-20",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. Muestra no publicada de forma interpretable; se reduce el peso. ",
+      "methodology": {
+        "mode": "unknown",
+        "recruitment": "unknown",
+        "quotas": "unknown",
+        "weighting": "documented",
+        "sourceUrl": "https://www.elespanol.com/espana/20261020/simulaciones-sanchez-solo-opciones-derecha-no-consiga-mayoria-absoluta/1003744426927_0.html?utm_cmp_rs=trends",
+        "evidence": [
+          "El segundo relato procede de una moda reciente: llevar a las tertulias a supuestos gurús demoscópicos que, con datos del propio CIS o con encuestas ponderadas a capricho, dibujan marcos de remontada más propios de una ilusión.",
+          "Entre esos escenarios defienden un empate técnico entre PP y PSOE, altas probabilidades de que un nuevo \"pacto de progreso\" vuelva a gobernar, 28 provincias empatadas o un desenlace que se decide \"a diez escaños y un penalti\".",
+          "Probabilidades de un giro Para responder a la pregunta de si es posible la remontada de la izquierda hemos simulado 6.000 escenarios.",
+          "De esos escenarios analizados se desprenden seis probabilidades que resumen el estado de la carrera."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.2",
+        "sha256": "efe6a32991ca327f7ab3d43379df29e3cd1cf5ef811c05e0e69ae72e4a05dc77",
+        "checkedAt": "2026-10-20",
+        "fragments": {
+          "pp": ". En su barómetro de octubre, el CIS coloca al PSOE en el 34,0 % y al PP en el 22,2 %: 11,8 puntos de ventaja socia",
+          "psoe": "irma José Félix Tezanos. En su barómetro de octubre, el CIS coloca al PSOE en el 34,0 % y al PP en el 22,2 %: 11,8 pu",
+          "vox": "ales, el 23-J, PSOE y Sumar congregaron el 44% del voto, y la suma PP-VOX el 45%, es decir solo un punto más, insuficiente para formar gobierno. Sin embargo, hoy esas cifras son del 33,6% y del 51,3%: una distancia de",
+          "sumar": "aba el día en que se convocaron las elecciones. En todos estos meses, Sumar se ha mantenido plano, en torno al 6%, y Podemos apenas ha vuelto a",
+          "podemos": "En todos estos meses, Sumar se ha mantenido plano, en torno al 6%, y Podemos apenas ha vuelto a acercarse al 4%. El conjunto de la izquierda"
+        }
+      }
+    },
+    {
+      "id": "sigmados-20261014",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-10-19",
+      "sample": 3007,
+      "fieldworkStart": "2026-10-01",
+      "fieldworkEnd": "2026-10-14",
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31.5,
+        "psoe": 25.3,
+        "vox": 19.5,
+        "sumar": 7.2,
+        "podemos": 2.8,
+        "erc": 2.5,
+        "pnv": 0.9,
+        "bng": 0.8,
+        "cc": 0.5,
+        "aa": 0.8
+      },
+      "url": "https://www.sigmados.com/noticia?id=EIJOKGN2GFZmhHt",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-11-02",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. ",
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/noticia?id=EIJOKGN2GFZmhHt",
+        "evidence": [
+          "Técnica de recogida de información: Metodología mixta: telefónica (CATI) y on line (CAWI) a través del Panel Sigma Dos by Trust Survey.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.4",
+        "sha256": "1fbbc382557872fce07ace56addc1252499a0f526ee09560c1cc91ea9876d90a",
+        "checkedAt": "2026-11-02",
+        "fragments": {
+          "pp": "o y el acuerdo entre PP y UPN en Navarra. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 31,5 % de los sufragios, lo que le o",
+          "psoe": "ios, lo que le otorgaría una horquilla de entre 132 y 137 escaños. El PSOE registraría el 25,3 % de la intención de voto y ent",
+          "vox": "25,3 % de la intención de voto y entre 101 y 106 escaños, seguido por Vox, que obtendría el 19,5 % de los apoyos y entre 65 y 68",
+          "sumar": "19,5 % de los apoyos y entre 65 y 68 representantes. Por su parte, el Frente Amplio sumaría el 7,2 % de las papeletas logrando ent",
+          "podemos": "% de las papeletas logrando entre 9 y 10 parlamentarios, mientras que Podemos cosecharía el 2,8 % de los votos, traduciéndose e",
+          "erc": "ndose en 1 asiento en el Congreso. En cuanto al resto de formaciones, ERC obtendría 9 escaños (2,5 %), seguida por Junts (1,2 %) y",
+          "pnv": "H Bildu (1,2 %), ambas con una estimación de entre 6 y 7 asientos. El PNV lograría entre 5 y 6 representantes (0,9 %), mientras que Compromís obte",
+          "bng": ", mientras que Compromís obtendría entre 3 y 4 diputados (0,9 %) y el BNG alcanzaría 2 escaños (0,8 %). Adelante Andalucía (AA) log",
+          "cc": "Adelante Andalucía (AA) lograría entre 1 y 2 representantes (0,8 %) y Coalición Canaria (CCA) cerraría la representación parlamentaria con 1 escaño (0,5 %). Tendencias Respecto al sond",
+          "aa": "entre 3 y 4 diputados (0,9 %) y el BNG alcanzaría 2 escaños (0,8 %). Adelante Andalucía (AA) lograría entre 1 y 2 representantes (0,8 %) y Coalición Canaria (CCA) ce"
+        }
+      }
+    },
+    {
+      "id": "sigmados-20261012",
+      "institute": "Sigma Dos",
+      "publishedAt": "2026-10-12",
+      "sample": 2017,
+      "fieldworkStart": null,
+      "fieldworkEnd": null,
+      "denominator": "unspecified",
+      "values": {
+        "pp": 31.9,
+        "psoe": 25.3,
+        "vox": 19.1,
+        "sumar": 7.6,
+        "podemos": 3.1,
+        "erc": 2.6,
+        "aa": 0.8
+      },
+      "url": "https://www.sigmados.com/sondeo-de-arranque-de-campana-estimacion-de-voto-para-las-elecciones-generales-29-n/",
+      "verified": true,
+      "measure": "voteEstimate",
+      "retrievedAt": "2026-10-12",
+      "note": "Extracción automática de porcentajes explícitos del original. Denominador no declarado: se asume voto válido con reducción de peso. Campo no publicado de forma interpretable; se usa publicación y se reduce el peso. ",
+      "methodology": {
+        "mode": "mixed",
+        "recruitment": "panel",
+        "quotas": "documented",
+        "weighting": "unknown",
+        "sourceUrl": "https://www.sigmados.com/sondeo-de-arranque-de-campana-estimacion-de-voto-para-las-elecciones-generales-29-n/",
+        "evidence": [
+          "Técnica de recogida de información: A través del Panel Sigma Dos by Trust Survey.",
+          "Metodología mixta telefónica (CATI) / online (CAWI) / RRSS.",
+          "Selección de las unidades muestrales: En la entrevista telefónica mediante selección aleatoria de hogar y aplicación de cuotas de sexo y edad en la selección de la unidad última.",
+          "En el caso del panel se ha aplicado asignación proporcional por sexo y grupo de edad."
+        ]
+      },
+      "extraction": {
+        "adapter": "1.1",
+        "sha256": "7514281309ee99be866cd136657208dc47626050a7098efefad13af6954cd0cd",
+        "checkedAt": "2026-10-12",
+        "fragments": {
+          "pp": "enerales en el arranque de la precampaña. Nuestra estimación sitúa al Partido Popular (PP) como primera fuerza política con un 31,9 % de los sufragios, lo que le o",
+          "psoe": "con un 31,9 % de los sufragios, lo que le otorgaría 135 escaños . El PSOE registraría el 25,3 % de la intención de voto y 103",
+          "vox": "straría el 25,3 % de la intención de voto y 103 escaños , seguido por Vox , que obtendría el 19,1 % de los apoyos y 68 representa",
+          "sumar": "obtendría el 19,1 % de los apoyos y 68 representantes . Por su parte, Sumar sumaría el 7,6 % de las papeletas logrando 9 p",
+          "podemos": "ía el 7,6 % de las papeletas logrando 9 parlamentarios , mientras que Podemos cosecharía el 3,1 % de los votos, traduciéndose e",
+          "erc": "ose en 2 asientos en el Congreso . En cuanto al resto de formaciones, ERC obtendría 9 escaños ( 2,6 % ), seguida por Junts con 7 as",
+          "aa": "lograría 5 representantes ( 0,9 % ), mientras que el BNG ( 0,9 % ) y Adelante Andalucía (AA) ( 0,8 % ) conseguirían 2 diputados ca"
+        }
+      }
+    }
+  ]
+}

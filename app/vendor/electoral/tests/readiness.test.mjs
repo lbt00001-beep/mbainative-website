@@ -28,7 +28,7 @@ test('Fechas: una consulta sin sondeos nuevos no rejuvenece las observaciones',(
 test('Catálogo: exclusión mutua, fallo de escritura y evaluación fallida conservan datos',async()=>{
  const dir=await mkdtemp(path.join(tmpdir(),'electoral-store-'));await mkdir(path.join(dir,'data'));const file=path.join(dir,'data/polls.json'),original='{"asOf":"2026-10-06"}\n';await writeFile(file,original);
  try{
-  let release;const held=withCatalogLock(dir,()=>new Promise(r=>release=r));await new Promise(r=>setTimeout(r,20));await assert.rejects(withCatalogLock(dir,async()=>{}),/otra actualización/);release();await held;
+  let release,entered;const acquired=new Promise(resolve=>entered=resolve);const held=withCatalogLock(dir,()=>new Promise(r=>{release=r;entered();}));await acquired;await assert.rejects(withCatalogLock(dir,async()=>{}),/otra actualización/);release();await held;
   await assert.rejects(commitCatalog(dir,original,{asOf:'2026-10-07'},{writer:async()=>{throw Error('Disco lleno');}}),/Disco lleno/);assert.equal(await readFile(file,'utf8'),original);
   await assert.rejects(commitCatalog(dir,original,{asOf:'2026-10-07'},{verify:async()=>{throw Error('Evaluación fallida');}}),/Evaluación/);assert.equal(await readFile(file,'utf8'),original);
   await atomicWrite(file,'{"manual":true}');await assert.rejects(commitCatalog(dir,original,{asOf:'2026-10-07'}),/cambió/);assert.equal(await readFile(file,'utf8'),' {"manual":true}'.trim());

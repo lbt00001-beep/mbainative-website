@@ -1,8 +1,9 @@
 import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 import {contextReason} from './source-policy.mjs';
+import {isOriginal40dbReport,readTrackingVector} from './40db-tracking.mjs';
 
-export const ADAPTER_VERSION='1.5';
+export const ADAPTER_VERSION='1.6';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -177,8 +178,13 @@ export function extractArticle(html,url,{today,catalog=[],reviewedChart,voteChar
 
 export function extractPdf(pages,url,{today,catalog=[],publishedAt}={}){
  const original=catalog.find(p=>canonical(p.url)===canonical(url)),all=pages.join('\n').replace(/\s+/g,' ');
- let institute,values,evidence={};
- if(new URL(url).hostname==='ep00.epimg.net'&&/40dB\.es/.test(all)){
+ let institute,values,evidence={},extra={};
+ if(isOriginal40dbReport(url)&&/informe_tracking_dia\d{2}\.pdf$/i.test(new URL(url).pathname)&&/40dB\.es/.test(all)){
+  institute='40dB';
+  const publication=original?.publishedAt||publishedAt;
+  if(!validDate(publication)||publication>today)return {status:'pending',reason:'Necesita fecha de publicación comprobada y no futura.'};
+  try{const result=readTrackingVector(pages,url,publication);({values,evidence}=result);const {values:ignoredValues,evidence:ignoredEvidence,...details}=result;extra=details;}catch(e){return {status:'pending',reason:e.message};}
+ }else if(isOriginal40dbReport(url)&&/40dB\.es/.test(all)){
   institute='40dB';
   const vectors=[];
   for(let page=0;page<pages.length;page++){
@@ -216,6 +222,6 @@ export function extractPdf(pages,url,{today,catalog=[],publishedAt}={}){
  }
  const duplicate=catalog.find(p=>p.institute===institute&&p.fieldworkEnd===metadata.fieldworkEnd);
  if(duplicate)return {status:'duplicate',reason:'Misma encuesta y campo que el original ya incorporado.',original:duplicate.url};
- return {status:'extracted',poll:{id:institute.toLowerCase().replace(/[^a-z0-9]/g,'')+'-'+metadata.fieldworkEnd.replaceAll('-',''),institute,publishedAt:publication,...metadata,methodology:identifyMethodology(all,url),values,url,verified:true,measure:'voteEstimate',retrievedAt:today,note:'Vector nacional extraído del PDF original con ficha técnica verificada.'},evidence};
+ return {status:'extracted',poll:{id:institute.toLowerCase().replace(/[^a-z0-9]/g,'')+'-'+metadata.fieldworkEnd.replaceAll('-',''),institute,publishedAt:publication,...metadata,methodology:identifyMethodology(all,url),values,url,verified:true,measure:'voteEstimate',retrievedAt:today,note:'Vector nacional extraído del PDF original con ficha técnica verificada.',...extra},evidence};
 }
 

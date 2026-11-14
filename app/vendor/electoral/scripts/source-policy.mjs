@@ -4,7 +4,7 @@ export {issueKind};
 export const feeds=[
  ['GAD3','https://www.gad3.com/feed/'],['Sigma Dos','https://www.sigmados.com/noticias.php?lang=es'],
  ['ElectoPanel','https://electomania.es/feed/'],['More in Common','https://moreincommon.es/'],
- ['40dB / EL PAÍS','https://elpais.com/espana/'],['40dB / Cadena SER','https://cadenaser.com/tag/encuestas/a/'],
+ ['40dB / EL PAÍS','https://elpais.com/espana/'],['40dB / campaña electoral','https://elpais.com/espana/elecciones-generales/'],['40dB / Cadena SER','https://cadenaser.com/tag/encuestas/a/'],
  ['Ateneo / elDiario','https://www.eldiario.es/politica/'],['SocioMétrica / EL ESPAÑOL','https://www.elespanol.com/espana/politica/'],
  ['DYM / 20minutos','https://www.20minutos.es/nacional/'],['Target Point / El Debate','https://www.eldebate.com/espana/'],
  ['Hamalgama / Vozpópuli','https://www.vozpopuli.com/espana'],['Data10 / OKDIARIO','https://okdiario.com/espana'],

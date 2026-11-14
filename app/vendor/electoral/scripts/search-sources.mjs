@@ -13,6 +13,8 @@ import {withCatalogLock,commitCatalog,atomicWrite} from './catalog-store.mjs';
 import {estimateForDate} from '../assets/freshness.mjs';
 import {originalReports,reviewedCharts,verifyReviewedChart} from './original-reports.mjs';
 import {update40db} from './40db-microdata.mjs';
+import {isOriginal40dbReport,trackingReports} from './40db-tracking.mjs';
+export {isOriginal40dbReport} from './40db-tracking.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
 const hosts=new Set([...feeds.map(([,u])=>new URL(u).hostname),'www.cis.es','ep00.epimg.net','cadenaser.com','www.rtve.es','datos.elconfidencial.com','datawrapper.dwcdn.net']);
@@ -21,11 +23,10 @@ export function isPollPublication(link,feedUrl){
  if(contextReason(link.title))return false;
  if(new URL(feedUrl).hostname==='www.imop.es'&&!/electoral|elecciones|voto|sondeo/i.test(link.title))return false;
  const imopPublisher=new URL(feedUrl).hostname==='www.elconfidencial.com'&&/\/encuesta-imop-elecciones-/i.test(link.url||'');
- const recognized=imopPublisher||/sondeo|encuesta|bar[oó]metro|electopanel|pulso electoral/i.test(link.title);
+ const recognized=imopPublisher||/sondeo|encuesta|bar[oó]metro|electopanel|pulso electoral|tracking|40dB/i.test(link.title);
  const serElection=feedUrl==='https://cadenaser.com/tag/encuestas/a/'&&new URL(link.url).pathname.startsWith('/nacional/')&&/escaños|mayor[ií]a|voto|elecciones/i.test(link.title);
  return (recognized||serElection)&&!/auton[oó]mic|municipal|alcald|asamblea|junta general|empresari|alemania|valència|valencia|andaluc|catalu|castilla|europea|internacional|argentin|francia|portugal|chile/i.test(link.title);
 }
-export function isOriginal40dbReport(url){const u=new URL(url);return u.hostname==='ep00.epimg.net'&&/^\/infografias\/encuestas40db\//.test(u.pathname)&&/informe_voto[^/]*\.pdf$/i.test(u.pathname);}
 export function links(html,base){
  const found=[];
  for(const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)){
@@ -135,7 +136,7 @@ async function searchUnlocked(root){
  const originalText=await readFile(path.join(root,'data/polls.json'),'utf8'),catalog=JSON.parse(originalText);
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date());
  const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],microdataTargets:[],note:'Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
- const publications=[...catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id})),...originalReports.filter(p=>p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60)];
+ const publications=[...catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id})),...originalReports.filter(p=>p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60),...trackingReports(today)];
  const known=new Set(catalog.polls.map(p=>p.url.replace(/\/$/,'')));
  await Promise.allSettled(feeds.map(async([name,url])=>{
   try{const html=await retrieve(url),discovered=links(html,url);const candidates=discovered.filter(x=>isPollPublication(x,url));

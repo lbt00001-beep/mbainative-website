@@ -1,0 +1,37 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {parseHTML} from 'linkedom';
+import {initializeCisEstimator} from '../vendor/electoral/assets/cis-estimator-ui.mjs';
+
+test('CIS reestimado: la interfaz carga, cambia de estudio y actualiza la combinación',async t=>{
+ const html=await readFile(new URL('../vendor/electoral/index.html',import.meta.url),'utf8');
+ const bundle=JSON.parse(await readFile(new URL('../vendor/electoral/data/cis-reestimation.json',import.meta.url),'utf8'));
+ const {window,document}=parseHTML(html);
+ const oldDocument=Object.getOwnPropertyDescriptor(globalThis,'document'),oldOption=Object.getOwnPropertyDescriptor(globalThis,'Option');
+ Object.defineProperty(globalThis,'document',{value:document,configurable:true});
+ Object.defineProperty(globalThis,'Option',{value:function(text,value){const option=document.createElement('option');option.textContent=text;option.value=value;return option;},configurable:true});
+ Object.defineProperty(window.HTMLSelectElement.prototype,'value',{configurable:true,get(){return this.querySelector('option[selected]')?.value||this.querySelector('option')?.value||'';},set(value){for(const option of this.querySelectorAll('option')){if(option.value===String(value))option.setAttribute('selected','');else option.removeAttribute('selected');}}});
+ t.after(()=>{for(const [key,value]of [['document',oldDocument],['Option',oldOption]]){if(value)Object.defineProperty(globalThis,key,value);else delete globalThis[key];}});
+ t.mock.method(globalThis,'fetch',async()=>Response.json(bundle));
+ const consensus={asOf:'2026-11-15',values:{pp:31,psoe:27,vox:19,podemos:2,salf:2},coverage:{pp:12,psoe:12,vox:12,podemos:10,salf:6},selected:[{id:'fixture',institute:'Referencia de prueba',publishedAt:'2026-11-14',fieldworkEnd:'2026-11-13',url:'https://example.com/source'}]};
+ const render=await initializeCisEstimator({getConsensus:()=>consensus});
+ assert.equal(typeof render,'function');
+ const status=document.getElementById('cis-model-status');
+ assert.ok(!status.className.includes('error'),status.textContent);
+ assert.match(status.textContent,/3584/);
+ assert.equal(document.getElementById('cis-model-turnout').disabled,true);
+ assert.equal(document.getElementById('cis-model-sympathy').disabled,true);
+ const before=document.getElementById('cis-model-output').textContent;
+ assert.match(before,/Combinada/);assert.match(before,/No sabe todavía/);
+ const strength=document.getElementById('cis-model-consensus');strength.value='1';strength.dispatchEvent(new window.Event('change'));
+ const output=document.getElementById('cis-model-output');
+ assert.notEqual(output.textContent,before);assert.match(output.textContent,/Peso de la media: 100 %/);
+ const row=[...output.querySelectorAll('tbody tr')].find(r=>r.firstElementChild.textContent==='PP');
+ assert.equal(row.lastElementChild.textContent,'31,00');
+ const study=document.getElementById('cis-model-study');study.value='3582';study.dispatchEvent(new window.Event('change'));
+ assert.ok(!status.className.includes('error'),status.textContent);assert.match(status.textContent,/3582/);
+ assert.equal(document.getElementById('cis-model-turnout').disabled,false);
+ assert.equal(document.getElementById('cis-model-sympathy').disabled,false);
+ assert.match(output.textContent,/Coalición de izquierdas/);assert.doesNotMatch(output.textContent,/NaN/);
+});

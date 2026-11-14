@@ -1,5 +1,7 @@
 import {compareBlocs} from './blocs.mjs';
+import {provincialComparison,COMPARISON_GROUPS} from './provincial-comparison.mjs';
 import {initializeMicrodata} from './microdata-ui.mjs';
+import {initializeCisEstimator} from './cis-estimator-ui.mjs';
 import {estimate,sortPollsByFieldwork,estimateEvolution,projectEstimate,validateCatalog,evaluateHistory} from './polling.mjs';
 import {estimateForDate,madridDate} from './freshness.mjs';
 import {methodologyLabels} from './methodology.mjs';
@@ -21,7 +23,7 @@ function partyLabel(id){return node('span',{class:'party-label'},node('span',{cl
 function table(headers,rows,caption){const t=node('table',{},caption?node('caption',{},caption):null,node('thead',{},node('tr',{},headers.map((h,i)=>node('th',{scope:'col',class:i?'number':''},h,parameterHelp(h)?helpButton(parameterHelp(h),h):null)))),node('tbody',{},rows.map(row=>node('tr',{},row.map((c,i)=>node('td',{class:i?'number':''},c))))));return node('div',{class:'table-scroll',tabindex:0,'aria-label':caption||'Tabla de resultados desplazable'},t);}
 function bar(label,value,max,display,barColor){return node('div',{class:'vote-row'},node('span',{class:'bar-label'},label),node('div',{class:'bar-track'},node('div',{class:'bar-fill',style:{width:`${Math.max(0,Math.min(100,value/max*100))}%`,background:barColor}})),node('strong',{},display));}
 function download(filename,data,type='application/json'){const blob=new Blob([type==='application/json'?JSON.stringify(data,null,2):data],{type});const u=URL.createObjectURL(blob),a=node('a',{href:u,download:filename});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000);}
-function switchTab(id){if(id==='blocs')renderBlocs();document.querySelectorAll('.tab-panel').forEach(el=>el.hidden=el.id!==id);document.querySelectorAll('[data-tab]').forEach(el=>el.dataset.tab===id?el.setAttribute('aria-current','page'):el.removeAttribute('aria-current'));if(id==='help'){$('help-title').focus({preventScroll:true});$('help').scrollIntoView({block:'start'});}}
+function switchTab(id){if(id==='blocs')renderBlocs();if(id==='comparison')renderProvincialComparison();document.querySelectorAll('.tab-panel').forEach(el=>el.hidden=el.id!==id);document.querySelectorAll('[data-tab]').forEach(el=>el.dataset.tab===id?el.setAttribute('aria-current','page'):el.removeAttribute('aria-current'));if(id==='help'){$('help-title').focus({preventScroll:true});$('help').scrollIntoView({block:'start'});}}
 function status(id,text,error=false){$(id).textContent=text;$(id).classList.toggle('error',error);}
 async function getJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw new Error(`No se puede cargar ${path} (${r.status}).`);return r.json();}
 
@@ -72,7 +74,26 @@ function renderBlocs(){
  put('bloc-output',cards,node('article',{class:'card space-top'},node('h3',{},'Comparación del Congreso · 350 escaños'),strip,node('p',{class:'small muted'},'La marca señala los 176 escaños de la mayoría absoluta. El resto de candidaturas aparece en gris.'),node('p',{},lead+' '+voteGap),table(['Bloque','Voto válido estimado','Escaños','Hasta 176'],rows.map(b=>[b.label,fmt(b.share,2)+' %',b.seats,b.id==='other'?'—':b.hasMajority?'Mayoría alcanzada':b.toMajority]),'Los dos bloques y el resto completan los 350 escaños.'),node('p',{class:'small muted'},'Voto en blanco: '+fmt(result.blankShare,2)+' % del voto válido, fuera de los bloques. Los porcentajes proceden de los votos del modelo territorial; los escaños se suman después de aplicar D’Hondt en cada provincia.')),node('details',{class:'card space-top'},node('summary',{},'Ver los partidos de cada bloque'),rows.map(b=>node('div',{},node('h3',{},b.label),table(['Candidatura','Voto válido estimado','Escaños'],b.members.filter(p=>p.votes||p.seats).map(p=>[partyLabel(p.id),fmt(p.share,2)+' %',p.seats]))))));
 }
 
+function renderProvincialComparison(){
+  if(!state.estimate||!$('comparison-province').value)return;
+  // Independent of manual scenarios, local edits and ideological display filters.
+  if(state.comparisonEstimate!==state.estimate){
+    state.comparisonProvinces=projectEstimate(state.official,state.estimate.targets,state.territory);
+    state.comparisonEstimate=state.estimate;
+  }
+  const p=state.comparisonProvinces.find(p=>p.id===$('comparison-province').value);
+  const group=$('comparison-group').value,{rows,result:r}=provincialComparison(p,group);
+  $('comparison-origin').textContent=`${p.name} · ${p.seats} escaños · cálculo ${dateLabel(state.estimate.calculatedAt)} · último sondeo ${dateLabel(state.estimate.lastPublication)}. ${state.estimate.expired?'ARCHIVO: no quedan sondeos vigentes. ':''}Proyección territorial del promedio nacional; no es una encuesta provincial. Totales y blancos históricos mantenidos como supuesto.`;
+  const q=value=>value===null?'—':fmt(value,3);
+  const summary=rows.length?table(['Candidatura','% voto válido','Escaños','Último cociente con escaño','Siguiente cociente','Barrera'],rows.map(row=>[partyLabel(row.id),fmt(row.share,2)+' %',row.seats,q(row.last),q(row.next),row.eligible?'Superada':'Bajo el 3 %']),`${COMPARISON_GROUPS[group].label} · porcentajes sobre votos a candidaturas más blancos.`):node('p',{class:'notice'},'No hay candidaturas con votos proyectados en este grupo y circunscripción.');
+  const matrix=rows.length?node('details',{class:'card space-top'},node('summary',{},'Ver cocientes por divisor'),table(['Candidatura',...Array.from({length:p.seats},(_,i)=>'÷ '+(i+1))],rows.map(row=>[partyLabel(row.id),...row.quotients.map(c=>`${fmt(c.value,3)}${c.awarded?' ✓':''}`)]),'✓ Cociente adjudicado. Las candidaturas bajo barrera se muestran, pero no compiten por escaños.')):null;
+  const last=r.last,next=r.next[0];
+  put('comparison-output',node('article',{class:'card'},node('h3',{},'Porcentajes y cocientes de la provincia'),summary,node('p',{class:'small muted'},`${fmt(r.candidateVotes)} votos a candidaturas + ${fmt(p.blankVotes)} blancos = ${fmt(r.validVotes)} votos válidos. Se calcula con todas las candidaturas, aunque filtres la tabla.`)),node('article',{class:'card space-top'},node('h3',{},'Frontera del reparto completo'),node('p',{},`Último escaño: ${name(last.id)} ÷ ${last.divisor} = ${fmt(last.value,3)}. Primer cociente sin escaño: ${name(next.id)} ÷ ${next.divisor} = ${fmt(next.value,3)}.`),node('p',{},'Los cocientes se calculan con los votos estimados sin redondear los porcentajes mostrados. La distancia entre cocientes no equivale a votos necesarios ni indica a quién votar.'),r.lotteries.length?node('p',{class:'notice'},'Hay un empate que requiere sorteo: se muestra un sorteo simulado con semilla 1 y alternancia.'):null,p.seats===1?node('p',{},'Ceuta y Melilla eligen una candidatura por mayor número de votos, sin barrera del 3 %.'):null),matrix,node('details',{class:'card space-top'},node('summary',{},'Ver todas las adjudicaciones'),table(['Escaño','Candidatura','Divisor','Cociente'],r.winners.map((c,i)=>[i+1,partyLabel(c.id),c.divisor,fmt(c.value,3)]))));
+}
+
 function renderObservatory(){
+  state.cisModelRender?.();
+  renderProvincialComparison();
   state.microRender?.();
   $('estimate-title').textContent=state.estimate.expired?'Archivo: sin sondeos vigentes':`Estimación propia · cálculo ${dateLabel(state.estimate.calculatedAt)}`;
   const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -334,6 +355,9 @@ async function initialize(){try{
   [state.official,state.references,state.catalog,state.territory,state.diagnostics]=await Promise.all([getJSON('./data/official-2023.json'),getJSON('./data/references.json'),getJSON('./data/polls.json'),getJSON('./data/territory.json'),getJSON('./data/evaluation.json')]);validateOfficial(state.official);validateCatalog(state.catalog);
   refreshEstimate();$('local-sigma').value=state.diagnostics.recommendedSensitivity.localSigma;renderObservatory();renderPolls(state.catalog.polls);
   put('province-select',state.official.provinces.toSorted((a,b)=>a.name.localeCompare(b.name,'es')).map(p=>node('option',{value:p.id},p.name)));$('province-select').value='28';resetProvince();
+  put('comparison-province',state.official.provinces.toSorted((a,b)=>a.name.localeCompare(b.name,'es')).map(p=>node('option',{value:p.id},p.name)));
+  renderProvincialComparison();
+  for(const id of ['comparison-province','comparison-group'])$(id).addEventListener('change',renderProvincialComparison);
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
   $('bloc-basis').addEventListener('change',renderBlocs);
   $('use-reference').addEventListener('click',()=>{$('preset').value='base';applyPreset();switchTab('scenarios');});
@@ -347,6 +371,6 @@ async function initialize(){try{
   $('export-scenario').addEventListener('click',()=>{clearTimeout(centralTimer);updateCentral();if(state.valid)download('escenario-electoral.json',scenarioExport());});$('export-simulation').addEventListener('click',()=>download('simulaciones-electorales.json',scenarioExport()));
   document.addEventListener('visibilitychange',()=>{if(!document.hidden&&state.estimate.calculatedAt!==madridDate()){refreshEstimate();renderObservatory();renderPolls(state.catalog.polls);}});$('update-polls').addEventListener('click',updatePublishedCatalog);$('poll-import').addEventListener('change',importPolls);renderPolls(state.catalog.polls);getJSON('./data/update-status.json').then(renderSearchReport).catch(()=>{});
   $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);$('cancel-ai').addEventListener('click',()=>aiController?.abort());installTooltips();enhanceParameterHelp(document);
-  state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});$('loading').hidden=true;$('application').hidden=false;
+  state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});state.cisModelRender=await initializeCisEstimator({getConsensus:date=>date?estimate(state.catalog,state.official,date):state.estimate});$('loading').hidden=true;$('application').hidden=false;
 }catch(error){$('loading').hidden=true;$('app-error').hidden=false;$('app-error').textContent=`No se puede iniciar el observatorio: ${error.message}. Comprueba la conexión y vuelve a cargar. Si lo usas en local, arranca con EJECUTAR.bat o npm start.`;}}
 initialize();

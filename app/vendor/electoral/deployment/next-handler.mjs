@@ -6,7 +6,7 @@ const BASE='/aplicaciones/observatorio-electoral';
 const CSP="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://openrouter.ai; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'";
 const MIME={'.html':'text/html; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml'};
 const DATA=['polls.json','update-status.json','official-2023.json','territory.json','references.json','evaluation.json','polls-example.json'];
-const BUNDLED_DATA=['microdata-3577.json','microdata-validation.json'];
+const BUNDLED_DATA=['microdata-3577.json','microdata-validation.json','cis-reestimation.json'];
 export function createNextHandler({packageRoot,storageRoot,origin,searchOverride,updateTtl=120000}){
  const publicUrl=new URL(origin);
  if(publicUrl.origin!==origin||!(publicUrl.protocol==='https:'||(publicUrl.protocol==='http:'&&['localhost','127.0.0.1'].includes(publicUrl.hostname))))throw Error('Origen HTTPS obligatorio, salvo pruebas locales.');
@@ -42,7 +42,7 @@ export function createNextHandler({packageRoot,storageRoot,origin,searchOverride
     const result=await service({method:'POST',origin:request.headers.get('origin'),bytes});return json(result.body,result.status,result.headers);
    }
    if(!['GET','HEAD'].includes(request.method))return json({error:'Método no permitido.'},405,{Allow:'GET, HEAD'});
-   if(route==='/health')return json({app:'observatorio-electoral',version:'3.7.4',sourceSearch:true});
+   if(route==='/health')return json({app:'observatorio-electoral',version:'3.9.0',sourceSearch:true});
    if(route==='/')route='/index.html';
    if(!/^\/(index\.html|assets\/[a-zA-Z0-9_-]+\.(mjs|css|svg)|data\/[a-zA-Z0-9_-]+\.json)$/.test(route))return json({error:'Archivo no disponible.'},404);
    let root=packageRoot;if(route.startsWith('/data/')&&!BUNDLED_DATA.includes(path.basename(route))){initialized??=initialize();await initialized;root=storageRoot;if(!DATA.includes(path.basename(route)))return json({error:'Datos no disponibles.'},404);}

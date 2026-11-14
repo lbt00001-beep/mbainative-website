@@ -1,6 +1,6 @@
 {
   "author": "Luis Benedicto Tuzón",
-  "updatedAt": "2026-11-12",
+  "updatedAt": "2026-11-14",
   "apps": [
     {
       "id": "comparativa-ue",
@@ -79,7 +79,7 @@
       "name": "Observatorio Electoral",
       "route": "/aplicaciones/observatorio-electoral",
       "model": "GPT 6.1 Sol Medio",
-      "version": "3.7.3",
+      "version": "3.7.4",
       "year": 2026,
       "placement": "inline"
     },

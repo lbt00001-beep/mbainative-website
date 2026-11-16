@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-16T13:24:56.226Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-16T20:45:40.039Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 1,
     "title": "El talento artificial se compra",
     "icon": "🪙"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🪙 Principio #1: El talento artificial se compra\n\n🧠 Jensen Huang (NVIDIA)\n\n\"100 AI Agents Per Employee: What Changes\"\n\n▶️ youtube.com/watch?v=lkXY0kJ4gJs",
+    "type": "recent_video",
+    "content": "🪙 Principio #1: El talento artificial se compra\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "jensenhuang"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=lkXY0kJ4gJs",
-    "imageUrl": "https://i.ytimg.com/vi/lkXY0kJ4gJs/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

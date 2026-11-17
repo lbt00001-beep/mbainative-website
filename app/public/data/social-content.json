@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-17T14:10:35.609Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-17T19:30:22.004Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 2,
     "title": "Los empleados de silicio",
     "icon": "🤖"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🧠 Sam Altman (OpenAI)\n\n\"Sam Altman Reveals AI’s Impact on Jobs\"\n\n▶️ youtube.com/watch?v=q_KRnIThRpc",
+    "type": "recent_video",
+    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
+      "UltimaHora",
       "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=q_KRnIThRpc",
-    "imageUrl": "https://i.ytimg.com/vi/q_KRnIThRpc/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

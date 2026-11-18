@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-17T23:47:17.887Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-18T13:43:02.707Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 2,
-    "title": "Los empleados de silicio",
-    "icon": "🤖"
+    "id": 3,
+    "title": "Organización por tareas, no por puestos",
+    "icon": "📋"
   },
   "post": {
-    "type": "recent_video",
-    "content": "🤖 Principio #2: Los empleados de silicio\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "guru_quote",
+    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🧠 Sam Altman (OpenAI)\n\n\"Sam Altman Warns the AI Job Transition Will Be Rough\"\n\n▶️ youtube.com/watch?v=JtK9IKpoStE",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
+      "GurusIA",
       "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=JtK9IKpoStE",
+    "imageUrl": "https://i.ytimg.com/vi/JtK9IKpoStE/mqdefault.jpg"
   }
 }

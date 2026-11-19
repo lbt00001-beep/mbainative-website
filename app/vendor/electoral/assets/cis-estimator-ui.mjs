@@ -1,5 +1,5 @@
 import {reestimateCis,cisSensitivity,combineCisConsensus} from './cis-estimator.mjs';
-const f=(n,d=2)=>Number(n).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const f=(n,d=2)=>Number(n).toLocaleString('es-ES',{useGrouping:'always',minimumFractionDigits:d,maximumFractionDigits:d});
 function el(tag,text,attrs={}){const n=document.createElement(tag);if(text!==undefined&&text!==null)n.textContent=text;for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;}
 function table(headers,rows){const wrap=el('div',null,{class:'table-scroll',tabindex:'0'}),t=el('table'),head=el('thead'),tr=el('tr');for(const h of headers)tr.append(el('th',h,{scope:'col'}));head.append(tr);t.append(head);const body=el('tbody');for(const row of rows){const r=el('tr');for(const v of row)r.append(el('td',v));body.append(r);}t.append(body);wrap.append(t);return wrap;}
 function link(label,url){return el('a',label,{href:url,target:'_blank',rel:'noopener noreferrer'});}
@@ -8,7 +8,7 @@ export async function initializeCisEstimator({getConsensus}){
  try{
   const response=await fetch('./data/cis-reestimation.json',{cache:'no-cache'});if(!response.ok)throw Error('No se han podido cargar los datos CIS reestimados.');
   const bundle=await response.json();if(bundle.schemaVersion!==1||!bundle.datasets?.length)throw Error('Formato del modelo CIS desconocido.');
-  const select=$('cis-model-study');for(const d of bundle.datasets)select.append(new Option(d.title+' · '+d.sample+' entrevistas',d.study));
+  const select=$('cis-model-study');for(const d of bundle.datasets)select.append(new Option(d.title+' · '+f(d.sample,0)+' entrevistas',d.study));
   const sensitivity=new Map();let exportResult;
   function render(){try{
    const d=bundle.datasets.find(d=>d.study===select.value),micro=d.kind==='microdata';
@@ -19,7 +19,7 @@ export async function initializeCisEstimator({getConsensus}){
    const consensus=getConsensus($('cis-model-reference-date').value==='publication'?d.publishedAt:null),combined=combineCisConsensus(result,consensus,Number($('cis-model-consensus').value));
    if(!sensitivity.has(d.study))sensitivity.set(d.study,cisSensitivity(d));const range=sensitivity.get(d.study);
    const name=id=>d.labels[id]||id;
-   $('cis-model-origin').replaceChildren(el('strong',d.title),el('p',`Campo: ${d.fieldworkStart} → ${d.fieldworkEnd}. Publicación: ${d.publishedAt}. Datos incorporados: ${bundle.preparedOn}. ${d.sample} entrevistas.`),el('p',d.note),link('Datos originales',d.sourceUrl),document.createTextNode(' · '),link('Ficha y resultados',d.technicalUrl));
+   $('cis-model-origin').replaceChildren(el('strong',d.title),el('p',`Campo: ${d.fieldworkStart} → ${d.fieldworkEnd}. Publicación: ${d.publishedAt}. Datos incorporados: ${bundle.preparedOn}. ${f(d.sample,0)} entrevistas.`),el('p',d.note),link('Datos originales',d.sourceUrl),document.createTextNode(' · '),link('Ficha y resultados',d.technicalUrl));
    const out=$('cis-model-output');out.replaceChildren();
    out.append(el('h3','De la respuesta directa al escenario calculado'),el('p','PESO es la ponderación publicada, no un recuento bruto sin tratamiento. La primera columna conserva el denominador de la encuesta. Las otras expresan voto válido, incluido blanco: excluyen abstención, nulo e indecisos que sigan sin asignarse.',''));
    const ids=Object.keys(result.validPercent).sort((a,b)=>result.validPercent[b]-result.validPercent[a]);

@@ -12,7 +12,7 @@ import {consultAI} from './ai-client.mjs';
 import {helpButton,parameterHelp,enhanceParameterHelp,installTooltips} from './tooltips.mjs';
 import {allocate,validateOfficial,MAIN_IDS,NAMES,COLORS,GROUPS,MAJORITY,INVESTITURE_IDS,INVESTITURE_SOURCE,nationalAllocation,nationalVotes,project,transfer,votesToGain,groupSeats,validatePolls,aggregatePolls} from './electoral.mjs';
 
-const $=id=>document.getElementById(id), fmt=(n,d=0)=>Number(n).toLocaleString('es-ES',{maximumFractionDigits:d,minimumFractionDigits:d});
+const $=id=>document.getElementById(id), fmt=(n,d=0)=>Number(n).toLocaleString('es-ES',{useGrouping:'always',maximumFractionDigits:d,minimumFractionDigits:d});
 const state={official:null,references:null,targets:null,provinces:null,central:null,local:null,localResult:null,simulation:null,worker:null,valid:false};
 const dateLabel=date=>date.split('-').reverse().join('/');
 const controlled=['pp','psoe','vox','sumar','podemos','salf'];

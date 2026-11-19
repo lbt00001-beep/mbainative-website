@@ -14,7 +14,7 @@ export const PARAMETER_HELP={
  seed:'Número que determina la secuencia de variaciones aleatorias. Con iguales datos, parámetros y semilla se repite el experimento. Cambiarlo genera otros ensayos, no información nueva sobre los votantes.',
  preset:'Ejemplos de hipótesis para experimentar. Aplicar uno cambia los porcentajes nacionales; no incorpora una encuesta ni expresa la opinión de la app sobre lo que ocurrirá.',
  'province-select':'Provincia, Ceuta o Melilla donde se asignan los escaños. El Congreso se calcula sumando 52 repartos locales, no repartiendo directamente el porcentaje de toda España.',
- 'province-basis':'Puedes usar la proyección actual de los sondeos o los resultados oficiales de 2023 como referencia histórica. La proyección es un cálculo con supuestos; la referencia histórica es un resultado observado.',
+ 'province-basis':'Elige la estimación de sondeos independiente de tus ediciones nacionales, el escenario manual de Simulaciones o los resultados oficiales de 2023. Cambiar de base restaura sus votos en el laboratorio. Las proyecciones son cálculos con supuestos; 2023 es una referencia observada.',
  'province-blank':'Votos válidos que no eligen ninguna candidatura. Cuentan al calcular la barrera del 3 %, pero no reciben escaños. Aumentarlos puede dificultar que una lista pequeña supere esa barrera.',
  'province-seats':'Número de diputados que se reparten en esta circunscripción. La base actual usa los escaños de la convocatoria de 2026. Editarlo crea un escenario hipotético, sin cambiar la norma electoral.',
  'transfer-from':'Candidatura a la que se restan los votos. Debe tener al menos tantos votos como deseas transferir. El resto de candidaturas conserva sus votos.',

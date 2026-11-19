@@ -26,6 +26,7 @@ main,section,article,.micro-controls>*,.micro-profile-bars>*,.card-actions>*{min
 .table-scroll{width:100%;min-width:0;overscroll-behavior-x:contain}
 .table-scroll table{overflow-wrap:normal}
 select{max-width:100%}
+@media(max-width:480px){#comparison-totals{grid-template-columns:minmax(0,1fr)}}
 .help-intro label{display:block;font-weight:650;margin:22px 0 8px}
 .help-search-row{display:flex;gap:10px;align-items:stretch}.help-search-row input{flex:1}.help-search-row button{flex:none}
 .help-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px;margin-top:22px;font-size:14px}

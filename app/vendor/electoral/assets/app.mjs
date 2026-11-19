@@ -75,18 +75,25 @@ function renderBlocs(){
  put('bloc-output',cards,node('article',{class:'card space-top'},node('h3',{},'Comparación del Congreso · 350 escaños'),strip,node('p',{class:'small muted'},'La marca señala los 176 escaños de la mayoría absoluta. El resto de candidaturas aparece en gris.'),node('p',{},lead+' '+voteGap),table(['Bloque','Voto válido estimado','Escaños','Hasta 176'],rows.map(b=>[b.label,fmt(b.share,2)+' %',b.seats,b.id==='other'?'—':b.hasMajority?'Mayoría alcanzada':b.toMajority]),'Los dos bloques y el resto completan los 350 escaños.'),node('p',{class:'small muted'},'Voto en blanco: '+fmt(result.blankShare,2)+' % del voto válido, fuera de los bloques. Los porcentajes proceden de los votos del modelo territorial; los escaños se suman después de aplicar D’Hondt en cada provincia.')),node('details',{class:'card space-top'},node('summary',{},'Ver los partidos de cada bloque'),rows.map(b=>node('div',{},node('h3',{},b.label),table(['Candidatura','Voto válido estimado','Escaños'],b.members.filter(p=>p.votes||p.seats).map(p=>[partyLabel(p.id),fmt(p.share,2)+' %',p.seats]))))));
 }
 
-function renderProvincialComparison(){
-  if(!state.estimate||!$('comparison-province').value)return;
-  // Independent of manual scenarios, local edits and ideological display filters.
+function pollProjection(){
+  // Shared read-only source for both provincial views, independent of manual edits.
   if(state.comparisonEstimate!==state.estimate){
     state.comparisonProvinces=projectEstimate(state.official,state.estimate.targets,state.territory);
     state.comparisonEstimate=state.estimate;
   }
-  const p=state.comparisonProvinces.find(p=>p.id===$('comparison-province').value);
+  return state.comparisonProvinces;
+}
+function renderProvincialComparison(){
+  if(!state.estimate||!$('comparison-province').value)return;
+  const p=pollProjection().find(p=>p.id===$('comparison-province').value);
   const group=$('comparison-group').value,{rows,result:r}=provincialComparison(p,group);
   $('comparison-origin').textContent=`${p.name} · ${p.seats} escaños · cálculo ${dateLabel(state.estimate.calculatedAt)} · último sondeo ${dateLabel(state.estimate.lastPublication)}. ${state.estimate.expired?'ARCHIVO: no quedan sondeos vigentes. ':''}Proyección territorial del promedio nacional; no es una encuesta provincial. Totales y blancos históricos mantenidos como supuesto.`;
   const q=value=>value===null?'—':fmt(value,3);
-  const summary=rows.length?table(['Candidatura','% voto válido','Escaños','Último cociente con escaño','Siguiente cociente','Barrera'],rows.map(row=>[partyLabel(row.id),fmt(row.share,2)+' %',row.seats,q(row.last),q(row.next),row.eligible?'Superada':'Bajo el 3 %']),`${COMPARISON_GROUPS[group].label} · porcentajes sobre votos a candidaturas más blancos.`):node('p',{class:'notice'},'No hay candidaturas con votos proyectados en este grupo y circunscripción.');
+  const summary=rows.length?table(['Candidatura','Votos del escenario','% voto válido','Escaños','Último cociente con escaño','Siguiente cociente','Barrera'],rows.map(row=>[partyLabel(row.id),fmt(row.votes),fmt(row.share,2)+' %',row.seats,q(row.last),q(row.next),row.eligible?'Superada':'Bajo el 3 %']),`${COMPARISON_GROUPS[group].label} · votos proyectados, no resultados observados. Porcentajes sobre votos a candidaturas más blancos.`):node('p',{class:'notice'},'No hay candidaturas con votos proyectados en este grupo y circunscripción.');
+  const totals=node('div',{class:'metrics',id:'comparison-totals'},[
+    ['Votos válidos del escenario',r.validVotes],['Votos a candidaturas',r.candidateVotes],['Votos en blanco',p.blankVotes]
+  ].map(([label,value])=>node('div',{class:'metric'},node('small',{},label),node('strong',{},fmt(value)))));
+  put('comparison-votes',totals,node('p',{class:'small muted'},'Válidos = candidaturas + blancos. Volumen de voto y blancos históricos de 2023 mantenidos como supuesto; los votos por candidatura se proyectan desde los sondeos. No incluye votos nulos ni permite estimar la participación. Los totales abarcan todas las candidaturas, también las ocultas por el filtro.'));
   const matrix=rows.length?node('details',{class:'card space-top'},node('summary',{},'Ver cocientes por divisor'),table(['Candidatura',...Array.from({length:p.seats},(_,i)=>'÷ '+(i+1))],rows.map(row=>[partyLabel(row.id),...row.quotients.map(c=>`${fmt(c.value,3)}${c.awarded?' ✓':''}`)]),'✓ Cociente adjudicado. Las candidaturas bajo barrera se muestran, pero no compiten por escaños.')):null;
   const last=r.last,next=r.next[0];
   put('comparison-output',node('article',{class:'card'},node('h3',{},'Porcentajes y cocientes de la provincia'),summary,node('p',{class:'small muted'},`${fmt(r.candidateVotes)} votos a candidaturas + ${fmt(p.blankVotes)} blancos = ${fmt(r.validVotes)} votos válidos. Se calcula con todas las candidaturas, aunque filtres la tabla.`)),node('article',{class:'card space-top'},node('h3',{},'Frontera del reparto completo'),node('p',{},`Último escaño: ${name(last.id)} ÷ ${last.divisor} = ${fmt(last.value,3)}. Primer cociente sin escaño: ${name(next.id)} ÷ ${next.divisor} = ${fmt(next.value,3)}.`),node('p',{},'Los cocientes se calculan con los votos estimados sin redondear los porcentajes mostrados. La distancia entre cocientes no equivale a votos necesarios ni indica a quién votar.'),r.lotteries.length?node('p',{class:'notice'},'Hay un empate que requiere sorteo: se muestra un sorteo simulado con semilla 1 y alternancia.'):null,p.seats===1?node('p',{},'Ceuta y Melilla eligen una candidatura por mayor número de votos, sin barrera del 3 %.'):null),matrix,node('details',{class:'card space-top'},node('summary',{},'Ver todas las adjudicaciones'),table(['Escaño','Candidatura','Divisor','Cociente'],r.winners.map((c,i)=>[i+1,partyLabel(c.id),c.divisor,fmt(c.value,3)]))));
@@ -95,6 +102,7 @@ function renderProvincialComparison(){
 function renderObservatory(){
   state.cisModelRender?.();
   renderProvincialComparison();
+  if(state.local&&$('province-basis').value==='polls'&&state.localPollEstimate!==state.estimate)resetProvince();
   state.microRender?.();
   $('estimate-title').textContent=state.estimate.expired?'Archivo: sin sondeos vigentes':`Estimación propia · cálculo ${dateLabel(state.estimate.calculatedAt)}`;
   const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -144,7 +152,7 @@ function scheduleCentral(){clearTimeout(centralTimer);state.valid=false;renderBl
 function invalidateSimulation(){if(state.worker)cancelSimulation();state.simulation=null;$('simulation-results').hidden=true;status('simulation-status','Los parámetros han cambiado. Ejecuta una nueva simulación.');}
 function updateCentral(){
   try {
-    const manual=JSON.stringify(state.targets)!==JSON.stringify(state.estimate.targets);$('scenario-origin').textContent=manual?'Escenario manual: has cambiado las hipótesis nacionales.':'Estimación de los sondeos: parámetros nacionales originales.';$('province-basis').querySelector('option[value="scenario"]').textContent=manual?'Escenario nacional manual':'Proyección actual de los sondeos';state.provinces=projectEstimate(state.official,state.targets,state.territory);state.central=nationalAllocation(state.provinces);state.valid=true;
+    const manual=JSON.stringify(state.targets)!==JSON.stringify(state.estimate.targets);$('scenario-origin').textContent=manual?'Escenario manual: has cambiado las hipótesis nacionales.':'Estimación de los sondeos: parámetros nacionales originales.';$('province-basis').querySelector('option[value="scenario"]').textContent=manual?'Escenario manual de Simulaciones':'Simulaciones · base de sondeos';state.provinces=projectEstimate(state.official,state.targets,state.territory);state.central=nationalAllocation(state.provinces);state.valid=true;
     const remainder=100-controlled.reduce((s,id)=>s+state.targets[id],0);status('remaining',`Partidos territoriales y demás candidaturas: ${fmt(remainder*(100-state.estimate.blank)/100,1)} %. Blanco supuesto: ${fmt(state.estimate.blank,2)} %. Todos los porcentajes visibles se expresan sobre voto válido.`);
     $('central-total').textContent='350 / 350';$('central-table').classList.remove('stale');
     put('central-coalitions',[
@@ -205,9 +213,10 @@ function renderScatter(points){
 }
 function resetProvince(){
   const basis=$('province-basis').value;if(basis==='scenario'&&!state.valid){status('province-status','El escenario nacional es inválido. Corrige sus porcentajes.',true);return;}
-  const p=(basis==='scenario'?state.provinces:state.official.provinces).find(p=>p.id===$('province-select').value);
+  const p=(basis==='polls'?pollProjection():basis==='scenario'?state.provinces:state.official.provinces).find(p=>p.id===$('province-select').value);
+  state.localPollEstimate=basis==='polls'?state.estimate:null;
   state.local=structuredClone(p);state.local.votes.podemos??=0;state.local.votes.salf??=0;renderProvinceInputs();renderProvince();put('transfer-result');
-  $('province-meta').textContent=`${p.seats} escaños (${basis==='official'?'2023':'2026'}) · censo 2023: ${fmt(p.census)} · ${basis==='official'?'votos oficiales':'votos de escenario'}`;
+  $('province-meta').textContent=`${p.seats} escaños (${basis==='official'?'2023':'2026'}) · censo 2023: ${fmt(p.census)} · ${basis==='official'?'votos oficiales':basis==='polls'?'base: estimación de sondeos':'base: escenario de Simulaciones'}`;
 }
 function localIds(){return Object.keys(state.local.votes).filter(id=>state.local.votes[id]>0||MAIN_IDS.includes(id)).sort((a,b)=>state.local.votes[b]-state.local.votes[a]);}
 function renderProvinceInputs(){
@@ -236,7 +245,7 @@ function renderProvince(){
   put('quotient-table',table(['Escaño','Candidatura','Divisor','Cociente'],r.winners.map((q,i)=>[i+1,partyLabel(q.id),q.divisor,fmt(q.value,2)])));
   status('province-status',`${fmt(r.candidateVotes)} votos a candidaturas + ${fmt(p.blankVotes)} blancos = ${fmt(r.validVotes)} válidos. ${p.seats} escaños asignados.`);
   $('export-province').disabled=false;
-  const nationalPP=state.targets.pp*(100-state.estimate.blank)/100,localPP=100*(p.votes.pp||0)/r.validVotes;
+  const nationalPP=$('province-basis').value==='polls'?state.estimate.values.pp:state.targets.pp*(100-state.estimate.blank)/100,localPP=100*(p.votes.pp||0)/r.validVotes;
   put('province-explanation',node('strong',{},'¿Por qué el porcentaje provincial difiere del nacional?'),node('p',{},$('province-basis').value==='official'?`Esta pantalla usa resultados oficiales de 2023: no son la estimación actual. El porcentaje del PP en ${p.name} es ${fmt(localPP,2)} % del voto válido de esa circunscripción.`:`El PP tiene ${fmt(nationalPP,2)} % en el escenario nacional elegido y ${fmt(localPP,2)} % en este escenario de ${p.name}. El primero corresponde a toda España; el segundo se calcula con los votos y blancos de esta provincia. No se exige que todas las provincias tengan el mismo porcentaje.`),node('p',{},'El modelo parte de la distribución provincial de las elecciones de 2023, incorpora las huellas de las nuevas candidaturas y ajusta los votos hasta alcanzar los objetivos nacionales. Si el PP tenía más apoyo relativo en Madrid que en el conjunto de España, ese patrón orienta la proyección madrileña. La media nacional se reconstruye ponderando cada provincia por su volumen de votos, no haciendo una media simple de 52 porcentajes.'),node('p',{},'El porcentaje provincial es una hipótesis del modelo, no una encuesta actual de esa provincia. Los totales y blancos históricos se mantienen como supuesto. Si editas los votos o aplicas una transferencia, cambiarás este escenario local y su porcentaje, sin modificar la estimación nacional.'));
 }
 const fmtOrDash=n=>n===null?'—':fmt(n);
@@ -359,6 +368,10 @@ async function initialize(){try{
   put('comparison-province',state.official.provinces.toSorted((a,b)=>a.name.localeCompare(b.name,'es')).map(p=>node('option',{value:p.id},p.name)));
   renderProvincialComparison();
   for(const id of ['comparison-province','comparison-group'])$(id).addEventListener('change',renderProvincialComparison);
+  $('comparison-analyze').addEventListener('click',()=>{
+    $('province-select').value=$('comparison-province').value;$('province-basis').value='polls';resetProvince();switchTab('province');
+    $('province-title').focus({preventScroll:true});$('province').scrollIntoView({block:'start'});
+  });
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
   $('bloc-basis').addEventListener('change',renderBlocs);
   $('use-reference').addEventListener('click',()=>{$('preset').value='base';applyPreset();switchTab('scenarios');});

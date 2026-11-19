@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprende IA en sesiones de 20 minutos</title>
+<meta name="description" content="Curso práctico de IA: 20 fichas de 20 minutos, una al día, con seguimiento de tu progreso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E2430; --paper:#FBF8F1; --muted:#5B6170; --line:#E4DED2; --card:#FFFFFF;
+  --w1:#2B59A6; --t1:#EAF0FA; --w2:#1D7466; --t2:#E4F2EE; --w3:#A84C17; --t3:#F8ECE2; --w4:#5A409C; --t4:#EEEAF7;
+  --head:'Bricolage Grotesque',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
+  --scale:1;
+}
+*{box-sizing:border-box}
+html{font-size:calc(17px * var(--scale))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.5}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
+button,input,textarea,select{font:inherit;color:inherit}
+a{color:var(--w1)}
+.hidden{display:none !important}
+svg.i{display:block;flex-shrink:0;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- barra de menús estilo Microsoft ---------- */
+.menubar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:2px;height:38px;padding:0 8px;background:#F3F1EB;border-bottom:1px solid #D9D3C6;font-size:14px;user-select:none}
+.menubar .brand{display:flex;align-items:center;gap:8px;padding:0 12px 0 4px;font-family:var(--head);font-weight:800;font-size:15px}
+.menubar .brand span.dot{width:18px;height:18px;border-radius:5px;background:conic-gradient(var(--w1) 0 25%,var(--w2) 0 50%,var(--w3) 0 75%,var(--w4) 0)}
+.menu{position:relative}
+.menu>button{background:none;border:0;padding:6px 10px;border-radius:4px;cursor:pointer;font-size:14px}
+.menu>button:hover,.menu.open>button{background:#E2DED4}
+.menu .drop{position:absolute;top:34px;left:0;min-width:250px;background:#fff;border:1px solid #CFC8BA;border-radius:6px;box-shadow:0 8px 24px rgba(30,36,48,.16);padding:4px;display:none}
+.menu.open .drop{display:block}
+.drop button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:none;border:0;padding:7px 12px;border-radius:4px;cursor:pointer;font-size:14px;gap:18px}
+.drop button:hover,.drop button:focus-visible{background:#EEF1F7;outline:none}
+.drop button:disabled{color:#9A9AA2;cursor:default;background:none}
+.drop .k{color:var(--muted);font-size:12px}
+.drop hr{border:0;border-top:1px solid var(--line);margin:4px 2px}
+.menubar .who{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--muted);padding-right:6px;font-size:13px}
+.menubar .sync{width:8px;height:8px;border-radius:50%;background:#2E9D5B}
+.menubar .sync.off{background:#C2410C}
+
+/* ---------- comunes ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:36px 28px 80px}
+.eyebrow{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.card:focus-visible{outline:3px solid #F2B84B;outline-offset:2px}
+.pill{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:15px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* ---------- acceso ---------- */
+#login{min-height:calc(100vh - 38px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+#login .art{padding:48px;display:flex;flex-direction:column;gap:28px;justify-content:center}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tile{border-radius:22px;padding:22px;color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.tile small{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;opacity:.9}
+.tile b{font-family:var(--head);font-size:21px;line-height:1.15;display:block}
+#login .formside{background:#fff;border-left:1px solid var(--line);padding:48px;display:flex;align-items:center}
+#login form{width:100%;max-width:420px;display:flex;flex-direction:column;gap:16px}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600}
+label.f input{height:50px;border:2px solid #CFC8BA;border-radius:12px;padding:0 14px;background:#fff}
+label.f input:focus{border-color:var(--w1);outline:none}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#3A4050}
+.check input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.err{color:#B42318;font-weight:600;min-height:1.4em}
+.btn.google{background:#fff;color:var(--ink);border-color:#CFC8BA;gap:12px}
+.btn.google:hover{border-color:var(--ink)}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+.or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
+.ok{color:#1D7466;font-weight:600}
+
+/* ---------- panel ---------- */
+.hello{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.hello h1{font-size:44px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.stat .v{font-family:var(--head);font-weight:800;font-size:34px;line-height:1.1}
+.stat .l{color:var(--muted);font-size:14px}
+.bar{height:8px;border-radius:4px;background:#ECE7DC;overflow:hidden;margin-top:10px}
+.bar>i{display:block;height:100%;background:var(--ink)}
+.continue{display:flex;align-items:center;gap:24px;border-radius:24px;padding:26px 30px;color:#fff;margin-bottom:30px;flex-wrap:wrap}
+.continue .n{font-family:var(--head);font-weight:800;font-size:72px;line-height:.9}
+.continue h2{font-size:28px}
+.continue .btn{background:#fff;color:var(--ink);border-color:#fff;margin-left:auto}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;align-items:start}
+.week{margin-bottom:22px}
+.week-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.week-h .sq{width:38px;height:38px;border-radius:10px;color:#fff;display:flex;align-items:center;justify-content:center}
+.week-h h3{font-size:21px}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.card{position:relative;text-align:left;border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 12px 14px;cursor:pointer;min-height:118px;display:flex;flex-direction:column;gap:6px}
+.card:hover{border-color:#B9B1A1;transform:translateY(-1px)}
+.card .num{font-family:var(--head);font-weight:800;font-size:24px;line-height:1}
+.card .tt{font-size:14px;line-height:1.3;font-weight:600}
+.card .st{margin-top:auto;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.card.done{color:#fff;border-color:transparent}
+.card.done .st{color:rgba(255,255,255,.9)}
+.card .ok{position:absolute;top:10px;right:10px}
+aside .box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+aside h3{font-size:19px;margin-bottom:10px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.cal .d{aspect-ratio:1;border-radius:5px;background:#EFEAE0}
+.cal .d.l1{background:#B7CCEA}.cal .d.l2{background:#6E95CF}.cal .d.l3{background:var(--w1)}
+.cal .d.today{outline:2px solid var(--ink);outline-offset:1px}
+.cal .dn{font-size:11px;color:var(--muted);text-align:center}
+.legend{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dots{display:flex;gap:8px;margin:6px 0 4px}
+.dots i{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)}
+.dots i.on{background:var(--ink)}
+
+/* ---------- ficha ---------- */
+.band{color:#fff;position:relative;overflow:hidden}
+.band .in{max-width:1120px;margin:0 auto;padding:30px 28px 30px;position:relative}
+.band .deco{position:absolute;right:-40px;top:-30px;opacity:.16}
+.band .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.band .tl{display:flex;align-items:flex-end;gap:22px;margin-top:14px}
+.band .big{font-family:var(--head);font-weight:800;font-size:110px;line-height:.85;letter-spacing:-.03em}
+.band h1{font-size:40px;max-width:640px}
+.fbody{max-width:1120px;margin:0 auto;padding:28px 28px 80px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
+.sec{margin-bottom:26px}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sec-h b{font-family:var(--head);font-weight:800;font-size:23px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.steps li label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer}
+.steps li input{position:absolute;opacity:0;pointer-events:none}
+.steps .nb{flex-shrink:0;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps input:checked + .nb{background:#2E9D5B !important}
+.steps input:checked ~ span.tx{color:var(--muted);text-decoration:line-through;text-decoration-color:#9AA}
+.steps input:focus-visible + .nb{outline:3px solid #F2B84B;outline-offset:2px}
+em.p{font-style:italic;color:#2A2F3A}
+.copy{border:0;background:none;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:6px;margin-left:auto}
+.copy:hover{background:#EFEAE0}
+.settle{border-radius:20px;padding:20px 22px}
+.settle textarea{width:100%;min-height:130px;margin-top:10px;border:2px dashed #A79F8F;border-radius:12px;padding:12px;background:rgba(255,255,255,.75);resize:vertical;line-height:1.5}
+.settle textarea:focus{outline:none;border-style:solid}
+.saved{font-size:13px;color:var(--muted);margin-top:6px;min-height:1.3em}
+.timer{position:sticky;top:58px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.ring{position:relative;width:200px;height:200px;margin:0 auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .tx b{font-family:var(--head);font-weight:800;font-size:44px;font-variant-numeric:tabular-nums}
+.ring .tx span{font-size:13px;color:var(--muted)}
+.phases{display:flex;gap:4px}
+.phases div{flex:1;font-size:12px;color:var(--muted)}
+.phases div i{display:block;height:6px;border-radius:3px;background:#EAE4D8;margin-bottom:4px}
+.phases div.on i{background:var(--ink)}
+.tline{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:10px;flex-wrap:wrap}
+
+dialog{border:0;border-radius:20px;padding:0;max-width:560px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(30,36,48,.45)}
+dialog .dc{padding:28px}
+dialog h2{font-size:28px;margin-bottom:12px}
+dialog .act{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+dialog p{margin:0 0 10px}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:16px}
+.opt select{height:40px;border-radius:10px;border:1px solid #CFC8BA;padding:0 10px;background:#fff}
+.opt input[type=checkbox]{width:22px;height:22px}
+
+@media (max-width:900px){
+  #login{grid-template-columns:1fr}
+  #login .formside{border-left:0;border-top:1px solid var(--line)}
+  #login .art,#login .formside{padding:28px 20px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols,.fbody{grid-template-columns:1fr}
+  .grid5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timer{position:static;order:-1}
+  .band .big{font-size:76px} .band h1{font-size:30px}
+  .hello h1{font-size:34px}
+  .menubar .who .em{display:none}
+  .menubar .brand{font-size:0;padding-right:4px}
+  #login .formside{order:-1}
+  #login .art h1{font-size:36px !important}
+  .menu>button{padding:6px 7px}
+}
+@media print{
+  .menubar,.timer,.nav,.copy,.toast{display:none !important}
+  .fbody{display:block;padding:20px 0}
+  body{background:#fff}
+  .band{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<nav class="menubar" aria-label="Menú principal">
+  <div class="brand"><span class="dot" aria-hidden="true"></span>Aprende IA</div>
+  <div class="menu" data-m="archivo"><button type="button" aria-haspopup="true" aria-expanded="false">Archivo</button>
+    <div class="drop" role="menu">
+      <button type="button" data-cmd="panel">Panel de inicio <span class="k">Alt+I</span></button>
+      <button type="button" data-cmd="continuar">Continuar donde lo dejé</button>
+      <hr>
+      <button type="button" data-cmd="imprimir" data-need="ficha">Imprimir esta ficha <span class="k">Ctrl+P</span></button>
+      <button type="button" data-cmd="exportar" data-need="auth">Descargar mis notas (.txt)</button>
+      <hr>
+      <button type="button" data-cmd="salir" data-need="auth">Cerrar sesión</button>
+    </div></div>
+  <div class="menu" data-m="edicion"><button type="button" aria-haspopup="true" aria-expanded="false">Edición</button>
+    <div class="drop" role="menu">
+      <button type="button" data-cmd="copiarEjercicio" data-need="ficha">Copiar el ejercicio de esta ficha</button>
+      <button type="button" data-cmd="borrarNotas" data-need="ficha">Borrar mis notas de esta ficha</button>
+      <button type="button" data-cmd="desmarcarPasos" data-need="ficha">Desmarcar los pasos</button>
+      <hr>
+      <button type="button" data-cmd="renombrar" data-need="auth">Cambiar mi nombre…</button>
+    </div></div>
+  <div class="menu" data-m="ajustes"><button type="button" aria-haspopup="true" aria-expanded="false">Ajustes</button>
+    <div class="drop" role="menu">
+      <button type="button" data-cmd="ajustes">Preferencias de la sesión…</button>
+      <hr>
+      <button type="button" data-cmd="borrarCuenta" data-need="auth">Borrar mi cuenta y mis datos…</button>
+    </div></div>
+  <div class="menu" data-m="vista"><button type="button" aria-haspopup="true" aria-expanded="false">Vista</button>
+    <div class="drop" role="menu">
+      <button type="button" data-cmd="panel" data-need="auth">Panel de progreso</button>
+      <button type="button" data-cmd="indice" data-need="auth">Índice de fichas</button>
+      <button type="button" data-cmd="anterior" data-need="ficha">Ficha anterior <span class="k">Alt+←</span></button>
+      <button type="button" data-cmd="siguiente" data-need="ficha">Ficha siguiente <span class="k">Alt+→</span></button>
+      <hr>
+      <button type="button" data-cmd="letraMas">Letra más grande <span class="k">Ctrl+Alt++</span></button>
+      <button type="button" data-cmd="letraMenos">Letra más pequeña <span class="k">Ctrl+Alt+−</span></button>
+      <button type="button" data-cmd="letraNormal">Tamaño normal</button>
+    </div></div>
+  <div class="menu" data-m="ayuda"><button type="button" aria-haspopup="true" aria-expanded="false">Ayuda</button>
+    <div class="drop" role="menu">
+      <button type="button" data-cmd="como">Cómo funciona el curso</button>
+      <button type="button" data-cmd="asistente">Qué asistente de IA usar</button>
+      <button type="button" data-cmd="privacidad">Tus datos y privacidad</button>
+      <hr>
+      <button type="button" data-cmd="acerca">Acerca de</button>
+    </div></div>
+  <div class="who"><span class="sync" id="sync" title="Progreso guardado"></span><span id="whoName"></span></div>
+</nav>
+
+<!-- ============ ACCESO ============ -->
+<main id="login" class="hidden">
+  <section class="art">
+    <div class="eyebrow">Curso práctico · 4 semanas · 20 fichas</div>
+    <h1 style="font-size:54px">Aprende IA en sesiones de 20 minutos</h1>
+    <p style="margin:0;font-size:20px;color:#3A4050;max-width:560px">Cada día, una idea sencilla y un ejercicio real con la IA delante. Esta página lleva la cuenta de tu tiempo, tus fichas y tus notas.</p>
+    <div class="tiles" id="loginTiles"></div>
+  </section>
+  <section class="formside">
+    <form id="loginForm" novalidate>
+      <h2 style="font-size:32px" id="lfTitle">Empieza o continúa</h2>
+      <p style="margin:0;color:#3A4050" id="lfIntro">Sin contraseñas. Entra con tu cuenta de Google o recibe un enlace en tu email. Tu progreso te espera en cualquier dispositivo.</p>
+      <label class="check"><input type="checkbox" id="lfConsent"> <span>Acepto que se guarden mi nombre, mi email y mi progreso solo para seguir este curso. <a href="#" data-cmd="privacidad">Más información</a></span></label>
+      <button class="btn google" type="button" id="lfGoogle"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Entrar con Google</button>
+      <div class="or"><span>o con un enlace por email</span></div>
+      <label class="f" id="lfNameL">Tu nombre<input id="lfName" name="name" autocomplete="name" maxlength="60"></label>
+      <label class="f">Tu email<input id="lfEmail" name="email" type="email" autocomplete="email" maxlength="120"></label>
+      <div class="err" id="lfErr" role="alert"></div>
+      <button class="btn ghost" type="submit" id="lfBtn">Enviarme el enlace de acceso</button>
+      <p style="margin:0;font-size:14px;color:var(--muted)" id="lfNote">El enlace llega en un minuto (revisa también la carpeta de spam). Solo hace falta la primera vez en cada dispositivo.</p>
+    </form>
+  </section>
+</main>
+
+<!-- ============ PANEL ============ -->
+<main id="panel" class="hidden">
+  <div class="wrap">
+    <div class="hello">
+      <div><div class="eyebrow" id="pDate"></div><h1 id="pHello">Hola</h1></div>
+      <div style="color:var(--muted);max-width:420px" id="pMsg"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v" id="sDone">0/20</div><div class="l">fichas hechas</div><div class="bar"><i id="sDoneBar" style="width:0"></i></div></div>
+      <div class="stat"><div class="v" id="sTime">0 min</div><div class="l">de práctica en total</div></div>
+      <div class="stat"><div class="v" id="sStreak">0</div><div class="l">días seguidos</div></div>
+      <div class="stat"><div class="v" id="sWeek">0/5</div><div class="l">sesiones esta semana</div></div>
+    </div>
+    <div class="continue" id="pCont"></div>
+    <div class="cols">
+      <section id="pWeeks" aria-label="Índice de fichas"></section>
+      <aside>
+        <div class="box"><h3>Tus últimas 5 semanas</h3><div class="cal" id="pCal"></div>
+          <div class="legend">Menos <i style="background:#EFEAE0"></i><i style="background:#B7CCEA"></i><i style="background:#6E95CF"></i><i style="background:var(--w1)"></i> Más</div></div>
+        <div class="box"><h3>Objetivo de la semana</h3><p style="margin:0;color:#3A4050">Cinco sesiones, de lunes a domingo.</p><div class="dots" id="pDots"></div></div>
+        <div class="box"><h3>Regla de oro</h3><p style="margin:0;color:#3A4050">Practica siempre con temas tuyos: tu trabajo, tus aficiones, tus problemas reales. Lo que te importa se queda.</p></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FICHA ============ -->
+<main id="ficha" class="hidden">
+  <header class="band" id="fBand">
+    <div class="deco" id="fDeco" aria-hidden="true"></div>
+    <div class="in">
+      <div class="top"><span class="eyebrow" style="color:#fff" id="fWeek"></span><span class="pill" style="background:#fff" id="fAxis"></span></div>
+      <div class="tl"><span class="big" id="fNum"></span><h1 id="fTitle"></h1></div>
+    </div>
+  </header>
+  <div class="fbody">
+    <article>
+      <section class="sec"><div class="sec-h" id="hIdea"></div><p style="margin:0;font-size:19px" id="fConcept"></p></section>
+      <section class="sec"><div class="sec-h" id="hEj"></div><ol class="steps" id="fSteps"></ol></section>
+      <section class="sec settle" id="fSettle">
+        <div class="sec-h" id="hAs"></div>
+        <p style="margin:0;font-weight:600" id="fSettleQ"></p>
+        <label for="fNotes" class="hidden">Tus notas</label>
+        <textarea id="fNotes" placeholder="Escribe aquí tu respuesta. Se guarda sola."></textarea>
+        <div class="saved" id="fSaved"></div>
+      </section>
+      <div class="nav">
+        <button class="btn ghost" type="button" id="fPrev">← Anterior</button>
+        <button class="btn" type="button" id="fDone">Marcar como hecha</button>
+        <button class="btn ghost" type="button" id="fNext">Siguiente →</button>
+      </div>
+    </article>
+    <aside class="timer" aria-label="Temporizador de la sesión">
+      <div class="ring">
+        <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" stroke="#EFEAE0" stroke-width="14" fill="none"/><circle id="tArc" cx="100" cy="100" r="88" stroke="var(--ink)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/></svg>
+        <div class="tx"><b id="tClock">20:00</b><span id="tState">listo para empezar</span></div>
+      </div>
+      <div class="phases" id="tPhases"></div>
+      <button class="btn" type="button" id="tBtn">Empezar sesión</button>
+      <div class="tline"><span>En esta ficha</span><b id="tFicha">0 min</b></div>
+      <div class="tline"><span>Total del curso</span><b id="tTotal">0 min</b></div>
+    </aside>
+  </div>
+</main>
+
+<dialog id="dlg"><div class="dc"><h2 id="dlgT"></h2><div id="dlgB"></div><div class="act" id="dlgA"></div></div></dialog>
+<div class="toast hidden" id="toast" role="status"></div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, sendSignInLinkToEmail,
+  isSignInWithEmailLink, signInWithEmailLink, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection, getDocs,
+  increment, serverTimestamp, deleteField } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
+
+const COURSE = {"weeks": [{"n": 1, "title": "Hablar con una IA", "color": "#2B59A6", "tint": "#EAF0FA", "icon": "chat", "obj": "Perder el miedo, aprender a pedir y saber cuándo fiarse."}, {"n": 2, "title": "La IA para aprender", "color": "#1D7466", "tint": "#E4F2EE", "icon": "book", "obj": "Usar la IA como profesor, bibliotecario y examinador, sin perder el sentido crítico."}, {"n": 3, "title": "La IA para hacer tareas", "color": "#A84C17", "tint": "#F8ECE2", "icon": "tools", "obj": "Convertir la IA en un ayudante diario que ahorra tiempo de verdad."}, {"n": 4, "title": "Crear y delegar", "color": "#5A409C", "tint": "#EEEAF7", "icon": "spark", "obj": "Pasar de pedir respuestas a pedir cosas hechas: herramientas y trabajos de varios pasos."}], "lessons": [{"n": 1, "w": 1, "title": "Qué es (y qué no es) una IA", "axis": "Conocer", "concept": "Un asistente de IA es un programa entrenado con muchísimo texto que aprendió a continuar conversaciones de forma útil. No es un buscador ni una enciclopedia: no consulta una base de datos, redacta la respuesta más probable. Por eso suele acertar, pero a veces se equivoca con total seguridad.", "steps": ["Elige un tema que domines de verdad: tu oficio, tu pueblo, una afición.", "Pídele: «Explícame [tema] en cinco puntos, como a alguien que empieza».", "Lee la respuesta con ojo de experto: qué está bien, qué es vago y qué es falso.", "Corrígela: «El punto 3 no es exacto: en realidad…». Observa cómo reacciona.", "Pregunta por algo que no conozcas y nota la diferencia: ahí no puedes juzgarla."], "settle": "La IA redacta, no consulta. Donde yo sé, la vigilo; donde no sé, compruebo."}, {"n": 2, "w": 1, "title": "Pedir bien: contexto, objetivo y formato", "axis": "Hacer", "concept": "La calidad de la respuesta depende de la calidad de la petición. Una buena petición tiene tres piezas: contexto (quién eres y qué situación hay), objetivo (qué quieres conseguir) y formato (lista, tabla, 100 palabras, tono informal).", "steps": ["Escribe una petición pobre: «Dame ideas para cenar».", "Ahora la rica: «Somos dos adultos, uno no come gluten, tenemos 30 minutos y hay huevos, calabacín y queso. Dame 3 cenas en una tabla con tiempo y pasos».", "Compara las dos respuestas.", "Repite el experimento con un asunto tuyo de trabajo."], "settle": "Antes de pedir algo: ¿le he dado contexto, objetivo y formato?"}, {"n": 3, "w": 1, "title": "Conversar, no consultar: iterar y corregir", "axis": "Hacer", "concept": "La primera respuesta es un borrador. La IA recuerda lo dicho en la conversación, así que se mejora pidiendo cambios: más corto, más cercano, sin tecnicismos, con un ejemplo. Si la conversación se enreda, mejor abrir una nueva.", "steps": ["Pide un texto breve real: una felicitación, un anuncio, una presentación tuya.", "Mejóralo en cuatro rondas: «más corto», «más cálido», «quita la segunda frase», «añade una pregunta al final».", "Pide: «Dame tres versiones distintas» y quédate con partes de cada una.", "Abre una conversación nueva y comprueba que allí no recuerda nada."], "settle": "¿Qué instrucción de mejora me ha resultado más útil?"}, {"n": 4, "w": 1, "title": "Cuándo desconfiar: errores e inventos", "axis": "Conocer", "concept": "Las IA pueden «alucinar»: inventar datos, fechas, citas o libros que suenan reales. Pasa más con datos muy concretos, temas poco conocidos o noticias recientes. Pedirle que avise cuando no esté segura ayuda, pero no sustituye a comprobar.", "steps": ["Pregunta algo muy local o concreto: «¿Quién fue alcalde de [tu pueblo] en 1985?».", "Pide fuentes: «¿De dónde sale ese dato?».", "Comprueba en un buscador si es cierto.", "Repite añadiendo: «Si no lo sabes con seguridad, dilo». Compara."], "settle": "Mis zonas de riesgo: cifras, fechas, citas, leyes, salud, dinero. Ahí siempre compruebo."}, {"n": 5, "w": 1, "title": "Repaso: un problema real de tu semana", "axis": "Ambos", "concept": "Hoy no hay concepto nuevo: se junta todo lo de la semana. Pedir bien, iterar y comprobar, aplicado a algo que tengas pendiente de verdad.", "steps": ["Escoge algo pendiente: un trámite, una compra, una duda de trabajo, un mensaje difícil.", "Plantéaselo con contexto, objetivo y formato.", "Itera hasta que la respuesta te sirva.", "Comprueba por tu cuenta el dato más importante."], "settle": "¿Me ha ahorrado tiempo? ¿En qué paso me ha ayudado más?"}, {"n": 6, "w": 2, "title": "Un tutor a tu medida", "axis": "Conocer", "concept": "La IA puede explicar lo mismo de mil maneras. Si le dices tu nivel y cómo aprendes mejor (con ejemplos, comparaciones, paso a paso), adapta la explicación. Y no se cansa de que le preguntes «¿y eso por qué?».", "steps": ["Elige algo que siempre quisiste entender: la inflación, una hipoteca, qué es una red neuronal.", "Pide: «Explícamelo como si tuviera 12 años, con una comparación de la vida diaria».", "Luego: «Ahora al nivel de un adulto con estudios, en 150 palabras».", "Pregunta tres veces «¿por qué?» sobre lo que no te quede claro.", "Explícale tú el tema con tus palabras y pídele que te corrija."], "settle": "Escribe en tres líneas lo aprendido, sin mirar."}, {"n": 7, "w": 2, "title": "Buscar en internet con IA y comprobar fuentes", "axis": "Conocer", "concept": "Muchos asistentes pueden buscar en la web y citar de dónde sacan cada dato. Es lo adecuado para todo lo actual: precios, noticias, horarios, normas vigentes. La regla: si la respuesta trae enlaces, abre al menos uno.", "steps": ["Haz una pregunta de actualidad: «¿Qué ayudas hay este año para cambiar ventanas en mi comunidad?».", "Si la respuesta no trae fuentes, pídelas: «Busca en internet y dame los enlaces».", "Abre dos enlaces y verifica que dicen lo que la IA resume.", "Pide: «¿Qué fuente es la oficial?» y valora si es razonable."], "settle": "¿Qué preguntas responde de memoria y cuáles exigen buscar?"}, {"n": 8, "w": 2, "title": "Leer por ti: resumir e interrogar documentos", "axis": "Conocer", "concept": "Puedes adjuntar un PDF, una foto de un documento o pegar un texto largo, y la IA lo resume o responde preguntas sobre él. Ideal para contratos, manuales, artículos o actas. Pide siempre que señale en qué parte del texto se basa.", "steps": ["Busca un documento real: una factura de la luz, un manual, unas condiciones de servicio.", "Adjúntalo y pide: «Resúmelo en 5 puntos».", "Haz tres preguntas concretas: «¿Qué pasa si cancelo antes de un año? Cita el párrafo».", "Comprueba una de las citas en el original."], "settle": "¿Qué documento de mi vida me ahorraría más tiempo leer así?"}, {"n": 9, "w": 2, "title": "Que la IA te examine", "axis": "Conocer", "concept": "Se aprende más recordando que releyendo. La IA puede hacerte preguntas, corregir tus respuestas y volver sobre lo que fallas. También puede hacer de profesor socrático: preguntar en vez de explicar.", "steps": ["Retoma el tema de la ficha 6.", "Pide: «Hazme 5 preguntas tipo test, de una en una, sin darme la respuesta hasta que conteste».", "Al terminar: «¿Qué he fallado y qué debo repasar?».", "Prueba: «No me expliques nada; hazme preguntas que me lleven a entenderlo yo»."], "settle": "Mi nota de hoy, y una cosa que recuerdo mejor que el martes."}, {"n": 10, "w": 2, "title": "Contrastar: abogado del diablo y varias perspectivas", "axis": "Conocer", "concept": "La IA tiende a darte la razón. Para pensar mejor, pídele expresamente lo contrario: que critique tu idea, que dé el mejor argumento del otro lado o que muestre cómo lo verían personas distintas.", "steps": ["Escribe una opinión o decisión tuya: «Creo que debería comprar un coche eléctrico».", "Pide: «Haz de abogado del diablo: dame los 3 mejores argumentos en contra».", "Pide: «¿Cómo lo verían un mecánico, un economista y alguien que vive en un pueblo?».", "Decide si cambia algo tu opinión."], "settle": "Repaso: ¿cuál de las cinco formas de aprender de esta semana voy a seguir usando?"}, {"n": 11, "w": 3, "title": "Escribir: correos, mensajes y tono", "axis": "Hacer", "concept": "Redactar es lo que mejor hace una IA. El truco está en darle tus ideas sueltas y decirle a quién va y con qué tono. El texto final lo revisas tú siempre: va con tu nombre.", "steps": ["Piensa en un mensaje que te cueste escribir: reclamar, decir que no, pedir un favor.", "Escribe tus ideas sin orden y pide: «Conviértelo en un correo cordial pero firme para [destinatario], máximo 120 palabras».", "Pide la versión para WhatsApp, más corta.", "Pide: «Léelo como si fueras el destinatario: ¿cómo te sentaría?»."], "settle": "Guarda el mensaje que más te haya gustado como modelo."}, {"n": 12, "w": 3, "title": "Planificar y decidir", "axis": "Hacer", "concept": "La IA ordena lo que tienes en la cabeza: convierte un lío de pendientes en un plan con pasos, o una duda en una tabla de pros y contras. La decisión sigue siendo tuya; la IA te ayuda a verla clara.", "steps": ["Vuelca todo lo pendiente de tu semana, tal cual, sin orden.", "Pide: «Ordénalo por urgencia e importancia y propón un plan de lunes a viernes».", "Elige una decisión abierta: «Haz una tabla con opciones, pros, contras y coste».", "Pide: «¿Qué información me falta para decidir?»."], "settle": "La primera tarea del plan, para hacerla mañana:"}, {"n": 13, "w": 3, "title": "Números y tablas sin miedo", "axis": "Hacer", "concept": "Puedes pegar una tabla, subir una hoja de cálculo o una foto de un tique y pedir cálculos, gráficos o conclusiones. Para cuentas importantes, pídele que muestre las operaciones: así puedes revisarlas.", "steps": ["Apunta tus gastos de una semana (o inventa un extracto).", "Pégalos y pide: «Agrúpalos por categoría, suma cada una y dime en qué gasto más».", "Pide un gráfico.", "Pide: «Si reduzco un 10 % la categoría mayor, ¿cuánto ahorro al año? Enséñame la cuenta». Revísala con la calculadora."], "settle": "Un cálculo que hago a mano y podría delegar:"}, {"n": 14, "w": 3, "title": "Fotos, voz y audio", "axis": "Ambos", "concept": "La IA no solo lee texto: entiende fotos y, en el móvil, puedes hablarle en voz alta. Sirve para identificar una planta, leer una etiqueta, traducir un cartel o pensar en voz alta mientras paseas.", "steps": ["Haz una foto a algo (una pieza rota, una etiqueta, un cartel en otro idioma) y pregunta qué es o qué dice.", "Fotografía una nota escrita a mano y pide que la pase a limpio.", "Usa el modo voz: cuéntale un problema hablando dos minutos y pide un resumen con pasos."], "settle": "¿En qué momento del día me vendría bien hablarle en vez de escribir?"}, {"n": 15, "w": 3, "title": "Tu asistente personalizado", "axis": "Hacer", "concept": "Para no repetir siempre lo mismo («soy tal, trabajo en tal, respóndeme corto»), los asistentes permiten guardar instrucciones personales y crear proyectos con documentos y normas propias. Es como darle una ficha tuya permanente.", "steps": ["Busca en los ajustes las instrucciones personalizadas o preferencias.", "Escribe 4 o 5 líneas: a qué te dedicas, idioma y tono de las respuestas, qué no te gusta.", "Crea un proyecto para un tema recurrente (trabajo, casa, un viaje) y sube un documento de referencia.", "Haz la misma pregunta dentro y fuera del proyecto, y compara."], "settle": "Repaso: ¿qué tarea de esta semana voy a delegar a la IA desde ya?"}, {"n": 16, "w": 4, "title": "Programar sin saber programar", "axis": "Hacer", "concept": "Hoy se puede «programar» describiendo en español lo que quieres. La IA escribe el código y, en asistentes como Claude o ChatGPT, lo muestra funcionando en la misma pantalla. No hace falta entender el código; sí describir bien qué debe hacer.", "steps": ["Piensa en una mini-herramienta: un conversor de recetas, una calculadora de propinas, un cronómetro de 20 minutos.", "Descríbela: «Hazme una página sencilla donde escribo los ingredientes para 4 personas y me los recalcula para las que yo diga».", "Úsala y prueba casos raros: 0 personas, decimales.", "Pide: «Explícame en 5 líneas cómo funciona por dentro»."], "settle": "Tres herramientas pequeñas que me gustaría tener:"}, {"n": 17, "w": 4, "title": "Mejorar lo creado: pedir cambios y arreglar fallos", "axis": "Hacer", "concept": "Programar con IA es una conversación: describes, pruebas, cuentas qué falla y pides cambios. Cuanto más concreto el fallo («al pulsar X pasa Y y esperaba Z»), mejor lo arregla.", "steps": ["Retoma la herramienta de ayer.", "Pide tres mejoras: un diseño más claro, un botón nuevo, guardar el último resultado.", "Si algo falla, descríbelo con el esquema «hice / pasó / esperaba».", "Haz otra herramienta de tu lista, tú solo, de principio a fin."], "settle": "La frase que mejor me ha funcionado para describir un fallo:"}, {"n": 18, "w": 4, "title": "Agentes: la IA que trabaja varios pasos sola", "axis": "Ambos", "concept": "Un agente no solo responde: planifica y ejecuta varias acciones seguidas (buscar en muchas webs, leer, comparar, redactar un informe). Tú defines el encargo y revisas el resultado. Es pasar de preguntar a un experto a encargar un trabajo a un ayudante.", "steps": ["Busca en tu asistente el modo de investigación o de tareas largas.", "Encárgale algo con varios pasos: «Compara los 4 móviles de gama media más recomendados este año: precio, batería, cámara y opiniones, en una tabla con fuentes».", "Mientras trabaja, observa qué pasos da.", "Revisa el resultado: ¿las fuentes son buenas? ¿falta algo?"], "settle": "Un encargo de mi trabajo que podría dar a un agente:"}, {"n": 19, "w": 4, "title": "Privacidad, seguridad y buen uso", "axis": "Conocer", "concept": "Lo que escribes a una IA sale de tu ordenador. No compartas contraseñas, números de cuenta ni documentos de identidad; cuida los datos de otras personas; revisa la privacidad de tu cuenta. Y desconfía de mensajes, voces o vídeos sospechosos: los estafadores también usan IA.", "steps": ["Entra en los ajustes de privacidad y mira qué se guarda y si se usa para entrenar.", "Pide: «Dame 10 cosas que nunca debería compartir con un asistente de IA».", "Pide: «¿Cómo reconozco un audio o vídeo falso hecho con IA?».", "Revisa tus conversaciones y borra las que tengan datos sensibles."], "settle": "Mis tres reglas personales de uso seguro (cópialas también al final del cuadernillo)."}, {"n": 20, "w": 4, "title": "Proyecto final: tu caja de herramientas", "axis": "Ambos", "concept": "El objetivo no es acabar un curso, sino quedarse con hábitos. Hoy se recoge lo que funciona en una guía personal que seguirás usando. A partir de ahora, los 20 minutos diarios son para usar la IA en algo real.", "steps": ["Repasa tus notas de las 19 fichas anteriores.", "Pégalas y pide: «Con estas notas, hazme una guía personal de una página: para qué uso la IA, mis mejores peticiones y mis reglas de seguridad».", "Corrígela hasta que sea tuya, e imprímela.", "Elige un reto para el mes que viene: una herramienta por semana, o un tema nuevo que aprender con el método de la semana 2."], "settle": "Mi reto para el próximo mes:"}]};
+const FIREBASE = {"apiKey": "AIzaSyB3fb4tTthsOGAa_8o9_SyM5l_UNOKd6Fs", "authDomain": "curso-ia-20min-mbai.firebaseapp.com", "projectId": "curso-ia-20min-mbai", "storageBucket": "curso-ia-20min-mbai.firebasestorage.app", "messagingSenderId": "570735738441", "appId": "1:570735738441:web:5bca6a88d578e721878998"};
+const fb = initializeApp(FIREBASE);
+const auth = getAuth(fb); auth.languageCode = 'es';
+const db = getFirestore(fb);
+const LS = { settings:'cia_settings', pending:'cia_pending', email:'cia_email_link', name:'cia_name_link' };
+
+/* ---------- iconos ---------- */
+const ICONS = {
+ chat:'<path d="M8 12h30a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z"/><path d="M46 22h10a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4h-4v6l-7-6H32a4 4 0 0 1-4-4v-2"/><path d="M13 21h20M13 26h13"/>',
+ book:'<path d="M32 16c-6-4-14-5-24-4v36c10-1 18 0 24 4 6-4 14-5 24-4V12c-10-1-18 0-24 4z"/><path d="M32 16v36"/><path d="M14 22c5 0 9 1 12 2M14 30c5 0 9 1 12 2M38 24c3-1 7-2 12-2M38 32c3-1 7-2 12-2"/>',
+ tools:'<path d="M40 8a12 12 0 0 0-11 16L9 44a5 5 0 0 0 7 7l20-20a12 12 0 0 0 16-11l-7 4-6-3-1-7 6-6z"/><path d="M44 40l12 12M50 34l8 8-6 6-8-8"/>',
+ spark:'<path d="M28 6l4 14 14 4-14 4-4 14-4-14-14-4 14-4z"/><path d="M48 36l2.5 7.5L58 46l-7.5 2.5L48 56l-2.5-7.5L38 46l7.5-2.5z"/><path d="M12 44l1.5 4.5L18 50l-4.5 1.5L12 56l-1.5-4.5L6 50l4.5-1.5z"/>',
+ pencil:'<path d="M44 8l12 12L22 54H10V42z"/><path d="M38 14l12 12"/>',
+ bulb:'<path d="M24 46h16M26 54h12"/><path d="M32 6a16 16 0 0 0-9 29c2 2 3 4 3 7v4h12v-4c0-3 1-5 3-7A16 16 0 0 0 32 6z"/>',
+ play:'<circle cx="32" cy="32" r="24"/><path d="M27 22l14 10-14 10z"/>',
+ check:'<path d="M14 34l12 12 24-26"/>'
+};
+const icon = (n, s, sw=3.2) => `<svg class="i" aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 64 64" stroke-width="${sw}">${ICONS[n]}</svg>`;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rich = s => esc(s).replace(/«([^»]*)»/g, '<em class="p">«$1»</em>');
+const $ = id => document.getElementById(id);
+const W = n => COURSE.weeks[n-1];
+
+/* ---------- estado ---------- */
+let user = null, uref = null, progress = {}, daily = {};
+let view = 'login', current = 1;
+let settings = Object.assign({ duration:20, sound:true, pauseHidden:true, scale:1 }, JSON.parse(localStorage.getItem(LS.settings) || '{}'));
+const saveSettings = () => { localStorage.setItem(LS.settings, JSON.stringify(settings)); document.documentElement.style.setProperty('--scale', settings.scale); };
+saveSettings();
+
+const localDay = (d=new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmtMin = s => { const m = Math.round(s/60); return m < 60 ? `${m} min` : `${Math.floor(m/60)} h ${m%60} min`; };
+const toast = (t) => { const e=$('toast'); e.textContent=t; e.classList.remove('hidden'); clearTimeout(toast._t); toast._t=setTimeout(()=>e.classList.add('hidden'),3200); };
+function setSync(ok){ $('sync').classList.toggle('off', !ok); $('sync').title = ok ? 'Progreso guardado' : 'Sin conexión: se guardará al volver'; }
+const errText = e => {
+  const c = e?.code || '';
+  if (c.includes('popup-closed')) return 'Has cerrado la ventana de Google antes de terminar.';
+  if (c.includes('popup-blocked')) return 'El navegador ha bloqueado la ventana de Google. Permite las ventanas emergentes para esta web.';
+  if (c.includes('quota-exceeded')) return 'Hoy se han enviado ya todos los enlaces por email disponibles. Entra con Google o inténtalo mañana.';
+  if (c.includes('invalid-email')) return 'Revisa el email.';
+  if (c.includes('invalid-action-code') || c.includes('expired-action-code')) return 'Ese enlace ya no vale. Pide otro.';
+  if (c.includes('network')) return 'Sin conexión. Revisa internet y vuelve a intentarlo.';
+  if (c.includes('permission-denied')) return 'No tienes permiso para esta acción.';
+  return e?.message || 'Algo ha fallado';
+};
+
+/* ---------- vistas ---------- */
+function show(v){
+  view = v;
+  for (const id of ['login','panel','ficha']) $(id).classList.toggle('hidden', id !== v);
+  document.querySelectorAll('[data-need]').forEach(b => {
+    const n = b.dataset.need; b.disabled = (n === 'auth' && !user) || (n === 'ficha' && view !== 'ficha');
+  });
+  $('whoName').innerHTML = user ? `${esc(user.name)} <span class="em">· ${esc(user.email)}</span>` : '';
+  window.scrollTo(0,0);
+}
+
+function renderLogin(mode){
+  $('loginTiles').innerHTML = COURSE.weeks.map(w => `<div class="tile" style="background:${w.color}">${icon(w.icon,52,3)}<div><small>Semana ${w.n}</small><b>${esc(w.title)}</b></div></div>`).join('');
+  const confirm = mode === 'confirmEmail';
+  $('lfTitle').textContent = confirm ? 'Confirma tu email' : 'Empieza o continúa';
+  $('lfIntro').textContent = confirm ? 'Has abierto el enlace en otro dispositivo. Escribe el email al que te lo enviamos para entrar.' :
+    'Sin contraseñas. Entra con tu cuenta de Google o recibe un enlace en tu email. Tu progreso te espera en cualquier dispositivo.';
+  $('lfBtn').textContent = confirm ? 'Entrar' : 'Enviarme el enlace de acceso';
+  $('lfGoogle').classList.toggle('hidden', confirm);
+  document.querySelector('.or').classList.toggle('hidden', confirm);
+  $('lfNote').classList.toggle('hidden', confirm);
+  $('loginForm').dataset.mode = confirm ? 'confirm' : 'send';
+  show('login');
+}
+
+function stats(){
+  const done = COURSE.lessons.filter(l => progress[l.n]?.done_at).length;
+  const total = Object.values(progress).reduce((a,p)=>a+(+p.seconds||0),0);
+  let streak = 0; const d = new Date();
+  if (!daily[localDay(d)]) d.setDate(d.getDate()-1);
+  while (daily[localDay(d)]) { streak++; d.setDate(d.getDate()-1); }
+  const mon = new Date(); mon.setDate(mon.getDate() - ((mon.getDay()+6)%7));
+  let week = 0; for (let i=0;i<7;i++){ const x=new Date(mon); x.setDate(mon.getDate()+i); if (daily[localDay(x)] >= 60) week++; }
+  const next = COURSE.lessons.find(l => !progress[l.n]?.done_at) || null;
+  return { done, total, streak, week, next };
+}
+
+function renderPanel(){
+  const s = stats();
+  const h = new Date().getHours();
+  $('pDate').textContent = new Date().toLocaleDateString('es-ES',{weekday:'long', day:'numeric', month:'long'});
+  $('pHello').textContent = `${h<14?'Buenos días':h<21?'Buenas tardes':'Buenas noches'}, ${user.name.split(' ')[0]}`;
+  $('pMsg').textContent = s.done===20 ? '¡Curso completado! Ahora los 20 minutos son para usar la IA en algo real.' :
+     s.done===0 && !s.total ? 'Tu primera sesión dura 20 minutos. Ten abierto tu asistente de IA en otra pestaña o en el móvil.' :
+     daily[localDay()] ? 'Hoy ya has practicado. Si te apetece, sigue con la siguiente ficha.' : 'Te toca la sesión de hoy: 20 minutos y listo.';
+  $('sDone').textContent = `${s.done}/20`; $('sDoneBar').style.width = (s.done*5)+'%';
+  $('sTime').textContent = fmtMin(s.total);
+  $('sStreak').textContent = s.streak; $('sWeek').textContent = `${Math.min(s.week,5)}/5`;
+  const n = s.next;
+  if (n){ const w=W(n.w);
+    $('pCont').style.background = w.color;
+    $('pCont').innerHTML = `<span class="n">${String(n.n).padStart(2,'0')}</span><div><div class="eyebrow" style="color:#fff">${progress[n.n]?'Continuar':'Siguiente'} · Semana ${w.n}</div><h2>${esc(n.title)}</h2></div><button class="btn" type="button" data-open="${n.n}">${progress[n.n]?'Continuar':'Empezar'} ficha →</button>`;
+  } else { $('pCont').style.background = 'var(--ink)'; $('pCont').innerHTML = `<div>${icon('check',64,4)}</div><div><h2>Has terminado las 20 fichas</h2><p style="margin:4px 0 0">Repite cualquier ficha con un tema nuevo cuando quieras.</p></div>`; }
+  $('pWeeks').innerHTML = COURSE.weeks.map(w => `<div class="week"><div class="week-h"><span class="sq" style="background:${w.color}">${icon(w.icon,24,4)}</span><div><div class="eyebrow">Semana ${w.n}</div><h3>${esc(w.title)}</h3></div></div><div class="grid5">${
+    COURSE.lessons.filter(l=>l.w===w.n).map(l => { const p=progress[l.n]; const d=p?.done_at;
+      return `<button type="button" class="card ${d?'done':''}" data-open="${l.n}" style="${d?`background:${w.color}`:''}">${d?`<span class="ok">${icon('check',22,5)}</span>`:''}<span class="num" style="color:${d?'#fff':w.color}">${String(l.n).padStart(2,'0')}</span><span class="tt">${esc(l.title)}</span><span class="st"><span>${d?'Hecha':p?.seconds?'Empezada':'Pendiente'}</span><span>${p?.seconds?fmtMin(p.seconds):''}</span></span></button>`; }).join('')}</div></div>`).join('');
+  const start = new Date(); start.setDate(start.getDate() - ((start.getDay()+6)%7) - 28);
+  let cal = ['L','M','X','J','V','S','D'].map(x=>`<div class="dn">${x}</div>`).join('');
+  for (let i=0;i<35;i++){ const d=new Date(start); d.setDate(start.getDate()+i); const k=localDay(d); const sec=daily[k]||0;
+    const lv = sec<=0?'':sec<600?'l1':sec<1200?'l2':'l3';
+    cal += `<div class="d ${lv} ${k===localDay()?'today':''}" title="${d.toLocaleDateString('es-ES')}: ${sec?fmtMin(sec):'sin práctica'}"></div>`; }
+  $('pCal').innerHTML = cal;
+  $('pDots').innerHTML = Array.from({length:5},(_,i)=>`<i class="${i<s.week?'on':''}"></i>`).join('');
+  show('panel');
+}
+
+/* ---------- datos (Firestore) ---------- */
+// users/{uid}: { name, email, createdAt, lastSeen, totalSeconds, fichas:{ f1:{seconds, doneAt} }, daily:{ 'AAAA-MM-DD': segundos } }
+// users/{uid}/notes/f{n}: { text, updatedAt }  — solo las lee el alumno
+async function loadUser(fbUser, nameHint){
+  uref = doc(db, 'users', fbUser.uid);
+  let snap = await getDoc(uref);
+  if (!snap.exists()){
+    const name = (nameHint || fbUser.displayName || fbUser.email.split('@')[0]).trim().slice(0,60).padEnd(2,'·');
+    await setDoc(uref, { name, email: fbUser.email, createdAt: serverTimestamp(), lastSeen: serverTimestamp(), totalSeconds: 0, fichas: {}, daily: {} });
+    snap = await getDoc(uref);
+  } else {
+    updateDoc(uref, { lastSeen: serverTimestamp() }).catch(()=>{});
+  }
+  const d = snap.data();
+  user = { name: d.name, email: d.email };
+  progress = {}; daily = Object.assign({}, d.daily || {});
+  for (const [k, v] of Object.entries(d.fichas || {})) progress[+k.slice(1)] = { seconds: v.seconds || 0, done_at: v.doneAt || null, notes: '' };
+  const notes = await getDocs(collection(uref, 'notes'));
+  notes.forEach(n => { const f = +n.id.slice(1); (progress[f] || (progress[f] = { seconds:0, done_at:null })).notes = n.data().text || ''; });
+  setSync(true); sendQueue();
+  const m = location.hash.match(/^#ficha-(\d+)$/);
+  if (m && +m[1]>=1 && +m[1]<=20) openFicha(+m[1]); else renderPanel();
+}
+
+/* ---------- ficha y temporizador ---------- */
+let timer = { running:false, int:null, elapsed:0, pending:0, beeped:false };
+
+function openFicha(n){
+  stopTimer(true);
+  current = n; const l = COURSE.lessons[n-1], w = W(l.w), p = progress[n] || {};
+  $('fBand').style.background = w.color;
+  $('fDeco').innerHTML = icon(w.icon, 320, 2.2);
+  $('fWeek').textContent = `Semana ${w.n} · ${w.title}`;
+  $('fAxis').textContent = l.axis; $('fAxis').style.color = w.color;
+  $('fNum').textContent = String(n).padStart(2,'0'); $('fTitle').textContent = l.title;
+  const h = (ic, t, extra='') => `<span style="color:${w.color}">${icon(ic,28,4)}</span><b style="color:${w.color}">${t}</b>${extra}`;
+  $('hIdea').innerHTML = h('bulb','La idea');
+  $('hEj').innerHTML = h('play','Ejercicio', `<button class="copy" type="button" data-cmd="copiarEjercicio">Copiar</button>`);
+  $('hAs').innerHTML = h('pencil','Para asentar');
+  $('fConcept').innerHTML = rich(l.concept);
+  const checks = JSON.parse(localStorage.getItem(stepsKey(n)) || '[]');
+  $('fSteps').innerHTML = l.steps.map((s,i)=>`<li><label><input type="checkbox" data-step="${i}" ${checks[i]?'checked':''}><span class="nb" style="background:${w.color}">${i+1}</span><span class="tx">${rich(s)}</span></label></li>`).join('');
+  $('fSettle').style.background = w.tint;
+  $('fSettleQ').innerHTML = rich(l.settle);
+  $('fNotes').value = p.notes || ''; $('fSaved').textContent = p.notes ? 'Guardado' : '';
+  $('fPrev').disabled = n===1; $('fNext').disabled = n===20;
+  updateDoneBtn();
+  $('tArc').style.stroke = w.color;
+  $('tPhases').innerHTML = [['Idea',4],['Ejercicio',14],['Asentar',2]].map(([t,m])=>`<div style="flex:${m}"><i></i>${t}</div>`).join('');
+  timer.elapsed = 0; timer.beeped = false; drawTimer();
+  show('ficha');
+  history.replaceState(null,'',`#ficha-${n}`);
+}
+const stepsKey = n => `cia_steps_${user?.email}_${n}`;
+function updateDoneBtn(){ const d = progress[current]?.done_at; $('fDone').textContent = d ? '✓ Hecha · desmarcar' : 'Marcar como hecha'; $('fDone').classList.toggle('ghost', !!d); }
+
+function drawTimer(){
+  const dur = settings.duration*60, left = dur - timer.elapsed;
+  const a = Math.abs(left), mm = String(Math.floor(a/60)).padStart(2,'0'), ss = String(a%60).padStart(2,'0');
+  $('tClock').textContent = (left<0?'+':'') + `${mm}:${ss}`;
+  $('tArc').style.strokeDashoffset = 552.9 * (1 - Math.min(1, timer.elapsed/dur));
+  $('tState').textContent = timer.running ? (left<0?'tiempo extra':'en marcha') : (timer.elapsed?'en pausa':'listo para empezar');
+  $('tBtn').textContent = timer.running ? 'Pausar' : (timer.elapsed ? 'Seguir' : 'Empezar sesión');
+  const f = timer.elapsed/dur; const ph = $('tPhases').children;
+  if (ph.length===3){ ph[0].classList.toggle('on', f>0); ph[1].classList.toggle('on', f>=0.2); ph[2].classList.toggle('on', f>=0.9); }
+  const p = progress[current] || {};
+  $('tFicha').textContent = fmtMin((+p.seconds||0) + timer.pending);
+  $('tTotal').textContent = fmtMin(Object.values(progress).reduce((a,x)=>a+(+x.seconds||0),0) + timer.pending);
+}
+function startTimer(){
+  if (timer.running) return; timer.running = true;
+  timer.int = setInterval(()=>{
+    timer.elapsed++; timer.pending++;
+    if (!timer.beeped && timer.elapsed >= settings.duration*60){ timer.beeped = true; if (settings.sound) beep(); toast('¡Sesión completada! Termina la nota y marca la ficha como hecha.'); }
+    if (timer.pending >= 30) flush();
+    drawTimer();
+  }, 1000);
+  drawTimer();
+}
+function stopTimer(save){ timer.running = false; clearInterval(timer.int); if (save) flush(); if (view==='ficha') drawTimer(); }
+
+function flush(){
+  const sec = timer.pending; if (sec <= 0 || !uref) return;
+  timer.pending = 0;
+  const f = current, day = localDay();
+  const p = progress[f] || (progress[f] = { seconds:0, notes:'', done_at:null });
+  p.seconds = (+p.seconds||0) + sec; daily[day] = (daily[day]||0) + sec;
+  const q = JSON.parse(localStorage.getItem(LS.pending)||'[]'); q.push({ uid: auth.currentUser?.uid, ficha:f, seconds:sec, day }); localStorage.setItem(LS.pending, JSON.stringify(q));
+  return sendQueue();
+}
+let sending = false;
+async function sendQueue(){
+  if (sending || !uref) return; sending = true;
+  try {
+    let q = JSON.parse(localStorage.getItem(LS.pending)||'[]').filter(it => it.uid === auth.currentUser?.uid);
+    while (q.length){
+      const it = q[0];
+      await updateDoc(uref, { [`fichas.f${it.ficha}.seconds`]: increment(it.seconds), [`daily.${it.day}`]: increment(it.seconds),
+        totalSeconds: increment(it.seconds), lastSeen: serverTimestamp() });
+      q.shift(); localStorage.setItem(LS.pending, JSON.stringify(q));
+    }
+    setSync(true);
+  } catch(e){ setSync(false); }
+  sending = false;
+}
+function beep(){ try{ const c = new (window.AudioContext||window.webkitAudioContext)(); [0,0.25,0.5].forEach((t,i)=>{ const o=c.createOscillator(), g=c.createGain(); o.frequency.value=[660,880,990][i]; g.gain.setValueAtTime(0.18,c.currentTime+t); g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+t+0.35); o.connect(g); g.connect(c.destination); o.start(c.currentTime+t); o.stop(c.currentTime+t+0.4); }); }catch{} }
+
+async function saveNote(f, text){
+  await setDoc(doc(uref, 'notes', `f${f}`), { text, updatedAt: serverTimestamp() });
+}
+let notesT;
+$('fNotes').addEventListener('input', () => {
+  $('fSaved').textContent = 'Guardando…'; clearTimeout(notesT);
+  const f = current, v = $('fNotes').value.slice(0,5000);
+  notesT = setTimeout(async () => {
+    (progress[f] || (progress[f] = {ficha:f, seconds:0, done_at:null})).notes = v;
+    try { await saveNote(f, v); $('fSaved').textContent = 'Guardado'; setSync(true); }
+    catch(e){ $('fSaved').textContent = 'No se ha podido guardar: ' + errText(e); setSync(false); }
+  }, 900);
+});
+$('fSteps').addEventListener('change', () => {
+  const boxes = [...$('fSteps').querySelectorAll('input')].map(b=>b.checked);
+  localStorage.setItem(stepsKey(current), JSON.stringify(boxes));
+});
+$('tBtn').onclick = () => timer.running ? stopTimer(true) : startTimer();
+$('fPrev').onclick = () => current>1 && openFicha(current-1);
+$('fNext').onclick = () => current<20 && openFicha(current+1);
+$('fDone').onclick = async () => {
+  const f = current, p = progress[f] || (progress[f] = {seconds:0, notes:''});
+  const d = !p.done_at; p.done_at = d ? new Date().toISOString() : null; updateDoneBtn();
+  try {
+    await updateDoc(uref, { [`fichas.f${f}.doneAt`]: d ? p.done_at : deleteField(), lastSeen: serverTimestamp() });
+    setSync(true); if (d) toast(f===20 ? '¡Curso completado!' : 'Ficha hecha. ¡Hasta mañana!');
+  } catch(e){ setSync(false); toast('No se ha podido guardar: '+errText(e)); }
+};
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden){ if (timer.running && settings.pauseHidden){ stopTimer(true); timer._autopaused = true; } else flush(); }
+  else if (timer._autopaused){ timer._autopaused = false; if (view==='ficha') toast('El temporizador se pausó al cambiar de pestaña. Pulsa «Seguir».'); }
+});
+window.addEventListener('pagehide', () => flush());
+
+/* ---------- acceso ---------- */
+const needConsent = () => { if (!$('lfConsent').checked){ $('lfErr').textContent = 'Marca la casilla para poder guardar tu progreso.'; return false; } return true; };
+$('lfGoogle').onclick = async () => {
+  $('lfErr').textContent = ''; if (!needConsent()) return;
+  try { const p = new GoogleAuthProvider(); p.setCustomParameters({ prompt:'select_account' }); await signInWithPopup(auth, p); }
+  catch(e){ $('lfErr').textContent = errText(e); }
+};
+$('loginForm').addEventListener('submit', async e => {
+  e.preventDefault(); $('lfErr').textContent = '';
+  const name = $('lfName').value.trim(), email = $('lfEmail').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return $('lfErr').textContent = 'Revisa el email.';
+  if ($('loginForm').dataset.mode === 'confirm'){
+    try { await signInWithEmailLink(auth, email, location.href); confirmMode = false; localStorage.removeItem(LS.email); history.replaceState(null,'',location.pathname); }
+    catch(err){ $('lfErr').textContent = errText(err); }
+    return;
+  }
+  if (name.length < 2) return $('lfErr').textContent = 'Escribe tu nombre.';
+  if (!needConsent()) return;
+  $('lfBtn').disabled = true;
+  try {
+    await sendSignInLinkToEmail(auth, email, { url: location.origin + location.pathname, handleCodeInApp: true });
+    localStorage.setItem(LS.email, email); localStorage.setItem(LS.name, name);
+    $('lfErr').innerHTML = `<span class="ok">Te hemos enviado un enlace a ${esc(email)}. Ábrelo desde este mismo dispositivo para entrar.</span>`;
+  } catch(err){ $('lfErr').textContent = errText(err); }
+  $('lfBtn').disabled = false;
+});
+let confirmMode = false;
+function logoutLocal(){ stopTimer(false); user=null; uref=null; progress={}; daily={}; if (!confirmMode) history.replaceState(null,'',location.pathname); renderLogin(confirmMode ? 'confirmEmail' : undefined); }
+
+/* ---------- diálogos ---------- */
+function dialog(title, html, actions=[['Cerrar',null,true]]){
+  $('dlgT').textContent = title; $('dlgB').innerHTML = html; $('dlgA').innerHTML = '';
+  actions.forEach(([t,fn,primary]) => { const b=document.createElement('button'); b.type='button'; b.className='btn'+(primary?'':' ghost'); b.textContent=t; b.onclick=async()=>{ if(fn && (await fn())===false) return; $('dlg').close(); }; $('dlgA').appendChild(b); });
+  $('dlg').showModal();
+}
+const HELP = {
+  como: ['Cómo funciona el curso', `<p>Son <b>20 fichas</b> en <b>4 semanas</b>, una al día de lunes a viernes. Cada sesión dura unos 20 minutos:</p><p><b>4 min</b> para leer la idea · <b>14 min</b> de ejercicio con la IA delante · <b>2 min</b> para escribir tu nota en «Para asentar».</p><p>Pulsa <b>Empezar sesión</b> al abrir una ficha: el tiempo se guarda solo. Al terminar, márcala como hecha. Las frases «entre comillas» son ejemplos de lo que escribir a la IA; adáptalas a tu vida.</p>`],
+  asistente: ['Qué asistente de IA usar', `<p>Sirve cualquiera de estos, en su versión gratuita: <b>Claude</b> (claude.ai), <b>ChatGPT</b> (chatgpt.com) o <b>Gemini</b> (gemini.google.com).</p><p>Ábrelo en otra pestaña o en el móvil y usa siempre el mismo durante el curso. Con <b>Edición › Copiar el ejercicio</b> puedes pegar los pasos de la ficha directamente en la IA.</p>`],
+  privacidad: ['Tus datos y privacidad', `<p>Para seguir tu progreso se guardan tu <b>nombre</b>, tu <b>email</b>, el <b>tiempo</b> de cada ficha, las fichas <b>hechas</b> y tus <b>notas</b>, en servidores de Google Firebase en Europa.</p><p>El responsable del curso ve tu nombre, email y avance, pero <b>no tus notas</b>: esas solo las ves tú. No se usan para nada más ni se comparten.</p><p>Puedes descargar tus notas (Archivo) o borrar tu cuenta y todos tus datos (Ajustes) cuando quieras.</p>`],
+  acerca: ['Acerca de', `<p><b>Aprende IA en sesiones de 20 minutos</b><br>Curso práctico de 20 fichas con seguimiento de progreso.</p><p style="color:var(--muted)">mbainative.com · versión 1.1</p>`]
+};
+const CMDS = {
+  panel: () => { if (!user) return; stopTimer(true); history.replaceState(null,'',location.pathname); renderPanel(); },
+  indice: () => { CMDS.panel(); setTimeout(()=>$('pWeeks').scrollIntoView({behavior:'smooth'}),50); },
+  continuar: () => { if (!user) return; const n = stats().next; n ? openFicha(n.n) : renderPanel(); },
+  imprimir: () => window.print(),
+  exportar: () => {
+    let t = `Mis notas · Aprende IA en sesiones de 20 minutos\n${user.name} <${user.email}>\n${new Date().toLocaleDateString('es-ES')}\n\n`;
+    COURSE.lessons.forEach(l => { const p=progress[l.n]; if (p?.notes) t += `Ficha ${l.n} · ${l.title}\n${l.settle}\n${p.notes}\n\n`; });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'})); a.download = 'mis-notas-curso-ia.txt'; a.click();
+  },
+  salir: async () => { await flush(); await signOut(auth); },
+  copiarEjercicio: async () => { const l=COURSE.lessons[current-1]; const t=`Ficha ${l.n}: ${l.title}\n\n`+l.steps.map((s,i)=>`${i+1}. ${s}`).join('\n'); try{ await navigator.clipboard.writeText(t); toast('Ejercicio copiado: pégalo en tu asistente de IA'); }catch{ toast('No se ha podido copiar'); } },
+  borrarNotas: () => dialog('¿Borrar tus notas de esta ficha?', '<p>Se borrará lo que escribiste en «Para asentar».</p>', [['Cancelar'],['Borrar', async()=>{ $('fNotes').value=''; $('fNotes').dispatchEvent(new Event('input')); }, true]]),
+  desmarcarPasos: () => { localStorage.removeItem(stepsKey(current)); $('fSteps').querySelectorAll('input').forEach(b=>b.checked=false); },
+  renombrar: () => dialog('Cambiar mi nombre', `<label class="f">Nombre<input id="rnName" maxlength="60" value="${esc(user.name)}"></label>`, [['Cancelar'],['Guardar', async()=>{ const n=$('rnName').value.trim(); if (n.length<2){ toast('Escribe tu nombre'); return false; } try{ await updateDoc(uref,{name:n}); user.name=n; show(view); if(view==='panel') renderPanel(); toast('Nombre cambiado'); }catch(e){ toast(errText(e)); return false; } }, true]]),
+  ajustes: () => dialog('Preferencias de la sesión', `
+    <div class="opt"><span>Duración de cada sesión</span><select id="stDur">${[15,20,25,30].map(m=>`<option value="${m}" ${settings.duration===m?'selected':''}>${m} minutos</option>`).join('')}</select></div>
+    <div class="opt"><label for="stSnd">Sonido al terminar el tiempo</label><input type="checkbox" id="stSnd" ${settings.sound?'checked':''}></div>
+    <div class="opt"><label for="stHid">Pausar al cambiar de pestaña<br><small style="color:var(--muted)">Desactívalo si haces los ejercicios en otra pestaña del mismo navegador</small></label><input type="checkbox" id="stHid" ${settings.pauseHidden?'checked':''}></div>`,
+    [['Cancelar'],['Guardar', ()=>{ settings.duration=+$('stDur').value; settings.sound=$('stSnd').checked; settings.pauseHidden=$('stHid').checked; saveSettings(); if(view==='ficha') drawTimer(); toast('Preferencias guardadas'); }, true]]),
+  borrarCuenta: () => dialog('¿Borrar tu cuenta?', '<p>Se borrarán tu nombre, tu email, tu tiempo, tus fichas hechas y tus notas. No se puede deshacer.</p>', [['Cancelar'],['Borrar todo', async()=>{
+    try {
+      stopTimer(false);
+      const ns = await getDocs(collection(uref,'notes')); for (const n of ns.docs) await deleteDoc(n.ref);
+      await deleteDoc(uref);
+      try { await deleteUser(auth.currentUser); } catch { await signOut(auth); }
+      localStorage.removeItem(LS.pending); toast('Cuenta y datos borrados');
+    } catch(e){ toast(errText(e)); return false; } }, true]]),
+  anterior: () => current>1 && openFicha(current-1),
+  siguiente: () => current<20 && openFicha(current+1),
+  letraMas: () => { settings.scale = Math.min(1.4, +(settings.scale+0.1).toFixed(1)); saveSettings(); },
+  letraMenos: () => { settings.scale = Math.max(0.8, +(settings.scale-0.1).toFixed(1)); saveSettings(); },
+  letraNormal: () => { settings.scale = 1; saveSettings(); },
+};
+['como','asistente','privacidad','acerca'].forEach(k => CMDS[k] = () => dialog(...HELP[k]));
+
+/* ---------- menús ---------- */
+const menus = [...document.querySelectorAll('.menu')];
+const closeMenus = () => menus.forEach(m => { m.classList.remove('open'); m.firstElementChild.setAttribute('aria-expanded','false'); });
+menus.forEach(m => {
+  const b = m.firstElementChild;
+  b.addEventListener('click', () => { const o = m.classList.contains('open'); closeMenus(); if (!o){ m.classList.add('open'); b.setAttribute('aria-expanded','true'); m.querySelector('.drop button:not(:disabled)')?.focus(); } });
+  b.addEventListener('mouseenter', () => { if (menus.some(x=>x.classList.contains('open')) && !m.classList.contains('open')){ closeMenus(); m.classList.add('open'); b.setAttribute('aria-expanded','true'); } });
+  m.addEventListener('keydown', e => {
+    const items = [...m.querySelectorAll('.drop button:not(:disabled)')], i = items.indexOf(document.activeElement);
+    if (e.key==='ArrowDown'){ e.preventDefault(); items[(i+1)%items.length]?.focus(); }
+    if (e.key==='ArrowUp'){ e.preventDefault(); items[(i-1+items.length)%items.length]?.focus(); }
+    if (e.key==='ArrowRight' || e.key==='ArrowLeft'){ e.preventDefault(); const j=(menus.indexOf(m)+(e.key==='ArrowRight'?1:-1)+menus.length)%menus.length; closeMenus(); menus[j].firstElementChild.click(); }
+    if (e.key==='Escape'){ closeMenus(); b.focus(); }
+  });
+});
+document.addEventListener('click', e => {
+  const c = e.target.closest('[data-cmd]');
+  if (c){ e.preventDefault(); if (c.disabled) return; closeMenus(); CMDS[c.dataset.cmd]?.(); return; }
+  const o = e.target.closest('[data-open]'); if (o){ openFicha(+o.dataset.open); return; }
+  if (!e.target.closest('.menu')) closeMenus();
+});
+document.addEventListener('keydown', e => {
+  if (e.altKey && !e.ctrlKey && view==='ficha' && e.key==='ArrowLeft'){ e.preventDefault(); CMDS.anterior(); }
+  if (e.altKey && !e.ctrlKey && view==='ficha' && e.key==='ArrowRight'){ e.preventDefault(); CMDS.siguiente(); }
+  if (e.altKey && !e.ctrlKey && (e.key==='i'||e.key==='I')){ e.preventDefault(); CMDS.panel(); }
+  if (e.ctrlKey && e.altKey && (e.key==='+'||e.key==='=')){ e.preventDefault(); CMDS.letraMas(); }
+  if (e.ctrlKey && e.altKey && e.key==='-'){ e.preventDefault(); CMDS.letraMenos(); }
+});
+
+/* ---------- arranque ---------- */
+renderLogin();
+if (isSignInWithEmailLink(auth, location.href)){
+  const email = localStorage.getItem(LS.email);
+  if (email){
+    signInWithEmailLink(auth, email, location.href)
+      .then(() => { localStorage.removeItem(LS.email); history.replaceState(null,'',location.pathname); })
+      .catch(e => { renderLogin(); $('lfErr').textContent = errText(e); });
+  } else { confirmMode = true; renderLogin('confirmEmail'); }
+}
+onAuthStateChanged(auth, async fbUser => {
+  if (!fbUser){ logoutLocal(); return; }
+  try { const name = localStorage.getItem(LS.name) || ''; await loadUser(fbUser, name); localStorage.removeItem(LS.name); }
+  catch(e){ toast('No se ha podido cargar tu progreso: ' + errText(e)); }
+});
+
+</script>
+</body>
+</html>

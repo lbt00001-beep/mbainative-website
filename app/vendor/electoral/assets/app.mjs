@@ -1,3 +1,4 @@
+import {bindIntegerInput,readIntegerInput} from './integer-input.mjs';
 import {initializeHelp} from './help.mjs';
 import {compareBlocs} from './blocs.mjs';
 import {provincialComparison,COMPARISON_GROUPS} from './provincial-comparison.mjs';
@@ -220,15 +221,18 @@ function resetProvince(){
 }
 function localIds(){return Object.keys(state.local.votes).filter(id=>state.local.votes[id]>0||MAIN_IDS.includes(id)).sort((a,b)=>state.local.votes[b]-state.local.votes[a]);}
 function renderProvinceInputs(){
-  const ids=localIds();put('province-inputs',ids.map(id=>node('label',{},name(id),node('input',{type:'number',min:0,max:100000000,step:1,value:state.local.votes[id],id:`local-${id}`,'data-party':id}))));
-  $('province-blank').value=state.local.blankVotes;$('province-seats').value=state.local.seats;
+  const ids=localIds();put('province-inputs',ids.map(id=>{
+    const input=node('input',{type:'text',inputmode:'numeric',value:fmt(state.local.votes[id]),id:`local-${id}`,'data-party':id,'aria-describedby':'province-integer-help'});
+    bindIntegerInput(input,{label:`Votos de ${name(id)}`,max:100000000});return node('label',{},name(id),input);
+  }));
+  $('province-blank').value=fmt(state.local.blankVotes);$('province-blank').removeAttribute('aria-invalid');$('province-seats').value=state.local.seats;
   for(const select of ['transfer-from','transfer-to'])put(select,ids.map(id=>node('option',{value:id},name(id))));
   $('transfer-from').value=ids.includes('vox')?'vox':ids[0];$('transfer-to').value=ids.includes('pp')?'pp':ids[1];
   enhanceParameterHelp($('province-form'));
 }
 function readLocalInputs(){
-  const votes={...state.local.votes};document.querySelectorAll('[data-party]').forEach(input=>{if(input.value==='')throw new Error('Completa todos los votos con un número, también si es cero.');votes[input.dataset.party]=Number(input.value);});
-  const seats=Number($('province-seats').value),blank=Number($('province-blank').value);
+  const votes={...state.local.votes};document.querySelectorAll('[data-party]').forEach(input=>{votes[input.dataset.party]=readIntegerInput(input,{label:`Votos de ${name(input.dataset.party)}`,max:100000000});});
+  const seats=Number($('province-seats').value),blank=readIntegerInput($('province-blank'),{label:'Votos en blanco',max:1000000000});
   if(!$('province-seats').value||!$('province-blank').value)throw new Error('Completa los escaños y los votos en blanco.');
   if(!Number.isInteger(seats)||seats<1||seats>52)throw new Error('El escenario provincial admite entre 1 y 52 escaños.');
   const singleMember=['51','52'].includes(state.local.id)&&seats===1;
@@ -250,7 +254,7 @@ function renderProvince(){
 }
 const fmtOrDash=n=>n===null?'—':fmt(n);
 function compareTransfer(event){event.preventDefault();try{
-  readLocalInputs();renderProvince();const p=state.local,amount=Number($('transfer-amount').value);if(!$('transfer-amount').value)throw new Error('Introduce el número de votos.');
+  readLocalInputs();renderProvince();const p=state.local,amount=readIntegerInput($('transfer-amount'),{label:'Votos que se transfieren',max:1000000000});
   const changed=transfer(p.votes,$('transfer-from').value,$('transfer-to').value,amount),after=allocate(changed,p.seats,{blank:p.blankVotes,singleMember:['51','52'].includes(p.id)&&p.seats===1}),before=state.localResult;
   const rows=localIds().filter(id=>before.counts[id]||after.counts[id]||id===$('transfer-from').value||id===$('transfer-to').value).map(id=>[partyLabel(id),fmt(p.votes[id]||0),fmt(changed[id]||0),fmt(100*(p.votes[id]||0)/before.validVotes,2)+' %',fmt(100*(changed[id]||0)/after.validVotes,2)+' %',before.counts[id]||0,after.counts[id]||0,(after.counts[id]||0)-(before.counts[id]||0)]);
   const oldGroups=groupSeats(before.counts),newGroups=groupSeats(after.counts);
@@ -351,7 +355,7 @@ async function askAI(){
  const key=$('api-key').value.trim(),model=$('ai-model').value,question=$('ai-question').value.trim();
  if(!key||!model||!question){status('ai-status','Introduce la clave, selecciona un modelo y escribe una pregunta.',true);return;}
  if(!state.valid){status('ai-status','Corrige primero el escenario nacional.',true);return;}
- const maxTokens=Number($('ai-max-tokens').value);
+ let maxTokens;try{maxTokens=readIntegerInput($('ai-max-tokens'),{label:'Límite de tokens',min:512,max:16384});}catch(error){status('ai-status',error.message,true);return;}
  aiController=new AbortController();$('ask-ai').disabled=true;$('cancel-ai').hidden=false;$('ai-answer').textContent='';
  const started=Date.now(),timer=setInterval(()=>status('ai-status','El proveedor sigue procesando la consulta · '+Math.floor((Date.now()-started)/1000)+' segundos. Puedes cancelarla.'),1000);
  status('ai-status','Enviando la consulta y el escenario seleccionado…');
@@ -387,5 +391,8 @@ async function initialize(){try{
   $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);$('cancel-ai').addEventListener('click',()=>aiController?.abort());installTooltips();enhanceParameterHelp(document);
   state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});state.cisModelRender=await initializeCisEstimator({getConsensus:date=>date?estimate(state.catalog,state.official,date):state.estimate});$('loading').hidden=true;$('application').hidden=false;
 }catch(error){$('loading').hidden=true;$('app-error').hidden=false;$('app-error').textContent=`No se puede iniciar el observatorio: ${error.message}. Comprueba la conexión y vuelve a cargar. Si lo usas en local, arranca con EJECUTAR.bat o npm start.`;}}
+bindIntegerInput($('province-blank'),{label:'Votos en blanco',max:1000000000});
+bindIntegerInput($('transfer-amount'),{label:'Votos que se transfieren',max:1000000000});
+bindIntegerInput($('ai-max-tokens'),{label:'Límite de tokens',min:512,max:16384});
 initializeHelp();
 initialize();

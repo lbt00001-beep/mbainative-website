@@ -1,3 +1,4 @@
+import {initializeHelp} from './help.mjs';
 import {compareBlocs} from './blocs.mjs';
 import {provincialComparison,COMPARISON_GROUPS} from './provincial-comparison.mjs';
 import {initializeMicrodata} from './microdata-ui.mjs';
@@ -373,4 +374,5 @@ async function initialize(){try{
   $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);$('cancel-ai').addEventListener('click',()=>aiController?.abort());installTooltips();enhanceParameterHelp(document);
   state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});state.cisModelRender=await initializeCisEstimator({getConsensus:date=>date?estimate(state.catalog,state.official,date):state.estimate});$('loading').hidden=true;$('application').hidden=false;
 }catch(error){$('loading').hidden=true;$('app-error').hidden=false;$('app-error').textContent=`No se puede iniciar el observatorio: ${error.message}. Comprueba la conexión y vuelve a cargar. Si lo usas en local, arranca con EJECUTAR.bat o npm start.`;}}
+initializeHelp();
 initialize();

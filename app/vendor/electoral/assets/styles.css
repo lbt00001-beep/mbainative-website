@@ -26,6 +26,16 @@ main,section,article,.micro-controls>*,.micro-profile-bars>*,.card-actions>*{min
 .table-scroll{width:100%;min-width:0;overscroll-behavior-x:contain}
 .table-scroll table{overflow-wrap:normal}
 select{max-width:100%}
+.help-intro label{display:block;font-weight:650;margin:22px 0 8px}
+.help-search-row{display:flex;gap:10px;align-items:stretch}.help-search-row input{flex:1}.help-search-row button{flex:none}
+.help-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px;margin-top:22px;font-size:14px}
+.help-index a{padding:8px 0;line-height:1.5}
+.help-chapter{margin-top:20px;scroll-margin-top:20px}.help-chapter>summary{font-size:18px;font-weight:650;line-height:1.5;list-style-position:outside;margin-left:20px;color:var(--text)}
+.help-entry{margin-top:24px;max-width:88ch}.help-entry+.help-entry{border-top:1px solid var(--line);padding-top:24px}
+.help-entry p,.help-entry li{font-size:15px;line-height:1.8;color:#bdc9dc}.help-entry h3{font-size:18px;margin-bottom:10px}
+.help-entry .help-example{border-left:3px solid var(--gold);padding:12px 16px;background:#e2b65909;border-radius:0 7px 7px 0;font-size:14px}
+.help-entry .small{font-size:12px}.help-chapter>.card-actions{margin-top:24px}
+@media(max-width:760px){.help-index{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}.help-search-row{flex-wrap:wrap}.help-search-row input{flex-basis:100%}.help-chapter>summary{font-size:17px}.help-entry p,.help-entry li{font-size:14px}}
 @media(max-width:760px){
   /* Every section is visible without having to discover a horizontal swipe. */
   .tab-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}

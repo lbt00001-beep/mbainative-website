@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-18T23:19:13.708Z",
-  "scheduleSlot": "evening",
+  "generatedAt": "2026-11-19T14:11:13.844Z",
+  "scheduleSlot": "noon",
   "principle": {
-    "id": 3,
-    "title": "Organización por tareas, no por puestos",
-    "icon": "📋"
+    "id": 4,
+    "title": "El nuevo organigrama es una ciencia",
+    "icon": "🏗️"
   },
   "post": {
-    "type": "recent_video",
-    "content": "📋 Principio #3: Organización por tareas, no por puestos\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
+    "type": "guru_quote",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Andrew Ng (Landing AI)\n\n\"AI Is Getting Smarter, But Can It Really Think? #Shorts\"\n\n▶️ youtube.com/watch?v=gmSiifKe0yg",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "UltimaHora",
-      "samaltman"
+      "GurusIA",
+      "andrewng"
     ],
-    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
-    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=gmSiifKe0yg",
+    "imageUrl": "https://i.ytimg.com/vi/gmSiifKe0yg/mqdefault.jpg"
   }
 }

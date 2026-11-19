@@ -15,6 +15,11 @@ export function initializeHelp(doc=document){
  }
  input.addEventListener('input',filter);
  doc.getElementById('help-clear-search')?.addEventListener('click',()=>{input.value='';filter();input.focus();});
- root.querySelectorAll('.help-index a').forEach(link=>link.addEventListener('click',()=>{input.value='';filter();const target=doc.getElementById(link.getAttribute('href').slice(1));if(target?.matches('.help-chapter'))target.open=true;}));
+ root.querySelectorAll('.help-index a').forEach(link=>link.addEventListener('click',event=>{
+  // A deployed <base> can differ from the canonical URL by its trailing slash.
+  // Keep this navigation in the current document instead of reloading it.
+  event.preventDefault();input.value='';filter();const target=doc.getElementById(link.getAttribute('href').slice(1));
+  if(target?.matches('.help-chapter')){target.open=true;target.querySelector('summary')?.focus({preventScroll:true});target.scrollIntoView?.({block:'start'});}
+ }));
  filter();
 }

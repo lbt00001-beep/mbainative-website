@@ -27,7 +27,10 @@ test('Ayuda: búsqueda sin coincidencias e índice que limpia filtro y abre el c
  const {document,window}=await guide(),input=document.getElementById('help-search');
  input.value='zzzzsincoincidencias';input.dispatchEvent(new window.Event('input'));
  assert.match(document.getElementById('help-search-status').textContent,/^0 apartados/);
- document.querySelector('.help-index a[href="#help-cis"]').click();
+ const base=document.createElement('base');base.setAttribute('href','/aplicaciones/observatorio-electoral/');document.head.append(base);
+ const event=new window.Event('click',{bubbles:true,cancelable:true});
+ document.querySelector('.help-index a[href="#help-cis"]').dispatchEvent(event);
+ assert.equal(event.defaultPrevented,true,'El índice no debe navegar al documento del base ni recargar el estado');
  assert.equal(input.value,'');assert.equal(document.getElementById('help-cis').hidden,false);assert.equal(document.getElementById('help-cis').open,true);
 });
 test('Ayuda integrada: enlaces internos y puntos de actualización de datos resuelven',async()=>{

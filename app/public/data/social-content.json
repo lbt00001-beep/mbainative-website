@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-19T14:11:13.844Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-19T19:17:29.661Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 4,
     "title": "El nuevo organigrama es una ciencia",
     "icon": "🏗️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🧠 Andrew Ng (Landing AI)\n\n\"AI Is Getting Smarter, But Can It Really Think? #Shorts\"\n\n▶️ youtube.com/watch?v=gmSiifKe0yg",
+    "type": "recent_video",
+    "content": "🏗️ Principio #4: El nuevo organigrama es una ciencia\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "andrewng"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=gmSiifKe0yg",
-    "imageUrl": "https://i.ytimg.com/vi/gmSiifKe0yg/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

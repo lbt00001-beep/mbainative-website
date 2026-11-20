@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-20T13:53:23.046Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-20T18:56:26.854Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 5,
     "title": "La información fluye horizontalmente",
     "icon": "↔️"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🧠 Mustafa Suleyman (Microsoft AI)\n\n\"Microsoft AI CEO unveils 7 new AI models | Mustafa Suleyman at Microsoft Build 2026\"\n\n▶️ youtube.com/watch?v=OvLIae4HCeM",
+    "type": "recent_video",
+    "content": "↔️ Principio #5: La información fluye horizontalmente\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "mustafasuleyman"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=OvLIae4HCeM",
-    "imageUrl": "https://i.ytimg.com/vi/OvLIae4HCeM/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

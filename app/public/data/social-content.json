@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-11-22T13:08:10.464Z",
-  "scheduleSlot": "noon",
+  "generatedAt": "2026-11-22T18:10:27.799Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 7,
     "title": "Relaciones externas agénticas",
     "icon": "🤝"
   },
   "post": {
-    "type": "guru_quote",
-    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🧠 Demis Hassabis (DeepMind)\n\n\"What Happens When AI Becomes Cheaper Than You?\"\n\n▶️ youtube.com/watch?v=MiOh_vg7jf8",
+    "type": "recent_video",
+    "content": "🤝 Principio #7: Relaciones externas agénticas\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "GurusIA",
-      "demishassabis"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://youtube.com/watch?v=MiOh_vg7jf8",
-    "imageUrl": "https://i.ytimg.com/vi/MiOh_vg7jf8/mqdefault.jpg"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

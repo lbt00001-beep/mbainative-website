@@ -2,8 +2,9 @@ import {parse} from 'parse5';
 import {identifyMethodology} from '../assets/methodology.mjs';
 import {contextReason} from './source-policy.mjs';
 import {isOriginal40dbReport,readTrackingVector} from './40db-tracking.mjs';
+import {extractElectografica} from './electografica.mjs';
 
-export const ADAPTER_VERSION='1.6';
+export const ADAPTER_VERSION='1.7';
 export const houses={
  'elpais.com':{institute:'40dB',identity:/40dB/i},
  'cadenaser.com':{institute:'40dB',identity:/40dB/i},
@@ -115,6 +116,7 @@ export function technicalMetadata(text,publishedAt){
  return {sample:sample&&sample<=1000000?sample:null,fieldworkStart,fieldworkEnd,denominator:/voto(?:s)? v[aá]lido(?:s)?/i.test(text)?'validVotes':'unspecified'};
 }
 export function extractArticle(html,url,{today,catalog=[],reviewedChart,voteChart}={}){
+ if(new URL(url).hostname==='www.electografica.com')return extractElectografica(html,url,{today,catalog,document:articleDocument(html,url)});
  let config=houses[new URL(url).hostname];if(!config)return {status:'unsupported',reason:'Sin adaptador para este dominio.'};
  const d=articleDocument(html,url),body=d.text;
  if(!body)return {status:'landing',reason:'Página de navegación o sin artículo legible.',document:d};

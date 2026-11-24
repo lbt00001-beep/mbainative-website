@@ -3,6 +3,9 @@ import {createHash} from 'node:crypto';
 // targets, not poll values: every update downloads and validates the PDF again.
 // Keeping them in code also reaches persistent installations seeded previously.
 export const originalReports=[{
+ institute:'GESOP',publishedAt:'2026-11-23',title:'GESOP · fuente secundaria Electográfica con enlace a El Periódico',
+ url:'https://www.electografica.com/2026/11/encuesta-gesop-261123.html'
+},{
  institute:'Target Point',publishedAt:'2026-11-02',title:'Target Point · encuesta nacional del 2 de noviembre',
  url:'https://www.eldebate.com/espana/20261102/accidente-frena-psoe-amplia-apoyo-pp-mayoria-absolutisima-derecha_475640.html'
 },{

@@ -21,5 +21,10 @@ export function initializeHelp(doc=document){
   event.preventDefault();input.value='';filter();const target=doc.getElementById(link.getAttribute('href').slice(1));
   if(target?.matches('.help-chapter')){target.open=true;target.querySelector('summary')?.focus({preventScroll:true});target.scrollIntoView?.({block:'start'});}
  }));
+ doc.getElementById('cis-model-help')?.addEventListener('click',()=>{
+  doc.querySelector('[data-tab="help"]')?.click();
+  input.value='';filter();const target=doc.getElementById('help-cis');
+  if(target){target.open=true;target.querySelector('summary')?.focus({preventScroll:true});target.scrollIntoView?.({block:'start'});}
+ });
  filter();
 }

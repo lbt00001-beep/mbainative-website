@@ -39,3 +39,15 @@ test('Ayuda integrada: enlaces internos y puntos de actualización de datos resu
  for(const id of ['help-title','help-poll-count','help-data-list','help-data-date'])assert.equal(document.querySelectorAll('#'+id).length,1);
  for(const entry of document.querySelectorAll('.help-entry'))assert.ok(entry.querySelector('.help-example'),'Falta ejemplo en '+entry.querySelector('h3')?.textContent);
 });
+
+test('Ayuda CIS: incluye el estudio vigente, ejemplos reproducibles y acceso directo sin recargar',async()=>{
+ const {document,window}=await guide(),chapter=document.getElementById('help-cis');
+ const bundle=JSON.parse(await readFile(new URL('../vendor/electoral/data/cis-reestimation.json',import.meta.url),'utf8'));
+ const {reestimateCis}=await import('../vendor/electoral/assets/cis-estimator.mjs');
+ const latest=bundle.datasets[0],result=reestimateCis(latest),text=chapter.textContent;
+ assert.ok(text.includes(latest.study));
+ for(const id of ['pp','psoe','vox'])assert.ok(text.includes(result.validPercent[id].toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})),id);
+ assert.match(text,/factor completo/);assert.match(text,/302 celdas/);assert.match(text,/53,33/);assert.match(text,/68 %/);assert.match(text,/inicialmente vale 50 %/);
+ const input=document.getElementById('help-search');input.value='sin coincidencia';input.dispatchEvent(new window.Event('input'));assert.equal(chapter.hidden,true);
+ document.getElementById('cis-model-help').click();assert.equal(input.value,'');assert.equal(chapter.hidden,false);assert.equal(chapter.open,true);
+});

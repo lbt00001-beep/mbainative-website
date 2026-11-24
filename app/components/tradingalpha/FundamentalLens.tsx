@@ -4,6 +4,8 @@ import React, { useMemo } from 'react';
 import AnalystTrends from './AnalystTrends';
 import { simplyWallStReport } from './simplyWallStLinks';
 import { earningsMetrics } from './fundamentalMetrics';
+import { calculateRoic, normalizeFcf } from './financialEngine';
+import PeerComparison from './PeerComparison';
 
 const raw = (value: any): number | null => {
   const n = typeof value === 'number' ? value : value?.raw;
@@ -81,6 +83,11 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
   const rdIntensity = rd != null && revenue != null && revenue > 0 ? rd / revenue * 100 : null;
   const roe = raw(fin.returnOnEquity);
   const trailingLoss = (raw(data?.defaultKeyStatistics?.netIncomeToCommon) ?? raw(data?.defaultKeyStatistics?.trailingEps) ?? 0) < 0;
+  const roic = useMemo(() => calculateRoic(data?.fundamentalSeries), [data]);
+  const fcfNorm = useMemo(() => normalizeFcf(data?.fundamentalSeries), [data]);
+  const evEbitda = sameCurrency ? raw(data?.defaultKeyStatistics?.enterpriseToEbitda) : null;
+  const fcfBase = fcfNorm?.averageLessSbc ?? fcfNorm?.average ?? null;
+  const fcfYield = sameCurrency && cap != null && cap > 0 && fcfBase != null ? fcfBase / cap * 100 : null;
 
   return (
     <div className="space-y-5">
@@ -110,6 +117,22 @@ export default function FundamentalLens({ ticker, quoteTicker, data, selectedCur
           </div>
         ))}
       </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {[
+          { label: 'ROIC', value: percent(roic == null ? null : roic.roic * 100), note: roic ? `EBIT × (1 − impuesto) ÷ capital invertido medio, ejercicio ${roic.year}. Compáralo con el WACC en «Valoración».` : 'Yahoo no publica EBIT o capital invertido' },
+          { label: 'EV/EBITDA', value: evEbitda != null && evEbitda > 0 ? `${evEbitda.toFixed(1)}×` : 'N/D', note: 'Valor de empresa (capitalización + deuda neta) ÷ EBITDA; neutral a la estructura de deuda' },
+          { label: 'Rentabilidad por FCF', value: percent(fcfYield), note: fcfNorm ? `FCF medio ${fcfNorm.averageLessSbc != null ? 'menos remuneración en acciones ' : ''}(${fcfNorm.years} ejercicios) ÷ capitalización` : 'Faltan flujos de caja históricos o moneda comparable' },
+        ].map(card => (
+          <div key={card.label} className="bg-[#141d30] border border-[#223048] rounded-xl p-4">
+            <div className="text-xs text-slate-400">{card.label}</div>
+            <div className="text-xl font-bold text-white mt-2">{card.value}</div>
+            <div className="text-[11px] text-slate-500 mt-2">{card.note}</div>
+          </div>
+        ))}
+      </div>
+
+      <PeerComparison key={quoteTicker} ticker={quoteTicker} data={data} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5">

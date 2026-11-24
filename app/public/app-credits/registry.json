@@ -24,8 +24,8 @@
       "id": "tradingalpha",
       "name": "TradingAlpha",
       "route": "/aplicaciones/tradingalpha",
-      "model": "modelo de IA desconocido",
-      "version": "1.0.0",
+      "model": "Gemini 3.8 Flash (High)",
+      "version": "1.1.0",
       "year": 2026,
       "placement": "site-footer"
     },

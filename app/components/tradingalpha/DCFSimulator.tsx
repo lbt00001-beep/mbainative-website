@@ -1,8 +1,19 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
-import { calculateDCF, calculatePeterLynchFairValue, calculateGrahamNumber } from './financialEngine';
+import React, { useState, useMemo, useEffect } from 'react';
+import {
+  calculateDCF, calculatePeterLynchFairValue, calculateGrahamNumber,
+  estimateWacc, normalizeFcf, impliedFcfGrowth, calculateRoic, type FundamentalYearData,
+} from './financialEngine';
 import type { AnnualEpsGrowth } from './fundamentalMetrics';
+
+type FcfMode = 'ttm' | 'avg' | 'avgSbc';
+const FCF_MODE_LABEL: Record<FcfMode, string> = {
+  ttm: 'FCF últimos 12 meses (Yahoo)',
+  avg: 'FCF medio de los últimos ejercicios',
+  avgSbc: 'FCF medio − remuneración en acciones',
+};
+const pctFmt = (v: number, d = 1) => `${(v * 100).toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d })} %`;
 
 interface DCFSimulatorProps {
   currentPrice: number;
@@ -15,6 +26,11 @@ interface DCFSimulatorProps {
   bookValuePerShare?: number | null;
   annualEpsGrowth?: AnnualEpsGrowth | null;
   epsBasis?: 'TTM' | 'previsto' | null;
+  fundamentalYears?: FundamentalYearData[] | null;
+  beta?: number | null;
+  marketCap?: number | null;
+  totalDebt?: number | null;
+  financialCurrency?: string | null;
 }
 
 export default function DCFSimulator({
@@ -28,7 +44,43 @@ export default function DCFSimulator({
   bookValuePerShare = null,
   annualEpsGrowth = null,
   epsBasis = null,
+  fundamentalYears = null,
+  beta = null,
+  marketCap = null,
+  totalDebt = null,
+  financialCurrency = null,
 }: DCFSimulatorProps) {
+  const normalized = useMemo(() => normalizeFcf(fundamentalYears), [fundamentalYears]);
+  const roic = useMemo(() => calculateRoic(fundamentalYears), [fundamentalYears]);
+  const [fcfMode, setFcfMode] = useState<FcfMode | null>(null);
+  // Por defecto, el FCF normalizado neto de remuneración en acciones: es un coste real para el accionista.
+  const mode: FcfMode = fcfMode ?? (normalized?.averageLessSbc != null && normalized.averageLessSbc > 0 ? 'avgSbc' : normalized && normalized.average > 0 ? 'avg' : 'ttm');
+  const effectiveFcf = mode === 'avgSbc' ? normalized?.averageLessSbc ?? null : mode === 'avg' ? normalized?.average ?? null : fcfBase;
+
+  // CAPM: tipo libre de riesgo en vivo (editable), beta de Yahoo (editable) y prima de riesgo supuesta.
+  const [riskFree, setRiskFree] = useState<number | null>(null);
+  const [riskFreeSource, setRiskFreeSource] = useState<string | null>(null);
+  const [erp, setErp] = useState(0.05);
+  // undefined = sigue la beta de Yahoo aunque llegue después del primer render.
+  const [betaEdit, setBetaInput] = useState<number | null | undefined>(undefined);
+  const betaInput = betaEdit === undefined ? beta : betaEdit;
+  useEffect(() => {
+    if (!financialCurrency) return;
+    let alive = true;
+    fetch(`/api/riskFree?currency=${encodeURIComponent(financialCurrency)}`).then(r => r.json()).then(d => {
+      if (!alive) return;
+      if (d.rate != null) { setRiskFree(d.rate); setRiskFreeSource(`${d.source}, ${d.date}`); }
+      else setRiskFreeSource(`Sin referencia automática para ${financialCurrency}: introduce el tipo a 10 años`);
+    }).catch(() => alive && setRiskFreeSource('No se pudo obtener el tipo libre de riesgo: introdúcelo'));
+    return () => { alive = false; };
+  }, [financialCurrency]);
+  const latestYear = fundamentalYears?.[0]?.values;
+  const waccEstimate = useMemo(() => riskFree == null || betaInput == null || marketCap == null ? null : estimateWacc({
+    riskFree, beta: betaInput, equityRiskPremium: erp, marketCap,
+    totalDebt: totalDebt ?? latestYear?.totalDebt ?? 0,
+    interestExpense: latestYear?.interestExpense ?? null,
+    taxRate: latestYear?.taxRateForCalcs ?? null,
+  }), [riskFree, betaInput, erp, marketCap, totalDebt, latestYear]);
   const suggestedGrowth = annualEpsGrowth != null && annualEpsGrowth.rate > 0 && annualEpsGrowth.rate <= 50
     ? annualEpsGrowth.rate.toFixed(1) : '';
   // Sliders state
@@ -36,19 +88,21 @@ export default function DCFSimulator({
     Math.min(0.30, Math.max(0.04, defaultGrowthRate || 0.10))
   );
   const [terminalRate, setTerminalRate] = useState<number>(0.025);
-  const [wacc, setWacc] = useState<number>(0.09);
+  const [waccOverride, setWacc] = useState<number | null>(null);
+  // Mientras el usuario no mueva el control, el WACC sigue la estimación CAPM (acotada al rango del control).
+  const wacc = waccOverride ?? (waccEstimate ? Math.min(0.16, Math.max(0.05, Number(waccEstimate.wacc.toFixed(3)))) : 0.09);
   // Null means the field follows the latest Yahoo estimate as quote data arrives.
   // An explicit string, including an empty one, is the user's own hypothesis.
   const [earningsGrowth, setEarningsGrowth] = useState<string | null>(null);
   const growthValue = earningsGrowth ?? suggestedGrowth;
-  const dcfAvailable = fcfBase != null && sharesOutstanding != null && sharesOutstanding > 0
+  const dcfAvailable = effectiveFcf != null && sharesOutstanding != null && sharesOutstanding > 0
     && netDebt != null && currentPrice > 0;
 
   // Recalculate DCF
   const dcfResult = useMemo(() => {
-    if (!dcfAvailable || fcfBase == null || sharesOutstanding == null || netDebt == null) return null;
+    if (!dcfAvailable || effectiveFcf == null || sharesOutstanding == null || netDebt == null) return null;
     return calculateDCF(
-      fcfBase,
+      effectiveFcf,
       growthRate5Y,
       terminalRate,
       wacc,
@@ -56,7 +110,20 @@ export default function DCFSimulator({
       netDebt,
       currentPrice
     );
-  }, [dcfAvailable, fcfBase, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
+  }, [dcfAvailable, effectiveFcf, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
+
+  const impliedGrowth = useMemo(() => {
+    if (!dcfAvailable || effectiveFcf == null || effectiveFcf <= 0 || sharesOutstanding == null || netDebt == null) return null;
+    return impliedFcfGrowth(currentPrice, effectiveFcf, terminalRate, wacc, sharesOutstanding, netDebt);
+  }, [dcfAvailable, effectiveFcf, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
+
+  // Sensibilidad del valor por acción a WACC (filas) y crecimiento terminal (columnas).
+  const sensitivity = useMemo(() => {
+    if (!dcfAvailable || effectiveFcf == null || sharesOutstanding == null || netDebt == null) return null;
+    const waccs = [-0.02, -0.01, 0, 0.01, 0.02].map(d => wacc + d).filter(w => w > 0.02);
+    const terms = [-0.01, -0.005, 0, 0.005, 0.01].map(d => terminalRate + d).filter(t => t >= 0);
+    return { waccs, terms, values: waccs.map(w => terms.map(t => calculateDCF(effectiveFcf, growthRate5Y, t, w, sharesOutstanding, netDebt, currentPrice)?.fairValue ?? null)) };
+  }, [dcfAvailable, effectiveFcf, growthRate5Y, terminalRate, wacc, sharesOutstanding, netDebt, currentPrice]);
 
   const peterLynchValue = useMemo(() => {
     return calculatePeterLynchFairValue(eps, growthValue === '' ? null : Number(growthValue) / 100);
@@ -91,7 +158,10 @@ export default function DCFSimulator({
           onClick={() => {
             setGrowthRate5Y(0.10);
             setTerminalRate(0.025);
-            setWacc(0.09);
+            setWacc(null);
+            setFcfMode(null);
+            setErp(0.05);
+            setBetaInput(undefined);
             setEarningsGrowth(null);
           }}
           className="text-xs text-blue-400 hover:text-blue-300 font-medium px-3 py-1.5 rounded-lg border border-blue-500/30 hover:bg-blue-500/10 transition-all"
@@ -272,21 +342,114 @@ export default function DCFSimulator({
             </div>
             <input
               type="range"
-              min="0.06"
-              max="0.15"
+              min="0.05"
+              max="0.16"
               step="0.005"
               value={wacc}
               onChange={(e) => setWacc(parseFloat(e.target.value))}
               className="w-full h-2 bg-[#1e293b] rounded-lg appearance-none cursor-pointer accent-purple-500"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-              <span>6.0% (Bajo riesgo)</span>
-              <span>9.0% (Típico)</span>
-              <span>15.0%</span>
+              <span>5%</span>
+              <span>{waccOverride == null && waccEstimate ? 'Estimación CAPM' : 'Manual'}</span>
+              <span>16%</span>
             </div>
           </div>
         </div>
       </div> : <p className="text-xs text-amber-300">DCF no disponible: faltan flujo de caja libre, acciones, caja, deuda o moneda financiera comparable. Los escenarios de Lynch y Graham se calculan de forma independiente cuando hay datos suficientes.</p>}
+
+      {/* Base de FCF y coste de capital (CAPM) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+          <h4 className="text-sm font-semibold text-slate-200">Flujo de caja libre de partida</h4>
+          <select value={mode} onChange={e => setFcfMode(e.target.value as FcfMode)} className="w-full rounded-lg bg-[#0e1626] border border-[#334155] px-3 py-2 text-sm text-white">
+            <option value="ttm" disabled={fcfBase == null}>{FCF_MODE_LABEL.ttm}{fcfBase != null ? `: ${currency}${formatLargeNum(fcfBase)}` : ' (N/D)'}</option>
+            <option value="avg" disabled={!normalized}>{FCF_MODE_LABEL.avg}{normalized ? ` (${normalized.years}): ${currency}${formatLargeNum(normalized.average)}` : ' (N/D)'}</option>
+            <option value="avgSbc" disabled={normalized?.averageLessSbc == null}>{FCF_MODE_LABEL.avgSbc}{normalized?.averageLessSbc != null ? `: ${currency}${formatLargeNum(normalized.averageLessSbc)}` : ' (N/D)'}</option>
+          </select>
+          <p className="text-xs text-slate-400">
+            La media de varios ejercicios evita valorar un año excepcional. La remuneración en acciones no consume caja, pero diluye al accionista; por eso se resta.
+            {normalized?.sbcShare != null && ` Aquí equivale al ${pctFmt(normalized.sbcShare)} del FCF medio.`}
+          </p>
+        </div>
+
+        <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+          <h4 className="text-sm font-semibold text-slate-200">Coste de capital (WACC) por CAPM</h4>
+          <div className="grid grid-cols-3 gap-2 text-xs">
+            <label className="text-slate-400 flex flex-col gap-1">Libre de riesgo (%)
+              <input type="number" step="0.05" value={riskFree == null ? '' : Number((riskFree * 100).toFixed(2))} onChange={e => setRiskFree(e.target.value === '' ? null : Number(e.target.value) / 100)} className="rounded-lg bg-[#0e1626] border border-[#334155] px-2 py-1.5 text-white" />
+            </label>
+            <label className="text-slate-400 flex flex-col gap-1">Beta
+              <input type="number" step="0.05" value={betaInput ?? ''} onChange={e => setBetaInput(e.target.value === '' ? null : Number(e.target.value))} className="rounded-lg bg-[#0e1626] border border-[#334155] px-2 py-1.5 text-white" />
+            </label>
+            <label className="text-slate-400 flex flex-col gap-1">Prima de riesgo (%)
+              <input type="number" step="0.25" value={Number((erp * 100).toFixed(2))} onChange={e => setErp(Number(e.target.value) / 100)} className="rounded-lg bg-[#0e1626] border border-[#334155] px-2 py-1.5 text-white" />
+            </label>
+          </div>
+          {waccEstimate ? (
+            <div className="text-xs text-slate-300 space-y-1">
+              <div>Coste del capital: {pctFmt(riskFree!)} + {betaInput?.toLocaleString('es-ES', { maximumFractionDigits: 2 })} × {pctFmt(erp)} = <strong>{pctFmt(waccEstimate.costOfEquity)}</strong></div>
+              <div>Coste de la deuda: {pctFmt(waccEstimate.costOfDebt)} antes de impuestos ({waccEstimate.costOfDebtSource}), impuesto {pctFmt(waccEstimate.taxRate, 0)}</div>
+              <div>Peso del capital a valor de mercado: {pctFmt(waccEstimate.weightEquity, 0)} → <strong className="text-purple-300">WACC {pctFmt(waccEstimate.wacc)}</strong>
+                {waccOverride != null && <button type="button" onClick={() => setWacc(null)} className="ml-2 text-blue-400 underline">usar esta estimación</button>}
+              </div>
+            </div>
+          ) : <p className="text-xs text-amber-300">Faltan tipo libre de riesgo, beta o capitalización: el WACC queda en 9 % hasta que los introduzcas.</p>}
+          <p className="text-[11px] text-slate-500">{riskFreeSource ?? 'Buscando el tipo a 10 años…'} · Beta de Yahoo (5 años, mensual). La prima de riesgo del 5 % es un supuesto habitual (rango usual 4–6 %); ajústala a tu criterio.</p>
+        </div>
+      </div>
+
+      {dcfAvailable && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5">
+            <h4 className="text-sm font-semibold text-slate-200">DCF inverso: ¿qué descuenta el precio?</h4>
+            {impliedGrowth != null ? (
+              <p className="text-sm text-slate-300 mt-2">
+                Para justificar {currency}{currentPrice.toFixed(2)}, el FCF debe crecer un <strong className="text-white">{pctFmt(impliedGrowth)}</strong> anual durante 5 años
+                (WACC {pctFmt(wacc)}, crecimiento terminal {pctFmt(terminalRate)}). Compáralo con tu hipótesis ({pctFmt(growthRate5Y)}) y con el crecimiento histórico.
+              </p>
+            ) : <p className="text-xs text-slate-400 mt-2">El precio queda fuera del rango calculable (crecimiento entre −50 % y +100 % anual) o el FCF no es positivo.</p>}
+          </div>
+          <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5">
+            <h4 className="text-sm font-semibold text-slate-200">Creación de valor: ROIC frente a WACC</h4>
+            {roic ? (
+              <p className="text-sm text-slate-300 mt-2">
+                ROIC {roic.year}: <strong className={roic.roic > wacc ? 'text-emerald-400' : 'text-rose-400'}>{pctFmt(roic.roic)}</strong> frente a un WACC de {pctFmt(wacc)}.{' '}
+                {roic.roic > wacc ? 'Cada unidad de capital reinvertida rinde más que su coste: el crecimiento crea valor.' : 'El capital rinde menos que su coste: crecer reinvirtiendo destruiría valor.'}
+                <span className="block text-[11px] text-slate-500 mt-1">ROIC = EBIT × (1 − {pctFmt(roic.taxRate, 0)}) ÷ capital invertido medio ({currency}{formatLargeNum(roic.investedCapital)}).</span>
+              </p>
+            ) : <p className="text-xs text-slate-400 mt-2">N/D: Yahoo no publica EBIT o capital invertido para este emisor.</p>}
+          </div>
+        </div>
+      )}
+
+      {sensitivity && (
+        <div className="bg-[#111928] border border-[#1e293b] rounded-2xl p-5 space-y-3">
+          <h4 className="text-sm font-semibold text-slate-200">Sensibilidad del valor por acción</h4>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs font-mono text-center">
+              <thead>
+                <tr className="text-slate-400 border-b border-[#223048]">
+                  <th className="py-2 px-2 text-left font-sans">WACC ↓ · g terminal →</th>
+                  {sensitivity.terms.map(t => <th key={t} className="py-2 px-2">{pctFmt(t)}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {sensitivity.waccs.map((w, i) => (
+                  <tr key={w} className="border-b border-[#1b2537]">
+                    <td className="py-2 px-2 text-left text-slate-400">{pctFmt(w)}</td>
+                    {sensitivity.values[i].map((v, j) => {
+                      const base = Math.abs(w - wacc) < 1e-9 && Math.abs(sensitivity.terms[j] - terminalRate) < 1e-9;
+                      return <td key={j} className={`py-2 px-2 ${v == null ? 'text-slate-600' : v >= currentPrice ? 'text-emerald-400' : 'text-rose-400'} ${base ? 'font-bold bg-[#1e293b] rounded' : ''}`}>{v == null ? '—' : `${currency}${v.toLocaleString('es-ES', { maximumFractionDigits: 0 })}`}</td>;
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[11px] text-slate-500">Verde: valor superior al precio actual ({currency}{currentPrice.toFixed(2)}); rojo: inferior. En negrita, el escenario seleccionado. Sin valor: WACC no superior al crecimiento terminal.</p>
+        </div>
+      )}
 
       {/* DCF Breakdown Table */}
       {dcfResult && (
@@ -296,7 +459,7 @@ export default function DCFSimulator({
               Proyección de Flujos Descontados (5 Años)
             </h4>
             <span className="text-xs text-slate-400 font-mono">
-              FCF Base: {currency}{formatLargeNum(fcfBase!)}
+              FCF base: {currency}{formatLargeNum(effectiveFcf!)} · {FCF_MODE_LABEL[mode]}
             </span>
           </div>
 

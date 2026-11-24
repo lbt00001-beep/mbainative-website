@@ -36,11 +36,21 @@ const SPECIAL_INSTRUMENTS: Record<string, InstrumentConfig> = {
     warning: 'GDR de 25 acciones ordinarias. La cotización está en USD; los fundamentales de 005930.KS están en KRW.',
     sourceUrl: 'https://www.londonstockexchange.com/stock/SMSN/samsung-electronics-co-ltd-att',
   },
+  // SMSN es el código de la Bolsa de Londres; Yahoo solo publica cotización vigente en SMSN.IL.
+  SMSN: {
+    quoteTicker: '005930.KS',
+    chartTicker: 'SMSN.IL',
+    label: 'Samsung Electronics GDR, Londres',
+    receiptRatio: 25,
+    warning: 'SMSN es el código del GDR en la Bolsa de Londres; Yahoo lo publica como SMSN.IL. GDR de 25 acciones ordinarias, cotizado en USD; los fundamentales de 005930.KS están en KRW.',
+    sourceUrl: 'https://www.londonstockexchange.com/stock/SMSN/samsung-electronics-co-ltd-att',
+  },
   'SMSN.L': {
     quoteTicker: '005930.KS',
-    label: 'Samsung Electronics GDR, símbolo Yahoo alternativo',
+    chartTicker: 'SMSN.IL',
+    label: 'Samsung Electronics GDR, Londres',
     receiptRatio: 25,
-    warning: 'Yahoo muestra una cotización posiblemente desactualizada para SMSN.L. Comprueba SMSN.IL y la Bolsa de Londres.',
+    warning: 'Yahoo dejó de actualizar SMSN.L en julio de 2022. Se muestra SMSN.IL, la cotización vigente del mismo GDR en Londres (USD); los fundamentales de 005930.KS están en KRW.',
     sourceUrl: 'https://www.londonstockexchange.com/stock/SMSN/samsung-electronics-co-ltd-att',
   },
   TSM: {

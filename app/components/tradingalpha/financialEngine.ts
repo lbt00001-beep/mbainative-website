@@ -401,6 +401,87 @@ export function calculateGrahamNumber(eps: number | null, bookValuePerShare: num
 }
 
 // ----------------------------------------------------------------------------
+// 2b. COSTE DE CAPITAL, FCF NORMALIZADO, DCF INVERSO Y ROIC
+// ----------------------------------------------------------------------------
+
+/** Ejercicio anual de /api/quoteSummary → `fundamentalSeries` (más reciente primero). */
+export interface FundamentalYearData {
+  endDate: string;
+  currency: string | null;
+  values: Record<string, number>;
+}
+
+export interface WaccEstimate {
+  costOfEquity: number;
+  costOfDebt: number; // antes de impuestos
+  taxRate: number;
+  weightEquity: number;
+  wacc: number;
+  costOfDebtSource: 'intereses / deuda' | 'tipo libre de riesgo + 1,5 %';
+}
+
+/** CAPM para el coste del capital y ponderación a valor de mercado del capital y contable de la deuda. */
+export function estimateWacc(p: {
+  riskFree: number; beta: number; equityRiskPremium: number; marketCap: number;
+  totalDebt: number; interestExpense: number | null; taxRate: number | null;
+}): WaccEstimate | null {
+  if (!(p.marketCap > 0) || !(p.beta > 0) || p.totalDebt < 0) return null;
+  const costOfEquity = p.riskFree + p.beta * p.equityRiskPremium;
+  const implied = p.interestExpense != null && p.totalDebt > 0 ? Math.abs(p.interestExpense) / p.totalDebt : null;
+  // Un coste implícito fuera de [Rf, Rf + 8 %] suele reflejar deuda nueva o partidas no comparables.
+  const useImplied = implied != null && implied >= p.riskFree && implied <= p.riskFree + 0.08;
+  const costOfDebt = useImplied ? implied! : p.riskFree + 0.015;
+  const taxRate = p.taxRate != null && p.taxRate >= 0 && p.taxRate <= 0.5 ? p.taxRate : 0.25;
+  const weightEquity = p.marketCap / (p.marketCap + p.totalDebt);
+  const wacc = weightEquity * costOfEquity + (1 - weightEquity) * costOfDebt * (1 - taxRate);
+  return { costOfEquity, costOfDebt, taxRate, weightEquity, wacc, costOfDebtSource: useImplied ? 'intereses / deuda' : 'tipo libre de riesgo + 1,5 %' };
+}
+
+export interface NormalizedFcf {
+  years: number; // ejercicios usados
+  average: number; // FCF medio
+  averageLessSbc: number | null; // FCF medio menos remuneración en acciones media
+  sbcShare: number | null; // SBC / FCF medio
+}
+
+/** Media de hasta 3 ejercicios: suaviza años excepcionales de circulante o inversión. */
+export function normalizeFcf(years: FundamentalYearData[] | null | undefined): NormalizedFcf | null {
+  const rows = (years || []).filter(y => y.values.freeCashFlow != null).slice(0, 3);
+  if (rows.length < 2) return null;
+  const average = rows.reduce((s, y) => s + y.values.freeCashFlow, 0) / rows.length;
+  const sbcRows = rows.filter(y => y.values.stockBasedCompensation != null);
+  const sbc = sbcRows.length === rows.length ? sbcRows.reduce((s, y) => s + y.values.stockBasedCompensation, 0) / rows.length : null;
+  return { years: rows.length, average, averageLessSbc: sbc == null ? null : average - sbc, sbcShare: sbc == null || average <= 0 ? null : sbc / average };
+}
+
+/** DCF inverso: crecimiento anual del FCF a 5 años que iguala el valor por acción al precio. */
+export function impliedFcfGrowth(price: number, fcfBase: number, terminal: number, wacc: number, shares: number, netDebt: number): number | null {
+  const value = (g: number) => calculateDCF(fcfBase, g, terminal, wacc, shares, netDebt, price)?.fairValue ?? null;
+  let lo = -0.5, hi = 1.0;
+  const vLo = value(lo), vHi = value(hi);
+  if (vLo == null || vHi == null || price < vLo || price > vHi) return null;
+  for (let i = 0; i < 60; i++) {
+    const mid = (lo + hi) / 2;
+    if ((value(mid) ?? 0) < price) lo = mid; else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+export interface RoicResult { roic: number; nopat: number; investedCapital: number; taxRate: number; year: string }
+
+/** ROIC = EBIT × (1 − t) / capital invertido medio (inicio y cierre del ejercicio). */
+export function calculateRoic(years: FundamentalYearData[] | null | undefined): RoicResult | null {
+  const [cur, prev] = years || [];
+  const ebit = cur?.values.ebit, ic = cur?.values.investedCapital;
+  if (ebit == null || ic == null || ic <= 0) return null;
+  const rawTax = cur.values.taxRateForCalcs;
+  const taxRate = rawTax != null && rawTax >= 0 && rawTax <= 0.5 ? rawTax : 0.25;
+  const avgIc = prev?.values.investedCapital != null && prev.values.investedCapital > 0 ? (ic + prev.values.investedCapital) / 2 : ic;
+  const nopat = ebit * (1 - taxRate);
+  return { roic: nopat / avgIc, nopat, investedCapital: avgIc, taxRate, year: cur.endDate.slice(0, 4) };
+}
+
+// ----------------------------------------------------------------------------
 // 3. PIOTROSKI F-SCORE (0 A 9 PUNTOS)
 // ----------------------------------------------------------------------------
 
@@ -419,7 +500,7 @@ export function calculatePiotroskiScore(data: any): PiotroskiBreakdown {
   const fin = data.financialData || {};
   const stats = data.defaultKeyStatistics || {};
   const incomeHist = data.incomeStatementHistory?.incomeStatementHistory || [];
-  const cashflowHist = data.cashflowStatementHistory?.cashflowStatementHistory || [];
+  const cashflowHist = data.cashflowStatementHistory?.cashflowStatements || [];
   const balanceHist = data.balanceSheetHistory?.balanceSheetStatements || [];
   // Yahoo's quote summary often omits prior share count and full balance data.
   // A partial checklist must not be presented as a canonical 0–9 F-Score.
@@ -538,7 +619,7 @@ export function calculatePiotroskiScore(data: any): PiotroskiBreakdown {
   });
 
   // 7. No dilución de acciones ordinarias
-  const shares0 = pick(stats.sharesOutstanding);
+  const shares0 = pick(stats.sharesOutstandingLastFY) ?? pick(stats.sharesOutstanding);
   const shares1 = pick(stats.sharesOutstandingPrevYear) ?? shares0;
   let p7 = true;
   if (shares0 && shares1 && shares1 > 0) {
@@ -602,12 +683,29 @@ export interface AltmanZResult {
   zone: 'Segura' | 'Gris' | 'Dificultad';
   explanation: string;
   notApplicable?: boolean;
+  model?: 'Z' | "Z''";
+  safeAbove: number; // umbral de zona segura del modelo aplicado
+  distressBelow: number; // umbral de zona de dificultad
 }
+
+// Fracciones de la barra (0 → 2 × umbral seguro) y posición de la aguja, para ambos modelos.
+export function altmanGauge(z: AltmanZResult) {
+  const max = z.safeAbove * 5 / 3;
+  return {
+    distress: z.distressBelow / max * 100,
+    grey: (z.safeAbove - z.distressBelow) / max * 100,
+    safe: 100 - z.safeAbove / max * 100,
+    needle: Math.min(97, Math.max(3, z.score / max * 100)),
+  };
+}
+
+// Sectores con activos productivos y ventas sobre activos comparables a la muestra de Altman (1968).
+const ALTMAN_MANUFACTURING = ['industrials', 'basic materials', 'energy', 'consumer cyclical', 'consumer defensive'];
 
 export function calculateAltmanZScore(data: any): AltmanZResult | null {
   const sector = String(data.assetProfile?.sector || '').toLowerCase();
   if (sector.includes('financial') || sector.includes('financier')) {
-    return { score: 0, zone: 'Gris', explanation: 'No aplicable a bancos y aseguradoras.', notApplicable: true };
+    return { score: 0, zone: 'Gris', explanation: 'No aplicable a bancos y aseguradoras.', notApplicable: true, safeAbove: 2.99, distressBelow: 1.81 };
   }
   const balance = data.balanceSheetHistory?.balanceSheetStatements?.[0] || {};
   const income = data.incomeStatementHistory?.incomeStatementHistory?.[0] || {};
@@ -623,10 +721,24 @@ export function calculateAltmanZScore(data: any): AltmanZResult | null {
   const liabilities = pick(balance.totalLiab);
   const sales = pick(income.totalRevenue);
   const marketCap = pick(data.summaryDetail?.marketCap);
-  if ([assets, currentAssets, currentLiabilities, retained, ebit, liabilities, sales, marketCap].some(v => v == null) || !assets || !liabilities || assets <= 0 || liabilities <= 0) return null;
-  const score = Number((1.2 * (currentAssets! - currentLiabilities!) / assets + 1.4 * retained! / assets + 3.3 * ebit! / assets + 0.6 * marketCap! / liabilities + 0.999 * sales! / assets).toFixed(2));
-  const zone: AltmanZResult['zone'] = score >= 2.99 ? 'Segura' : score >= 1.81 ? 'Gris' : 'Dificultad';
-  return { score, zone, explanation: 'Altman Z calculado solo con partidas contables reportadas. Es un indicador histórico, no una probabilidad de quiebra.', notApplicable: false };
+  const bookEquity = pick(balance.totalStockholderEquity);
+  if ([assets, currentAssets, currentLiabilities, retained, ebit, liabilities].some(v => v == null) || !assets || !liabilities || assets <= 0 || liabilities <= 0) return null;
+  const x1 = (currentAssets! - currentLiabilities!) / assets, x2 = retained! / assets, x3 = ebit! / assets;
+  if (ALTMAN_MANUFACTURING.some(s => sector.includes(s))) {
+    // Modelo original (1968) para fabricantes cotizados: usa capitalización y rotación de activos.
+    // La capitalización está en la moneda de cotización: solo se usa si coincide con la contable.
+    const sameCurrency = !data.price?.currency || !data.financialData?.financialCurrency || data.price.currency === data.financialData.financialCurrency;
+    if (sales == null || marketCap == null || !sameCurrency) return null;
+    const score = Number((1.2 * x1 + 1.4 * x2 + 3.3 * x3 + 0.6 * marketCap / liabilities + 0.999 * sales / assets).toFixed(2));
+    const zone: AltmanZResult['zone'] = score >= 2.99 ? 'Segura' : score >= 1.81 ? 'Gris' : 'Dificultad';
+    return { score, zone, model: 'Z', safeAbove: 2.99, distressBelow: 1.81, explanation: 'Z original de Altman (1968) para empresas industriales, con partidas contables reportadas. Es un indicador histórico, no una probabilidad de quiebra.', notApplicable: false };
+  }
+  // Z'' (Altman, 1995) para servicios, tecnología y empresas no industriales: sin rotación de activos
+  // (muy dependiente del sector) y con patrimonio contable en lugar de capitalización.
+  if (bookEquity == null) return null;
+  const score = Number((6.56 * x1 + 3.26 * x2 + 6.72 * x3 + 1.05 * bookEquity / liabilities).toFixed(2));
+  const zone: AltmanZResult['zone'] = score > 2.6 ? 'Segura' : score >= 1.1 ? 'Gris' : 'Dificultad';
+  return { score, zone, model: "Z''", safeAbove: 2.6, distressBelow: 1.1, explanation: "Z'' de Altman (1995) para empresas no industriales: capital circulante, beneficios retenidos, EBIT y patrimonio contable frente a pasivos. Indicador histórico, no una probabilidad de quiebra.", notApplicable: false };
 }
 
 // ----------------------------------------------------------------------------

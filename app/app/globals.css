@@ -119,3 +119,86 @@ body:has(#tradingalpha-root) mbai-assistant { display:none!important; }
 @media (prefers-reduced-motion:reduce) {
  html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; }
 }
+
+/* TradingAlpha: ayuda contextual (components/tradingalpha/ContextHelp.tsx). */
+/* A visible help control accompanies every rendered text fragment in the app.
+   Only attributes are added to React-owned nodes, so React keeps ownership of its DOM. */
+#tradingalpha-root [data-context-help="true"] {
+  position: relative;
+  padding-right: max(1.35em, 19px);
+}
+
+#tradingalpha-root [data-context-help="true"]::after {
+  content: "?";
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #60a5fa;
+  border-radius: 50%;
+  background: #172d50;
+  color: #dbeafe;
+  font: 700 11px/1 Arial, sans-serif;
+  cursor: help;
+  z-index: 2;
+}
+
+#tradingalpha-root [data-context-help="true"]:hover::after {
+  background: #2563eb;
+  color: white;
+}
+
+.context-help-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(2, 6, 23, .7);
+}
+
+.context-help-dialog {
+  position: relative;
+  width: min(100%, 560px);
+  padding: 28px;
+  border: 1px solid #3b82f6;
+  border-radius: 18px;
+  background: #101b2f;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .5);
+  color: #e2e8f0;
+}
+
+.context-help-dialog h2 { margin: 7px 32px 12px 0; font-size: 1.25rem; font-weight: 700; color: white; }
+.context-help-dialog p { margin: 0; line-height: 1.6; }
+.context-help-dialog .context-help-kicker { color: #93c5fd; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.context-help-dialog .context-help-note { margin-top: 16px; color: #94a3b8; font-size: .8rem; }
+.context-help-close { position: absolute; top: 14px; right: 16px; font-size: 26px; line-height: 1; color: #cbd5e1; }
+
+.context-help-svg-layer { position: fixed; inset: 0; z-index: 30; pointer-events: none; }
+.context-help-svg-icon {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #60a5fa;
+  border-radius: 50%;
+  background: #172d50;
+  color: #dbeafe;
+  font: 700 10px/1 Arial, sans-serif;
+  pointer-events: auto;
+  cursor: help;
+}
+.context-help-svg-icon:hover { background: #2563eb; }
+
+@media print {
+  #tradingalpha-root [data-context-help="true"] { padding-right: 0; }
+  #tradingalpha-root [data-context-help="true"]::after, .context-help-backdrop, .context-help-svg-layer { display: none !important; }
+}
+
+/* El pie del sitio ya muestra el crédito de TradingAlpha (data/app-credits.json). */
+#tradingalpha-root [data-standalone-credit] { display: none; }

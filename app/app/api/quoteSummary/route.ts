@@ -1,4 +1,5 @@
 import { type NextRequest } from 'next/server'
+import { fetchFundamentalYears, mergeFundamentalYears } from '@/lib/fundamentalSeries';
 // Using native fetch instead of undici to rule out library-specific issues.
 // import { fetch } from 'undici';
 
@@ -225,7 +226,12 @@ export async function GET(request: NextRequest) {
     }
 
     const modules = sanitizeModules(searchParams.get('modules'));
-    const data = await fetchQuoteSummary(t, modules);
+    const wantsHistory = modules.includes('balanceSheetHistory') || modules.includes('cashflowStatementHistory');
+    const [summary, years] = await Promise.all([
+      fetchQuoteSummary(t, modules),
+      wantsHistory ? fetchFundamentalYears(t).catch(() => []) : Promise.resolve([]),
+    ]);
+    const data = mergeFundamentalYears(summary, years);
 
     return new Response(JSON.stringify({ ticker: t, modules, data }), {
       headers: {

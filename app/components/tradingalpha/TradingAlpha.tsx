@@ -7,10 +7,13 @@ import DCFSimulator from './DCFSimulator';
 import StatementsDuPont from './StatementsDuPont';
 import SentimentPulse, { SentimentData } from './SentimentPulse';
 import HelpGuide from './HelpGuide';
+import ContextHelp from './ContextHelp';
 import SettingsPanel, { AVAILABLE_MODELS } from './SettingsPanel';
 import { DEFAULT_AI_MODEL, AI_MODEL_IDS } from '@/lib/ai-models';
 import FundamentalLens from './FundamentalLens';
 import InstitutionalRanking from './InstitutionalRanking';
+import ReturnCalculator from './ReturnCalculator';
+import { APP_CREDIT } from './appInfo';
 import { getInstrumentConfig } from './instruments';
 import { annualEpsGrowthEstimate, dcfGrowthAssumption, earningsMetrics } from './fundamentalMetrics';
 import { dailyPriceChange } from './marketChange';
@@ -21,6 +24,7 @@ import {
   calculateDCF,
   calculatePiotroskiScore,
   calculateAltmanZScore,
+  altmanGauge,
   calculateDuPont,
   computeSnowflake,
   SnowflakeScores,
@@ -87,7 +91,7 @@ export default function TradingAlpha() {
   const [searchInput, setSearchInput] = useState<string>('');
   const [range, setRange] = useState<string>('1y');
   const [reloadNonce, setReloadNonce] = useState(0);
-  const [activeTab, setActiveTab] = useState<'summary' | 'fundamentals' | 'institutional' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
+  const [activeTab, setActiveTab] = useState<'summary' | 'fundamentals' | 'institutional' | 'returns' | 'technical' | 'valuation' | 'statements' | 'sentiment' | 'aiReport' | 'help' | 'settings' | 'legal'>('summary');
 
   // Ref para cancelar respuestas obsoletas o fuera de orden
   const activeTickerRef = useRef<string>('AAPL');
@@ -384,9 +388,12 @@ export default function TradingAlpha() {
   }, [safeQuoteData]);
 
   const altmanZ: AltmanZResult | null = React.useMemo(() => {
-    if (!safeQuoteData || !sameFinancialCurrency) return null;
+    // Z'' no usa la cotización; el modelo Z comprueba por sí mismo que las monedas coincidan.
+    if (!safeQuoteData) return null;
     return calculateAltmanZScore(safeQuoteData);
-  }, [safeQuoteData, sameFinancialCurrency]);
+  }, [safeQuoteData]);
+  const zone = altmanZ ?? { score: 0, zone: 'Gris' as const, explanation: '', safeAbove: 2.99, distressBelow: 1.81 };
+  const gauge = altmanGauge(zone);
 
   const dupont: DuPontBreakdown | null = React.useMemo(() => {
     if (!safeQuoteData) return null;
@@ -488,6 +495,7 @@ export default function TradingAlpha() {
 
   return (
     <div id="tradingalpha-root" className="min-h-screen bg-[#070d18] text-slate-100 font-sans p-4 pt-28 sm:p-6 sm:pt-28 lg:p-8 lg:pt-32 space-y-6 print:p-0 print:m-0 print:bg-white print:text-slate-900 print:min-h-0">
+      <ContextHelp />
       {/* 1. Header & Asset Selector Bar */}
       <div className="bg-[#0e1626] border border-[#1e293b] rounded-2xl p-5 shadow-2xl space-y-4 print:hidden">
         <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
@@ -858,6 +866,7 @@ export default function TradingAlpha() {
             { id: 'summary', label: '📊 Resumen & Radar Cuantitativo', icon: '📊' },
             { id: 'fundamentals', label: '🧮 Decisión Fundamental', icon: '🧮' },
             { id: 'institutional', label: '🏦 Grandes Gestores', icon: '🏦' },
+            { id: 'returns', label: '📐 Revalorización Nominal y Real', icon: '📐' },
             { id: 'technical', label: '📈 Terminal Técnico & Velas', icon: '📈' },
             { id: 'valuation', label: '💎 Valoración Intrínseca (DCF)', icon: '💎' },
             { id: 'statements', label: '📑 Estados Financieros & DuPont', icon: '📑' },
@@ -1134,9 +1143,9 @@ export default function TradingAlpha() {
                     <span className="text-slate-200 font-semibold">
                       {altmanZ ? (
                         altmanZ.notApplicable ? 'Exento (Auditoría Basilea)' :
-                        altmanZ.score >= 3.0 ? '🛡️ >3.0 Zona Segura (<1% quiebra)' :
-                        altmanZ.score >= 1.8 ? '⚠️ 1.8-3.0 Zona Gris (Solvencia media)' :
-                        '🚨 <1.8 Peligro (Estrés severo)'
+                        altmanZ.zone === 'Segura' ? `🛡️ >${altmanZ.safeAbove} Zona Segura (${altmanZ.model})` :
+                        altmanZ.zone === 'Gris' ? `⚠️ ${altmanZ.distressBelow}-${altmanZ.safeAbove} Zona Gris (${altmanZ.model})` :
+                        `🚨 <${altmanZ.distressBelow} Peligro (${altmanZ.model})`
                       ) : 'Esperando datos'}
                     </span>
                   </div>
@@ -1147,24 +1156,24 @@ export default function TradingAlpha() {
                   ) : (
                     <>
                       <div className="relative h-2.5 w-full bg-[#162032] rounded-full overflow-hidden flex">
-                        <div className="w-[30%] bg-rose-500/70" title="<1.8 Peligro"></div>
-                        <div className="w-[25%] bg-amber-500/70" title="1.8 a 3.0 Gris"></div>
-                        <div className="w-[45%] bg-emerald-500/70" title=">3.0 Segura"></div>
+                        <div className="bg-rose-500/70" style={{ width: `${gauge.distress}%` }} title={`<${zone.distressBelow} Peligro`}></div>
+                        <div className="bg-amber-500/70" style={{ width: `${gauge.grey}%` }} title="Zona gris"></div>
+                        <div className="bg-emerald-500/70" style={{ width: `${gauge.safe}%` }} title={`>${zone.safeAbove} Segura`}></div>
                       </div>
                       {altmanZ && typeof altmanZ.score === 'number' && (
                         <div className="relative w-full h-1.5">
                           <div
                             className="absolute -top-1 -ml-1 w-2.5 h-2.5 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
                             style={{
-                              left: `${Math.min(95, Math.max(5, (altmanZ.score / 5) * 100))}%`
+                              left: `${gauge.needle}%`
                             }}
                           ></div>
                         </div>
                       )}
                       <div className="flex justify-between text-[8px] text-slate-400 font-mono pt-0.5">
                         <span>0.0 (Peligro)</span>
-                        <span>1.8 (Gris)</span>
-                        <span>3.0+ (Segura)</span>
+                        <span>{zone.distressBelow} (Gris)</span>
+                        <span>{zone.safeAbove}+ (Segura)</span>
                       </div>
                     </>
                   )}
@@ -1295,6 +1304,8 @@ export default function TradingAlpha() {
 
       {activeTab === 'institutional' && <InstitutionalRanking onSelectTicker={(symbol) => { selectTicker(symbol); setActiveTab('fundamentals'); }} />}
 
+      {activeTab === 'returns' && <ReturnCalculator key={priceTicker} defaultTicker={priceTicker} />}
+
       {activeTab === 'technical' && (
         <CandleChart
           bars={chartBars}
@@ -1320,6 +1331,11 @@ export default function TradingAlpha() {
           epsBasis={epsBasis}
           annualEpsGrowth={annualEpsGrowth}
           bookValuePerShare={sameFinancialCurrency ? bookValue : null}
+          fundamentalYears={safeQuoteData?.fundamentalSeries ?? null}
+          beta={pick(stats.beta) ?? pick(sum.beta)}
+          marketCap={sameFinancialCurrency ? pick(sum.marketCap) : null}
+          totalDebt={sameFinancialCurrency ? totalDebt : null}
+          financialCurrency={fin.financialCurrency ?? null}
         />
       )}
 
@@ -1328,7 +1344,7 @@ export default function TradingAlpha() {
         <StatementsDuPont
           incomeHistory={safeQuoteData?.incomeStatementHistory?.incomeStatementHistory || []}
           balanceHistory={safeQuoteData?.balanceSheetHistory?.balanceSheetStatements || []}
-          cashflowHistory={safeQuoteData?.cashflowStatementHistory?.cashflowStatementHistory || []}
+          cashflowHistory={safeQuoteData?.cashflowStatementHistory?.cashflowStatements || []}
           currency={valuationCurrency}
           piotroski={piotroski}
           altmanZ={altmanZ}
@@ -1632,6 +1648,9 @@ export default function TradingAlpha() {
           <strong>Aviso de Riesgo y Carácter No Asesor:</strong> TradingAlpha es una herramienta de simulación matemática, análisis cuantitativo algorítmico y divulgación formativa. <strong>No proporciona asesoramiento financiero ni recomendaciones personalizadas de inversión.</strong> Ninguna métrica cuantitativa (DCF, Piotroski, Altman Z) ni informe generado por Inteligencia Artificial constituye una recomendación de inversión bajo la Directiva MiFID II (UE 2014/65), el Reglamento MAR (UE 596/2014) ni bajo la regulación de la SEC o FINRA de los Estados Unidos. Operar en bolsa conlleva alto riesgo de pérdida de capital. Realiza siempre tu propio análisis independiente (DYODD) o consulta a un asesor financiero registrado antes de tomar decisiones de inversión.
         </p>
       </div>
+
+      {/* En la web el pie del sitio ya muestra este crédito y una regla CSS oculta esta copia. */}
+      <p data-standalone-credit className="text-center text-[11px] text-slate-500 pb-2">{APP_CREDIT}</p>
     </div>
   );
 }

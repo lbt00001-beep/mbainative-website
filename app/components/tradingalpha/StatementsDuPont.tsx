@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import {
   PiotroskiBreakdown,
   AltmanZResult,
+  altmanGauge,
   DuPontBreakdown,
 } from './financialEngine';
 
@@ -26,6 +27,8 @@ export default function StatementsDuPont({
   altmanZ,
   dupont,
 }: StatementsDuPontProps) {
+  const zone = altmanZ ?? { score: 0, zone: 'Gris' as const, explanation: '', safeAbove: 2.99, distressBelow: 1.81 };
+  const gauge = altmanGauge(zone);
   const [activeStatement, setActiveStatement] = useState<'income' | 'balance' | 'cashflow'>('income');
 
   const formatNum = (val: any) => {
@@ -126,8 +129,8 @@ export default function StatementsDuPont({
                 <span className="font-semibold">
                   {altmanZ ? (
                     altmanZ.notApplicable ? 'Exento (Sector Bancario)' :
-                    altmanZ.score >= 3.0 ? '🛡️ Zona Segura (Quiebra improbable)' :
-                    altmanZ.score >= 1.8 ? '⚠️ Zona Gris (Vulnerable a recesión)' :
+                    altmanZ.zone === 'Segura' ? '🛡️ Zona Segura (Quiebra improbable)' :
+                    altmanZ.zone === 'Gris' ? '⚠️ Zona Gris (Vulnerable a recesión)' :
                     '🚨 Zona Peligro (Estrés severo de balance)'
                   ) : 'N/D: faltan partidas contables'}
                 </span>
@@ -136,14 +139,14 @@ export default function StatementsDuPont({
               {!altmanZ?.notApplicable ? (
                 <>
                   <div className="h-3 w-full rounded-full overflow-hidden flex bg-[#162032]">
-                    <div className="w-[30%] bg-rose-500/70 flex items-center justify-center text-[9px] font-bold text-white" title="<1.8 Peligro">
-                      Peligro &lt;1.8
+                    <div className="bg-rose-500/70 flex items-center justify-center text-[9px] font-bold text-white" style={{ width: `${gauge.distress}%` }} title={`<${zone.distressBelow} Peligro`}>
+                      Peligro &lt;{zone.distressBelow}
                     </div>
-                    <div className="w-[25%] bg-amber-500/70 flex items-center justify-center text-[9px] font-bold text-white" title="1.8 a 3.0 Gris">
-                      Gris 1.8-3.0
+                    <div className="bg-amber-500/70 flex items-center justify-center text-[9px] font-bold text-white" style={{ width: `${gauge.grey}%` }} title="Zona gris">
+                      Gris
                     </div>
-                    <div className="w-[45%] bg-emerald-500/70 flex items-center justify-center text-[9px] font-bold text-white" title=">3.0 Segura">
-                      Segura &gt;3.0
+                    <div className="bg-emerald-500/70 flex items-center justify-center text-[9px] font-bold text-white" style={{ width: `${gauge.safe}%` }} title={`>${zone.safeAbove} Segura`}>
+                      Segura &gt;{zone.safeAbove}
                     </div>
                   </div>
                   {altmanZ && typeof altmanZ.score === 'number' && (
@@ -151,7 +154,7 @@ export default function StatementsDuPont({
                       <div
                         className="absolute -top-1 -ml-1.5 w-3 h-3 bg-white border border-slate-900 rounded-full shadow-[0_0_8px_#fff] transition-all"
                         style={{
-                          left: `${Math.min(95, Math.max(5, (altmanZ.score / 5) * 100))}%`
+                          left: `${gauge.needle}%`
                         }}
                         title={`Score actual: ${altmanZ.score}`}
                       ></div>
@@ -159,8 +162,8 @@ export default function StatementsDuPont({
                   )}
                   <div className="flex justify-between text-[9px] text-slate-400 font-mono pt-0.5">
                     <span>0.0 (Estrés)</span>
-                    <span>1.8 (Alerta)</span>
-                    <span>3.0+ (Solvente)</span>
+                    <span>{zone.distressBelow} (Alerta)</span>
+                    <span>{zone.safeAbove}+ (Solvente)</span>
                   </div>
                 </>
               ) : (
@@ -171,7 +174,7 @@ export default function StatementsDuPont({
             </div>
           </div>
           <div className="text-[11px] text-slate-500 pt-3 border-t border-[#1e293b] mt-4">
-            Modelo de Edward Altman basado en capital de trabajo, EBIT y valor bursátil.
+            {zone.model === "Z''" ? "Modelo Z'' de Altman (1995) para empresas no industriales: capital circulante, beneficios retenidos, EBIT y patrimonio contable." : 'Modelo Z de Edward Altman (1968) basado en capital de trabajo, EBIT, valor bursátil y ventas.'}
           </div>
         </div>
 

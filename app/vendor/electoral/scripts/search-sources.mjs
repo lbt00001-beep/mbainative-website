@@ -14,6 +14,7 @@ import {estimateForDate} from '../assets/freshness.mjs';
 import {originalReports,reviewedCharts,verifyReviewedChart} from './original-reports.mjs';
 import {update40db} from './40db-microdata.mjs';
 import {isOriginal40dbReport,trackingReports} from './40db-tracking.mjs';
+import {electograficaLinks} from './electografica.mjs';
 export {isOriginal40dbReport} from './40db-tracking.mjs';
 
 const defaultRoot=fileURLToPath(new URL('../',import.meta.url));
@@ -28,6 +29,7 @@ export function isPollPublication(link,feedUrl){
  return (recognized||serElection)&&!/auton[oó]mic|municipal|alcald|asamblea|junta general|empresari|alemania|valència|valencia|andaluc|catalu|castilla|europea|internacional|argentin|francia|portugal|chile/i.test(link.title);
 }
 export function links(html,base){
+ if(new URL(base).hostname==='www.electografica.com'&&new URL(base).pathname.startsWith('/feeds/'))return electograficaLinks(html,base);
  const found=[];
  for(const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)){
   try{const u=new URL(decode(m[1]),base);if(u.protocol==='https:'&&u.hostname===new URL(base).hostname)found.push({url:u.href.split('#')[0],title:decode(m[2])});}catch{}
@@ -102,6 +104,7 @@ async function processPublications(catalog,report,publications,today,root,depth=
   if(hash&&downloadedHashes.has(hash)){report.processed.push({...p,status:'duplicate',reason:'Mismo documento que '+downloadedHashes.get(hash)});continue;}
   if(hash)downloadedHashes.set(hash,p.url);
   const row={...p,status:result.status==='unsupported'?'pending':result.status,kind:result.kind,verification:result.verification,matched:result.matched,expected:result.expected,reason:result.reason,sha256:hash,original:result.original,relatedInstitute:result.relatedInstitute,publishedAt:result.publishedAt||p.publishedAt,observedValues:result.observedValues};
+  if(result.document?.discoveryOriginals?.length&&!result.document.discoveryOriginals.some(l=>hosts.has(new URL(l.url).hostname))){row.status='pending';row.reason='Electográfica localiza el estudio, pero su editor original no tiene un adaptador autorizado. Revisión necesaria; no se importan cifras de otra casa desde el agregador.';}
   if(result.status==='extracted')try{
    const before=structuredClone(catalog);incorporatePoll(catalog,result,{hash,today,url:p.url});
    const official=JSON.parse(await readFile(path.join(root,'data/official-2023.json'),'utf8'));
@@ -111,6 +114,7 @@ async function processPublications(catalog,report,publications,today,root,depth=
   }catch(e){row.status='pending';row.reason='Validación rechazada: '+e.message;}
   report.processed.push(row);
   if(row.status==='pending')report.candidates.push(row);
+  if(depth<2&&document?.discoveryOriginals)for(const link of document.discoveryOriginals)if(hosts.has(new URL(link.url).hostname)&&!deduped.some(p=>canonical(p.url)===canonical(link.url)))follow.push({...link,institute:p.institute,publishedAt:document.publishedAt});
   if(depth<2 && document && ['landing','context','pending'].includes(row.status)){
    // Resolve portals and summaries to original reports, not their quoted figures.
    for(const link of document.links){
@@ -135,14 +139,14 @@ export function searchSources({root=defaultRoot}={}){return withCatalogLock(root
 async function searchUnlocked(root){
  const originalText=await readFile(path.join(root,'data/polls.json'),'utf8'),catalog=JSON.parse(originalText);
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Madrid'}).format(new Date());
- const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],microdataTargets:[],note:'Extracción automática de originales HTML y PDF con formato reconocido. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
+ const report={checkedAt:new Date().toISOString(),sources:[],candidates:[],processed:[],incorporated:[],microdataTargets:[],note:'Extracción de originales HTML y PDF reconocidos. Electográfica ayuda a descubrir originales y permite consultar GESOP mediante barras actuales y ficha explícita como fuente secundaria identificada. Se valida identidad, ámbito, fechas y porcentajes, y se conservan fuente, evidencia y huella del documento. Las guías, agregados, duplicados y estudios antiguos se clasifican sin contarlos como nuevos. Un bloqueo o formato ambiguo conserva los datos anteriores; la cobertura no es exhaustiva.'};
  const publications=[...catalog.polls.map(p=>({url:p.url,institute:p.institute,title:p.id})),...originalReports.filter(p=>p.publishedAt<=today&&(Date.parse(today)-Date.parse(p.publishedAt))/86400000<=60),...trackingReports(today)];
  const known=new Set(catalog.polls.map(p=>p.url.replace(/\/$/,'')));
  await Promise.allSettled(feeds.map(async([name,url])=>{
   try{const html=await retrieve(url),discovered=links(html,url);const candidates=discovered.filter(x=>isPollPublication(x,url));
    for(const p of discovered.filter(x=>contextReason(x.title)))report.processed.push({...p,institute:name,status:'context',reason:contextReason(p.title)});
    report.sources.push({name,url,status:'ok',found:candidates.length});
-   for(const c of candidates.slice(0,8))if(!known.has(c.url.replace(/\/$/,'')))publications.push({...c,institute:name});
+   for(const c of candidates.slice(0,new URL(url).hostname==='www.electografica.com'?20:8))if(!known.has(c.url.replace(/\/$/,'')))publications.push({...c,institute:name});
   }catch(e){report.sources.push({name,url,status:'error',error:e.message});}
  }));
  await processPublications(catalog,report,publications,today,root);

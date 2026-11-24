@@ -19,7 +19,9 @@ test('CIS reestimado: la interfaz carga, cambia de estudio y actualiza la combin
  assert.equal(typeof render,'function');
  const status=document.getElementById('cis-model-status');
  assert.ok(!status.className.includes('error'),status.textContent);
- assert.match(status.textContent,/3584/);
+ assert.match(status.textContent,/3587/);
+ assert.match(document.getElementById('cis-model-origin').textContent,/8\.034/);
+ assert.match(document.getElementById('cis-model-origin').textContent,/18,0466/);
  assert.equal(document.getElementById('cis-model-turnout').disabled,true);
  assert.equal(document.getElementById('cis-model-sympathy').disabled,true);
  const before=document.getElementById('cis-model-output').textContent;
@@ -34,4 +36,7 @@ test('CIS reestimado: la interfaz carga, cambia de estudio y actualiza la combin
  assert.equal(document.getElementById('cis-model-turnout').disabled,false);
  assert.equal(document.getElementById('cis-model-sympathy').disabled,false);
  assert.match(output.textContent,/Coalición de izquierdas/);assert.doesNotMatch(output.textContent,/NaN/);
+ study.value='3584';study.dispatchEvent(new window.Event('change'));assert.match(status.textContent,/3584/);
+ study.value='3587';study.dispatchEvent(new window.Event('change'));assert.match(status.textContent,/3587/);
+ assert.equal(document.getElementById('cis-model-turnout').disabled,true);assert.match(output.textContent,/ERC/);assert.doesNotMatch(output.textContent,/NaN/);
 });

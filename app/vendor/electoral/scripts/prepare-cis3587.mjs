@@ -1,0 +1,16 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {recallTableDataset} from './cis-recall-table.mjs';
+import {reestimateCis} from '../assets/cis-estimator.mjs';
+const [jsonFile,xlsxFile]=process.argv.slice(2);
+if(!jsonFile||!xlsxFile)throw Error('Uso: node scripts/prepare-cis3587.mjs valores-extraídos.json original.xlsx');
+const bytes=await readFile(xlsxFile),sha256=createHash('sha256').update(bytes).digest('hex');
+if(sha256!=='38864f9b3be65456c5ababf528b236948018d74c5307abc4305893c6966aa667')throw Error('El Excel CIS 3587 ha cambiado: revisar antes de incorporar.');
+const workbook=JSON.parse(await readFile(jsonFile,'utf8')),bundle=JSON.parse(await readFile(new URL('../data/cis-reestimation.json',import.meta.url),'utf8'));
+const metadata={study:'3587',question:'Pregunta 10R',title:'CIS 3587 · Barómetro de noviembre',sample:8034,publishedAt:'2026-11-23',fieldworkStart:'2026-11-10',fieldworkEnd:'2026-11-17',sourceUrl:'https://www.cis.es/documents/d/guest/3587-multi_a-xlsx',sha256,technicalUrl:'https://www.cis.es/documents/d/guest/es3587mar_a-pdf',note:'Cruce nacional oficial P10R × participación y recuerdo 2023, hoja RV EG23. Celdas ponderadas del Excel con precisión completa; no entrevistas individuales. Se corrige recuerdo entre candidaturas comparables y se reparten NS/NC dentro de cada recuerdo. No permite combinar participación o simpatía individual, ni obtener cocientes provinciales. La discrepancia del PP se conserva: frecuencias 18,0 % (Excel 18,0466 %), anexo de estimación 18,2 %. ERC-Podemos y Frente Amplio conservan sus categorías originales.'};
+const dataset=recallTableDataset({recallRows:workbook['RV EG23'],nationalRows:workbook.Resultados,reference:bundle.datasets[0].reference,metadata});
+dataset.publishedEstimate=workbook['Estimación de Voto'].filter(r=>typeof r[0]==='string'&&typeof r[3]==='number').map(r=>({label:r[0].trim(),value:r[3]}));
+if(Math.abs(dataset.publishedEstimate.reduce((s,r)=>s+r.value,0)-100)>.01)throw Error('Anexo CIS incompleto.');
+bundle.datasets=[dataset,...bundle.datasets.filter(d=>d.study!=='3587')];bundle.preparedOn='2026-11-24';
+await writeFile(new URL('../data/cis-reestimation.json',import.meta.url),JSON.stringify(bundle));
+console.log(JSON.stringify({study:dataset.study,cells:dataset.cells.length,weightedBase:dataset.weightedBase,defaultScenario:reestimateCis(dataset).validPercent},null,2));

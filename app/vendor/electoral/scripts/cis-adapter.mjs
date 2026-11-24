@@ -6,7 +6,7 @@ export function extractCis(content,technical,{allowNumericLabels=false}={}){
   for(const line of block.split('\n')){const m=line.trim().match(/^(.+?)\s+(\d{1,3},\d+|-)\s*$/);if(m)rows[m[1]]=m[2]==='-'?null:Number(m[2].replace(',','.'));}
   const n=block.match(/\(N\)\s*\(([\d.]+)\)/);if(Object.keys(rows).length&&n)tables.push({code,rows,sample:Number(n[1].replaceAll('.','')),wording:block.split(Object.keys(rows)[0])[0].trim().replace(/\s+/g,' ')});
  }
- const candidates=tables.filter(q=>q.code.endsWith('R')&&/a qué partido votaría/i.test(q.wording)&&/Parlamento español|elecciones generales/i.test(q.wording)&&['No votaría','No sabe todavía','PSOE','PP'].every(k=>Object.hasOwn(q.rows,k)));
+ const candidates=tables.filter(q=>q.code.endsWith('R')&&/a qué partido votar(?:ía|á)/i.test(q.wording)&&/Parlamento español|elecciones generales/i.test(q.wording)&&['No votaría','No sabe todavía','PSOE','PP'].every(k=>Object.hasOwn(q.rows,k)));
  if(candidates.length!==1)throw Error('Pregunta directa ambigua o formato desconocido: revisión necesaria.');
  const direct=candidates[0];if(!allowNumericLabels&&Object.keys(direct.rows).some(k=>/^\d+$/.test(k)))throw Error('Etiqueta numérica sin partido: revisión necesaria.');
  if(Math.abs(Object.values(direct.rows).reduce((s,v)=>s+(v||0),0)-100)>.8)throw Error('La tabla directa no suma aproximadamente 100.');
@@ -16,7 +16,7 @@ export function extractCis(content,technical,{allowNumericLabels=false}={}){
  const prefix=dates[4]+'-'+String(months.indexOf(dates[3].toLowerCase())+1).padStart(2,'0')+'-',fieldworkStart=prefix+dates[1].padStart(2,'0'),fieldworkEnd=prefix+dates[2].padStart(2,'0');
  if(new Date(fieldworkStart).toISOString().slice(0,10)!==fieldworkStart||new Date(fieldworkEnd).toISOString().slice(0,10)!==fieldworkEnd||fieldworkStart>fieldworkEnd)throw Error('Campo CIS inválido.');
  const error=technical.match(/±\s*(\d+,\d+)/);
- return {direct,rawDirect:tables.find(q=>q.code===direct.code.slice(0,-1))||null,recall:tables.find(q=>q.wording.includes('¿Y podría decirme a qué partido o coalición votó?')&&Object.hasOwn(q.rows,'PP')&&q.code.endsWith('R'))||null,sympathy:tables.find(q=>q.wording.startsWith('VOTO+SIMPATÍA')&&!q.code.endsWith('R'))||null,fieldworkStart,fieldworkEnd,sample:direct.sample,theoreticalError:error?Number(error[1].replace(',','.')):null,method:'CATI; selección de teléfonos y cuotas de sexo y edad; ponderación PESO publicada.'};
+ return {direct,rawDirect:tables.find(q=>q.code===direct.code.slice(0,-1))||null,recall:tables.find(q=>Object.hasOwn(q.rows,'PP')&&(/RECUERDO DE PARTICIPACIÓN \+ RECUERDO DE VOTO/i.test(q.wording)||q.wording.includes('¿Y podría decirme a qué partido o coalición votó?')&&q.code.endsWith('R')))||null,sympathy:tables.find(q=>q.wording.startsWith('VOTO+SIMPATÍA')&&!q.code.endsWith('R'))||null,fieldworkStart,fieldworkEnd,sample:direct.sample,theoreticalError:error?Number(error[1].replace(',','.')):null,method:'CATI; selección de teléfonos y cuotas de sexo y edad; ponderación PESO publicada.'};
 }
 
 // A malformed label can only be resolved against another complete original,
@@ -30,17 +30,21 @@ export function reconcileCisAlternative(content,technical,alternative){
 }
 
 export function extractCisEstimate(content,study){
- if(!new RegExp('Estudio\\s+n[º°o]?\\s*'+study+'\\b','i').test(content)||!/sobre el\s+voto v[aá]lido/i.test(content))throw Error('Identidad o denominador de la estimación CIS desconocidos.');
- const labels={PSOE:'psoe',PP:'pp',VOX:'vox',SUMAR:'sumar',Podemos:'podemos',ERC:'erc','Se Acabó la Fiesta':'salf','EH Bildu':'bildu',BNG:'bng',Junts:'junts','EAJ-PNV':'pnv',CCa:'cc',UPN:'upn','Otros partidos':'others','En blanco':'blank'};
- const values={},direct={},evidence={};
+ if(!new RegExp('Estudio\\s+n[º°o]?\\s*'+study+'\\b','i').test(content)||!/sobre\s+el\s+voto\s+v[aá]lido/i.test(content))throw Error('Identidad o denominador de la estimación CIS desconocidos.');
+ const labels={PSOE:'psoe',PP:'pp',VOX:'vox',SUMAR:'sumar',Podemos:'podemos',ERC:'erc','Adelante Andalucía':'aa','Se Acabó la Fiesta':'salf','EH Bildu':'bildu',BNG:'bng',Junts:'junts','EAJ-PNV':'pnv',CCa:'cc',UPN:'upn','Otros partidos':'others','En blanco':'blank'};
+ const originalLabels=study==='3587'?['Frente Amplio','ERC-Podemos','Compromís: Front Valencià','UPC (Unidad del Pueblo Canario)','Aramés-Front Ampli','CC-Municipalistas Primero Canarias','Democracia 21']:[];
+ const values={},direct={},evidence={},originalRows=[],displayLabels={};
  for(const line of content.split('\n')){
-  const m=line.trim().match(/^(.+?)\s+(\d+(?:,\d+)?)\s+±\s*\d+(?:,\d+)?\s+(\d+(?:,\d+)?)\s*$/);
-  if(!m)continue;const label=m[1].replace(/\*+/g,'').replace(/\s*\/\s*Frente Amplio/i,'').trim(),id=labels[label];
+  const m=line.trim().match(/^(.+?)\s+(\d+(?:,\d+)?)\s+±\s*\d+(?:,\d+)?\s+(\d+(?:,\d+)?)(?:\s+(\d+(?:,\d+)?)\s*[–−-]\s*(\d+(?:,\d+)?)|\s+-)?\s*$/);
+  if(!m)continue;const label=m[1].replace(/\*+/g,'').replace(/\s*\/\s*Frente Amplio/i,'').trim(),id=labels[label]||(label==='EH-Bildu'?'bildu':originalLabels.includes(label)?'original:'+label:null);
   if(!id)throw Error('Categoría de estimación CIS desconocida: '+label);
   if(Object.hasOwn(values,id))throw Error('Tabla de estimación CIS duplicada.');
-  values[id]=Number(m[3].replace(',','.'));direct[id]=Number(m[2].replace(',','.'));evidence[id]=line.trim();
+  values[id]=Number(m[3].replace(',','.'));direct[id]=Number(m[2].replace(',','.'));evidence[id]=line.trim();displayLabels[id]=label;
+  const interval=m[4]?[Number(m[4].replace(',','.')),Number(m[5].replace(',','.'))]:null;
+  if(interval&&(interval[0]>values[id]||interval[1]<values[id]||interval[0]<0||interval[1]>100))throw Error('Intervalo de estimación CIS incompatible.');
+  originalRows.push({label,value:values[id],direct:direct[id],interval});
  }
- if(!['pp','psoe','vox','sumar'].every(k=>Number.isFinite(values[k]))||Object.values(values).some(v=>v<0||v>100)||Math.abs(Object.values(values).reduce((s,v)=>s+v,0)-100)>.8)throw Error('Vector de estimación CIS incompleto o incompatible.');
+ if(!['pp','psoe','vox'].every(k=>Number.isFinite(values[k]))||!Number.isFinite(values.sumar??values['original:Frente Amplio'])||Object.values(values).some(v=>v<0||v>100)||Math.abs(Object.values(values).reduce((s,v)=>s+v,0)-100)>.8)throw Error('Vector de estimación CIS incompleto o incompatible.');
  const n=content.match(/\(N\)\s*\(([\d.]+)\)/);if(!n)throw Error('Estimación CIS sin muestra.');
- return {values,direct,evidence,sample:Number(n[1].replaceAll('.','')),denominator:'validVotes'};
+ return {values,direct,evidence,originalRows,labels:displayLabels,sample:Number(n[1].replaceAll('.','')),denominator:'validVotes'};
 }

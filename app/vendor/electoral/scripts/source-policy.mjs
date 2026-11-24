@@ -2,6 +2,7 @@ import {issueKind} from '../assets/update-report.mjs';
 export {issueKind};
 // Publisher discovery is separate from the institute that produced a poll.
 export const feeds=[
+ ['Electográfica · descubrimiento nacional','https://www.electografica.com/feeds/posts/default/-/Spain?alt=json&max-results=20'],
  ['GAD3','https://www.gad3.com/feed/'],['Sigma Dos','https://www.sigmados.com/noticias.php?lang=es'],
  ['ElectoPanel','https://electomania.es/feed/'],['More in Common','https://moreincommon.es/'],
  ['40dB / EL PAÍS','https://elpais.com/espana/'],['40dB / campaña electoral','https://elpais.com/espana/elecciones-generales/'],['40dB / Cadena SER','https://cadenaser.com/tag/encuestas/a/'],

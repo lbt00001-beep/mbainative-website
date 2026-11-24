@@ -6,6 +6,13 @@ import {extractCis,extractCisEstimate,reconcileCisAlternative} from './cis-adapt
 import {readPdf} from './pdf-reader.mjs';
 
 const partyIds={PP:'pp',PSOE:'psoe',VOX:'vox',Sumar:'sumar','Sumar / Frente Amplio':'sumar',Podemos:'podemos','Se Acabó la Fiesta':'salf',ERC:'erc',Junts:'junts','EAJ-PNV':'pnv','EH Bildu':'bildu',BNG:'bng',CCa:'cc',UPN:'upn','Adelante Andalucía':'aa','Aliança Catalana':'ac'};
+export function verifyCisEstimate(extracted,record,{resultHash,estimateHash}){
+ if(extracted.sample!==record.sample)throw Error('La estimación y las respuestas directas no corresponden al mismo estudio.');
+ const mismatches=['pp','psoe','vox','sumar'].filter(id=>Number.isFinite(extracted.direct[id])&&Number.isFinite(record.values[id])&&Math.abs(extracted.direct[id]-record.values[id])>.051);
+ if(!mismatches.length)return null;
+ if(record.study==='3587'&&mismatches.length===1&&mismatches[0]==='pp'&&record.values.pp===18&&extracted.direct.pp===18.2&&resultHash==='6e36865f3ab9e490e785103aa6f75e03739990d1ccebb1d0835457a7c7330126'&&estimateHash==='1f3e9bb2545994c9e88c1f2101177ec5f4faa46994e5ce7102f8fd211190d42f')return 'Discrepancia de los originales revisados: PP directo 18,0 % en frecuencias (también 18,0466 % en el Excel), frente a 18,2 % en el anexo de estimación. Se conserva cada documento sin corregirlo. ERC-Podemos y Frente Amplio se muestran con sus etiquetas originales y sin equivalencias automáticas. La nota de ERC-Podemos describe campaña conjunta, no una coalición formal.';
+ throw Error('La estimación y las respuestas directas no corresponden al mismo estudio.');
+}
 export function cisDocuments(html,url){
  const d=articleDocument(html,url),items=d.links.filter(l=>new URL(l.url).hostname==='www.cis.es');
  const result=items.find(l=>/\/es\d+mar(?:[_.-]|\.pdf)/i.test(l.url));
@@ -52,8 +59,8 @@ export async function updateCis({root,catalog,report,today,retrieve}){
     report.processed.push({institute:'CIS',url,title:docs.title,status:'known',verification:'full',reason:sourceNote||'Pregunta directa y ficha técnica contrastadas. Uso exclusivamente consultivo.',sha256:sourceHash});
     if(docs.estimateUrl)try{
      const document=await pdf(docs.estimateUrl),extracted=extractCisEstimate(document.text,docs.study);
-     if(extracted.sample!==tables.sample||['pp','psoe','vox','sumar'].some(id=>Math.abs(extracted.direct[id]-record.values[id])>.051))throw Error('La estimación y las respuestas directas no corresponden al mismo estudio.');
-     const estimate={study:docs.study,title:docs.title,publishedAt,fieldworkStart:tables.fieldworkStart,fieldworkEnd:tables.fieldworkEnd,sample:tables.sample,values:extracted.values,denominator:'validVotes',url:docs.estimateUrl,studyUrl:url,sha256:document.hash,verified:true,measure:'cisComparisonOnly'};
+     const sourceNote=verifyCisEstimate(extracted,record,{resultHash:result.hash,estimateHash:document.hash});
+     const estimate={study:docs.study,title:docs.title,publishedAt,fieldworkStart:tables.fieldworkStart,fieldworkEnd:tables.fieldworkEnd,sample:tables.sample,values:extracted.values,labels:extracted.labels,originalRows:extracted.originalRows,...(sourceNote?{sourceNote}:{}),denominator:'validVotes',url:docs.estimateUrl,studyUrl:url,sha256:document.hash,verified:true,measure:'cisComparisonOnly'};
      catalog.cisEstimates??=[];const previous=catalog.cisEstimates.find(p=>p.study===docs.study);
      if(!previous||JSON.stringify(previous.values)!==JSON.stringify(estimate.values)||previous.sha256!==estimate.sha256){catalog.cisEstimates=catalog.cisEstimates.filter(p=>p.study!==docs.study);catalog.cisEstimates.push(estimate);report.incorporated.push({study:docs.study,url:docs.estimateUrl,measure:'cisComparisonOnly'});}
     }catch(error){const row={institute:'CIS',url:docs.estimateUrl,title:'Comparación CIS · '+docs.title,status:'pending',reason:error.message};report.processed.push(row);report.candidates.push(row);}

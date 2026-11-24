@@ -27,7 +27,7 @@ export function validateCatalog(catalog){
     comparisonIds.add(p.study);
     for(const date of [p.publishedAt,p.fieldworkStart,p.fieldworkEnd])if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)throw Error('Fecha de comparación CIS inválida.');
     if(p.fieldworkStart>p.fieldworkEnd||p.fieldworkEnd>p.publishedAt||new URL(p.url).protocol!=='https:'||new URL(p.studyUrl).protocol!=='https:')throw Error('Fuente o campo de comparación CIS inválidos.');
-    if(!p.values||!['pp','psoe','vox','sumar'].every(id=>Number.isFinite(p.values[id]))||Object.entries(p.values).some(([id,v])=>![...MAIN_IDS,'ac','aa','others','blank'].includes(id)||!Number.isFinite(v)||v<0||v>100)||Math.abs(sum(Object.values(p.values))-100)>.8)throw Error('Vector de comparación CIS inválido.');
+    if(!p.values||!['pp','psoe','vox'].every(id=>Number.isFinite(p.values[id]))||!Number.isFinite(p.values.sumar??p.values['original:Frente Amplio'])||Object.entries(p.values).some(([id,v])=>(![...MAIN_IDS,'ac','aa','others','blank'].includes(id)&&!(id.startsWith('original:')&&p.labels?.[id]===id.slice(9)))||!Number.isFinite(v)||v<0||v>100)||Math.abs(sum(Object.values(p.values))-100)>.8)throw Error('Vector de comparación CIS inválido.');
   }
   for(const p of catalog.directSurveys||[]){
     if(!p.id||directIds.has(p.id)||p.measure!=='directVote'||p.denominator!=='surveyTotal'||!Number.isInteger(p.sample)||p.sample<1||p.verified!==true)throw Error('Ficha directa CIS inválida.');

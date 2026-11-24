@@ -22,7 +22,7 @@ test('Conserva los modelos de creación documentados y no usa los modelos del se
   assert.equal(findAppCredit('/benchmarks-ia/index.html')?.model,'Gemini 3.5 Flash (High)');
   assert.equal(findAppCredit('/aplicaciones/inversion-fundamentales')?.model,'Claude Opus 4.5 Thinking');
   assert.equal(findAppCredit('/plan-de-marketing/index.html')?.model,'GPT 5.5. medium');
-  assert.equal(findAppCredit('/aplicaciones/tradingalpha')?.model,'Gemini 3.8 Flash (High)');
+  assert.equal(findAppCredit('/aplicaciones/tradingalpha')?.model,'Gemini 3.8 Flash (High) y Claude Opus 5.5');
   assert.equal(findAppCredit('/observatorio-ccaa/index.html')?.model,'GPT-6 (Codex)');
   assert.equal(findAppCredit('/huelga-general-11n/index.html')?.model,'Claude Fable 5.1');
   assert.equal(findAppCredit('/aplicaciones/observatorio-electoral')?.model,'GPT 6.1 Sol Medio');

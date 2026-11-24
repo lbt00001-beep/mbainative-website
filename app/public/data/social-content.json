@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-11-24T03:12:05.824Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-11-24T15:36:18.274Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 9,
     "title": "El conocimiento se democratiza",
     "icon": "🧠"
   },
   "post": {
-    "type": "news",
-    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n📰 The agentic web is here\n\nIn 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two coll...\n\n🔗 Más en mbain...",
+    "type": "recent_video",
+    "content": "🧠 Principio #9: El conocimiento se democratiza\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "MITTechnologyReviewAI"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

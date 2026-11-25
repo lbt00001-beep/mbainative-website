@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-11-25T01:16:55.055Z",
-  "scheduleSlot": "morning",
+  "generatedAt": "2026-11-25T15:21:34.300Z",
+  "scheduleSlot": "evening",
   "principle": {
     "id": 10,
     "title": "Velocidad como ventaja competitiva",
     "icon": "⚡"
   },
   "post": {
-    "type": "news",
-    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n📰 The agentic web is here\n\nIn 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two coll...\n\n🔗 Más en m...",
+    "type": "recent_video",
+    "content": "⚡ Principio #10: Velocidad como ventaja competitiva\n\n🔥 Recién publicado sobre Sam Altman\n\n\"Sam Altman, Dario Amodei, Jensen Huang Quotes\"\n\n▶️ youtube.com/watch?v=5DxIYAE8TRU",
     "hashtags": [
       "IA",
       "InteligenciaArtificial",
       "MBAINative",
-      "NoticiasIA",
-      "MITTechnologyReviewAI"
+      "UltimaHora",
+      "samaltman"
     ],
-    "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
+    "url": "https://youtube.com/watch?v=5DxIYAE8TRU",
+    "imageUrl": "https://i.ytimg.com/vi/5DxIYAE8TRU/mqdefault.jpg"
   }
 }

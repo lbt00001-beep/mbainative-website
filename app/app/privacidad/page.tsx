@@ -89,6 +89,9 @@ export default function PrivacyPolicy() {
                     <h2 className="text-2xl font-bold text-white mt-8">10. Asistente de lectura guiada</h2>
                     <p>El asistente reproduce un guion editorial preparado con contenido público de la web. No solicita acceso al micrófono ni utiliza las claves, documentos o valores de los formularios del visitante para narrar. La reproducción comienza cuando pulsas su botón.</p>
                     <p>Si eliges una voz profesional disponible, nuestro servidor envía el fragmento del guion a Microsoft Azure o Google Cloud para generar el audio. Si eliges una voz del navegador, la síntesis depende del dispositivo y puede utilizar servicios remotos del proveedor de esa voz. Puedes pausar o detener la reproducción en cualquier momento.</p>
+                    <h2 className="text-2xl font-bold text-white mt-8">11. Curso «Aprende IA en sesiones de 20 minutos»</h2>
+                    <p>Para seguir el curso guardamos, con tu consentimiento, tu nombre, tu email, el tiempo de práctica, las fichas terminadas, tus respuestas, tus notas y tus preferencias. Se almacenan en Google Firebase (Google Ireland Ltd.), con servidores en la Unión Europea. Tus notas solo las ves tú; el responsable del curso ve tu nombre, tu email y tu avance.</p>
+                    <p>Las cuentas sin actividad durante 12 meses se borran. Puedes descargar tus datos o borrar tu cuenta desde el propio curso. Información completa en la <a href="/curso-ia/privacidad.html" className="text-[--accent] hover:underline">información de privacidad del curso</a>.</p>
                 </div>
             </div>
         </section>

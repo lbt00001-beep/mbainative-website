@@ -3,75 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aprende IA en sesiones de 20 minutos</title>
-<meta name="description" content="Curso práctico de IA: 20 fichas de 20 minutos, una al día, con seguimiento de tu progreso.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Aprende IA en sesiones de 20 minutos · MBAI Native</title>
+<meta name="description" content="Curso práctico y gratuito de IA de MBAI Native: 20 fichas de 20 minutos, una al día, con seguimiento de tu progreso.">
 <style>
+@font-face{font-family:'Bricolage Grotesque';font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url(fonts/source-sans-3-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-style:italic;font-display:swap;src:url(fonts/source-sans-3-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url(fonts/source-sans-3-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url(fonts/source-sans-3-latin-700-normal.woff2) format('woff2')}
 :root{
-  --ink:#1E2430; --paper:#FBF8F1; --muted:#5B6170; --line:#E4DED2; --card:#FFFFFF;
-  --w1:#2B59A6; --t1:#EAF0FA; --w2:#1D7466; --t2:#E4F2EE; --w3:#A84C17; --t3:#F8ECE2; --w4:#5A409C; --t4:#EEEAF7;
+  --ink:#1E2430; --paper:#FBF8F1; --muted:#5B6170; --line:#E4DED2; --card:#FFFFFF; --ok:#1D7466;
   --head:'Bricolage Grotesque',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
-  --scale:1;
+  --scale:1; --wc:#2B59A6; --wt:#EAF0FA;
 }
 *{box-sizing:border-box}
 html{font-size:calc(17px * var(--scale))}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.5}
 h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
 button,input,textarea,select{font:inherit;color:inherit}
-a{color:var(--w1)}
+a{color:#2B59A6}
 .hidden{display:none !important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 svg.i{display:block;flex-shrink:0;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:3px solid #F2B84B;outline-offset:2px}
 
-/* ---------- barra de menús estilo Microsoft ---------- */
-.menubar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:2px;height:38px;padding:0 8px;background:#F3F1EB;border-bottom:1px solid #D9D3C6;font-size:14px;user-select:none}
-.menubar .brand{display:flex;align-items:center;gap:8px;padding:0 12px 0 4px;font-family:var(--head);font-weight:800;font-size:15px}
-.menubar .brand span.dot{width:18px;height:18px;border-radius:5px;background:conic-gradient(var(--w1) 0 25%,var(--w2) 0 50%,var(--w3) 0 75%,var(--w4) 0)}
+/* ---------- barra de menús ---------- */
+.menubar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:2px;height:40px;padding:0 8px;background:#F3F1EB;border-bottom:1px solid #D9D3C6;font-size:14px;user-select:none}
+.brand{display:flex;align-items:center;gap:8px;padding:0 12px 0 4px;font-family:var(--head);font-weight:800;font-size:15px;white-space:nowrap}
+.brand .dot{width:18px;height:18px;border-radius:5px;background:conic-gradient(#2B59A6 0 25%,#1D7466 0 50%,#A84C17 0 75%,#5A409C 0)}
+.menus{display:flex;gap:2px}
 .menu{position:relative}
-.menu>button{background:none;border:0;padding:6px 10px;border-radius:4px;cursor:pointer;font-size:14px}
+.menu>button{background:none;border:0;padding:7px 10px;border-radius:4px;cursor:pointer;font-size:14px}
 .menu>button:hover,.menu.open>button{background:#E2DED4}
-.menu .drop{position:absolute;top:34px;left:0;min-width:250px;background:#fff;border:1px solid #CFC8BA;border-radius:6px;box-shadow:0 8px 24px rgba(30,36,48,.16);padding:4px;display:none}
+.drop{position:absolute;top:36px;left:0;min-width:260px;background:#fff;border:1px solid #CFC8BA;border-radius:6px;box-shadow:0 8px 24px rgba(30,36,48,.16);padding:4px;display:none}
 .menu.open .drop{display:block}
-.drop button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:none;border:0;padding:7px 12px;border-radius:4px;cursor:pointer;font-size:14px;gap:18px}
+.drop button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:14px}
 .drop button:hover,.drop button:focus-visible{background:#EEF1F7;outline:none}
-.drop button:disabled{color:#9A9AA2;cursor:default;background:none}
-.drop .k{color:var(--muted);font-size:12px}
+.drop button:disabled{color:#8A8A92;cursor:default;background:none}
 .drop hr{border:0;border-top:1px solid var(--line);margin:4px 2px}
-.menubar .who{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--muted);padding-right:6px;font-size:13px}
-.menubar .sync{width:8px;height:8px;border-radius:50%;background:#2E9D5B}
-.menubar .sync.off{background:#C2410C}
+.mobmenu{display:none}
+.who{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--muted);padding-right:6px;font-size:13px;white-space:nowrap;overflow:hidden}
+.sync{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#E3F1EC;color:var(--ok)}
+.sync.off{background:#FBE9DF;color:#9A3412}
 
 /* ---------- comunes ---------- */
-.wrap{max-width:1120px;margin:0 auto;padding:36px 28px 80px}
+.wrap{max-width:1120px;margin:0 auto;padding:36px 28px 90px}
 .eyebrow{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;cursor:pointer;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;cursor:pointer;text-decoration:none;text-align:center}
 .btn.ghost{background:transparent;color:var(--ink)}
+.btn.small{min-height:36px;padding:0 14px;font-size:14px;border-width:1.5px}
 .btn:disabled{opacity:.45;cursor:default}
-.btn:focus-visible,.card:focus-visible{outline:3px solid #F2B84B;outline-offset:2px}
 .pill{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:15px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:15px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:calc(100% - 32px)}
+.note{border-radius:14px;padding:12px 16px;font-size:15px;display:flex;gap:10px;align-items:flex-start}
 
 /* ---------- acceso ---------- */
-#login{min-height:calc(100vh - 38px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
-#login .art{padding:48px;display:flex;flex-direction:column;gap:28px;justify-content:center}
+#login{min-height:calc(100vh - 40px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+#login .art{padding:48px;display:flex;flex-direction:column;gap:26px;justify-content:center}
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.tile{border-radius:22px;padding:22px;color:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.tile{border-radius:22px;padding:22px;color:#fff;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
 .tile small{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;opacity:.9}
 .tile b{font-family:var(--head);font-size:21px;line-height:1.15;display:block}
 #login .formside{background:#fff;border-left:1px solid var(--line);padding:48px;display:flex;align-items:center}
-#login form{width:100%;max-width:420px;display:flex;flex-direction:column;gap:16px}
+#login form{width:100%;max-width:430px;display:flex;flex-direction:column;gap:14px}
 label.f{display:flex;flex-direction:column;gap:6px;font-weight:600}
-label.f input{height:50px;border:2px solid #CFC8BA;border-radius:12px;padding:0 14px;background:#fff}
-label.f input:focus{border-color:var(--w1);outline:none}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#3A4050}
-.check input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+label.f input,label.f select,textarea.f{border:2px solid #CFC8BA;border-radius:12px;padding:0 14px;background:#fff}
+label.f input,label.f select{height:50px}
+label.f input:focus,textarea.f:focus{border-color:#2B59A6;outline:none}
 .err{color:#B42318;font-weight:600;min-height:1.4em}
+.okmsg{color:var(--ok);font-weight:600}
 .btn.google{background:#fff;color:var(--ink);border-color:#CFC8BA;gap:12px}
 .btn.google:hover{border-color:var(--ink)}
 .or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
 .or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
-.ok{color:#1D7466;font-weight:600}
+.legal{font-size:14px;color:var(--muted);margin:0}
 
 /* ---------- panel ---------- */
 .hello{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
@@ -93,93 +99,116 @@ label.f input:focus{border-color:var(--w1);outline:none}
 .week-h h3{font-size:21px}
 .grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .card{position:relative;text-align:left;border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 12px 14px;cursor:pointer;min-height:118px;display:flex;flex-direction:column;gap:6px}
-.card:hover{border-color:#B9B1A1;transform:translateY(-1px)}
+.card:hover{border-color:#B9B1A1}
 .card .num{font-family:var(--head);font-weight:800;font-size:24px;line-height:1}
 .card .tt{font-size:14px;line-height:1.3;font-weight:600}
 .card .st{margin-top:auto;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
 .card.done{color:#fff;border-color:transparent}
-.card.done .st{color:rgba(255,255,255,.9)}
+.card.done .st{color:#fff}
 .card .ok{position:absolute;top:10px;right:10px}
 aside .box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
 aside h3{font-size:19px;margin-bottom:10px}
 .cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
 .cal .d{aspect-ratio:1;border-radius:5px;background:#EFEAE0}
-.cal .d.l1{background:#B7CCEA}.cal .d.l2{background:#6E95CF}.cal .d.l3{background:var(--w1)}
+.cal .d.on{background:#2B59A6}
+.cal .d.part{background:#B7CCEA}
 .cal .d.today{outline:2px solid var(--ink);outline-offset:1px}
 .cal .dn{font-size:11px;color:var(--muted);text-align:center}
-.legend{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:10px}
+.legend{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:10px;flex-wrap:wrap}
 .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
 .dots{display:flex;gap:8px;margin:6px 0 4px}
 .dots i{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)}
 .dots i.on{background:var(--ink)}
 
 /* ---------- ficha ---------- */
-.band{color:#fff;position:relative;overflow:hidden}
-.band .in{max-width:1120px;margin:0 auto;padding:30px 28px 30px;position:relative}
+.band{color:#fff;position:relative;overflow:hidden;background:var(--wc)}
+.band .in{max-width:1120px;margin:0 auto;padding:30px 28px;position:relative}
 .band .deco{position:absolute;right:-40px;top:-30px;opacity:.16}
 .band .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .band .tl{display:flex;align-items:flex-end;gap:22px;margin-top:14px}
 .band .big{font-family:var(--head);font-weight:800;font-size:110px;line-height:.85;letter-spacing:-.03em}
 .band h1{font-size:40px;max-width:640px}
 .fbody{max-width:1120px;margin:0 auto;padding:28px 28px 80px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
-.sec{margin-bottom:26px}
-.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sec{margin-bottom:28px}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--wc)}
 .sec-h b{font-family:var(--head);font-weight:800;font-size:23px}
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.steps li label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer}
-.steps li input{position:absolute;opacity:0;pointer-events:none}
-.steps .nb{flex-shrink:0;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-.steps input:checked + .nb{background:#2E9D5B !important}
-.steps input:checked ~ span.tx{color:var(--muted);text-decoration:line-through;text-decoration-color:#9AA}
-.steps input:focus-visible + .nb{outline:3px solid #F2B84B;outline-offset:2px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.step label{display:flex;gap:14px;align-items:flex-start;cursor:pointer}
+.step input{position:absolute;opacity:0;pointer-events:none}
+.step .nb{flex-shrink:0;width:30px;height:30px;border-radius:50%;color:#fff;background:var(--wc);font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step input:checked + .nb{background:#2E9D5B}
+.step input:checked ~ .tx{color:var(--muted);text-decoration:line-through;text-decoration-color:#9AA}
+.step input:focus-visible + .nb{outline:3px solid #F2B84B;outline-offset:2px}
+.step .acts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0 44px}
 em.p{font-style:italic;color:#2A2F3A}
-.copy{border:0;background:none;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:6px;margin-left:auto}
-.copy:hover{background:#EFEAE0}
-.settle{border-radius:20px;padding:20px 22px}
-.settle textarea{width:100%;min-height:130px;margin-top:10px;border:2px dashed #A79F8F;border-radius:12px;padding:12px;background:rgba(255,255,255,.75);resize:vertical;line-height:1.5}
-.settle textarea:focus{outline:none;border-style:solid}
+details.ex{background:#fff;border:1px dashed #B9B1A1;border-radius:14px;padding:12px 16px;margin-top:12px}
+details.ex summary{cursor:pointer;font-weight:700}
+.tint{background:var(--wt);border-radius:20px;padding:20px 22px}
+textarea.f{width:100%;min-height:120px;margin-top:10px;padding:12px;resize:vertical;line-height:1.5;background:rgba(255,255,255,.85)}
 .saved{font-size:13px;color:var(--muted);margin-top:6px;min-height:1.3em}
+.quiz fieldset{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}
+.quiz legend{font-weight:700;padding:0 4px}
+.quiz label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.quiz input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.quiz .fb{font-size:15px;margin-top:4px}
+.req{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.req li{display:flex;gap:8px;align-items:center}
+.req li .m{width:22px;height:22px;border-radius:50%;border:2px solid #B9B1A1;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.req li.ok .m{background:var(--ok);border-color:var(--ok);color:#fff}
 .timer{position:sticky;top:58px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px}
 .ring{position:relative;width:200px;height:200px;margin:0 auto}
 .ring svg{transform:rotate(-90deg)}
-.ring .tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .ring .tx b{font-family:var(--head);font-weight:800;font-size:44px;font-variant-numeric:tabular-nums}
-.ring .tx span{font-size:13px;color:var(--muted)}
-.phases{display:flex;gap:4px}
-.phases div{flex:1;font-size:12px;color:var(--muted)}
-.phases div i{display:block;height:6px;border-radius:3px;background:#EAE4D8;margin-bottom:4px}
-.phases div.on i{background:var(--ink)}
+.ring .tx span{font-size:14px;color:var(--muted)}
+.ring .tx .ph{font-weight:700;color:var(--ink)}
 .tline{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
 .nav{display:flex;justify-content:space-between;gap:12px;margin-top:10px;flex-wrap:wrap}
+.minibar{display:none}
 
-dialog{border:0;border-radius:20px;padding:0;max-width:560px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+/* ---------- cuaderno ---------- */
+.nb-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:14px;border-left-width:6px}
+.nb-item h3{font-size:20px;margin-bottom:6px}
+.nb-item p{margin:6px 0;white-space:pre-wrap}
+
+dialog{border:0;border-radius:20px;padding:0;max-width:580px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
 dialog::backdrop{background:rgba(30,36,48,.45)}
-dialog .dc{padding:28px}
+dialog .dc{padding:28px;max-height:85vh;overflow:auto}
 dialog h2{font-size:28px;margin-bottom:12px}
-dialog .act{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+dialog .act{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
 dialog p{margin:0 0 10px}
 .opt{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:16px}
-.opt select{height:40px;border-radius:10px;border:1px solid #CFC8BA;padding:0 10px;background:#fff}
+.opt select,.opt input[type=time],.opt input[type=number]{height:40px;border-radius:10px;border:1px solid #CFC8BA;padding:0 10px;background:#fff}
 .opt input[type=checkbox]{width:22px;height:22px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.choices label{border:2px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600}
+.choices input{width:20px;height:20px}
+.choices label:has(input:checked){border-color:var(--ink)}
 
 @media (max-width:900px){
   #login{grid-template-columns:1fr}
-  #login .formside{border-left:0;border-top:1px solid var(--line)}
+  #login .formside{border-left:0;border-bottom:1px solid var(--line);order:-1}
   #login .art,#login .formside{padding:28px 20px}
+  #login .art h1{font-size:36px !important}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cols,.fbody{grid-template-columns:1fr}
   .grid5{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .timer{position:static;order:-1}
+  .timer{display:none}
+  .minibar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 14px;gap:12px;align-items:center;box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  .minibar b{font-family:var(--head);font-size:26px;font-variant-numeric:tabular-nums}
+  .minibar .mi{flex:1;font-size:13px;color:var(--muted);line-height:1.3}
+  .fbody{padding-bottom:110px}
   .band .big{font-size:76px} .band h1{font-size:30px}
   .hello h1{font-size:34px}
-  .menubar .who .em{display:none}
-  .menubar .brand{font-size:0;padding-right:4px}
-  #login .formside{order:-1}
-  #login .art h1{font-size:36px !important}
-  .menu>button{padding:6px 7px}
+  .menus,.who .em{display:none}
+  .mobmenu{display:block}
+  .brand{font-size:0;padding-right:2px}
+  .step .acts{margin-left:0}
+  .choices{grid-template-columns:1fr}
 }
 @media print{
-  .menubar,.timer,.nav,.copy,.toast{display:none !important}
+  .menubar,.timer,.minibar,.nav,.step .acts,.toast,.quiz,#fAi{display:none !important}
   .fbody{display:block;padding:20px 0}
   body{background:#fff}
   .band{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -190,56 +219,54 @@ dialog p{margin:0 0 10px}
 
 <nav class="menubar" aria-label="Menú principal">
   <div class="brand"><span class="dot" aria-hidden="true"></span>Aprende IA</div>
-  <div class="menu" data-m="archivo"><button type="button" aria-haspopup="true" aria-expanded="false">Archivo</button>
-    <div class="drop" role="menu">
-      <button type="button" data-cmd="panel">Panel de inicio <span class="k">Alt+I</span></button>
-      <button type="button" data-cmd="continuar">Continuar donde lo dejé</button>
-      <hr>
-      <button type="button" data-cmd="imprimir" data-need="ficha">Imprimir esta ficha <span class="k">Ctrl+P</span></button>
-      <button type="button" data-cmd="exportar" data-need="auth">Descargar mis notas (.txt)</button>
-      <hr>
-      <button type="button" data-cmd="salir" data-need="auth">Cerrar sesión</button>
-    </div></div>
-  <div class="menu" data-m="edicion"><button type="button" aria-haspopup="true" aria-expanded="false">Edición</button>
-    <div class="drop" role="menu">
-      <button type="button" data-cmd="copiarEjercicio" data-need="ficha">Copiar el ejercicio de esta ficha</button>
-      <button type="button" data-cmd="borrarNotas" data-need="ficha">Borrar mis notas de esta ficha</button>
-      <button type="button" data-cmd="desmarcarPasos" data-need="ficha">Desmarcar los pasos</button>
-      <hr>
-      <button type="button" data-cmd="renombrar" data-need="auth">Cambiar mi nombre…</button>
-    </div></div>
-  <div class="menu" data-m="ajustes"><button type="button" aria-haspopup="true" aria-expanded="false">Ajustes</button>
-    <div class="drop" role="menu">
-      <button type="button" data-cmd="ajustes">Preferencias de la sesión…</button>
-      <hr>
-      <button type="button" data-cmd="borrarCuenta" data-need="auth">Borrar mi cuenta y mis datos…</button>
-    </div></div>
-  <div class="menu" data-m="vista"><button type="button" aria-haspopup="true" aria-expanded="false">Vista</button>
-    <div class="drop" role="menu">
-      <button type="button" data-cmd="panel" data-need="auth">Panel de progreso</button>
-      <button type="button" data-cmd="indice" data-need="auth">Índice de fichas</button>
-      <button type="button" data-cmd="anterior" data-need="ficha">Ficha anterior <span class="k">Alt+←</span></button>
-      <button type="button" data-cmd="siguiente" data-need="ficha">Ficha siguiente <span class="k">Alt+→</span></button>
-      <hr>
-      <button type="button" data-cmd="letraMas">Letra más grande <span class="k">Ctrl+Alt++</span></button>
-      <button type="button" data-cmd="letraMenos">Letra más pequeña <span class="k">Ctrl+Alt+−</span></button>
-      <button type="button" data-cmd="letraNormal">Tamaño normal</button>
-    </div></div>
-  <div class="menu" data-m="ayuda"><button type="button" aria-haspopup="true" aria-expanded="false">Ayuda</button>
-    <div class="drop" role="menu">
-      <button type="button" data-cmd="como">Cómo funciona el curso</button>
-      <button type="button" data-cmd="asistente">Qué asistente de IA usar</button>
-      <button type="button" data-cmd="privacidad">Tus datos y privacidad</button>
-      <hr>
-      <button type="button" data-cmd="acerca">Acerca de</button>
-    </div></div>
-  <div class="who"><span class="sync" id="sync" title="Progreso guardado"></span><span id="whoName"></span></div>
+  <div class="menus" role="menubar" id="menus">
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Archivo</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="panel" data-need="auth">Panel de inicio</button>
+        <button type="button" role="menuitem" data-cmd="cuaderno" data-need="auth">Mi cuaderno</button>
+        <button type="button" role="menuitem" data-cmd="recordatorio" data-need="auth">Recordatorio diario en mi calendario…</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="imprimir" data-need="ficha">Imprimir esta ficha</button>
+        <button type="button" role="menuitem" data-cmd="salir" data-need="auth">Cerrar sesión</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Edición</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="copiarEjercicio" data-need="ficha">Copiar el ejercicio de esta ficha</button>
+        <button type="button" role="menuitem" data-cmd="borrarNotas" data-need="ficha">Borrar mis notas de esta ficha</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Ajustes</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="ajustes" data-need="auth">Preferencias…</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="borrarCuenta" data-need="auth">Borrar mi cuenta y mis datos…</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Vista</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="indice" data-need="auth">Índice de fichas</button>
+        <button type="button" role="menuitem" data-cmd="anterior" data-need="ficha">Ficha anterior</button>
+        <button type="button" role="menuitem" data-cmd="siguiente" data-need="ficha">Ficha siguiente</button>
+        <button type="button" role="menuitem" data-cmd="flotante" data-need="ficha" data-pip>Reloj flotante</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="letraMas">Letra más grande</button>
+        <button type="button" role="menuitem" data-cmd="letraMenos">Letra más pequeña</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Ayuda</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="como">Cómo funciona el curso</button>
+        <button type="button" role="menuitem" data-cmd="asistente">Qué asistente de IA usar</button>
+        <button type="button" role="menuitem" data-cmd="privacidad">Privacidad</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="acerca">Acerca de</button>
+      </div></div>
+  </div>
+  <div class="menu mobmenu"><button type="button" aria-haspopup="true" aria-expanded="false">☰ Menú</button><div class="drop" id="mobDrop"></div></div>
+  <div class="who"><span class="sync" id="sync" role="status">Guardado</span><span id="whoName"></span></div>
 </nav>
 
 <!-- ============ ACCESO ============ -->
 <main id="login" class="hidden">
   <section class="art">
-    <div class="eyebrow">Curso práctico · 4 semanas · 20 fichas</div>
+    <div class="eyebrow">Curso gratuito de MBAI Native · 4 semanas · 20 fichas</div>
     <h1 style="font-size:54px">Aprende IA en sesiones de 20 minutos</h1>
     <p style="margin:0;font-size:20px;color:#3A4050;max-width:560px">Cada día, una idea sencilla y un ejercicio real con la IA delante. Esta página lleva la cuenta de tu tiempo, tus fichas y tus notas.</p>
     <div class="tiles" id="loginTiles"></div>
@@ -247,15 +274,15 @@ dialog p{margin:0 0 10px}
   <section class="formside">
     <form id="loginForm" novalidate>
       <h2 style="font-size:32px" id="lfTitle">Empieza o continúa</h2>
-      <p style="margin:0;color:#3A4050" id="lfIntro">Sin contraseñas. Entra con tu cuenta de Google o recibe un enlace en tu email. Tu progreso te espera en cualquier dispositivo.</p>
-      <label class="check"><input type="checkbox" id="lfConsent"> <span>Acepto que se guarden mi nombre, mi email y mi progreso solo para seguir este curso. <a href="#" data-cmd="privacidad">Más información</a></span></label>
+      <p style="margin:0;color:#3A4050" id="lfIntro">Sin contraseñas. Entra con tu cuenta de Google y tu progreso te esperará en cualquier dispositivo.</p>
       <button class="btn google" type="button" id="lfGoogle"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Entrar con Google</button>
-      <div class="or"><span>o con un enlace por email</span></div>
+      <div class="or" id="lfOr"><span>¿Sin cuenta de Google? Recibe un enlace</span></div>
       <label class="f" id="lfNameL">Tu nombre<input id="lfName" name="name" autocomplete="name" maxlength="60"></label>
       <label class="f">Tu email<input id="lfEmail" name="email" type="email" autocomplete="email" maxlength="120"></label>
       <div class="err" id="lfErr" role="alert"></div>
       <button class="btn ghost" type="submit" id="lfBtn">Enviarme el enlace de acceso</button>
-      <p style="margin:0;font-size:14px;color:var(--muted)" id="lfNote">El enlace llega en un minuto (revisa también la carpeta de spam). Solo hace falta la primera vez en cada dispositivo.</p>
+      <p class="legal" id="lfNote">Abre el enlace en este mismo dispositivo. Solo hace falta la primera vez en cada dispositivo. Hay un número limitado de envíos al día: si no te llega, inténtalo mañana o entra con Google.</p>
+      <p class="legal">Al entrar aceptas que MBAI Native guarde tu nombre, tu email y tu progreso para seguir el curso. <a href="privacidad.html" target="_blank" rel="noopener">Información de privacidad</a>.</p>
     </form>
   </section>
 </main>
@@ -265,22 +292,23 @@ dialog p{margin:0 0 10px}
   <div class="wrap">
     <div class="hello">
       <div><div class="eyebrow" id="pDate"></div><h1 id="pHello">Hola</h1></div>
-      <div style="color:var(--muted);max-width:420px" id="pMsg"></div>
+      <div style="color:var(--muted);max-width:440px" id="pMsg"></div>
     </div>
     <div class="stats">
       <div class="stat"><div class="v" id="sDone">0/20</div><div class="l">fichas hechas</div><div class="bar"><i id="sDoneBar" style="width:0"></i></div></div>
       <div class="stat"><div class="v" id="sTime">0 min</div><div class="l">de práctica en total</div></div>
       <div class="stat"><div class="v" id="sStreak">0</div><div class="l">días seguidos</div></div>
-      <div class="stat"><div class="v" id="sWeek">0/5</div><div class="l">sesiones esta semana</div></div>
+      <div class="stat"><div class="v" id="sWeek">0/5</div><div class="l">días activos esta semana</div></div>
     </div>
     <div class="continue" id="pCont"></div>
     <div class="cols">
       <section id="pWeeks" aria-label="Índice de fichas"></section>
       <aside>
         <div class="box"><h3>Tus últimas 5 semanas</h3><div class="cal" id="pCal"></div>
-          <div class="legend">Menos <i style="background:#EFEAE0"></i><i style="background:#B7CCEA"></i><i style="background:#6E95CF"></i><i style="background:var(--w1)"></i> Más</div></div>
-        <div class="box"><h3>Objetivo de la semana</h3><p style="margin:0;color:#3A4050">Cinco sesiones, de lunes a domingo.</p><div class="dots" id="pDots"></div></div>
-        <div class="box"><h3>Regla de oro</h3><p style="margin:0;color:#3A4050">Practica siempre con temas tuyos: tu trabajo, tus aficiones, tus problemas reales. Lo que te importa se queda.</p></div>
+          <div class="legend"><i style="background:#EFEAE0"></i>sin práctica <i style="background:#B7CCEA"></i>algo <i style="background:#2B59A6"></i>día activo</div>
+          <p style="margin:10px 0 0;font-size:13px;color:var(--muted)">Día activo: 10 minutos de práctica o una ficha terminada.</p></div>
+        <div class="box"><h3>Objetivo de la semana</h3><p style="margin:0;color:#3A4050">Cinco días activos, de lunes a domingo.</p><div class="dots" id="pDots"></div></div>
+        <div class="box"><h3>Recordatorio diario</h3><p style="margin:0 0 10px;color:#3A4050">Un aviso en tu calendario, de lunes a viernes, a la hora que elijas.</p><button class="btn small ghost" type="button" data-cmd="recordatorio">Añadir a mi calendario</button></div>
       </aside>
     </div>
   </div>
@@ -291,58 +319,103 @@ dialog p{margin:0 0 10px}
   <header class="band" id="fBand">
     <div class="deco" id="fDeco" aria-hidden="true"></div>
     <div class="in">
-      <div class="top"><span class="eyebrow" style="color:#fff" id="fWeek"></span><span class="pill" style="background:#fff" id="fAxis"></span></div>
+      <div class="top"><span class="eyebrow" style="color:#fff" id="fWeek"></span><span class="pill" style="background:#fff;color:var(--wc)" id="fAxis"></span></div>
       <div class="tl"><span class="big" id="fNum"></span><h1 id="fTitle"></h1></div>
     </div>
   </header>
   <div class="fbody">
     <article>
+      <div class="note tint hidden" id="fRepaso" style="margin-bottom:22px"></div>
       <section class="sec"><div class="sec-h" id="hIdea"></div><p style="margin:0;font-size:19px" id="fConcept"></p></section>
-      <section class="sec"><div class="sec-h" id="hEj"></div><ol class="steps" id="fSteps"></ol></section>
-      <section class="sec settle" id="fSettle">
+      <section class="sec">
+        <div class="sec-h" id="hEj"></div>
+        <ol class="steps" id="fSteps"></ol>
+        <div class="note tint hidden" id="fPlanB" style="margin-top:12px"></div>
+        <details class="ex" id="fEx"><summary>Así lo haría otra persona</summary><p style="margin:10px 0 6px"><em class="p" id="fExP"></em></p><p style="margin:0;color:#3A4050" id="fExW"></p></details>
+      </section>
+      <section class="sec" id="fAi">
+        <div class="sec-h" id="hAi"></div>
+        <label for="fAiText" style="color:#3A4050">Pega aquí la parte de la respuesta de la IA que más te haya servido (opcional).</label>
+        <textarea class="f" id="fAiText" maxlength="10000" placeholder="Pega aquí lo que te respondió la IA…"></textarea>
+        <div class="saved" id="fAiSaved"></div>
+      </section>
+      <section class="sec tint" id="fSettle">
         <div class="sec-h" id="hAs"></div>
-        <p style="margin:0;font-weight:600" id="fSettleQ"></p>
-        <label for="fNotes" class="hidden">Tus notas</label>
-        <textarea id="fNotes" placeholder="Escribe aquí tu respuesta. Se guarda sola."></textarea>
+        <label for="fNotes" style="font-weight:600" id="fSettleQ"></label>
+        <textarea class="f" id="fNotes" maxlength="5000" placeholder="Escribe aquí tu respuesta. Se guarda sola."></textarea>
         <div class="saved" id="fSaved"></div>
       </section>
-      <div class="nav">
-        <button class="btn ghost" type="button" id="fPrev">← Anterior</button>
-        <button class="btn" type="button" id="fDone">Marcar como hecha</button>
-        <button class="btn ghost" type="button" id="fNext">Siguiente →</button>
-      </div>
+      <section class="sec quiz" id="fQuizS">
+        <div class="sec-h" id="hQ"></div>
+        <div id="fQuiz"></div>
+      </section>
+      <section class="sec">
+        <ul class="req" id="fReq" aria-label="Para terminar la ficha"></ul>
+        <div class="nav">
+          <button class="btn ghost" type="button" id="fPrev">← Anterior</button>
+          <button class="btn" type="button" id="fDone">Terminar la ficha</button>
+          <button class="btn ghost" type="button" id="fNext">Siguiente →</button>
+        </div>
+      </section>
     </article>
     <aside class="timer" aria-label="Temporizador de la sesión">
       <div class="ring">
-        <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" stroke="#EFEAE0" stroke-width="14" fill="none"/><circle id="tArc" cx="100" cy="100" r="88" stroke="var(--ink)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/></svg>
-        <div class="tx"><b id="tClock">20:00</b><span id="tState">listo para empezar</span></div>
+        <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" stroke="#EFEAE0" stroke-width="14" fill="none"/><circle id="tArc" cx="100" cy="100" r="88" stroke="var(--wc)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/></svg>
+        <div class="tx"><span class="ph" id="tPhase">Idea</span><b id="tClock">20:00</b><span id="tState">en pausa</span></div>
       </div>
-      <div class="phases" id="tPhases"></div>
       <button class="btn" type="button" id="tBtn">Empezar sesión</button>
+      <button class="btn ghost small hidden" type="button" id="tPip">Reloj flotante sobre la IA</button>
       <div class="tline"><span>En esta ficha</span><b id="tFicha">0 min</b></div>
       <div class="tline"><span>Total del curso</span><b id="tTotal">0 min</b></div>
+      <p style="margin:0;font-size:13px;color:var(--muted)">El reloj sigue contando mientras trabajas con la IA en otra pestaña o en otra app.</p>
     </aside>
+  </div>
+  <div class="minibar" aria-label="Temporizador">
+    <b id="mClock">20:00</b>
+    <div class="mi"><span id="mPhase">Idea</span><br><span id="mFicha">0 min en esta ficha</span></div>
+    <button class="btn small" type="button" id="mBtn">Empezar</button>
   </div>
 </main>
 
-<dialog id="dlg"><div class="dc"><h2 id="dlgT"></h2><div id="dlgB"></div><div class="act" id="dlgA"></div></div></dialog>
-<div class="toast hidden" id="toast" role="status"></div>
+<!-- ============ CUADERNO ============ -->
+<main id="cuaderno" class="hidden">
+  <div class="wrap">
+    <div class="hello">
+      <div><div class="eyebrow">Tus notas, tus respuestas y tus resultados</div><h1>Mi cuaderno</h1></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost small" type="button" data-cmd="exportar">Descargar (.txt)</button><button class="btn ghost small" type="button" data-cmd="imprimirCuaderno">Imprimir</button><button class="btn small" type="button" data-cmd="panel">Volver al panel</button></div>
+    </div>
+    <div id="nbList"></div>
+  </div>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlgT"><div class="dc"><h2 id="dlgT"></h2><div id="dlgB"></div><div class="act" id="dlgA"></div></div></dialog>
+<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
-import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, sendSignInLinkToEmail,
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, reauthenticateWithPopup, sendSignInLinkToEmail,
   isSignInWithEmailLink, signInWithEmailLink, signOut, deleteUser } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection, getDocs,
   increment, serverTimestamp, deleteField } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
 
-const COURSE = {"weeks": [{"n": 1, "title": "Hablar con una IA", "color": "#2B59A6", "tint": "#EAF0FA", "icon": "chat", "obj": "Perder el miedo, aprender a pedir y saber cuándo fiarse."}, {"n": 2, "title": "La IA para aprender", "color": "#1D7466", "tint": "#E4F2EE", "icon": "book", "obj": "Usar la IA como profesor, bibliotecario y examinador, sin perder el sentido crítico."}, {"n": 3, "title": "La IA para hacer tareas", "color": "#A84C17", "tint": "#F8ECE2", "icon": "tools", "obj": "Convertir la IA en un ayudante diario que ahorra tiempo de verdad."}, {"n": 4, "title": "Crear y delegar", "color": "#5A409C", "tint": "#EEEAF7", "icon": "spark", "obj": "Pasar de pedir respuestas a pedir cosas hechas: herramientas y trabajos de varios pasos."}], "lessons": [{"n": 1, "w": 1, "title": "Qué es (y qué no es) una IA", "axis": "Conocer", "concept": "Un asistente de IA es un programa entrenado con muchísimo texto que aprendió a continuar conversaciones de forma útil. No es un buscador ni una enciclopedia: no consulta una base de datos, redacta la respuesta más probable. Por eso suele acertar, pero a veces se equivoca con total seguridad.", "steps": ["Elige un tema que domines de verdad: tu oficio, tu pueblo, una afición.", "Pídele: «Explícame [tema] en cinco puntos, como a alguien que empieza».", "Lee la respuesta con ojo de experto: qué está bien, qué es vago y qué es falso.", "Corrígela: «El punto 3 no es exacto: en realidad…». Observa cómo reacciona.", "Pregunta por algo que no conozcas y nota la diferencia: ahí no puedes juzgarla."], "settle": "La IA redacta, no consulta. Donde yo sé, la vigilo; donde no sé, compruebo."}, {"n": 2, "w": 1, "title": "Pedir bien: contexto, objetivo y formato", "axis": "Hacer", "concept": "La calidad de la respuesta depende de la calidad de la petición. Una buena petición tiene tres piezas: contexto (quién eres y qué situación hay), objetivo (qué quieres conseguir) y formato (lista, tabla, 100 palabras, tono informal).", "steps": ["Escribe una petición pobre: «Dame ideas para cenar».", "Ahora la rica: «Somos dos adultos, uno no come gluten, tenemos 30 minutos y hay huevos, calabacín y queso. Dame 3 cenas en una tabla con tiempo y pasos».", "Compara las dos respuestas.", "Repite el experimento con un asunto tuyo de trabajo."], "settle": "Antes de pedir algo: ¿le he dado contexto, objetivo y formato?"}, {"n": 3, "w": 1, "title": "Conversar, no consultar: iterar y corregir", "axis": "Hacer", "concept": "La primera respuesta es un borrador. La IA recuerda lo dicho en la conversación, así que se mejora pidiendo cambios: más corto, más cercano, sin tecnicismos, con un ejemplo. Si la conversación se enreda, mejor abrir una nueva.", "steps": ["Pide un texto breve real: una felicitación, un anuncio, una presentación tuya.", "Mejóralo en cuatro rondas: «más corto», «más cálido», «quita la segunda frase», «añade una pregunta al final».", "Pide: «Dame tres versiones distintas» y quédate con partes de cada una.", "Abre una conversación nueva y comprueba que allí no recuerda nada."], "settle": "¿Qué instrucción de mejora me ha resultado más útil?"}, {"n": 4, "w": 1, "title": "Cuándo desconfiar: errores e inventos", "axis": "Conocer", "concept": "Las IA pueden «alucinar»: inventar datos, fechas, citas o libros que suenan reales. Pasa más con datos muy concretos, temas poco conocidos o noticias recientes. Pedirle que avise cuando no esté segura ayuda, pero no sustituye a comprobar.", "steps": ["Pregunta algo muy local o concreto: «¿Quién fue alcalde de [tu pueblo] en 1985?».", "Pide fuentes: «¿De dónde sale ese dato?».", "Comprueba en un buscador si es cierto.", "Repite añadiendo: «Si no lo sabes con seguridad, dilo». Compara."], "settle": "Mis zonas de riesgo: cifras, fechas, citas, leyes, salud, dinero. Ahí siempre compruebo."}, {"n": 5, "w": 1, "title": "Repaso: un problema real de tu semana", "axis": "Ambos", "concept": "Hoy no hay concepto nuevo: se junta todo lo de la semana. Pedir bien, iterar y comprobar, aplicado a algo que tengas pendiente de verdad.", "steps": ["Escoge algo pendiente: un trámite, una compra, una duda de trabajo, un mensaje difícil.", "Plantéaselo con contexto, objetivo y formato.", "Itera hasta que la respuesta te sirva.", "Comprueba por tu cuenta el dato más importante."], "settle": "¿Me ha ahorrado tiempo? ¿En qué paso me ha ayudado más?"}, {"n": 6, "w": 2, "title": "Un tutor a tu medida", "axis": "Conocer", "concept": "La IA puede explicar lo mismo de mil maneras. Si le dices tu nivel y cómo aprendes mejor (con ejemplos, comparaciones, paso a paso), adapta la explicación. Y no se cansa de que le preguntes «¿y eso por qué?».", "steps": ["Elige algo que siempre quisiste entender: la inflación, una hipoteca, qué es una red neuronal.", "Pide: «Explícamelo como si tuviera 12 años, con una comparación de la vida diaria».", "Luego: «Ahora al nivel de un adulto con estudios, en 150 palabras».", "Pregunta tres veces «¿por qué?» sobre lo que no te quede claro.", "Explícale tú el tema con tus palabras y pídele que te corrija."], "settle": "Escribe en tres líneas lo aprendido, sin mirar."}, {"n": 7, "w": 2, "title": "Buscar en internet con IA y comprobar fuentes", "axis": "Conocer", "concept": "Muchos asistentes pueden buscar en la web y citar de dónde sacan cada dato. Es lo adecuado para todo lo actual: precios, noticias, horarios, normas vigentes. La regla: si la respuesta trae enlaces, abre al menos uno.", "steps": ["Haz una pregunta de actualidad: «¿Qué ayudas hay este año para cambiar ventanas en mi comunidad?».", "Si la respuesta no trae fuentes, pídelas: «Busca en internet y dame los enlaces».", "Abre dos enlaces y verifica que dicen lo que la IA resume.", "Pide: «¿Qué fuente es la oficial?» y valora si es razonable."], "settle": "¿Qué preguntas responde de memoria y cuáles exigen buscar?"}, {"n": 8, "w": 2, "title": "Leer por ti: resumir e interrogar documentos", "axis": "Conocer", "concept": "Puedes adjuntar un PDF, una foto de un documento o pegar un texto largo, y la IA lo resume o responde preguntas sobre él. Ideal para contratos, manuales, artículos o actas. Pide siempre que señale en qué parte del texto se basa.", "steps": ["Busca un documento real: una factura de la luz, un manual, unas condiciones de servicio.", "Adjúntalo y pide: «Resúmelo en 5 puntos».", "Haz tres preguntas concretas: «¿Qué pasa si cancelo antes de un año? Cita el párrafo».", "Comprueba una de las citas en el original."], "settle": "¿Qué documento de mi vida me ahorraría más tiempo leer así?"}, {"n": 9, "w": 2, "title": "Que la IA te examine", "axis": "Conocer", "concept": "Se aprende más recordando que releyendo. La IA puede hacerte preguntas, corregir tus respuestas y volver sobre lo que fallas. También puede hacer de profesor socrático: preguntar en vez de explicar.", "steps": ["Retoma el tema de la ficha 6.", "Pide: «Hazme 5 preguntas tipo test, de una en una, sin darme la respuesta hasta que conteste».", "Al terminar: «¿Qué he fallado y qué debo repasar?».", "Prueba: «No me expliques nada; hazme preguntas que me lleven a entenderlo yo»."], "settle": "Mi nota de hoy, y una cosa que recuerdo mejor que el martes."}, {"n": 10, "w": 2, "title": "Contrastar: abogado del diablo y varias perspectivas", "axis": "Conocer", "concept": "La IA tiende a darte la razón. Para pensar mejor, pídele expresamente lo contrario: que critique tu idea, que dé el mejor argumento del otro lado o que muestre cómo lo verían personas distintas.", "steps": ["Escribe una opinión o decisión tuya: «Creo que debería comprar un coche eléctrico».", "Pide: «Haz de abogado del diablo: dame los 3 mejores argumentos en contra».", "Pide: «¿Cómo lo verían un mecánico, un economista y alguien que vive en un pueblo?».", "Decide si cambia algo tu opinión."], "settle": "Repaso: ¿cuál de las cinco formas de aprender de esta semana voy a seguir usando?"}, {"n": 11, "w": 3, "title": "Escribir: correos, mensajes y tono", "axis": "Hacer", "concept": "Redactar es lo que mejor hace una IA. El truco está en darle tus ideas sueltas y decirle a quién va y con qué tono. El texto final lo revisas tú siempre: va con tu nombre.", "steps": ["Piensa en un mensaje que te cueste escribir: reclamar, decir que no, pedir un favor.", "Escribe tus ideas sin orden y pide: «Conviértelo en un correo cordial pero firme para [destinatario], máximo 120 palabras».", "Pide la versión para WhatsApp, más corta.", "Pide: «Léelo como si fueras el destinatario: ¿cómo te sentaría?»."], "settle": "Guarda el mensaje que más te haya gustado como modelo."}, {"n": 12, "w": 3, "title": "Planificar y decidir", "axis": "Hacer", "concept": "La IA ordena lo que tienes en la cabeza: convierte un lío de pendientes en un plan con pasos, o una duda en una tabla de pros y contras. La decisión sigue siendo tuya; la IA te ayuda a verla clara.", "steps": ["Vuelca todo lo pendiente de tu semana, tal cual, sin orden.", "Pide: «Ordénalo por urgencia e importancia y propón un plan de lunes a viernes».", "Elige una decisión abierta: «Haz una tabla con opciones, pros, contras y coste».", "Pide: «¿Qué información me falta para decidir?»."], "settle": "La primera tarea del plan, para hacerla mañana:"}, {"n": 13, "w": 3, "title": "Números y tablas sin miedo", "axis": "Hacer", "concept": "Puedes pegar una tabla, subir una hoja de cálculo o una foto de un tique y pedir cálculos, gráficos o conclusiones. Para cuentas importantes, pídele que muestre las operaciones: así puedes revisarlas.", "steps": ["Apunta tus gastos de una semana (o inventa un extracto).", "Pégalos y pide: «Agrúpalos por categoría, suma cada una y dime en qué gasto más».", "Pide un gráfico.", "Pide: «Si reduzco un 10 % la categoría mayor, ¿cuánto ahorro al año? Enséñame la cuenta». Revísala con la calculadora."], "settle": "Un cálculo que hago a mano y podría delegar:"}, {"n": 14, "w": 3, "title": "Fotos, voz y audio", "axis": "Ambos", "concept": "La IA no solo lee texto: entiende fotos y, en el móvil, puedes hablarle en voz alta. Sirve para identificar una planta, leer una etiqueta, traducir un cartel o pensar en voz alta mientras paseas.", "steps": ["Haz una foto a algo (una pieza rota, una etiqueta, un cartel en otro idioma) y pregunta qué es o qué dice.", "Fotografía una nota escrita a mano y pide que la pase a limpio.", "Usa el modo voz: cuéntale un problema hablando dos minutos y pide un resumen con pasos."], "settle": "¿En qué momento del día me vendría bien hablarle en vez de escribir?"}, {"n": 15, "w": 3, "title": "Tu asistente personalizado", "axis": "Hacer", "concept": "Para no repetir siempre lo mismo («soy tal, trabajo en tal, respóndeme corto»), los asistentes permiten guardar instrucciones personales y crear proyectos con documentos y normas propias. Es como darle una ficha tuya permanente.", "steps": ["Busca en los ajustes las instrucciones personalizadas o preferencias.", "Escribe 4 o 5 líneas: a qué te dedicas, idioma y tono de las respuestas, qué no te gusta.", "Crea un proyecto para un tema recurrente (trabajo, casa, un viaje) y sube un documento de referencia.", "Haz la misma pregunta dentro y fuera del proyecto, y compara."], "settle": "Repaso: ¿qué tarea de esta semana voy a delegar a la IA desde ya?"}, {"n": 16, "w": 4, "title": "Programar sin saber programar", "axis": "Hacer", "concept": "Hoy se puede «programar» describiendo en español lo que quieres. La IA escribe el código y, en asistentes como Claude o ChatGPT, lo muestra funcionando en la misma pantalla. No hace falta entender el código; sí describir bien qué debe hacer.", "steps": ["Piensa en una mini-herramienta: un conversor de recetas, una calculadora de propinas, un cronómetro de 20 minutos.", "Descríbela: «Hazme una página sencilla donde escribo los ingredientes para 4 personas y me los recalcula para las que yo diga».", "Úsala y prueba casos raros: 0 personas, decimales.", "Pide: «Explícame en 5 líneas cómo funciona por dentro»."], "settle": "Tres herramientas pequeñas que me gustaría tener:"}, {"n": 17, "w": 4, "title": "Mejorar lo creado: pedir cambios y arreglar fallos", "axis": "Hacer", "concept": "Programar con IA es una conversación: describes, pruebas, cuentas qué falla y pides cambios. Cuanto más concreto el fallo («al pulsar X pasa Y y esperaba Z»), mejor lo arregla.", "steps": ["Retoma la herramienta de ayer.", "Pide tres mejoras: un diseño más claro, un botón nuevo, guardar el último resultado.", "Si algo falla, descríbelo con el esquema «hice / pasó / esperaba».", "Haz otra herramienta de tu lista, tú solo, de principio a fin."], "settle": "La frase que mejor me ha funcionado para describir un fallo:"}, {"n": 18, "w": 4, "title": "Agentes: la IA que trabaja varios pasos sola", "axis": "Ambos", "concept": "Un agente no solo responde: planifica y ejecuta varias acciones seguidas (buscar en muchas webs, leer, comparar, redactar un informe). Tú defines el encargo y revisas el resultado. Es pasar de preguntar a un experto a encargar un trabajo a un ayudante.", "steps": ["Busca en tu asistente el modo de investigación o de tareas largas.", "Encárgale algo con varios pasos: «Compara los 4 móviles de gama media más recomendados este año: precio, batería, cámara y opiniones, en una tabla con fuentes».", "Mientras trabaja, observa qué pasos da.", "Revisa el resultado: ¿las fuentes son buenas? ¿falta algo?"], "settle": "Un encargo de mi trabajo que podría dar a un agente:"}, {"n": 19, "w": 4, "title": "Privacidad, seguridad y buen uso", "axis": "Conocer", "concept": "Lo que escribes a una IA sale de tu ordenador. No compartas contraseñas, números de cuenta ni documentos de identidad; cuida los datos de otras personas; revisa la privacidad de tu cuenta. Y desconfía de mensajes, voces o vídeos sospechosos: los estafadores también usan IA.", "steps": ["Entra en los ajustes de privacidad y mira qué se guarda y si se usa para entrenar.", "Pide: «Dame 10 cosas que nunca debería compartir con un asistente de IA».", "Pide: «¿Cómo reconozco un audio o vídeo falso hecho con IA?».", "Revisa tus conversaciones y borra las que tengan datos sensibles."], "settle": "Mis tres reglas personales de uso seguro (cópialas también al final del cuadernillo)."}, {"n": 20, "w": 4, "title": "Proyecto final: tu caja de herramientas", "axis": "Ambos", "concept": "El objetivo no es acabar un curso, sino quedarse con hábitos. Hoy se recoge lo que funciona en una guía personal que seguirás usando. A partir de ahora, los 20 minutos diarios son para usar la IA en algo real.", "steps": ["Repasa tus notas de las 19 fichas anteriores.", "Pégalas y pide: «Con estas notas, hazme una guía personal de una página: para qué uso la IA, mis mejores peticiones y mis reglas de seguridad».", "Corrígela hasta que sea tuya, e imprímela.", "Elige un reto para el mes que viene: una herramienta por semana, o un tema nuevo que aprender con el método de la semana 2."], "settle": "Mi reto para el próximo mes:"}]};
+const COURSE = {"weeks": [{"n": 1, "title": "Hablar con una IA", "color": "#2B59A6", "tint": "#EAF0FA", "icon": "chat", "obj": "Perder el miedo, aprender a pedir y saber cuándo fiarse."}, {"n": 2, "title": "La IA para aprender", "color": "#1D7466", "tint": "#E4F2EE", "icon": "book", "obj": "Usar la IA como profesor, bibliotecario y examinador, sin perder el sentido crítico."}, {"n": 3, "title": "La IA para hacer tareas", "color": "#A84C17", "tint": "#F8ECE2", "icon": "tools", "obj": "Convertir la IA en un ayudante diario que ahorra tiempo de verdad."}, {"n": 4, "title": "Crear y delegar", "color": "#5A409C", "tint": "#EEEAF7", "icon": "spark", "obj": "Pasar de pedir respuestas a pedir cosas hechas: herramientas y trabajos de varios pasos."}], "lessons": [{"n": 1, "w": 1, "title": "Qué es (y qué no es) una IA", "axis": "Conocer", "concept": "Un asistente de IA es un programa entrenado con muchísimo texto que aprendió a continuar conversaciones de forma útil. No es un buscador ni una enciclopedia: no consulta una base de datos, redacta la respuesta más probable. Por eso suele acertar, pero a veces se equivoca con total seguridad.", "steps": ["Elige un tema que domines de verdad: tu oficio, tu pueblo, una afición.", "Pídele: «Explícame [tema] en cinco puntos, como a alguien que empieza».", "Lee la respuesta con ojo de experto: qué está bien, qué es vago y qué es falso.", "Corrígela: «El punto 3 no es exacto: en realidad…». Observa cómo reacciona.", "Pregunta por algo que no conozcas y nota la diferencia: ahí no puedes juzgarla."], "settle": "La IA redacta, no consulta. Donde yo sé, la vigilo; donde no sé, compruebo.", "extra": {"quiz": [["¿Qué hace en realidad un asistente de IA cuando responde?", ["Busca la respuesta en una base de datos", "Redacta la respuesta más probable a partir de lo que aprendió", "Copia la respuesta de una web"], 1, "Redacta: por eso suele acertar, pero también puede equivocarse con total seguridad."], ["¿Dónde es más fácil pillar a la IA en un error?", ["En un tema que dominas", "En un tema que no conoces", "En ninguno: nunca se equivoca"], 0, "Donde tú sabes, puedes vigilarla. Donde no sabes, hay que comprobar."]], "ejemplo": ["Explícame la poda del olivo en cinco puntos, como a alguien que acaba de heredar diez árboles. Señala qué punto es más discutido entre agricultores.", "Da un tema concreto, un nivel (principiante con un caso real) y pide que marque lo dudoso: así sabes dónde mirar con más cuidado."]}}, {"n": 2, "w": 1, "title": "Pedir bien: contexto, objetivo y formato", "axis": "Hacer", "concept": "La calidad de la respuesta depende de la calidad de la petición. Una buena petición tiene tres piezas: contexto (quién eres y qué situación hay), objetivo (qué quieres conseguir) y formato (lista, tabla, 100 palabras, tono informal).", "steps": ["Escribe una petición pobre: «Dame ideas para cenar».", "Ahora la rica: «Somos dos adultos, uno no come gluten, tenemos 30 minutos y hay huevos, calabacín y queso. Dame 3 cenas en una tabla con tiempo y pasos».", "Compara las dos respuestas.", "Repite el experimento con un asunto tuyo de trabajo."], "settle": "Antes de pedir algo: ¿le he dado contexto, objetivo y formato?", "extra": {"quiz": [["¿Qué tres piezas tiene una buena petición?", ["Saludo, pregunta y despedida", "Contexto, objetivo y formato", "Tema, longitud y tono"], 1, "Contexto (quién y qué situación), objetivo (qué quieres) y formato (cómo lo quieres)."], ["¿Cuál de estas peticiones está más completa?", ["Dame ideas para un regalo", "Ideas de regalo para mi padre", "Mi padre cumple 70, le gusta el bricolaje y tengo 40 €. Dame 5 ideas en una lista con precio aproximado"], 2, "Tiene contexto (70 años, bricolaje), objetivo (regalo de 40 €) y formato (lista de 5 con precio)."]], "ejemplo": ["Trabajo en una gestoría y un cliente mayor no entiende qué es el IRPF. Explícaselo en 6 frases sencillas, con un ejemplo de una pensión de 1.200 € al mes, y termina con una frase tranquilizadora.", "Contexto (gestoría, cliente mayor), objetivo (que lo entienda) y formato (6 frases, un ejemplo, cierre). La IA no tiene que adivinar nada."]}}, {"n": 3, "w": 1, "title": "Conversar, no consultar: iterar y corregir", "axis": "Hacer", "concept": "La primera respuesta es un borrador. La IA recuerda lo dicho en la conversación, así que se mejora pidiendo cambios: más corto, más cercano, sin tecnicismos, con un ejemplo. Si la conversación se enreda, mejor abrir una nueva.", "steps": ["Pide un texto breve real: una felicitación, un anuncio, una presentación tuya.", "Mejóralo en cuatro rondas: «más corto», «más cálido», «quita la segunda frase», «añade una pregunta al final».", "Pide: «Dame tres versiones distintas» y quédate con partes de cada una.", "Abre una conversación nueva y comprueba que allí no recuerda nada."], "settle": "¿Qué instrucción de mejora me ha resultado más útil?", "extra": {"quiz": [["La primera respuesta no te convence. ¿Qué es lo más eficaz?", ["Empezar otra conversación y preguntar lo mismo", "Pedir cambios concretos en la misma conversación", "Aceptarla tal cual"], 1, "La IA recuerda la conversación: «más corto», «más cercano», «quita la segunda frase» mejora el borrador."], ["¿Cuándo conviene abrir una conversación nueva?", ["Siempre después de cada respuesta", "Cuando la conversación se ha enredado o cambias de tema", "Nunca"], 1, "Una conversación nueva empieza sin el contexto anterior: útil para limpiar, no para mejorar un borrador."]], "ejemplo": ["Dame tres versiones de esta felicitación: una cariñosa, una con humor y una muy breve. Después dime cuál encaja mejor para un compañero de trabajo y por qué.", "Pedir varias versiones y una recomendación ahorra rondas: eliges y mezclas en lugar de corregir una sola."]}}, {"n": 4, "w": 1, "title": "Cuándo desconfiar: errores e inventos", "axis": "Conocer", "concept": "Las IA pueden «alucinar»: inventar datos, fechas, citas o libros que suenan reales. Pasa más con datos muy concretos, temas poco conocidos o noticias recientes. Pedirle que avise cuando no esté segura ayuda, pero no sustituye a comprobar.", "steps": ["Pregunta algo muy local o concreto: «¿Quién fue alcalde de [tu pueblo] en 1985?».", "Pide fuentes: «¿De dónde sale ese dato?».", "Comprueba en un buscador si es cierto.", "Repite añadiendo: «Si no lo sabes con seguridad, dilo». Compara."], "settle": "Mis zonas de riesgo: cifras, fechas, citas, leyes, salud, dinero. Ahí siempre compruebo.", "extra": {"quiz": [["¿En cuál de estos casos es más probable que la IA invente?", ["Explicar qué es la fotosíntesis", "Citar el artículo exacto de una ley local", "Resumir un texto que le pegas"], 1, "Datos muy concretos, citas literales y temas poco conocidos son las zonas de riesgo."], ["¿Qué haces con una cifra importante que te da la IA?", ["La uso directamente", "La compruebo en una fuente fiable", "Le pregunto si está segura y me fío"], 1, "Preguntarle si está segura ayuda, pero no sustituye a comprobarlo fuera."]], "ejemplo": ["¿Cuántos habitantes tiene Albarracín? Dime la cifra, el año y la fuente. Si no estás seguro, dilo claramente y dime dónde puedo comprobarlo.", "Pide año y fuente, y le da permiso para decir «no lo sé». Así es más fácil detectar una cifra inventada."]}}, {"n": 5, "w": 1, "title": "Repaso: un problema real de tu semana", "axis": "Ambos", "concept": "Hoy no hay concepto nuevo: se junta todo lo de la semana. Pedir bien, iterar y comprobar, aplicado a algo que tengas pendiente de verdad.", "steps": ["Escoge algo pendiente: un trámite, una compra, una duda de trabajo, un mensaje difícil.", "Plantéaselo con contexto, objetivo y formato.", "Itera hasta que la respuesta te sirva.", "Comprueba por tu cuenta el dato más importante."], "settle": "¿Me ha ahorrado tiempo? ¿En qué paso me ha ayudado más?", "extra": {"quiz": [["Después de pedir bien e iterar, ¿qué paso no puede faltar?", ["Comprobar el dato más importante por tu cuenta", "Pedirle que lo repita", "Copiar la respuesta sin leerla"], 0, "Pedir bien, iterar y comprobar: los tres hábitos de la semana."], ["¿Para qué sirve usar problemas reales de tu semana?", ["Para que la IA aprenda sobre ti", "Porque lo que practicas con algo que te importa se queda", "No sirve: es mejor con ejemplos inventados"], 1, "Es la regla de oro del curso."]], "ejemplo": ["Tengo que renovar el DNI y nunca lo he hecho por internet. Vivo en Valladolid. Dime los pasos en orden, qué documentos necesito y qué parte debo comprobar en la web oficial.", "Contexto, objetivo y formato, más una petición explícita de qué comprobar: junta los tres hábitos en una sola petición."]}}, {"n": 6, "w": 2, "title": "Un tutor a tu medida", "axis": "Conocer", "concept": "La IA puede explicar lo mismo de mil maneras. Si le dices tu nivel y cómo aprendes mejor (con ejemplos, comparaciones, paso a paso), adapta la explicación. Y no se cansa de que le preguntes «¿y eso por qué?».", "steps": ["Elige algo que siempre quisiste entender: la inflación, una hipoteca, qué es una red neuronal.", "Pide: «Explícamelo como si tuviera 12 años, con una comparación de la vida diaria».", "Luego: «Ahora al nivel de un adulto con estudios, en 150 palabras».", "Pregunta tres veces «¿por qué?» sobre lo que no te quede claro.", "Explícale tú el tema con tus palabras y pídele que te corrija."], "settle": "Escribe en tres líneas lo aprendido, sin mirar.", "extra": {"repaso": "Ficha 2: una buena petición tiene contexto, objetivo y formato. Úsalo también para pedir explicaciones.", "quiz": [["¿Qué consigues diciéndole a la IA tu nivel?", ["Nada: responde igual", "Que adapte la explicación, los ejemplos y el vocabulario", "Que responda más rápido"], 1, "Puede explicar lo mismo de mil maneras; tu nivel le dice cuál usar."], ["¿Cuál es la mejor prueba de que has entendido algo?", ["Haber leído la explicación", "Explicarlo con tus palabras y que la IA te corrija", "Pedir otra explicación"], 1, "Explicar es recordar y ordenar: ahí se ve lo que falta."]], "ejemplo": ["Quiero entender qué es la inflación. Tengo 60 años y ninguna formación en economía. Explícamelo con una comparación de la compra semanal y luego hazme una pregunta para ver si lo he entendido.", "Da su nivel, pide una comparación cercana y cierra con una pregunta: pasa de leer a comprobar."]}}, {"n": 7, "w": 2, "title": "Buscar en internet con IA y comprobar fuentes", "axis": "Conocer", "concept": "Muchos asistentes pueden buscar en la web y citar de dónde sacan cada dato. Es lo adecuado para todo lo actual: precios, noticias, horarios, normas vigentes. La regla: si la respuesta trae enlaces, abre al menos uno.", "steps": ["Haz una pregunta de actualidad: «¿Qué ayudas hay este año para cambiar ventanas en mi comunidad?».", "Si la respuesta no trae fuentes, pídelas: «Busca en internet y dame los enlaces».", "Abre dos enlaces y verifica que dicen lo que la IA resume.", "Pide: «¿Qué fuente es la oficial?» y valora si es razonable."], "settle": "¿Qué preguntas responde de memoria y cuáles exigen buscar?", "extra": {"plan_b": "Si tu asistente no busca en internet en la versión gratuita, pídele las palabras clave y busca tú en Google; después pégale lo que encuentres y pídele que lo resuma con las fuentes.", "quiz": [["¿Para qué tipo de preguntas conviene que la IA busque en internet?", ["Definiciones de siempre", "Precios, normas vigentes, noticias y horarios", "Cálculos"], 1, "Todo lo que cambia con el tiempo necesita una fuente actual."], ["La respuesta trae enlaces. ¿Qué haces?", ["Nada, ya está", "Abro al menos uno y compruebo que dice lo mismo", "Le pido más enlaces"], 1, "A veces el resumen no coincide con la fuente."]], "ejemplo": ["Busca en internet qué documentos piden en 2026 para empadronarse en Sevilla. Dame la respuesta en una lista y el enlace a la web oficial del ayuntamiento.", "Pide expresamente buscar, fija lugar y fecha, y exige la fuente oficial."]}}, {"n": 8, "w": 2, "title": "Leer por ti: resumir e interrogar documentos", "axis": "Conocer", "concept": "Puedes adjuntar un PDF, una foto de un documento o pegar un texto largo, y la IA lo resume o responde preguntas sobre él. Ideal para contratos, manuales, artículos o actas. Pide siempre que señale en qué parte del texto se basa.", "steps": ["Busca un documento real: una factura de la luz, un manual, unas condiciones de servicio.", "Adjúntalo y pide: «Resúmelo en 5 puntos».", "Haz tres preguntas concretas: «¿Qué pasa si cancelo antes de un año? Cita el párrafo».", "Comprueba una de las citas en el original."], "settle": "¿Qué documento de mi vida me ahorraría más tiempo leer así?", "extra": {"quiz": [["Al pedir un resumen de un contrato, ¿qué conviene añadir?", ["Que cite el párrafo en que se basa", "Que sea muy largo", "Nada más"], 0, "Con la cita puedes comprobar en el original que no se lo ha inventado."], ["¿Qué documento NO deberías subir a una IA?", ["Un manual de una lavadora", "Una factura con tu número de cuenta completo", "Un artículo de periódico"], 1, "Los datos bancarios y de identidad no se comparten (lo verás en la ficha 19)."]], "ejemplo": ["Te adjunto las condiciones de mi tarifa de móvil. Dime en 5 puntos qué pago, qué permanencia tengo y qué penalización hay si me doy de baja. Cita el párrafo de cada punto.", "Preguntas concretas y cita obligatoria: la respuesta se puede verificar en un minuto."]}}, {"n": 9, "w": 2, "title": "Que la IA te examine", "axis": "Conocer", "concept": "Se aprende más recordando que releyendo. La IA puede hacerte preguntas, corregir tus respuestas y volver sobre lo que fallas. También puede hacer de profesor socrático: preguntar en vez de explicar.", "steps": ["Retoma el tema de la ficha 6.", "Pide: «Hazme 5 preguntas tipo test, de una en una, sin darme la respuesta hasta que conteste».", "Al terminar: «¿Qué he fallado y qué debo repasar?».", "Prueba: «No me expliques nada; hazme preguntas que me lleven a entenderlo yo»."], "settle": "Mi nota de hoy, y una cosa que recuerdo mejor que el martes.", "extra": {"quiz": [["¿Por qué ayuda que la IA te haga preguntas?", ["Porque recordar fija más que releer", "Porque así trabaja menos", "No ayuda"], 0, "El esfuerzo de recordar es lo que fija lo aprendido."], ["En el modo «profesor socrático», la IA…", ["Te da la respuesta enseguida", "Te hace preguntas para que llegues tú a la respuesta", "Te pone nota"], 1, "Pregunta en vez de explicar."]], "ejemplo": ["Hazme 5 preguntas tipo test sobre la inflación, de una en una. Espera mi respuesta antes de seguir y, al final, dime qué debo repasar.", "Una a una y con espera: si no lo pides, la IA suele soltar las cinco preguntas con sus respuestas."]}}, {"n": 10, "w": 2, "title": "Contrastar: abogado del diablo y varias perspectivas", "axis": "Conocer", "concept": "La IA tiende a darte la razón. Para pensar mejor, pídele expresamente lo contrario: que critique tu idea, que dé el mejor argumento del otro lado o que muestre cómo lo verían personas distintas.", "steps": ["Escribe una opinión o decisión tuya: «Creo que debería comprar un coche eléctrico».", "Pide: «Haz de abogado del diablo: dame los 3 mejores argumentos en contra».", "Pide: «¿Cómo lo verían un mecánico, un economista y alguien que vive en un pueblo?».", "Decide si cambia algo tu opinión."], "settle": "Repaso: ¿cuál de las cinco formas de aprender de esta semana voy a seguir usando?", "extra": {"quiz": [["¿Por qué hay que pedir expresamente la opinión contraria?", ["Porque la IA tiende a darte la razón", "Porque la IA siempre lleva la contraria", "No hace falta"], 0, "Si no lo pides, suele confirmar lo que planteas."], ["Pedir «cómo lo verían un mecánico, un economista y un vecino» sirve para…", ["Ver el asunto desde varios ángulos", "Que la IA elija por ti", "Alargar la respuesta"], 0, "Varias perspectivas ayudan a decidir mejor; la decisión sigue siendo tuya."]], "ejemplo": ["Estoy pensando en dejar el coche y moverme en bici por la ciudad. Haz de abogado del diablo: dame los 3 argumentos más fuertes en contra y una pregunta que debería hacerme antes de decidir.", "Pide crítica explícita y una pregunta de cierre: no busca que le den la razón."]}}, {"n": 11, "w": 3, "title": "Escribir: correos, mensajes y tono", "axis": "Hacer", "concept": "Redactar es lo que mejor hace una IA. El truco está en darle tus ideas sueltas y decirle a quién va y con qué tono. El texto final lo revisas tú siempre: va con tu nombre.", "steps": ["Piensa en un mensaje que te cueste escribir: reclamar, decir que no, pedir un favor.", "Escribe tus ideas sin orden y pide: «Conviértelo en un correo cordial pero firme para [destinatario], máximo 120 palabras».", "Pide la versión para WhatsApp, más corta.", "Pide: «Léelo como si fueras el destinatario: ¿cómo te sentaría?»."], "settle": "Guarda el mensaje que más te haya gustado como modelo.", "extra": {"repaso": "Ficha 3: la primera versión es un borrador. Pide cambios de tono y longitud hasta que suene a ti.", "quiz": [["¿Qué debes hacer siempre con un texto que vas a firmar tú?", ["Enviarlo tal cual", "Revisarlo antes de enviarlo", "Pedir a la IA que lo envíe"], 1, "Va con tu nombre: la última lectura es tuya."], ["¿Qué datos conviene dar para redactar un correo?", ["Destinatario, objetivo, tono y longitud", "Solo el asunto", "Nada: la IA lo adivina"], 0, "Con esos cuatro datos el borrador sale casi listo."]], "ejemplo": ["Redacta un correo para la administradora de mi comunidad pidiendo que arreglen la luz del portal, que lleva dos semanas fundida. Tono cordial pero firme, máximo 100 palabras, y una petición de fecha concreta.", "Destinatario, problema, tono, longitud y lo que se quiere conseguir (una fecha)."]}}, {"n": 12, "w": 3, "title": "Planificar y decidir", "axis": "Hacer", "concept": "La IA ordena lo que tienes en la cabeza: convierte un lío de pendientes en un plan con pasos, o una duda en una tabla de pros y contras. La decisión sigue siendo tuya; la IA te ayuda a verla clara.", "steps": ["Vuelca todo lo pendiente de tu semana, tal cual, sin orden.", "Pide: «Ordénalo por urgencia e importancia y propón un plan de lunes a viernes».", "Elige una decisión abierta: «Haz una tabla con opciones, pros, contras y coste».", "Pide: «¿Qué información me falta para decidir?»."], "settle": "La primera tarea del plan, para hacerla mañana:", "extra": {"quiz": [["En una decisión, ¿quién decide al final?", ["La IA", "Tú; la IA te ayuda a verlo claro", "Quien escriba la mejor tabla"], 1, "La IA ordena y compara; la decisión es tuya."], ["¿Qué pregunta ayuda más antes de decidir?", ["¿Qué información me falta?", "¿Qué harías tú?", "¿Estás seguro?"], 0, "Descubre lo que todavía no has tenido en cuenta."]], "ejemplo": ["Dudo entre cambiar la caldera de gas por una aerotermia o reparar la actual. Hazme una tabla con coste, ahorro anual estimado, ayudas y molestias de obra, y dime qué datos de mi casa necesitas para afinar.", "Pide una tabla con criterios concretos y que diga qué datos faltan."]}}, {"n": 13, "w": 3, "title": "Números y tablas sin miedo", "axis": "Hacer", "concept": "Puedes pegar una tabla, subir una hoja de cálculo o una foto de un tique y pedir cálculos, gráficos o conclusiones. Para cuentas importantes, pídele que muestre las operaciones: así puedes revisarlas.", "steps": ["Apunta tus gastos de una semana (o inventa un extracto).", "Pégalos y pide: «Agrúpalos por categoría, suma cada una y dime en qué gasto más».", "Pide un gráfico.", "Pide: «Si reduzco un 10 % la categoría mayor, ¿cuánto ahorro al año? Enséñame la cuenta». Revísala con la calculadora."], "settle": "Un cálculo que hago a mano y podría delegar:", "extra": {"quiz": [["Para cuentas importantes, ¿qué conviene pedir?", ["Solo el resultado", "Que muestre las operaciones", "Que redondee"], 1, "Con las operaciones puedes revisarlas con la calculadora."], ["¿Qué formatos de datos puede entender la IA?", ["Solo texto escrito", "Tablas pegadas, hojas de cálculo y fotos de tiques", "Solo hojas de cálculo"], 1, "Puedes pegar, subir o fotografiar."]], "ejemplo": ["Te pego mis gastos de noviembre. Agrúpalos en comida, casa, transporte y ocio, suma cada grupo, haz un gráfico de barras y enséñame las operaciones.", "Categorías definidas, salida clara (suma y gráfico) y operaciones visibles para revisar."]}}, {"n": 14, "w": 3, "title": "Fotos, voz y audio", "axis": "Ambos", "concept": "La IA no solo lee texto: entiende fotos y, en el móvil, puedes hablarle en voz alta. Sirve para identificar una planta, leer una etiqueta, traducir un cartel o pensar en voz alta mientras paseas.", "steps": ["Haz una foto a algo (una pieza rota, una etiqueta, un cartel en otro idioma) y pregunta qué es o qué dice.", "Fotografía una nota escrita a mano y pide que la pase a limpio.", "Usa el modo voz: cuéntale un problema hablando dos minutos y pide un resumen con pasos."], "settle": "¿En qué momento del día me vendría bien hablarle en vez de escribir?", "extra": {"plan_b": "Si tu asistente no admite voz o fotos en la versión gratuita, usa el dictado del teclado del móvil (el icono del micrófono) y describe la foto con palabras.", "quiz": [["¿Para qué sirve hacerle una foto a una etiqueta o un cartel?", ["Para que la IA la lea, la explique o la traduzca", "Para guardarla", "No sirve"], 0, "La IA entiende imágenes además de texto."], ["¿Cuándo es más útil hablarle en voz alta?", ["Cuando pienso en voz alta o tengo las manos ocupadas", "Nunca: es peor que escribir", "Solo para traducir"], 0, "Contar un problema hablando y pedir un resumen con pasos es muy eficaz."]], "ejemplo": ["(Con una foto de la etiqueta de una prenda) ¿Qué significan estos símbolos de lavado? Dímelo en una lista y avísame si alguno prohíbe la secadora.", "Foto más pregunta concreta y un aviso de lo que más te importa."]}}, {"n": 15, "w": 3, "title": "Tu asistente personalizado", "axis": "Hacer", "concept": "Para no repetir siempre lo mismo («soy tal, trabajo en tal, respóndeme corto»), los asistentes permiten guardar instrucciones personales y crear proyectos con documentos y normas propias. Es como darle una ficha tuya permanente.", "steps": ["Busca en los ajustes las instrucciones personalizadas o preferencias.", "Escribe 4 o 5 líneas: a qué te dedicas, idioma y tono de las respuestas, qué no te gusta.", "Crea un proyecto para un tema recurrente (trabajo, casa, un viaje) y sube un documento de referencia.", "Haz la misma pregunta dentro y fuera del proyecto, y compara."], "settle": "Repaso: ¿qué tarea de esta semana voy a delegar a la IA desde ya?", "extra": {"plan_b": "Si tu asistente no tiene instrucciones personalizadas ni proyectos, guarda tus 5 líneas en una nota del móvil y pégalas al empezar cada conversación importante.", "quiz": [["¿Qué guardas en las instrucciones personalizadas?", ["Datos estables sobre ti y cómo quieres las respuestas", "Tus contraseñas", "Cada pregunta que vas a hacer"], 0, "Lo que se repite siempre: a qué te dedicas, idioma, tono."], ["¿Para qué sirve un proyecto?", ["Para agrupar conversaciones y documentos de un tema recurrente", "Para pagar menos", "Para compartir la cuenta"], 0, "Un proyecto recuerda los documentos y normas de ese tema."]], "ejemplo": ["Instrucciones: Soy maestro jubilado y vivo en Cáceres. Respóndeme en español, en frases cortas y sin tecnicismos. Si das cifras, di de dónde salen. No me des más de 5 puntos salvo que te lo pida.", "Datos estables, estilo y límites: se aplican a todas las conversaciones sin repetirlos."]}}, {"n": 16, "w": 4, "title": "Programar sin saber programar", "axis": "Hacer", "concept": "Hoy se puede «programar» describiendo en español lo que quieres. La IA escribe el código y, en asistentes como Claude o ChatGPT, lo muestra funcionando en la misma pantalla. No hace falta entender el código; sí describir bien qué debe hacer.", "steps": ["Piensa en una mini-herramienta: un conversor de recetas, una calculadora de propinas, un cronómetro de 20 minutos.", "Descríbela: «Hazme una página sencilla donde escribo los ingredientes para 4 personas y me los recalcula para las que yo diga».", "Úsala y prueba casos raros: 0 personas, decimales.", "Pide: «Explícame en 5 líneas cómo funciona por dentro»."], "settle": "Tres herramientas pequeñas que me gustaría tener:", "extra": {"repaso": "Ficha 11: igual que con un correo, describe a quién va, qué debe hacer y cómo lo quieres.", "quiz": [["Para que la IA te haga una herramienta, ¿qué es lo más importante?", ["Saber programar", "Describir bien qué debe hacer", "Usar palabras técnicas"], 1, "La IA escribe el código; tú describes el comportamiento."], ["¿Qué haces después de que la herramienta funcione?", ["Probar casos raros (cero, decimales, campos vacíos)", "Nada", "Borrarla"], 0, "Los casos raros revelan fallos antes de usarla de verdad."]], "ejemplo": ["Hazme una página sencilla para repartir gastos de una cena: escribo cuántos somos, el total y quién ha pagado qué, y me dice cuánto debe cada uno y a quién. Botones grandes, en español.", "Entradas, salidas y aspecto claros: la IA no tiene que adivinar qué quieres."]}}, {"n": 17, "w": 4, "title": "Mejorar lo creado: pedir cambios y arreglar fallos", "axis": "Hacer", "concept": "Programar con IA es una conversación: describes, pruebas, cuentas qué falla y pides cambios. Cuanto más concreto el fallo («al pulsar X pasa Y y esperaba Z»), mejor lo arregla.", "steps": ["Retoma la herramienta de ayer.", "Pide tres mejoras: un diseño más claro, un botón nuevo, guardar el último resultado.", "Si algo falla, descríbelo con el esquema «hice / pasó / esperaba».", "Haz otra herramienta de tu lista, tú solo, de principio a fin."], "settle": "La frase que mejor me ha funcionado para describir un fallo:", "extra": {"quiz": [["¿Cómo describes un fallo para que la IA lo arregle?", ["«No funciona»", "«Hice X, pasó Y y esperaba Z»", "«Arréglalo»"], 1, "Hice / pasó / esperaba: tres datos que permiten localizar el error."], ["Programar con IA es sobre todo…", ["Una conversación: describir, probar y pedir cambios", "Escribir código a mano", "Copiar de internet"], 0, "Se mejora en rondas, igual que un texto."]], "ejemplo": ["Al pulsar «Calcular» con 3 personas y 90 € me sale 0. Esperaba 30 € por persona. Revisa el cálculo y explícame en una frase qué estaba mal.", "Pasos exactos, resultado y lo esperado: el fallo se localiza a la primera."]}}, {"n": 18, "w": 4, "title": "Agentes: la IA que trabaja varios pasos sola", "axis": "Ambos", "concept": "Un agente no solo responde: planifica y ejecuta varias acciones seguidas (buscar en muchas webs, leer, comparar, redactar un informe). Tú defines el encargo y revisas el resultado. Es pasar de preguntar a un experto a encargar un trabajo a un ayudante.", "steps": ["Busca en tu asistente el modo de investigación o de tareas largas.", "Encárgale algo con varios pasos: «Compara los 4 móviles de gama media más recomendados este año: precio, batería, cámara y opiniones, en una tabla con fuentes».", "Mientras trabaja, observa qué pasos da.", "Revisa el resultado: ¿las fuentes son buenas? ¿falta algo?"], "settle": "Un encargo de mi trabajo que podría dar a un agente:", "extra": {"plan_b": "Si tu asistente no tiene modo de investigación o agente en la versión gratuita, divide el encargo en pasos (buscar, comparar, resumir) y pídeselos uno detrás de otro.", "quiz": [["¿Qué diferencia a un agente de una conversación normal?", ["Planifica y ejecuta varios pasos seguidos por su cuenta", "Responde más rápido", "Solo funciona en inglés"], 0, "Le das un encargo y él busca, compara y redacta."], ["Cuando el agente termina, ¿qué te toca a ti?", ["Revisar el resultado y las fuentes", "Nada", "Pagar"], 0, "Encargas y revisas, como con un ayudante."]], "ejemplo": ["Investiga las 3 opciones más recomendadas este año de robot aspirador por menos de 300 €. Compara precio, autonomía, ruido y opiniones en una tabla con enlaces, y dime cuál elegirías para un piso de 80 m² con perro.", "Encargo acotado (3 opciones, precio máximo), criterios de comparación, fuentes y una recomendación para su caso."]}}, {"n": 19, "w": 4, "title": "Privacidad, seguridad y buen uso", "axis": "Conocer", "concept": "Lo que escribes a una IA sale de tu ordenador. No compartas contraseñas, números de cuenta ni documentos de identidad; cuida los datos de otras personas; revisa la privacidad de tu cuenta. Y desconfía de mensajes, voces o vídeos sospechosos: los estafadores también usan IA.", "steps": ["Entra en los ajustes de privacidad y mira qué se guarda y si se usa para entrenar.", "Pide: «Dame 10 cosas que nunca debería compartir con un asistente de IA».", "Pide: «¿Cómo reconozco un audio o vídeo falso hecho con IA?».", "Revisa tus conversaciones y borra las que tengan datos sensibles."], "settle": "Mis tres reglas personales de uso seguro (cópialas también al final del cuadernillo).", "extra": {"quiz": [["¿Cuál de estos datos NO debes compartir con una IA?", ["La receta de tu abuela", "Tu número de tarjeta", "El horario de tu gimnasio"], 1, "Contraseñas, números de cuenta o tarjeta y documentos de identidad, nunca."], ["Recibes un audio de un familiar pidiendo dinero con urgencia. ¿Qué haces?", ["Envío el dinero", "Le llamo yo a su número de siempre para comprobarlo", "Respondo al mismo número"], 1, "Las voces se pueden imitar con IA: verifica por otra vía."]], "ejemplo": ["Revisa este mensaje que he recibido por SMS y dime si tiene señales de estafa. No hagas clic en nada: solo analiza el texto. [pega el mensaje, sin tus datos]", "Usa la IA para protegerse y sin compartir datos personales."]}}, {"n": 20, "w": 4, "title": "Proyecto final: tu caja de herramientas", "axis": "Ambos", "concept": "El objetivo no es acabar un curso, sino quedarse con hábitos. Hoy se recoge lo que funciona en una guía personal que seguirás usando. A partir de ahora, los 20 minutos diarios son para usar la IA en algo real.", "steps": ["Repasa tus notas de las 19 fichas anteriores.", "Pégalas y pide: «Con estas notas, hazme una guía personal de una página: para qué uso la IA, mis mejores peticiones y mis reglas de seguridad».", "Corrígela hasta que sea tuya, e imprímela.", "Elige un reto para el mes que viene: una herramienta por semana, o un tema nuevo que aprender con el método de la semana 2."], "settle": "Mi reto para el próximo mes:", "extra": {"quiz": [["¿Qué es lo más importante al terminar el curso?", ["Haber hecho las 20 fichas", "Quedarte con hábitos y usar la IA en algo real cada día", "Saber todas las respuestas"], 1, "El objetivo es el hábito, no el certificado."], ["¿Qué debe tener tu guía personal?", ["Para qué usas la IA, tus mejores peticiones y tus reglas de seguridad", "Todas las conversaciones", "Las respuestas del test"], 0, "Una página que vuelvas a consultar."]], "ejemplo": ["Con mis notas del curso que te pego, hazme una guía de una página: 5 usos de la IA en mi día a día, mis 5 mejores peticiones como plantilla y mis 3 reglas de seguridad.", "Usa su propio material y pide un formato concreto y reutilizable."]}}]};
 const FIREBASE = {"apiKey": "AIzaSyB3fb4tTthsOGAa_8o9_SyM5l_UNOKd6Fs", "authDomain": "curso-ia-20min-mbai.firebaseapp.com", "projectId": "curso-ia-20min-mbai", "storageBucket": "curso-ia-20min-mbai.firebasestorage.app", "messagingSenderId": "570735738441", "appId": "1:570735738441:web:5bca6a88d578e721878998"};
+const VERSION = '2.0';
 const fb = initializeApp(FIREBASE);
 const auth = getAuth(fb); auth.languageCode = 'es';
 const db = getFirestore(fb);
-const LS = { settings:'cia_settings', pending:'cia_pending', email:'cia_email_link', name:'cia_name_link' };
+const LS = { settings:'cia_settings', pending:'cia_pending', email:'cia_email_link', name:'cia_name_link', run:'cia_run' };
+const LONG_AWAY = 30 * 60 * 1000;      // más de 30 min fuera: se pregunta
+const MAX_CLAIM_MIN = 180;             // como mucho se pueden añadir 3 h de una vez
+const ACTIVE_DAY_SEC = 600;            // día activo: 10 min o una ficha terminada
+const ASSISTANTS = {
+  claude:  { name:'Claude',  url:'https://claude.ai/new', q:'q' },
+  chatgpt: { name:'ChatGPT', url:'https://chatgpt.com/', q:'q' },
+  gemini:  { name:'Gemini',  url:'https://gemini.google.com/app', q:null },
+  otro:    { name:'tu asistente', url:null, q:null },
+};
 
-/* ---------- iconos ---------- */
+/* ---------- utilidades ---------- */
 const ICONS = {
  chat:'<path d="M8 12h30a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z"/><path d="M46 22h10a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4h-4v6l-7-6H32a4 4 0 0 1-4-4v-2"/><path d="M13 21h20M13 26h13"/>',
  book:'<path d="M32 16c-6-4-14-5-24-4v36c10-1 18 0 24 4 6-4 14-5 24-4V12c-10-1-18 0-24 4z"/><path d="M32 16v36"/><path d="M14 22c5 0 9 1 12 2M14 30c5 0 9 1 12 2M38 24c3-1 7-2 12-2M38 32c3-1 7-2 12-2"/>',
@@ -351,58 +424,78 @@ const ICONS = {
  pencil:'<path d="M44 8l12 12L22 54H10V42z"/><path d="M38 14l12 12"/>',
  bulb:'<path d="M24 46h16M26 54h12"/><path d="M32 6a16 16 0 0 0-9 29c2 2 3 4 3 7v4h12v-4c0-3 1-5 3-7A16 16 0 0 0 32 6z"/>',
  play:'<circle cx="32" cy="32" r="24"/><path d="M27 22l14 10-14 10z"/>',
- check:'<path d="M14 34l12 12 24-26"/>'
+ check:'<path d="M14 34l12 12 24-26"/>',
+ reply:'<path d="M26 14L8 30l18 16V36c14 0 24 4 30 14 0-18-10-30-30-30z"/>',
+ quiz:'<circle cx="32" cy="32" r="24"/><path d="M25 25a7 7 0 1 1 10 6c-2 1-3 3-3 5v2M32 45v1"/>',
+ back:'<path d="M40 12L20 32l20 20"/>',
+ info:'<circle cx="32" cy="32" r="24"/><path d="M32 29v14M32 21v1"/>'
 };
 const icon = (n, s, sw=3.2) => `<svg class="i" aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 64 64" stroke-width="${sw}">${ICONS[n]}</svg>`;
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rich = s => esc(s).replace(/«([^»]*)»/g, '<em class="p">«$1»</em>');
+const prompts = s => [...String(s).matchAll(/«([^»]*)»/g)].map(m => m[1]);
 const $ = id => document.getElementById(id);
 const W = n => COURSE.weeks[n-1];
-
-/* ---------- estado ---------- */
-let user = null, uref = null, progress = {}, daily = {};
-let view = 'login', current = 1;
-let settings = Object.assign({ duration:20, sound:true, pauseHidden:true, scale:1 }, JSON.parse(localStorage.getItem(LS.settings) || '{}'));
-const saveSettings = () => { localStorage.setItem(LS.settings, JSON.stringify(settings)); document.documentElement.style.setProperty('--scale', settings.scale); };
-saveSettings();
-
+const L = n => COURSE.lessons[n-1];
+const pick = a => a[Math.floor(Math.random()*a.length)];
 const localDay = (d=new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-const fmtMin = s => { const m = Math.round(s/60); return m < 60 ? `${m} min` : `${Math.floor(m/60)} h ${m%60} min`; };
-const toast = (t) => { const e=$('toast'); e.textContent=t; e.classList.remove('hidden'); clearTimeout(toast._t); toast._t=setTimeout(()=>e.classList.add('hidden'),3200); };
-function setSync(ok){ $('sync').classList.toggle('off', !ok); $('sync').title = ok ? 'Progreso guardado' : 'Sin conexión: se guardará al volver'; }
+const fmtMin = s => { const m = Math.floor(s/60); return m < 60 ? `${m} min` : `${Math.floor(m/60)} h ${m%60} min`; };
+const toast = (t, ms=3600) => { const e=$('toast'); e.textContent=t; e.classList.remove('hidden'); clearTimeout(toast._t); toast._t=setTimeout(()=>e.classList.add('hidden'),ms); };
+function setSync(ok){ const s=$('sync'); s.classList.toggle('off', !ok); s.textContent = ok ? 'Guardado' : 'Sin conexión'; s.title = ok ? 'Tu progreso está guardado' : 'Se guardará cuando vuelva la conexión'; }
 const errText = e => {
   const c = e?.code || '';
-  if (c.includes('popup-closed')) return 'Has cerrado la ventana de Google antes de terminar.';
+  if (c.includes('popup-closed') || c.includes('cancelled-popup')) return 'Has cerrado la ventana de Google antes de terminar.';
   if (c.includes('popup-blocked')) return 'El navegador ha bloqueado la ventana de Google. Permite las ventanas emergentes para esta web.';
-  if (c.includes('quota-exceeded')) return 'Hoy se han enviado ya todos los enlaces por email disponibles. Entra con Google o inténtalo mañana.';
+  if (c.includes('quota-exceeded')) return 'Hoy ya se han enviado todos los enlaces disponibles. Entra con Google o inténtalo mañana.';
   if (c.includes('invalid-email')) return 'Revisa el email.';
   if (c.includes('invalid-action-code') || c.includes('expired-action-code')) return 'Ese enlace ya no vale. Pide otro.';
-  if (c.includes('network')) return 'Sin conexión. Revisa internet y vuelve a intentarlo.';
+  if (c.includes('network') || c.includes('unavailable')) return 'Sin conexión. Revisa internet y vuelve a intentarlo.';
   if (c.includes('permission-denied')) return 'No tienes permiso para esta acción.';
+  if (c.includes('requires-recent-login')) return 'Por seguridad, vuelve a entrar y repite la acción.';
   return e?.message || 'Algo ha fallado';
 };
+
+/* ---------- estado ---------- */
+let user = null, uref = null, progress = {}, daily = {}, steps = {}, prefs = {};
+let view = 'login', current = 1;
+let settings = Object.assign({ sound:true, scale:1 }, JSON.parse(localStorage.getItem(LS.settings) || '{}'));
+const saveSettings = () => { localStorage.setItem(LS.settings, JSON.stringify(settings)); document.documentElement.style.setProperty('--scale', settings.scale); };
+saveSettings();
+const duration = () => (prefs.duration || 20);
+const minSeconds = () => Math.round(duration() * 60 / 2);
+const P = n => progress[n] || (progress[n] = { seconds:0, done_at:null, notes:'', ai:'', quiz:null, forced:false });
+
+/* días activos: ≥10 min o una ficha terminada ese día */
+function activeDays(){
+  const set = new Set(Object.entries(daily).filter(([,s]) => s >= ACTIVE_DAY_SEC).map(([d]) => d));
+  Object.values(progress).forEach(p => { if (p.done_at) set.add(localDay(new Date(p.done_at))); });
+  return set;
+}
 
 /* ---------- vistas ---------- */
 function show(v){
   view = v;
-  for (const id of ['login','panel','ficha']) $(id).classList.toggle('hidden', id !== v);
+  for (const id of ['login','panel','ficha','cuaderno']) $(id).classList.toggle('hidden', id !== v);
+  refreshMenus();
+  $('whoName').innerHTML = user ? `${esc(user.name)} <span class="em">· ${esc(user.email)}</span>` : '';
+  $('sync').classList.toggle('hidden', !user);
+  window.scrollTo(0,0);
+}
+function refreshMenus(){
   document.querySelectorAll('[data-need]').forEach(b => {
     const n = b.dataset.need; b.disabled = (n === 'auth' && !user) || (n === 'ficha' && view !== 'ficha');
   });
-  $('whoName').innerHTML = user ? `${esc(user.name)} <span class="em">· ${esc(user.email)}</span>` : '';
-  window.scrollTo(0,0);
+  document.querySelectorAll('[data-pip]').forEach(b => b.classList.toggle('hidden', !('documentPictureInPicture' in window)));
 }
 
 function renderLogin(mode){
   $('loginTiles').innerHTML = COURSE.weeks.map(w => `<div class="tile" style="background:${w.color}">${icon(w.icon,52,3)}<div><small>Semana ${w.n}</small><b>${esc(w.title)}</b></div></div>`).join('');
   const confirm = mode === 'confirmEmail';
   $('lfTitle').textContent = confirm ? 'Confirma tu email' : 'Empieza o continúa';
-  $('lfIntro').textContent = confirm ? 'Has abierto el enlace en otro dispositivo. Escribe el email al que te lo enviamos para entrar.' :
-    'Sin contraseñas. Entra con tu cuenta de Google o recibe un enlace en tu email. Tu progreso te espera en cualquier dispositivo.';
+  $('lfIntro').textContent = confirm ? 'Has abierto el enlace en otro navegador o dispositivo. Escribe el email al que te lo enviamos para entrar.' :
+    'Sin contraseñas. Entra con tu cuenta de Google y tu progreso te esperará en cualquier dispositivo.';
   $('lfBtn').textContent = confirm ? 'Entrar' : 'Enviarme el enlace de acceso';
-  $('lfGoogle').classList.toggle('hidden', confirm);
-  document.querySelector('.or').classList.toggle('hidden', confirm);
-  $('lfNote').classList.toggle('hidden', confirm);
+  for (const id of ['lfGoogle','lfOr','lfNote','lfNameL']) $(id).classList.toggle('hidden', confirm);
   $('loginForm').dataset.mode = confirm ? 'confirm' : 'send';
   show('login');
 }
@@ -410,13 +503,14 @@ function renderLogin(mode){
 function stats(){
   const done = COURSE.lessons.filter(l => progress[l.n]?.done_at).length;
   const total = Object.values(progress).reduce((a,p)=>a+(+p.seconds||0),0);
+  const act = activeDays();
   let streak = 0; const d = new Date();
-  if (!daily[localDay(d)]) d.setDate(d.getDate()-1);
-  while (daily[localDay(d)]) { streak++; d.setDate(d.getDate()-1); }
+  if (!act.has(localDay(d))) d.setDate(d.getDate()-1);
+  while (act.has(localDay(d))) { streak++; d.setDate(d.getDate()-1); }
   const mon = new Date(); mon.setDate(mon.getDate() - ((mon.getDay()+6)%7));
-  let week = 0; for (let i=0;i<7;i++){ const x=new Date(mon); x.setDate(mon.getDate()+i); if (daily[localDay(x)] >= 60) week++; }
+  let week = 0; for (let i=0;i<7;i++){ const x=new Date(mon); x.setDate(mon.getDate()+i); if (act.has(localDay(x))) week++; }
   const next = COURSE.lessons.find(l => !progress[l.n]?.done_at) || null;
-  return { done, total, streak, week, next };
+  return { done, total, streak, week, next, act };
 }
 
 function renderPanel(){
@@ -424,125 +518,188 @@ function renderPanel(){
   const h = new Date().getHours();
   $('pDate').textContent = new Date().toLocaleDateString('es-ES',{weekday:'long', day:'numeric', month:'long'});
   $('pHello').textContent = `${h<14?'Buenos días':h<21?'Buenas tardes':'Buenas noches'}, ${user.name.split(' ')[0]}`;
-  $('pMsg').textContent = s.done===20 ? '¡Curso completado! Ahora los 20 minutos son para usar la IA en algo real.' :
-     s.done===0 && !s.total ? 'Tu primera sesión dura 20 minutos. Ten abierto tu asistente de IA en otra pestaña o en el móvil.' :
-     daily[localDay()] ? 'Hoy ya has practicado. Si te apetece, sigue con la siguiente ficha.' : 'Te toca la sesión de hoy: 20 minutos y listo.';
+  $('pMsg').textContent = s.done===20 ? '¡Curso completado! Ahora los 20 minutos diarios son para usar la IA en algo real.' :
+     !s.total && !s.done ? 'Tu primera sesión dura 20 minutos. Ten a mano tu asistente de IA: los botones de cada ficha lo abren por ti.' :
+     s.act.has(localDay()) ? pick(['Hoy ya has cumplido. Si te apetece, adelanta la siguiente ficha.','Día activo conseguido. ¡Buen trabajo!']) :
+     s.streak > 1 ? `Llevas ${s.streak} días seguidos. Hoy toca la sesión de 20 minutos para no romper la racha.` : 'Te toca la sesión de hoy: 20 minutos y listo.';
   $('sDone').textContent = `${s.done}/20`; $('sDoneBar').style.width = (s.done*5)+'%';
   $('sTime').textContent = fmtMin(s.total);
   $('sStreak').textContent = s.streak; $('sWeek').textContent = `${Math.min(s.week,5)}/5`;
   const n = s.next;
-  if (n){ const w=W(n.w);
+  if (n){ const w=W(n.w); const started = progress[n.n]?.seconds > 0;
     $('pCont').style.background = w.color;
-    $('pCont').innerHTML = `<span class="n">${String(n.n).padStart(2,'0')}</span><div><div class="eyebrow" style="color:#fff">${progress[n.n]?'Continuar':'Siguiente'} · Semana ${w.n}</div><h2>${esc(n.title)}</h2></div><button class="btn" type="button" data-open="${n.n}">${progress[n.n]?'Continuar':'Empezar'} ficha →</button>`;
-  } else { $('pCont').style.background = 'var(--ink)'; $('pCont').innerHTML = `<div>${icon('check',64,4)}</div><div><h2>Has terminado las 20 fichas</h2><p style="margin:4px 0 0">Repite cualquier ficha con un tema nuevo cuando quieras.</p></div>`; }
+    $('pCont').innerHTML = `<span class="n">${String(n.n).padStart(2,'0')}</span><div><div class="eyebrow" style="color:#fff">${started?'Continuar':'Siguiente'} · Semana ${w.n}</div><h2>${esc(n.title)}</h2></div><button class="btn" type="button" data-open="${n.n}">${started?'Continuar':'Empezar'} ficha →</button>`;
+  } else { $('pCont').style.background = 'var(--ink)'; $('pCont').innerHTML = `<div>${icon('check',64,4)}</div><div><h2>Has terminado las 20 fichas</h2><p style="margin:4px 0 0">Descarga tu diploma y repite cualquier ficha con un tema nuevo cuando quieras.</p></div><button class="btn" type="button" data-cmd="diploma">Mi diploma</button>`; }
   $('pWeeks').innerHTML = COURSE.weeks.map(w => `<div class="week"><div class="week-h"><span class="sq" style="background:${w.color}">${icon(w.icon,24,4)}</span><div><div class="eyebrow">Semana ${w.n}</div><h3>${esc(w.title)}</h3></div></div><div class="grid5">${
     COURSE.lessons.filter(l=>l.w===w.n).map(l => { const p=progress[l.n]; const d=p?.done_at;
-      return `<button type="button" class="card ${d?'done':''}" data-open="${l.n}" style="${d?`background:${w.color}`:''}">${d?`<span class="ok">${icon('check',22,5)}</span>`:''}<span class="num" style="color:${d?'#fff':w.color}">${String(l.n).padStart(2,'0')}</span><span class="tt">${esc(l.title)}</span><span class="st"><span>${d?'Hecha':p?.seconds?'Empezada':'Pendiente'}</span><span>${p?.seconds?fmtMin(p.seconds):''}</span></span></button>`; }).join('')}</div></div>`).join('');
+      return `<button type="button" class="card ${d?'done':''}" data-open="${l.n}" style="${d?`background:${w.color}`:''}" aria-label="Ficha ${l.n}: ${esc(l.title)}. ${d?'Terminada':p?.seconds?'Empezada':'Pendiente'}">${d?`<span class="ok">${icon('check',22,5)}</span>`:''}<span class="num" style="color:${d?'#fff':w.color}">${String(l.n).padStart(2,'0')}</span><span class="tt">${esc(l.title)}</span><span class="st"><span>${d?'Terminada':p?.seconds?'Empezada':'Pendiente'}</span><span>${p?.seconds?fmtMin(p.seconds):''}</span></span></button>`; }).join('')}</div></div>`).join('');
   const start = new Date(); start.setDate(start.getDate() - ((start.getDay()+6)%7) - 28);
-  let cal = ['L','M','X','J','V','S','D'].map(x=>`<div class="dn">${x}</div>`).join('');
+  let cal = ['L','M','X','J','V','S','D'].map(x=>`<div class="dn" aria-hidden="true">${x}</div>`).join('');
   for (let i=0;i<35;i++){ const d=new Date(start); d.setDate(start.getDate()+i); const k=localDay(d); const sec=daily[k]||0;
-    const lv = sec<=0?'':sec<600?'l1':sec<1200?'l2':'l3';
-    cal += `<div class="d ${lv} ${k===localDay()?'today':''}" title="${d.toLocaleDateString('es-ES')}: ${sec?fmtMin(sec):'sin práctica'}"></div>`; }
+    const lv = s.act.has(k) ? 'on' : sec>0 ? 'part' : '';
+    cal += `<div class="d ${lv} ${k===localDay()?'today':''}" title="${d.toLocaleDateString('es-ES')}: ${sec?fmtMin(sec):'sin práctica'}${s.act.has(k)?' · día activo':''}"></div>`; }
   $('pCal').innerHTML = cal;
   $('pDots').innerHTML = Array.from({length:5},(_,i)=>`<i class="${i<s.week?'on':''}"></i>`).join('');
+  history.replaceState(null,'',location.pathname);
   show('panel');
 }
 
-/* ---------- datos (Firestore) ---------- */
-// users/{uid}: { name, email, createdAt, lastSeen, totalSeconds, fichas:{ f1:{seconds, doneAt} }, daily:{ 'AAAA-MM-DD': segundos } }
-// users/{uid}/notes/f{n}: { text, updatedAt }  — solo las lee el alumno
+/* ---------- datos ---------- */
+// users/{uid}: { name, email, createdAt, lastSeen, consentAt, totalSeconds,
+//   fichas: { fN: { seconds, doneAt, forced, quiz:{score, answers} } }, daily: { 'AAAA-MM-DD': s },
+//   steps: { fN: [bool] }, prefs: { assistant, duration, onboarded, reminder } }
+// users/{uid}/notes/fN: { text, aiAnswer, updatedAt }  — solo las lee el alumno
 async function loadUser(fbUser, nameHint){
   uref = doc(db, 'users', fbUser.uid);
   let snap = await getDoc(uref);
   if (!snap.exists()){
-    const name = (nameHint || fbUser.displayName || fbUser.email.split('@')[0]).trim().slice(0,60).padEnd(2,'·');
-    await setDoc(uref, { name, email: fbUser.email, createdAt: serverTimestamp(), lastSeen: serverTimestamp(), totalSeconds: 0, fichas: {}, daily: {} });
+    let name = (nameHint || fbUser.displayName || fbUser.email.split('@')[0]).trim().slice(0,60);
+    if (name.length < 2) name = (name + ' ·').slice(0,2);
+    await setDoc(uref, { name, email: fbUser.email, createdAt: serverTimestamp(), lastSeen: serverTimestamp(), consentAt: new Date().toISOString(),
+      totalSeconds: 0, fichas: {}, daily: {}, steps: {}, prefs: {} });
     snap = await getDoc(uref);
-  } else {
-    updateDoc(uref, { lastSeen: serverTimestamp() }).catch(()=>{});
-  }
+  } else updateDoc(uref, { lastSeen: serverTimestamp() }).catch(()=>{});
   const d = snap.data();
-  user = { name: d.name, email: d.email };
+  user = { name: d.name, email: d.email, uid: fbUser.uid };
+  prefs = Object.assign({}, d.prefs || {});
+  steps = Object.assign({}, d.steps || {});
   progress = {}; daily = Object.assign({}, d.daily || {});
-  for (const [k, v] of Object.entries(d.fichas || {})) progress[+k.slice(1)] = { seconds: v.seconds || 0, done_at: v.doneAt || null, notes: '' };
+  for (const [k, v] of Object.entries(d.fichas || {})) progress[+k.slice(1)] = { seconds: v.seconds || 0, done_at: v.doneAt || null, forced: !!v.forced, quiz: v.quiz || null, notes:'', ai:'' };
   const notes = await getDocs(collection(uref, 'notes'));
-  notes.forEach(n => { const f = +n.id.slice(1); (progress[f] || (progress[f] = { seconds:0, done_at:null })).notes = n.data().text || ''; });
+  notes.forEach(n => { const p = P(+n.id.slice(1)); p.notes = n.data().text || ''; p.ai = n.data().aiAnswer || ''; });
   setSync(true); sendQueue();
+  await resumeRun();
   const m = location.hash.match(/^#ficha-(\d+)$/);
-  if (m && +m[1]>=1 && +m[1]<=20) openFicha(+m[1]); else renderPanel();
+  if (m && +m[1]>=1 && +m[1]<=20) openFicha(+m[1]);
+  else if (location.hash === '#cuaderno') renderCuaderno();
+  else renderPanel();
+  if (!prefs.onboarded) welcome();
 }
+const savePrefs = (patch) => { Object.assign(prefs, patch); return updateDoc(uref, Object.fromEntries(Object.entries(patch).map(([k,v]) => [`prefs.${k}`, v]))).catch(e => { setSync(false); throw e; }); };
 
-/* ---------- ficha y temporizador ---------- */
-let timer = { running:false, int:null, elapsed:0, pending:0, beeped:false };
+/* ---------- cronómetro por reloj ----------
+   run = { uid, ficha, lastCommit, hiddenAt?, cues:{} } en localStorage.
+   El tiempo se calcula siempre como (ahora − última anotación), esté la pestaña visible o no. */
+let run = null, tick = null, pip = null;
+const loadRun = () => { try { const r = JSON.parse(localStorage.getItem(LS.run) || 'null'); return r && r.uid === user?.uid ? r : null; } catch { return null; } };
+const saveRun = () => run ? localStorage.setItem(LS.run, JSON.stringify(run)) : localStorage.removeItem(LS.run);
+const pendingSec = () => run ? Math.max(0, Math.floor((Date.now() - run.lastCommit) / 1000)) : 0;
+const fichaSec = (n=current) => (+P(n).seconds || 0) + (run && run.ficha === n ? pendingSec() : 0);
+const totalSec = () => Object.values(progress).reduce((a,x)=>a+(+x.seconds||0),0) + pendingSec();
 
-function openFicha(n){
-  stopTimer(true);
-  current = n; const l = COURSE.lessons[n-1], w = W(l.w), p = progress[n] || {};
-  $('fBand').style.background = w.color;
-  $('fDeco').innerHTML = icon(w.icon, 320, 2.2);
-  $('fWeek').textContent = `Semana ${w.n} · ${w.title}`;
-  $('fAxis').textContent = l.axis; $('fAxis').style.color = w.color;
-  $('fNum').textContent = String(n).padStart(2,'0'); $('fTitle').textContent = l.title;
-  const h = (ic, t, extra='') => `<span style="color:${w.color}">${icon(ic,28,4)}</span><b style="color:${w.color}">${t}</b>${extra}`;
-  $('hIdea').innerHTML = h('bulb','La idea');
-  $('hEj').innerHTML = h('play','Ejercicio', `<button class="copy" type="button" data-cmd="copiarEjercicio">Copiar</button>`);
-  $('hAs').innerHTML = h('pencil','Para asentar');
-  $('fConcept').innerHTML = rich(l.concept);
-  const checks = JSON.parse(localStorage.getItem(stepsKey(n)) || '[]');
-  $('fSteps').innerHTML = l.steps.map((s,i)=>`<li><label><input type="checkbox" data-step="${i}" ${checks[i]?'checked':''}><span class="nb" style="background:${w.color}">${i+1}</span><span class="tx">${rich(s)}</span></label></li>`).join('');
-  $('fSettle').style.background = w.tint;
-  $('fSettleQ').innerHTML = rich(l.settle);
-  $('fNotes').value = p.notes || ''; $('fSaved').textContent = p.notes ? 'Guardado' : '';
-  $('fPrev').disabled = n===1; $('fNext').disabled = n===20;
-  updateDoneBtn();
-  $('tArc').style.stroke = w.color;
-  $('tPhases').innerHTML = [['Idea',4],['Ejercicio',14],['Asentar',2]].map(([t,m])=>`<div style="flex:${m}"><i></i>${t}</div>`).join('');
-  timer.elapsed = 0; timer.beeped = false; drawTimer();
-  show('ficha');
-  history.replaceState(null,'',`#ficha-${n}`);
+function addSeconds(f, sec, day=localDay()){
+  if (sec <= 0) return;
+  P(f).seconds = (+P(f).seconds || 0) + sec; daily[day] = (daily[day] || 0) + sec;
+  const q = JSON.parse(localStorage.getItem(LS.pending)||'[]'); q.push({ uid: user.uid, ficha:f, seconds:sec, day }); localStorage.setItem(LS.pending, JSON.stringify(q));
+  sendQueue();
 }
-const stepsKey = n => `cia_steps_${user?.email}_${n}`;
-function updateDoneBtn(){ const d = progress[current]?.done_at; $('fDone').textContent = d ? '✓ Hecha · desmarcar' : 'Marcar como hecha'; $('fDone').classList.toggle('ghost', !!d); }
-
+function commit(upTo = Date.now()){
+  if (!run) return;
+  const sec = Math.max(0, Math.floor((upTo - run.lastCommit) / 1000));
+  if (sec > 0){ addSeconds(run.ficha, sec); run.lastCommit += sec * 1000; }
+  saveRun();
+}
+function startRun(){
+  if (!user) return;
+  if (run && run.ficha === current) return;
+  if (run) commit();
+  run = { uid: user.uid, ficha: current, lastCommit: Date.now(), cues: {} };
+  saveRun(); startTick(); drawTimer();
+}
+function stopRun(){ if (!run) return; commit(); run = null; saveRun(); stopTick(); drawTimer(); }
+function startTick(){ stopTick(); tick = setInterval(onTick, 1000); }
+function stopTick(){ clearInterval(tick); tick = null; }
+function onTick(){
+  if (!run) return stopTick();
+  if (!document.hidden && Date.now() - run.lastCommit >= 60000) commit();
+  cues(); drawTimer();
+}
+function cues(){
+  if (!run || run.ficha !== current) return;
+  const s = fichaSec(), d = duration()*60, c = run.cues;
+  if (!c.ej && s >= d*0.2 && s < d*0.9){ c.ej = 1; saveRun(); notify('Pasa al ejercicio: abre tu asistente con el botón del paso 1.'); }
+  if (!c.as && s >= d*0.9 && s < d){ c.as = 1; saveRun(); notify('Últimos minutos: escribe tu nota en «Para asentar».'); }
+  if (!c.end && s >= d){ c.end = 1; saveRun(); if (settings.sound) beep(); notify('¡Tiempo cumplido! Responde la comprobación y termina la ficha.'); }
+}
+function notify(t){ toast(t, 6000); if (pip) { const e = pip.document.getElementById('pMsg'); if (e) e.textContent = t; } }
+function phaseOf(s){ const d = duration()*60; return s < d*0.2 ? 'Idea' : s < d*0.9 ? 'Ejercicio' : s < d ? 'Para asentar' : 'Tiempo extra'; }
+function clockText(s){ const left = duration()*60 - s, a = Math.abs(left); return (left<0?'+':'') + `${String(Math.floor(a/60)).padStart(2,'0')}:${String(a%60).padStart(2,'0')}`; }
 function drawTimer(){
-  const dur = settings.duration*60, left = dur - timer.elapsed;
-  const a = Math.abs(left), mm = String(Math.floor(a/60)).padStart(2,'0'), ss = String(a%60).padStart(2,'0');
-  $('tClock').textContent = (left<0?'+':'') + `${mm}:${ss}`;
-  $('tArc').style.strokeDashoffset = 552.9 * (1 - Math.min(1, timer.elapsed/dur));
-  $('tState').textContent = timer.running ? (left<0?'tiempo extra':'en marcha') : (timer.elapsed?'en pausa':'listo para empezar');
-  $('tBtn').textContent = timer.running ? 'Pausar' : (timer.elapsed ? 'Seguir' : 'Empezar sesión');
-  const f = timer.elapsed/dur; const ph = $('tPhases').children;
-  if (ph.length===3){ ph[0].classList.toggle('on', f>0); ph[1].classList.toggle('on', f>=0.2); ph[2].classList.toggle('on', f>=0.9); }
-  const p = progress[current] || {};
-  $('tFicha').textContent = fmtMin((+p.seconds||0) + timer.pending);
-  $('tTotal').textContent = fmtMin(Object.values(progress).reduce((a,x)=>a+(+x.seconds||0),0) + timer.pending);
+  if (view !== 'ficha') return drawPip();
+  const s = fichaSec(), running = run && run.ficha === current;
+  $('tClock').textContent = clockText(s);
+  $('tArc').style.strokeDashoffset = 552.9 * (1 - Math.min(1, s/(duration()*60)));
+  $('tPhase').textContent = phaseOf(s);
+  $('tState').textContent = `${running ? 'en marcha' : 'en pausa'} · ${Math.floor(s/60)}/${duration()} min`;
+  $('tBtn').textContent = running ? 'Pausar' : (s ? 'Seguir' : 'Empezar sesión');
+  $('tFicha').textContent = fmtMin(s); $('tTotal').textContent = fmtMin(totalSec());
+  $('mClock').textContent = clockText(s); $('mPhase').textContent = `${phaseOf(s)} · ${running?'en marcha':'en pausa'}`;
+  $('mFicha').textContent = `${Math.floor(s/60)} de ${duration()} min en esta ficha`;
+  $('mBtn').textContent = running ? 'Pausar' : (s ? 'Seguir' : 'Empezar');
+  drawPip(); drawReq();
 }
-function startTimer(){
-  if (timer.running) return; timer.running = true;
-  timer.int = setInterval(()=>{
-    timer.elapsed++; timer.pending++;
-    if (!timer.beeped && timer.elapsed >= settings.duration*60){ timer.beeped = true; if (settings.sound) beep(); toast('¡Sesión completada! Termina la nota y marca la ficha como hecha.'); }
-    if (timer.pending >= 30) flush();
+async function resumeRun(){
+  const r = loadRun(); if (!r) return;
+  run = r;
+  const away = Date.now() - (run.hiddenAt || run.lastCommit);
+  if (run.hiddenAt) { commit(run.hiddenAt); delete run.hiddenAt; }
+  if (away <= LONG_AWAY){ commit(); startTick(); return; }
+  run.lastCommit = Date.now(); saveRun();
+  await askAway(away, run.ficha);
+  stopRun();
+}
+function askAway(ms, f){
+  const min = Math.min(Math.round(ms/60000), MAX_CLAIM_MIN);
+  return new Promise(res => dialog('¿Seguiste trabajando con la IA?', `<p>Has estado <b>${fmtMin(ms/1000)}</b> fuera de la ficha ${f} con el reloj en marcha.</p><p>¿Cuántos minutos estuviste practicando de verdad?</p><div class="opt"><label for="awMin">Minutos a contar</label><input type="number" id="awMin" min="0" max="${MAX_CLAIM_MIN}" value="${Math.min(min, duration())}"></div>`,
+    [['No contar nada', () => res()], ['Contar estos minutos', () => { const m = Math.max(0, Math.min(MAX_CLAIM_MIN, +$('awMin').value || 0)); addSeconds(f, m*60); toast(`${m} min añadidos a la ficha ${f}`); drawTimer(); res(); }, true]]));
+}
+document.addEventListener('visibilitychange', async () => {
+  if (!run) return;
+  if (document.hidden){ commit(); run.hiddenAt = Date.now(); saveRun(); }
+  else if (run.hiddenAt){
+    const away = Date.now() - run.hiddenAt;
+    if (away > LONG_AWAY && !pip){
+      const f = run.ficha; commit(run.hiddenAt); run.lastCommit = Date.now(); delete run.hiddenAt; saveRun();
+      await askAway(away, f);
+    } else { delete run.hiddenAt; commit(); }
     drawTimer();
-  }, 1000);
-  drawTimer();
-}
-function stopTimer(save){ timer.running = false; clearInterval(timer.int); if (save) flush(); if (view==='ficha') drawTimer(); }
+  }
+});
+window.addEventListener('pagehide', () => { if (run) commit(); });
 
-function flush(){
-  const sec = timer.pending; if (sec <= 0 || !uref) return;
-  timer.pending = 0;
-  const f = current, day = localDay();
-  const p = progress[f] || (progress[f] = { seconds:0, notes:'', done_at:null });
-  p.seconds = (+p.seconds||0) + sec; daily[day] = (daily[day]||0) + sec;
-  const q = JSON.parse(localStorage.getItem(LS.pending)||'[]'); q.push({ uid: auth.currentUser?.uid, ficha:f, seconds:sec, day }); localStorage.setItem(LS.pending, JSON.stringify(q));
-  return sendQueue();
+/* reloj flotante (Document Picture-in-Picture, Chrome y Edge de escritorio) */
+async function openPip(){
+  if (!('documentPictureInPicture' in window)) return toast('Tu navegador no admite el reloj flotante. El reloj sigue contando igualmente.');
+  if (pip) return;
+  startRun();
+  try { pip = await documentPictureInPicture.requestWindow({ width: 320, height: 210 }); } catch(e){ return toast('No se ha podido abrir el reloj flotante.'); }
+  const w = W(L(current).w);
+  pip.document.body.innerHTML = `<style>body{margin:0;font-family:system-ui,sans-serif;background:${w.color};color:#fff;display:flex;flex-direction:column;gap:6px;padding:14px;box-sizing:border-box;height:100vh}
+    b{font-size:44px;font-variant-numeric:tabular-nums;line-height:1} small{opacity:.9;font-size:13px} .row{display:flex;gap:8px;margin-top:auto}
+    button{flex:1;font:inherit;font-weight:700;border:0;border-radius:999px;padding:9px;cursor:pointer;background:#fff;color:#1E2430} #pMsg{font-size:13px;min-height:1.2em}</style>
+    <small id="pT"></small><b id="pC"></b><small id="pP"></small><div id="pMsg"></div>
+    <div class="row"><button id="pB" type="button"></button><button id="pX" type="button">Terminar</button></div>`;
+  pip.document.getElementById('pB').onclick = () => { run && run.ficha === current ? stopRun() : startRun(); };
+  pip.document.getElementById('pX').onclick = () => { stopRun(); pip.close(); };
+  pip.addEventListener('pagehide', () => { pip = null; });
+  pip.setInterval(() => { if (run) { cues(); if (Date.now() - run.lastCommit >= 60000) commit(); } drawPip(); }, 1000);
+  drawPip();
 }
+function drawPip(){
+  if (!pip) return;
+  const d = pip.document, s = fichaSec(), running = run && run.ficha === current;
+  d.getElementById('pT').textContent = `Ficha ${current} · ${L(current).title}`;
+  d.getElementById('pC').textContent = clockText(s);
+  d.getElementById('pP').textContent = `${phaseOf(s)} · ${Math.floor(s/60)} de ${duration()} min`;
+  d.getElementById('pB').textContent = running ? 'Pausar' : 'Seguir';
+}
+
+/* ---------- cola de guardado del tiempo ---------- */
 let sending = false;
 async function sendQueue(){
   if (sending || !uref) return; sending = true;
   try {
-    let q = JSON.parse(localStorage.getItem(LS.pending)||'[]').filter(it => it.uid === auth.currentUser?.uid);
+    let q = JSON.parse(localStorage.getItem(LS.pending)||'[]').filter(it => it.uid === user?.uid);
     while (q.length){
       const it = q[0];
       await updateDoc(uref, { [`fichas.f${it.ficha}.seconds`]: increment(it.seconds), [`daily.${it.day}`]: increment(it.seconds),
@@ -553,49 +710,215 @@ async function sendQueue(){
   } catch(e){ setSync(false); }
   sending = false;
 }
+window.addEventListener('online', sendQueue);
 function beep(){ try{ const c = new (window.AudioContext||window.webkitAudioContext)(); [0,0.25,0.5].forEach((t,i)=>{ const o=c.createOscillator(), g=c.createGain(); o.frequency.value=[660,880,990][i]; g.gain.setValueAtTime(0.18,c.currentTime+t); g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+t+0.35); o.connect(g); g.connect(c.destination); o.start(c.currentTime+t); o.stop(c.currentTime+t+0.4); }); }catch{} }
 
-async function saveNote(f, text){
-  await setDoc(doc(uref, 'notes', `f${f}`), { text, updatedAt: serverTimestamp() });
+/* ---------- ficha ---------- */
+function openFicha(n){
+  if (run && run.ficha !== n) stopRun();
+  current = n; const l = L(n), w = W(l.w), p = P(n), x = l.extra;
+  document.documentElement.style.setProperty('--wc', w.color);
+  document.documentElement.style.setProperty('--wt', w.tint);
+  $('fDeco').innerHTML = icon(w.icon, 320, 2.2);
+  $('fWeek').textContent = `Semana ${w.n} · ${w.title}`;
+  $('fAxis').textContent = l.axis;
+  $('fNum').textContent = String(n).padStart(2,'0'); $('fTitle').textContent = l.title;
+  const h = (ic, t) => `${icon(ic,28,4)}<b>${t}</b>`;
+  $('hIdea').innerHTML = h('bulb','La idea');
+  $('hEj').innerHTML = h('play','Ejercicio');
+  $('hAi').innerHTML = h('reply','Lo que me respondió la IA');
+  $('hAs').innerHTML = h('pencil','Para asentar');
+  $('hQ').innerHTML = h('quiz','Comprueba lo aprendido');
+  $('fRepaso').classList.toggle('hidden', !x.repaso);
+  $('fRepaso').innerHTML = x.repaso ? `${icon('back',22,4)}<span><b>Recuerda.</b> ${rich(x.repaso)}</span>` : '';
+  $('fPlanB').classList.toggle('hidden', !x.plan_b);
+  $('fPlanB').innerHTML = x.plan_b ? `${icon('info',22,4)}<span><b>Si tu asistente no lo tiene:</b> ${rich(x.plan_b)}</span>` : '';
+  $('fConcept').innerHTML = rich(l.concept);
+  const a = ASSISTANTS[prefs.assistant || 'claude'];
+  const checks = steps[`f${n}`] || [];
+  $('fSteps').innerHTML = l.steps.map((s,i) => { const pr = prompts(s)[0];
+    return `<li class="step"><label><input type="checkbox" data-step="${i}" ${checks[i]?'checked':''}><span class="nb">${i+1}</span><span class="tx">${rich(s)}</span></label>${pr ? `<div class="acts"><button class="btn small" type="button" data-ask="${i}">${a.url ? `Abrir en ${a.name}` : 'Copiar y abrir mi asistente'}</button><button class="btn small ghost" type="button" data-copy="${i}">Copiar la frase</button></div>` : ''}</li>`; }).join('');
+  $('fExP').textContent = `«${x.ejemplo[0]}»`; $('fExW').textContent = x.ejemplo[1]; $('fEx').open = false;
+  $('fAiText').value = p.ai || ''; $('fAiSaved').textContent = p.ai ? 'Guardado' : '';
+  $('fSettleQ').innerHTML = rich(l.settle);
+  $('fNotes').value = p.notes || ''; $('fSaved').textContent = p.notes ? 'Guardado' : '';
+  renderQuiz();
+  $('fPrev').disabled = n===1; $('fNext').disabled = n===20;
+  $('tPip').classList.toggle('hidden', !('documentPictureInPicture' in window));
+  show('ficha');
+  history.replaceState(null,'',`#ficha-${n}`);
+  if (run && run.ficha === n) startTick();
+  drawTimer();
 }
-let notesT;
-$('fNotes').addEventListener('input', () => {
-  $('fSaved').textContent = 'Guardando…'; clearTimeout(notesT);
-  const f = current, v = $('fNotes').value.slice(0,5000);
-  notesT = setTimeout(async () => {
-    (progress[f] || (progress[f] = {ficha:f, seconds:0, done_at:null})).notes = v;
-    try { await saveNote(f, v); $('fSaved').textContent = 'Guardado'; setSync(true); }
-    catch(e){ $('fSaved').textContent = 'No se ha podido guardar: ' + errText(e); setSync(false); }
-  }, 900);
+function renderQuiz(){
+  const l = L(current), q = P(current).quiz;
+  $('fQuiz').innerHTML = l.extra.quiz.map((it, qi) => {
+    const ans = q?.answers?.[qi];
+    return `<fieldset data-q="${qi}"><legend>${qi+1}. ${esc(it[0])}</legend>${it[1].map((o,oi) => `<label><input type="radio" name="q${qi}" value="${oi}" ${ans===oi?'checked':''} ${ans!=null?'disabled':''}> <span>${esc(o)}</span></label>`).join('')}
+      <div class="fb" id="fb${qi}">${ans!=null ? (ans===it[2] ? `<span class="okmsg">✓ Correcto.</span> ${esc(it[3])}` : `<span style="color:#B42318;font-weight:600">✗ No es esa.</span> La buena es «${esc(it[1][it[2]])}». ${esc(it[3])}`) : ''}</div></fieldset>`; }).join('');
+}
+$('fQuiz').addEventListener('change', async e => {
+  const fs = e.target.closest('fieldset'); if (!fs) return;
+  const qi = +fs.dataset.q, oi = +e.target.value, l = L(current), p = P(current);
+  p.quiz = p.quiz || { answers:[null,null], score:0 };
+  p.quiz.answers[qi] = oi;
+  p.quiz.score = l.extra.quiz.reduce((a,it,i) => a + (p.quiz.answers[i] === it[2] ? 1 : 0), 0);
+  renderQuiz(); drawReq();
+  try { await updateDoc(uref, { [`fichas.f${current}.quiz`]: p.quiz }); setSync(true); } catch { setSync(false); }
 });
-$('fSteps').addEventListener('change', () => {
-  const boxes = [...$('fSteps').querySelectorAll('input')].map(b=>b.checked);
-  localStorage.setItem(stepsKey(current), JSON.stringify(boxes));
+function requirements(n=current){
+  const p = P(n), s = fichaSec(n);
+  return [
+    { ok: s >= minSeconds(), t: `Al menos ${Math.round(minSeconds()/60)} min de práctica (llevas ${Math.floor(s/60)})` },
+    { ok: (p.notes || '').trim().length >= 15, t: 'Tu nota en «Para asentar»' },
+    { ok: p.quiz?.answers?.every(a => a != null) || false, t: 'Las 2 preguntas de comprobación' },
+  ];
+}
+function drawReq(){
+  if (view !== 'ficha') return;
+  const done = P(current).done_at;
+  $('fReq').innerHTML = done ? `<li class="ok"><span class="m">✓</span> Ficha terminada el ${new Date(done).toLocaleDateString('es-ES')}${P(current).forced ? ' (sin completar todos los pasos)' : ''}</li>` :
+    '<li style="font-weight:700">Para terminar la ficha:</li>' + requirements().map(r => `<li class="${r.ok?'ok':''}"><span class="m">${r.ok?'✓':''}</span>${esc(r.t)}</li>`).join('');
+  $('fDone').textContent = done ? 'Volver a abrirla' : 'Terminar la ficha';
+  $('fDone').classList.toggle('ghost', !!done);
+}
+async function setDone(d, forced=false){
+  const f = current, p = P(f);
+  if (d) commit();
+  p.done_at = d ? new Date().toISOString() : null; p.forced = d && forced;
+  drawReq();
+  try {
+    await updateDoc(uref, { [`fichas.f${f}.doneAt`]: d ? p.done_at : deleteField(), [`fichas.f${f}.forced`]: d && forced ? true : deleteField(), lastSeen: serverTimestamp() });
+    setSync(true);
+  } catch(e){ setSync(false); toast('No se ha podido guardar: '+errText(e)); return; }
+  if (!d) return;
+  stopRun();
+  const s = stats(), weekDone = COURSE.lessons.filter(l => l.w === L(f).w).every(l => progress[l.n]?.done_at);
+  const extra = weekDone ? `<p><b>¡Semana ${L(f).w} completada!</b> ${f===20?'Y con ella, el curso entero.':''}</p>` : '';
+  dialog(f===20 && s.done===20 ? '¡Curso terminado!' : pick(['¡Ficha terminada!','¡Bien hecho!','Una más']), `<p>Ficha ${f}: <b>${Math.floor(p.seconds/60)} min</b> de práctica${p.quiz?`, ${p.quiz.score} de 2 en la comprobación`:''}, nota guardada.</p>${extra}
+    <p>Llevas <b>${s.done} de 20</b> fichas${s.streak>1?` y <b>${s.streak} días seguidos</b>`:''}.</p>${s.next ? `<p>Mañana: <b>Ficha ${s.next.n} · ${esc(s.next.title)}</b>.</p>` : ''}${!prefs.reminder ? '<p style="color:var(--muted)">¿Quieres que tu calendario te lo recuerde cada día? Archivo › Recordatorio diario.</p>' : ''}`,
+    f===20 && s.done===20 ? [['Volver al panel', () => CMDS.panel()], ['Descargar mi diploma', () => diploma(), true]] :
+    [['Volver al panel', () => CMDS.panel()], ...(s.next ? [['Abrir la siguiente', () => openFicha(s.next.n), true]] : [])]);
+}
+$('fDone').onclick = () => {
+  if (P(current).done_at) return setDone(false);
+  const miss = requirements().filter(r => !r.ok);
+  if (!miss.length) return setDone(true);
+  dialog('Aún te falta algo', `<p>Para dar la ficha por terminada te falta:</p><ul>${miss.map(r=>`<li>${esc(r.t)}</li>`).join('')}</ul><p style="color:var(--muted)">Puedes terminarla igualmente; quedará anotado que no completaste todos los pasos.</p>`,
+    [['Terminarla igualmente', () => setDone(true, true)], ['Seguir con la ficha', null, true]]);
+};
+
+/* pasos, botones de la IA y notas */
+$('fSteps').addEventListener('change', e => {
+  if (!e.target.matches('input[data-step]')) return;
+  const arr = [...$('fSteps').querySelectorAll('input[data-step]')].map(b => b.checked);
+  steps[`f${current}`] = arr;
+  updateDoc(uref, { [`steps.f${current}`]: arr }).then(()=>setSync(true)).catch(()=>setSync(false));
 });
-$('tBtn').onclick = () => timer.running ? stopTimer(true) : startTimer();
+async function copy(t){ try { await navigator.clipboard.writeText(t); return true; } catch { return false; } }
+$('fSteps').addEventListener('click', async e => {
+  const ask = e.target.closest('[data-ask]'), cp = e.target.closest('[data-copy]');
+  if (!ask && !cp) return;
+  const i = +(ask || cp).dataset[ask ? 'ask' : 'copy'], text = prompts(L(current).steps[i])[0];
+  const ok = await copy(text);
+  if (cp) return toast(ok ? 'Frase copiada: pégala en tu asistente y cambia lo que va entre corchetes.' : 'No se ha podido copiar.');
+  const a = ASSISTANTS[prefs.assistant || 'claude'];
+  startRun();
+  if (!a.url){ return toast(ok ? 'Frase copiada. Abre tu asistente y pégala. El reloj sigue en marcha.' : 'Copia la frase y pégala en tu asistente.'); }
+  const url = a.q ? `${a.url}?${a.q}=${encodeURIComponent(text)}` : a.url;
+  window.open(url, '_blank', 'noopener');
+  toast(`${a.name} abierto${a.q ? ' con la frase escrita' : ''}. ${ok ? 'También está copiada por si hace falta pegarla.' : ''} El reloj sigue contando.`, 6000);
+});
+function autosave(el, savedEl, field){
+  let t;
+  el.addEventListener('input', () => {
+    savedEl.textContent = 'Guardando…'; clearTimeout(t);
+    const f = current, v = el.value.slice(0, field === 'text' ? 5000 : 10000);
+    if (field === 'text') P(f).notes = v; else P(f).ai = v;
+    drawReq();
+    t = setTimeout(async () => {
+      try { await setDoc(doc(uref, 'notes', `f${f}`), { text: P(f).notes || '', aiAnswer: P(f).ai || '', updatedAt: serverTimestamp() }); savedEl.textContent = 'Guardado'; setSync(true); }
+      catch(e){ savedEl.textContent = 'No se ha podido guardar: ' + errText(e); setSync(false); }
+    }, 900);
+  });
+}
+autosave($('fNotes'), $('fSaved'), 'text');
+autosave($('fAiText'), $('fAiSaved'), 'ai');
+const toggleRun = () => run && run.ficha === current ? (stopRun(), toast('Reloj en pausa.')) : (startRun(), toast('Reloj en marcha. Sigue contando aunque cambies de pestaña o de app.'));
+$('tBtn').onclick = toggleRun; $('mBtn').onclick = toggleRun;
+$('tPip').onclick = openPip;
 $('fPrev').onclick = () => current>1 && openFicha(current-1);
 $('fNext').onclick = () => current<20 && openFicha(current+1);
-$('fDone').onclick = async () => {
-  const f = current, p = progress[f] || (progress[f] = {seconds:0, notes:''});
-  const d = !p.done_at; p.done_at = d ? new Date().toISOString() : null; updateDoneBtn();
-  try {
-    await updateDoc(uref, { [`fichas.f${f}.doneAt`]: d ? p.done_at : deleteField(), lastSeen: serverTimestamp() });
-    setSync(true); if (d) toast(f===20 ? '¡Curso completado!' : 'Ficha hecha. ¡Hasta mañana!');
-  } catch(e){ setSync(false); toast('No se ha podido guardar: '+errText(e)); }
-};
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden){ if (timer.running && settings.pauseHidden){ stopTimer(true); timer._autopaused = true; } else flush(); }
-  else if (timer._autopaused){ timer._autopaused = false; if (view==='ficha') toast('El temporizador se pausó al cambiar de pestaña. Pulsa «Seguir».'); }
-});
-window.addEventListener('pagehide', () => flush());
+
+/* ---------- cuaderno ---------- */
+function renderCuaderno(){
+  const items = COURSE.lessons.filter(l => { const p = progress[l.n]; return p && (p.notes || p.ai || p.done_at || p.quiz); });
+  $('nbList').innerHTML = items.length ? items.map(l => { const p = progress[l.n], w = W(l.w);
+    return `<article class="nb-item" style="border-left-color:${w.color}"><div class="eyebrow">Ficha ${l.n} · ${p.done_at ? 'terminada' : 'en curso'} · ${fmtMin(p.seconds||0)}${p.quiz ? ` · comprobación ${p.quiz.score}/2` : ''}</div><h3>${esc(l.title)}</h3>
+      ${p.notes ? `<p><b>${esc(l.settle.replace(/«|»/g,''))}</b><br>${esc(p.notes)}</p>` : ''}${p.ai ? `<p><b>Lo que me respondió la IA:</b><br>${esc(p.ai)}</p>` : ''}
+      <button class="btn small ghost" type="button" data-open="${l.n}">Abrir la ficha</button></article>`; }).join('')
+    : '<p>Todavía no hay nada en tu cuaderno. Las notas y respuestas que escribas en cada ficha aparecerán aquí.</p>';
+  history.replaceState(null,'','#cuaderno');
+  show('cuaderno');
+}
+
+/* ---------- recordatorio en el calendario (.ics) ---------- */
+function reminderDialog(){
+  dialog('Recordatorio diario', `<p>Descarga un aviso para tu calendario (Google, Outlook o el del móvil). Se repite de lunes a viernes durante 4 semanas.</p>
+    <div class="opt"><label for="remT">Hora de la sesión</label><input type="time" id="remT" value="${prefs.reminder || '19:00'}"></div>
+    <p style="color:var(--muted);font-size:14px;margin-top:10px">Al abrir el archivo, tu calendario te preguntará si quieres añadir el evento.</p>`,
+    [['Ahora no'], ['Descargar el aviso', () => { const t = $('remT').value || '19:00'; downloadIcs(t); savePrefs({ reminder: t }).catch(()=>{}); }, true]]);
+}
+function downloadIcs(time){
+  const [hh, mm] = time.split(':').map(Number), d = new Date(); d.setDate(d.getDate()+1);
+  while (d.getDay()===0 || d.getDay()===6) d.setDate(d.getDate()+1);
+  const p2 = x => String(x).padStart(2,'0'), ymd = `${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}`;
+  const end = new Date(d); end.setHours(hh, mm + 20);
+  const url = location.origin + location.pathname;
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MBAI Native//Curso IA//ES','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+    `UID:curso-ia-${user.uid}-${Date.now()}@mbainative.com`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').slice(0,15)}Z`,
+    `DTSTART:${ymd}T${p2(hh)}${p2(mm)}00`, `DTEND:${ymd}T${p2(end.getHours())}${p2(end.getMinutes())}00`,
+    'RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;COUNT=20', 'SUMMARY:Aprende IA · sesión de 20 minutos',
+    `DESCRIPTION:Tu ficha del día te espera en ${url}`, `URL:${url}`,
+    'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Sesión de IA en 5 minutos','TRIGGER:-PT5M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'})); a.download = 'recordatorio-curso-ia.ics'; a.click();
+  toast('Aviso descargado: ábrelo para añadirlo a tu calendario.');
+}
+
+/* ---------- diploma ---------- */
+function diploma(){
+  const s = stats(); if (s.done < 20) return toast('El diploma se desbloquea al terminar las 20 fichas.');
+  const w = window.open('', '_blank'); if (!w) return toast('Permite las ventanas emergentes para ver el diploma.');
+  w.document.write(`<!doctype html><html lang="es"><meta charset="utf-8"><title>Diploma · ${esc(user.name)}</title><style>
+    @page{size:A4 landscape;margin:0} body{margin:0;font-family:Georgia,serif;color:#1E2430;background:#FBF8F1}
+    .d{box-sizing:border-box;width:297mm;height:210mm;padding:22mm;border:10mm solid;border-image:linear-gradient(90deg,#2B59A6,#1D7466,#A84C17,#5A409C) 1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:8mm}
+    h1{font-size:40pt;margin:0} .n{font-size:30pt;font-style:italic} p{font-size:14pt;margin:0}</style>
+    <div class="d"><p>MBAI Native certifica que</p><div class="n">${esc(user.name)}</div><p>ha completado el curso</p><h1>Aprende IA en sesiones de 20 minutos</h1>
+    <p>20 fichas · ${fmtMin(s.total)} de práctica · ${new Date().toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'})}</p></div>
+    <script>setTimeout(()=>print(),400)<\/script>`);
+  w.document.close();
+}
+
+/* ---------- bienvenida (primer uso) ---------- */
+function welcome(){
+  const opts = Object.entries(ASSISTANTS).map(([k,a]) => `<label><input type="radio" name="wAs" value="${k}" ${k==='claude'?'checked':''}> ${k==='otro'?'Otro':a.name}</label>`).join('');
+  dialog(`Bienvenido, ${esc(user.name.split(' ')[0])}`, `<p>Así funciona cada sesión de 20 minutos:</p>
+    <ol><li><b>Lee la idea</b> (4 min).</li><li><b>Haz el ejercicio con tu asistente de IA</b> (14 min). Los botones de cada paso lo abren con la frase escrita, y el reloj sigue contando mientras trabajas allí.</li><li><b>Escribe tu nota y responde 2 preguntas</b> (2 min).</li></ol>
+    <p><b>¿Qué asistente vas a usar?</b> Sirve la versión gratuita de cualquiera.</p><div class="choices">${opts}</div>
+    <p style="color:var(--muted);font-size:14px">Antes de la ficha 1, comprueba que puedes entrar en tu asistente con tu cuenta. Puedes cambiarlo luego en Ajustes.</p>`,
+    [['Empezar', async () => { const v = document.querySelector('input[name=wAs]:checked')?.value || 'claude';
+      try { await savePrefs({ assistant: v, onboarded: true }); } catch { toast('No se han podido guardar tus preferencias.'); }
+      if (view === 'ficha') openFicha(current);
+      setTimeout(reminderDialog, 300); }, true]], true);
+}
 
 /* ---------- acceso ---------- */
-const needConsent = () => { if (!$('lfConsent').checked){ $('lfErr').textContent = 'Marca la casilla para poder guardar tu progreso.'; return false; } return true; };
 $('lfGoogle').onclick = async () => {
-  $('lfErr').textContent = ''; if (!needConsent()) return;
+  $('lfErr').textContent = '';
   try { const p = new GoogleAuthProvider(); p.setCustomParameters({ prompt:'select_account' }); await signInWithPopup(auth, p); }
   catch(e){ $('lfErr').textContent = errText(e); }
 };
+let confirmMode = false;
 $('loginForm').addEventListener('submit', async e => {
   e.preventDefault(); $('lfErr').textContent = '';
   const name = $('lfName').value.trim(), email = $('lfEmail').value.trim();
@@ -606,93 +929,113 @@ $('loginForm').addEventListener('submit', async e => {
     return;
   }
   if (name.length < 2) return $('lfErr').textContent = 'Escribe tu nombre.';
-  if (!needConsent()) return;
   $('lfBtn').disabled = true;
   try {
     await sendSignInLinkToEmail(auth, email, { url: location.origin + location.pathname, handleCodeInApp: true });
     localStorage.setItem(LS.email, email); localStorage.setItem(LS.name, name);
-    $('lfErr').innerHTML = `<span class="ok">Te hemos enviado un enlace a ${esc(email)}. Ábrelo desde este mismo dispositivo para entrar.</span>`;
+    $('lfErr').innerHTML = `<span class="okmsg">Te hemos enviado un enlace a ${esc(email)}. Ábrelo desde este mismo dispositivo (mira también en spam).</span>`;
   } catch(err){ $('lfErr').textContent = errText(err); }
   $('lfBtn').disabled = false;
 });
-let confirmMode = false;
-function logoutLocal(){ stopTimer(false); user=null; uref=null; progress={}; daily={}; if (!confirmMode) history.replaceState(null,'',location.pathname); renderLogin(confirmMode ? 'confirmEmail' : undefined); }
+function logoutLocal(){ if (run) commit(); run = null; stopTick(); if (pip) pip.close(); user=null; uref=null; progress={}; daily={}; steps={}; prefs={};
+  if (!confirmMode) history.replaceState(null,'',location.pathname); renderLogin(confirmMode ? 'confirmEmail' : undefined); }
 
 /* ---------- diálogos ---------- */
-function dialog(title, html, actions=[['Cerrar',null,true]]){
+function dialog(title, html, actions=[['Cerrar',null,true]], modal=false){
   $('dlgT').textContent = title; $('dlgB').innerHTML = html; $('dlgA').innerHTML = '';
-  actions.forEach(([t,fn,primary]) => { const b=document.createElement('button'); b.type='button'; b.className='btn'+(primary?'':' ghost'); b.textContent=t; b.onclick=async()=>{ if(fn && (await fn())===false) return; $('dlg').close(); }; $('dlgA').appendChild(b); });
+  actions.forEach(([t,fn,primary]) => { const b=document.createElement('button'); b.type='button'; b.className='btn'+(primary?'':' ghost'); b.textContent=t;
+    b.onclick=async()=>{ if(fn && (await fn())===false) return; $('dlg').close(); }; $('dlgA').appendChild(b); });
+  $('dlg').oncancel = modal ? (e => e.preventDefault()) : null;
   $('dlg').showModal();
 }
 const HELP = {
-  como: ['Cómo funciona el curso', `<p>Son <b>20 fichas</b> en <b>4 semanas</b>, una al día de lunes a viernes. Cada sesión dura unos 20 minutos:</p><p><b>4 min</b> para leer la idea · <b>14 min</b> de ejercicio con la IA delante · <b>2 min</b> para escribir tu nota en «Para asentar».</p><p>Pulsa <b>Empezar sesión</b> al abrir una ficha: el tiempo se guarda solo. Al terminar, márcala como hecha. Las frases «entre comillas» son ejemplos de lo que escribir a la IA; adáptalas a tu vida.</p>`],
-  asistente: ['Qué asistente de IA usar', `<p>Sirve cualquiera de estos, en su versión gratuita: <b>Claude</b> (claude.ai), <b>ChatGPT</b> (chatgpt.com) o <b>Gemini</b> (gemini.google.com).</p><p>Ábrelo en otra pestaña o en el móvil y usa siempre el mismo durante el curso. Con <b>Edición › Copiar el ejercicio</b> puedes pegar los pasos de la ficha directamente en la IA.</p>`],
-  privacidad: ['Tus datos y privacidad', `<p>Para seguir tu progreso se guardan tu <b>nombre</b>, tu <b>email</b>, el <b>tiempo</b> de cada ficha, las fichas <b>hechas</b> y tus <b>notas</b>, en servidores de Google Firebase en Europa.</p><p>El responsable del curso ve tu nombre, email y avance, pero <b>no tus notas</b>: esas solo las ves tú. No se usan para nada más ni se comparten.</p><p>Puedes descargar tus notas (Archivo) o borrar tu cuenta y todos tus datos (Ajustes) cuando quieras.</p>`],
-  acerca: ['Acerca de', `<p><b>Aprende IA en sesiones de 20 minutos</b><br>Curso práctico de 20 fichas con seguimiento de progreso.</p><p style="color:var(--muted)">mbainative.com · versión 1.1</p>`]
+  como: ['Cómo funciona el curso', `<p>Son <b>20 fichas</b> en <b>4 semanas</b>, una al día de lunes a viernes. Cada sesión dura unos 20 minutos: <b>idea</b> (4 min), <b>ejercicio con la IA</b> (14 min) y <b>nota y comprobación</b> (2 min).</p>
+    <p>Pulsa <b>Empezar sesión</b> o cualquier botón «Abrir en…»: el reloj sigue contando aunque cambies de pestaña o de app. Si estás fuera más de 30 minutos, al volver te preguntará cuánto tiempo practicaste.</p>
+    <p>En Chrome y Edge de ordenador puedes abrir un <b>reloj flotante</b> que se queda encima de la ventana de la IA.</p>
+    <p>Para terminar una ficha necesitas la mitad del tiempo de la sesión, tu nota y las 2 preguntas. Un <b>día activo</b> es un día con 10 minutos de práctica o una ficha terminada.</p>`],
+  asistente: ['Qué asistente de IA usar', `<p>Sirve la versión gratuita de <b>Claude</b> (claude.ai), <b>ChatGPT</b> (chatgpt.com) o <b>Gemini</b> (gemini.google.com). Usa siempre el mismo durante el curso; puedes cambiarlo en Ajustes › Preferencias.</p>
+    <p>Los botones «Abrir en…» abren tu asistente con la frase del paso ya escrita (Claude y ChatGPT) o copiada para pegarla (Gemini y otros). Cambia lo que va entre corchetes por tus datos.</p>`],
+  privacidad: ['Privacidad', `<p>MBAI Native guarda tu nombre, tu email, tu tiempo, tus fichas y tus respuestas para que puedas seguir el curso, en servidores de Google Firebase en la Unión Europea. Tus notas y lo que pegues de la IA solo los ves tú.</p>
+    <p>Puedes descargar tu cuaderno o borrar tu cuenta y todos tus datos desde los menús. <a href="privacidad.html" target="_blank" rel="noopener">Información completa de privacidad</a>.</p>`],
+  acerca: ['Acerca de', `<p><b>Aprende IA en sesiones de 20 minutos</b><br>Curso práctico y gratuito de MBAI Native.</p><p style="color:var(--muted)">Versión ${VERSION} · <a href="https://mbainative.com" target="_blank" rel="noopener">mbainative.com</a></p>`]
 };
 const CMDS = {
-  panel: () => { if (!user) return; stopTimer(true); history.replaceState(null,'',location.pathname); renderPanel(); },
+  panel: () => { if (!user) return; if (run && !pip) stopRun(); renderPanel(); },
   indice: () => { CMDS.panel(); setTimeout(()=>$('pWeeks').scrollIntoView({behavior:'smooth'}),50); },
-  continuar: () => { if (!user) return; const n = stats().next; n ? openFicha(n.n) : renderPanel(); },
+  cuaderno: () => { if (!user) return; if (run && !pip) stopRun(); renderCuaderno(); },
+  recordatorio: () => user && reminderDialog(),
+  diploma: () => diploma(),
   imprimir: () => window.print(),
+  imprimirCuaderno: () => window.print(),
   exportar: () => {
-    let t = `Mis notas · Aprende IA en sesiones de 20 minutos\n${user.name} <${user.email}>\n${new Date().toLocaleDateString('es-ES')}\n\n`;
-    COURSE.lessons.forEach(l => { const p=progress[l.n]; if (p?.notes) t += `Ficha ${l.n} · ${l.title}\n${l.settle}\n${p.notes}\n\n`; });
-    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'})); a.download = 'mis-notas-curso-ia.txt'; a.click();
+    let t = `Mi cuaderno · Aprende IA en sesiones de 20 minutos\n${user.name} <${user.email}>\n${new Date().toLocaleDateString('es-ES')}\n\n`;
+    COURSE.lessons.forEach(l => { const p=progress[l.n]; if (p && (p.notes || p.ai)) t += `Ficha ${l.n} · ${l.title}\n${p.notes ? `${l.settle}\n${p.notes}\n` : ''}${p.ai ? `Lo que me respondió la IA:\n${p.ai}\n` : ''}\n`; });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'})); a.download = 'mi-cuaderno-curso-ia.txt'; a.click();
   },
-  salir: async () => { await flush(); await signOut(auth); },
-  copiarEjercicio: async () => { const l=COURSE.lessons[current-1]; const t=`Ficha ${l.n}: ${l.title}\n\n`+l.steps.map((s,i)=>`${i+1}. ${s}`).join('\n'); try{ await navigator.clipboard.writeText(t); toast('Ejercicio copiado: pégalo en tu asistente de IA'); }catch{ toast('No se ha podido copiar'); } },
-  borrarNotas: () => dialog('¿Borrar tus notas de esta ficha?', '<p>Se borrará lo que escribiste en «Para asentar».</p>', [['Cancelar'],['Borrar', async()=>{ $('fNotes').value=''; $('fNotes').dispatchEvent(new Event('input')); }, true]]),
-  desmarcarPasos: () => { localStorage.removeItem(stepsKey(current)); $('fSteps').querySelectorAll('input').forEach(b=>b.checked=false); },
-  renombrar: () => dialog('Cambiar mi nombre', `<label class="f">Nombre<input id="rnName" maxlength="60" value="${esc(user.name)}"></label>`, [['Cancelar'],['Guardar', async()=>{ const n=$('rnName').value.trim(); if (n.length<2){ toast('Escribe tu nombre'); return false; } try{ await updateDoc(uref,{name:n}); user.name=n; show(view); if(view==='panel') renderPanel(); toast('Nombre cambiado'); }catch(e){ toast(errText(e)); return false; } }, true]]),
-  ajustes: () => dialog('Preferencias de la sesión', `
-    <div class="opt"><span>Duración de cada sesión</span><select id="stDur">${[15,20,25,30].map(m=>`<option value="${m}" ${settings.duration===m?'selected':''}>${m} minutos</option>`).join('')}</select></div>
-    <div class="opt"><label for="stSnd">Sonido al terminar el tiempo</label><input type="checkbox" id="stSnd" ${settings.sound?'checked':''}></div>
-    <div class="opt"><label for="stHid">Pausar al cambiar de pestaña<br><small style="color:var(--muted)">Desactívalo si haces los ejercicios en otra pestaña del mismo navegador</small></label><input type="checkbox" id="stHid" ${settings.pauseHidden?'checked':''}></div>`,
-    [['Cancelar'],['Guardar', ()=>{ settings.duration=+$('stDur').value; settings.sound=$('stSnd').checked; settings.pauseHidden=$('stHid').checked; saveSettings(); if(view==='ficha') drawTimer(); toast('Preferencias guardadas'); }, true]]),
-  borrarCuenta: () => dialog('¿Borrar tu cuenta?', '<p>Se borrarán tu nombre, tu email, tu tiempo, tus fichas hechas y tus notas. No se puede deshacer.</p>', [['Cancelar'],['Borrar todo', async()=>{
-    try {
-      stopTimer(false);
-      const ns = await getDocs(collection(uref,'notes')); for (const n of ns.docs) await deleteDoc(n.ref);
-      await deleteDoc(uref);
-      try { await deleteUser(auth.currentUser); } catch { await signOut(auth); }
-      localStorage.removeItem(LS.pending); toast('Cuenta y datos borrados');
-    } catch(e){ toast(errText(e)); return false; } }, true]]),
+  salir: async () => { if (run) commit(); await sendQueue(); await signOut(auth); },
+  copiarEjercicio: async () => { const l=L(current); const t=`Ficha ${l.n}: ${l.title}\n\n`+l.steps.map((s,i)=>`${i+1}. ${s}`).join('\n'); toast(await copy(t) ? 'Ejercicio copiado: pégalo en tu asistente de IA' : 'No se ha podido copiar'); },
+  borrarNotas: () => dialog('¿Borrar tus notas de esta ficha?', '<p>Se borrará lo que escribiste en «Para asentar» y lo que pegaste de la IA.</p>', [['Cancelar'],['Borrar', async()=>{
+    for (const el of [$('fNotes'), $('fAiText')]) { el.value=''; el.dispatchEvent(new Event('input')); } }, true]]),
+  ajustes: () => dialog('Preferencias', `
+    <div class="opt"><label for="stAs">Mi asistente de IA</label><select id="stAs">${Object.entries(ASSISTANTS).map(([k,a])=>`<option value="${k}" ${ (prefs.assistant||'claude')===k?'selected':''}>${k==='otro'?'Otro':a.name}</option>`).join('')}</select></div>
+    <div class="opt"><label for="stDur">Duración de cada sesión</label><select id="stDur">${[15,20,25,30].map(m=>`<option value="${m}" ${duration()===m?'selected':''}>${m} minutos</option>`).join('')}</select></div>
+    <div class="opt"><label for="stNm">Mi nombre</label><input id="stNm" maxlength="60" value="${esc(user.name)}" style="height:40px;border-radius:10px;border:1px solid #CFC8BA;padding:0 10px"></div>
+    <div class="opt"><label for="stSnd">Sonido al cumplir el tiempo</label><input type="checkbox" id="stSnd" ${settings.sound?'checked':''}></div>`,
+    [['Cancelar'],['Guardar', async ()=>{
+      const n = $('stNm').value.trim(); if (n.length < 2){ toast('Escribe tu nombre'); return false; }
+      settings.sound = $('stSnd').checked; saveSettings();
+      try {
+        await savePrefs({ assistant: $('stAs').value, duration: +$('stDur').value });
+        if (n !== user.name){ await updateDoc(uref, { name: n }); user.name = n; }
+      } catch(e){ toast(errText(e)); return false; }
+      if (view==='ficha') openFicha(current); else if (view==='panel') renderPanel(); else show(view);
+      toast('Preferencias guardadas'); }, true]]),
+  borrarCuenta: () => dialog('¿Borrar tu cuenta?', '<p>Se borrarán tu nombre, tu email, tu tiempo, tus fichas, tus notas y tu acceso. No se puede deshacer.</p><p style="color:var(--muted)">Si quieres conservar tus notas, descarga antes tu cuaderno (Archivo › Mi cuaderno).</p>', [['Cancelar'],['Borrar todo', deleteAccount, true]]),
   anterior: () => current>1 && openFicha(current-1),
   siguiente: () => current<20 && openFicha(current+1),
+  flotante: () => openPip(),
   letraMas: () => { settings.scale = Math.min(1.4, +(settings.scale+0.1).toFixed(1)); saveSettings(); },
   letraMenos: () => { settings.scale = Math.max(0.8, +(settings.scale-0.1).toFixed(1)); saveSettings(); },
-  letraNormal: () => { settings.scale = 1; saveSettings(); },
 };
 ['como','asistente','privacidad','acerca'].forEach(k => CMDS[k] = () => dialog(...HELP[k]));
 
-/* ---------- menús ---------- */
+async function deleteAccount(){
+  const u = auth.currentUser; if (!u) return;
+  const google = u.providerData.some(p => p.providerId === 'google.com');
+  const recent = Date.now() - new Date(u.metadata.lastSignInTime).getTime() < 4*60*1000;
+  try {
+    if (google && !recent) await reauthenticateWithPopup(u, new GoogleAuthProvider());
+    else if (!google && !recent){ toast('Por seguridad, cierra sesión, vuelve a entrar con tu enlace y repite el borrado.', 7000); return; }
+    run = null; saveRun(); stopTick();
+    for (let i = 1; i <= 20; i++) await deleteDoc(doc(uref, 'notes', `f${i}`));
+    await deleteDoc(uref);
+    await deleteUser(u);
+    localStorage.removeItem(LS.pending);
+    toast('Tu cuenta y todos tus datos se han borrado.', 6000);
+  } catch(e){ toast(errText(e), 6000); return false; }
+}
+
+/* ---------- menús (escritorio y móvil) ---------- */
+$('mobDrop').innerHTML = [...document.querySelectorAll('#menus .drop')].map(d => d.innerHTML).join('<hr>');
+$('mobDrop').setAttribute('role','menu');
 const menus = [...document.querySelectorAll('.menu')];
 const closeMenus = () => menus.forEach(m => { m.classList.remove('open'); m.firstElementChild.setAttribute('aria-expanded','false'); });
 menus.forEach(m => {
   const b = m.firstElementChild;
-  b.addEventListener('click', () => { const o = m.classList.contains('open'); closeMenus(); if (!o){ m.classList.add('open'); b.setAttribute('aria-expanded','true'); m.querySelector('.drop button:not(:disabled)')?.focus(); } });
+  b.addEventListener('click', () => { const o = m.classList.contains('open'); closeMenus(); if (!o){ refreshMenus(); m.classList.add('open'); b.setAttribute('aria-expanded','true'); m.querySelector('.drop button:not(:disabled):not(.hidden)')?.focus(); } });
   b.addEventListener('mouseenter', () => { if (menus.some(x=>x.classList.contains('open')) && !m.classList.contains('open')){ closeMenus(); m.classList.add('open'); b.setAttribute('aria-expanded','true'); } });
   m.addEventListener('keydown', e => {
-    const items = [...m.querySelectorAll('.drop button:not(:disabled)')], i = items.indexOf(document.activeElement);
+    const items = [...m.querySelectorAll('.drop button:not(:disabled):not(.hidden)')], i = items.indexOf(document.activeElement);
     if (e.key==='ArrowDown'){ e.preventDefault(); items[(i+1)%items.length]?.focus(); }
     if (e.key==='ArrowUp'){ e.preventDefault(); items[(i-1+items.length)%items.length]?.focus(); }
-    if (e.key==='ArrowRight' || e.key==='ArrowLeft'){ e.preventDefault(); const j=(menus.indexOf(m)+(e.key==='ArrowRight'?1:-1)+menus.length)%menus.length; closeMenus(); menus[j].firstElementChild.click(); }
     if (e.key==='Escape'){ closeMenus(); b.focus(); }
   });
 });
 document.addEventListener('click', e => {
   const c = e.target.closest('[data-cmd]');
   if (c){ e.preventDefault(); if (c.disabled) return; closeMenus(); CMDS[c.dataset.cmd]?.(); return; }
-  const o = e.target.closest('[data-open]'); if (o){ openFicha(+o.dataset.open); return; }
+  const o = e.target.closest('[data-open]'); if (o){ closeMenus(); if ($('dlg').open) $('dlg').close(); openFicha(+o.dataset.open); return; }
   if (!e.target.closest('.menu')) closeMenus();
-});
-document.addEventListener('keydown', e => {
-  if (e.altKey && !e.ctrlKey && view==='ficha' && e.key==='ArrowLeft'){ e.preventDefault(); CMDS.anterior(); }
-  if (e.altKey && !e.ctrlKey && view==='ficha' && e.key==='ArrowRight'){ e.preventDefault(); CMDS.siguiente(); }
-  if (e.altKey && !e.ctrlKey && (e.key==='i'||e.key==='I')){ e.preventDefault(); CMDS.panel(); }
-  if (e.ctrlKey && e.altKey && (e.key==='+'||e.key==='=')){ e.preventDefault(); CMDS.letraMas(); }
-  if (e.ctrlKey && e.altKey && e.key==='-'){ e.preventDefault(); CMDS.letraMenos(); }
 });
 
 /* ---------- arranque ---------- */
@@ -708,7 +1051,7 @@ if (isSignInWithEmailLink(auth, location.href)){
 onAuthStateChanged(auth, async fbUser => {
   if (!fbUser){ logoutLocal(); return; }
   try { const name = localStorage.getItem(LS.name) || ''; await loadUser(fbUser, name); localStorage.removeItem(LS.name); }
-  catch(e){ toast('No se ha podido cargar tu progreso: ' + errText(e)); }
+  catch(e){ toast('No se ha podido cargar tu progreso: ' + errText(e), 6000); }
 });
 
 </script>

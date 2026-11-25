@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprende IA en sesiones de 20 minutos · MBAI Native</title>
+<meta name="description" content="Curso práctico y gratuito de IA de MBAI Native: 20 fichas de 20 minutos, una al día, con seguimiento de tu progreso.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url(fonts/source-sans-3-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-style:italic;font-display:swap;src:url(fonts/source-sans-3-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url(fonts/source-sans-3-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url(fonts/source-sans-3-latin-700-normal.woff2) format('woff2')}
+:root{
+  --ink:#1E2430; --paper:#FBF8F1; --muted:#5B6170; --line:#E4DED2; --card:#FFFFFF; --ok:#1D7466;
+  --head:'Bricolage Grotesque',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
+  --scale:1; --wc:#2B59A6; --wt:#EAF0FA;
+}
+*{box-sizing:border-box}
+html{font-size:calc(17px * var(--scale))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.5}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
+button,input,textarea,select{font:inherit;color:inherit}
+a{color:#2B59A6}
+.hidden{display:none !important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg.i{display:block;flex-shrink:0;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:3px solid #F2B84B;outline-offset:2px}
+
+/* ---------- barra de menús ---------- */
+.menubar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:2px;height:40px;padding:0 8px;background:#F3F1EB;border-bottom:1px solid #D9D3C6;font-size:14px;user-select:none}
+.brand{display:flex;align-items:center;gap:8px;padding:0 12px 0 4px;font-family:var(--head);font-weight:800;font-size:15px;white-space:nowrap}
+.brand .dot{width:18px;height:18px;border-radius:5px;background:conic-gradient(#2B59A6 0 25%,#1D7466 0 50%,#A84C17 0 75%,#5A409C 0)}
+.menus{display:flex;gap:2px}
+.menu{position:relative}
+.menu>button{background:none;border:0;padding:7px 10px;border-radius:4px;cursor:pointer;font-size:14px}
+.menu>button:hover,.menu.open>button{background:#E2DED4}
+.drop{position:absolute;top:36px;left:0;min-width:260px;background:#fff;border:1px solid #CFC8BA;border-radius:6px;box-shadow:0 8px 24px rgba(30,36,48,.16);padding:4px;display:none}
+.menu.open .drop{display:block}
+.drop button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:14px}
+.drop button:hover,.drop button:focus-visible{background:#EEF1F7;outline:none}
+.drop button:disabled{color:#8A8A92;cursor:default;background:none}
+.drop hr{border:0;border-top:1px solid var(--line);margin:4px 2px}
+.mobmenu{display:none}
+.who{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--muted);padding-right:6px;font-size:13px;white-space:nowrap;overflow:hidden}
+.sync{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#E3F1EC;color:var(--ok)}
+.sync.off{background:#FBE9DF;color:#9A3412}
+
+/* ---------- comunes ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:36px 28px 90px}
+.eyebrow{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;cursor:pointer;text-decoration:none;text-align:center}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.small{min-height:36px;padding:0 14px;font-size:14px;border-width:1.5px}
+.btn:disabled{opacity:.45;cursor:default}
+.pill{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:15px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:calc(100% - 32px)}
+.note{border-radius:14px;padding:12px 16px;font-size:15px;display:flex;gap:10px;align-items:flex-start}
+
+/* ---------- acceso ---------- */
+#login{min-height:calc(100vh - 40px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+#login .art{padding:48px;display:flex;flex-direction:column;gap:26px;justify-content:center}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tile{border-radius:22px;padding:22px;color:#fff;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+.tile small{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;opacity:.9}
+.tile b{font-family:var(--head);font-size:21px;line-height:1.15;display:block}
+#login .formside{background:#fff;border-left:1px solid var(--line);padding:48px;display:flex;align-items:center}
+#login form{width:100%;max-width:430px;display:flex;flex-direction:column;gap:14px}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600}
+label.f input,label.f select,textarea.f{border:2px solid #CFC8BA;border-radius:12px;padding:0 14px;background:#fff}
+label.f input,label.f select{height:50px}
+label.f input:focus,textarea.f:focus{border-color:#2B59A6;outline:none}
+.err{color:#B42318;font-weight:600;min-height:1.4em}
+.okmsg{color:var(--ok);font-weight:600}
+.btn.google{background:#fff;color:var(--ink);border-color:#CFC8BA;gap:12px}
+.btn.google:hover{border-color:var(--ink)}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+.or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
+.legal{font-size:14px;color:var(--muted);margin:0}
+
+/* ---------- panel ---------- */
+.hello{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.hello h1{font-size:44px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.stat .v{font-family:var(--head);font-weight:800;font-size:34px;line-height:1.1}
+.stat .l{color:var(--muted);font-size:14px}
+.bar{height:8px;border-radius:4px;background:#ECE7DC;overflow:hidden;margin-top:10px}
+.bar>i{display:block;height:100%;background:var(--ink)}
+.continue{display:flex;align-items:center;gap:24px;border-radius:24px;padding:26px 30px;color:#fff;margin-bottom:30px;flex-wrap:wrap}
+.continue .n{font-family:var(--head);font-weight:800;font-size:72px;line-height:.9}
+.continue h2{font-size:28px}
+.continue .btn{background:#fff;color:var(--ink);border-color:#fff;margin-left:auto}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;align-items:start}
+.week{margin-bottom:22px}
+.week-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.week-h .sq{width:38px;height:38px;border-radius:10px;color:#fff;display:flex;align-items:center;justify-content:center}
+.week-h h3{font-size:21px}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.card{position:relative;text-align:left;border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 12px 14px;cursor:pointer;min-height:118px;display:flex;flex-direction:column;gap:6px}
+.card:hover{border-color:#B9B1A1}
+.card .num{font-family:var(--head);font-weight:800;font-size:24px;line-height:1}
+.card .tt{font-size:14px;line-height:1.3;font-weight:600}
+.card .st{margin-top:auto;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.card.done{color:#fff;border-color:transparent}
+.card.done .st{color:#fff}
+.card .ok{position:absolute;top:10px;right:10px}
+aside .box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+aside h3{font-size:19px;margin-bottom:10px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.cal .d{aspect-ratio:1;border-radius:5px;background:#EFEAE0}
+.cal .d.on{background:#2B59A6}
+.cal .d.part{background:#B7CCEA}
+.cal .d.today{outline:2px solid var(--ink);outline-offset:1px}
+.cal .dn{font-size:11px;color:var(--muted);text-align:center}
+.legend{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:10px;flex-wrap:wrap}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dots{display:flex;gap:8px;margin:6px 0 4px}
+.dots i{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)}
+.dots i.on{background:var(--ink)}
+
+/* ---------- ficha ---------- */
+.band{color:#fff;position:relative;overflow:hidden;background:var(--wc)}
+.band .in{max-width:1120px;margin:0 auto;padding:30px 28px;position:relative}
+.band .deco{position:absolute;right:-40px;top:-30px;opacity:.16}
+.band .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.band .tl{display:flex;align-items:flex-end;gap:22px;margin-top:14px}
+.band .big{font-family:var(--head);font-weight:800;font-size:110px;line-height:.85;letter-spacing:-.03em}
+.band h1{font-size:40px;max-width:640px}
+.fbody{max-width:1120px;margin:0 auto;padding:28px 28px 80px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
+.sec{margin-bottom:28px}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--wc)}
+.sec-h b{font-family:var(--head);font-weight:800;font-size:23px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.step label{display:flex;gap:14px;align-items:flex-start;cursor:pointer}
+.step input{position:absolute;opacity:0;pointer-events:none}
+.step .nb{flex-shrink:0;width:30px;height:30px;border-radius:50%;color:#fff;background:var(--wc);font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step input:checked + .nb{background:#2E9D5B}
+.step input:checked ~ .tx{color:var(--muted);text-decoration:line-through;text-decoration-color:#9AA}
+.step input:focus-visible + .nb{outline:3px solid #F2B84B;outline-offset:2px}
+.step .acts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0 44px}
+em.p{font-style:italic;color:#2A2F3A}
+details.ex{background:#fff;border:1px dashed #B9B1A1;border-radius:14px;padding:12px 16px;margin-top:12px}
+details.ex summary{cursor:pointer;font-weight:700}
+.tint{background:var(--wt);border-radius:20px;padding:20px 22px}
+textarea.f{width:100%;min-height:120px;margin-top:10px;padding:12px;resize:vertical;line-height:1.5;background:rgba(255,255,255,.85)}
+.saved{font-size:13px;color:var(--muted);margin-top:6px;min-height:1.3em}
+.quiz fieldset{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}
+.quiz legend{font-weight:700;padding:0 4px}
+.quiz label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.quiz input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.quiz .fb{font-size:15px;margin-top:4px}
+.req{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.req li{display:flex;gap:8px;align-items:center}
+.req li .m{width:22px;height:22px;border-radius:50%;border:2px solid #B9B1A1;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.req li.ok .m{background:var(--ok);border-color:var(--ok);color:#fff}
+.timer{position:sticky;top:58px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.ring{position:relative;width:200px;height:200px;margin:0 auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .tx{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.ring .tx b{font-family:var(--head);font-weight:800;font-size:44px;font-variant-numeric:tabular-nums}
+.ring .tx span{font-size:14px;color:var(--muted)}
+.ring .tx .ph{font-weight:700;color:var(--ink)}
+.tline{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:10px;flex-wrap:wrap}
+.minibar{display:none}
+
+/* ---------- cuaderno ---------- */
+.nb-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:14px;border-left-width:6px}
+.nb-item h3{font-size:20px;margin-bottom:6px}
+.nb-item p{margin:6px 0;white-space:pre-wrap}
+
+dialog{border:0;border-radius:20px;padding:0;max-width:580px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(30,36,48,.45)}
+dialog .dc{padding:28px;max-height:85vh;overflow:auto}
+dialog h2{font-size:28px;margin-bottom:12px}
+dialog .act{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
+dialog p{margin:0 0 10px}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:16px}
+.opt select,.opt input[type=time],.opt input[type=number]{height:40px;border-radius:10px;border:1px solid #CFC8BA;padding:0 10px;background:#fff}
+.opt input[type=checkbox]{width:22px;height:22px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.choices label{border:2px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600}
+.choices input{width:20px;height:20px}
+.choices label:has(input:checked){border-color:var(--ink)}
+
+@media (max-width:900px){
+  #login{grid-template-columns:1fr}
+  #login .formside{border-left:0;border-bottom:1px solid var(--line);order:-1}
+  #login .art,#login .formside{padding:28px 20px}
+  #login .art h1{font-size:36px !important}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols,.fbody{grid-template-columns:1fr}
+  .grid5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timer{display:none}
+  .minibar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 14px;gap:12px;align-items:center;box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  .minibar b{font-family:var(--head);font-size:26px;font-variant-numeric:tabular-nums}
+  .minibar .mi{flex:1;font-size:13px;color:var(--muted);line-height:1.3}
+  .fbody{padding-bottom:110px}
+  .band .big{font-size:76px} .band h1{font-size:30px}
+  .hello h1{font-size:34px}
+  .menus,.who .em{display:none}
+  .mobmenu{display:block}
+  .brand{font-size:0;padding-right:2px}
+  .step .acts{margin-left:0}
+  .choices{grid-template-columns:1fr}
+}
+@media print{
+  .menubar,.timer,.minibar,.nav,.step .acts,.toast,.quiz,#fAi{display:none !important}
+  .fbody{display:block;padding:20px 0}
+  body{background:#fff}
+  .band{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<nav class="menubar" aria-label="Menú principal">
+  <div class="brand"><span class="dot" aria-hidden="true"></span>Aprende IA</div>
+  <div class="menus" role="menubar" id="menus">
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Archivo</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="panel" data-need="auth">Panel de inicio</button>
+        <button type="button" role="menuitem" data-cmd="cuaderno" data-need="auth">Mi cuaderno</button>
+        <button type="button" role="menuitem" data-cmd="recordatorio" data-need="auth">Recordatorio diario en mi calendario…</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="imprimir" data-need="ficha">Imprimir esta ficha</button>
+        <button type="button" role="menuitem" data-cmd="salir" data-need="auth">Cerrar sesión</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Edición</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="copiarEjercicio" data-need="ficha">Copiar el ejercicio de esta ficha</button>
+        <button type="button" role="menuitem" data-cmd="borrarNotas" data-need="ficha">Borrar mis notas de esta ficha</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Ajustes</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="ajustes" data-need="auth">Preferencias…</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="borrarCuenta" data-need="auth">Borrar mi cuenta y mis datos…</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Vista</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="indice" data-need="auth">Índice de fichas</button>
+        <button type="button" role="menuitem" data-cmd="anterior" data-need="ficha">Ficha anterior</button>
+        <button type="button" role="menuitem" data-cmd="siguiente" data-need="ficha">Ficha siguiente</button>
+        <button type="button" role="menuitem" data-cmd="flotante" data-need="ficha" data-pip>Reloj flotante</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="letraMas">Letra más grande</button>
+        <button type="button" role="menuitem" data-cmd="letraMenos">Letra más pequeña</button>
+      </div></div>
+    <div class="menu"><button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Ayuda</button>
+      <div class="drop" role="menu">
+        <button type="button" role="menuitem" data-cmd="como">Cómo funciona el curso</button>
+        <button type="button" role="menuitem" data-cmd="asistente">Qué asistente de IA usar</button>
+        <button type="button" role="menuitem" data-cmd="privacidad">Privacidad</button>
+        <hr>
+        <button type="button" role="menuitem" data-cmd="acerca">Acerca de</button>
+      </div></div>
+  </div>
+  <div class="menu mobmenu"><button type="button" aria-haspopup="true" aria-expanded="false">☰ Menú</button><div class="drop" id="mobDrop"></div></div>
+  <div class="who"><span class="sync" id="sync" role="status">Guardado</span><span id="whoName"></span></div>
+</nav>
+
+<!-- ============ ACCESO ============ -->
+<main id="login" class="hidden">
+  <section class="art">
+    <div class="eyebrow">Curso gratuito de MBAI Native · 4 semanas · 20 fichas</div>
+    <h1 style="font-size:54px">Aprende IA en sesiones de 20 minutos</h1>
+    <p style="margin:0;font-size:20px;color:#3A4050;max-width:560px">Cada día, una idea sencilla y un ejercicio real con la IA delante. Esta página lleva la cuenta de tu tiempo, tus fichas y tus notas.</p>
+    <div class="tiles" id="loginTiles"></div>
+  </section>
+  <section class="formside">
+    <form id="loginForm" novalidate>
+      <h2 style="font-size:32px" id="lfTitle">Empieza o continúa</h2>
+      <p style="margin:0;color:#3A4050" id="lfIntro">Sin contraseñas. Entra con tu cuenta de Google y tu progreso te esperará en cualquier dispositivo.</p>
+      <button class="btn google" type="button" id="lfGoogle"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Entrar con Google</button>
+      <div class="or" id="lfOr"><span>¿Sin cuenta de Google? Recibe un enlace</span></div>
+      <label class="f" id="lfNameL">Tu nombre<input id="lfName" name="name" autocomplete="name" maxlength="60"></label>
+      <label class="f">Tu email<input id="lfEmail" name="email" type="email" autocomplete="email" maxlength="120"></label>
+      <div class="err" id="lfErr" role="alert"></div>
+      <button class="btn ghost" type="submit" id="lfBtn">Enviarme el enlace de acceso</button>
+      <p class="legal" id="lfNote">Abre el enlace en este mismo dispositivo. Solo hace falta la primera vez en cada dispositivo. Hay un número limitado de envíos al día: si no te llega, inténtalo mañana o entra con Google.</p>
+      <p class="legal">Al entrar aceptas que MBAI Native guarde tu nombre, tu email y tu progreso para seguir el curso. <a href="privacidad.html" target="_blank" rel="noopener">Información de privacidad</a>.</p>
+    </form>
+  </section>
+</main>
+
+<!-- ============ PANEL ============ -->
+<main id="panel" class="hidden">
+  <div class="wrap">
+    <div class="hello">
+      <div><div class="eyebrow" id="pDate"></div><h1 id="pHello">Hola</h1></div>
+      <div style="color:var(--muted);max-width:440px" id="pMsg"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v" id="sDone">0/20</div><div class="l">fichas hechas</div><div class="bar"><i id="sDoneBar" style="width:0"></i></div></div>
+      <div class="stat"><div class="v" id="sTime">0 min</div><div class="l">de práctica en total</div></div>
+      <div class="stat"><div class="v" id="sStreak">0</div><div class="l">días seguidos</div></div>
+      <div class="stat"><div class="v" id="sWeek">0/5</div><div class="l">días activos esta semana</div></div>
+    </div>
+    <div class="continue" id="pCont"></div>
+    <div class="cols">
+      <section id="pWeeks" aria-label="Índice de fichas"></section>
+      <aside>
+        <div class="box"><h3>Tus últimas 5 semanas</h3><div class="cal" id="pCal"></div>
+          <div class="legend"><i style="background:#EFEAE0"></i>sin práctica <i style="background:#B7CCEA"></i>algo <i style="background:#2B59A6"></i>día activo</div>
+          <p style="margin:10px 0 0;font-size:13px;color:var(--muted)">Día activo: 10 minutos de práctica o una ficha terminada.</p></div>
+        <div class="box"><h3>Objetivo de la semana</h3><p style="margin:0;color:#3A4050">Cinco días activos, de lunes a domingo.</p><div class="dots" id="pDots"></div></div>
+        <div class="box"><h3>Recordatorio diario</h3><p style="margin:0 0 10px;color:#3A4050">Un aviso en tu calendario, de lunes a viernes, a la hora que elijas.</p><button class="btn small ghost" type="button" data-cmd="recordatorio">Añadir a mi calendario</button></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FICHA ============ -->
+<main id="ficha" class="hidden">
+  <header class="band" id="fBand">
+    <div class="deco" id="fDeco" aria-hidden="true"></div>
+    <div class="in">
+      <div class="top"><span class="eyebrow" style="color:#fff" id="fWeek"></span><span class="pill" style="background:#fff;color:var(--wc)" id="fAxis"></span></div>
+      <div class="tl"><span class="big" id="fNum"></span><h1 id="fTitle"></h1></div>
+    </div>
+  </header>
+  <div class="fbody">
+    <article>
+      <div class="note tint hidden" id="fRepaso" style="margin-bottom:22px"></div>
+      <section class="sec"><div class="sec-h" id="hIdea"></div><p style="margin:0;font-size:19px" id="fConcept"></p></section>
+      <section class="sec">
+        <div class="sec-h" id="hEj"></div>
+        <ol class="steps" id="fSteps"></ol>
+        <div class="note tint hidden" id="fPlanB" style="margin-top:12px"></div>
+        <details class="ex" id="fEx"><summary>Así lo haría otra persona</summary><p style="margin:10px 0 6px"><em class="p" id="fExP"></em></p><p style="margin:0;color:#3A4050" id="fExW"></p></details>
+      </section>
+      <section class="sec" id="fAi">
+        <div class="sec-h" id="hAi"></div>
+        <label for="fAiText" style="color:#3A4050">Pega aquí la parte de la respuesta de la IA que más te haya servido (opcional).</label>
+        <textarea class="f" id="fAiText" maxlength="10000" placeholder="Pega aquí lo que te respondió la IA…"></textarea>
+        <div class="saved" id="fAiSaved"></div>
+      </section>
+      <section class="sec tint" id="fSettle">
+        <div class="sec-h" id="hAs"></div>
+        <label for="fNotes" style="font-weight:600" id="fSettleQ"></label>
+        <textarea class="f" id="fNotes" maxlength="5000" placeholder="Escribe aquí tu respuesta. Se guarda sola."></textarea>
+        <div class="saved" id="fSaved"></div>
+      </section>
+      <section class="sec quiz" id="fQuizS">
+        <div class="sec-h" id="hQ"></div>
+        <div id="fQuiz"></div>
+      </section>
+      <section class="sec">
+        <ul class="req" id="fReq" aria-label="Para terminar la ficha"></ul>
+        <div class="nav">
+          <button class="btn ghost" type="button" id="fPrev">← Anterior</button>
+          <button class="btn" type="button" id="fDone">Terminar la ficha</button>
+          <button class="btn ghost" type="button" id="fNext">Siguiente →</button>
+        </div>
+      </section>
+    </article>
+    <aside class="timer" aria-label="Temporizador de la sesión">
+      <div class="ring">
+        <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" stroke="#EFEAE0" stroke-width="14" fill="none"/><circle id="tArc" cx="100" cy="100" r="88" stroke="var(--wc)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/></svg>
+        <div class="tx"><span class="ph" id="tPhase">Idea</span><b id="tClock">20:00</b><span id="tState">en pausa</span></div>
+      </div>
+      <button class="btn" type="button" id="tBtn">Empezar sesión</button>
+      <button class="btn ghost small hidden" type="button" id="tPip">Reloj flotante sobre la IA</button>
+      <div class="tline"><span>En esta ficha</span><b id="tFicha">0 min</b></div>
+      <div class="tline"><span>Total del curso</span><b id="tTotal">0 min</b></div>
+      <p style="margin:0;font-size:13px;color:var(--muted)">El reloj sigue contando mientras trabajas con la IA en otra pestaña o en otra app.</p>
+    </aside>
+  </div>
+  <div class="minibar" aria-label="Temporizador">
+    <b id="mClock">20:00</b>
+    <div class="mi"><span id="mPhase">Idea</span><br><span id="mFicha">0 min en esta ficha</span></div>
+    <button class="btn small" type="button" id="mBtn">Empezar</button>
+  </div>
+</main>
+
+<!-- ============ CUADERNO ============ -->
+<main id="cuaderno" class="hidden">
+  <div class="wrap">
+    <div class="hello">
+      <div><div class="eyebrow">Tus notas, tus respuestas y tus resultados</div><h1>Mi cuaderno</h1></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost small" type="button" data-cmd="exportar">Descargar (.txt)</button><button class="btn ghost small" type="button" data-cmd="imprimirCuaderno">Imprimir</button><button class="btn small" type="button" data-cmd="panel">Volver al panel</button></div>
+    </div>
+    <div id="nbList"></div>
+  </div>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlgT"><div class="dc"><h2 id="dlgT"></h2><div id="dlgB"></div><div class="act" id="dlgA"></div></div></dialog>
+<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+/*__SCRIPT__*/
+</script>
+</body>
+</html>

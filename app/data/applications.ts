@@ -249,13 +249,20 @@ export const categorias = [
     id: "educacion",
     nombre: "Educación",
     icono: "🎒",
-    descripcion: "Estudio en casa con IA a partir del libro del alumno, con seguimiento para la familia y el profesorado",
+    descripcion: "Estudio en casa con IA a partir del libro del alumno, y un curso práctico para aprender a usar la IA en 20 minutos al día",
     apps: [
       {
         nombre: "Pupitre",
         descripcion: "Los deberes, de otra manera: sube el libro de cada asignatura y Pupitre mide el nivel del alumno, le enseña con lecciones, tests, tarjetas y juegos, le ayuda con los deberes sin darle la solución y envía un informe semanal al profesor.",
         url: "https://pupitre-416251601036.europe-west1.run.app",
         tipo: "externo",
+        estado: "disponible"
+      },
+      {
+        nombre: "Aprende IA en sesiones de 20 minutos",
+        descripcion: "Curso práctico y gratuito: 20 fichas de 20 minutos, una al día, para aprender a usar la IA haciendo ejercicios reales, con reloj, comprobaciones, cuaderno personal y seguimiento del progreso.",
+        url: "/curso-ia/index.html",
+        tipo: "interno",
         estado: "disponible"
       }
     ]

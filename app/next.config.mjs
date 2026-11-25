@@ -7,6 +7,11 @@ const nextConfig = {
   },
   poweredByHeader: false,
   distDir: process.env.MBAI_DEV === '1' ? '.next-dev' : '.next',
+  async redirects() {
+    return [
+      { source: '/curso-ia', destination: '/curso-ia/index.html', permanent: false },
+    ];
+  },
   async headers() {
     return [{ source: '/:path*', headers: [
       { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },

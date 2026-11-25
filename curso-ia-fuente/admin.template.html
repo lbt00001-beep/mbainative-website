@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Alumnos · Aprende IA en sesiones de 20 minutos</title>
+<style>
+@font-face{font-family:'Bricolage Grotesque';font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url(fonts/source-sans-3-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:700;font-display:swap;src:url(fonts/source-sans-3-latin-700-normal.woff2) format('woff2')}
+:root{--ink:#1E2430;--paper:#FBF8F1;--muted:#5B6170;--line:#E4DED2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px}
+.menubar{position:sticky;top:0;display:flex;align-items:center;gap:2px;height:40px;padding:0 8px;background:#F3F1EB;border-bottom:1px solid #D9D3C6;font-size:14px;z-index:5}
+.menubar b{font-family:'Bricolage Grotesque',sans-serif;padding:0 12px 0 4px}
+.menu{position:relative}
+.menu>button{background:none;border:0;padding:7px 10px;border-radius:4px;cursor:pointer;font:inherit}
+.menu>button:hover,.menu.open>button{background:#E2DED4}
+.drop{position:absolute;top:36px;left:0;min-width:250px;background:#fff;border:1px solid #CFC8BA;border-radius:6px;box-shadow:0 8px 24px rgba(30,36,48,.16);padding:4px;display:none}
+.menu.open .drop{display:block}
+.drop button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:4px;cursor:pointer;font:inherit}
+.drop button:hover{background:#EEF1F7}
+.drop button:disabled{color:#8A8A92;background:none;cursor:default}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 24px 60px}
+h1,h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;margin:0}
+h1{font-size:38px;margin-bottom:20px} h2{font-size:22px;margin:28px 0 12px}
+.key{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;max-width:640px}
+input[type=search]{height:44px;border:2px solid #CFC8BA;border-radius:10px;padding:0 12px;font:inherit;width:320px;max-width:100%}
+.btn{height:44px;padding:0 20px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.err{color:#B42318;font-weight:600;margin-top:10px;min-height:1.2em}
+.sum{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:22px 0}
+.sum div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.sum b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px}
+.sum span{color:var(--muted);font-size:14px}
+.tbox{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none}
+th button{all:unset;cursor:pointer}
+td.n,th.n{text-align:right}
+tr.idle td:first-child::before{content:"● ";color:#C2410C}
+.pb{display:inline-block;width:100px;height:8px;border-radius:4px;background:#ECE7DC;vertical-align:middle;margin-right:8px;overflow:hidden}
+.pb i{display:block;height:100%;background:#2B59A6}
+.funnel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 10px}
+.fbars{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:6px;align-items:end;height:160px}
+.fbars div{background:#2B59A6;border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.fbars div span{position:absolute;top:-18px;left:0;right:0;text-align:center;font-size:12px;color:var(--ink)}
+.flab{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:6px;font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+.hidden{display:none!important}
+.legend{font-size:13px;color:var(--muted);margin-top:8px}
+@media(max-width:800px){.sum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<nav class="menubar" aria-label="Menú principal"><b>Aprende IA · Alumnos</b>
+  <div class="menu"><button type="button" aria-haspopup="true">Archivo</button><div class="drop" role="menu">
+    <button type="button" role="menuitem" data-cmd="csv" data-need="1">Descargar lista (.csv)</button>
+    <button type="button" role="menuitem" data-cmd="backup" data-need="1">Descargar copia de seguridad (.json)</button>
+    <button type="button" role="menuitem" data-cmd="salir">Cerrar sesión</button></div></div>
+  <div class="menu"><button type="button" aria-haspopup="true">Edición</button><div class="drop" role="menu">
+    <button type="button" role="menuitem" data-cmd="copiar" data-need="1">Copiar emails de los alumnos</button>
+    <button type="button" role="menuitem" data-cmd="copiarIdle" data-need="1">Copiar emails de inactivos esta semana</button>
+    <button type="button" role="menuitem" data-cmd="purgar" data-need="1">Borrar cuentas sin actividad en 12 meses…</button></div></div>
+  <div class="menu"><button type="button" aria-haspopup="true">Ajustes</button><div class="drop" role="menu">
+    <button type="button" role="menuitem" data-cmd="salir">Cambiar de cuenta</button></div></div>
+  <div class="menu"><button type="button" aria-haspopup="true">Vista</button><div class="drop" role="menu">
+    <button type="button" role="menuitem" data-cmd="recargar" data-need="1">Actualizar datos</button>
+    <button type="button" role="menuitem" data-cmd="curso">Abrir el curso</button></div></div>
+  <div class="menu"><button type="button" aria-haspopup="true">Ayuda</button><div class="drop" role="menu">
+    <button type="button" role="menuitem" data-cmd="ayuda">Cómo leer este panel</button></div></div>
+</nav>
+<main class="wrap">
+  <h1>Alumnos del curso</h1>
+  <div class="key" id="kf">
+    <p style="margin:0;flex:1;min-width:240px">Entra con la cuenta de Google del responsable del curso para ver a los alumnos.</p>
+    <button class="btn" type="button" id="gIn">Entrar con Google</button>
+  </div>
+  <div class="err" id="err" role="alert"></div>
+  <section id="res" class="hidden">
+    <div class="sum">
+      <div><b id="sU">0</b><span>alumnos</span></div>
+      <div><b id="sA">0</b><span>activos en 7 días</span></div>
+      <div><b id="sI">0</b><span>empezaron y llevan 7 días sin entrar</span></div>
+      <div><b id="sF">0</b><span>han terminado el curso</span></div>
+      <div><b id="sT">0 h</b><span>de práctica entre todos</span></div>
+    </div>
+    <h2>Dónde se quedan</h2>
+    <div class="funnel"><div class="fbars" id="fb" role="img"></div><div class="flab" id="fl" aria-hidden="true"></div>
+      <p class="legend">Alumnos que han terminado cada ficha. Una caída fuerte entre dos fichas señala la ficha que conviene revisar.</p></div>
+    <h2>Alumnos</h2>
+    <input type="search" id="flt" placeholder="Buscar por nombre o email" aria-label="Buscar alumno">
+    <div class="tbox" style="margin-top:12px"><table><thead><tr>
+      <th data-s="name"><button type="button">Nombre</button></th><th data-s="email"><button type="button">Email</button></th>
+      <th data-s="done"><button type="button">Fichas terminadas</button></th><th data-s="next"><button type="button">Va por</button></th>
+      <th class="n" data-s="seconds"><button type="button">Tiempo</button></th><th class="n" data-s="quiz"><button type="button">Aciertos</button></th>
+      <th class="n" data-s="forced"><button type="button">Sin completar</button></th><th class="n" data-s="active_days"><button type="button">Días activos</button></th>
+      <th data-s="last_seen"><button type="button">Última vez</button></th><th data-s="created_at"><button type="button">Alta</button></th></tr></thead><tbody id="tb"></tbody></table></div>
+    <p class="legend">● Empezó el curso y lleva más de 7 días sin entrar. «Sin completar»: fichas terminadas sin cumplir el tiempo, la nota o la comprobación.</p>
+  </section>
+</main>
+<dialog id="dlg" style="border:0;border-radius:18px;padding:24px;max-width:520px"><h2 id="dT" style="margin-top:0"></h2><div id="dB"></div><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:16px" id="dA"></div></dialog>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js';
+import { getFirestore, collection, getDocs, doc, deleteDoc } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
+const fb = initializeApp(/*__FIREBASE__*/null);
+const auth = getAuth(fb); auth.languageCode = 'es';
+const db = getFirestore(fb);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => { const m=Math.floor(s/60); return m<60?`${m} min`:`${Math.floor(m/60)} h ${m%60} min`; };
+const ts = v => v?.toDate ? v.toDate() : (v ? new Date(v) : null);
+const fdate = d => d ? d.toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+const WEEK = 7*864e5, YEAR = 365*864e5;
+let rows = [], raw = [], sortK = 'last_seen', sortDir = -1;
+async function load(){
+  $('err').textContent = '';
+  try{
+    const snap = await getDocs(collection(db,'users'));
+    raw = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    rows = raw.map(u => { const f = u.fichas || {};
+      const done = Object.keys(f).filter(k => f[k].doneAt).length;
+      let next = 21; for (let i=1;i<=20;i++) if (!f['f'+i]?.doneAt){ next = i; break; }
+      const quizzes = Object.values(f).filter(x => x.quiz);
+      const act = new Set(Object.entries(u.daily||{}).filter(([,s])=>s>=600).map(([d])=>d));
+      Object.values(f).forEach(x => { if (x.doneAt) act.add(new Date(x.doneAt).toISOString().slice(0,10)); });
+      return { id:u.id, name:u.name, email:u.email, seconds:u.totalSeconds||0, done, next, f,
+        quiz: quizzes.length ? quizzes.reduce((a,x)=>a+(x.quiz.score||0),0) / (quizzes.length*2) : -1,
+        forced: Object.values(f).filter(x=>x.forced && x.doneAt).length, active_days: act.size,
+        last_seen: ts(u.lastSeen), created_at: ts(u.createdAt) }; });
+    $('kf').classList.add('hidden'); $('res').classList.remove('hidden');
+    const now = Date.now();
+    $('sU').textContent = rows.length;
+    $('sA').textContent = rows.filter(u=>u.last_seen && now-u.last_seen < WEEK).length;
+    $('sI').textContent = rows.filter(isIdle).length;
+    $('sF').textContent = rows.filter(u=>u.done>=20).length;
+    $('sT').textContent = fmt(rows.reduce((a,u)=>a+u.seconds,0));
+    const counts = Array.from({length:20},(_,i)=>rows.filter(u=>u.f['f'+(i+1)]?.doneAt).length), max = Math.max(1, ...counts);
+    $('fb').innerHTML = counts.map((c,i)=>`<div style="height:${Math.max(2, c/max*140)}px" title="Ficha ${i+1}: ${c} alumnos"><span>${c}</span></div>`).join('');
+    $('fb').setAttribute('aria-label', 'Alumnos que han terminado cada ficha: ' + counts.map((c,i)=>`ficha ${i+1}, ${c}`).join('; '));
+    $('fl').innerHTML = counts.map((_,i)=>`<span>${i+1}</span>`).join('');
+    render(); need();
+  }catch(e){
+    $('err').textContent = e.code==='permission-denied' ? `La cuenta ${auth.currentUser?.email} no es la del responsable del curso.` : (e.message||'Error');
+    $('kf').classList.remove('hidden'); $('res').classList.add('hidden'); rows=[]; need();
+  }
+}
+const isIdle = u => u.done < 20 && (u.seconds > 0 || u.done > 0) && u.last_seen && Date.now()-u.last_seen > WEEK;
+function render(){
+  const q = $('flt').value.toLowerCase();
+  const list = rows.filter(u => (u.name+' '+u.email).toLowerCase().includes(q))
+    .sort((a,b)=> ((a[sortK]??0)>(b[sortK]??0)?1:(a[sortK]??0)<(b[sortK]??0)?-1:0)*sortDir);
+  $('tb').innerHTML = list.map(u => `<tr class="${isIdle(u)?'idle':''}"><td>${esc(u.name)}</td><td>${esc(u.email)}</td>
+    <td><span class="pb"><i style="width:${u.done*5}%"></i></span>${u.done}/20</td><td>${u.next>20?'Terminado':'Ficha '+u.next}</td><td class="n">${fmt(u.seconds)}</td>
+    <td class="n">${u.quiz<0?'—':Math.round(u.quiz*100)+' %'}</td><td class="n">${u.forced||''}</td>
+    <td class="n">${u.active_days}</td><td>${fdate(u.last_seen)}</td><td>${fdate(u.created_at)}</td></tr>`).join('') ||
+    '<tr><td colspan="10" style="color:#5B6170">Todavía no hay alumnos.</td></tr>';
+}
+function need(){ document.querySelectorAll('[data-need]').forEach(b => b.disabled = !rows.length); }
+function dialog(t, html, actions){ $('dT').textContent=t; $('dB').innerHTML=html; $('dA').innerHTML='';
+  actions.forEach(([l,fn,p])=>{ const b=document.createElement('button'); b.type='button'; b.className='btn'+(p?'':' ghost'); b.textContent=l; b.onclick=async()=>{ if(fn) await fn(); $('dlg').close(); }; $('dA').appendChild(b); }); $('dlg').showModal(); }
+$('gIn').onclick = async () => { try { const p=new GoogleAuthProvider(); p.setCustomParameters({prompt:'select_account'}); await signInWithPopup(auth,p); } catch(e){ $('err').textContent = e.message; } };
+$('flt').oninput = render;
+document.querySelectorAll('th[data-s]').forEach(th => th.onclick = () => { const k=th.dataset.s; sortDir = sortK===k ? -sortDir : -1; sortK=k; render(); });
+const dl = (name, blob) => { const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click(); };
+const CMD = {
+  csv(){ const h=['Nombre','Email','Fichas terminadas','Va por','Minutos','Aciertos %','Sin completar','Días activos','Última vez','Alta'];
+    const lines=[h, ...rows.map(u=>[u.name,u.email,u.done,u.next>20?'Terminado':u.next,Math.floor(u.seconds/60),u.quiz<0?'':Math.round(u.quiz*100),u.forced,u.active_days,u.last_seen?.toISOString()||'',u.created_at?.toISOString()||''])]
+      .map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(';')).join('\r\n');
+    dl('alumnos-curso-ia.csv', new Blob(['﻿'+lines],{type:'text/csv;charset=utf-8'})); },
+  backup(){ dl(`copia-curso-ia-${new Date().toISOString().slice(0,10)}.json`, new Blob([JSON.stringify(raw, (k,v)=> v?.toDate ? v.toDate().toISOString() : v, 2)],{type:'application/json'})); },
+  async copiar(){ await navigator.clipboard.writeText(rows.map(u=>u.email).join(', ')); },
+  async copiarIdle(){ await navigator.clipboard.writeText(rows.filter(isIdle).map(u=>u.email).join(', ')); },
+  purgar(){ const old = rows.filter(u => u.last_seen && Date.now()-u.last_seen > YEAR);
+    if (!old.length) return dialog('Nada que borrar', '<p>No hay cuentas con más de 12 meses sin actividad.</p>', [['Cerrar',null,true]]);
+    dialog('¿Borrar cuentas inactivas?', `<p>Se borrarán los datos de <b>${old.length}</b> alumnos sin actividad en 12 meses, como indica la información de privacidad del curso. No se puede deshacer.</p><p style="color:#5B6170">Descarga antes una copia de seguridad si la necesitas.</p>`,
+      [['Cancelar'],['Borrar', async () => { for (const u of old){ for (let i=1;i<=20;i++) await deleteDoc(doc(db,'users',u.id,'notes','f'+i)); await deleteDoc(doc(db,'users',u.id)); } await load(); }, true]]); },
+  async salir(){ await signOut(auth); },
+  recargar(){ load(); },
+  curso(){ location.href='index.html'; },
+  ayuda(){ dialog('Cómo leer este panel', `<p><b>Va por</b>: primera ficha sin terminar. <b>Aciertos</b>: porcentaje de respuestas correctas en las comprobaciones. <b>Sin completar</b>: fichas que el alumno dio por terminadas sin cumplir tiempo, nota o comprobación.</p>
+    <p><b>Día activo</b>: 10 minutos de práctica o una ficha terminada. Las notas de los alumnos son privadas y no aparecen aquí.</p>
+    <p>Solo pueden ver esta página las cuentas de administración definidas en las reglas de Firestore.</p>`, [['Cerrar',null,true]]); }
+};
+const menus=[...document.querySelectorAll('.menu')], close=()=>menus.forEach(m=>m.classList.remove('open'));
+menus.forEach(m=>m.firstElementChild.onclick=()=>{const o=m.classList.contains('open');close();if(!o)m.classList.add('open');});
+document.addEventListener('click',e=>{const c=e.target.closest('[data-cmd]'); if(c&&!c.disabled){close();CMD[c.dataset.cmd]();return;} if(!e.target.closest('.menu'))close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+onAuthStateChanged(auth, u => { if (u) load(); else { rows=[]; raw=[]; $('kf').classList.remove('hidden'); $('res').classList.add('hidden'); need(); } });
+need();
+</script>
+</body>
+</html>

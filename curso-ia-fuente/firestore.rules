@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    // Administradores: el responsable del curso y, si se crea, la lista del documento config/admins (campo emails)
+    function isAdmin() {
+      return signedIn() && request.auth.token.email_verified == true
+        && (request.auth.token.email == 'lbt00001@gmail.com'
+            || (exists(/databases/$(database)/documents/config/admins)
+                && request.auth.token.email in get(/databases/$(database)/documents/config/admins).data.emails));
+    }
+    function fichas() {
+      return ['f1','f2','f3','f4','f5','f6','f7','f8','f9','f10','f11','f12','f13','f14','f15','f16','f17','f18','f19','f20'];
+    }
+    function validUser(d) {
+      return d.keys().hasOnly(['name','email','createdAt','lastSeen','consentAt','totalSeconds','fichas','daily','steps','prefs'])
+        && d.name is string && d.name.size() >= 2 && d.name.size() <= 60
+        && d.totalSeconds is int && d.totalSeconds >= 0
+        && d.fichas is map && d.fichas.keys().hasOnly(fichas())
+        && d.daily is map && d.daily.size() <= 500
+        && (!('steps' in d) || (d.steps is map && d.steps.keys().hasOnly(fichas())))
+        && (!('prefs' in d) || (d.prefs is map && d.prefs.keys().hasOnly(['assistant','duration','onboarded','reminder'])));
+    }
+
+    match /config/{docId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Un documento por alumno: progreso, tiempo, días de práctica y preferencias
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create: if isOwner(uid) && request.resource.data.email == request.auth.token.email
+        && validUser(request.resource.data) && request.resource.data.totalSeconds == 0;
+      // El tiempo solo puede crecer, y como mucho 3 horas en una sola escritura
+      allow update: if isOwner(uid) && request.resource.data.email == resource.data.email
+        && validUser(request.resource.data)
+        && request.resource.data.totalSeconds >= resource.data.totalSeconds
+        && request.resource.data.totalSeconds - resource.data.totalSeconds <= 10800;
+      allow delete: if isOwner(uid) || isAdmin();
+
+      // Notas privadas de cada ficha: solo las lee el alumno
+      match /notes/{ficha} {
+        allow read: if isOwner(uid);
+        allow delete: if isOwner(uid) || isAdmin();
+        allow create, update: if isOwner(uid) && ficha in fichas()
+          && request.resource.data.keys().hasOnly(['text','aiAnswer','updatedAt'])
+          && request.resource.data.text is string && request.resource.data.text.size() <= 5000
+          && (!('aiAnswer' in request.resource.data)
+              || (request.resource.data.aiAnswer is string && request.resource.data.aiAnswer.size() <= 10000));
+      }
+    }
+  }
+}

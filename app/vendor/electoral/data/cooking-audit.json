@@ -1,0 +1,968 @@
+{
+  "schemaVersion": 1,
+  "preparedOn": "2026-11-26",
+  "scope": "Auditoría nacional descriptiva. No identifica un algoritmo privado ni valida predicciones.",
+  "reference": {
+    "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-18907",
+    "votes": {
+      "1": 7821718,
+      "2": 8160837,
+      "3": 3057000,
+      "4": 3044996,
+      "5": 466020,
+      "6": 395429,
+      "7": 277289,
+      "8": 335129,
+      "9": 116363,
+      "11": 153995,
+      "14": 52188
+    }
+  },
+  "studies": [
+    {
+      "date": "2026-11-22",
+      "fieldwork": "17–21/11/2026",
+      "sample": 2000,
+      "weightedBase": 2000.0000000018076,
+      "validBase": 1749.0593259714055,
+      "weightMin": 0.6283102971,
+      "weightMax": 1.5000545729,
+      "effectiveN": 1948.9352286685419,
+      "dataFile": "03_Datos_tracking_dia10.dta",
+      "dataSha256": "38dd91186529344a8414cb9ee86bbd8352013edf1372aacbac5dc85370814936",
+      "archive": {
+        "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/11-tracking-electoral/D10-8f4c9a2b7e61d035a8c4f290b73e6d12/40dB_tracking_dia10.zip",
+        "status": 200,
+        "bytes": 2726493,
+        "sha256": "a5f58f481c1011dca132d43727664acd5e862ba7418184d9d93f9e984e7925bf",
+        "files": [
+          "107_Tracking_Día10/",
+          "__MACOSX/._107_Tracking_Día10",
+          "107_Tracking_Día10/03_Datos_tracking_dia10.dta",
+          "__MACOSX/107_Tracking_Día10/._03_Datos_tracking_dia10.dta",
+          "107_Tracking_Día10/03_Datos_tracking_dia10.sav",
+          "__MACOSX/107_Tracking_Día10/._03_Datos_tracking_dia10.sav",
+          "107_Tracking_Día10/02_Nota_metodologica_tracking_dia10.pdf",
+          "__MACOSX/107_Tracking_Día10/._02_Nota_metodologica_tracking_dia10.pdf",
+          "107_Tracking_Día10/04_Tablas_tracking_dia10.xlsx",
+          "__MACOSX/107_Tracking_Día10/._04_Tablas_tracking_dia10.xlsx",
+          "107_Tracking_Día10/03_Datos_tracking_dia10.xlsx",
+          "__MACOSX/107_Tracking_Día10/._03_Datos_tracking_dia10.xlsx",
+          "107_Tracking_Día10/01_Cuestionario_tracking_dia10.pdf",
+          "__MACOSX/107_Tracking_Día10/._01_Cuestionario_tracking_dia10.pdf",
+          "107_Tracking_Día10/05_Informe_tracking_dia10.pdf",
+          "__MACOSX/107_Tracking_Día10/._05_Informe_tracking_dia10.pdf"
+        ]
+      },
+      "report": {
+        "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/11-tracking-electoral/D10-8f4c9a2b7e61d035a8c4f290b73e6d12/informe_tracking_dia10.pdf",
+        "status": 200,
+        "bytes": 1382839,
+        "sha256": "f763a875cb36e20097903b70d82d97091b5096b2305a86b68a3e6ab4c2d74e4d"
+      },
+      "all": [
+        {
+          "code": 1,
+          "n": 584,
+          "raw": 29.2,
+          "weighted": 29.30789876136849,
+          "valid": 33.512755486573035
+        },
+        {
+          "code": 2,
+          "n": 460,
+          "raw": 23,
+          "weighted": 22.53842941173461,
+          "valid": 25.77205824535131
+        },
+        {
+          "code": 3,
+          "n": 330,
+          "raw": 16.5,
+          "weighted": 16.918305249634706,
+          "valid": 19.345604804175277
+        },
+        {
+          "code": 4,
+          "n": 70,
+          "raw": 3.5,
+          "weighted": 3.3778145070069465,
+          "valid": 3.8624356039312775
+        },
+        {
+          "code": 5,
+          "n": 19,
+          "raw": 0.95,
+          "weighted": 0.8882075429441972,
+          "valid": 1.0156402698938765
+        },
+        {
+          "code": 6,
+          "n": 30,
+          "raw": 1.5,
+          "weighted": 1.4454753785136936,
+          "valid": 1.6528603198890366
+        },
+        {
+          "code": 7,
+          "n": 64,
+          "raw": 3.2,
+          "weighted": 3.1558461917471474,
+          "valid": 3.6086210969399595
+        },
+        {
+          "code": 8,
+          "n": 21,
+          "raw": 1.05,
+          "weighted": 0.9687027448741243,
+          "valid": 1.1076842626101258
+        },
+        {
+          "code": 9,
+          "n": 9,
+          "raw": 0.45,
+          "weighted": 0.44078223012960155,
+          "valid": 0.5040220461192133
+        },
+        {
+          "code": 10,
+          "n": 16,
+          "raw": 0.8,
+          "weighted": 0.8080078091442697,
+          "valid": 0.9239341366494159
+        },
+        {
+          "code": 11,
+          "n": 7,
+          "raw": 0.35,
+          "weighted": 0.42784682512961325,
+          "valid": 0.48923077539680276
+        },
+        {
+          "code": 12,
+          "n": 22,
+          "raw": 1.1,
+          "weighted": 1.0758149107190278,
+          "valid": 1.2301640027247287
+        },
+        {
+          "code": 13,
+          "n": 3,
+          "raw": 0.15,
+          "weighted": 0.1646119926048512,
+          "valid": 0.18822917000093928
+        },
+        {
+          "code": 14,
+          "n": 31,
+          "raw": 1.55,
+          "weighted": 1.5691810050485824,
+          "valid": 1.7943142142174018
+        },
+        {
+          "code": 15,
+          "n": 18,
+          "raw": 0.9,
+          "weighted": 0.9360297523641541,
+          "valid": 1.0703236173480175
+        },
+        {
+          "code": 16,
+          "n": 4,
+          "raw": 0.2,
+          "weighted": 0.2308130089347914,
+          "valid": 0.26392816470854624
+        },
+        {
+          "code": 17,
+          "n": 7,
+          "raw": 0.35,
+          "weighted": 0.43384711585460783,
+          "valid": 0.49609193857852335
+        },
+        {
+          "code": 18,
+          "n": 0,
+          "raw": 0,
+          "weighted": 0,
+          "valid": 0
+        },
+        {
+          "code": 19,
+          "n": 0,
+          "raw": 0,
+          "weighted": 0,
+          "valid": 0
+        },
+        {
+          "code": 20,
+          "n": 16,
+          "raw": 0.8,
+          "weighted": 0.8184400127292604,
+          "valid": 0.9358630671666311
+        },
+        {
+          "code": 21,
+          "n": 38,
+          "raw": 1.9,
+          "weighted": 1.9469118480082404,
+          "valid": 2.226238777725518
+        },
+        {
+          "code": 22,
+          "n": 21,
+          "raw": 1.05,
+          "weighted": 1.0943579435240107,
+          "valid": null
+        },
+        {
+          "code": 23,
+          "n": 61,
+          "raw": 3.05,
+          "weighted": 3.1765129981921283,
+          "valid": null
+        },
+        {
+          "code": 24,
+          "n": 127,
+          "raw": 6.35,
+          "weighted": 6.183416056944413,
+          "valid": null
+        },
+        {
+          "code": 25,
+          "n": 42,
+          "raw": 2.1,
+          "weighted": 2.092746702848108,
+          "valid": null
+        }
+      ],
+      "parties": [
+        {
+          "id": "pp",
+          "label": "PP",
+          "code": 2,
+          "n": 460,
+          "raw": 23,
+          "weighted": 22.53842941173461,
+          "valid": 25.77205824535131,
+          "estimate": 31.9,
+          "delta": 6.127941754648688
+        },
+        {
+          "id": "psoe",
+          "label": "PSOE",
+          "code": 1,
+          "n": 584,
+          "raw": 29.2,
+          "weighted": 29.30789876136849,
+          "valid": 33.512755486573035,
+          "estimate": 31.6,
+          "delta": -1.9127554865730332
+        },
+        {
+          "id": "vox",
+          "label": "Vox",
+          "code": 3,
+          "n": 330,
+          "raw": 16.5,
+          "weighted": 16.918305249634706,
+          "valid": 19.345604804175277,
+          "estimate": 16.9,
+          "delta": -2.4456048041752787
+        },
+        {
+          "id": "fa",
+          "label": "Frente Amplio",
+          "code": 4,
+          "n": 70,
+          "raw": 3.5,
+          "weighted": 3.3778145070069465,
+          "valid": 3.8624356039312775,
+          "estimate": 3.6,
+          "delta": -0.2624356039312774
+        },
+        {
+          "id": "salf",
+          "label": "SALF",
+          "code": 6,
+          "n": 30,
+          "raw": 1.5,
+          "weighted": 1.4454753785136936,
+          "valid": 1.6528603198890366,
+          "estimate": 1.4,
+          "delta": -0.2528603198890367
+        },
+        {
+          "id": "podemos",
+          "label": "Podemos",
+          "code": 5,
+          "n": 19,
+          "raw": 0.95,
+          "weighted": 0.8882075429441972,
+          "valid": 1.0156402698938765,
+          "estimate": 1,
+          "delta": -0.015640269893876457
+        }
+      ],
+      "models": [
+        {
+          "id": "direct",
+          "label": "Solo ponderación demográfica y voto válido",
+          "values": [
+            25.772058245351406,
+            33.51275548657316,
+            19.345604804175352,
+            3.862435603931292,
+            1.6528603198890428,
+            1.0156402698938802
+          ],
+          "mae": 1.8362063731852205
+        },
+        {
+          "id": "recall",
+          "label": "Más corrección por recuerdo, sin imputación",
+          "values": [
+            30.890770912562182,
+            28.674081565979048,
+            18.508080075588143,
+            4.652179659972916,
+            1.6034361926829508,
+            1.2960081811150022
+          ],
+          "mae": 1.182475271802964
+        },
+        {
+          "id": "turnout",
+          "label": "Más recuerdo y participación lineal",
+          "values": [
+            31.29295366752292,
+            28.554237446665375,
+            18.500627174267052,
+            4.686862837048083,
+            1.5659256021710724,
+            1.3614169410708954
+          ],
+          "mae": 1.1446069067281348
+        },
+        {
+          "id": "impute",
+          "label": "Más recuerdo y reparto NS/NC por recuerdo",
+          "values": [
+            30.541448637154534,
+            28.383891386495627,
+            18.104160082142023,
+            4.612499434339458,
+            2.1737854768598894,
+            1.4671567528515073
+          ],
+          "mae": 1.3387102870904533
+        },
+        {
+          "id": "sympathy",
+          "label": "Más recuerdo, simpatía y reparto residual",
+          "values": [
+            30.499287809772984,
+            28.35322156890804,
+            18.054310275534814,
+            4.6602782783933545,
+            2.27800908352974,
+            1.430666990018575
+          ],
+          "mae": 1.36179254146591
+        }
+      ],
+      "recall": [
+        {
+          "code": 1,
+          "party": "psoe",
+          "weighted": 31.55322291424149,
+          "referenceVotes": 7821718,
+          "factor": 0.7996472680613466
+        },
+        {
+          "code": 2,
+          "party": "pp",
+          "weighted": 19.92310737811698,
+          "referenceVotes": 8160837,
+          "factor": 1.3213493558474065
+        },
+        {
+          "code": 3,
+          "party": "vox",
+          "weighted": 11.516783765924595,
+          "referenceVotes": 3057000,
+          "factor": 0.856257237382004
+        },
+        {
+          "code": 4,
+          "party": "sumar",
+          "weighted": 6.946996653188723,
+          "referenceVotes": 3044996,
+          "factor": 1.413935720285165
+        },
+        {
+          "code": 5,
+          "party": "erc",
+          "weighted": 2.7755702188024918,
+          "referenceVotes": 466020,
+          "factor": 0.541617098087893
+        },
+        {
+          "code": 6,
+          "party": "junts",
+          "weighted": 1.3290203591337988,
+          "referenceVotes": 395429,
+          "factor": 0.9597915275853858
+        },
+        {
+          "code": 7,
+          "party": "pnv",
+          "weighted": 0.5350396600945164,
+          "referenceVotes": 277289,
+          "factor": 1.6718091406338467
+        },
+        {
+          "code": 8,
+          "party": "bildu",
+          "weighted": 0.9423201161591483,
+          "referenceVotes": 335129,
+          "factor": 1.1472381426428222
+        },
+        {
+          "code": 9,
+          "party": "cc",
+          "weighted": 0.35671915576967755,
+          "referenceVotes": 116363,
+          "factor": 1.0522731943513484
+        },
+        {
+          "code": 11,
+          "party": "bng",
+          "weighted": 1.1008071408840052,
+          "referenceVotes": 153995,
+          "factor": 0.45126890727701136
+        },
+        {
+          "code": 14,
+          "party": "upn",
+          "weighted": 0.05608604623994931,
+          "referenceVotes": 52188,
+          "factor": 3.001621015710357
+        }
+      ],
+      "ppWithUpnValid": 25.96028741535225
+    },
+    {
+      "date": "2026-11-23",
+      "fieldwork": "10–21/11/2026",
+      "sample": 7500,
+      "weightedBase": 7499.999999996759,
+      "validBase": 6515.8991450956655,
+      "weightMin": 0.6570797952,
+      "weightMax": 1.3000658867,
+      "effectiveN": 7350.540026714164,
+      "dataFile": "03_Datos_noviembre_2026_preelectoral_II_voto.dta",
+      "dataSha256": "0dc41ab8db0b390617c9ea226b3631a8997b2f7f4375d6081574976c24a90244",
+      "archive": {
+        "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/11-preelectoral2/PE2-cbe680f8658575bfec9654dda53767bbd334f392/2026_11_preelectoral2_descargables.zip",
+        "status": 200,
+        "bytes": 6752237,
+        "sha256": "23aa5f3a57594b5b461d33c0e15dfb0126f2176b51939fe03af499fa6a7a6bcb",
+        "files": [
+          "108_Noviembre_2026_Preelectoral_II/",
+          "__MACOSX/._108_Noviembre_2026_Preelectoral_II",
+          "108_Noviembre_2026_Preelectoral_II/04_Tablas_noviembre_2026_preelectoral_II_campaña.xlsx",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._04_Tablas_noviembre_2026_preelectoral_II_campaña.xlsx",
+          "108_Noviembre_2026_Preelectoral_II/01_Cuestionario_noviembre_2026_preelectoral_II.pdf",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._01_Cuestionario_noviembre_2026_preelectoral_II.pdf",
+          "108_Noviembre_2026_Preelectoral_II/04_Tablas_noviembre_2026_preelectoral_II_voto.xlsx",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._04_Tablas_noviembre_2026_preelectoral_II_voto.xlsx",
+          "108_Noviembre_2026_Preelectoral_II/05_Informe_noviembre_2026_preelectoral_II_voto.pdf",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._05_Informe_noviembre_2026_preelectoral_II_voto.pdf",
+          "108_Noviembre_2026_Preelectoral_II/05_Informe_noviembre_2026_preelectoral_II_campaña.pdf",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._05_Informe_noviembre_2026_preelectoral_II_campaña.pdf",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II_voto.xlsx",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II_voto.xlsx",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II.sav",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II.sav",
+          "108_Noviembre_2026_Preelectoral_II/02_Nota_metodologica_noviembre_2026_preelectoral_II.pdf",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._02_Nota_metodologica_noviembre_2026_preelectoral_II.pdf",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II.dta",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II.dta",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II.xlsx",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II.xlsx",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II_voto.sav",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II_voto.sav",
+          "108_Noviembre_2026_Preelectoral_II/03_Datos_noviembre_2026_preelectoral_II_voto.dta",
+          "__MACOSX/108_Noviembre_2026_Preelectoral_II/._03_Datos_noviembre_2026_preelectoral_II_voto.dta"
+        ]
+      },
+      "report": {
+        "url": "https://ep00.epimg.net/infografias/encuestas40db/2026/11-preelectoral2/PE2-cbe680f8658575bfec9654dda53767bbd334f392/2026_11_preelectoral2_voto.pdf",
+        "status": 200,
+        "bytes": 1340396,
+        "sha256": "41598485f56cd758243eecb4c636c37ff19da25f2af727ca0c03a33f33ef05d2"
+      },
+      "all": [
+        {
+          "code": 1,
+          "n": 2165,
+          "raw": 28.866666666666667,
+          "weighted": 28.85455489971784,
+          "valid": 33.21247872761741
+        },
+        {
+          "code": 2,
+          "n": 1670,
+          "raw": 22.266666666666666,
+          "weighted": 21.952170155296184,
+          "valid": 25.267621934966733
+        },
+        {
+          "code": 3,
+          "n": 1284,
+          "raw": 17.12,
+          "weighted": 17.25885015738614,
+          "valid": 19.86546649939586
+        },
+        {
+          "code": 4,
+          "n": 251,
+          "raw": 3.3466666666666667,
+          "weighted": 3.2707202463414173,
+          "valid": 3.7646994376844174
+        },
+        {
+          "code": 5,
+          "n": 75,
+          "raw": 1,
+          "weighted": 1.0004886960630994,
+          "valid": 1.151593211217488
+        },
+        {
+          "code": 6,
+          "n": 117,
+          "raw": 1.56,
+          "weighted": 1.5269787809726598,
+          "valid": 1.7575994659017788
+        },
+        {
+          "code": 7,
+          "n": 219,
+          "raw": 2.92,
+          "weighted": 2.998863529770632,
+          "valid": 3.4517840089957073
+        },
+        {
+          "code": 8,
+          "n": 92,
+          "raw": 1.2266666666666666,
+          "weighted": 1.1771756986991755,
+          "valid": 1.3549653767869019
+        },
+        {
+          "code": 9,
+          "n": 47,
+          "raw": 0.6266666666666667,
+          "weighted": 0.6018225736442601,
+          "valid": 0.6927162624558595
+        },
+        {
+          "code": 10,
+          "n": 58,
+          "raw": 0.7733333333333333,
+          "weighted": 0.7796477322363369,
+          "valid": 0.8973984804800335
+        },
+        {
+          "code": 11,
+          "n": 22,
+          "raw": 0.29333333333333333,
+          "weighted": 0.3166883858094702,
+          "valid": 0.3645180566304066
+        },
+        {
+          "code": 12,
+          "n": 77,
+          "raw": 1.0266666666666666,
+          "weighted": 0.9714316874430863,
+          "valid": 1.1181477020410557
+        },
+        {
+          "code": 13,
+          "n": 14,
+          "raw": 0.18666666666666668,
+          "weighted": 0.1930934577507501,
+          "valid": 0.2222564992001173
+        },
+        {
+          "code": 14,
+          "n": 92,
+          "raw": 1.2266666666666666,
+          "weighted": 1.2730088931938837,
+          "valid": 1.4652723264042824
+        },
+        {
+          "code": 15,
+          "n": 70,
+          "raw": 0.9333333333333333,
+          "weighted": 0.9331433369124036,
+          "valid": 1.074076634858235
+        },
+        {
+          "code": 16,
+          "n": 13,
+          "raw": 0.17333333333333334,
+          "weighted": 0.17797197833341025,
+          "valid": 0.20485121205484877
+        },
+        {
+          "code": 17,
+          "n": 20,
+          "raw": 0.26666666666666666,
+          "weighted": 0.28991181245879194,
+          "valid": 0.33369739847440144
+        },
+        {
+          "code": 18,
+          "n": 1,
+          "raw": 0.013333333333333334,
+          "weighted": 0.015731564962673465,
+          "valid": 0.01810751434187027
+        },
+        {
+          "code": 19,
+          "n": 0,
+          "raw": 0,
+          "weighted": 0,
+          "valid": 0
+        },
+        {
+          "code": 20,
+          "n": 76,
+          "raw": 1.0133333333333334,
+          "weighted": 1.0462317724644525,
+          "valid": 1.2042448967900343
+        },
+        {
+          "code": 21,
+          "n": 168,
+          "raw": 2.24,
+          "weighted": 2.240169908523635,
+          "valid": 2.5785043537031798
+        },
+        {
+          "code": 22,
+          "n": 62,
+          "raw": 0.8266666666666667,
+          "weighted": 0.8273001912296909,
+          "valid": null
+        },
+        {
+          "code": 23,
+          "n": 238,
+          "raw": 3.1733333333333333,
+          "weighted": 3.376013772090792,
+          "valid": null
+        },
+        {
+          "code": 24,
+          "n": 517,
+          "raw": 6.8933333333333335,
+          "weighted": 6.826539454876284,
+          "valid": null
+        },
+        {
+          "code": 25,
+          "n": 152,
+          "raw": 2.026666666666667,
+          "weighted": 2.0914913138235707,
+          "valid": null
+        }
+      ],
+      "parties": [
+        {
+          "id": "pp",
+          "label": "PP",
+          "code": 2,
+          "n": 1670,
+          "raw": 22.266666666666666,
+          "weighted": 21.952170155296184,
+          "valid": 25.267621934966733,
+          "estimate": 31.8,
+          "delta": 6.532378065033267
+        },
+        {
+          "id": "psoe",
+          "label": "PSOE",
+          "code": 1,
+          "n": 2165,
+          "raw": 28.866666666666667,
+          "weighted": 28.85455489971784,
+          "valid": 33.21247872761741,
+          "estimate": 30.9,
+          "delta": -2.3124787276174104
+        },
+        {
+          "id": "vox",
+          "label": "Vox",
+          "code": 3,
+          "n": 1284,
+          "raw": 17.12,
+          "weighted": 17.25885015738614,
+          "valid": 19.86546649939586,
+          "estimate": 17.3,
+          "delta": -2.5654664993958605
+        },
+        {
+          "id": "fa",
+          "label": "Frente Amplio",
+          "code": 4,
+          "n": 251,
+          "raw": 3.3466666666666667,
+          "weighted": 3.2707202463414173,
+          "valid": 3.7646994376844174,
+          "estimate": 3.9,
+          "delta": 0.13530056231558252
+        },
+        {
+          "id": "salf",
+          "label": "SALF",
+          "code": 6,
+          "n": 117,
+          "raw": 1.56,
+          "weighted": 1.5269787809726598,
+          "valid": 1.7575994659017788,
+          "estimate": 1.3,
+          "delta": -0.4575994659017788
+        },
+        {
+          "id": "podemos",
+          "label": "Podemos",
+          "code": 5,
+          "n": 75,
+          "raw": 1,
+          "weighted": 1.0004886960630994,
+          "valid": 1.151593211217488,
+          "estimate": 1.1,
+          "delta": -0.051593211217487944
+        }
+      ],
+      "models": [
+        {
+          "id": "direct",
+          "label": "Solo ponderación demográfica y voto válido",
+          "values": [
+            25.267621934966584,
+            33.21247872761722,
+            19.865466499395747,
+            3.764699437684395,
+            1.7575994659017684,
+            1.1515932112174814
+          ],
+          "mae": 2.009136088580206
+        },
+        {
+          "id": "recall",
+          "label": "Más corrección por recuerdo, sin imputación",
+          "values": [
+            30.17408539963112,
+            28.291450389410613,
+            19.3251801667442,
+            4.468934867321765,
+            1.7598668811363123,
+            1.5439578199217483
+          ],
+          "mae": 1.288733991013715
+        },
+        {
+          "id": "turnout",
+          "label": "Más recuerdo y participación lineal",
+          "values": [
+            30.75501007147308,
+            28.0680795136461,
+            19.41197064345066,
+            4.512900482064139,
+            1.7065831412278583,
+            1.5701730662662876
+          ],
+          "mae": 1.2464229579816268
+        },
+        {
+          "id": "impute",
+          "label": "Más recuerdo y reparto NS/NC por recuerdo",
+          "values": [
+            29.764061566453297,
+            27.847380773403177,
+            19.08765727711805,
+            4.537675605616477,
+            1.9469240619148753,
+            1.5993547468115636
+          ],
+          "mae": 1.4433615586007489
+        },
+        {
+          "id": "sympathy",
+          "label": "Más recuerdo, simpatía y reparto residual",
+          "values": [
+            29.59142698857653,
+            27.988055400442974,
+            18.86665579833273,
+            4.630924596189411,
+            2.0852183288732373,
+            1.5630168849128327
+          ],
+          "mae": 1.4443888698814507
+        }
+      ],
+      "recall": [
+        {
+          "code": 1,
+          "party": "psoe",
+          "weighted": 32.14464240803392,
+          "referenceVotes": 7821718,
+          "factor": 0.7894334900787904
+        },
+        {
+          "code": 2,
+          "party": "pp",
+          "weighted": 20.130868641174022,
+          "referenceVotes": 8160837,
+          "factor": 1.3152072064886682
+        },
+        {
+          "code": 3,
+          "party": "vox",
+          "weighted": 11.467957481199633,
+          "referenceVotes": 3057000,
+          "factor": 0.8648312136991941
+        },
+        {
+          "code": 4,
+          "party": "sumar",
+          "weighted": 6.619375000642852,
+          "referenceVotes": 3044996,
+          "factor": 1.4924223088518915
+        },
+        {
+          "code": 5,
+          "party": "erc",
+          "weighted": 2.61211680516113,
+          "referenceVotes": 466020,
+          "factor": 0.5788072382632686
+        },
+        {
+          "code": 6,
+          "party": "junts",
+          "weighted": 1.5025304768099825,
+          "referenceVotes": 395429,
+          "factor": 0.8538217581960442
+        },
+        {
+          "code": 7,
+          "party": "pnv",
+          "weighted": 0.7502500466643242,
+          "referenceVotes": 277289,
+          "factor": 1.1990812215496998
+        },
+        {
+          "code": 8,
+          "party": "bildu",
+          "weighted": 0.7960715468763438,
+          "referenceVotes": 335129,
+          "factor": 1.3657836210274537
+        },
+        {
+          "code": 9,
+          "party": "cc",
+          "weighted": 0.4309249150695196,
+          "referenceVotes": 116363,
+          "factor": 0.8760629141126574
+        },
+        {
+          "code": 11,
+          "party": "bng",
+          "weighted": 0.9537384435217454,
+          "referenceVotes": 153995,
+          "factor": 0.5238408021318214
+        },
+        {
+          "code": 14,
+          "party": "upn",
+          "weighted": 0.0687114070480297,
+          "referenceVotes": 52188,
+          "factor": 2.4641310601248887
+        }
+      ],
+      "ppWithUpnValid": 25.489878434166844
+    }
+  ],
+  "cis": {
+    "study": "3587",
+    "sample": 8034,
+    "fieldwork": "10–17/11/2026",
+    "date": "2026-11-23",
+    "weightedBase": 8033.998386142132,
+    "validBase": 6305.0239705354725,
+    "unweightedAvailable": false,
+    "ns": 13.792545717111826,
+    "nc": 2.9926692257257623,
+    "source": "https://www.cis.es/documents/d/guest/3587-multi_a-xlsx",
+    "sourceSha256": "38864f9b3be65456c5ababf528b236948018d74c5307abc4305893c6966aa667",
+    "technicalReport": {
+      "url": "https://www.cis.es/documents/d/guest/3587_informetecnico_estimacion",
+      "sha256": "c6f5c66dff96df4f8b02e51f589e35aa9d075c8e870e94d179fa9b6073c309fa"
+    },
+    "parties": [
+      {
+        "id": "pp",
+        "label": "PP",
+        "weighted": 18.046567767621784,
+        "valid": 22.995328328333805,
+        "estimate": 24.7,
+        "delta": 1.704671671666194
+      },
+      {
+        "id": "psoe",
+        "label": "PSOE",
+        "weighted": 28.42512091020946,
+        "valid": 36.219905996506945,
+        "estimate": 34.4,
+        "delta": -1.8199059965069466
+      },
+      {
+        "id": "vox",
+        "label": "Vox",
+        "weighted": 11.636777231769917,
+        "valid": 14.827834110834495,
+        "estimate": 15.6,
+        "delta": 0.772165889165505
+      },
+      {
+        "id": "fa",
+        "label": "Frente Amplio",
+        "weighted": 4.122745171413336,
+        "valid": 5.25329137659044,
+        "estimate": 5.7,
+        "delta": 0.4467086234095605
+      },
+      {
+        "id": "salf",
+        "label": "SALF",
+        "weighted": 1.3354684172090132,
+        "valid": 1.701682841927371,
+        "estimate": 1.8,
+        "delta": 0.09831715807262897
+      },
+      {
+        "id": "podemos",
+        "label": "Podemos",
+        "weighted": 0.5297094210670547,
+        "valid": 0.6749672410231256,
+        "estimate": 0.8,
+        "delta": 0.1250327589768745
+      }
+    ]
+  }
+}

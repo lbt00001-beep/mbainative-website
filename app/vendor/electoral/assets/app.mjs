@@ -1,3 +1,4 @@
+import {initializeCookingAudit} from './cooking-audit.mjs';
 import {bindIntegerInput,readIntegerInput} from './integer-input.mjs';
 import {initializeHelp} from './help.mjs';
 import {compareBlocs} from './blocs.mjs';
@@ -391,10 +392,12 @@ async function initialize(){try{
   $('export-scenario').addEventListener('click',()=>{clearTimeout(centralTimer);updateCentral();if(state.valid)download('escenario-electoral.json',scenarioExport());});$('export-simulation').addEventListener('click',()=>download('simulaciones-electorales.json',scenarioExport()));
   document.addEventListener('visibilitychange',()=>{if(!document.hidden&&state.estimate.calculatedAt!==madridDate()){refreshEstimate();renderObservatory();renderPolls(state.catalog.polls);}});$('update-polls').addEventListener('click',updatePublishedCatalog);$('poll-import').addEventListener('change',importPolls);renderPolls(state.catalog.polls);getJSON('./data/update-status.json').then(renderSearchReport).catch(()=>{});
   $('open-ai').addEventListener('click',()=>$('ai-dialog').showModal());$('clear-key').addEventListener('click',()=>{$('api-key').value='';status('ai-status','Clave borrada de esta sesión.');});$('load-models').addEventListener('click',loadModels);$('ask-ai').addEventListener('click',askAI);$('cancel-ai').addEventListener('click',()=>aiController?.abort());installTooltips();enhanceParameterHelp(document);
-  state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});state.cisModelRender=await initializeCisEstimator({getConsensus:date=>date?estimate(state.catalog,state.official,date):state.estimate});$('loading').hidden=true;$('application').hidden=false;
+  state.microRender=await initializeMicrodata({official:state.official,getEstimate:()=>state.estimate});state.cisModelRender=await initializeCisEstimator({getConsensus:date=>date?estimate(state.catalog,state.official,date):state.estimate});$('loading').hidden=true;$('application').hidden=false;if(location.hash==='#cocina')switchTab('cocina');
 }catch(error){$('loading').hidden=true;$('app-error').hidden=false;$('app-error').textContent=`No se puede iniciar el observatorio: ${error.message}. Comprueba la conexión y vuelve a cargar. Si lo usas en local, arranca con EJECUTAR.bat o npm start.`;}}
 bindIntegerInput($('province-blank'),{label:'Votos en blanco',max:1000000000});
 bindIntegerInput($('transfer-amount'),{label:'Votos que se transfieren',max:1000000000});
 bindIntegerInput($('ai-max-tokens'),{label:'Límite de tokens',min:512,max:16384});
 initializeHelp();
 initialize();
+
+initializeCookingAudit();
